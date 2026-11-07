@@ -32,6 +32,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-026](ADR-026-strategie-als-bril.md) | Strategie als bril: vaste definities, emergente strategie en de missie op dag 3 | Aanvaard | 2026-11-07 |
 | [ADR-027](ADR-027-boards-als-skill.md) | De boards als skill, met een startsjabloon om in te vullen | Deels vervangen door ADR-028 | 2026-11-07 |
 | [ADR-028](ADR-028-experts-en-strategen-in-de-boards.md) | Experts in het advisory board, zelfgekozen strategen in het supervisory board | Aanvaard | 2026-11-07 |
+| [ADR-029](ADR-029-echte-citaten-op-de-kaarten.md) | Echte citaten en een Wikipedia-link op de kaarten van het startsjabloon | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

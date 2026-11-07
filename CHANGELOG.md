@@ -2,6 +2,19 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.18 — 2026-11-07
+
+**Gewijzigd** (ADR-028)
+- Startsjabloon `materiaal/boards.html`: twee strategen erbij in het supervisory board. v_Godin staat er voor verhalen die zich verspreiden, v_Sinek voor het waarom en het oneindige spel. Dat is een blik in het board, geen lesstof (ADR-026). Het sjabloon biedt nu tweeëntwintig helden.
+- Startsjabloon: twee experts erbij in het advisory board. v_Woodward (Josh Woodward, Google Labs) staat er voor innovatie met snelle prototypes, v_Karpathy voor hoe taalmodellen werken en hun grillige intelligentie. Het sjabloon biedt nu zeventien experts.
+
+**Toegevoegd** (ADR-029)
+- Startsjabloon: elke kaart heeft "Wie is dit?" met twee echte citaten, hun bron en een link naar Wikipedia. Dat zijn 78 gecontroleerde citaten voor 39 personen. De citaten staan alleen op de pagina, niet in de skills.
+- Startsjabloon: de typische vraag heet "Vraagt: …" en staat niet meer tussen aanhalingstekens, zodat hij niet als citaat leest.
+- 6.3: de eerlijkheidsregels noemen de echte citaten op de kaarten.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.17 — 2026-11-07
 
 **Gewijzigd** (ADR-028)
