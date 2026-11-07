@@ -80,6 +80,7 @@ The LRD is published privately at https://claude.ai/artifact/P9qt4SHNze6mtWmEfny
 - Make the sticky nav and the progress bar use `top: env(safe-area-inset-top, 0px)`, and add a `body::before` band.
 - Point the course-page link to `https://www.sn.nl/aiso`.
 - Turn every link into `background-docs/`, `temp/`, `onderzoek/`, `docs/`, `materiaal/` and `CHANGELOG.md` into plain text. The contract (rates) and participant data must never be published.
+- `scripts/bouw-artifact.py SOURCE OUT` does the steps above, and also blanks the local `materials` hrefs in `DATA` so the detail panel shows plain text. If the working tree holds unfinished LRD work, build from `git show HEAD:LRD-AISO26009-lesdagen.html`.
 - Run `scripts/controleer-publicatie.py` on the copy; publish only when it reports nothing. It finds real first names from the file names in `temp/`; organisations and surnames only if `temp/verboden-woorden.txt` is filled (one entry per line, never committed).
 
 From a new session, publish to the existing URL with the `url` parameter after reading it first. Every publish gets a changelog line.

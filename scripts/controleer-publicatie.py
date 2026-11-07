@@ -5,7 +5,7 @@ De LRD gaat als privé artifact naar claude.ai (ADR-013). Deelnemersgegevens,
 het contract en lokale bestanden horen daar nooit in (ADR-016, ADR-017).
 Dit script zoekt naar:
 
-- links (href, src) naar background-docs/, temp/, onderzoek/, docs/,
+- links (href, src, ook href: in JavaScript) naar background-docs/, temp/, onderzoek/, docs/,
   materiaal/ of CHANGELOG.md;
 - een link naar het contract, of een bedrag in euro's;
 - lokale paden (/Users/, file://);
@@ -40,7 +40,8 @@ TEMP = REPO / "temp"
 GEEN_NAAM = {"deelnemers", "pseudoniemen", "verboden-woorden"}
 
 VERBODEN_MAPPEN = ("background-docs/", "temp/", "onderzoek/", "docs/", "materiaal/")
-LINK = re.compile(r"""\b(?:href|src)\s*=\s*["']([^"']*)["']""", re.IGNORECASE)
+# Ook href: '…' in een JavaScript-object, zoals de links bij het materiaal in DATA.
+LINK = re.compile(r"""\b(?:href|src)\s*[=:]\s*["'`]([^"'`]*)["'`]""", re.IGNORECASE)
 BEDRAG = re.compile(r"€\s?\d|\b\d[\d.]*,\d{2}\s?(?:euro|EUR)\b|\bEUR\s?\d", re.IGNORECASE)
 LOKAAL = re.compile(r"file://|/Users/[A-Za-z]")
 
