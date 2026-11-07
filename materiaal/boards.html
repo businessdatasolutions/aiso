@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Je boards als skill</title>
+<meta name="description" content="Startsjabloon voor werkplaats 1 van AISO26009: vul je advisory board en je supervisory board aan, download ze als skill en zet ze in Claude, ChatGPT of Gemini.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Deze pagina is één los bestand: geen bibliotheek, geen server.
+   Zo werkt hij ook als deelnemers hem als bestand openen.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --cream: #f5f0e6;
+  --bg-yellow: #fafbf0;
+  --bg-cream: #f5f0e6;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --shadow-md: 0 2px 4px rgba(0,0,0,.06), 0 8px 16px rgba(0,0,0,.06);
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+/* ---------------- Kop ---------------- */
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+/* ---------------- Inhoud ---------------- */
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.kaarten { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-top: 16px; }
+.kaart { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; background: var(--bg-off-white); }
+.kaart.is-tier-1 { border-left: 4px solid var(--primary); }
+.kaart.is-tier-2 { border-left: 4px solid var(--supporting); }
+.kaart-eyebrow { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-secondary); margin: 0 0 6px; }
+.kaart p { margin: 0; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 16px; }
+.let-op p:last-child { margin: 0; }
+
+/* Formulier */
+.velden { display: grid; gap: 14px; }
+.veld label, .veld .label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+input[type="text"], textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); }
+textarea { min-height: 4.6em; resize: vertical; }
+input[type="text"]:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+.rij-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.licht { background: var(--bg-page); color: var(--supporting); border-color: var(--border-strong); }
+.knop.licht:hover { border-color: var(--supporting); }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knop.klein-knop { padding: 5px 12px; font-size: .875rem; }
+.knop:disabled { opacity: .45; cursor: not-allowed; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+
+/* Teller en controles */
+.teller { display: inline-flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-weight: 600; border-radius: var(--radius-md); padding: 8px 14px; background: var(--bg-section); border: 1px solid var(--border); margin: 0 0 14px; }
+.teller[data-ok="true"] { background: var(--bg-yellow); border-color: var(--primary); }
+.teken { display: inline-flex; width: 1.4em; height: 1.4em; border-radius: var(--radius-full); align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; flex-shrink: 0; }
+.teken.ok { background: var(--primary); color: var(--supporting); }
+.teken.mis { background: var(--supporting); color: var(--bg-off-white); }
+
+/* Leden van het advisory board */
+.leden { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 10px; }
+.lid { position: relative; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-page); transition: border-color .15s, background-color .15s; }
+.lid:hover { border-color: var(--border-strong); }
+.lid label { display: block; padding: 12px 14px 12px 44px; cursor: pointer; }
+.lid.is-eigen label { padding-right: 84px; }
+.lid input { position: absolute; left: 14px; top: 14px; width: 18px; height: 18px; accent-color: var(--supporting); }
+.lid:has(input:checked) { border-color: var(--supporting); background: var(--bg-yellow); box-shadow: inset 0 0 0 1px var(--supporting); }
+.lid:has(input:focus-visible) { outline: 2px solid var(--supporting); outline-offset: 2px; }
+.lid-naam { font-weight: 700; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.lid-kijkt { display: block; font-size: .9rem; color: var(--text-secondary); margin-top: 2px; }
+.lid-vraag { display: block; font-size: .875rem; color: var(--text-muted); font-style: italic; margin-top: 4px; }
+.tag { font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; border-radius: var(--radius-full); padding: 1px 8px; background: var(--supporting); color: var(--bg-off-white); }
+.tag.eigen { background: var(--bg-cream-2); color: var(--supporting); }
+.lid .weg { position: absolute; right: 8px; top: 8px; border: 0; background: none; cursor: pointer; color: var(--text-muted); font-size: .8rem; text-decoration: underline; padding: 2px 4px; }
+
+.eigen-lid { margin-top: 18px; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 4px 16px 16px; background: var(--bg-off-white); }
+.eigen-lid summary { cursor: pointer; font-weight: 700; padding: 12px 0 8px; }
+.prefix { display: flex; align-items: stretch; }
+.prefix span { display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid var(--border-strong); border-right: 0; border-radius: var(--radius-sm) 0 0 var(--radius-sm); background: var(--bg-section); font-family: var(--mono); font-size: .9rem; }
+.prefix input { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.vink { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+.vink input { width: 18px; height: 18px; accent-color: var(--supporting); }
+
+/* Commissarissen */
+.voorstellen { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.com-lijst { display: grid; gap: 14px; }
+.com { border: 1px solid var(--border); border-left: 4px solid var(--supporting); border-radius: var(--radius-md); padding: 14px 16px 16px; background: var(--bg-off-white); }
+.com-kop { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+.com-kop strong { font-size: 1rem; }
+.com .velden { gap: 10px; }
+.leeg { color: var(--text-muted); border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: 16px; margin: 0; }
+
+/* Tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--border); margin: 8px 0 16px; }
+.tabs [role="tab"] { border: 1px solid transparent; border-bottom: 0; background: none; padding: 8px 16px; font-weight: 600; cursor: pointer; border-radius: var(--radius-sm) var(--radius-sm) 0 0; color: var(--text-secondary); margin-bottom: -1px; }
+.tabs [role="tab"][aria-selected="true"] { background: var(--bg-page); border-color: var(--border); color: var(--supporting); box-shadow: inset 0 3px 0 var(--primary); }
+.controles { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 6px; }
+.controles li { display: flex; gap: 10px; align-items: flex-start; }
+pre.voorbeeld { margin: 0; max-height: 26rem; overflow: auto; background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-md); padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+
+/* Instructies per aanbieder */
+ol.stappenlijst { margin: 0 0 14px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
+.menu { font-family: var(--mono); font-size: .85em; background: var(--bg-section); border: 1px solid var(--border); border-radius: 4px; padding: .05em .4em; white-space: nowrap; }
+.blok { border-radius: var(--radius-md); padding: 14px 18px; margin-top: 12px; max-width: 72ch; }
+.blok.gebruik { background: var(--bg-yellow); border: 1px solid var(--primary); }
+.blok.terugval { background: var(--bg-section); border: 1px solid var(--border); }
+.blok h4 { margin: 0 0 6px; font-size: 1rem; }
+.blok p:last-child, .blok ol:last-child { margin-bottom: 0; }
+.prompt { display: block; font-family: var(--mono); font-size: .875rem; background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; margin: 6px 0; overflow-wrap: anywhere; }
+
+/* ---------------- Voet ---------------- */
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .voorstellen, .eigen-lid, .lid .weg { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  pre.voorbeeld { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
+  [role="tabpanel"][hidden] { display: block !important; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <p class="eyebrow">AISO26009 · Werkplaats 1 · startsjabloon</p>
+    <h1>Je boards als skill</h1>
+    <p class="lead">Vul het sjabloon aan, download je twee boards en zet ze in je eigen AI-omgeving. Het werkt in Claude, ChatGPT en Gemini. Daarna roep je je board in elke chat op met één naam.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#wat"><b>0</b> Skill</a>
+    <a href="#jij"><b>1</b> Over jou</a>
+    <a href="#advisory"><b>2</b> Advisory</a>
+    <a href="#supervisory"><b>3</b> Supervisory</a>
+    <a href="#downloaden"><b>4</b> Downloaden</a>
+    <a href="#installeren"><b>5</b> Installeren</a>
+    <a href="#gebruiken"><b>6</b> Boardmoment</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="wat" aria-labelledby="wat-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">0</span><h2 id="wat-kop">Wat is een skill?</h2></div>
+    <p class="uitleg">Een skill is een map met één tekstbestand: <code>SKILL.md</code>. Bovenin staan een naam en een korte beschrijving. Daaronder staat hoe de AI het werk doet. Claude, ChatGPT en Gemini lezen hetzelfde formaat. Je maakt hier twee skills, één per board, en gebruikt ze bij elk boardmoment van de training.</p>
+    <div class="kaarten">
+      <div class="kaart is-tier-1"><p class="kaart-eyebrow">Advisory board · verbreedt</p><p>Vijf tot zeven denkperspectieven, zoals v_Kahneman (denkfouten) of v_Cuban (wie betaalt?). Ze bekijken je plan van verschillende kanten, debatteren en sluiten af met een oordeel, voorwaarden en stopcriteria.</p></div>
+      <div class="kaart is-tier-2"><p class="kaart-eyebrow">Supervisory board · toetst</p><p>Drie tot vijf commissarissen met de rol van echte belanghebbenden, zoals een financieel directeur of een OR-lid. Elke commissaris geeft apart advies over geld, risico, mensen en regels.</p></div>
+    </div>
+    <div class="let-op">
+      <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De tekst komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="jij" aria-labelledby="jij-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="jij-kop">Over jou en je organisatie</h2></div>
+    <p class="uitleg">Beide boards krijgen deze achtergrond mee. Hoe preciezer je hem beschrijft, hoe minder algemeen het advies.</p>
+    <div class="velden">
+      <div class="veld"><label for="org">Je organisatie in twee of drie zinnen <span class="hint">Wat doet ze, voor wie, en hoe groot is ze?</span></label>
+        <textarea id="org" data-veld="org" rows="3" placeholder="Bijvoorbeeld: een zorgverzekeraar met 2.000 medewerkers. We…"></textarea></div>
+      <div class="rij-2">
+        <div class="veld"><label for="rol">Je rol</label><input type="text" id="rol" data-veld="rol" placeholder="Bijvoorbeeld: manager bedrijfsvoering"></div>
+        <div class="veld"><label for="ambitie">Waar wil je met AI naartoe? <span class="hint">Je AI-visie in één of twee zinnen</span></label>
+          <textarea id="ambitie" data-veld="ambitie" rows="2"></textarea></div>
+      </div>
+    </div>
+    <div class="knoppen">
+      <button type="button" class="knop licht" id="voorbeeld">Vul in met Voorbeeld BV</button>
+      <span class="klein">Geen eigen casus? Voorbeeld BV is verzonnen.</span>
+    </div>
+  </section>
+
+  <section class="stap" id="advisory" aria-labelledby="advisory-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="advisory-kop">Je advisory board</h2></div>
+    <p class="uitleg">Kies vijf tot zeven leden die bij je casus passen. Minstens één lid is een harde scepticus. Een onverwacht lid mag ook: voeg dan je eigen lid toe. De leden zijn denkperspectieven, geïnspireerd op publieke personen. Daarom heten ze v_Naam.</p>
+    <p class="teller" id="teller-advisory" aria-live="polite"></p>
+    <div class="leden" id="leden"></div>
+    <details class="eigen-lid">
+      <summary>Eigen lid toevoegen</summary>
+      <form id="eigen-form" class="velden">
+        <div class="rij-2">
+          <div class="veld"><label for="eigen-naam">Naam</label><div class="prefix"><span aria-hidden="true">v_</span><input type="text" id="eigen-naam" required placeholder="Curie"></div></div>
+          <div class="veld"><label for="eigen-kijkt">Kijkt naar</label><input type="text" id="eigen-kijkt" required placeholder="Bewijs, meten, geduld"></div>
+        </div>
+        <div class="veld"><label for="eigen-vraag">Typische vraag</label><input type="text" id="eigen-vraag" required placeholder="Hoe weet je dat het werkt?"></div>
+        <label class="vink"><input type="checkbox" id="eigen-scepticus"> Dit lid is een harde scepticus</label>
+        <div><button type="submit" class="knop geel klein-knop">Voeg toe</button></div>
+      </form>
+    </details>
+  </section>
+
+  <section class="stap" id="supervisory" aria-labelledby="supervisory-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="supervisory-kop">Je supervisory board</h2></div>
+    <p class="uitleg">Kies drie tot vijf commissarissen. Neem de stakeholders uit je AI-taak van de lunch: wat wint en wat verliest die persoon met AI? Geef elke commissaris een rol of een verzonnen naam, nooit de naam van een echte collega. Minstens één commissaris is een harde scepticus.</p>
+    <p class="teller" id="teller-supervisory" aria-live="polite"></p>
+    <div class="voorstellen" id="voorstellen" role="group" aria-label="Voeg een commissaris toe"></div>
+    <div class="com-lijst" id="com-lijst"></div>
+  </section>
+
+  <section class="stap" id="downloaden" aria-labelledby="downloaden-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="downloaden-kop">Bekijk en download</h2></div>
+    <p class="uitleg">Hieronder staat de tekst van je twee skills. Download elk board als zip: die werkt in alle drie de omgevingen. Met <em>Kopieer de tekst</em> heb je de terugvaloptie uit stap 5.</p>
+    <div class="tabs" role="tablist" aria-label="Board" data-tabs="board">
+      <button type="button" role="tab" id="tab-adv" aria-controls="paneel-adv" aria-selected="true">Advisory board</button>
+      <button type="button" role="tab" id="tab-sup" aria-controls="paneel-sup" aria-selected="false" tabindex="-1">Supervisory board</button>
+    </div>
+    <div role="tabpanel" id="paneel-adv" aria-labelledby="tab-adv">
+      <ul class="controles" id="controles-adv"></ul>
+      <pre class="voorbeeld" id="tekst-adv" tabindex="0" aria-label="Tekst van de skill advisory-board"></pre>
+      <div class="knoppen">
+        <button type="button" class="knop geel" data-zip="adv">Download advisory-board.zip</button>
+        <button type="button" class="knop licht" data-kopieer="adv">Kopieer de tekst</button>
+        <span class="status" id="status-adv" aria-live="polite"></span>
+      </div>
+    </div>
+    <div role="tabpanel" id="paneel-sup" aria-labelledby="tab-sup" hidden>
+      <ul class="controles" id="controles-sup"></ul>
+      <pre class="voorbeeld" id="tekst-sup" tabindex="0" aria-label="Tekst van de skill supervisory-board"></pre>
+      <div class="knoppen">
+        <button type="button" class="knop geel" data-zip="sup">Download supervisory-board.zip</button>
+        <button type="button" class="knop licht" data-kopieer="sup">Kopieer de tekst</button>
+        <span class="status" id="status-sup" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="knoppen">
+      <button type="button" class="knop licht klein-knop" id="opnieuw">Begin opnieuw</button>
+      <span class="klein">Wist alles wat je op deze pagina hebt ingevuld.</span>
+    </div>
+  </section>
+
+  <section class="stap" id="installeren" aria-labelledby="installeren-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="installeren-kop">Zet je boards in je AI</h2></div>
+    <p class="uitleg">Kies je eigen AI-omgeving. De knoppen staan hieronder zoals de aanbieder ze noemt. In een Nederlandse omgeving kunnen ze anders heten. Doe de stappen twee keer: één keer per zip.</p>
+    <div class="tabs" role="tablist" aria-label="AI-omgeving" data-tabs="aanbieder">
+      <button type="button" role="tab" id="tab-claude" aria-controls="paneel-claude" aria-selected="true">Claude</button>
+      <button type="button" role="tab" id="tab-chatgpt" aria-controls="paneel-chatgpt" aria-selected="false" tabindex="-1">ChatGPT</button>
+      <button type="button" role="tab" id="tab-gemini" aria-controls="paneel-gemini" aria-selected="false" tabindex="-1">Gemini</button>
+    </div>
+
+    <div role="tabpanel" id="paneel-claude" aria-labelledby="tab-claude">
+      <p><strong>Wat je nodig hebt:</strong> een account op claude.ai, ook gratis. Uploaden kan in de browser en in de desktop-app.</p>
+      <ol class="stappenlijst">
+        <li>Zet code-uitvoering aan: <span class="menu">Settings › Capabilities</span>, schakelaar <span class="menu">Code execution and file creation</span>. Zonder die schakelaar werkt een skill niet.</li>
+        <li>Ga naar <span class="menu">Customize › Skills</span>. Klik op <span class="menu">+</span>, dan op <span class="menu">Create skill</span> en kies <span class="menu">Upload a skill</span>.</li>
+        <li>Kies <code>advisory-board.zip</code>. Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+        <li>Kijk of beide skills aan staan.</li>
+      </ol>
+      <div class="blok gebruik"><h4>Gebruiken</h4><p>Noem het board in je vraag:</p><span class="prompt">Leg dit voor aan mijn advisory board: …</span><p>Claude kiest de skill ook zelf als je vraag bij de beschrijving past.</p></div>
+      <div class="blok terugval"><h4>Werk je met een account van je werkgever?</h4><p>Bij Team staan skills standaard aan. Bij Enterprise moet de beheerder ze eerst aanzetten, in <span class="menu">Organization settings › Plugins &amp; skills</span>.</p></div>
+      <div class="blok terugval"><h4>Lukt het niet?</h4><p>Maak een project per board. Plak bij de instructies van het project de tekst uit stap 4 (<em>Kopieer de tekst</em>). Stel je vraag in een chat binnen dat project.</p></div>
+    </div>
+
+    <div role="tabpanel" id="paneel-chatgpt" aria-labelledby="tab-chatgpt" hidden>
+      <p><strong>Wat je nodig hebt:</strong> skills in je abonnement. Volgens de helppagina van OpenAI hebben Business, Enterprise, Edu en Healthcare ze. Bij andere abonnementen kunnen ze als bèta verschijnen. Zie je geen <span class="menu">Skills</span>, gebruik dan de terugvaloptie hieronder.</p>
+      <ol class="stappenlijst">
+        <li>Open <span class="menu">Skills</span>, kies <span class="menu">Create</span> en dan <span class="menu">Upload from your computer</span>.</li>
+        <li>Kies <code>advisory-board.zip</code>. ChatGPT controleert een skill voordat je hem kunt gebruiken.</li>
+        <li>Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+      </ol>
+      <div class="blok gebruik"><h4>Gebruiken</h4><p>Typ <code>@</code>, kies <code>advisory-board</code> en stel je vraag:</p><span class="prompt">@advisory-board Leg dit voor aan mijn advisory board: …</span><p>ChatGPT kiest de skill ook zelf als je vraag bij de beschrijving past.</p></div>
+      <div class="blok terugval"><h4>Geen Skills? Gebruik een project</h4><ol class="stappenlijst"><li>Maak een project per board: <span class="menu">Projects › New project</span>.</li><li>Open de instellingen van het project en plak bij <span class="menu">Instructions</span> de tekst uit stap 4 (<em>Kopieer de tekst</em>).</li><li>Stel je vraag in een chat binnen dat project.</li></ol></div>
+    </div>
+
+    <div role="tabpanel" id="paneel-gemini" aria-labelledby="tab-gemini" hidden>
+      <p><strong>Wat je nodig hebt:</strong> een persoonlijk Google-account (vanaf 18 jaar, ook zonder abonnement) of een Google Workspace-account. Het reserve-account van de trainer werkt dus ook. Uploaden kan op gemini.google.com en in de Mac-app, niet in de app op je telefoon.</p>
+      <ol class="stappenlijst">
+        <li>Klik in de zijbalk op <span class="menu">Customize</span>. Staat het er niet, klik dan eerst op <span class="menu">More</span>.</li>
+        <li>Kies bovenaan het tabblad <span class="menu">Skills</span> en klik op <span class="menu">Create</span>, dan <span class="menu">Upload</span>.</li>
+        <li>Kies <code>advisory-board.zip</code>, klik op <span class="menu">Open</span>, dan <span class="menu">Upload</span> en <span class="menu">Create</span>.</li>
+        <li>Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+      </ol>
+      <div class="blok gebruik"><h4>Gebruiken</h4><p>Typ <code>/</code> en de naam van het board, gevolgd door je vraag:</p><span class="prompt">/advisory-board Leg dit voor aan mijn advisory board: …</span><p>Gemini gebruikt een actieve skill ook zelf als je vraag erbij past.</p></div>
+      <div class="blok terugval"><h4>Maak geen Gem meer</h4><p>Google vervangt Gems door skills. Bij een persoonlijk account kun je een Gem vanaf 17 november 2026 niet meer gebruiken, en op 17 december 2026 verdwijnt hij. Bij een Workspace-account van je werkgever blijven Gems tot ten minste maart 2027.</p></div>
+      <div class="blok terugval"><h4>Lukt het niet?</h4><p>Plak de tekst uit stap 4 in een chat, met deze vraag ervoor:</p><span class="prompt">Maak een skill op basis van deze instructies:</span><p>Gemini zet de skill op je pagina <span class="menu">Skills</span>. Daar zet je hem aan.</p></div>
+    </div>
+    <p class="klein">Gecontroleerd op 7 november 2026 op de helppagina's van Anthropic, OpenAI en Google. Menu's veranderen vaak. Klopt een stap niet meer, zeg het dan tegen de trainer.</p>
+  </section>
+
+  <section class="stap" id="gebruiken" aria-labelledby="gebruiken-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">6</span><h2 id="gebruiken-kop">Een boardmoment</h2></div>
+    <p class="uitleg">Elke lesdag eindigt met een boardmoment van 15 minuten. Het beslispunt van die dag staat op de startpagina.</p>
+    <ol class="stappenlijst">
+      <li><strong>Zet het beslispunt in drie zinnen.</strong> Wat wil je besluiten, welke opties heb je, en wat staat er op het spel? Voeg het deckonderdeel van vandaag toe.</li>
+      <li><strong>Leg het voor aan je advisory board.</strong> Lees vooral de zwakke plekken en de stopcriteria.</li>
+      <li><strong>Leg het daarna voor aan je supervisory board.</strong> Elke commissaris geeft apart advies. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
+      <li><strong>Neem zelf het besluit en leg het vast als ADR:</strong> context, besluit, overwogen alternatieven met het advies van de boards, en gevolgen met de eerste volgende stap. Beide boards sluiten af met drie regels voor je ADR. Wijk je af van een board, schrijf dan op waarom.</li>
+    </ol>
+    <div class="blok gebruik">
+      <h4>Test je boards meteen na het installeren</h4>
+      <span class="prompt">Leg dit voor aan mijn advisory board: we willen volgend kwartaal een AI-assistent voor klantvragen invoeren.</span>
+      <p>Doen al je leden mee? Noemt elk lid een zwakke plek? Eindigt het met een oordeel en stopcriteria? Zo niet: kijk of de skill aan staat, en noem hem bij zijn naam.</p>
+      <span class="prompt">Leg mijn AI-visie voor aan mijn supervisory board: wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?</span>
+      <p>Dit is de opdracht van werkplaats 1. Controleer minstens één genoemde bron zelf.</p>
+    </div>
+    <div class="let-op">
+      <p><strong>Eerlijkheidsregels.</strong> De leden en commissarissen zijn denkperspectieven en verzonnen rollen. Hun uitspraken zijn nooit citaten en horen niet in materiaal voor buiten. Een oordeel van een board is een mening; bewijs dat een plan werkt, komt uit je experiment of pilot. Het besluit blijft bij jou.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <a href="./index.html">Startpagina</a>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   Startsjabloon voor de boards als skill (FR-17, ADR-027).
+   De tekst van beide skills staat alleen hier, in advisoryTekst()
+   en supervisoryTekst(). Geen bibliotheek: de zip maakt de pagina zelf.
+   ================================================================ */
+'use strict';
+const OPSLAG = 'aiso26009-boards';
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/* Beschrijvingen: vast, onder 200 tekens (grens van Claude), zonder dubbele aanhalingstekens (YAML). */
+const BESCHRIJVING = {
+  adv: "Mijn advisory board: 5 tot 7 denkperspectieven (v_Naam) bekijken een plan of besluit van alle kanten en geven een oordeel met voorwaarden en stopcriteria. Gebruik bij 'advisory board'.",
+  sup: "Mijn supervisory board: 3 tot 5 commissarissen toetsen een plan of besluit op geld, risico, mensen en regels, elk apart. Het besluit blijft bij mij. Gebruik bij 'supervisory board'.",
+};
+
+/* Denkperspectieven, naar het virtuele board van de trainer. */
+const LEDEN = [
+  { id: 'kahneman', naam: 'v_Kahneman', kijkt: 'Denkfouten, aannames en de kwaliteit van een besluit', vraag: 'Welke denkfout stuurt dit? Wat is het basisgetal?', scepticus: true },
+  { id: 'cuban', naam: 'v_Cuban', kijkt: 'Commercieel realisme: verkoop en winst', vraag: 'Wie betaalt, hoeveel, en hoeveel hebben er al betaald?', scepticus: true },
+  { id: 'machiavelli', naam: 'v_Machiavelli', kijkt: 'Macht, belangen en concurrentie', vraag: 'Wiens belang bedreigt dit, en hoe reageert die?', scepticus: true },
+  { id: 'nadella', naam: 'v_Nadella', kijkt: 'Cultuur, empathie en de wil om te leren', vraag: 'Wat moeten de mensen leren en voelen?' },
+  { id: 'bezos', naam: 'v_Bezos', kijkt: 'De klant voorop, en de lange termijn', vraag: 'Wat wil de klant echt, en doet dit er over tien jaar nog toe?' },
+  { id: 'ng', naam: 'v_Ng', kijkt: 'AI in de praktijk: haalbaar en uit te leggen', vraag: 'Kan het AI-deel echt, en kun je het uitleggen?' },
+  { id: 'jobs', naam: 'v_Jobs', kijkt: 'Eenvoud en de ervaring van de gebruiker', vraag: 'Wat kun je schrappen? Is de ervaring goed?' },
+  { id: 'gandhi', naam: 'v_Gandhi', kijkt: 'Ethiek, eerlijkheid en je eigen waarden', vraag: 'Is dit eerlijk, en wie kan er schade van hebben?' },
+  { id: 'springsteen', naam: 'v_Springsteen', kijkt: 'Echtheid en de mensen die het werk doen', vraag: 'Is dit echt, of praat van de directie?' },
+  { id: 'patton', naam: 'v_Patton', kijkt: 'Daadkracht en vaart', vraag: 'Wat is de volgende zet, en waarom is die nog niet gedaan?' },
+  { id: 'akio', naam: 'v_Akio', kijkt: 'Discipline in de uitvoering en vaste kwaliteit (Toyoda)', vraag: 'Kun je dit steeds opnieuw in dezelfde kwaliteit leveren?' },
+  { id: 'ury', naam: 'v_Ury', kijkt: 'Onderhandelen op belangen', vraag: 'Wat zijn de echte belangen van elke partij?' },
+  { id: 'obama', naam: 'v_Obama', kijkt: 'Visie, het verhaal en draagvlak', vraag: 'Hoe vertel je dit zo dat mensen meedoen?' },
+  { id: 'suntzu', naam: 'v_SunTzu', kijkt: 'Positie, timing en terrein', vraag: 'Waar is de concurrent zwak, en is dit het moment?' },
+  { id: 'brin', naam: 'v_Brin', kijkt: 'Tien keer beter, met technologie eerst', vraag: 'Wat zou dit probleem overbodig maken?' },
+  { id: 'luckey', naam: 'v_Luckey', kijkt: 'Iets tastbaars opleveren in een trage sector', vraag: 'Wat lever je op, en hoe snel?' },
+  { id: 'churchill', naam: 'v_Churchill', kijkt: 'Volhouden onder druk, en een heldere koers', vraag: 'Wat mag je niet uit het oog verliezen?' },
+  { id: 'buddha', naam: 'v_Buddha', kijkt: 'Gehechtheid, angst en ego', vraag: 'Waar houd je aan vast dat je niet helpt?' },
+  { id: 'oprah', naam: 'v_Oprah', kijkt: 'Intuïtie en gevoel', vraag: 'Voelt dit als iets van jou?' },
+  { id: 'spielberg', naam: 'v_Spielberg', kijkt: 'Het verhaal en de emotie', vraag: 'Wat is het verhaal, en wie is de held?' },
+];
+
+/* Voorstellen voor commissarissen: de belanghebbenden uit deel 6.3 van de LRD en een paar meer. */
+const VOORSTELLEN = [
+  { rol: 'Financieel directeur', achtergrond: 'Jaren ervaring in financiën, verantwoordelijk voor budget en investeringen', denkstijl: 'Rekent alles door en wil een terugverdientijd en een plan B zien' },
+  { rol: 'Privacyfunctionaris', achtergrond: 'Jurist, functionaris gegevensbescherming', denkstijl: 'Precies; vraagt naar de grondslag, de bewaartermijn en wie bij de gegevens kan' },
+  { rol: 'OR-lid', achtergrond: 'Werkt al lang in de uitvoering en zit in de ondernemingsraad', denkstijl: 'Denkt vanuit de medewerkers en vraagt wat er aan hun werk verandert' },
+  { rol: 'Toezichthouder', achtergrond: 'Inspecteur bij de toezichthouder van de sector', denkstijl: 'Toetst aan wet- en regelgeving en wil bewijs zien' },
+  { rol: 'Klant', achtergrond: 'Vaste klant van de organisatie', denkstijl: 'Wil snel geholpen worden, en een mens als het misgaat' },
+  { rol: 'Informatiebeveiliger', achtergrond: 'Verantwoordelijk voor informatiebeveiliging, eerder systeembeheerder', denkstijl: 'Gaat uit van het slechtste geval: wat lekt er, en wat valt uit?' },
+  { rol: 'Teamleider uitvoering', achtergrond: 'Leidt een team dat het werk elke dag doet', denkstijl: 'Praktisch: werkt het ook op een drukke maandagochtend?' },
+];
+
+/* Voorbeeld BV: de verzonnen voorbeeldcasus (materiaal/voorbeeldcasus.md). */
+const VOORBEELD = {
+  org: 'Voorbeeld BV (verzonnen) is een dienstverlener met ongeveer 400 medewerkers. We installeren en onderhouden verwarming, ventilatie en zonnepanelen bij klanten thuis. We krijgen ongeveer 1.200 klantvragen en klachten per maand; een klacht duurt gemiddeld 9 werkdagen.',
+  rol: 'Manager Klantcontact',
+  ambitie: 'Met AI klantvragen en klachten sneller en beter afhandelen, en van klachten leren. De AI doet een voorstel en een mens beslist. Ernstige klachten blijven mensenwerk.',
+  leden: ['kahneman', 'cuban', 'nadella', 'springsteen', 'bezos', 'ng'],
+  eigen: [],
+  com: [
+    { rol: 'Financieel directeur', achtergrond: 'Twintig jaar in de financiën, nu verantwoordelijk voor het budget van Voorbeeld BV', denkstijl: 'Rekent alles door en wil een terugverdientijd en een plan B zien', belang: 'Wint lagere kosten per klacht. Verliest geld als de invoering langer duurt dan gepland.', scepticus: false },
+    { rol: 'OR-lid', achtergrond: 'Werkt vijftien jaar bij Klantcontact en zit in de ondernemingsraad', denkstijl: 'Denkt vanuit de medewerkers en vraagt wat er aan hun werk verandert', belang: 'Wint minder sorteerwerk. Verliest misschien taken en zeggenschap over het eigen werk.', scepticus: false },
+    { rol: 'Privacyfunctionaris', achtergrond: 'Jurist, functionaris gegevensbescherming', denkstijl: 'Precies; vraagt naar de grondslag, de bewaartermijn en wie bij de gegevens kan', belang: 'Wint beter zicht op waar klantgegevens staan. Verliest grip als klachten in een AI-dienst van buiten belanden.', scepticus: true },
+    { rol: 'Klant', achtergrond: 'Huiseigenaar met een cv-ketel en zonnepanelen, al tien jaar klant', denkstijl: 'Wil snel antwoord, en een mens aan de lijn als het misgaat', belang: 'Wint sneller antwoord. Verliest vertrouwen als een AI een ernstige klacht verkeerd inschat.', scepticus: false },
+  ],
+};
+
+/* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
+const leeg = () => ({ org: '', rol: '', ambitie: '', leden: [], eigen: [], com: [] });
+function schoon(v) {
+  const s = leeg();
+  if (!v || typeof v !== 'object') return s;
+  for (const k of ['org', 'rol', 'ambitie']) if (typeof v[k] === 'string') s[k] = v[k];
+  if (Array.isArray(v.leden)) s.leden = v.leden.filter(x => typeof x === 'string');
+  if (Array.isArray(v.eigen)) s.eigen = v.eigen.filter(x => x && typeof x.id === 'string').map(x => ({ id: x.id, naam: String(x.naam || ''), kijkt: String(x.kijkt || ''), vraag: String(x.vraag || ''), scepticus: !!x.scepticus }));
+  if (Array.isArray(v.com)) s.com = v.com.filter(x => x && typeof x === 'object').slice(0, 8).map(x => ({ rol: String(x.rol || ''), achtergrond: String(x.achtergrond || ''), denkstijl: String(x.denkstijl || ''), belang: String(x.belang || ''), scepticus: !!x.scepticus }));
+  return s;
+}
+const opslag = {
+  lees(sleutel) { try { return JSON.parse(localStorage.getItem(sleutel)); } catch { return null; } },
+  schrijf(sleutel, v) { try { localStorage.setItem(sleutel, JSON.stringify(v)); } catch { /* geen opslag */ } },
+  wis(sleutel) { try { localStorage.removeItem(sleutel); } catch { /* geen opslag */ } },
+};
+let s = schoon(opslag.lees(OPSLAG));
+const bewaar = () => opslag.schrijf(OPSLAG, s);
+
+/* ---------- Tekst van de skills ---------- */
+const plat = t => String(t ?? '').replace(/\s+/g, ' ').trim();
+const cel = t => plat(t).replace(/\|/g, '/');
+const veld = (t, wat) => plat(t) || `[vul in: ${wat}]`;
+function lijst(namen) {
+  if (namen.length <= 1) return namen.join('');
+  return `${namen.slice(0, -1).join(', ')} en ${namen[namen.length - 1]}`;
+}
+const vNaam = t => { const n = plat(t).replace(/^v_/i, ''); return n ? `v_${n}` : ''; };
+function gekozenLeden() {
+  const alle = [...LEDEN, ...s.eigen.map(e => ({ ...e, naam: vNaam(e.naam), eigen: true }))];
+  return alle.filter(l => s.leden.includes(l.id));
+}
+function kopTekst(naam, wat) {
+  return `---\nname: ${naam}\ndescription: "${BESCHRIJVING[wat]}"\n---\n`;
+}
+function overMij() {
+  return `## Over mij en mijn organisatie
+
+- **Organisatie:** ${veld(s.org, 'een korte beschrijving van je organisatie')}
+- **Mijn rol:** ${veld(s.rol, 'je functie of rol')}
+- **Waar ik met AI naartoe wil:** ${veld(s.ambitie, 'je AI-visie in één of twee zinnen')}
+
+Gebruik dit als achtergrond bij elke vraag. Mis je iets wat nodig is voor een goed oordeel, vraag het dan.`;
+}
+const REGEL_BEWIJS = '- Scheid bewijs (data, resultaten, betalende klanten) van bedoeling (plannen, overtuigingen, instemming). Instemming van het board bewijst niet dat een plan werkt. Dat bewijs komt uit een experiment of pilot.';
+const REGEL_VERTROUWELIJK = '- Lijkt iets wat ik stuur vertrouwelijk voor mijn organisatie, zeg dat dan en vraag om een verzonnen of openbare versie.';
+
+function advisoryTekst() {
+  const leden = gekozenLeden();
+  const sceptici = leden.filter(l => l.scepticus).map(l => l.naam);
+  const rijen = leden.length
+    ? leden.map(l => `| ${cel(l.naam)} | ${cel(l.kijkt)} | ${cel(l.vraag)} |`).join('\n')
+    : '| [kies 5 tot 7 leden] | | |';
+  const scepticusZin = sceptici.length
+    ? `**Harde scepticus:** ${lijst(sceptici)}. ${sceptici.length > 1 ? 'Zij zoeken' : 'Dit lid zoekt'} actief naar redenen waarom het plan mislukt.`
+    : '**Harde scepticus:** [kies minstens één]';
+  return `${kopTekst('advisory-board', 'adv')}
+# Mijn advisory board
+
+Je roept mijn advisory board bijeen. Het board bekijkt een plan, besluit of stuk van verschillende kanten, zodat ik zie wat ik over het hoofd zie. Het board verbreedt mijn blik. Het keurt niets goed, en het besluit blijft bij mij.
+
+${overMij()}
+
+## De leden
+
+Elk lid is een denkperspectief, geïnspireerd op een publiek persoon. Het is niet die persoon zelf.
+
+| Lid | Kijkt naar | Typische vraag |
+|---|---|---|
+${rijen}
+
+${scepticusZin}
+
+## Werkwijze
+
+1. **Intake.** Lees alles wat ik meestuur. Vat in twee of drie zinnen samen wat het plan of besluit is, wat er op het spel staat en wat ik wil weten. Is mijn vraag onduidelijk, stel dan eerst één vraag.
+2. **Aan tafel.** Alle leden hierboven doen mee. Noem vooraf het lid dat het meest tegen mijn huidige richting in zal gaan.
+3. **Standpunt per lid.** Geef per lid een kort blok:
+   - **Standpunt:** voor, tegen of onder voorwaarden.
+   - **Argument:** twee tot vier zinnen over de feiten, cijfers en aannames in mijn stuk. Algemene uitspraken over het perspectief tellen niet.
+   - **Zwakke plek:** verplicht, ook als het lid voor is.
+   - **Wat mijn mening verandert:** welk bewijs of welke voorwaarde.
+4. **Debat.** Laat twee of drie echte spanningen tussen leden zien, bijvoorbeeld snelheid tegenover voorzichtigheid. Elk lid reageert één keer. Los de spanningen niet kunstmatig op.
+5. **Feiten en cijfers.** Controleer vóór het oordeel zelf mijn stuk. Kloppen de getallen? Is wat ik bewezen noem echt bewezen? Noem elke fout zonder omweg.
+6. **Samenvatting van de voorzitter.** De voorzitter is geen lid en geeft geen eigen mening.
+   - Waar het board het over eens is.
+   - Waar het verdeeld is, en waarom.
+   - Het sterkste bezwaar.
+   - **Oordeel:** doorgaan, doorgaan onder voorwaarden, nog niet, of niet doen. Noem de voorwaarden.
+   - Drie volgende stappen, de kleinste eerst.
+   - **Stopcriteria:** welk resultaat in de komende 30 tot 90 dagen betekent stoppen of bijsturen.
+7. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem het oordeel, het sterkste bezwaar en de belangrijkste voorwaarde.
+
+## Eerlijkheidsregels
+
+- Leden heten v_Naam. Hun uitspraken zijn nooit citaten van de echte persoon. Wil ik een uitspraak van het board gebruiken in materiaal voor buiten, zoals een pitch of een website? Waarschuw me dan, want dat leest als een valse aanbeveling.
+- Eensgezindheid is geen standaard. Een unaniem oordeel mag alleen als elk lid een zwakke plek noemde en geen daarvan zwaar genoeg is om de stem te veranderen. Zeg dan waarom het oordeel unaniem is.
+- Geen vleierij. Prijs alleen wat specifiek is en verdiend.
+${REGEL_BEWIJS}
+- Vraag ik het board iets "even goed te keuren", houd de sessie dan toch, en zeg dat.
+- Een eerder oordeel van het board is een mening om opnieuw te bekijken. Het is geen vaststaand feit.
+${REGEL_VERTROUWELIJK}
+- Het besluit blijft bij mij.
+
+## Vorm
+
+Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met het oordeel, de volgende stappen, de stopcriteria en de drie regels voor mijn ADR. Schrijf in het Nederlands en houd de namen als v_Naam.
+`;
+}
+
+function supervisoryTekst() {
+  const com = s.com;
+  const sceptici = com.map((c, i) => c.scepticus ? (plat(c.rol) || `commissaris ${i + 1}`) : null).filter(Boolean);
+  const blokken = com.length
+    ? com.map((c, i) => `### ${i + 1}. ${veld(c.rol, 'rol of verzonnen naam')}${c.scepticus ? ' (harde scepticus)' : ''}
+
+- **Achtergrond:** ${veld(c.achtergrond, 'achtergrond')}
+- **Denkstijl:** ${veld(c.denkstijl, 'denkstijl')}
+- **Wat deze persoon met AI wint en verliest:** ${veld(c.belang, 'wat wint en verliest deze persoon met AI?')}`).join('\n\n')
+    : '[kies 3 tot 5 commissarissen]';
+  const scepticusZin = sceptici.length
+    ? `**Harde scepticus:** ${lijst(sceptici)}. ${sceptici.length > 1 ? 'Zij zoeken' : 'Deze commissaris zoekt'} actief naar redenen om niet akkoord te gaan, met bij elk bezwaar bewijs en tegenbewijs.`
+    : '**Harde scepticus:** [kies minstens één]';
+  const aantal = com.length >= 3 && com.length <= 5 ? `${['', '', '', 'drie', 'vier', 'vijf'][com.length]} commissarissen` : 'drie tot vijf commissarissen';
+  return `${kopTekst('supervisory-board', 'sup')}
+# Mijn supervisory board
+
+Je roept mijn supervisory board bijeen: ${aantal} die een plan of besluit toetsen voordat ik het neem. Elke commissaris kijkt met de ogen van een belanghebbende van mijn organisatie. De vraag is steeds: houdt het plan stand bij geld, risico, mensen en regels?
+
+${overMij()}
+
+## De commissarissen
+
+De commissarissen zijn verzonnen. Elk heeft de rol van een belanghebbende, en geen van hen is een echte collega.
+
+${blokken}
+
+${scepticusZin}
+
+## Werkwijze
+
+1. **Intake.** Vat in twee of drie zinnen samen wat er voorligt en welk besluit ik wil nemen. Is dat niet duidelijk, stel dan eerst één vraag.
+2. **Advies per commissaris.** Elke commissaris adviseert apart, vanuit de eigen achtergrond en denkstijl. Maak er geen gezamenlijk advies van: de verschillen moeten zichtbaar blijven. Per commissaris:
+   - **Oordeel:** akkoord, akkoord onder voorwaarden, of niet akkoord.
+   - **Toets:** wat betekent dit voor geld, risico, mensen en regels, gezien vanuit deze rol? Sla over wat voor deze rol niet speelt.
+   - **De drie zwakste punten** van het plan.
+   - **Eerste vraag:** wat moet ik eerst beantwoorden?
+   - **Voorwaarde:** wat moet er gebeuren voordat deze commissaris akkoord gaat?
+3. **Bronnen.** Vraag ik om bronnen die mij tegenspreken, noem dan per bron de auteur, het jaar, de titel en wat erin staat. Zeg erbij als je niet zeker weet dat een bron bestaat. Verzin nooit een bron. Ik controleer zelf minstens één bron.
+4. **Overzicht.** Zet in een tabel per commissaris het oordeel en de voorwaarde. Geef daarna geen eindoordeel namens het board: het besluit is aan mij.
+5. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem hoeveel commissarissen akkoord zijn, het zwaarste bezwaar en de voorwaarde die het vaakst terugkomt.
+
+## Eerlijkheidsregels
+
+- Een oordeel van het board is een mening. Uitspraken van commissarissen horen niet in materiaal voor buiten: het zijn geen echte mensen.
+- Geen vleierij. Elke commissaris noemt zwakke punten, ook bij akkoord.
+${REGEL_BEWIJS}
+${REGEL_VERTROUWELIJK}
+- Het board stemt niet en tekent niets. Het besluit blijft bij mij.
+
+## Vorm
+
+Begin met een kop met mijn vraag en de commissarissen. Geef elke commissaris een eigen blok. Eindig met de tabel en de drie regels voor mijn ADR. Schrijf in het Nederlands.
+`;
+}
+
+/* ---------- Controles ---------- */
+function controlesAdv() {
+  const leden = gekozenLeden();
+  return [
+    [leden.length >= 5 && leden.length <= 7, `${leden.length} leden gekozen (5 tot 7)`],
+    [leden.some(l => l.scepticus), 'Minstens één harde scepticus'],
+    [!!plat(s.org), 'Je organisatie is beschreven'],
+  ];
+}
+function controlesSup() {
+  const n = s.com.length;
+  return [
+    [n >= 3 && n <= 5, `${n} commissarissen (3 tot 5)`],
+    [n > 0 && s.com.every(c => plat(c.rol) && plat(c.achtergrond) && plat(c.denkstijl)), 'Elke commissaris heeft een rol, achtergrond en denkstijl'],
+    [s.com.some(c => c.scepticus), 'Minstens één harde scepticus'],
+    [!!plat(s.org), 'Je organisatie is beschreven'],
+  ];
+}
+const teken = ok => `<span class="teken ${ok ? 'ok' : 'mis'}" aria-hidden="true">${ok ? '✓' : '!'}</span><span class="sr">${ok ? 'In orde:' : 'Nog niet:'}</span>`;
+const GRENS = 8000;
+function toonControles(id, lijstje, tekst) {
+  const lengte = tekst.length;
+  const alles = [...lijstje, [lengte <= GRENS, `${lengte.toLocaleString('nl-NL')} tekens${lengte > GRENS ? ': maak hem korter, dan past hij ook als instructie van een project' : ''}`]];
+  $(id).innerHTML = alles.map(([ok, t]) => `<li>${teken(ok)}<span>${esc(t)}</span></li>`).join('');
+}
+
+/* ---------- Tekenen ---------- */
+function tekenLeden() {
+  const kaarten = [...LEDEN, ...s.eigen.map(e => ({ ...e, naam: vNaam(e.naam), eigen: true }))].map(l => `
+    <div class="lid${l.eigen ? ' is-eigen' : ''}">
+      <label>
+        <input type="checkbox" data-lid="${esc(l.id)}"${s.leden.includes(l.id) ? ' checked' : ''}>
+        <span class="lid-naam">${esc(l.naam)}${l.scepticus ? ' <span class="tag">scepticus</span>' : ''}${l.eigen ? ' <span class="tag eigen">eigen lid</span>' : ''}</span>
+        <span class="lid-kijkt">${esc(l.kijkt)}</span>
+        <span class="lid-vraag">“${esc(l.vraag)}”</span>
+      </label>
+      ${l.eigen ? `<button type="button" class="weg" data-weg-eigen="${esc(l.id)}">verwijder<span class="sr"> ${esc(l.naam)}</span></button>` : ''}
+    </div>`);
+  $('leden').innerHTML = kaarten.join('');
+}
+function tekenVoorstellen() {
+  const gebruikt = new Set(s.com.map(c => plat(c.rol)));
+  const vol = s.com.length >= 5 ? ' disabled' : '';
+  $('voorstellen').innerHTML = VOORSTELLEN.filter(v => !gebruikt.has(v.rol))
+    .map(v => `<button type="button" class="knop licht klein-knop" data-voorstel="${esc(v.rol)}"${vol}>+ ${esc(v.rol)}</button>`).join('')
+    + `<button type="button" class="knop licht klein-knop" data-voorstel=""${vol}>+ Eigen commissaris</button>`
+    + (vol ? '<span class="klein">Vijf is het maximum. Verwijder er eerst een om te wisselen.</span>' : '');
+}
+function tekenCom() {
+  const lijst = $('com-lijst');
+  if (!s.com.length) { lijst.innerHTML = '<p class="leeg">Nog geen commissarissen. Kies hierboven een voorstel of begin met een eigen commissaris.</p>'; return; }
+  lijst.innerHTML = s.com.map((c, i) => `
+    <fieldset class="com" style="margin:0">
+      <legend class="sr">Commissaris ${i + 1}</legend>
+      <div class="com-kop"><strong>Commissaris ${i + 1}</strong>
+        <span class="knoppen" style="margin:0">
+          <label class="vink"><input type="checkbox" data-com="${i}" data-veld="scepticus"${c.scepticus ? ' checked' : ''}> Harde scepticus</label>
+          <button type="button" class="knop licht klein-knop" data-weg-com="${i}">Verwijder<span class="sr"> commissaris ${i + 1}</span></button>
+        </span>
+      </div>
+      <div class="velden">
+        <div class="rij-2">
+          <div class="veld"><label for="com-${i}-rol">Rol of verzonnen naam</label><input type="text" id="com-${i}-rol" data-com="${i}" data-veld="rol" value="${esc(c.rol)}" placeholder="Bijvoorbeeld: financieel directeur"></div>
+          <div class="veld"><label for="com-${i}-achtergrond">Achtergrond</label><input type="text" id="com-${i}-achtergrond" data-com="${i}" data-veld="achtergrond" value="${esc(c.achtergrond)}"></div>
+        </div>
+        <div class="veld"><label for="com-${i}-denkstijl">Denkstijl</label><input type="text" id="com-${i}-denkstijl" data-com="${i}" data-veld="denkstijl" value="${esc(c.denkstijl)}"></div>
+        <div class="veld"><label for="com-${i}-belang">Wat wint en verliest deze persoon met AI?</label><input type="text" id="com-${i}-belang" data-com="${i}" data-veld="belang" value="${esc(c.belang)}" placeholder="Uit je AI-taak van de lunch"></div>
+      </div>
+    </fieldset>`).join('');
+}
+function tekenTeller(id, controles) {
+  const ok = controles.every(([v]) => v);
+  const el = $(id);
+  el.dataset.ok = String(ok);
+  el.innerHTML = controles.slice(0, -1).map(([v, t]) => `<span style="display:inline-flex;gap:6px;align-items:center">${teken(v)}${esc(t)}</span>`).join('');
+}
+function ververs() {
+  const adv = advisoryTekst(), sup = supervisoryTekst();
+  const ca = controlesAdv(), cs = controlesSup();
+  $('tekst-adv').textContent = adv;
+  $('tekst-sup').textContent = sup;
+  toonControles('controles-adv', ca, adv);
+  toonControles('controles-sup', cs, sup);
+  tekenTeller('teller-advisory', ca);
+  tekenTeller('teller-supervisory', cs);
+}
+function vulVelden() {
+  for (const el of document.querySelectorAll('[data-veld]:not([data-com])')) el.value = s[el.dataset.veld] || '';
+}
+function allesTekenen() { vulVelden(); tekenLeden(); tekenVoorstellen(); tekenCom(); ververs(); }
+
+/* ---------- Invoer ---------- */
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (el.matches('[data-veld]:not([data-com])')) { s[el.dataset.veld] = el.value; }
+  else if (el.matches('[data-com][data-veld]') && el.type !== 'checkbox') {
+    const c = s.com[+el.dataset.com]; if (!c) return;
+    c[el.dataset.veld] = el.value;
+    if (el.dataset.veld === 'rol') tekenVoorstellen();
+  } else return;
+  bewaar(); ververs();
+});
+document.addEventListener('change', e => {
+  const el = e.target;
+  if (el.matches('[data-lid]')) {
+    const id = el.dataset.lid;
+    s.leden = el.checked ? [...new Set([...s.leden, id])] : s.leden.filter(x => x !== id);
+  } else if (el.matches('[data-com][data-veld="scepticus"]')) {
+    const c = s.com[+el.dataset.com]; if (!c) return;
+    c.scepticus = el.checked;
+  } else return;
+  bewaar(); ververs();
+});
+document.addEventListener('click', e => {
+  const weg = e.target.closest('[data-weg-eigen]');
+  if (weg) {
+    e.preventDefault();
+    const id = weg.dataset.wegEigen;
+    s.eigen = s.eigen.filter(x => x.id !== id);
+    s.leden = s.leden.filter(x => x !== id);
+    bewaar(); tekenLeden(); ververs(); return;
+  }
+  const voorstel = e.target.closest('[data-voorstel]');
+  if (voorstel) {
+    if (s.com.length >= 5) return;
+    const v = VOORSTELLEN.find(x => x.rol === voorstel.dataset.voorstel);
+    s.com.push({ rol: v?.rol || '', achtergrond: v?.achtergrond || '', denkstijl: v?.denkstijl || '', belang: '', scepticus: false });
+    bewaar(); tekenVoorstellen(); tekenCom(); ververs();
+    $(`com-${s.com.length - 1}-${v ? 'belang' : 'rol'}`)?.focus();
+    return;
+  }
+  const wegCom = e.target.closest('[data-weg-com]');
+  if (wegCom) {
+    s.com.splice(+wegCom.dataset.wegCom, 1);
+    bewaar(); tekenVoorstellen(); tekenCom(); ververs(); return;
+  }
+  const zipKnop = e.target.closest('[data-zip]');
+  if (zipKnop) {
+    const wat = zipKnop.dataset.zip, naam = wat === 'adv' ? 'advisory-board' : 'supervisory-board';
+    const tekst = wat === 'adv' ? advisoryTekst() : supervisoryTekst();
+    download(`${naam}.zip`, maakZip([{ naam: `${naam}/` }, { naam: `${naam}/SKILL.md`, data: new TextEncoder().encode(tekst) }]));
+    $(`status-${wat}`).textContent = `${naam}.zip staat in je map met downloads.`;
+    return;
+  }
+  const kop = e.target.closest('[data-kopieer]');
+  if (kop) { kopieer(kop.dataset.kopieer); return; }
+});
+$('eigen-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const naam = plat($('eigen-naam').value).replace(/^v_/i, '');
+  if (!naam) return;
+  const id = `eigen-${Date.now().toString(36)}`;
+  s.eigen.push({ id, naam, kijkt: plat($('eigen-kijkt').value), vraag: plat($('eigen-vraag').value), scepticus: $('eigen-scepticus').checked });
+  s.leden.push(id);
+  e.target.reset();
+  bewaar(); tekenLeden(); ververs();
+  document.querySelector(`[data-lid="${id}"]`)?.focus();
+});
+
+$('voorbeeld').addEventListener('click', () => {
+  const ingevuld = plat(s.org) || s.leden.length || s.com.length;
+  if (ingevuld && !confirm('Dit vervangt wat je al hebt ingevuld door Voorbeeld BV. Doorgaan?')) return;
+  s = schoon(JSON.parse(JSON.stringify(VOORBEELD)));
+  bewaar(); allesTekenen();
+});
+$('opnieuw').addEventListener('click', () => {
+  if (!confirm('Alles wat je op deze pagina hebt ingevuld, wordt gewist. Doorgaan?')) return;
+  s = leeg(); opslag.wis(OPSLAG); allesTekenen();
+});
+
+/* ---------- Kopiëren en downloaden ---------- */
+async function kopieer(wat) {
+  const tekst = wat === 'adv' ? advisoryTekst() : supervisoryTekst();
+  const status = $(`status-${wat}`);
+  let gelukt = false;
+  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
+  catch {
+    const t = document.createElement('textarea');
+    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select();
+    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+    t.remove();
+  }
+  status.textContent = gelukt ? 'De tekst staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hierboven en kopieer hem zelf.';
+}
+function download(naam, blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = naam;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* Een zip zonder compressie (methode 0): genoeg voor één tekstbestand, en geen bibliotheek nodig.
+   Opbouw volgens de ZIP-specificatie van PKWARE: lokale kop + data per bestand, daarna de centrale map. */
+const CRC_TABEL = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
+  return t;
+})();
+function crc32(bytes) {
+  let c = 0xFFFFFFFF;
+  for (const b of bytes) c = CRC_TABEL[(c ^ b) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function maakZip(bestanden, nu = new Date()) {
+  const enc = new TextEncoder();
+  const tijd = (nu.getHours() << 11) | (nu.getMinutes() << 5) | (nu.getSeconds() >> 1);
+  const datum = ((nu.getFullYear() - 1980) << 9) | ((nu.getMonth() + 1) << 5) | nu.getDate();
+  const lokaal = [], centraal = [];
+  let positie = 0;
+  for (const f of bestanden) {
+    const naam = enc.encode(f.naam);
+    const data = f.data || new Uint8Array(0);
+    const crc = f.data ? crc32(data) : 0;
+    const kop = new DataView(new ArrayBuffer(30));
+    kop.setUint32(0, 0x04034b50, true);   // handtekening lokale kop
+    kop.setUint16(4, 20, true);           // versie nodig: 2.0
+    kop.setUint16(6, 0x0800, true);       // namen in UTF-8
+    kop.setUint16(8, 0, true);            // methode 0: opgeslagen
+    kop.setUint16(10, tijd, true);
+    kop.setUint16(12, datum, true);
+    kop.setUint32(14, crc, true);
+    kop.setUint32(18, data.length, true);
+    kop.setUint32(22, data.length, true);
+    kop.setUint16(26, naam.length, true);
+    kop.setUint16(28, 0, true);
+    lokaal.push(new Uint8Array(kop.buffer), naam, data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true);     // handtekening centrale map
+    c.setUint16(4, 20, true);             // gemaakt met versie 2.0
+    c.setUint16(6, 20, true);
+    c.setUint16(8, 0x0800, true);
+    c.setUint16(10, 0, true);
+    c.setUint16(12, tijd, true);
+    c.setUint16(14, datum, true);
+    c.setUint32(16, crc, true);
+    c.setUint32(20, data.length, true);
+    c.setUint32(24, data.length, true);
+    c.setUint16(28, naam.length, true);
+    c.setUint16(30, 0, true); c.setUint16(32, 0, true); c.setUint16(34, 0, true); c.setUint16(36, 0, true);
+    c.setUint32(38, f.data ? 0 : 0x10, true); // 0x10: map
+    c.setUint32(42, positie, true);
+    centraal.push(new Uint8Array(c.buffer), naam);
+    positie += 30 + naam.length + data.length;
+  }
+  const grootte = centraal.reduce((n, b) => n + b.length, 0);
+  const eind = new DataView(new ArrayBuffer(22));
+  eind.setUint32(0, 0x06054b50, true);
+  eind.setUint16(8, bestanden.length, true);
+  eind.setUint16(10, bestanden.length, true);
+  eind.setUint32(12, grootte, true);
+  eind.setUint32(16, positie, true);
+  return new Blob([...lokaal, ...centraal, new Uint8Array(eind.buffer)], { type: 'application/zip' });
+}
+
+/* ---------- Tabs ---------- */
+const TAB_OPSLAG = 'aiso26009-boards-tab';
+function kiesTab(tab, focus) {
+  const groep = tab.closest('[role="tablist"]');
+  for (const t of groep.querySelectorAll('[role="tab"]')) {
+    const aan = t === tab;
+    t.setAttribute('aria-selected', String(aan));
+    t.tabIndex = aan ? 0 : -1;
+    $(t.getAttribute('aria-controls')).hidden = !aan;
+  }
+  if (focus) tab.focus();
+  if (groep.dataset.tabs === 'aanbieder') opslag.schrijf(TAB_OPSLAG, tab.id);
+}
+document.querySelectorAll('[role="tablist"]').forEach(groep => {
+  groep.addEventListener('click', e => { const t = e.target.closest('[role="tab"]'); if (t) kiesTab(t); });
+  groep.addEventListener('keydown', e => {
+    const tabs = [...groep.querySelectorAll('[role="tab"]')];
+    const i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    let j = null;
+    if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+    else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+    else if (e.key === 'Home') j = 0;
+    else if (e.key === 'End') j = tabs.length - 1;
+    if (j !== null) { e.preventDefault(); kiesTab(tabs[j], true); }
+  });
+});
+const bewaardeTab = opslag.lees(TAB_OPSLAG);
+if (typeof bewaardeTab === 'string' && /^tab-(claude|chatgpt|gemini)$/.test(bewaardeTab)) kiesTab($(bewaardeTab));
+
+allesTekenen();
+</script>
+</body>
+</html>

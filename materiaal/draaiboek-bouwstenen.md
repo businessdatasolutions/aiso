@@ -104,6 +104,24 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 - Vraag bij elke stakeholder met weerstand: "Wat verliest deze persoon?" Op dag 3 komt dit terug in de vier vragen bij weerstand.
 
+## Dag 1 · Werkplaats 1: de boards als skill (FR-17, ADR-027)
+
+**Voordoen (10 minuten).** Open `materiaal/boards.html` op het scherm.
+
+1. Klik op "Vul in met Voorbeeld BV". Laat zien dat de controles groen worden: zes leden, twee sceptici, vier commissarissen.
+2. Download `advisory-board.zip` en zet hem in je eigen omgeving, met de stappen uit stap 5 van de pagina.
+3. Stel de testvraag uit stap 6 en lees één lid voor, met de zwakke plek die het noemt.
+4. Zeg: "Jullie doen hetzelfde, met je eigen organisatie. Wat je invult, blijft in je browser. Schrijf alleen op wat openbaar mag."
+
+**Tijdens het bouwen.**
+
+- De commissarissen komen uit de AI-taak van de lunch: de top 3 stakeholders, met wat ze winnen en verliezen. Wie die taak oversloeg, kiest uit de voorstellen op de pagina.
+- Geef de pagina als bestand mee, of zet hem in de leeromgeving. Hij werkt zonder server en zonder internet.
+- Geen skills in de eigen omgeving (vaak ChatGPT zonder werkruimteplan)? Dan geldt de terugvaloptie: een project met de tekst als instructie. Het werkt hetzelfde, alleen roep je het board dan op door in dat project te werken.
+- Wie een Gem wil maken: niet doen. Bij persoonlijke accounts zijn Gems vanaf 17 november alleen-lezen, vóór dag 2.
+
+**Aan het eind van de werkplaats** kijk je bij iedereen of elk board een harde scepticus heeft (FR-17). De controles op de pagina laten het zien, maar wie de tekst daarna aanpast, kan de scepticus er weer uit halen.
+
 ## Dag 2 · Investeringscomité (FR-09)
 
 - Deel de rolkaarten uit. Elke rolkaart heeft twee kritiekpunten met bewijs en tegenbewijs: `materiaal/rolkaarten-kritiekpunten.md`.

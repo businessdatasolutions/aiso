@@ -2,6 +2,20 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.16 — 2026-11-07
+
+**Toegevoegd** (ADR-027)
+- `materiaal/boards.html`: het startsjabloon voor de twee boards als skill. De deelnemer vult de organisatie, de leden en de commissarissen in, ziet of de eisen kloppen en downloadt elk board als zip. Met een korte instructie voor Claude, ChatGPT en Gemini, een terugvaloptie en een werkwijze voor het boardmoment.
+- Materiaal op de startpagina: het sjabloon bij werkplaats 1, en "Zo gebruik je je boards" bij de drie boardmomenten.
+- Risico's: geen skills in de eigen omgeving, en een menu dat verandert.
+- Bronnen: de helppagina's over skills van Anthropic, OpenAI en Google.
+- Bouwstenen voor het draaiboek: voordoen en begeleiden in werkplaats 1.
+
+**Gewijzigd** (ADR-027)
+- FR-17: twee skills in het open SKILL.md-formaat, met een harde scepticus in elk board, in plaats van instructieteksten voor een project of Gem.
+- 6.3, de KISS-keuze over twee boards, AC-12, de opdracht van werkplaats 1 en de opleverlijst van de trainer volgen FR-17.
+- Fase 0: beide zips testen in de drie omgevingen en in een reserve-account.
+
 ## 0.15 — 2026-11-07
 
 **Toegevoegd** (ADR-026)
