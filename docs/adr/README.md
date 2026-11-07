@@ -14,7 +14,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-008](ADR-008-experimentverslag-als-kort-paper.md) | Experimentverslag als kort paper | Vervangen door ADR-009 | 2026-11-04 |
 | [ADR-009](ADR-009-experimentverslag-als-interactieve-pagina.md) | Experimentverslag als interactieve webpagina, gebouwd met AI | Aanvaard | 2026-11-04 |
 | [ADR-010](ADR-010-vraag-bepaalt-experimentvorm.md) | De vraag bepaalt de vorm van het experiment | Aanvaard | 2026-11-04 |
-| [ADR-011](ADR-011-resultaten-sn-en-lu7.md) | De resultaten van S&N als basis; LU7 verbreed | Aanvaard | 2026-11-04 |
+| [ADR-011](ADR-011-resultaten-sn-en-lu7.md) | De resultaten van S&N als basis; LU7 verbreed | Deels vervangen door ADR-024 | 2026-11-04 |
 | [ADR-012](ADR-012-wiki-toets-aanbevelingen.md) | Wiki-toets: aanbevelingen 1 t/m 3 verwerkt, 4 en 5 niet | Aanvaard | 2026-11-04 |
 | [ADR-013](ADR-013-publicatie-als-artifact.md) | Publicatie als artifact zonder lokale bijlagen | Aanvaard | 2026-11-05 |
 | [ADR-014](ADR-014-adrs-en-wijzigingslog-voor-de-lrd.md) | Besluiten en wijzigingen van de LRD in ADR's en een wijzigingslog | Aanvaard | 2026-11-05 |
@@ -27,6 +27,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Aanvaard | 2026-11-07 |
 | [ADR-022](ADR-022-gereedschap-lekcheck-schemas-en-skills.md) | Gereedschap: lekcheck vóór publicatie, schemascript en drie projectskills | Aanvaard | 2026-11-07 |
 | [ADR-023](ADR-023-regelboek-met-werkregels.md) | Een regelboek met werkregels dat de groep zelf schrijft | Aanvaard | 2026-11-07 |
+| [ADR-024](ADR-024-resultaten-sn-als-enige-doelen.md) | De resultaten van S&N als enige doelen; geen leeruitkomsten en geen Bloom | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

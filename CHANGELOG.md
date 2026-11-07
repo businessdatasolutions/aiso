@@ -2,6 +2,24 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.13 — 2026-11-07
+
+**Gewijzigd** (ADR-024)
+- Deel 3 heet "Doelen": de zeven resultaten van S&N zijn de enige doelen, met per resultaat de lesdagen, berekend uit het programma.
+- Alle eisen, programmablokken, werkplaatsen en deelnemerskaarten verwijzen met `sn` rechtstreeks naar de resultaten van S&N.
+- De herleidbaarheid in deel 7 heeft drie kolommen (S&N, eis, acceptatiecriterium). De dekkingsregel toetst per resultaat een eis en een acceptatiecriterium.
+- Deel 2 heeft drie kaders: Pink (2.1), Kolb (2.2) en COM-B (2.3).
+- De koptekst telt de resultaten van S&N. Deel 1, deel 4, FR-11, AC-09, de opleverlijst van de trainer en twee KISS-keuzes zijn aangepast.
+- Hersteld na de KISS-scan: de verwijzing naar axioma 2.4 in het programma van dag 3 is 2.3, en ADR-024 telt vijf programmablokken zonder resultaat. De laatste verwijzingen naar leeruitkomsten in de draaiboek-bouwstenen zijn omgezet.
+
+**Toegevoegd**
+- Een KISS-keuze: één laag doelen, in plaats van eigen leeruitkomsten tussen de resultaten van S&N en de eisen.
+
+**Verwijderd**
+- De leeruitkomsten LU1–9 (`DATA.lu`).
+- De taxonomie van Bloom: kader 2.1, de matrix in deel 3, `bloomP` en `bloomK`, en de bron Anderson & Krathwohl (2001).
+- De getypte verwijzingen naar leeruitkomsten tussen haakjes in 13 AC-teksten.
+
 ## 0.12 — 2026-11-07
 
 **Toegevoegd** (ADR-023)

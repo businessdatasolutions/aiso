@@ -88,7 +88,7 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 ## Dag 1 · Van visie naar doelen
 
-- **Risicobereidheid.** Besturen bespreken hun risicobereidheid zelden. Die verschilt per persoon, en dat blijft onuitgesproken (Linda Hill, in Bloomberg Podcasts, 2026). Vraag in de duo's: "Hoeveel risico wil jullie directie nemen met AI, en wie heeft dat ooit hardop gezegd?" Het antwoord hoort in de visie, bij de rol van de mens (LU2).
+- **Risicobereidheid.** Besturen bespreken hun risicobereidheid zelden. Die verschilt per persoon, en dat blijft onuitgesproken (Linda Hill, in Bloomberg Podcasts, 2026). Vraag in de duo's: "Hoeveel risico wil jullie directie nemen met AI, en wie heeft dat ooit hardop gezegd?" Het antwoord hoort in de visie, bij de rol van de mens (SN2).
 
 ## Dag 1 · Stakeholders
 
@@ -174,8 +174,8 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 
 ## Achtergrond en reserve voor de trainer
 
-- **De atlas met raamwerken** (Engelstalig): `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-07-01-ai-maturity-frameworks-visuals.html`. Lokaal openen; de pagina laadt zijn bibliotheken uit een eigen map. Gebruik hem bij vragen, niet als lesstof (KISS-keuze in 5.1). De cijfers in sectie 0 zijn verouderd; gebruik het volwassenheidsrapport. De hergebruiknotitie (`onderzoek/2026-11-07-hergebruik-santeon-presentatie.md`, onderdeel 15) zegt per raamwerk bij welk blok het past. Twee kandidaten voor later: de 2×2 van Anand en Wu ("op welke taak richt je AI eerst?") bij LU3, en de ladder L0–L5 voor de eigen rol bij LU8.
-- **Het prototype van een agent, uit de zorg.** Een demo met doorvragen, controle, een tweede AI als beoordelaar en een terugval op trefwoorden. De publieke versie draait zonder live AI: https://businessdatasolutions.github.io/santeon-presentatie/demo.html. Een animatie zonder netwerk: https://businessdatasolutions.github.io/santeon-presentatie/vim-agent-animatie.html. Alleen als reserve bij vragen over FR-15 ("een artefact dat een tester kan proberen") of over een technische test (LU9). Zeg erbij dat het voorbeeld uit een ziekenhuis komt.
+- **De atlas met raamwerken** (Engelstalig): `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-07-01-ai-maturity-frameworks-visuals.html`. Lokaal openen; de pagina laadt zijn bibliotheken uit een eigen map. Gebruik hem bij vragen, niet als lesstof (KISS-keuze in 5.1). De cijfers in sectie 0 zijn verouderd; gebruik het volwassenheidsrapport. De hergebruiknotitie (`onderzoek/2026-11-07-hergebruik-santeon-presentatie.md`, onderdeel 15) zegt per raamwerk bij welk blok het past. Twee kandidaten voor later: de 2×2 van Anand en Wu ("op welke taak richt je AI eerst?") bij de prioriteiten van de roadmap (SN3), en de ladder L0–L5 voor de eigen rol bij de boardmomenten (FR-18).
+- **Het prototype van een agent, uit de zorg.** Een demo met doorvragen, controle, een tweede AI als beoordelaar en een terugval op trefwoorden. De publieke versie draait zonder live AI: https://businessdatasolutions.github.io/santeon-presentatie/demo.html. Een animatie zonder netwerk: https://businessdatasolutions.github.io/santeon-presentatie/vim-agent-animatie.html. Alleen als reserve bij vragen over FR-15 ("een artefact dat een tester kan proberen") of over een technische test (FR-21). Zeg erbij dat het voorbeeld uit een ziekenhuis komt.
 
 ## Voorbereide antwoorden
 
