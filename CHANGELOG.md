@@ -2,6 +2,26 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.19 — 2026-11-07
+
+**Gewijzigd** (ADR-030)
+- Dag 1, opening: na het vastleggen van de casus legt de trainer met het eerste filmpje uit wat visie, missie en strategie zijn, zonder vooruit te wijzen. De deelnemers krijgen de opdracht op te zoeken wat hun bestuur daarover zegt.
+- Dag 1, pauze van 10:45: de AI zoekt openbare stukken van het bestuur over visie, missie, strategie en AI. De AI-taak over de sector vervalt.
+- Dag 1, Van visie naar doelen: het blok begint met de omslag (tweede filmpje, gecompliceerd tegenover complex, de lus) en gebruikt de stukken van het bestuur bij de doelen.
+- Dag 1, 12:15: alleen nog het supervisory board samenstellen. Het blok heet "Je supervisory board".
+- FR-30 en FR-32 volgen de nieuwe volgorde. Het materiaal op de startpagina heeft neutrale namen ("Filmpje 1", "Filmpje 2", "Tutorial over strategie"), zodat de omslag niet vooraf te zien is.
+- Startsjabloon: de lunchtaak verwijst naar de stukken uit de pauze. Bouwstenen voor het draaiboek: een nieuwe bouwsteen voor de opening, en "De omslag" om 11:00.
+- De top 3 stakeholders van 11:45 staat nu als invoer bij het supervisory board (12:15), bij Transformatieplan en draagvlak (dag 3) en bij werkplaats 3. Het blok van 11:45 noemt die drie plekken in plaats van "later". In werkplaats 3 speelt de AI de stakeholder met de meeste weerstand uit de top 3, niet meer die uit de online opdracht. Het draaiboek laat de trainer zeggen dat iedereen de top 3 bewaart.
+- ADR-026 en ADR-028 zijn deels vervangen door ADR-030.
+
+**Toegevoegd**
+- Startsjabloon: v_Drucker en v_Wennink bij de strategen van het supervisory board. Drucker staat er voor "Wat is ons bedrijf, wie is de klant?", Wennink (oud-topman van ASML) voor de lange termijn en het ecosysteem. Bij de experts van het advisory board staat v_Deming, voor kwaliteit en het systeem, als harde scepticus. Daar staat ook v_Damodaran, voor het verhaal van een bedrijf vertaald in getallen: zijn toets is of een verhaal mogelijk, aannemelijk en waarschijnlijk is. Twee van zijn citaten komen uit zijn talk bij Google ("The Value of Stories in Business", 2017), de derde uit zijn blog over AI. Alle vier met gecontroleerde citaten volgens ADR-029. Damodaran werkt die blogpost (augustus 2026) nog bij: lees dat citaat vóór dag 2 nog één keer na. Het sjabloon biedt nu drieëntwintig helden (zeven vrouwen) en negentien experts.
+
+**Verwijderd**
+- Startsjabloon: v_Ardern staat niet meer bij de strategen van het supervisory board, en haar citaten zijn weg. De lijst in ADR-028 noemt haar nog; die legt de keuze van toen vast.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.18 — 2026-11-07
 
 **Gewijzigd** (ADR-028)

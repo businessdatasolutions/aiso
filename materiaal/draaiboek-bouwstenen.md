@@ -46,6 +46,20 @@
 
 Toon het regelboek met de vier werkregels van de groep: "De werkregels die we houden, dag na dag."
 
+## Dag 1 · Opening: visie, missie en strategie (FR-30, FR-32, ADR-030)
+
+**Herkomst.** De tutorial "Van klassieke naar organische strategie" van de trainer (ten Hove, 2026): https://businessdatasolutions.github.io/emergent-strategy-tutorial/. Download de twee filmpjes vooraf, zodat ze ook zonder internet werken.
+
+**Uitleg (5 minuten), nadat iedereen de casus heeft vastgelegd.** Toon het eerste filmpje (10 seconden): vandaag → een boog → de visie over vijf jaar, met de missie als stip. Geef de drie definities:
+
+- **Visie:** hoe de wereld eruitziet in de toekomst. Een beeld van de veranderende omgeving waarin je organisatie zal opereren.
+- **Missie:** welke plek je ziet voor de organisatie in die toekomstige wereld. De rol en positie die je wilt innemen.
+- **Strategie:** welk pad je gaat volgen richting die nieuwe positie. De keuzes en stappen om van nu naar je gewenste plek te komen.
+
+**Zeg niets over wat er komt.** Noem het niet "klassiek" of "de oude theorie", en wijs niet vooruit naar 11:00. De deelnemers passen het model eerst toe op hun eigen organisatie. De omslag werkt pas als ze er zelf in zijn gestapt.
+
+**De opdracht.** "Zoek op wat het bestuur van jouw organisatie zegt over visie, missie en strategie." Zeg dat de AI de stukken in de pauze van 10:45 ophaalt (werkregel 1), en dat het alleen om openbare stukken gaat: een jaarverslag, artikelen, interviews.
+
 ## Dag 1 · Wat AI nu kan en niet kan (FR-26)
 
 ### Werkvorm "Mens tegen agent" (5 minuten, aan het begin van het blok)
@@ -84,17 +98,12 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 ## Dag 1 · Van visie naar doelen
 
-### Tien minuten strategie (FR-30)
+### De omslag (FR-30, ADR-030)
 
-**Herkomst.** De tutorial "Van klassieke naar organische strategie" van de trainer (ten Hove, 2026): https://businessdatasolutions.github.io/emergent-strategy-tutorial/. Download de twee filmpjes vooraf, zodat ze ook zonder internet werken.
-
-1. **Het klassieke pad.** Toon het eerste filmpje (10 seconden): vandaag → een boog → de visie over vijf jaar, met de missie als stip. Geef de drie definities:
-   - **Visie:** hoe de wereld eruitziet in de toekomst. Een beeld van de veranderende omgeving waarin je organisatie zal opereren.
-   - **Missie:** welke plek je ziet voor de organisatie in die toekomstige wereld. De rol en positie die je wilt innemen.
-   - **Strategie:** welk pad je gaat volgen richting die nieuwe positie. De keuzes en stappen om van nu naar je gewenste plek te komen.
+1. **Terug naar vanochtend.** "Vanochtend zagen jullie het model: één beeld van de toekomst, één stip, één route. Wie vond in de stukken van het eigen bestuur zo'n stip?" Laat er twee of drie voorlezen.
 2. **Waarom dat bij AI vastloopt.** Een straalmotor is gecompliceerd: duizenden onderdelen, maar voorspelbaar. De oceaan is complex: een kleine verandering heeft onvoorspelbare gevolgen. AI hoort bij de oceaan; dat zagen de deelnemers om 10:00 aan de grillige grens. Wie één stip kiest en ernaartoe blijft lopen, loopt een groot risico dat het de verkeerde stip is.
 3. **Het organische pad.** Toon het tweede filmpje (25 seconden): korte stappen naar de "ware toekomst". De missie verschijnt pas onderweg. Mintzberg noemt dit emergente strategie: strategie die ontstaat uit wat je doet (Mintzberg & Waters, 1985).
-4. **De lus.** Keuzes → dynamiek → opties → inzichten. Zeg: "Elk boardmoment is één ronde. Een missie schrijven we vandaag niet; die zie je op dag 3."
+4. **De lus.** Keuzes → dynamiek → opties → inzichten. Zeg: "Elk boardmoment is één ronde. Een eigen missie schrijven we vandaag niet; die zie je op dag 3. De missie van je bestuur is het startpunt."
 5. **Aanhaken.** In de Eerste blik online lazen ze het advies van Reid Hoffman: herzie de AI-strategie elke week. Vraag wat ze daar toen van vonden.
 
 - **Signaal om los te laten.** Vraag bij elk van de 2–4 doelen: "Wat zou er moeten gebeuren om dit doel los te laten?" Dat signaal staat bij het doel in het deck (AC-20).
@@ -103,8 +112,9 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 ## Dag 1 · Stakeholders
 
 - Vraag bij elke stakeholder met weerstand: "Wat verliest deze persoon?" Op dag 3 komt dit terug in de vier vragen bij weerstand.
+- Zeg dat iedereen de top 3 bewaart. Die komt drie keer terug: om 12:15 bij het supervisory board, op dag 3 bij het transformatieplan (één actie per stakeholder) en in werkplaats 3 (de AI speelt de stakeholder met de meeste weerstand).
 
-## Dag 1 · Je supervisory board en de stukken van je bestuur (FR-17, FR-32, ADR-028)
+## Dag 1 · Je supervisory board (FR-17, FR-32, ADR-028, ADR-030)
 
 **Voordoen (3 minuten).** Open `materiaal/boards.html` op het scherm, bij stap 2.
 
@@ -112,10 +122,10 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 2. Wijs de tegenspreker aan: "Kies er minstens één die tegen je koers in zou gaan. Een board van alleen helden geeft je snel gelijk."
 3. Zeg: "Deze helden helpen je om je verhaal voor je stakeholders scherp te krijgen. Wat je net over je stakeholders opschreef, gebruik je daarbij."
 
-**Daarna (12 minuten).** Elke deelnemer kiest drie tot vijf strategen, downloadt `supervisory-board.zip` en zet hem in de eigen AI-omgeving (stap 4 en 5 van de pagina). Dan zoekt iedereen stukken waarin het eigen bestuur iets zegt over visie, missie en strategie: een jaarverslag, artikelen, interviews.
+**Daarna (12 minuten).** Elke deelnemer kiest drie tot vijf strategen, downloadt `supervisory-board.zip` en zet hem in de eigen AI-omgeving (stap 4 en 5 van de pagina). De stukken van het bestuur liggen er al: de AI zocht ze in de pauze van 10:45.
 
 - **Alleen openbare stukken** (NFR-01). Een intern strategiestuk gaat geen AI-tool in.
-- Vindt iemand niets, of werkt die met Voorbeeld BV? Dan neemt die het jaarverslag van een organisatie uit dezelfde sector.
+- Vond de AI niets, of werkt iemand met Voorbeeld BV? Dan neemt die het jaarverslag van een organisatie uit dezelfde sector.
 - Lukt het installeren niet vóór 12:30? Laat het stuk dan door de AI samenvatten met de vraag uit de AI-taak, en installeer het board in werkplaats 1.
 
 **De AI-taak voor de lunch** staat op de startpagina en onder stap 2 van de pagina: het board bespreekt de stukken en komt tot een gezamenlijke conclusie en advies.
@@ -165,7 +175,7 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 ### Vier vragen bij weerstand
 
-Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar draagvlak", en in het nabespreken van werkplaats 3.
+Gebruik ze bij "per stakeholder één actie van weerstand naar draagvlak", met de top 3 van dag 1, en in het nabespreken van werkplaats 3.
 
 1. Zie de weerstand als signaal, niet als probleem.
 2. Vraag door: wat is de weerstand precies?
@@ -216,6 +226,7 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 
 ## Dag 3 · Werkplaats 3: AI als scepticus
 
+- De AI speelt de stakeholder met de meeste weerstand uit de top 3 van dag 1.
 - Geef de AI de kritiektrace als bron voor de scepticus, of het deel dat bij de use case past. Vraag de scepticus om bewijs én tegenbewijs. Een scepticus zonder tegenbewijs is een tegenstander, geen toets.
 - Nabespreken: welke van de vier soorten weerstand speelde de AI? Verlies, onzekerheid, verlies van controle, of een terechte zwakke plek?
 
