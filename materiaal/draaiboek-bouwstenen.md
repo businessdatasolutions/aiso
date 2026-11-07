@@ -71,7 +71,6 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
   2. Een ontbrekend feit → doorvragen in plaats van invullen (K-0501).
   3. Tegenstrijdige feiten → escaleren naar een mens (K-0505).
   4. Het eigen huiswerk nakijken → een tweede, aparte controle.
-- **Vier kennisvormen.** Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt.
 - **Een agent is opgebouwd als een organisatie.** Toon als voorbeeld uit een andere sector de publieke pagina https://businessdatasolutions.github.io/santeon-presentatie/harness.html. Zeg erbij dat het voorbeeld uit een ziekenhuis komt. De kern: het taalmodel is de professional, de harness (de besturing rond het model) is het kwaliteitssysteem, het contextvenster is het dossier op tafel. Het model huur je, de harness bouw je zelf.
 
 ### Nederlandse uitleg bij Engelse termen (NFR-08)
@@ -81,9 +80,6 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 | Agent | Een systeem dat een taalmodel gebruikt om een taak in stappen uit te voeren, binnen vaste grenzen. |
 | Harness | Alles rond het model: welke informatie het krijgt, welke hulpmiddelen het mag gebruiken, en wat er gebeurt bij een fout. |
 | Contextvenster | Wat het model op dit moment leest. |
-| RAG | Het systeem zoekt passende documenten en zet die bij de vraag. |
-| Kennisgraaf | Begrippen en hun relaties, vooraf vastgelegd. |
-| LLM-wiki | Kennis als kaarten met bron en datum, door mensen bijgehouden. |
 | Jagged frontier | De grillige grens tussen taken die AI goed kan en taken waarbij AI fouten maakt. |
 
 ## Dag 1 · Van visie naar doelen
@@ -112,7 +108,7 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 ## Dag 2 · Werkplaats 2: PRD en experiment (FR-20)
 
 - **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
-- **Kennisvorm.** Welke kennis heeft de use case nodig, en wie houdt die bij? Gebruik de laatste stap van `materiaal/kennisvormen.html`.
+- **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
 - **Experiment met een agent.** De vier faalwijzen van dag 1 zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
 
 ## Dag 3 · Transformatieplan en draagvlak (FR-24)
@@ -156,7 +152,7 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
    4. Weet je waar een mens het besluit neemt?
    5. Weet je of de AI naar het werkproces kijkt of naar personen?
 3. Kies de vraag met de meeste "Nee, en ik weet niet wie het weet". Laat de duo's daar vijf minuten over praten: wie in jouw organisatie weet het antwoord?
-4. Vraag: "Wie vraag je morgen?" Iedereen noemt een functie, nooit een naam. Die vraag wordt de volgende stap in het actieplan (FR-12).
+4. Vraag: "Wie vraag je morgen?" Iedereen noemt een functie, nooit een naam. Die vraag kan de volgende stap worden: de deelnemer zet hem in de gevolgen van de ADR bij het boardmoment van 15:45 (FR-18), en van daaruit in het actieplan.
 5. Daarna beantwoordt elke deelnemer de vijf vragen voor de eigen use case (AC-07).
 
 ### Hulpmiddelen bij vraag 4 en 5

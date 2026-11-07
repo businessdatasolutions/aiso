@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-025](ADR-025-kiss-opschoning-na-de-scan.md): de vier kennisvormen gaan van dag 1 naar werkplaats 2 |
 | **Datum** | 2026-11-07 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

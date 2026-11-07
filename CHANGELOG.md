@@ -2,6 +2,26 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.14 — 2026-11-07
+
+**Gewijzigd** (ADR-025, na de [KISS-scan](onderzoek/2026-11-07-kiss-scan.md))
+- Acceptatiecriteria: AC-03 gaat op in AC-02, AC-13 in AC-05 en AC-18 in AC-04. AC-04, AC-06, AC-07, AC-14 en AC-16 verwijzen naar de elementen van hun FR.
+- NFR-04 gaat op in NFR-09. FR-12 gaat op in FR-18: de ADR van het boardmoment noemt de volgende stap voor het actieplan, en AC-12 meet die.
+- Risico's van 23 naar 15: toegang, thuiswerk en boards elk samengevoegd tot één risico.
+- KISS-keuzes van 18 naar 14 paren. De keuze over modellen telt al het gereedschap. De keuzes over fouten online zijn er nu één. Drie keuzes staan apart als "Spanningen".
+- De vier kennisvormen gaan van dag 1 (FR-26) naar de PRD in werkplaats 2 (FR-20). Dit staat ook zo in het materiaal per blok en in de draaiboek-bouwstenen.
+- Deel 10 voor de deelnemer komt uit het veld `deliverable` op de AC's. Het ritme in 6.2 komt uit `DATA.rhythm`.
+- FR-21 noemt de verwachting bij de vraagstelling. "Businesscase op één pagina" is "hooguit twee pagina's", zoals in FR-14.
+
+**Toegevoegd**
+- Toetsrapport van de KISS-scan in `onderzoek/`, met per voorstel de keuze van de trainer.
+
+**Verwijderd**
+- FR-12, NFR-04, AC-03, AC-13 en AC-18, acht risico's en vier KISS-paren.
+- De getypte lijsten met de opbouw van het verslag (6.4) en het ritme (6.2). Ook de dubbele beschrijving van een ADR in 6.3 en 6.4, en de takenlijst van de begeleider in 5.2.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7. Versie 0.12 en 0.13 zijn niet apart gepubliceerd.
+
 ## 0.13 — 2026-11-07
 
 **Gewijzigd** (ADR-024)
