@@ -5,6 +5,47 @@
 - **Bronnen:** `background-docs/2026-11-07-volwassen-ai-blijft-zeldzaam.md` (het volwassenheidsrapport) en `background-docs/2026-11-06-kritiek-op-ai-inzet-query-trace.md` (de kritiektrace, met codes als [B2]). De literatuur staat in de LRD onder Bronnen.
 - **Regel:** kies per blok hooguit één of twee punten om echt te zeggen. De rest is reserve voor vragen.
 
+## Alle dagen · Het regelboek (FR-28, FR-29)
+
+**Herkomst.** Het regelboek komt uit de minor AI in Business van de trainer (ADR-023). Daar groeide het per week. Hier groeit het per lesdag, tot vier werkregels.
+
+### Opening dag 1: werkregel 1 (3 minuten)
+
+1. Toon het lege regelboek met vier plekken, op een flap of dia. Alleen werkregel 1 is ingevuld.
+2. Lees voor: "Voordat je pauze neemt, zet je **altijd** AI aan het werk."
+3. Zeg waarom: een onderzoek met de onderzoeksfunctie van je AI duurt tien tot twintig minuten. Dat is precies een pauze. Wie de AI vóór de pauze een taak geeft, heeft na de pauze iets om mee verder te werken.
+4. Doe het zelf voor bij de pauze van 10:45. Geef je eigen AI de taak van de startpagina, en laat na de pauze zien wat eruit kwam.
+
+### Vóór en na elke pauze
+
+- De startpagina toont werkregel 1 vijf minuten vóór elke pauze, met een idee voor een AI-taak die het blok erna voorbereidt. De taken staan in de LRD, bij de pauzes in het programma (veld `aiTask`). Zo staan ze op één plek.
+- Zeg de werkregel hardop bij de eerste twee pauzes. Daarna doet de startpagina het.
+- Na de pauze: "Wat heeft je AI gemaakt?" Eén voorbeeld is genoeg. Een taak die mislukte, is stof voor het nabespreken (vraag 2).
+- Ook in de pauze werkt de AI alleen met openbare of verzonnen gegevens (NFR-01).
+
+### Laatste vijf minuten van het nabespreken: een nieuwe werkregel
+
+1. Bij de derde vaste vraag ("Wat vraagt dit van mijn organisatie?") schrijft elk duo één werkregel op: één korte zin over gedrag.
+2. Elk duo leest de eigen werkregel voor, zonder discussie.
+3. Iedereen heeft één stem, niet voor de werkregel van het eigen duo. De meeste stemmen winnen. Staken de stemmen, dan beslist de trainer.
+4. Schrijf de werkregel in het regelboek en maak één woord vet. Zet de tekst na de lesdag in de LRD (`rules`). Dan staat hij ook in deel 6.2 en op de startpagina.
+
+**Een goede werkregel** beschrijft een handeling, past in één zin, en is te zien in het werk. "Wees kritisch op AI" is te vaag: wat doe je dan? "Zoek elke bron op voordat je hem doorstuurt" is een werkregel.
+
+**Reserve.** Komt de groep er niet uit, bied dan een werkregel uit het regelboek van de minor aan. Kies er een die past bij wat de groep die dag deed.
+
+| Werkregel | Past bij |
+|---|---|
+| Doe iets **geks**. | Werkplaats 1: een board met een onverwacht lid |
+| **Leren** gaat boven resultaat. | Werkplaats 2: ook een mislukt experiment levert iets op |
+| Technologie is **niet** de drempel. | Werkplaats 3: weerstand gaat zelden over techniek |
+| Maak het probleem van **een ander** nooit het jouwe. | Governance: wie is eigenaar? |
+| Het is **nooit** af. | ADR's en wijzigingslog: elk besluit kan een nieuwe ADR krijgen |
+
+### Afsluiting dag 3
+
+Toon het regelboek met de vier werkregels van de groep: "De werkregels die we houden, dag na dag."
+
 ## Dag 1 · Wat AI nu kan en niet kan (FR-26)
 
 ### Werkvorm "Mens tegen agent" (5 minuten, aan het begin van het blok)
@@ -86,6 +127,11 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 4. Los het niet meteen op.
 
 **Drie valkuilen voor wie leiding geeft:** de weerstand persoonlijk maken, erover moraliseren, en te snel een oplossing willen. Bron: Carucci (2026). Breng dit als vier vragen, niet als nieuw model (KISS-keuze in deel 5.1 van de LRD).
+
+### Cultuur: werkregels voor het eigen team
+
+- Vraag: "Welke werkregel uit ons regelboek zou in jouw team werken? En welke werkregel heeft jouw team nodig die wij nog niet hebben?"
+- Elke deelnemer schrijft één of twee werkregels bij cultuur in het 7S-plan (FR-24, AC-16). Een werkregel voor een team gaat over hoe het team met AI werkt: de gedeelde waarden en de stijl uit 7S.
 
 ### Vaardigheden en mensen
 

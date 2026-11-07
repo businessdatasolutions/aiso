@@ -26,6 +26,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-020](ADR-020-vijfde-governancevraag.md) | Vijfde governancevraag: kijkt de AI naar het werk of naar personen? | Aanvaard | 2026-11-07 |
 | [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Aanvaard | 2026-11-07 |
 | [ADR-022](ADR-022-gereedschap-lekcheck-schemas-en-skills.md) | Gereedschap: lekcheck vóór publicatie, schemascript en drie projectskills | Aanvaard | 2026-11-07 |
+| [ADR-023](ADR-023-regelboek-met-werkregels.md) | Een regelboek met werkregels dat de groep zelf schrijft | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

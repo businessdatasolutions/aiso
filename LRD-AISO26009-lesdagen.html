@@ -175,6 +175,9 @@ tr.flash td { animation: flash 1.6s ease-out; }
 .kiss-pair .bds-card { margin: 0; }
 .kiss-pair h4 { margin: 0 0 var(--space-1); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
 .kiss-pair p { margin: 0; font-size: var(--text-sm); }
+.regels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-8); margin: var(--space-4) 0; }
+.regel p { margin: var(--space-1) 0 0; font-size: var(--text-lg); }
+.regel .regel-open { color: var(--text-muted); font-size: var(--text-sm); font-style: italic; }
 .kiss-reason { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--text-secondary); margin: calc(-1 * var(--space-2)) 0 0; padding-left: var(--space-4); }
 
 /* Werkplaats */
@@ -226,6 +229,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
   .axiom { grid-template-columns: 1fr; }
   .axiom .arrow { transform: rotate(90deg); justify-self: center; }
   .kiss-pair { grid-template-columns: 1fr; }
+  .regels { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .bds-nav { padding: var(--space-3) var(--space-4); }
@@ -288,7 +292,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
   <header class="bds-page-header">
     <div class="hero">
       <div>
-        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.11 (concept)</div>
+        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.12 (concept)</div>
         <h1 class="bds-h1">AI Strategie en Organisatietransformatie: <span class="bds-highlight">de drie lesdagen</span></h1>
         <p class="bds-lead">Het ontwerp van de lesdagen in BCN Zwolle. Elke deelnemer werkt aan de eigen organisatie, bouwt in drie dagen het concept van de integrale opdracht, werkt elke middag zelf met AI en legt elke dag een besluit voor aan een eigen AI-board.</p>
         <blockquote class="lead-quote">“Van AI-experiment naar organisatiebrede transformatie.”<cite>Ondertitel op de webpagina van de training bij Schouten &amp; Nelissen</cite></blockquote>
@@ -319,10 +323,10 @@ tr.flash td { animation: flash 1.6s ease-out; }
     <div class="stats reveal-group">
       <div class="stat"><b>3</b><span>lesdagen</span></div>
       <div class="stat"><b data-count="lu">9</b><span>leeruitkomsten</span></div>
-      <div class="stat"><b data-count="fr">27</b><span>functionele eisen</span></div>
+      <div class="stat"><b data-count="fr">29</b><span>functionele eisen</span></div>
       <div class="stat"><b data-count="nfr">9</b><span>niet-functionele eisen</span></div>
-      <div class="stat"><b data-count="ac">18</b><span>acceptatiecriteria</span></div>
-      <div class="stat"><b data-count="risks">21</b><span>risico's</span></div>
+      <div class="stat"><b data-count="ac">19</b><span>acceptatiecriteria</span></div>
+      <div class="stat"><b data-count="risks">23</b><span>risico's</span></div>
     </div>
 
     <nav class="bds-toc" aria-label="Inhoud">
@@ -388,14 +392,14 @@ tr.flash td { animation: flash 1.6s ease-out; }
     <div class="axiom reveal-group">
       <div class="bds-card is-info-edge"><h4>Punt</h4><p>Leren verloopt als een cyclus: een concrete ervaring, reflectie op die ervaring, abstraheren tot een begrip, en actief uitproberen in een nieuwe situatie.</p></div>
       <div class="arrow" aria-hidden="true">→</div>
-      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De AI-werkplaats begint met doen. Elk blok sluit af met drie vaste vragen (<a class="chip" href="#fr-05" data-ref="FR-05">FR-05</a>). De derde vraag, "Wat vraagt dit van mijn organisatie?", is de stap van ervaring naar begrip. Het uitproberen gebeurt op de volgende lesdag en in het casusdeck.</p></div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De AI-werkplaats begint met doen. Elk blok sluit af met drie vaste vragen (<a class="chip" href="#fr-05" data-ref="FR-05">FR-05</a>). De derde vraag, "Wat vraagt dit van mijn organisatie?", is de stap van ervaring naar begrip. Het nabespreken eindigt met een werkregel voor het regelboek: de ervaring van die dag in één zin over gedrag (<a class="chip" href="#fr-29" data-ref="FR-29">FR-29</a>). Het uitproberen gebeurt op de volgende lesdag en in het casusdeck.</p></div>
     </div>
 
     <h3>2.4 COM-B <span class="muted small">(Michie, van Stralen &amp; West, 2011)</span></h3>
     <div class="axiom reveal-group">
       <div class="bds-card is-info-edge"><h4>Punt</h4><p>Gedrag ontstaat als iemand het kan (Capability), de gelegenheid heeft (Opportunity) en het wil (Motivation). Een interventie die één van de drie mist, verandert het gedrag niet.</p></div>
       <div class="arrow" aria-hidden="true">→</div>
-      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De training is zelf een gedragsinterventie: deelnemers moeten na afloop AI anders inzetten en bespreken. Capability komt uit de werkplaats, Opportunity uit een eigen account op een frontiermodel, met een reserve-account van de trainer voor wie dat niet heeft (<a class="chip" href="#nfr-02" data-ref="NFR-02">NFR-02</a><a class="chip" href="#nfr-03" data-ref="NFR-03">NFR-03</a>), Motivation uit de eigen casus. De trainer laat op dag 3 zien hoe de training zelf dat model volgt. Het vaste boardmoment aan het eind van elke lesdag maakt AI bij besluiten een gewoonte (<a class="chip" href="#fr-18" data-ref="FR-18">FR-18</a>).</p></div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De training is zelf een gedragsinterventie: deelnemers moeten na afloop AI anders inzetten en bespreken. Capability komt uit de werkplaats, Opportunity uit een eigen account op een frontiermodel, met een reserve-account van de trainer voor wie dat niet heeft (<a class="chip" href="#nfr-02" data-ref="NFR-02">NFR-02</a><a class="chip" href="#nfr-03" data-ref="NFR-03">NFR-03</a>), Motivation uit de eigen casus. De trainer laat op dag 3 zien hoe de training zelf dat model volgt. Het vaste boardmoment aan het eind van elke lesdag maakt AI bij besluiten een gewoonte (<a class="chip" href="#fr-18" data-ref="FR-18">FR-18</a>). Werkregel 1 doet dat bij elke pauze: negen vaste momenten in drie dagen (<a class="chip" href="#fr-28" data-ref="FR-28">FR-28</a>).</p></div>
     </div>
   </section>
 
@@ -459,9 +463,9 @@ tr.flash td { animation: flash 1.6s ease-out; }
         <tr><td><strong>Purpose</strong></td><td>Eigen casus; elk blok levert een deel van de integrale opdracht op; het experiment levert bewijs over de eigen use case</td><td>Of het deck na de training echt in de organisatie gebruikt wordt, ligt buiten de lesdagen</td></tr>
         <tr><td><strong>Autonomy</strong></td><td>Deelnemer kiest casus, use case, het eigen AI-account en de leden van de eigen boards; werkplaats en deck tellen niet mee voor een oordeel (veilig proberen)</td><td>Weinig ruimte voor verschil in tempo binnen het vaste werkplaatsblok; verdieping voor wie snel klaar is moet per werkplaats nog uitgewerkt worden</td></tr>
         <tr><td><strong>Mastery</strong></td><td>Feedback binnen het blok (werkplaats, comité, duo, board); drie vaste reflectievragen; drie keer een board op een beslispunt; een experiment met normen vooraf</td><td>Er is geen nulmeting van wat deelnemers met AI kunnen</td></tr>
-        <tr><td><strong>Social</strong></td><td>Duo's, comité met rollen, feedback van minstens twee anderen op dag 3</td><td>Bij zes deelnemers kan een duo uitvallen; dan wordt het een trio</td></tr>
+        <tr><td><strong>Social</strong></td><td>Duo's, comité met rollen, feedback van minstens twee anderen op dag 3, een regelboek dat de groep samen schrijft</td><td>Bij zes deelnemers kan een duo uitvallen; dan wordt het een trio</td></tr>
         <tr><td><strong>KISS · Deelnemer</strong></td><td>Eén product, één vast ritme, alle materialen op één plek; iedereen werkt in een AI-omgeving die al bekend is of klaarstaat</td><td>Vijf modellen uit de online omgeving plus drie nieuwe is veel; het deckblok op dag 3 is met 30 minuten krap; het thuiswerk tussen dag 2 en 3 (experiment, verslag, blueprint) komt bovenop de 20 uur zelfstudie</td></tr>
-        <tr><td><strong>KISS · Begeleider</strong></td><td>Draaiboek per blok (<a class="chip" href="#nfr-07" data-ref="NFR-07">NFR-07</a>); vaste tijden; een startpagina per lesdag met tijdlijn en afteller (<a class="chip" href="#nfr-09" data-ref="NFR-09">NFR-09</a>); één voorbeeldcasus voor de terugvaloptie en alle lespagina's</td><td>De voorbeeldcasus staat in concept; de drie werkplaatsen ermee moeten nog getest worden; de lespagina's moeten nog op het scherm in de zaal getest worden; reserve-accounts aanmaken en beheren kost voorbereidingstijd; het startsjabloon moet in drie tools werken; vijf sjablonen voor de bouwstraat maken</td></tr>
+        <tr><td><strong>KISS · Begeleider</strong></td><td>Draaiboek per blok (<a class="chip" href="#nfr-07" data-ref="NFR-07">NFR-07</a>); vaste tijden; een startpagina per lesdag met tijdlijn en afteller (<a class="chip" href="#nfr-09" data-ref="NFR-09">NFR-09</a>); één voorbeeldcasus voor de terugvaloptie en alle lespagina's</td><td>De voorbeeldcasus staat in concept; de drie werkplaatsen ermee moeten nog getest worden; de lespagina's moeten nog op het scherm in de zaal getest worden; reserve-accounts aanmaken en beheren kost voorbereidingstijd; het startsjabloon moet in drie tools werken; vijf sjablonen voor de bouwstraat maken; negen AI-taken voor de pauzes testen</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -485,7 +489,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
         <ol>
           <li><strong>13:30–13:45 · Voordoen.</strong> De trainer doet de opdracht op een voorbeeldcasus en laat ook iets zien wat misgaat.</li>
           <li><strong>13:45–14:35 · Zelf doen</strong> op de eigen casus, in duo's naast elkaar.</li>
-          <li><strong>14:35–15:00 · Nabespreken</strong> met drie vaste vragen, daarna invullen in het werkplaatslog.</li>
+          <li><strong>14:35–15:00 · Nabespreken</strong> met drie vaste vragen, daarna invullen in het werkplaatslog. In de laatste vijf minuten kiest de groep een werkregel voor het regelboek.</li>
         </ol>
         <div class="bds-card is-highlight" style="margin-top:var(--space-4)">
           <div class="bds-eyebrow">De drie vragen</div>
@@ -501,6 +505,13 @@ tr.flash td { animation: flash 1.6s ease-out; }
     <div class="bds-grid bds-grid-2">
       <div class="bds-card is-info-edge"><strong>Terugvaloptie.</strong> Wie geen bruikbare eigen casus heeft, werkt met de voorbeeldcasus van de trainer: <a href="materiaal/voorbeeldcasus.md">Voorbeeld BV</a>, een fictieve dienstverlener met ongeveer 400 medewerkers, met dezelfde opdrachten. Dezelfde casus staat in de lespagina's en in "Mens tegen agent" (<a class="chip" href="#fr-26" data-ref="FR-26">FR-26</a>). Wie geen eigen account heeft, krijgt een reserve-account. Wie niet kan inloggen, werkt mee op het account van het duo en vult het eigen werkplaatslog in.</div>
       <div class="bds-card is-info-edge"><strong>Verdieping</strong> voor wie klaar is: dezelfde opdracht met een tweede model, bijvoorbeeld een reserve-account op Gemini, en de verschillen in het log zetten.</div>
+    </div>
+    <div class="bds-card is-highlight" id="regelboek">
+      <div class="bds-eyebrow">Het regelboek</div>
+      <h4 style="margin:0;font-size:var(--text-xl)">De werkregels die we houden, dag na dag</h4>
+      <div class="regels" id="rules" role="list" aria-label="Werkregels in het regelboek"></div>
+      <p class="small" style="margin:0 0 var(--space-2)">Werken met AI vraagt nieuwe werkregels. De groep schrijft ze zelf, in een regelboek dat per lesdag groeit. Werkregel 1 komt van de trainer en geldt vanaf de eerste pauze. Wie de AI vóór de pauze een taak geeft, heeft na de pauze iets om mee verder te werken. Elke pauze heeft een voorstel voor zo'n taak, op de startpagina en in het programma (<a href="#programma">deel 8</a>).</p>
+      <p class="small" style="margin:0">In de laatste vijf minuten van elk nabespreken stelt elk duo een werkregel voor, vanuit de derde vaste vraag, en de groep kiest er één. Komt de groep er niet uit, dan biedt de trainer een werkregel uit een eerder regelboek aan, zoals "Leren gaat boven resultaat" of "Het is nooit af". Op dag 3 vertaalt elke deelnemer het regelboek naar het eigen team, bij cultuur in het transformatieplan. <a class="chip" href="#fr-28" data-ref="FR-28">FR-28</a><a class="chip" href="#fr-29" data-ref="FR-29">FR-29</a><a class="chip" href="#fr-24" data-ref="FR-24">FR-24</a></p>
     </div>
 
     <h3 id="boards">6.3 De boards</h3>
@@ -565,7 +576,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
   <section class="part" id="programma">
     <div class="part-num">Deel 8</div>
     <h2>Programma per lesdag</h2>
-    <p>Lunch is telkens 12:30–13:30. De volgorde volgt die van de online voorbereiding: visie, use case, verandering. Kies een dag en een blok.</p>
+    <p>Lunch is telkens 12:30–13:30. Vóór elke pauze geldt werkregel 1: kies een pauze om de AI-taak te zien (<a href="#regelboek">6.2</a>). De volgorde volgt die van de online voorbereiding: visie, use case, verandering. Kies een dag en een blok.</p>
     <div class="deck-controls no-print" role="tablist" aria-label="Lesdag" id="day-tabs"></div>
     <div id="day-mix" class="small muted"></div>
     <div class="legend-row">
@@ -691,7 +702,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
 </main>
 
 <footer class="bds-footer">
-  <p>LRD AISO26009 · versie 0.11 · 7 november 2026 · Witek ten Hove · Business Data Solutions</p>
+  <p>LRD AISO26009 · versie 0.12 · 7 november 2026 · Witek ten Hove · Business Data Solutions</p>
 </footer>
 
 <script type="module">
@@ -746,10 +757,12 @@ const DATA = {
     { id: 'FR-21', tag: 'Bouwstraat', lu: ['LU9','LU1'], text: 'Tussen dag 2 en dag 3 voert elke deelnemer het experiment uit, met openbare of verzonnen gegevens of met deelnemers die toestemming gaven (NFR-01), en bouwt met de AI een interactief verslag: één webpagina, in tien minuten te doorlopen, met minstens één diagram, schema of simulatie van de resultaten (bijvoorbeeld met D3, Three.js of Motion). Het verslag bevat: inleiding met vooronderzoek, vraagstelling, databronnen, methode met evaluatiecriteria en normen, dataverwerking, resultaten, discussie, en een conclusie met besluit (doorgaan, aanpassen of stoppen). Bronnen en verwijzingen staan in APA 7.' },
     { id: 'FR-22', tag: 'Bouwstraat', lu: ['LU5'], text: 'Tussen dag 2 en dag 3 zet elke deelnemer de PRD en de uitkomst van het experiment om in een blueprint: het doel als genummerde regels, elk met Must, Should of Could, een criterium met een getal en een eenheid, en een verificatiemethode. Een regel over wat de AI mag doen, heeft een aanleiding, een controle en een handhaving: als X gebeurt, controleer Y, en ga dan door, pauzeer voor een mens of stop. De blueprint bevat geen planning; die staat in het buildplan.' },
     { id: 'FR-23', tag: 'Bouwstraat', lu: ['LU4','LU5','LU8','LU9'], text: 'De trainer levert vijf sjablonen die op elkaar aansluiten: businesscase, PRD, experimentverslag (met een startopdracht voor de AI om de interactieve pagina te bouwen), blueprint met buildplan, en ADR met wijzigingslog. In het voordoen van werkplaats 2 laat de trainer de eigen werkwijze zien op de voorbeeldcasus.' },
-    { id: 'FR-24', tag: 'Inhoud', lu: ['LU7'], text: 'Op dag 3 maakt elke deelnemer met McKinsey 7S een transformatieplan op één pagina: wat er door AI verandert in processen en systemen, structuur, cultuur (gedeelde waarden en stijl) en vaardigheden en mensen, met per onderdeel één actie. Bij vaardigheden en mensen staat ook wie het vak nog leert als AI het eerste werk doet. Het plan komt in het deckonderdeel Adoptie.' },
+    { id: 'FR-24', tag: 'Inhoud', lu: ['LU7'], text: 'Op dag 3 maakt elke deelnemer met McKinsey 7S een transformatieplan op één pagina: wat er door AI verandert in processen en systemen, structuur, cultuur (gedeelde waarden en stijl) en vaardigheden en mensen, met per onderdeel één actie. Bij cultuur staan ook één of twee werkregels voor het eigen team: wat moet er anders in het werk nu AI meedoet? Het regelboek van de groep dient als voorbeeld (FR-29). Bij vaardigheden en mensen staat ook wie het vak nog leert als AI het eerste werk doet. Het plan komt in het deckonderdeel Adoptie.' },
     { id: 'FR-25', tag: 'Bouwstraat', lu: ['LU8','LU5'], text: 'Naast het casusdeck houdt elke deelnemer een ADR-register en een wijzigingslog bij, als bestanden bij de eigen stack. Elk boardmoment levert minstens één ADR. Een besluit dat later verandert, krijgt een nieuwe ADR, en de oude krijgt de status vervangen. Het wijzigingslog noteert per versie van de stack (businesscase, PRD, experimentverslag, blueprint, buildplan) wat er veranderde en welke ADR erbij hoort.' },
     { id: 'FR-26', tag: 'Inhoud', lu: ['LU1'], text: 'Het blok "Wat AI nu kan en niet kan" op dag 1 begint met "Mens tegen agent": de deelnemers geven eerst zelf een urgentie aan een klacht uit de voorbeeldcasus met twee tegenstrijdige feiten, en zien daarna dat de agent escaleert. Daarna behandelt het blok de grillige grens van wat AI goed kan, de kloof tussen breed gebruik en zeldzame volwassen inzet (elk cijfer met wat er gemeten is en het jaartal), vier faalwijzen van een agent met wat ze opvangt, en vier kennisvormen: alleen het model, RAG, een kennisgraaf en een LLM-wiki.' },
     { id: 'FR-27', tag: 'Bouwstraat', lu: ['LU3','LU4'], text: 'Vóór het onderzoek voor de businesscase op dag 2 tekent elke deelnemer de eigen procesketen als kansenkaart: rollen als banen, fasen als kolommen, een cijfer op elke plek waar AI kan helpen, en bij elk cijfer wie beslist. De trainer doet het voor met de voorbeeldcasus. De kansenkaart is de basis voor de procesketen in de businesscase (FR-14).' },
+    { id: 'FR-28', tag: 'Regelboek', lu: ['LU1','LU8'], text: 'Bij de opening van dag 1 begint de trainer het regelboek van de groep met werkregel 1: voordat je pauze neemt, zet je altijd AI aan het werk. Die werkregel geldt vóór elke pauze, negen keer in drie dagen. Elke pauze heeft een voorstel voor een AI-taak die het blok erna voorbereidt, zoals een onderzoek met bronnen of een eerste versie van een deckonderdeel. Ook hier gelden alleen openbare of verzonnen gegevens (NFR-01). Na de pauze werkt de deelnemer verder met wat de AI maakte.' },
+    { id: 'FR-29', tag: 'Regelboek', lu: ['LU1','LU7','LU8'], text: 'In de laatste vijf minuten van het nabespreken stelt elk duo één nieuwe werkregel voor, vanuit de derde vaste vraag (FR-05): wat moet er anders in het werk nu AI meedoet? Een werkregel is één korte zin over gedrag. De groep kiest er één voor het regelboek, zodat het regelboek na dag 3 vier werkregels telt. Komt de groep er niet uit, dan biedt de trainer een werkregel uit een eerder regelboek aan.' },
   ],
   nfr: [
     { id: 'NFR-01', lu: ['LU6'], text: 'Deelnemers voeren geen vertrouwelijke gegevens van hun organisatie in, ook niet in een eigen account of een reserve-account. De werkplaatsen werken met openbare informatie of verzonnen gegevens. De trainer zegt dit bij de start van elke werkplaats. Een experiment met echte mensen, zoals een gebruikersworkshop, vraagt vooraf hun toestemming; hun antwoorden gaan alleen geanonimiseerd een AI-tool in.' },
@@ -760,7 +773,7 @@ const DATA = {
     { id: 'NFR-06', lu: [], text: 'Tijdblokken zijn veelvouden van 5 minuten, en een timer is zichtbaar voor de groep.' },
     { id: 'NFR-07', lu: [], text: 'Een andere trainer kan een lesdag geven met alleen het draaiboek. Per blok staat wat de trainer doet en wat de deelnemers doen.' },
     { id: 'NFR-08', lu: [], text: 'Engelse vaktermen krijgen bij het eerste gebruik een Nederlandse uitleg.' },
-    { id: 'NFR-09', lu: [], text: 'Elke lesdag heeft een startpagina voor het scherm, gebouwd uit het programma in deze LRD: een tijdlijn, een afteller per blok die de groep kan lezen (NFR-06), en per blok het materiaal. Alle lesmateriaal staat in de map materiaal (NFR-04). Elke lespagina toont de inhoud ook als een bibliotheek niet laadt.' },
+    { id: 'NFR-09', lu: [], text: 'Elke lesdag heeft een startpagina voor het scherm, gebouwd uit het programma in deze LRD: een tijdlijn, een afteller per blok die de groep kan lezen (NFR-06), en per blok het materiaal. Alle lesmateriaal staat in de map materiaal (NFR-04). Elke lespagina toont de inhoud ook als een bibliotheek niet laadt. Vijf minuten vóór elke pauze, en tijdens de pauze, toont de startpagina werkregel 1 met de AI-taak voor die pauze (FR-28).' },
   ],
   ac: [
     { id: 'AC-01', measuredBy: ['FR-02','FR-03'], text: 'Aan het eind van dag 3 heeft elke deelnemer een casusdeck waarin alle onderdelen behalve de conclusie een concept bevatten.' },
@@ -778,9 +791,10 @@ const DATA = {
     { id: 'AC-13', measuredBy: ['FR-19','FR-09'], text: 'Voor elke pitch op dag 2 is benoemd wat het AI-board zag dat het comité miste, of andersom (LU4, LU8).' },
     { id: 'AC-14', measuredBy: ['FR-20','FR-21','FR-22'], text: 'Bij de start van dag 3 heeft elke deelnemer een PRD, een interactief experimentverslag met alle onderdelen uit FR-21 en minstens één diagram, schema of simulatie, en een blueprint waarin elke regel een prioriteit, een criterium met getal en eenheid, en een verificatiemethode heeft (LU5, LU9).' },
     { id: 'AC-15', measuredBy: ['FR-20','FR-21'], text: 'In elk experimentverslag liggen de evaluatiecriteria en normen vast vóór de resultaten, heeft elke norm een referentiewaarde zonder AI, en volgt het besluit uit de vergelijking van resultaat en norm (LU9).' },
-    { id: 'AC-16', measuredBy: ['FR-24'], text: 'Elk casusdeck bevat een transformatieplan dat processen, structuren, cultuur en vaardigheden behandelt, met per onderdeel minstens één actie (LU7).' },
+    { id: 'AC-16', measuredBy: ['FR-24'], text: 'Elk casusdeck bevat een transformatieplan dat processen, structuren, cultuur en vaardigheden behandelt, met per onderdeel minstens één actie, en bij cultuur minstens één werkregel voor het eigen team (LU7).' },
     { id: 'AC-17', measuredBy: ['FR-25'], text: 'Bij de start van dag 3 heeft elke deelnemer een wijzigingslog waarin elke versie van de stack staat, met bij elke wijziging de ADR die erbij hoort (LU5, LU8).' },
     { id: 'AC-18', measuredBy: ['FR-27','FR-14'], text: 'Elke businesscase steunt op een kansenkaart van de eigen procesketen, met bij elke plek waar AI kan helpen wie beslist (LU3, LU4).' },
+    { id: 'AC-19', measuredBy: ['FR-28','FR-29'], text: 'Aan het eind van dag 3 telt het regelboek van de groep vier werkregels: werkregel 1 van de trainer en één uit het nabespreken van elke werkplaats (LU1, LU8).' },
   ],
 
   deck: [
@@ -804,6 +818,13 @@ const DATA = {
     { label: 'Voordoen', min: 15, color: '#1a1a1a' },
     { label: 'Zelf doen', min: 50, color: '#d4db3e' },
     { label: 'Nabespreken', min: 25, color: '#f0ebe0' },
+  ],
+  // Regelboek van de groep (FR-28, FR-29). Werkregel 2–4 vult de trainer in na elke lesdag.
+  rules: [
+    { n: 1, when: 'Dag 1 · opening', text: 'Voordat je pauze neemt, zet je altijd AI aan het werk.', em: 'altijd' },
+    { n: 2, when: 'Dag 1 · werkplaats 1' },
+    { n: 3, when: 'Dag 2 · werkplaats 2' },
+    { n: 4, when: 'Dag 3 · werkplaats 3' },
   ],
 
   people: [
@@ -830,55 +851,56 @@ const DATA = {
     { chosen: 'Een interactief verslag met de opbouw van een wetenschappelijk artikel, gebouwd met AI', rejected: 'Een traditioneel paper als tekstdocument', why: 'Een diagram of simulatie laat zien wat er in het experiment gebeurde, en deelnemers ervaren meteen wat AI nu kan bouwen. De discipline blijft in de opbouw: criteria vooraf, resultaat tegen norm, besluit met bronnen.' },
     { chosen: 'Het buildplan is de roadmap voor jaar 1', rejected: 'Een aparte roadmap naast het buildplan', why: 'Twee plannen voor dezelfde route lopen uit elkaar.' },
     { chosen: 'Deelnemers kiezen de vorm van het experiment die hun vraag beantwoordt', rejected: 'Eén voorgeschreven vorm, zoals alleen een AI-prototype', why: 'Of gebruikers iets willen, toets je met mensen. Of een methode technisch werkt, toets je met een technische test. Een vaste vorm geeft op de helft van de vragen geen antwoord.' },
+    { chosen: 'Een regelboek dat de groep zelf schrijft: werkregel 1 van de trainer vanaf de start, daarna één werkregel per werkplaats, tot vier', rejected: 'Een vaste lijst van zes werkregels van de trainer, bij de start uitgedeeld', why: 'Zes regels op de eerste ochtend onthoudt niemand. Een regel die je zelf uit een ervaring haalt, houd je beter vast dan een regel die je krijgt. Werkregel 1 komt wel van de trainer, omdat die vanaf de eerste pauze moet werken. Het regelboek is geen tweede product: de werkregels voor het eigen team komen in het transformatieplan.' },
   ],
 
   days: [
     { n: 1, date: '12 november', title: 'Visie en context', blocks: [
-      { s: '9:30', e: '10:00', t: 'inhoud', title: 'Opening: leerdoelen en eigen casus vastleggen', input: 'Ontwikkeldoelen, kennismaking', output: 'Casus per deelnemer, duo\'s', lu: ['LU8'], fr: ['FR-01','FR-11'] },
+      { s: '9:30', e: '10:00', t: 'inhoud', title: 'Opening: leerdoelen en eigen casus vastleggen', detail: 'Ook het regelboek begint hier. De trainer legt werkregel 1 uit: voordat je pauze neemt, zet je altijd AI aan het werk. Die geldt vanaf de pauze van 10:45.', input: 'Ontwikkeldoelen, kennismaking', output: 'Casus per deelnemer, duo\'s', lu: ['LU8'], fr: ['FR-01','FR-11','FR-28'] },
       { s: '10:00', e: '10:45', t: 'inhoud', title: 'Wat AI nu kan en niet kan', detail: 'Begint met "Mens tegen agent": eerst zelf een urgentie geven aan een tegenstrijdige klacht, dan zien wat de agent doet. Daarna: de grillige grens van wat AI goed kan; breed gebruik tegenover zeldzame volwassen inzet (5–13% bij een strenge lat); gevoel is geen meting; vier faalwijzen van een agent en wat ze opvangt; vier kennisvormen. Generatieve AI, agents, voorspellende modellen en data.', input: '—', output: 'Begrippenkader voor de werkplaatsen', lu: ['LU1'], fr: ['FR-26','NFR-08'], materials: [
         { label: 'Vier kennisvormen', href: 'materiaal/kennisvormen.html' },
         { label: 'Voorbeeld uit de zorg: zo is een agent opgebouwd', href: 'https://businessdatasolutions.github.io/santeon-presentatie/harness.html' },
       ] },
-      { s: '10:45', e: '11:00', t: 'pauze', title: 'Pauze' },
+      { s: '10:45', e: '11:00', t: 'pauze', title: 'Pauze', aiTask: 'Start met de onderzoeksfunctie van je AI een onderzoek: wat doen organisaties in jouw sector met AI, en wat leverde het op? Na de pauze gebruik je het bij je doelen.' },
       { s: '11:00', e: '11:45', t: 'inhoud', title: 'Van visie naar doelen', detail: 'De eigen visie koppelen aan 2–4 organisatiedoelen, feedback in duo\'s. Maak de risicobereidheid expliciet: hoeveel risico wil de directie nemen met AI, en wie heeft dat hardop gezegd?', input: 'AI-visie ontwikkelen en aanscherpen, AI koppelen aan doelen', output: 'Concept van de strategische doelen', lu: ['LU2'], fr: ['FR-08','FR-10'] },
       { s: '11:45', e: '12:30', t: 'inhoud', title: 'Stakeholders', detail: 'Wie moet ja zeggen, en wie kan het tegenhouden? Bij elke stakeholder met weerstand: wat verliest deze persoon?', input: 'Stakeholderanalyse (Mendelow)', output: 'Top 3 stakeholders per casus', lu: ['LU7'], fr: ['FR-10'] },
-      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
-      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 1: bouw je boards', detail: 'De trainer laat in het voordoen een eigen board zien.', input: 'AI-visie', output: 'Advisory en supervisory board, aangescherpte visie, werkplaatslog', lu: ['LU1','LU2','LU8'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-17'] },
-      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Geef je AI je top 3 stakeholders en vraag per stakeholder: wat wint en wat verliest deze persoon met AI? Na de lunch kies je daarmee de leden van je supervisory board.' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 1: bouw je boards', detail: 'De trainer laat in het voordoen een eigen board zien. Het nabespreken eindigt met werkregel 2 voor het regelboek.', input: 'AI-visie', output: 'Advisory en supervisory board, aangescherpte visie, werkplaatslog, werkregel 2', lu: ['LU1','LU2','LU8'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-17','FR-29'] },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je aangescherpte visie en je werkplaatslog een eerste versie maken van de deckonderdelen Aanleiding en Strategische doelen.' },
       { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: aanleiding en strategische doelen', input: '—', output: 'Twee onderdelen van het deck', lu: ['LU2'], fr: ['FR-03','FR-08'] },
       { s: '16:00', e: '16:15', t: 'board', title: 'Boardmoment: visie en strategische doelen', input: 'Concept van visie en doelen', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU2'], fr: ['FR-18'] },
       { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: één volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
     ]},
     { n: 2, date: '26 november', title: 'Van knelpunt naar businesscase', blocks: [
       { s: '9:30', e: '10:30', t: 'samen', title: 'Investeringscomité', detail: 'Elke rolkaart heeft twee kritiekpunten op AI-inzet, met bewijs en tegenbewijs. Na de pitches: wat zag het AI-board dat het comité miste, en andersom?', input: 'Pitch, knelpunten en prioritering, advies van het supervisory board', output: 'Besluit en één reden per pitch, vergelijking met het AI-board', lu: ['LU3','LU4','LU8'], fr: ['FR-09','FR-19'] },
-      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze' },
+      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze', aiTask: 'Start met de onderzoeksfunctie van je AI een onderzoek naar je knelpunt, met de vragen van het comité erbij. Vraag om bronnen in APA 7. Om 11:30 gebruik je het voor je businesscase.' },
       { s: '10:45', e: '11:30', t: 'inhoud', title: 'Zo bouwen AI-bedrijven', detail: 'Voorbeelden van Google, Microsoft, OpenAI en Anthropic (deel 6.4), de bouwstraat in vijf stappen, en een demo van onderzoek met AI: literatuur, desk- en marktonderzoek, bronnen in APA 7. Waarde zit vooral in het herontwerp van het werkproces (Dutt et al., 2026). Kosten en baten over de tijd: eerst een dal, dan de winst (Brynjolfsson et al., 2021). Daarbij de productiviteitsparadox: winst op taakniveau, nauwelijks op het niveau van de organisatie.', input: 'Prioritering en haalbaarheid, Kotter', output: 'Sjablonen en werkwijze', lu: ['LU4','LU9'], fr: ['FR-23'] },
       { s: '11:30', e: '12:30', t: 'inhoud', title: 'Businesscase met AI-onderzoek', detail: 'Eerst de procesketen als kansenkaart: de trainer doet het voor met de voorbeeldcasus, daarna tekent elke deelnemer de eigen keten. Waar schuift het knelpunt heen? Daarna literatuur, desk- en marktonderzoek met de onderzoeksfunctie van je AI-omgeving. Het duo zoekt één bron op in het origineel, met de vraag: wat is er gemeten, bij wie en wanneer?', input: 'Vragen van het comité', output: 'Kansenkaart en een businesscase van hooguit twee pagina\'s, met bronnen in APA 7', lu: ['LU3','LU4'], fr: ['FR-27','FR-14','FR-08'], materials: [
         { label: 'Kansenkaart', href: 'materiaal/kansenkaart.html' },
       ] },
-      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
-      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 2: PRD en experiment', detail: 'De trainer laat in het voordoen de eigen werkwijze zien, met als voorbeeld de test of een AI-model uit foto\'s van ruimtes plattegronden kan bouwen. Doen mensen de taak nu al, dan beoordeelt de deelnemer eerst zelf een paar gevallen: dat is de referentiewaarde. Na de werkplaats gaat het experiment thuis verder (FR-21, FR-22).', input: 'Businesscase', output: 'PRD, experimentontwerp met criteria en normen, eerste proef, werkplaatslog', lu: ['LU1','LU3','LU5','LU9'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-20'], materials: [
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Laat je AI uit je businesscase en het sjabloon een eerste PRD maken. Na de lunch scherp je die aan en ontwerp je het experiment.' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 2: PRD en experiment', detail: 'De trainer laat in het voordoen de eigen werkwijze zien, met als voorbeeld de test of een AI-model uit foto\'s van ruimtes plattegronden kan bouwen. Doen mensen de taak nu al, dan beoordeelt de deelnemer eerst zelf een paar gevallen: dat is de referentiewaarde. Na de werkplaats gaat het experiment thuis verder (FR-21, FR-22). Het nabespreken eindigt met werkregel 3.', input: 'Businesscase', output: 'PRD, experimentontwerp met criteria en normen, eerste proef, werkplaatslog, werkregel 3', lu: ['LU1','LU3','LU5','LU9'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-20','FR-29'], materials: [
         { label: 'Vier kennisvormen: welke kennis heeft je use case nodig?', href: 'materiaal/kennisvormen.html' },
       ] },
-      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je businesscase en je PRD een eerste versie maken van het deckonderdeel Eerste prioriteit.' },
       { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: eerste prioriteit met businesscase', input: '—', output: 'Eén onderdeel van het deck', lu: ['LU3','LU4'], fr: ['FR-03','FR-08'] },
       { s: '16:00', e: '16:15', t: 'board', title: 'Boardmoment: businesscase en experimentontwerp', input: 'Businesscase en experimentontwerp', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU4','LU9'], fr: ['FR-18'] },
       { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: één volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
     ]},
     { n: 3, date: '10 december', title: 'Gedrag, roadmap en governance', blocks: [
-      { s: '9:30', e: '10:30', t: 'inhoud', title: 'Transformatieplan en draagvlak', detail: 'Met McKinsey 7S een plan voor processen, structuren, cultuur en vaardigheden; daarna per stakeholder één actie van weerstand naar draagvlak. Bij weerstand vier vragen: zie het als signaal, vraag door, zoek de oorzaak (verlies, onzekerheid, verlies van controle of een terechte zwakke plek), en los het niet meteen op. Bij vaardigheden: wie leert het vak nog als AI het eerste werk doet? Inclusief COM-B toegepast op deze training (axioma 2.4).', input: 'COM-B, verandermodellen (ADKAR, 7S), weerstand naar draagvlak', output: 'Transformatieplan op één pagina, één actie per stakeholder', lu: ['LU7'], fr: ['FR-10','FR-24'] },
-      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze' },
+      { s: '9:30', e: '10:30', t: 'inhoud', title: 'Transformatieplan en draagvlak', detail: 'Met McKinsey 7S een plan voor processen, structuren, cultuur en vaardigheden; daarna per stakeholder één actie van weerstand naar draagvlak. Bij weerstand vier vragen: zie het als signaal, vraag door, zoek de oorzaak (verlies, onzekerheid, verlies van controle of een terechte zwakke plek), en los het niet meteen op. Bij cultuur: één of twee werkregels voor het eigen team, met het regelboek als voorbeeld. Bij vaardigheden: wie leert het vak nog als AI het eerste werk doet? Inclusief COM-B toegepast op deze training (axioma 2.4).', input: 'COM-B, verandermodellen (ADKAR, 7S), weerstand naar draagvlak', output: 'Transformatieplan op één pagina met werkregels voor het eigen team, één actie per stakeholder', lu: ['LU7'], fr: ['FR-10','FR-24'] },
+      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je blueprint en je experimentverslag een eerste buildplan maken: drie fasen, elk met een eigenaar, een test gate en Ask, Assist of Automate.' },
       { s: '10:45', e: '11:35', t: 'inhoud', title: 'Van experiment naar buildplan', detail: 'De uitkomst van het experiment bepaalt de eerste fase. Experiment, pilot, opschaling, elk met eigenaar, testbaar artefact en een gate voor werking, integratie en gebruik. Per fase het niveau van zelfstandigheid: Ask, Assist of Automate, met wie beslist en een harde grens. Wie is de senior sponsor uit de business? Het buildplan is de roadmap voor jaar 1.', input: 'Experimentverslag, blueprint, actieplan', output: 'Buildplan', lu: ['LU5','LU9','LU6'], fr: ['FR-15','FR-22'], materials: [
         { label: 'Ask, Assist, Automate', href: 'materiaal/groeimodel.html' },
       ] },
       { s: '11:35', e: '12:30', t: 'inhoud', title: 'Governance', detail: 'Veilig voor wie? Vijf vragen per use case: de risicoklasse in de AI-verordening, persoonsgegevens, eigenaarschap, waar een mens beslist, en of de AI naar het werk of naar personen kijkt. Eerst per vraag: weet je het, weet je wie het weet, of niet? De vraag met de meeste "weet niet wie" gaat naar het duo. Vuistregel voor toezicht: kans × impact × hoe moeilijk de fout te zien is.', input: '—', output: 'Vijf antwoorden per use case, en één functie die je morgen een vraag stelt', lu: ['LU6'], fr: ['FR-16'] },
-      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
-      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 3: AI als scepticus', detail: 'De AI speelt de scepticus, met bewijs en tegenbewijs uit de kritiektrace. Nabespreken: welke soort weerstand speelde de AI?', input: 'Weerstand naar draagvlak', output: 'Geoefend gesprek, risicoklasse, werkplaatslog', lu: ['LU1','LU6','LU7'], fr: ['FR-04','FR-05','FR-06','FR-07'] },
-      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Laat je AI je use case indelen in een risicoklasse van de AI-verordening, met de artikelen erbij. Na de lunch controleer je die indeling in de tekst van de verordening.' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 3: AI als scepticus', detail: 'De AI speelt de scepticus, met bewijs en tegenbewijs uit de kritiektrace. Nabespreken: welke soort weerstand speelde de AI? Het nabespreken eindigt met werkregel 4.', input: 'Weerstand naar draagvlak', output: 'Geoefend gesprek, risicoklasse, werkplaatslog, werkregel 4', lu: ['LU1','LU6','LU7'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-29'] },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je transformatieplan, je buildplan en je governance-antwoorden een eerste versie maken van de deckonderdelen Adoptie, Roadmap jaar 1 en Governance.' },
       { s: '15:15', e: '15:45', t: 'deck', title: 'Deckblok: adoptie, roadmap, governance, randvoorwaarden en risico\'s', input: '—', output: 'Volledig concept van het deck', lu: ['LU5','LU6','LU7'], fr: ['FR-03'] },
       { s: '15:45', e: '16:00', t: 'board', title: 'Boardmoment: buildplan en governance', input: 'Buildplan en governance-antwoorden', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU5','LU6'], fr: ['FR-18'] },
       { s: '16:00', e: '16:15', t: 'samen', title: 'Rondgang langs de decks', detail: 'Feedback van minstens twee anderen.', input: '—', output: 'Feedback per deck', lu: ['LU8'], fr: ['FR-13'] },
-      { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: eigen rol en volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
+      { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: eigen rol en volgende stap', detail: 'De trainer toont het regelboek met de vier werkregels van de groep.', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12','FR-29'] },
     ]},
   ],
   typeLabel: { inhoud: 'Inhoud', werkplaats: 'AI-werkplaats', deck: 'Deckblok', samen: 'Samenwerken', board: 'Boardmoment', pauze: 'Pauze' },
@@ -918,6 +940,7 @@ const DATA = {
       'Een advisory board en een supervisory board in de eigen AI-omgeving.',
       'Een ADR-register met minstens drie ADR\'s en een wijzigingslog bij de eigen stack.',
       'Drie volgende stappen in het actieplan, één per lesdag.',
+      'Samen met de groep: een regelboek met vier werkregels. Eén of twee eigen werkregels voor het team staan in het transformatieplan (dag 3).',
     ],
     trainer: [
       ['Een draaiboek per lesdag, met voorbereide antwoorden op lastige vragen', ['NFR-07']],
@@ -930,6 +953,7 @@ const DATA = {
       ['Vijf sjablonen voor de bouwstraat: businesscase, PRD, experimentverslag, blueprint met buildplan, ADR met wijzigingslog', ['FR-23']],
       ['Reserve-accounts op Gemini voor wie geen eigen account op een frontiermodel heeft, met de instelling voor modelverbetering uit', ['NFR-03']],
       ['Een overzicht van de leerdoelen per deelnemer, gekoppeld aan leeruitkomsten', ['FR-11']],
+      ['Het regelboek met werkregel 1, een AI-taak per pauze op de startpagina, en reserveregels uit een eerder regelboek', ['FR-28','FR-29','NFR-09']],
     ],
   },
 
@@ -955,10 +979,12 @@ const DATA = {
     { risk: 'De pilot blijft een demo die niet in het werk terechtkomt', effect: 'Opschaling komt niet op gang (pilot purgatory)', mit: 'Elke gate toetst ook integratie in het werkproces en gebruik, en een senior sponsor uit de business is eigenaar van de uitkomst.', refs: ['FR-15'] },
     { risk: 'Een voorbeeld uit een andere sector leidt af', effect: 'Het gesprek gaat over ziekenhuizen in plaats van over de eigen casus', mit: 'Publieke pagina\'s uit de zorg alleen ter illustratie op dag 1, met die herkomst erbij. Het werk gebeurt met de voorbeeldcasus en de eigen casus.', refs: ['FR-26','FR-07'] },
     { risk: 'Een lespagina laadt niet op het scherm in de zaal', effect: 'Het blok heeft geen beeld', mit: 'Elke lespagina toont de inhoud ook zonder bibliotheek. De startpagina draait via een lokale server, en het draaiboek bevat de teksten.', refs: ['NFR-09'] },
+    { risk: 'Werkregel 1 blijft een grap', effect: 'Deelnemers lachen om de regel, maar de AI staat in de pauze stil', mit: 'Elke pauze heeft een AI-taak die het blok erna voorbereidt. De startpagina toont die vijf minuten vóór de pauze, en na de pauze werkt de deelnemer verder met wat de AI maakte.', refs: ['FR-28','NFR-09'] },
+    { risk: 'De groep komt in vijf minuten niet tot een werkregel', effect: 'Het regelboek blijft steken, of het nabespreken loopt uit tot in de pauze', mit: 'Elk duo schrijft een voorstel al op bij de derde vaste vraag, en de groep kiest met één stem per persoon. Komt er niets, dan biedt de trainer een werkregel uit een eerder regelboek aan.', refs: ['FR-29','FR-05'] },
   ],
 
   phases: [
-    { name: '0 — Voorbereiden', when: 'Tot 12 november', start: '2026-11-04', end: '2026-11-11', text: 'Certificaatvoorwaarden van S&N opvragen, en deel 9 bijwerken. Ontwikkeldoelen van alle zes deelnemers lezen (FR-11). Per deelnemer navragen of die een eigen account op een frontiermodel heeft. Voor de anderen een reserve-account op Gemini aanmaken, nagaan welk abonnement het sterkste model geeft, en ze één keer laten inloggen (NFR-03). Template, werkplaats 1 en de voorbeeldcasus bouwen en zelf doorlopen. Het startsjabloon voor de boards maken en testen in ChatGPT, Claude en Gemini (FR-17). De startpagina van dag 1 en "Mens tegen agent" testen op het scherm (FR-26, NFR-09). Fouten in de online omgeving melden bij S&N.' },
+    { name: '0 — Voorbereiden', when: 'Tot 12 november', start: '2026-11-04', end: '2026-11-11', text: 'Certificaatvoorwaarden van S&N opvragen, en deel 9 bijwerken. Ontwikkeldoelen van alle zes deelnemers lezen (FR-11). Per deelnemer navragen of die een eigen account op een frontiermodel heeft. Voor de anderen een reserve-account op Gemini aanmaken, nagaan welk abonnement het sterkste model geeft, en ze één keer laten inloggen (NFR-03). Template, werkplaats 1 en de voorbeeldcasus bouwen en zelf doorlopen. Het startsjabloon voor de boards maken en testen in ChatGPT, Claude en Gemini (FR-17). De startpagina van dag 1 en "Mens tegen agent" testen op het scherm (FR-26, NFR-09), met werkregel 1 vóór elke pauze. Nagaan of elke AI-taak binnen zijn pauze klaar is (FR-28). Fouten in de online omgeving melden bij S&N.' },
     { name: '1 — Dag 1 als test', when: '12 november', start: '2026-11-12', end: '2026-11-12', text: 'Ritme van de werkplaats, de deckblokken en het boardmoment testen. Aan het eind van de dag noteren welke blokken uitliepen.' },
     { name: '2 — Bijsturen', when: '13–25 november', start: '2026-11-13', end: '2026-11-25', text: 'Werkplaats 2, de rolkaarten met de kritiekpunten, de vijf sjablonen van de bouwstraat en de voorbeelden van AI-bedrijven (met gecontroleerde links) bouwen, met wat dag 1 leerde. De kansenkaart en de kennisvormen testen vóór 26 november. Werkplaats 3 en het groeimodel testen vóór 10 december.' },
     { name: '3 — Dag 2 en 3', when: '26 november, 10 december', start: '2026-11-26', end: '2026-12-10', text: 'Uitvoeren volgens deze LRD, met de bijsturing uit fase 2.' },
@@ -1046,10 +1072,16 @@ function renderTables() {
     <div class="bds-card is-tier-1"><div class="bds-eyebrow">Dag ${w.day}</div><h4 style="margin:0 0 var(--space-2);font-size:var(--text-lg)">${esc(w.name)}</h4>
     <p class="small" style="margin:0 0 var(--space-2)">${esc(w.task)}</p>${chips(w.lu)}</div>`).join('');
 
+  // Regelboek: ingevulde werkregels met het nadrukwoord vet, lege plekken als belofte.
+  const nadruk = (tekst, em) => em ? esc(tekst).replace(esc(em), `<strong>${esc(em)}</strong>`) : esc(tekst);
+  $('#rules').innerHTML = DATA.rules.map(r => `<div class="regel" role="listitem">
+    <div class="bds-eyebrow">Werkregel ${r.n} · ${esc(r.when)}</div>
+    ${r.text ? `<p>${nadruk(r.text, r.em)}</p>` : '<p class="regel-open">De groep kiest deze werkregel in het nabespreken.</p>'}</div>`).join('');
+
   // Programma voor print: alle dagen als tabel.
   $('#prog-print').innerHTML = DATA.days.map(d => `<h3>Dag ${d.n} — ${d.date}: ${esc(d.title)}</h3>
     <div class="table-wrap"><table><thead><tr><th>Tijd</th><th>Blok</th><th>Invoer uit de online omgeving</th><th>Uitkomst</th><th>LU</th></tr></thead><tbody>
-    ${d.blocks.map(b => `<tr><td style="white-space:nowrap">${b.s}–${b.e}</td><td><strong>${esc(b.title)}</strong>${b.detail ? ' ' + esc(b.detail) : ''}</td><td>${esc(b.input || '')}</td><td>${esc(b.output || '')}</td><td>${(b.lu || []).join(', ')}</td></tr>`).join('')}
+    ${d.blocks.map(b => `<tr><td style="white-space:nowrap">${b.s}–${b.e}</td><td><strong>${esc(b.title)}</strong>${b.detail ? ' ' + esc(b.detail) : ''}${b.aiTask ? ' Werkregel 1, AI aan het werk: ' + esc(b.aiTask) : ''}</td><td>${esc(b.input || '')}</td><td>${esc(b.output || '')}</td><td>${(b.lu || []).join(', ')}</td></tr>`).join('')}
     </tbody></table></div>`).join('');
 }
 
@@ -1079,6 +1111,7 @@ function initProgramme() {
     $$('.tl-block', tl).forEach(x => x.setAttribute('aria-pressed', x === btn));
     det.innerHTML = `<div class="bds-eyebrow">Dag ${d.n} · ${b.s}–${b.e} · ${DATA.typeLabel[b.t]}</div>
       <h3 style="margin:0">${esc(b.title)}</h3>${b.detail ? `<p class="small" style="margin:var(--space-2) 0 0">${esc(b.detail)}</p>` : ''}
+      ${b.aiTask ? `<p class="small" style="margin:var(--space-2) 0 0"><strong>Werkregel 1 · AI aan het werk vóór de pauze:</strong> ${esc(b.aiTask)} ${chip('FR-28')}</p>` : ''}
       ${b.t === 'pauze' ? '' : `<dl><dt>Invoer</dt><dd>${esc(b.input || '—')}</dd><dt>Uitkomst</dt><dd>${esc(b.output || '—')}</dd>
       <dt>Leeruitkomsten</dt><dd>${chips(b.lu) || '—'}</dd><dt>Eisen</dt><dd>${chips(b.fr) || '—'}</dd>
       ${(b.materials || []).length ? `<dt>Materiaal</dt><dd>${b.materials.map(m => /^https?:/.test(m.href)

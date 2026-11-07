@@ -2,6 +2,22 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.12 — 2026-11-07
+
+**Toegevoegd** (ADR-023)
+- FR-28: werkregel 1 vanaf de opening van dag 1: "Voordat je pauze neemt, zet je altijd AI aan het werk." Elke pauze heeft een AI-taak (`aiTask`) die het blok erna voorbereidt.
+- FR-29 en AC-19: in het nabespreken van elke werkplaats kiest de groep een nieuwe werkregel. Na dag 3 telt het regelboek vier werkregels.
+- `DATA.rules` en de kaart "Het regelboek" in deel 6.2. De AI-taak staat bij elke pauze in het detailpaneel van deel 8.
+- Een KISS-keuze: vier werkregels die de groep zelf schrijft, in plaats van zes regels bij de start.
+- Twee risico's: werkregel 1 blijft een grap, en de groep komt niet tot een werkregel.
+- Startpagina: werkregel 1 met de AI-taak in de laatste vijf minuten vóór en tijdens elke pauze. De lijst toont de taak bij elke pauze.
+- Draaiboek-bouwstenen: het regelboek voor alle dagen, met reserveregels uit de minor, en werkregels voor het eigen team bij cultuur op dag 3.
+
+**Gewijzigd**
+- FR-24 en AC-16: bij cultuur in het transformatieplan staan één of twee werkregels voor het eigen team.
+- NFR-09: de startpagina toont werkregel 1 vóór elke pauze.
+- Axioma 2.3 en 2.4, de PAMS-tabel, het nabespreken in 6.2, zes programmablokken, de opleverlijsten en fase 0.
+
 ## 0.11 — 2026-11-07
 
 **Toegevoegd** (ADR-018 t/m ADR-022, uit de [hergebruiknotitie](onderzoek/2026-11-07-hergebruik-santeon-presentatie.md))
