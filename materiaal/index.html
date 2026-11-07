@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesdag AISO26009</title>
+<meta name="description" content="Startpagina voor de beamer tijdens een lesdag van AISO26009 AI Strategie en Organisatietransformatie: programma, tijdlijn en timer.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --cream: #f5f0e6;
+  --bg-yellow: #fafbf0;
+  --bg-cream: #f5f0e6;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --shadow-md: 0 2px 4px rgba(0,0,0,.06), 0 8px 16px rgba(0,0,0,.06);
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1680px;
+  --kop: 0px; /* hoogte van de vaste kop, gezet door het script */
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--kop) + 16px); }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.5;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button { font: inherit; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[hidden] { display: none !important; }
+
+/* ---------------- Kop: warm zwart, blijft staan ---------------- */
+header.kop { position: sticky; top: 0; z-index: 10; background: var(--supporting); color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(14px, 1.8vw, 28px) var(--rand) clamp(14px, 1.6vw, 24px); display: flex; flex-direction: column; gap: clamp(12px, 1.4vw, 22px); }
+.kop-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px 32px; }
+.titel { min-width: 0; }
+.eyebrow { font-size: clamp(.75rem, .8vw, .9rem); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 6px; }
+h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.15; margin: 0; overflow-wrap: break-word; text-wrap: balance; }
+.kop-rechts { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }
+.klok { font-family: var(--mono); font-size: clamp(1.125rem, 1.5vw, 1.75rem); font-weight: 600; color: var(--bg-off-white); font-variant-numeric: tabular-nums; margin: 0; }
+
+.pillen { display: flex; flex-wrap: wrap; gap: 6px; }
+.pil { font-size: .875rem; font-weight: 600; border: 1px solid var(--text-secondary); background: none; color: var(--border); border-radius: var(--radius-full); padding: 6px 14px; cursor: pointer; text-decoration: none; white-space: nowrap; line-height: 1.3; }
+.pil:hover { border-color: var(--primary); }
+.pil[aria-current="page"], .pil[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.pil.is-actie { border-color: var(--primary); color: var(--primary); }
+.kop :focus-visible { outline: 2px solid var(--bg-off-white); outline-offset: 2px; }
+
+.kop-nu { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px clamp(24px, 3vw, 56px); align-items: end; }
+.nu { min-width: 0; display: flex; flex-direction: column; }
+.nu-label { font-size: clamp(.75rem, .9vw, 1rem); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0; min-height: 1.4em; }
+.nu-titel { font-size: clamp(1.5rem, 2.9vw, 3.25rem); font-weight: 700; line-height: 1.1; margin: 6px 0 0; text-wrap: balance; overflow-wrap: break-word; }
+.nu-maakt { font-size: clamp(1rem, 1.35vw, 1.5rem); color: var(--border); margin: 12px 0 0; max-width: 60ch; }
+.nu-maakt b { color: var(--bg-off-white); }
+.nu-daarna { font-size: clamp(.875rem, 1.05vw, 1.2rem); color: var(--border-strong); margin: 8px 0 0; }
+.bediening { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: clamp(14px, 1.6vw, 24px); }
+
+.timer { border: 1px solid var(--text-secondary); border-radius: var(--radius-lg); padding: clamp(8px, 1vw, 14px) clamp(18px, 2vw, 32px) clamp(10px, 1.1vw, 16px); text-align: center; min-width: 5.6ch; transition: background-color .3s, border-color .3s; }
+.timer-label, .timer-sub { font-size: clamp(.75rem, .95vw, 1.05rem); color: var(--border-strong); font-weight: 600; margin: 0; min-height: 1.4em; }
+.timer-label { letter-spacing: .1em; text-transform: uppercase; }
+.timer-cijfers { font-size: clamp(4rem, 9vw, 10rem); font-weight: 700; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin: 2px 0 4px; white-space: nowrap; }
+.timer[data-staat="eind"] { background: var(--primary); border-color: var(--primary); }
+.timer[data-staat="eind"], .timer[data-staat="eind"] * { color: var(--supporting); }
+.timer[data-staat="pauze"] .timer-cijfers { color: var(--border-strong); }
+.timer[data-staat="woord"] .timer-cijfers { font-size: clamp(2.5rem, 4.6vw, 5.5rem); padding: .2em 0; }
+
+/* ---------------- Tijdlijn: lichte band onder de kop ---------------- */
+.band { background: var(--bg-page); color: var(--text-primary); border-bottom: 1px solid var(--border); }
+.band-binnen { max-width: var(--breed); margin: 0 auto; padding: 14px var(--rand) 8px; }
+.spoor { position: relative; height: clamp(16px, 2vw, 30px); }
+.balk { position: absolute; top: 0; bottom: 0; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-page); color: var(--text-primary); cursor: pointer; container-type: inline-size; overflow: hidden; transition: opacity .3s; }
+.balk span { display: block; padding: 0 8px; font-size: .75rem; font-weight: 600; line-height: calc(clamp(16px, 2vw, 30px) - 2px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@container (max-width: 84px) { .balk span { display: none; } }
+.balk:hover { box-shadow: var(--shadow-md); }
+.balk.is-later { opacity: .5; }
+.balk.is-nu { outline: 2px solid var(--supporting); outline-offset: 1px; z-index: 1; }
+.t-werkplaats { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.t-deck { background: var(--bg-cream-2); color: var(--supporting); }
+.t-inhoud { background: var(--bg-page); }
+.t-samen { background: var(--supporting); border-color: var(--supporting); color: #fff; }
+.t-board { background: var(--text-muted); border-color: var(--text-muted); color: #fff; }
+.t-pauze { background: repeating-linear-gradient(135deg, var(--bg-section) 0 6px, var(--bg-page) 6px 12px); border-style: dashed; color: var(--text-muted); }
+.balk.t-pauze span { font-weight: 400; }
+.pin { position: absolute; top: -6px; bottom: -6px; width: 4px; margin-left: -2px; border-radius: 2px; background: var(--supporting); box-shadow: 0 0 0 2px var(--bg-page); z-index: 2; pointer-events: none; }
+.pin::before { content: ""; position: absolute; left: 50%; top: -6px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--primary); border: 2px solid var(--supporting); }
+.ticks { position: relative; height: 18px; margin-top: 6px; font-family: var(--mono); font-size: .7rem; color: var(--text-muted); }
+.tick { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.tick.is-begin { transform: none; }
+.tick.is-eind { transform: translateX(-100%); }
+
+/* ---------------- Blokken ---------------- */
+main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; padding: clamp(16px, 2.4vw, 36px) var(--rand) clamp(32px, 4vw, 56px); }
+.lijst { list-style: none; margin: 0; padding: 0; }
+.rij { display: grid; grid-template-columns: clamp(7.5rem, 10vw, 11rem) minmax(0, 1fr); gap: 6px clamp(16px, 2vw, 32px); padding: clamp(16px, 1.6vw, 24px) 16px; border-top: 1px solid var(--border); border-radius: var(--radius-md); }
+.rij:first-child { border-top-color: transparent; }
+.rij.is-nu { background: var(--bg-yellow); box-shadow: inset 4px 0 0 var(--primary), 0 0 0 1px var(--primary); border-top-color: transparent; }
+.rij.is-nu + .rij { border-top-color: transparent; }
+.rij-tijd { display: flex; flex-direction: column; gap: 2px; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.van-tot { font-size: clamp(.95rem, 1.1vw, 1.25rem); font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+.duur { font-size: .8rem; color: var(--text-muted); }
+.rij-inhoud { min-width: 0; }
+.rij-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 4px; }
+.type { display: inline-flex; align-items: center; gap: 8px; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-secondary); }
+.staal { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border-strong); flex-shrink: 0; }
+.nu-badge { display: none; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--primary); color: var(--supporting); border-radius: var(--radius-full); padding: 2px 10px; }
+.rij.is-nu .nu-badge { display: inline-block; }
+.rij-titel { font-size: clamp(1.125rem, 1.55vw, 1.75rem); font-weight: 700; line-height: 1.25; margin: 0; overflow-wrap: break-word; }
+.blokknop { display: inline; border: 0; background: none; padding: 0; margin: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; border-radius: 4px; }
+.blokknop:hover { text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.blokknop:focus-visible, .tegel:focus-visible, footer a:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+.maakt { margin: 8px 0 0; font-size: clamp(1rem, 1.15vw, 1.25rem); color: var(--text-secondary); max-width: 75ch; }
+.maakt b { color: var(--text-primary); }
+.tegels { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: 14px; }
+.tegel { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg-page); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; text-decoration: none; font-weight: 700; line-height: 1.3; transition: transform .15s, border-color .15s; }
+.tegel:hover { border-color: var(--primary); transform: translateY(-2px); }
+.tegel-pijl { flex-shrink: 0; width: 30px; height: 30px; border-radius: var(--radius-full); display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; font-weight: 700; background: var(--bg-cream); color: var(--supporting); }
+.tegel.is-extern .tegel-pijl { background: var(--primary); color: var(--supporting); }
+
+.rij.is-pauze { padding-top: 8px; padding-bottom: 8px; align-items: center; color: var(--text-muted); }
+.rij.is-pauze .van-tot { font-size: .875rem; font-weight: 400; color: var(--text-muted); }
+.rij.is-pauze .rij-inhoud { display: flex; align-items: center; gap: 12px; }
+.rij.is-pauze .blokknop { font-size: .95rem; color: var(--text-muted); }
+.rij.is-pauze.is-nu .blokknop { color: var(--text-primary); font-weight: 600; }
+
+.melding-kaart { background: var(--bg-page); border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: clamp(20px, 2.4vw, 32px); max-width: 70ch; }
+.melding-kaart h2 { font-size: clamp(1.25rem, 1.8vw, 1.75rem); margin: 0 0 12px; line-height: 1.25; }
+.melding-kaart p, .melding-kaart li { margin: 0 0 10px; }
+.melding-kaart ol { padding-left: 1.25rem; margin: 0 0 10px; }
+.melding-kaart code { font-family: var(--mono); font-size: .9em; background: var(--bg-section); padding: .1em .4em; border-radius: 4px; border: 1px solid var(--border); overflow-wrap: anywhere; }
+.melding-kaart .fout { font-size: .875rem; color: var(--text-muted); }
+.laden { color: var(--text-muted); }
+
+/* ---------------- Voet ---------------- */
+footer { width: 100%; max-width: var(--breed); margin: 0 auto; padding: 16px var(--rand) 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: .8rem; color: var(--text-muted); }
+footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+/* ---------------- Smal scherm: kop rolt mee, alles onder elkaar ---------------- */
+@media (max-width: 720px), (max-height: 560px) {
+  header.kop { position: static; }
+}
+@media (max-width: 720px) {
+  .kop-nu { grid-template-columns: minmax(0, 1fr); }
+  .timer { width: 100%; }
+  .bediening { margin-top: 0; order: 3; }
+  .rij { grid-template-columns: minmax(0, 1fr); padding-left: 12px; padding-right: 12px; }
+  .rij-tijd { flex-direction: row; align-items: baseline; gap: 10px; }
+  .rij.is-pauze { grid-template-columns: auto minmax(0, 1fr); }
+  .tick.is-dicht { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .tegel:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<header class="kop" id="kop">
+  <div class="kop-binnen">
+    <div class="kop-top">
+      <div class="titel">
+        <p class="eyebrow">AISO26009 · AI Strategie en Organisatietransformatie</p>
+        <h1 id="dagtitel">Lesdag</h1>
+      </div>
+      <div class="kop-rechts">
+        <nav class="pillen" id="dagen" aria-label="Lesdag"></nav>
+        <p class="klok"><span class="sr">Tijd nu: </span><time id="klok">--:--</time></p>
+      </div>
+    </div>
+    <div class="kop-nu" id="kop-nu" hidden>
+      <div class="nu">
+        <p class="nu-label" id="nu-label"></p>
+        <p class="nu-titel" id="nu-titel"></p>
+        <p class="nu-maakt" id="nu-maakt" hidden></p>
+        <p class="nu-daarna" id="nu-daarna" hidden></p>
+        <div class="bediening">
+          <div class="pillen" role="group" aria-label="Timer">
+            <button type="button" class="pil" data-modus="klok" aria-pressed="true">Volg de klok</button>
+            <button type="button" class="pil" data-modus="hand" aria-pressed="false">Handmatig</button>
+          </div>
+          <div class="pillen" id="hand-knoppen" hidden>
+            <button type="button" class="pil is-actie" id="pauze" aria-keyshortcuts="Space" title="Pauze of verder (spatie)">Pauze</button>
+            <button type="button" class="pil is-actie" id="opnieuw" aria-keyshortcuts="R" title="Zet de timer terug (R)">Opnieuw</button>
+          </div>
+        </div>
+      </div>
+      <div class="timer" id="timer" data-staat="normaal">
+        <p class="timer-label" id="timer-label"></p>
+        <div class="timer-cijfers" id="timer-cijfers" role="timer" aria-live="off" aria-atomic="true">--:--</div>
+        <p class="timer-sub" id="timer-sub"></p>
+      </div>
+    </div>
+  </div>
+  <div class="band" id="band" hidden>
+    <div class="band-binnen">
+      <div class="spoor" id="spoor" aria-hidden="true"></div>
+      <div class="ticks" id="ticks" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+<div class="sr" id="melding" aria-live="polite"></div>
+
+<main id="inhoud">
+  <p class="laden" id="laden">Programma laden…</p>
+  <ol class="lijst" id="lijst" aria-label="Programma van de dag" hidden></ol>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <a href="../LRD-AISO26009-lesdagen.html">Ontwerp (LRD)</a>
+  </div>
+</footer>
+
+<script type="module">
+/* ================================================================
+   Het programma staat alleen in de LRD (const DATA). Deze pagina
+   haalt de LRD op, knipt het DATA-object eruit en leest het.
+   ================================================================ */
+const LRD_URL = new URL('../LRD-AISO26009-lesdagen.html', location.href);
+const OPSLAG = 'aiso26009-lesdag';
+const TZ = 'Europe/Amsterdam';
+const VIJF_MIN = 300;
+const TYPES = ['inhoud', 'werkplaats', 'deck', 'samen', 'board', 'pauze'];
+const RUSTIG = matchMedia('(prefers-reduced-motion: reduce)');
+const params = new URLSearchParams(location.search);
+
+const $ = id => document.getElementById(id);
+const kop = $('kop');
+/* Hoogte van de vaste kop, zodat een blok niet onder de kop verdwijnt. Geeft terug of de kop vast staat. */
+function meetKop() {
+  const vast = getComputedStyle(kop).position === 'sticky';
+  document.documentElement.style.setProperty('--kop', vast ? `${kop.offsetHeight}px` : '0px');
+  return vast;
+}
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/* ---------- Opslag: de pagina werkt ook zonder ---------- */
+const opslag = {
+  lees() { try { return JSON.parse(localStorage.getItem(OPSLAG)) || {}; } catch { return {}; } },
+  schrijf(v) { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); } catch { /* geen opslag */ } },
+};
+
+/* ---------- Tijd in Amsterdam ---------- */
+const delen = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' });
+const datumNL = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' });
+function echteSec() {
+  const p = Object.fromEntries(delen.formatToParts(new Date()).map(x => [x.type, x.value]));
+  return (+p.hour % 24) * 3600 + (+p.minute) * 60 + (+p.second) + (Date.now() % 1000) / 1000;
+}
+// ?tijd=10:42 zet de klok op een andere tijd van de dag, om de pagina te proberen.
+let verschuiving = 0;
+const proef = /^(\d{1,2}):(\d{2})$/.exec(params.get('tijd') || '');
+if (proef) verschuiving = (+proef[1] * 3600 + +proef[2] * 60) - echteSec();
+const nuSec = () => ((echteSec() + verschuiving) % 86400 + 86400) % 86400;
+const hm = s => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s).trim()); return m ? +m[1] * 3600 + +m[2] * 60 : NaN; };
+const klokTekst = sec => { const m = Math.floor(sec / 60); return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`; };
+function aftel(sec) {
+  const t = Math.max(0, Math.ceil(sec));
+  const h = Math.floor(t / 3600), m = Math.floor(t / 60), s = String(t % 60).padStart(2, '0');
+  return m >= 100 ? `${h}:${String(m % 60).padStart(2, '0')}:${s}` : `${m}:${s}`;
+}
+
+/* ---------- DATA uit de LRD ---------- */
+function objectLiteraal(src, merk) {
+  const op = src.indexOf(merk);
+  if (op < 0) throw new Error(`"${merk}" staat niet in de LRD`);
+  const begin = op + merk.length - 1;
+  let diepte = 0;
+  for (let i = begin; i < src.length; i++) {
+    const c = src[i], n = src[i + 1];
+    if (c === "'" || c === '"' || c === '`') {
+      for (i++; i < src.length && src[i] !== c; i++) if (src[i] === '\\') i++;
+    } else if (c === '/' && n === '/') {
+      i = src.indexOf('\n', i); if (i < 0) break;
+    } else if (c === '/' && n === '*') {
+      i = src.indexOf('*/', i + 2); if (i < 0) break; i++;
+    } else if (c === '{') diepte++;
+    else if (c === '}' && --diepte === 0) return src.slice(begin, i + 1);
+  }
+  throw new Error('het DATA-object in de LRD sluit niet');
+}
+function leesData(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const script = doc.querySelector('script[type="module"]');
+  if (!script) throw new Error('geen module-script in de LRD');
+  // De LRD is een eigen bestand uit dezelfde repo, opgehaald van een vast pad op dezelfde
+  // bron (LRD_URL). De LRD voert dit DATA-object zelf ook als code uit. Evalueren voegt
+  // dus geen vertrouwensgrens toe. Een JSON5-parser van een CDN zou de pagina afhankelijk
+  // maken van internet in de zaal. De fetch hieronder weigert een antwoord van een andere bron.
+  const data = new Function('return (' + objectLiteraal(script.textContent, 'const DATA = {') + ')')();
+  if (!Array.isArray(data?.days) || !data.days.length) throw new Error('DATA.days ontbreekt of is leeg');
+  return data;
+}
+
+/* ---------- Toestand ---------- */
+let DATA = null, dag = null, blokken = [], beginDag = 0, eindDag = 0;
+const bewaard = opslag.lees();
+const geldig = h => !!h && typeof h === 'object' && Number.isInteger(h.dag) && Number.isInteger(h.i) && typeof h.loopt === 'boolean'
+  && (h.loopt ? Number.isFinite(h.eindOp) : Number.isFinite(h.rest));
+const staat = { modus: bewaard.modus === 'hand' ? 'hand' : 'klok', hand: geldig(bewaard.hand) ? bewaard.hand : null };
+const bewaar = () => opslag.schrijf({ modus: staat.modus, hand: staat.hand });
+let vorigeSleutel = null, eersteKeer = true;
+
+const typeVan = t => (TYPES.includes(t) ? t : 'inhoud');
+const label = t => DATA?.typeLabel?.[t] ?? t;
+const heeftUitkomst = b => b.output && !/^[—–-]\s*$/.test(String(b.output).trim());
+
+function dagNummers() { return DATA.days.map(d => d.n); }
+function standaardDag() {
+  const gevraagd = +params.get('dag');
+  if (dagNummers().includes(gevraagd)) return gevraagd;
+  const vandaag = datumNL.format(new Date());
+  const mijlpaal = (DATA.milestones || []).find(m => m.date === vandaag && /^Dag\s+\d+$/.test(m.label));
+  const n = mijlpaal ? +mijlpaal.label.replace(/\D/g, '') : NaN;
+  return dagNummers().includes(n) ? n : (dagNummers().includes(1) ? 1 : DATA.days[0].n);
+}
+
+/* ---------- Opbouw van een dag ---------- */
+function kiesDag(n, metUrl = true) {
+  dag = DATA.days.find(d => d.n === n) || DATA.days[0];
+  blokken = (dag.blocks || []).map((b, i) => ({ ...b, i, t: typeVan(b.t), sec: hm(b.s), eSec: hm(b.e) }))
+    .filter(b => Number.isFinite(b.sec) && Number.isFinite(b.eSec) && b.eSec > b.sec);
+  beginDag = Math.min(...blokken.map(b => b.sec));
+  eindDag = Math.max(...blokken.map(b => b.eSec));
+  if (metUrl) {
+    const u = new URL(location.href); u.searchParams.set('dag', dag.n);
+    try { history.replaceState(null, '', u); } catch { /* geen geschiedenis */ }
+  }
+  $('dagtitel').textContent = `Dag ${dag.n} · ${dag.date} · ${dag.title}`;
+  $('dagen').innerHTML = DATA.days.map(d =>
+    `<a class="pil" href="?dag=${esc(d.n)}" data-dag="${esc(d.n)}"${d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
+  tekenTijdlijn();
+  tekenLijst();
+  vorigeSleutel = null;
+  ververs();
+}
+
+function tegel(m) {
+  if (!m || !m.href) return '';
+  let url;
+  try { url = new URL(m.href, LRD_URL); } catch { return ''; }
+  if (!/^https?:$/.test(url.protocol)) return '';
+  const extern = url.origin !== location.origin;
+  return `<a class="tegel${extern ? ' is-extern' : ''}" href="${esc(url.href)}"${extern ? ' target="_blank" rel="noopener noreferrer"' : ''}>`
+    + `<span>${esc(m.label || url.pathname.split('/').pop())}</span>`
+    + `<span class="tegel-pijl" aria-hidden="true">${extern ? '↗' : '→'}</span>`
+    + (extern ? '<span class="sr"> (opent in een nieuw tabblad)</span>' : '')
+    + '</a>';
+}
+
+function tekenLijst() {
+  const lijst = $('lijst');
+  lijst.innerHTML = blokken.map(b => {
+    const min = Math.round((b.eSec - b.sec) / 60);
+    const knop = `<button type="button" class="blokknop" data-blok="${b.i}" title="Start de timer voor dit blok">${esc(b.title)}</button>`;
+    if (b.t === 'pauze') {
+      return `<li class="rij is-pauze" id="blok-${b.i}" data-blok-rij="${b.i}">
+        <div class="rij-tijd"><span class="van-tot">${esc(b.s)}–${esc(b.e)}</span></div>
+        <div class="rij-inhoud">${knop}<span class="nu-badge">Nu</span></div></li>`;
+    }
+    const mat = Array.isArray(b.materials) ? b.materials.map(tegel).filter(Boolean) : [];
+    return `<li class="rij" id="blok-${b.i}" data-blok-rij="${b.i}">
+      <div class="rij-tijd"><span class="van-tot">${esc(b.s)}–${esc(b.e)}</span><span class="duur">${min} min</span></div>
+      <div class="rij-inhoud">
+        <div class="rij-meta"><span class="type"><span class="staal t-${b.t}"></span>${esc(label(b.t))}</span><span class="nu-badge">Nu</span></div>
+        <h2 class="rij-titel">${knop}</h2>
+        ${heeftUitkomst(b) ? `<p class="maakt"><b>Je maakt:</b> ${esc(b.output)}</p>` : ''}
+        ${mat.length ? `<div class="tegels">${mat.join('')}</div>` : ''}
+      </div></li>`;
+  }).join('');
+  $('laden').hidden = true;
+  lijst.hidden = false;
+}
+
+const pos = sec => ((sec - beginDag) / (eindDag - beginDag)) * 100;
+function tekenTijdlijn() {
+  $('spoor').innerHTML = blokken.map(b =>
+    `<div class="balk t-${b.t}" data-blok="${b.i}" style="left:${pos(b.sec)}%;width:calc(${pos(b.eSec) - pos(b.sec)}% - 2px)"><span>${esc(b.title)}</span></div>`
+  ).join('') + '<span class="pin" id="pin" hidden></span>';
+  const ticks = [beginDag];
+  for (let h = Math.ceil(beginDag / 3600) * 3600; h < eindDag; h += 3600) if (h > beginDag) ticks.push(h);
+  if (eindDag > ticks[ticks.length - 1]) ticks.push(eindDag);
+  $('ticks').innerHTML = ticks.map((t, k) => {
+    const rand = k === 0 ? ' is-begin' : k === ticks.length - 1 ? ' is-eind' : '';
+    const dicht = !rand && (t - beginDag < 2700 || eindDag - t < 2700) ? ' is-dicht' : '';
+    return `<span class="tick${rand}${dicht}" style="left:${pos(t)}%">${klokTekst(t)}</span>`;
+  }).join('');
+}
+
+/* ---------- Waar staan we? ---------- */
+function bepaal() {
+  if (staat.modus === 'hand') {
+    const h = staat.hand;
+    const b = h && h.dag === dag.n ? blokken.find(x => x.i === h.i) : null;
+    if (!b) return { soort: 'kies' };
+    const duur = b.eSec - b.sec;
+    const rest = h.loopt ? Math.max(0, (h.eindOp - Date.now()) / 1000) : Math.max(0, (h.rest ?? duur * 1000) / 1000);
+    return { soort: 'blok', b, rest, pin: b.sec + Math.min(duur, duur - rest), gepauzeerd: !h.loopt };
+  }
+  const t = nuSec();
+  const b = blokken.find(x => x.sec <= t && t < x.eSec);
+  if (b) return { soort: 'blok', b, rest: b.eSec - t, pin: t };
+  if (t < beginDag) return { soort: 'voor', b: blokken.find(x => x.sec === beginDag), rest: beginDag - t };
+  if (t >= eindDag) return { soort: 'na' };
+  const volgende = blokken.filter(x => x.sec > t).sort((p, q) => p.sec - q.sec)[0];
+  return { soort: 'tussen', b: volgende, rest: volgende.sec - t, pin: t };
+}
+const naBlok = b => blokken.filter(x => x.sec >= b.eSec && x.i !== b.i).sort((p, q) => p.sec - q.sec)[0];
+
+function ververs() {
+  if (!dag) return;
+  const nu = bepaal();
+  const hand = staat.modus === 'hand';
+  const sleutel = `${dag.n}|${staat.modus}|${nu.soort}|${nu.b?.i ?? ''}`;
+
+  // Timer
+  const timer = $('timer');
+  let cijfers, timerLabel = 'Nog', timerSub = '', toestand = 'normaal';
+  if (nu.soort === 'blok') {
+    cijfers = aftel(nu.rest);
+    if (nu.rest <= VIJF_MIN) toestand = 'eind';
+    if (nu.gepauzeerd) { timerLabel = 'Gepauzeerd'; if (toestand !== 'eind') toestand = 'pauze'; }
+    if (nu.rest <= 0) timerLabel = 'Tijd is om';
+    timerSub = hand ? `van ${Math.round((nu.b.eSec - nu.b.sec) / 60)} min` : `tot ${nu.b.e}`;
+  } else if (nu.soort === 'voor' || nu.soort === 'tussen') {
+    cijfers = aftel(nu.rest); timerLabel = 'Begint over'; timerSub = `om ${nu.b.s}`;
+  } else if (nu.soort === 'na') {
+    cijfers = 'Afgelopen'; timerLabel = ''; toestand = 'woord';
+  } else {
+    cijfers = '–:––'; timerLabel = 'Handmatig'; timerSub = 'kies een blok';
+  }
+  if ($('timer-cijfers').textContent !== cijfers) $('timer-cijfers').textContent = cijfers;
+  if (timer.dataset.staat !== toestand) timer.dataset.staat = toestand;
+  $('timer-label').textContent = timerLabel;
+  $('timer-sub').textContent = timerSub;
+
+  // Pin op de tijdlijn
+  const pin = $('pin');
+  if (pin) {
+    const zichtbaar = nu.pin != null && nu.pin >= beginDag && nu.pin <= eindDag;
+    pin.hidden = !zichtbaar;
+    if (zichtbaar) pin.style.left = `${pos(nu.pin)}%`;
+  }
+
+  // Knoppen
+  document.querySelectorAll('[data-modus]').forEach(k => k.setAttribute('aria-pressed', String(k.dataset.modus === staat.modus)));
+  $('hand-knoppen').hidden = !(hand && nu.soort === 'blok');
+  $('pauze').textContent = nu.gepauzeerd ? 'Verder' : 'Pauze';
+
+  if (sleutel === vorigeSleutel) return;
+  vorigeSleutel = sleutel;
+
+  // Tekst bij "nu"
+  const zet = (id, html) => { const el = $(id); el.hidden = !html; el.innerHTML = html || ''; };
+  let nuLabel = '', nuTitel = '', maakt = '', daarna = '';
+  if (nu.soort === 'blok') {
+    nuLabel = `Nu · ${label(nu.b.t)}`; nuTitel = nu.b.title;
+    if (nu.b.t !== 'pauze' && heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
+    const v = naBlok(nu.b);
+    daarna = v ? `Daarna: ${esc(v.title)}` : '';
+  } else if (nu.soort === 'voor' || nu.soort === 'tussen') {
+    nuLabel = `Straks · ${label(nu.b.t)}`; nuTitel = nu.b.title;
+    if (heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
+  } else if (nu.soort === 'na') {
+    const volgende = DATA.days.filter(d => d.n > dag.n).sort((p, q) => p.n - q.n)[0];
+    nuLabel = volgende ? 'Volgende lesdag' : 'Afgelopen';
+    nuTitel = volgende ? `Dag ${volgende.n} · ${volgende.date} · ${volgende.title}` : 'Dit was de laatste lesdag.';
+  } else {
+    nuLabel = 'Handmatig'; nuTitel = 'Kies een blok in de tijdlijn of in de lijst.';
+  }
+  $('nu-label').textContent = nuLabel;
+  $('nu-titel').textContent = nuTitel;
+  zet('nu-maakt', maakt);
+  zet('nu-daarna', daarna);
+
+  // Markering in tijdlijn en lijst
+  const huidig = nu.soort === 'blok' ? nu.b : null;
+  document.querySelectorAll('.balk').forEach(el => {
+    const b = blokken.find(x => x.i === +el.dataset.blok);
+    let later = false;
+    if (huidig) later = hand ? b.sec > huidig.sec : b.sec >= huidig.eSec;
+    else if (nu.soort === 'voor' || nu.soort === 'tussen') later = b.sec >= nu.b.sec;
+    el.classList.toggle('is-nu', b === huidig);
+    el.classList.toggle('is-later', later);
+  });
+  document.querySelectorAll('[data-blok-rij]').forEach(el => {
+    const nuHier = huidig && +el.dataset.blokRij === huidig.i;
+    el.classList.toggle('is-nu', !!nuHier);
+    if (nuHier) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current');
+  });
+
+  // Melden en in beeld brengen
+  if (!eersteKeer) {
+    $('melding').textContent = huidig ? `Nu: ${huidig.title}.` : nu.soort === 'na' ? 'De lesdag is afgelopen.' : nuTitel;
+  }
+  const doel = huidig || (nu.soort === 'voor' || nu.soort === 'tussen' ? nu.b : null);
+  // Alleen met een vaste kop (beamer, laptop). Op een telefoon blijft de kop met de timer in beeld.
+  if (doel && !stilScrollen && meetKop()) {
+    $(`blok-${doel.i}`)?.scrollIntoView({ block: 'start', behavior: RUSTIG.matches || eersteKeer ? 'instant' : 'smooth' });
+  }
+  stilScrollen = false;
+  eersteKeer = false;
+}
+let stilScrollen = false;
+
+/* ---------- Handmatige timer ---------- */
+function startBlok(i, vanuitLijst) {
+  const b = blokken.find(x => x.i === i);
+  if (!b) return;
+  const duur = (b.eSec - b.sec) * 1000;
+  staat.modus = 'hand';
+  staat.hand = { dag: dag.n, i, loopt: true, eindOp: Date.now() + duur, rest: duur };
+  bewaar();
+  stilScrollen = !!vanuitLijst;
+  ververs();
+  stilScrollen = false;
+  $('melding').textContent = `Timer gestart: ${b.title}, ${Math.round(duur / 60000)} minuten.`;
+}
+function pauzeOfVerder() {
+  const h = staat.hand; if (!h) return;
+  if (h.loopt) { h.rest = Math.max(0, h.eindOp - Date.now()); h.loopt = false; }
+  else { h.eindOp = Date.now() + (h.rest ?? 0); h.loopt = true; }
+  bewaar(); ververs();
+  $('melding').textContent = h.loopt ? 'De timer loopt weer.' : 'De timer staat op pauze.';
+}
+function opnieuw() {
+  const h = staat.hand; if (!h) return;
+  const b = blokken.find(x => x.i === h.i); if (!b) return;
+  h.rest = (b.eSec - b.sec) * 1000; h.loopt = false; h.eindOp = null;
+  bewaar(); ververs();
+  $('melding').textContent = `De timer staat weer op ${Math.round(h.rest / 60000)} minuten. Druk op spatie om te starten.`;
+}
+function zetModus(m) {
+  if (m === staat.modus) return;
+  if (m === 'hand') {
+    // Neem het blok over waar de klok nu in zit, met de tijd die nog rest.
+    const nu = bepaal();
+    if (nu.soort === 'blok') staat.hand = { dag: dag.n, i: nu.b.i, loopt: true, eindOp: Date.now() + nu.rest * 1000, rest: nu.rest * 1000 };
+  }
+  staat.modus = m;
+  bewaar(); ververs();
+  $('melding').textContent = m === 'hand' ? 'De timer is nu handmatig.' : 'De timer volgt de klok.';
+}
+const hoortBijHand = () => staat.modus === 'hand' && staat.hand && staat.hand.dag === dag?.n;
+
+/* ---------- Bediening ---------- */
+document.addEventListener('click', e => {
+  const dagLink = e.target.closest('[data-dag]');
+  if (dagLink) { e.preventDefault(); kiesDag(+dagLink.dataset.dag); return; }
+  const modus = e.target.closest('[data-modus]');
+  if (modus) { zetModus(modus.dataset.modus); return; }
+  const blok = e.target.closest('[data-blok]');
+  if (blok && DATA) { startBlok(+blok.dataset.blok, blok.classList.contains('blokknop')); return; }
+  if (e.target.closest('#pauze')) pauzeOfVerder();
+  else if (e.target.closest('#opnieuw')) opnieuw();
+});
+document.addEventListener('keydown', e => {
+  if (!DATA || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
+  if (e.target.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+  const nrs = dagNummers(), k = nrs.indexOf(dag.n);
+  if (e.key === 'ArrowLeft' && k > 0) { e.preventDefault(); kiesDag(nrs[k - 1]); }
+  else if (e.key === 'ArrowRight' && k < nrs.length - 1) { e.preventDefault(); kiesDag(nrs[k + 1]); }
+  else if (/^[1-9]$/.test(e.key) && nrs.includes(+e.key)) { e.preventDefault(); kiesDag(+e.key); }
+  else if (e.key === ' ' && hoortBijHand()) { e.preventDefault(); pauzeOfVerder(); }
+  else if ((e.key === 'r' || e.key === 'R') && hoortBijHand()) { e.preventDefault(); opnieuw(); }
+});
+
+new ResizeObserver(meetKop).observe(kop);
+
+/* ---------- Klok en tik ---------- */
+function tik() {
+  const t = klokTekst(nuSec());
+  if ($('klok').textContent !== t) $('klok').textContent = t;
+  ververs();
+}
+tik();
+setInterval(tik, 250);
+
+/* ---------- Start ---------- */
+function fout(soort, err) {
+  $('laden').hidden = true;
+  const detail = err ? `<p class="fout">Foutmelding: ${esc(err.message || err)}</p>` : '';
+  const server = `<ol>
+      <li>Open de map van de repo in VS Code en start Live Server (poort 5501). Ga dan naar <code>http://127.0.0.1:5501/materiaal/</code>.</li>
+      <li>Of typ in de map van de repo <code>python3 -m http.server</code> en ga naar <code>http://127.0.0.1:8000/materiaal/</code>.</li>
+    </ol>`;
+  const tekst = soort === 'lezen'
+    ? `<h2>Het programma is niet te lezen</h2><p>De LRD is geladen, maar het DATA-object klopt niet. Controleer de LRD en laad de pagina opnieuw.</p>`
+    : `<h2>Open deze pagina via een lokale server</h2><p>De pagina leest het programma uit de LRD. Dat lukt alleen als een webserver de bestanden aanbiedt. Een bestand dat je direct opent, kan de LRD niet ophalen.</p>${server}`;
+  $('inhoud').insertAdjacentHTML('afterbegin', `<section class="melding-kaart" role="alert">${tekst}${detail}</section>`);
+}
+
+(async () => {
+  if (location.protocol === 'file:') return fout('server');
+  let html;
+  try {
+    if (LRD_URL.origin !== location.origin) throw new Error('de LRD staat niet op dezelfde bron');
+    const r = await fetch(LRD_URL, { cache: 'no-cache', redirect: 'error' });
+    if (!r.ok) throw new Error(`de LRD gaf status ${r.status}`);
+    if (new URL(r.url).origin !== location.origin) throw new Error('de LRD kwam van een andere bron');
+    html = await r.text();
+  } catch (err) { return fout('server', err); }
+  try { DATA = leesData(html); } catch (err) { return fout('lezen', err); }
+  $('kop-nu').hidden = false;
+  $('band').hidden = false;
+  kiesDag(standaardDag(), params.has('dag'));
+})();
+</script>
+</body>
+</html>

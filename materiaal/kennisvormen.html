@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<title>Vier kennisvormen</title>
+<style>
+/* Vier manieren om kennis bij het taalmodel te krijgen, getest op drie vragen van Voorbeeld BV.
+   Bron van de teksten: materiaal/voorbeeldcasus.md, "Drie vragen voor de kennisvormen". Verander ze daar en hier samen.
+   Huisstijl Business Data Solutions (brand-project/stylebook/shared.css), alleen licht.
+   AI = warm zwart met geel plus het Bot-icoon: wat het model weet en wat het antwoordt.
+   Mensenwerk (documenten, de graaf, de wikikaarten) krijgt geen AI-markering.
+   Goed / fout gebruiken --ok en --warn; streepjes betekenen een waarschuwing, nooit AI. */
+:root{
+  color-scheme:light;
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --ok:#2E8B72; --warn:#B23A2E;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  --rand:2.2rem;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+svg.i{width:1em;height:1em;flex-shrink:0}
+[hidden]{display:none !important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Kop, voortgang, bediening ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:1.3rem var(--rand) .9rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:2rem;margin:.25rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.teller{margin-left:auto;font-family:var(--mono);color:var(--mutedSoft);font-size:.9rem;white-space:nowrap}
+.voortgang{background:var(--line)}
+.voortgang i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s ease}
+main{position:relative;min-height:0}
+.scene{position:absolute;inset:0}
+
+nav.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem var(--rand);border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft)}
+nav.bediening button{font:inherit;font-size:1rem;font-weight:700;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  border-radius:.4rem;padding:.2rem .9rem;cursor:pointer;min-width:2.6rem;min-height:2rem}
+nav.bediening button.volgende{background:var(--accent);border-color:var(--accent)}
+nav.bediening button:disabled{opacity:.35;cursor:default}
+nav.bediening button:focus-visible,nav.bediening a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+nav.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+nav.bediening .bron{font-size:.8rem;color:var(--mutedSoft)}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* ---------- Vier vormen naast elkaar ---------- */
+#kennis{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:.7rem;padding:.6rem var(--rand) .7rem}
+.vraagbalk{display:flex;gap:1.2rem;align-items:baseline;background:var(--cream);border-radius:.8rem;padding:.6rem 1.2rem;flex-wrap:wrap}
+.vraag-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700;white-space:nowrap}
+.vraag-tekst{font-size:1.5rem;font-weight:700;min-height:1.3em;line-height:1.25}
+.kolommen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;min-height:0}
+.kolom{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:.7rem .9rem;display:flex;flex-direction:column;gap:.45rem;min-height:0;min-width:0}
+.kol-kop{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.kol-kop .nr{font-family:var(--mono);color:var(--mutedSoft);font-size:.85rem}
+.kol-kop b{font-size:1.2rem}
+.kol-kop .voorwerk{margin-left:auto;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700}
+.substraat{width:100%;height:auto;max-height:24vh;display:block}
+.zonder-beeld .substraat{display:none}
+.kolom .wat{margin:0;font-size:1rem;line-height:1.35;color:var(--muted)}
+
+/* Het antwoord komt van het taalmodel: AI-markering (warm zwart, geel label, Bot-icoon). */
+.antwoord{background:var(--ink);color:#fff;border-radius:.6rem;padding:.45rem .75rem .55rem;min-height:4.6rem}
+.antwoord .label{display:flex;align-items:center;gap:.35rem;color:var(--accent);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.antwoord .tekst{margin:.25rem 0 0;font-size:1.1rem;line-height:1.35;overflow-wrap:anywhere}
+/* Het oordeel over het antwoord is mensenwerk: licht, met status. */
+.kolom .les{margin:0;font-size:1.02rem;line-height:1.4;color:var(--ink)}
+.status{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;
+  padding:.05rem .6rem;margin-right:.2rem;vertical-align:.08em;white-space:nowrap;border:1.5px solid transparent}
+.status:empty{display:none}
+.status.goed{background:var(--ok);color:#fff}
+.status.deels{background:var(--line);color:var(--ink)}
+.status.gok{background:var(--warn);color:#fff}
+.status.geen{border-color:var(--warn);color:var(--warn);background:#fff}
+#kennis.leeg .antwoord,#kennis.leeg .les{visibility:hidden}
+
+/* substraten (SVG, getekend met D3) */
+.substraat text{font-family:var(--sans);font-size:11px;fill:var(--ink)}
+.tegel rect{fill:#fff;stroke:var(--line);stroke-width:1.5;transition:fill .5s,stroke .5s}
+.tegel-tekst{font-family:var(--sans);font-size:10px;line-height:1.25;padding:5px 6px;color:var(--muted);height:100%;box-sizing:border-box;overflow-wrap:anywhere;transition:color .5s}
+.tegel.raak rect{fill:var(--ink);stroke:var(--ink)}
+.tegel.raak .tegel-tekst{color:var(--accent);font-weight:700}
+.tegel.mist rect{stroke:var(--warn);stroke-dasharray:4 3;fill:#fdf3f2}
+.tegel.mist .tegel-tekst{color:var(--warn);font-weight:700}
+.doc .doc-naam{font-family:var(--mono);font-size:10.5px;fill:var(--muted)}
+.doc .spoor{fill:var(--cream2)}
+.doc .balk{fill:#9ca3af}
+.doc.top .balk{fill:var(--ink)}
+.doc.top .doc-naam{fill:var(--ink);font-weight:700}
+.doc.fout .balk{fill:var(--warn)}
+.doc.fout .doc-naam{fill:var(--warn)}
+.doc .pct{font-family:var(--mono);font-size:10.5px}
+.rand{stroke:#d1d5db;stroke-width:1.5;transition:stroke .4s,stroke-width .4s}
+.rand.aan{stroke:var(--ink);stroke-width:2.6}
+.knoop rect{fill:#fff;stroke:#9ca3af;stroke-width:1.5;transition:fill .4s,stroke .4s}
+.knoop.vraag rect,.knoop.uitkomst rect{stroke:var(--ink)}
+.knoop.aan rect{fill:var(--accent);stroke:var(--ink)}
+.knoop.leeg rect{stroke:var(--warn);stroke-dasharray:4 3}
+.knoop text{font-size:10.5px;font-weight:600}
+.gloed{fill:var(--accent)}
+.kaart rect{fill:#fff;stroke:var(--line);stroke-width:1.5;transition:fill .4s,stroke .4s}
+.kaart .kaart-naam{font-weight:700;font-size:11px}
+.kaart .kaart-datum{font-size:9.5px;fill:var(--mutedSoft)}
+.kaart .veld{font-size:9.4px;fill:var(--muted)}
+.kaart.raak rect{fill:var(--cream);stroke:var(--ink);stroke-width:2.2}
+.kaart.raak .veld{fill:var(--ink)}
+
+/* de as: van minder naar meer voorwerk */
+.as{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}
+.as::after{content:attr(data-tekst);grid-column:1/-1;text-align:center;font-weight:700;font-size:1.1rem;min-height:1.3em;margin-top:-.2rem}
+.as-label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700;white-space:nowrap}
+.as-punten{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.as-punten::before{content:"";position:absolute;left:12.5%;right:12.5%;top:.45rem;height:2px;background:var(--line)}
+.as-punt{display:flex;flex-direction:column;align-items:center;gap:.25rem;position:relative;font-size:.85rem;color:var(--mutedSoft);text-align:center}
+.as-punt i{width:.9rem;height:.9rem;border-radius:50%;background:#d1d5db;transition:transform .3s,background .3s,box-shadow .3s}
+.as-punt.aan{color:var(--ink);font-weight:700}
+.as-punt.aan i{background:var(--accent);box-shadow:0 0 0 2px var(--ink);transform:scale(1.4)}
+
+/* ---------- Slot: wat je ervan meeneemt ---------- */
+#slot{display:grid;align-content:center;padding:1rem var(--rand) 1.4rem;overflow:auto}
+.slot-in{max-width:76rem;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:.9rem}
+.slot-in h2{font-size:2.6rem;margin:0;letter-spacing:-.02em;line-height:1.1}
+.slot-in .sub{font-size:1.6rem;margin:0;color:var(--muted);font-weight:600;line-height:1.3}
+.overzicht{border-collapse:collapse;width:100%;margin-top:.4rem;background:var(--card);border:1px solid var(--line);border-radius:.8rem;overflow:hidden}
+.overzicht th,.overzicht td{padding:.7rem .9rem;text-align:left;vertical-align:middle;border-top:1px solid var(--line)}
+.overzicht thead th{border-top:0;background:var(--cream)}
+.overzicht thead b{display:block;font-size:1.1rem}
+.overzicht thead span{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700;margin-top:.1rem}
+.overzicht tbody th{width:30%;font-weight:400}
+.overzicht .soort{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700}
+.overzicht .v{display:block;font-size:1.1rem;font-weight:700;line-height:1.3}
+.overzicht td .status{font-size:.78rem}
+.overzicht td.eerste{background:var(--accentSoft)}
+.overzicht td.eerste .status{box-shadow:0 0 0 3px var(--accent)}
+.overzicht .cel{display:block}
+.overzicht .eerste-label{display:block;margin-top:.35rem;font-size:.78rem;font-weight:700;color:var(--ink)}
+.slot-in .voorwerk-zin{margin:.2rem 0 0;font-size:1.25rem;line-height:1.4;color:var(--muted)}
+.slot-in .prd{margin:.2rem 0 0;font-size:1.5rem;font-weight:700;line-height:1.3;background:var(--cream);border-left:6px solid var(--accent);
+  border-radius:0 .6rem .6rem 0;padding:.7rem 1.1rem}
+.slot-in .prd b{font-weight:800}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+@media (max-width:1000px){
+  body{overflow:auto;height:auto;min-height:100vh}
+  .scene{position:static}
+  .kolommen{grid-template-columns:1fr 1fr}
+  .substraat{max-height:none}
+}
+@media (max-width:760px){
+  :root{--rand:16px}
+  html{font-size:14px}
+  header.top{gap:1rem;padding-top:1rem}
+  h1{font-size:1.6rem}
+  .vraag-tekst{font-size:1.25rem}
+  .as{grid-template-columns:1fr}
+  .as-label{display:none}
+  .slot-in h2{font-size:2rem}
+  .slot-in .sub{font-size:1.25rem}
+  .slot-in .prd{font-size:1.2rem}
+  .overzicht thead{display:none}
+  .overzicht,.overzicht tbody,.overzicht tr,.overzicht th,.overzicht td{display:block;width:auto}
+  .overzicht tbody th{width:auto;background:var(--cream)}
+  .overzicht td{display:flex;align-items:center;justify-content:space-between;gap:.6rem;border-top:1px solid var(--line)}
+  .overzicht td::before{content:attr(data-vorm);font-weight:700}
+  .overzicht .cel{display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;text-align:right}
+  .overzicht .eerste-label{margin:0}
+  nav.bediening{flex-wrap:wrap}
+  .merk{margin-left:0}
+}
+@media (max-width:560px){
+  .kolommen{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <div class="eyebrow">Kennisvormen · Voorbeeld BV</div>
+    <h1>Waar haalt het taalmodel zijn kennis vandaan?</h1>
+  </div>
+  <div class="teller" id="teller" aria-live="polite">1 / 5</div>
+</header>
+<div class="voortgang" aria-hidden="true"><i id="balk"></i></div>
+
+<main>
+  <section class="scene leeg" id="kennis" aria-label="Vier manieren om kennis bij het taalmodel te krijgen">
+    <div class="vraagbalk" id="vraagbalk"></div>
+    <div class="kolommen" id="kolommen"></div>
+    <div class="as" id="as"></div>
+  </section>
+  <section class="scene" id="slot" aria-label="Wat je ervan meeneemt" hidden></section>
+</main>
+
+<nav class="bediening" aria-label="Stappen">
+  <button type="button" id="terug" aria-label="Vorige stap">←</button>
+  <button type="button" id="verder" class="volgende" aria-label="Volgende stap">→</button>
+  <a href="./index.html">Startpagina</a>
+  <span class="bron">Naar: Architecture of Scale</span>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    Business Data Solutions
+  </span>
+</nav>
+
+<script type="module">
+/* Vier kennisvormen (alleen het model, RAG, kennisgraaf, LLM-wiki), elk getest op drie vragen van Voorbeeld BV.
+   Stap 1: de vier vormen met hun voorwerk · 2–4: één vraag per stap · 5: wat je ervan meeneemt.
+   De tekst en de stappen werken zonder bibliotheken. D3 tekent de vier plaatjes, motion doet de animaties;
+   elk wordt apart geladen, zodat één storing de rest niet raakt. */
+
+const CDN = {
+  d3: "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm",
+  motion: "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm",
+};
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const T = (s) => (reduce ? 0 : s);
+const $ = (id) => document.getElementById(id);
+
+// lucide "bot"
+const BOT = '<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
+
+/* ================= Inhoud (bron: voorbeeldcasus.md) ================= */
+
+const KOLOMMEN = [
+  { id: "model", nr: "01", naam: "Alleen het model", voorwerk: "Geen voorwerk",
+    wat: "Het model antwoordt uit wat het in de training zag.", beeld: "Wat het model uit de training kent" },
+  { id: "rag", nr: "02", naam: "RAG", voorwerk: "Weinig voorwerk",
+    wat: "Het systeem zoekt passende documenten en zet die bij de vraag.", beeld: "Hoe goed elk document bij de vraag past" },
+  { id: "graaf", nr: "03", naam: "Kennisgraaf", voorwerk: "Veel voorwerk",
+    wat: "Begrippen en hun relaties, vooraf door mensen vastgelegd.", beeld: "Begrippen en relaties in de graaf" },
+  { id: "wiki", nr: "04", naam: "LLM-wiki", voorwerk: "Doorlopend voorwerk",
+    wat: "Kennis als kaarten met bron en datum, door mensen bijgehouden.", beeld: "Kaarten met bron en datum" },
+];
+const STATUS = { goed: "Goed antwoord", deels: "Deels goed", gok: "Gok", geen: "Geen antwoord" };
+
+// antwoord = wat het taalmodel teruggeeft (AI); les = het oordeel erover.
+const VRAGEN = [
+  { soort: "Algemene vakkennis", tekst: "Wat is een SLA?", antwoord: {
+    model: { status: "goed", tekst: "Een afspraak met de klant over de dienst, zoals hoe snel je reageert.",
+      les: "Het antwoord heeft geen bron. Algemene vakkennis zit al in het model." },
+    rag: { status: "goed", tekst: "Een afspraak over de dienst en de termijnen. [bron: servicevoorwaarden.pdf]",
+      les: "Overbodig: het model wist het al." },
+    graaf: { status: "deels", tekst: "SLA → heeft termijn",
+      les: "De graaf kent “SLA heeft termijn”, maar geen uitleg." },
+    wiki: { status: "goed", tekst: "Een afspraak over de dienst en de termijnen. [kaart: SLA]",
+      les: "De kaart stond klaar, met bron en datum." } } },
+  { soort: "Eigen werkwijze", tekst: "Wat doen we bij een klacht zonder ordernummer?", antwoord: {
+    model: { status: "gok", tekst: "Meestal bel je de klant\u00a0…",
+      les: "Niet uit jullie werkinstructie. Het model kent die niet en vult zelf in." },
+    rag: { status: "goed", tekst: "Stel één gerichte vraag. Neem niets aan. [bron: werkinstructie-onvolledige-klacht.md, stap 3]",
+      les: "Hier is RAG sterk: het vindt een eigen document en citeert het." },
+    graaf: { status: "geen", tekst: "Geen werkwijze gevonden in de graaf.",
+      les: "Een graaf kent begrippen, geen stappen." },
+    wiki: { status: "goed", tekst: "Onvolledige klacht: stel één gerichte vraag (stap 3).",
+      les: "Werkt, als iemand de kaart bijhoudt." } } },
+  { soort: "Meerdere stappen", tekst: "Welke andere klachten hadden dezelfde oorzaak als K-0418?", antwoord: {
+    model: { status: "gok", tekst: "Waarschijnlijk andere klachten over ketels\u00a0…",
+      les: "Het model raadt. Het antwoord lijkt op een feit, maar niemand heeft het gecontroleerd." },
+    rag: { status: "deels", tekst: "Gevonden: K-0470 en K-0435.",
+      les: "K-0435 gaat over een vieze zolder: fout. RAG vindt teksten die op de vraag lijken." },
+    graaf: { status: "goed", tekst: "K-0470",
+      les: "De graaf volgt de relatie “heeft oorzaak → pakking uit levering 24-07”." },
+    wiki: { status: "goed", tekst: "K-0470",
+      les: "Twee kaarten met dezelfde velden." } } },
+];
+
+// Wat het model "weet": tegels uit de training. bij = bij welke vraag (index) de tegel helpt; mist = waar kennis ontbreekt.
+const MODEL_TEGELS = [
+  { t: "SLA · afspraak over een dienst", bij: [0] }, { t: "termijnen · algemeen", bij: [0] }, { t: "klantcontact · algemeen" },
+  { t: "cv-ketels · algemeen" }, { t: "zonnepanelen · algemeen" }, { t: "klachten · algemeen" },
+  { t: "??? werkinstructie Voorbeeld BV", mist: 1 }, { t: "??? klachten van maart", mist: 2 }, { t: "??? oorzaak van K-0418", mist: 2 },
+];
+// RAG: gelijkenis van elk document met de drie vragen. Vanaf GEVONDEN zet het systeem het document bij de vraag.
+// fout = gevonden, maar het hoort er niet bij.
+const GEVONDEN = 0.5;
+const DOCS = [
+  { naam: "servicevoorwaarden.pdf", score: [0.91, 0.22, 0.05] },
+  { naam: "werkinstructie-onvolledige-klacht.md", score: [0.18, 0.94, 0.07] },
+  { naam: "urgentieregels.md", score: [0.36, 0.33, 0.06] },
+  { naam: "K-0470", score: [0.03, 0.1, 0.82] },
+  { naam: "K-0435", score: [0.02, 0.08, 0.58], fout: [2] },
+  { naam: "K-0501", score: [0.02, 0.29, 0.21] },
+];
+// Kennisgraaf: een klein stuk. GRAAF_PAD[vraag] = de knopen die oplichten; een rand licht op als beide knopen in het pad zitten.
+const KNOPEN = [
+  { id: "q", x: 150, y: 16, label: "Vraag", soort: "vraag" },
+  { id: "sla", x: 52, y: 62, label: "SLA" },
+  { id: "termijn", x: 52, y: 112, label: "Termijn" },
+  { id: "k18", x: 150, y: 62, label: "K-0418" },
+  { id: "k70", x: 258, y: 62, label: "K-0470" },
+  { id: "kwal", x: 255, y: 112, label: "Kwaliteit" },
+  { id: "pakking", x: 150, y: 128, label: "Pakking 24-07" },
+  { id: "k35", x: 262, y: 160, label: "K-0435" },
+  { id: "ans", x: 150, y: 172, label: "Antwoord", soort: "uitkomst" },
+];
+const RANDEN = [
+  { van: "q", naar: "sla" }, { van: "sla", naar: "termijn", type: "heeft termijn" },
+  { van: "q", naar: "k18" },
+  { van: "k18", naar: "kwal", type: "categorie" }, { van: "k70", naar: "kwal", type: "categorie" }, { van: "k35", naar: "kwal", type: "categorie" },
+  { van: "k18", naar: "pakking", type: "heeft oorzaak" }, { van: "k70", naar: "pakking", type: "heeft oorzaak" },
+  { van: "termijn", naar: "ans" }, { van: "pakking", naar: "ans" },
+];
+const GRAAF_PAD = [
+  ["q", "sla", "termijn", "ans"],
+  [],
+  ["q", "k18", "pakking", "k70", "ans"],
+];
+// LLM-wiki: kaarten met velden, door mensen bijgehouden. bij = bij welke vraag de kaart gelezen wordt.
+const KAARTEN = [
+  { naam: "SLA", velden: ["dienst en termijnen", "bron: servicevoorwaarden"], datum: "2 maart", bij: [0] },
+  { naam: "Onvolledige klacht", velden: ["stap 3: één gerichte vraag", "bron: werkinstructie"], datum: "16 februari", bij: [1] },
+  { naam: "K-0418", velden: ["kwaliteit van het werk", "oorzaak: pakking 24-07"], datum: "4 maart", bij: [2] },
+  { naam: "K-0470", velden: ["kwaliteit van het werk", "oorzaak: pakking 24-07"], datum: "12 maart", bij: [2] },
+];
+
+const SLOT = {
+  kop: "Geen vorm wint altijd.",
+  sub: "Kies per vraag de eenvoudigste vorm die werkt.",
+  voorwerk: "Een graaf of een wiki werkt alleen als mensen de begrippen en de kaarten bijhouden.",
+  prd: "<b>In je PRD:</b> welke kennis heeft jouw use case nodig, en wie houdt die bij?",
+};
+
+// vraag = index in VRAGEN (null = de vier vormen voorstellen); slot = wat je ervan meeneemt.
+const STAPPEN = [{ vraag: null }, { vraag: 0 }, { vraag: 1 }, { vraag: 2 }, { slot: true }];
+
+// De eenvoudigste vorm die werkt: de eerste kolom (van weinig naar veel voorwerk) met een goed antwoord.
+const eenvoudigste = (q) => KOLOMMEN.find((k) => VRAGEN[q].antwoord[k.id].status === "goed")?.id;
+
+/* ================= Bibliotheken: elk apart, met terugval ================= */
+
+let M = null;        // motion, of null: dan geen animaties
+let beeld = null;    // de D3-plaatjes, of null: dan alleen tekst
+
+function beweeg(els, kf, { duur = 0.4, stap = 0, start = 0 } = {}) {
+  els = [...els];
+  if (!M || reduce || !els.length) return;
+  try {
+    for (const el of els) el.style.opacity = "0";
+    M.animate(els, kf, { duration: duur, delay: stap ? M.stagger(stap, { startDelay: start }) : start });
+  } catch (e) {
+    for (const el of els) el.style.opacity = "";
+    console.warn("Animatie overgeslagen", e);
+  }
+}
+
+/* ================= Opbouw zonder bibliotheken ================= */
+
+const kolommenEl = $("kolommen"), vraagbalk = $("vraagbalk"), as = $("as"), kennis = $("kennis"), slot = $("slot");
+
+kolommenEl.innerHTML = KOLOMMEN.map((k) => `
+  <div class="kolom k-${k.id}">
+    <div class="kol-kop"><span class="nr">${k.nr}</span><b>${k.naam}</b><span class="voorwerk">${k.voorwerk}</span></div>
+    <svg class="substraat" viewBox="0 0 300 190" role="img" aria-label="${k.beeld}"></svg>
+    <p class="wat">${k.wat}</p>
+    <div class="antwoord"><span class="label">${BOT}AI-antwoord</span><p class="tekst"></p></div>
+    <p class="les"><span class="status"></span> <span class="les-tekst"></span></p>
+  </div>`).join("");
+
+as.innerHTML = `<span class="as-label">← Minder voorwerk</span>
+  <div class="as-punten">${KOLOMMEN.map((k) => `<div class="as-punt" data-k="${k.id}"><i></i><span>${k.naam}</span></div>`).join("")}</div>
+  <span class="as-label">Meer voorwerk →</span>`;
+
+slot.innerHTML = `<div class="slot-in">
+  <h2>${SLOT.kop}</h2>
+  <p class="sub">${SLOT.sub}</p>
+  <table class="overzicht">
+    <caption class="vh">Uitkomst per vraag en per kennisvorm</caption>
+    <thead><tr><th scope="col"><b>Vraag</b></th>${KOLOMMEN.map((k) => `<th scope="col"><b>${k.naam}</b><span>${k.voorwerk}</span></th>`).join("")}</tr></thead>
+    <tbody>${VRAGEN.map((v, q) => {
+      const eerste = eenvoudigste(q);
+      return `<tr><th scope="row"><span class="soort">${v.soort}</span><span class="v">${v.tekst}</span></th>${KOLOMMEN.map((k) => {
+        const a = v.antwoord[k.id];
+        return `<td data-vorm="${k.naam}" class="${k.id === eerste ? "eerste" : ""}"><span class="cel"><span class="status ${a.status}">${STATUS[a.status]}</span>${
+          k.id === eerste ? '<span class="eerste-label">Eenvoudigste die werkt</span>' : ""}</span></td>`;
+      }).join("")}</tr>`;
+    }).join("")}</tbody>
+  </table>
+  <p class="voorwerk-zin">${SLOT.voorwerk}</p>
+  <p class="prd">${SLOT.prd}</p>
+</div>`;
+
+let typTimer = null;
+function typ(el, tekst) {
+  clearTimeout(typTimer);
+  if (reduce) { el.textContent = tekst; return; }
+  let i = 0;
+  const volgende = () => { el.textContent = tekst.slice(0, ++i); if (i < tekst.length) typTimer = setTimeout(volgende, 28); };
+  volgende();
+}
+
+function toon(s, vorige) {
+  clearTimeout(typTimer);
+  kennis.hidden = Boolean(s.slot);
+  slot.hidden = !s.slot;
+  if (s.slot) {
+    beweeg(slot.querySelectorAll("h2, .sub, tbody tr, .voorwerk-zin, .prd"), { opacity: [0, 1], y: [12, 0] }, { duur: T(0.45), stap: T(0.12) });
+    return;
+  }
+
+  const q = s.vraag;
+  kennis.classList.toggle("leeg", q === null);
+  if (q === null) {
+    vraagbalk.innerHTML = `<span class="vraag-label">Vier vormen</span><span class="vraag-tekst">Hoe komt kennis bij het taalmodel (LLM)? Elke vorm krijgt drie vragen.</span>`;
+  } else {
+    vraagbalk.innerHTML = `<span class="vraag-label">Vraag ${q + 1} van 3 · ${VRAGEN[q].soort}</span><span class="vh">${VRAGEN[q].tekst}</span><span class="vraag-tekst" aria-hidden="true"></span>`;
+    typ(vraagbalk.querySelector(".vraag-tekst"), VRAGEN[q].tekst);
+  }
+
+  // antwoorden en oordelen
+  for (const k of KOLOMMEN) {
+    const kol = kolommenEl.querySelector(`.k-${k.id}`);
+    const a = q === null ? null : VRAGEN[q].antwoord[k.id];
+    const status = kol.querySelector(".status");
+    status.className = `status ${a ? a.status : ""}`;
+    status.textContent = a ? STATUS[a.status] : "";
+    kol.querySelector(".antwoord .tekst").textContent = a ? a.tekst : "";
+    kol.querySelector(".les-tekst").textContent = a ? a.les : "";
+  }
+
+  // de as: de eenvoudigste vorm die werkt
+  const eerste = q === null ? null : eenvoudigste(q);
+  as.querySelectorAll(".as-punt").forEach((p) => p.classList.toggle("aan", p.dataset.k === eerste));
+  as.dataset.tekst = eerste ? `De eenvoudigste vorm die werkt: ${KOLOMMEN.find((k) => k.id === eerste).naam}` : "";
+
+  if (beeld) beeld.zet(q);
+
+  if (q === null) {
+    if (vorige === undefined || STAPPEN[vorige]?.slot) beweeg(kolommenEl.children, { opacity: [0, 1], y: [14, 0] }, { duur: T(0.45), stap: T(0.12) });
+  } else {
+    beweeg(kolommenEl.querySelectorAll(".antwoord, .les"), { opacity: [0, 1], y: [8, 0] },
+      { duur: T(0.4), stap: T(0.1), start: T(beeld ? 1.4 : 0.3) });
+  }
+}
+
+/* ================= De plaatjes (D3) ================= */
+
+function tekenBeeld(d3) {
+  // 01 · alleen het model: tegels uit de training
+  const tegel = d3.select(".k-model .substraat").selectAll("g.tegel").data(MODEL_TEGELS).join("g").attr("class", "tegel")
+    .attr("transform", (_, i) => `translate(${8 + (i % 3) * 97},${10 + Math.floor(i / 3) * 60})`);
+  tegel.append("rect").attr("width", 90).attr("height", 50).attr("rx", 5);
+  tegel.append("foreignObject").attr("width", 90).attr("height", 50)
+    .append("xhtml:div").attr("class", "tegel-tekst").text((d) => d.t);
+
+  // 02 · RAG: gelijkenis per document
+  const doc = d3.select(".k-rag .substraat").selectAll("g.doc").data(DOCS).join("g").attr("class", "doc")
+    .attr("transform", (_, i) => `translate(0,${8 + i * 30})`);
+  doc.append("text").attr("x", 4).attr("y", 12).attr("class", "doc-naam").text((d) => d.naam);
+  doc.append("rect").attr("class", "spoor").attr("x", 4).attr("y", 17).attr("width", 250).attr("height", 7).attr("rx", 3);
+  doc.append("rect").attr("class", "balk").attr("x", 4).attr("y", 17).attr("width", 0).attr("height", 7).attr("rx", 3);
+  doc.append("text").attr("class", "pct").attr("x", 296).attr("y", 24).attr("text-anchor", "end").text("");
+
+  // 03 · kennisgraaf
+  const sGraaf = d3.select(".k-graaf .substraat");
+  const knoop = Object.fromEntries(KNOPEN.map((n) => [n.id, n]));
+  const rand = sGraaf.selectAll("line.rand").data(RANDEN).join("line").attr("class", "rand")
+    .attr("x1", (r) => knoop[r.van].x).attr("y1", (r) => knoop[r.van].y).attr("x2", (r) => knoop[r.naar].x).attr("y2", (r) => knoop[r.naar].y);
+  const gloed = sGraaf.append("circle").attr("class", "gloed").attr("cx", knoop.pakking.x).attr("cy", knoop.pakking.y).attr("r", 0).attr("opacity", 0);
+  const kn = sGraaf.selectAll("g.knoop").data(KNOPEN).join("g").attr("class", (n) => `knoop ${n.soort || ""}`)
+    .attr("transform", (n) => `translate(${n.x},${n.y})`);
+  kn.append("rect").attr("x", (n) => -n.label.length * 3.4 - 7).attr("y", -10).attr("width", (n) => n.label.length * 6.8 + 14).attr("height", 20).attr("rx", 6);
+  kn.append("text").attr("text-anchor", "middle").attr("dy", 4).text((n) => n.label);
+
+  // 04 · LLM-wiki: kaarten
+  const kaart = d3.select(".k-wiki .substraat").selectAll("g.kaart").data(KAARTEN).join("g").attr("class", "kaart")
+    .attr("transform", (_, i) => `translate(${4 + (i % 2) * 148},${6 + Math.floor(i / 2) * 92})`);
+  kaart.append("rect").attr("width", 142).attr("height", 84).attr("rx", 6);
+  kaart.append("text").attr("class", "kaart-naam").attr("x", 8).attr("y", 18).text((d) => d.naam);
+  kaart.append("text").attr("class", "kaart-datum").attr("x", 8).attr("y", 76).text((d) => `↻ bijgewerkt ${d.datum}`);
+  kaart.selectAll("text.veld").data((d) => d.velden).join("text").attr("class", "veld").attr("x", 8).attr("y", (_, i) => 38 + i * 16).text((v) => v);
+
+  const ms = (s) => T(s) * 1000;
+  return {
+    zet(q) {
+      const leeg = q === null;
+      // 01 · model
+      tegel.classed("raak", (d) => !leeg && (d.bij || []).includes(q)).classed("mist", (d) => !leeg && d.mist === q);
+      // 02 · RAG: balken groeien; wat het systeem bij de vraag zet, wordt zwart
+      const fout = (d) => !leeg && (d.fout || []).includes(q);
+      doc.classed("top", (d) => !leeg && d.score[q] >= GEVONDEN).classed("fout", fout);
+      doc.select("text.doc-naam").text((d) => (fout(d) ? `${d.naam} · fout` : d.naam));
+      doc.select("rect.balk").interrupt().transition().duration(ms(0.8)).delay((_, i) => ms(0.6 + i * 0.08))
+        .attr("width", (d) => (leeg ? 0 : d.score[q] * 250));
+      doc.select("text.pct").text((d) => (leeg ? "" : `${Math.round(d.score[q] * 100)}%`));
+      // 03 · graaf: het pad licht op; bij vraag 3 gloeit de gedeelde oorzaak
+      const pad = leeg ? [] : GRAAF_PAD[q];
+      rand.classed("aan", (r) => pad.includes(r.van) && pad.includes(r.naar));
+      kn.classed("aan", (n) => pad.includes(n.id)).classed("leeg", (n) => q === 1 && n.id === "q");
+      gloed.interrupt().attr("r", 0).attr("opacity", 0);
+      if (q === 2) gloed.transition().delay(ms(1.2)).duration(ms(0.8)).attr("r", 34).attr("opacity", 0.55);
+      // 04 · wiki: de kaarten die gelezen worden
+      kaart.classed("raak", (d) => !leeg && d.bij.includes(q));
+    },
+  };
+}
+
+/* ================= Regie ================= */
+
+let stap = -1;
+function ga(n) {
+  n = Math.max(0, Math.min(STAPPEN.length - 1, n));
+  if (n === stap) return;
+  const vorige = stap >= 0 ? stap : undefined;
+  stap = n;
+  $("teller").textContent = `${n + 1} / ${STAPPEN.length}`;
+  $("balk").style.width = `${((n + 1) / STAPPEN.length) * 100}%`;
+  $("terug").disabled = n === 0;
+  $("verder").disabled = n === STAPPEN.length - 1;
+  if (location.hash !== `#stap-${n + 1}`) history.replaceState(null, "", `#stap-${n + 1}`);
+  toon(STAPPEN[n], vorige);
+}
+
+addEventListener("keydown", (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.target.closest && e.target.closest("a")) return;
+  // Enter of spatie op een knop: de knop zelf geeft de klik, anders telt de stap dubbel
+  if (e.target.closest && e.target.closest("button") && (e.key === "Enter" || e.key === " ")) return;
+  const volgende = ["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"];
+  const vorige = ["ArrowLeft", "ArrowUp", "PageUp", "Backspace"];
+  if (volgende.includes(e.key)) { e.preventDefault(); ga(stap + 1); }
+  else if (vorige.includes(e.key)) { e.preventDefault(); ga(stap - 1); }
+  else if (e.key === "Home") { e.preventDefault(); ga(0); }
+  else if (e.key === "End") { e.preventDefault(); ga(STAPPEN.length - 1); }
+});
+$("verder").addEventListener("click", () => ga(stap + 1));
+$("terug").addEventListener("click", () => ga(stap - 1));
+
+// #stap-N in de adresbalk springt naar stap N
+const stapUitHash = () => {
+  const n = parseInt((location.hash.match(/stap-(\d+)/) || [])[1], 10);
+  return Number.isFinite(n) ? n - 1 : 0;
+};
+addEventListener("hashchange", () => ga(stapUitHash()));
+ga(stapUitHash());
+
+// D3: de vier plaatjes. Zonder D3 blijft de tekst staan en verdwijnen de lege vlakken.
+(async () => {
+  try {
+    const d3 = await import(CDN.d3);
+    beeld = tekenBeeld(d3);
+    const s = STAPPEN[stap];
+    if (!s.slot) beeld.zet(s.vraag);
+  } catch (e) {
+    beeld = null;
+    document.body.classList.add("zonder-beeld");
+    console.warn("D3 niet geladen; de vier vormen staan er als tekst.", e);
+  }
+})();
+
+// motion: animaties. Zonder motion verschijnt alles meteen.
+(async () => {
+  if (reduce) return;
+  try { M = await import(CDN.motion); }
+  catch (e) { M = null; console.warn("Motion niet geladen; geen animaties.", e); }
+})();
+</script>
+</body>
+</html>

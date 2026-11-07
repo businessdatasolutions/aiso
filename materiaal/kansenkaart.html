@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Kansenkaart</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Het proces van de verzonnen Voorbeeld BV als swimlane, van klantvraag tot verbetering, met vijf plekken waar AI kan helpen.">
+<style>
+/* Huisstijl Business Data Solutions (brand-project/stylebook/shared.css), alleen licht.
+   Geel (--accent) is het enige accent: beslispunt, markering, voortgang. Nooit als tekstkleur op licht.
+   AI = warm zwart met geel licht plus het Bot-icoon. Dat staat alleen op de kansenkaart (stap 8 en 9).
+   Het proces van vandaag doen mensen: daar staat geen AI-markering. */
+:root{
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+svg.i{width:1em;height:1em;flex-shrink:0}
+
+/* ---------- Kop, voortgang ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:.7rem 2.2rem .5rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:1.3rem;margin:.1rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.teller{margin-left:auto;font-family:var(--mono);color:var(--mutedSoft);font-size:.9rem;white-space:nowrap}
+.voortgang{background:var(--line);height:4px}
+.voortgang i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s ease}
+
+/* ---------- Podium: het bord houdt de verhouding van de viewBox (1900 × 860) ---------- */
+main.swimlane{position:relative;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:.5rem;padding:.5rem 2.2rem .8rem}
+.podium{container-type:size;min-height:0;display:grid;place-items:center}
+.bord{position:relative;aspect-ratio:1900/860;width:min(100cqw,calc(100cqh * 1900 / 860))}
+.bord > svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
+
+/* ---------- Schema (SVG, getekend met d3) ---------- */
+#schema{font-family:var(--sans);transition:opacity .5s}
+#schema.achter{opacity:.07}
+.fase{font-weight:600;fill:var(--mutedSoft)}
+
+.baan-vlak{fill:var(--cream2);transition:fill .5s}
+.baan:nth-child(even) .baan-vlak{fill:#f4f1e9}
+.baan.focus .baan-vlak{fill:var(--cream)}
+.baan-kop{fill:var(--ink)}
+.baan-naam,.baan-klein{fill:var(--cream);font-weight:700}
+.baan-sub{fill:#c9c3b6}
+.baan-klein{dominant-baseline:central}
+
+.vak-rand{fill:#fff;stroke:var(--ink);stroke-width:1.4;transition:fill .5s,stroke .5s,stroke-width .5s}
+.vak.beslis .vak-rand{fill:var(--accent);stroke-width:1.6}
+.vak.eind .vak-rand{fill:var(--cream)}
+.vak.mini .vak-rand{stroke:#a8a29a;stroke-width:1}
+.vak-halo{fill:none;stroke:var(--accent);stroke-width:9;opacity:0;transition:opacity .35s}
+.vak.beslis .vak-halo{stroke:var(--ink);stroke-width:5}
+.vak.aan .vak-halo{opacity:1}
+.vak-binnen{transition:opacity .5s}
+.vak-binnen.stil{opacity:.28}
+.vak text{fill:var(--ink)}
+.vak .kort{text-anchor:middle;dominant-baseline:central}
+.vak.beslis .kort,.vak .titel{font-weight:700}
+.vak .titel{font-size:21px}
+.vak .lang{font-size:19px;fill:var(--muted)}
+.vak.beslis .lang{fill:var(--ink)}
+
+.pijl{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pijl.grijs{stroke:var(--mutedSoft);stroke-width:1.5}
+.pijl-g path{transition:opacity .5s}
+.pijl-g.stil path{opacity:.2}
+.verbinder{stroke:var(--ink);stroke-width:1.3;transition:stroke-opacity .5s}
+.verbinder.stil{stroke-opacity:.2}
+#punt path{fill:var(--ink)}
+#punt-grijs path{fill:var(--mutedSoft)}
+.pijl-label{font-size:16px;font-weight:600;fill:var(--muted);paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
+
+.klacht{fill:var(--ink);stroke:#fff;stroke-width:3}
+
+/* Kansenkaart: de AI-markering (warm zwart, geel licht, Bot-icoon). */
+.kans-vlak{fill:var(--ink)}
+.kans-icoon{color:var(--accent)}
+.kans-bol{fill:var(--accent)}
+.kans-nr{fill:var(--ink);font-weight:700;font-size:15px;text-anchor:middle;dominant-baseline:central}
+.kans-label{fill:var(--accent);font-weight:700;font-size:18px}
+.kans-sub{fill:#e5e7eb;font-size:15px}
+/* Route 4 blijft mensenwerk: wit met zwarte rand, geen Bot. */
+.mens-vlak{fill:#fff;stroke:var(--ink);stroke-width:1.5}
+.mens-icoon{color:var(--ink)}
+.mens-tekst{fill:var(--ink);font-weight:700;font-size:17px;dominant-baseline:central}
+
+/* ---------- Jouw proces: vier kaarten over het gedimde bord ---------- */
+.opdracht{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 1rem;
+  pointer-events:none;opacity:0;transition:opacity .4s}
+.opdracht.aan{opacity:1}
+.opdracht .rij{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+.taak{background:#fff;border:1.5px solid var(--ink);border-radius:.9rem;padding:1.1rem 1.2rem 1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.taak .nr{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:1.1rem;display:grid;place-items:center}
+.taak p{margin:0;font-size:1.45rem;line-height:1.35;font-weight:600}
+.taak .beeld{margin-top:auto}
+.mini-raster{width:9rem;height:auto;display:block}
+
+/* AI-markering in HTML: dezelfde vorm als op het bord. */
+.ai-chip{display:inline-flex;align-items:center;gap:.35rem;background:var(--ink);color:var(--accent);border-radius:99px;
+  padding:.18rem .3rem .18rem .55rem;font-weight:700;font-size:.95rem;vertical-align:middle}
+.ai-chip svg{width:1.15em;height:1.15em}
+.ai-chip i{font-style:normal;display:grid;place-items:center;width:1.45em;height:1.45em;border-radius:50%;background:var(--accent);color:var(--ink);font-size:.9em}
+.ai-chip.groot{font-size:1.2rem}
+
+/* ---------- Bijschrift ---------- */
+.bijschrift{position:relative;height:7.4rem;display:grid;grid-template-columns:minmax(0,1fr);gap:1.6rem;align-items:start;overflow:hidden}
+.bijschrift.naast{grid-template-columns:minmax(0,1fr) minmax(0,2.6fr)}
+.station .wat{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+.station h2{font-size:1.6rem;margin:.15rem 0 .35rem;line-height:1.15;letter-spacing:-.02em}
+.station p{font-size:1.15rem;line-height:1.45;color:var(--muted);margin:0 0 .2rem;max-width:72rem}
+.station p.nadruk{color:var(--ink);font-weight:700;border-left:4px solid var(--accent);padding-left:.6rem}
+.kaarten{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+/* Beamers van 1024–1440 breed: de eindpunten krijgen meer ruimte, zodat geen titel over twee regels loopt. */
+@media (max-width:1500px){.bijschrift.naast{grid-template-columns:minmax(0,1fr) minmax(0,3.4fr);gap:1rem}.kaarten{gap:.5rem}}
+.kaartje{background:#fff;border:1px solid var(--line);border-radius:.7rem;padding:.45rem .8rem;font-size:1rem;line-height:1.35;color:var(--muted)}
+.kaartje b{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:.15rem}
+@media (max-width:1500px){.kaartje{font-size:.92rem;padding:.4rem .65rem}.kaartje b{font-size:1rem;white-space:nowrap}}
+.kaartje .letter{display:inline-block;font-weight:700;background:var(--cream);border:1px solid var(--ink);border-radius:.3rem;
+  padding:0 .4rem;margin-right:.35rem;color:var(--ink)}
+.alleen-smal{display:none}
+.lijst{margin:.4rem 0 0;padding-left:1.4rem;font-size:1.05rem;line-height:1.45;color:var(--ink)}
+.lijst li{margin:.35rem 0}
+.lijst.kansen-lijst{list-style:none;padding-left:0}
+
+/* ---------- Bediening en merk (alleen hier) ---------- */
+footer.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem 2.2rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft)}
+footer.bediening nav{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+footer.bediening button{font:inherit;font-size:1rem;font-weight:700;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  border-radius:.4rem;padding:.2rem .9rem;cursor:pointer}
+footer.bediening button.volgende{background:var(--accent);border-color:var(--accent)}
+footer.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* ---------- Terugval zonder d3: het proces als tabel ---------- */
+.plat{display:none}
+body.zonder-d3{height:auto;min-height:100vh;overflow-x:hidden;overflow-y:auto}
+body.zonder-d3 main.swimlane{display:block;overflow:visible}
+body.zonder-d3 .podium,body.zonder-d3 .bijschrift,body.zonder-d3 .teller,body.zonder-d3 footer button,body.zonder-d3 .hint{display:none}
+body.zonder-d3 .plat{display:block;max-width:90rem}
+.plat h2{font-size:1.4rem;margin:1.2rem 0 .5rem}
+.plat p,.plat li{font-size:1.05rem;line-height:1.5}
+.tabel-rol{overflow-x:auto}
+.plat table{border-collapse:collapse;width:100%;min-width:56rem;background:#fff;font-size:.95rem;line-height:1.4}
+.plat th,.plat td{border:1px solid var(--line);padding:.5rem .6rem;vertical-align:top;text-align:left}
+.plat thead th{background:var(--ink);color:#fff}
+.plat tbody th{background:var(--cream)}
+.plat td div + div{margin-top:.4rem}
+.plat .regel{font-weight:700;border-left:4px solid var(--accent);padding-left:.6rem}
+.geen-js{font-size:1.1rem;padding:1rem}
+
+/* ---------- Smal scherm: het bord scrolt in zijn eigen bak, de pagina niet ---------- */
+@media (max-width:760px){
+  html{font-size:15px}
+  body{display:flex;flex-direction:column;height:auto;min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+  header.top{padding:.7rem 16px .5rem;gap:1rem}
+  .voortgang{flex-shrink:0}
+  main.swimlane{flex:1 0 auto;display:flex;flex-direction:column;padding:.5rem 16px .8rem}
+  main.swimlane .bijschrift{order:-1}
+  main.swimlane.is-opdracht .podium{display:none}
+  .podium{container-type:normal;display:block;place-items:normal;overflow-x:auto;overscroll-behavior-x:contain;margin:0 -16px;padding:0 16px .4rem}
+  .bord{width:1300px}
+  .opdracht{display:none}
+  .bijschrift,.bijschrift.naast{grid-template-columns:1fr;height:auto;overflow:visible;gap:.8rem;margin-bottom:.8rem}
+  .kaarten{grid-template-columns:1fr 1fr}
+  .station h2{font-size:1.4rem}
+  .station p{font-size:1.05rem}
+  .alleen-smal{display:block}
+  footer.bediening{position:sticky;bottom:0;background:var(--paper);padding:.6rem 16px;flex-wrap:wrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:0s !important}
+}
+</style>
+</head>
+<body class="compact">
+<header class="top">
+  <div>
+    <div class="eyebrow">Voorbeeldcasus · alles is verzonnen</div>
+    <h1>Kansenkaart van Voorbeeld BV</h1>
+  </div>
+  <div class="teller" id="teller" aria-live="polite"></div>
+</header>
+<div class="voortgang" aria-hidden="true"><i id="balk"></i></div>
+
+<main class="swimlane">
+  <section class="podium" aria-label="Het proces van Voorbeeld BV als swimlane: vijf rollen en vijf fasen">
+    <div class="bord">
+      <svg id="schema" viewBox="0 0 1900 860" role="img" aria-label="Swimlane van Voorbeeld BV. Banen: klant, Klantcontact, Planning en Service, Kwaliteit en MT, systemen. Kolommen: melden, registreren en sorteren, afhandelen, terugkoppelen, leren. Rechts de eindpunten A tot en met D."></svg>
+      <div class="opdracht" id="opdracht"></div>
+    </div>
+  </section>
+  <section class="bijschrift" id="bijschrift" aria-live="polite"></section>
+  <div class="plat" id="plat"></div>
+  <noscript><p class="geen-js">Zet JavaScript aan om de kansenkaart te zien.</p></noscript>
+</main>
+
+<footer class="bediening">
+  <nav aria-label="Stappen">
+    <button type="button" id="terug" aria-label="Vorige stap">←</button>
+    <button type="button" id="verder" class="volgende" aria-label="Volgende stap">→</button>
+    <a href="./index.html">Startpagina</a>
+  </nav>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" role="img" aria-label="Logo Business Data Solutions"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    Business Data Solutions
+  </span>
+</footer>
+
+<script type="module">
+/* Kansenkaart: het proces van Voorbeeld BV als swimlane, van klantvraag tot verbetering.
+   Bron van de inhoud: materiaal/voorbeeldcasus.md (rollen, fasen, vier routes, eindpunten A–D,
+   terugkoppeling en leren, de vijf kansen). Verander je daar iets, verander het hier ook.
+   d3      tekent het bord en laat vakken, pijlen en markeringen verschijnen.
+   motion  regelt de overgang tussen twee indelingen, beeld voor beeld (meng): de banen waar je over
+           praat groeien en tonen de volledige tekst, de andere krimpen tot dunne balken. Een stip
+           (de klacht) loopt de route en is alleen tussen twee vakken te zien.
+   Elke bibliotheek laadt los. Zonder motion springen de overgangen direct. Zonder d3 staat het
+   proces als tabel op de pagina. */
+
+const CDN = {
+  d3: "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm",
+  motion: "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm",
+};
+
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const T = (s) => (reduce ? 0 : s);
+const ms = (s) => s * 1000;
+const $ = (id) => document.getElementById(id);
+const wacht = (s) => new Promise((r) => setTimeout(r, s * 1000));
+const pastNiet = (wat) => console.warn(`Kansenkaart past niet: ${wat}`);
+
+// lucide "bot" en "user-round"
+const BOT_BINNEN = '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></g>';
+const MENS_BINNEN = '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></g>';
+const BOT = `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${BOT_BINNEN}</svg>`;
+const aiChip = (nr, extra = "") => `<span class="ai-chip ${extra}" aria-label="AI-kans ${nr}">${BOT}<i>${nr}</i></span>`;
+
+/* ================= Inhoud ================= */
+
+const FASEN = ["Melden", "Registreren en sorteren", "Afhandelen", "Terugkoppelen", "Leren"];
+
+// Kolom 0–4 = fase, 5 = eindpunt.
+const BANEN = [
+  { naam: "Klant", sub: "Mail, telefoon of web",
+    cellen: [[0, ["vraag"]], [3, ["ontvangt", "bericht"]], [5, ["A", "B"]]] },
+  { naam: "Klantcontact", sub: "Eerste aanspreekpunt",
+    cellen: [[1, ["sorteer", "soort"]], [2, ["antwoord", "doorsturen"]], [3, ["terug"]]] },
+  { naam: "Planning en Service", sub: "Monteurs Noord en Zuid",
+    cellen: [[2, ["oplossen"]], [4, ["werkbon"]]] },
+  { naam: "Kwaliteit en MT", sub: "Kijkt over afdelingen heen",
+    cellen: [[1, ["escalatie"]], [2, ["directie"]], [4, ["patroon", "rapport", "mt"]], [5, ["C", "D"]]] },
+  { naam: "Systemen", sub: "CRM, planning en kennisbank",
+    cellen: [[1, ["crm"]], [2, ["kennis", "planning"]], [4, ["kennisNieuw"]]] },
+];
+
+// kort = label in het overzicht; lang = de volledige tekst als de baan groot is.
+// vanaf = de stap waarin het vak verschijnt (1 = route 1 … 5 = leren). met = systemen die meedoen.
+const VAKKEN = {
+  vraag: { kort: "Vraag of klacht", lang: "De klant meldt zich via mail, telefoon of het webformulier.", vanaf: 1 },
+  ontvangt: { kort: "Krijgt antwoord", lang: "De klant heeft meteen een antwoord.", vanaf: 1 },
+  bericht: { kort: "Krijgt bericht", lang: "De klant hoort hoe de klacht is opgelost.", vanaf: 2 },
+
+  sorteer: { kort: "Sorteren met de hand", lang: "Klantcontact kiest een categorie en een urgentie.", vanaf: 1, met: ["crm"] },
+  soort: { kort: "Wat voor vraag?", lang: "Eenvoudige vraag, klacht over een bezoek of ernstige klacht?", vanaf: 1, beslis: true },
+  antwoord: { kort: "Meteen antwoorden", lang: "Klantcontact zoekt het antwoord op in de kennisbank.", vanaf: 1, met: ["kennis"] },
+  doorsturen: { kort: "Klacht doorsturen", lang: "Klantcontact stuurt de klacht naar Planning en Service.", vanaf: 2 },
+  terug: { kort: "Terugkoppelen", lang: "Klantcontact laat de klant weten hoe het is opgelost.", vanaf: 2 },
+
+  oplossen: { kort: "Oplossen", lang: "De monteur of de planner lost de klacht op.", vanaf: 2, met: ["planning"] },
+  werkbon: { kort: "Werkbon aangepast", lang: "De maatregel komt als vaste stap op de werkbon van Service.", vanaf: 5 },
+
+  escalatie: { kort: "Escalatie", lang: "Kwaliteit en de directie horen het meteen. Bel de klant binnen 1 uur.", vanaf: 4 },
+  directie: { kort: "Directie besluit", lang: "Binnen 1 werkdag ligt de klacht bij de directie.", vanaf: 4, beslis: true },
+  patroon: { kort: "Patroon zoeken", lang: "Elke maand bekijkt Kwaliteit de klachten van alle afdelingen.", vanaf: 3, met: ["crm"] },
+  rapport: { kort: "Rapport aan het MT", lang: "Kwaliteit ziet een patroon en schrijft een verbetervoorstel.", vanaf: 3 },
+  mt: { kort: "MT besluit", lang: "Het MT besluit over het verbetervoorstel.", vanaf: 3, beslis: true },
+
+  crm: { kort: "Klantsysteem (CRM)", lang: "Elke vraag en klacht staat in het klantsysteem.", vanaf: 1 },
+  kennis: { kort: "Kennisbank", lang: "Hier zoekt Klantcontact het antwoord op.", vanaf: 1 },
+  planning: { kort: "Planningssysteem", lang: "De afspraken en bezoeken van de monteurs.", vanaf: 2 },
+  kennisNieuw: { kort: "Kennisbank bijgewerkt", lang: "Een verbetermaatregel komt ook in de kennisbank.", vanaf: 5 },
+
+  A: { kort: "A · Beantwoord", lang: "De klant heeft meteen een antwoord op de vraag.", eind: true, vanaf: 1 },
+  B: { kort: "B · Opgelost", lang: "De klacht is opgelost en de klant weet het.", eind: true, vanaf: 2 },
+  C: { kort: "C · Verbetermaatregel", lang: "Het MT neemt een maatregel. Service en de kennisbank nemen hem over.", eind: true, vanaf: 3 },
+  D: { kort: "D · Escalatie afgehandeld", lang: "De directie heeft besloten. De klant is gebeld.", eind: true, vanaf: 4 },
+};
+
+// modus: h = rechts uit, links in · hoek = rechts uit, van boven in · omlaag / omhoog = recht
+// naar beneden of boven · goot = via de linkerkant van de kolom · onder = langs de onderkant van
+// de baan · terugBoven / terugRechts = de lus van het eindpunt terug naar het proces.
+const PIJLEN = [
+  ["vraag", "sorteer", "hoek"],
+  ["soort", "antwoord", "h"],
+  ["soort", "doorsturen", "h"],
+  ["soort", "escalatie", "goot", { label: "ernstig" }],
+  ["antwoord", "ontvangt", "h", { dx: -6 }],
+  ["ontvangt", "A", "h"],
+  ["doorsturen", "oplossen", "omlaag"],
+  ["oplossen", "terug", "h", { dx: 6 }],
+  ["terug", "bericht", "omhoog"],
+  ["bericht", "B", "h"],
+  ["mt", "C", "h"],
+  ["escalatie", "directie", "h"],
+  ["directie", "D", "onder"],
+  ["C", "werkbon", "terugBoven", { grijs: true }],
+  ["C", "kennisNieuw", "terugRechts", { grijs: true }],
+].map(([van, naar, modus, extra = {}]) => ({ id: `${van}-${naar}`, van, naar, modus, label: "", grijs: false, dx: 0, ...extra }));
+
+// De kansenkaart: vijf plekken waar AI kan helpen. Route 4 is nooit een kans.
+const KANSEN = [
+  { nr: 1, vak: "vraag", kant: "boven", fase: "Melden", label: "Doorvragen", sub: "bij een onvolledige klacht",
+    tekst: "De AI vraagt door bij een onvolledige klacht, bijvoorbeeld zonder ordernummer of datum (K-0501)." },
+  { nr: 2, vak: "sorteer", kant: "links", fase: "Sorteren", label: "Categorie en urgentie", sub: "met een citaat als bewijs",
+    tekst: "De AI stelt een categorie en een urgentie voor, met een citaat uit de klacht als bewijs." },
+  { nr: 3, vak: "antwoord", kant: "boven", fase: "Afhandelen", label: "Conceptantwoord", sub: "de medewerker past aan",
+    tekst: "De AI schrijft een conceptantwoord. De medewerker past het aan en verstuurt het." },
+  { nr: 4, vak: "patroon", kant: "links", dy: -6, fase: "Leren", label: "Patronen zien", sub: "over afdelingen heen",
+    tekst: "De AI ziet patronen over afdelingen heen (route 3)." },
+  { nr: 5, vak: "rapport", kant: "links", dy: 6, fase: "Rapportage", label: "Samenvatting", sub: "concept voor het MT",
+    tekst: "De AI maakt een concept-samenvatting voor het MT." },
+];
+const REGEL = ["De AI doet een voorstel. Een mens beslist.", "Ernstige klachten (route 4) blijven mensenwerk."];
+const MENS_TEKST = "Route 4 blijft mensenwerk";
+
+const OPDRACHT = [
+  "Teken je eigen procesketen: rollen als banen, fasen als kolommen.",
+  "Zet een cijfer waar AI kan helpen.",
+  "Schrijf bij elk cijfer wie beslist.",
+  "Waar schuift het knelpunt heen als AI het oplost?",
+];
+
+const STAPPEN = [
+  { wat: "Het proces van Voorbeeld BV", titel: "Wie doet wat, van klantvraag tot verbetering?",
+    tekst: ["Elke baan is een rol. Elke kolom is een fase, van melden tot leren.",
+      "Voorbeeld BV krijgt ongeveer 1.200 vragen en klachten per maand. Een klacht duurt gemiddeld 9 werkdagen."] },
+  { focus: [0, 1], wat: "Route 1 · eenvoudige vraag", titel: "Klantcontact antwoordt meteen",
+    tekst: ["De klant meldt zich via mail, telefoon of het webformulier. Klantcontact sorteert alles met de hand.",
+      "Bij een eenvoudige vraag zoekt Klantcontact het antwoord op in de kennisbank."],
+    reis: ["vraag", "sorteer", "soort", "antwoord", "ontvangt", "A"] },
+  { focus: [0, 1, 2], wat: "Route 2 · klacht over een bezoek", titel: "De monteur of de planner lost het op",
+    tekst: ["Klantcontact registreert de klacht en stuurt hem naar Planning en Service.",
+      "Daarna koppelt Klantcontact terug aan de klant. Na een klacht geven klanten gemiddeld een 6,1."],
+    reis: ["vraag", "sorteer", "soort", "doorsturen", "oplossen", "terug", "bericht", "B"] },
+  { focus: [3], wat: "Route 3 · terugkerend patroon", titel: "Kwaliteit kijkt over de afdelingen heen",
+    tekst: ["Elke afdeling ziet alleen de eigen klachten. Kwaliteit bekijkt elke maand de klachten van alle afdelingen.",
+      "Ziet Kwaliteit een patroon, dan schrijft Kwaliteit een verbetervoorstel. Het MT besluit."],
+    reis: ["patroon", "rapport", "mt", "C"] },
+  { focus: [1, 3], wat: "Route 4 · ernstige klacht", titel: "Bij een ernstige klacht besluit de directie",
+    tekst: ["Schade, een onveilige situatie of een dreigende claim? Dan escaleert Klantcontact meteen naar Kwaliteit en de directie.",
+      "Het draaiboek: bel de klant binnen 1 uur. Binnen 1 werkdag ligt de klacht bij de directie."],
+    reis: ["sorteer", "soort", "escalatie", "directie", "D"] },
+  { nadruk: ["antwoord", "ontvangt", "terug", "bericht", "mt", "C", "werkbon", "kennisNieuw"],
+    wat: "Terugkoppelen en leren", titel: "De klant hoort de uitkomst en het proces leert ervan",
+    tekst: ["De klant krijgt altijd bericht.",
+      "Een verbetermaatregel gaat terug naar Service, op de werkbon, en naar de kennisbank."],
+    reis: [["terug", "bericht"], ["C", "werkbon"], ["C", "kennisNieuw"]] },
+  { eindpunten: true, wat: "Vier eindpunten", titel: "Waar een vraag of klacht eindigt" },
+  { kansen: true, ruim: true, gewicht: [1.4, 1.6, 0.3, 1.4, 0.3], wat: "Kansenkaart · vijf plekken waar AI kan helpen",
+    titel: REGEL[0], nadrukTekst: REGEL[1] },
+  { opdracht: true, wat: "Jouw proces", titel: "Teken je eigen kansenkaart",
+    tekst: ["Dit doe je voordat je de businesscase onderzoekt."] },
+];
+
+/* ================= Laden ================= */
+
+async function laad(naam) {
+  try { return await import(CDN[naam]); }
+  catch (e) { console.warn(`Kansenkaart: ${naam} niet geladen.`, e); return null; }
+}
+const [d3, M] = await Promise.all([laad("d3"), laad("motion")]);
+
+/* Overgangen. Met motion beeld voor beeld; zonder motion of bij minder beweging direct. */
+function tween(duur, ease, onUpdate) {
+  let stop = () => {};
+  const klaar = new Promise((res) => {
+    if (!M || duur <= 0) { onUpdate(1); res(); return; }
+    const c = M.animate(0, 1, { duration: duur, ease, onUpdate, onComplete: res });
+    stop = () => { c.stop(); res(); };
+  });
+  return { klaar, stop: () => stop() };
+}
+function verschijn(els, { y = 10, duur = 0.4, stap = 0.08, start = 0 } = {}) {
+  els = [...els];
+  if (!M || reduce || !els.length) return;
+  M.animate(els, { opacity: [0, 1], y: [y, 0] }, { duration: duur, delay: M.stagger(stap, { startDelay: start }) });
+}
+
+/* ================= Terugval: het proces als tabel ================= */
+
+function toonTabel() {
+  document.body.classList.add("zonder-d3");
+  const cel = (b, k) => (b.cellen.find(([kk]) => kk === k)?.[1] || [])
+    .map((id) => `<div><b>${VAKKEN[id].kort}</b><br>${VAKKEN[id].lang}</div>`).join("");
+  const routes = STAPPEN.filter((s) => /^Route/.test(s.wat))
+    .map((s) => `<li><b>${s.wat}.</b> ${s.tekst.join(" ")}</li>`).join("");
+  $("plat").innerHTML = `
+    <h2>${STAPPEN[0].titel}</h2>
+    <p>${STAPPEN[0].tekst[1]}</p>
+    <div class="tabel-rol"><table>
+      <thead><tr><th scope="col">Rol</th>${[...FASEN, "Eindpunt"].map((f) => `<th scope="col">${f}</th>`).join("")}</tr></thead>
+      <tbody>${BANEN.map((b) => `<tr><th scope="row">${b.naam}</th>${[0, 1, 2, 3, 4, 5].map((k) => `<td>${cel(b, k)}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div>
+    <h2>Vier routes</h2><ol class="lijst">${routes}</ol>
+    <h2>Kansenkaart: vijf plekken waar AI kan helpen</h2>
+    <ol class="lijst kansen-lijst">${KANSEN.map((k) => `<li>${aiChip(k.nr)} <b>${k.fase}.</b> ${k.tekst}</li>`).join("")}</ol>
+    <p class="regel">${REGEL.join(" ")}</p>
+    <h2>Jouw proces</h2><ol class="lijst">${OPDRACHT.map((t) => `<li>${t}</li>`).join("")}</ol>`;
+}
+
+if (!d3) toonTabel();
+else bouwBord();
+
+/* ================= Het bord ================= */
+
+function bouwBord() {
+  /* ---------- Maten ---------- */
+  const VW = 1900, VH = 860;
+  const LBL = 216;                          // breedte van de baankop
+  const EIND_W = 250;                       // breedte van de eindpuntkolom
+  const COL0 = LBL + 18;
+  const EX = VW - EIND_W;
+  const COLW = (EX - 18 - COL0) / 5;
+  const KANT = 18;                          // ruimte links en rechts van een vak
+  const BW = COLW - 2 * KANT;
+  const Y0 = 48, LGAP = 8;
+  const M_ = {                              // per modus: vakhoogte, ruimte tussen vakken, ruimte in de baan
+    normaal: { bh: 40, gap: 7, pad: 10 },
+    ruim: { bh: 40, gap: 18, pad: 10 },     // overzicht met ruimte voor de kansmarkeringen
+    mini: { bh: 10, gap: 3, pad: 6 },
+    detail: { gap: 8, pad: 10 },
+  };
+  const MINI_MIN = 28;
+  const PAD_X = 12, TITEL_LH = 25, LANG_LH = 24;
+  const KORT_PX = 20, TITEL_PX = 21, LANG_PX = 19;
+  const NAAM_PX = 22, NAAM_LH = 25, SUB_PX = 15, SUB_LH = 19, KOP_W = LBL - 14 - 32;
+  const KANS_H = 52, MENS_H = 36;
+
+  const kolX = (k) => (k === 5 ? EX + 4 : COL0 + k * COLW + KANT);
+  const kolW = (k) => (k === 5 ? EIND_W - 22 : BW);
+
+  // Waar elk vak staat: baan en kolom.
+  const PLEK = {};
+  BANEN.forEach((b, bi) => b.cellen.forEach(([k, ids]) => ids.forEach((id) => (PLEK[id] = { bi, k }))));
+  PIJLEN.forEach((p) => (p.vanaf = Math.max(VAKKEN[p.van].vanaf, VAKKEN[p.naar].vanaf)));
+
+  // Verwijzingen controleren: elk vak op het bord, elke pijl en reis naar een bestaand vak.
+  const reizen_ = (s) => (s.reis ? (Array.isArray(s.reis[0]) ? s.reis : [s.reis]) : []);
+  const ids = [...PIJLEN.flatMap((p) => [p.van, p.naar]), ...KANSEN.map((k) => k.vak),
+    ...STAPPEN.flatMap((s) => [...(s.nadruk || []), ...reizen_(s).flat()]), ...Object.values(VAKKEN).flatMap((v) => v.met || [])];
+  const los = [...new Set(ids)].filter((id) => !PLEK[id]);
+  if (los.length) console.warn("Kansenkaart: verwijzingen zonder vak", los);
+
+  // Verbinders: twee vakken na elkaar in één cel, zonder pijl ertussen.
+  const zelfdeCel = (a, b) => PLEK[a].bi === PLEK[b].bi && PLEK[a].k === PLEK[b].k;
+  const pijlVan = (a, b) => PIJLEN.find((p) => p.van === a && p.naar === b);
+  const CELPAREN = [];
+  STAPPEN.forEach((s, n) => reizen_(s).forEach((r) => r.slice(1).forEach((naar, i) => {
+    const van = r[i];
+    if (pijlVan(van, naar)) return;
+    if (!zelfdeCel(van, naar)) { console.warn(`Kansenkaart: stap ${n + 1} heeft geen pijl van ${van} naar ${naar}`); return; }
+    if (!CELPAREN.some((c) => c.van === van && c.naar === naar)) CELPAREN.push({ van, naar });
+  })));
+
+  /* ---------- Tekst meten en afbreken ---------- */
+  const FONT = getComputedStyle(document.body).fontFamily;
+  const ctx = document.createElement("canvas").getContext("2d");
+  function breed(tekst, px, gewicht = 400) {
+    ctx.font = `${gewicht} ${px}px ${FONT}`;
+    return ctx.measureText(tekst).width;
+  }
+  function breek(tekst, px, gewicht, max, waar) {
+    const regels = [];
+    let r = "";
+    for (const w of tekst.split(" ")) {
+      if (breed(w, px, gewicht) > max) pastNiet(`het woord "${w}" is te breed (${waar})`);
+      const p = r ? `${r} ${w}` : w;
+      if (r && breed(p, px, gewicht) > max) { regels.push(r); r = w; } else r = p;
+    }
+    if (r) regels.push(r);
+    return regels;
+  }
+  for (const [id, v] of Object.entries(VAKKEN)) {
+    const w = kolW(PLEK[id].k) - 2 * PAD_X;
+    // Titel op één regel als hij daarvoor niet kleiner dan 18 px hoeft ("C · Verbetermaatregel").
+    const heel = breed(v.kort, TITEL_PX, 700);
+    v.titelPx = heel > w && (TITEL_PX * w) / heel >= 18 ? (TITEL_PX * w) / heel : TITEL_PX;
+    v.titelRegels = v.titelPx < TITEL_PX ? [v.kort] : breek(v.kort, TITEL_PX, 700, w, `vak ${id}`);
+    v.langRegels = breek(v.lang, LANG_PX, 400, w, `vak ${id}`);
+    v.detailH = 10 + v.titelRegels.length * TITEL_LH + 4 + v.langRegels.length * LANG_LH + 8;
+    v.kortPx = Math.min(KORT_PX, (KORT_PX * (w + 8)) / breed(v.kort, KORT_PX, v.beslis ? 700 : 400));
+    if (v.kortPx < 14) pastNiet(`het label van vak ${id} wordt te klein (${v.kortPx.toFixed(1)} px)`);
+  }
+  BANEN.forEach((b) => {
+    b.naamRegels = breek(b.naam, NAAM_PX, 700, KOP_W, `baan ${b.naam}`);
+    b.subRegels = breek(b.sub, SUB_PX, 400, KOP_W, `baan ${b.naam}`);
+    b.kopH = b.naamRegels.length * NAAM_LH + 6 + b.subRegels.length * SUB_LH + 16;
+    b.kleinPx = Math.min(15, (15 * KOP_W) / breed(b.naam, 15, 700));
+  });
+  // Fasekoppen: één maat voor alle koppen, zo groot als de langste toelaat.
+  const FASE_LS = 0.1;
+  const faseBreed = (f, px) => breed(f.toUpperCase(), px, 600) + f.length * px * FASE_LS;
+  const FASE_PX = Math.min(16, ...FASEN.map((f) => (16 * (COLW - 26)) / faseBreed(f, 16)));
+  if (FASE_PX < 12) pastNiet(`de fasekoppen worden te klein (${FASE_PX.toFixed(1)} px)`);
+  // Kansmarkering: zo breed als de langste tekstregel.
+  KANSEN.forEach((k) => (k.w = 70 + Math.max(breed(k.label, 18, 700), breed(k.sub, 15, 400)) + 16));
+  const MENS_W = 42 + breed(MENS_TEKST, 17, 700) + 16;
+
+  /* ---------- Indeling per stap ---------- */
+  const vakH = (id, modus) => (modus === "detail" ? VAKKEN[id].detailH : M_[modus].bh);
+
+  // Berekent waar alles staat in stap n: banen in `focus` groot, de rest mini; zonder focus: overzicht.
+  function indeling(s, n) {
+    const focus = s.focus ? new Set(s.focus) : null;
+    const maat = BANEN.map((b, bi) => {
+      const modus = !focus ? (s.ruim ? "ruim" : "normaal") : focus.has(bi) ? "detail" : "mini";
+      const md = M_[modus];
+      const celH = b.cellen.map(([, ids]) => ids.reduce((t, id, i) => t + vakH(id, modus) + (i ? md.gap : 0), 0));
+      const kop = modus === "mini" ? MINI_MIN : b.kopH;
+      return { modus, celH, h: Math.max(Math.max(...celH) + 2 * md.pad, kop) };
+    });
+    const vrij = VH - Y0 - LGAP * (BANEN.length - 1) - maat.reduce((t, m) => t + m.h, 0);
+    if (vrij < 0) pastNiet(`stap ${n + 1} is ${(-vrij).toFixed(0)} px te hoog`);
+    const gew = BANEN.map((_, bi) => (focus ? (focus.has(bi) ? 1 : 0) : (s.gewicht?.[bi] ?? 1)));
+    const som = gew.reduce((a, b) => a + b, 0);
+    maat.forEach((m, bi) => (m.h += (Math.max(0, vrij) * gew[bi]) / som));
+
+    const L = { banen: [], vakken: {} };
+    let y = Y0;
+    BANEN.forEach((b, bi) => {
+      const m = maat[bi], md = M_[m.modus];
+      L.banen[bi] = { y, h: m.h, mini: m.modus === "mini" ? 1 : 0 };
+      b.cellen.forEach(([k, ids], ci) => {
+        let vy = y + (m.h - m.celH[ci]) / 2;
+        ids.forEach((id) => {
+          const h = vakH(id, m.modus);
+          L.vakken[id] = { x: kolX(k), y: vy, w: kolW(k), h,
+            kort: m.modus === "normaal" || m.modus === "ruim" ? 1 : 0, detail: m.modus === "detail" ? 1 : 0 };
+          vy += h + md.gap;
+        });
+      });
+      y += m.h + LGAP;
+    });
+    return L;
+  }
+
+  // Tussenbeeld tussen twee indelingen (t van 0 tot 1).
+  function meng(a, b, t) {
+    const n = (x, y) => x + (y - x) * t;
+    const obj = (p, q) => Object.fromEntries(Object.keys(q).map((k) => [k, n(p[k], q[k])]));
+    return {
+      banen: b.banen.map((q, i) => obj(a.banen[i], q)),
+      vakken: Object.fromEntries(Object.entries(b.vakken).map(([id, q]) => [id, obj(a.vakken[id], q)])),
+    };
+  }
+
+  // Plek van de kansmarkeringen en van het label bij route 4.
+  function kansRect(k, v) {
+    const dy = k.dy || 0;
+    if (k.kant === "boven") return { x: v.x - 10, y: v.y + 10 - KANS_H, w: k.w, h: KANS_H };
+    if (k.kant === "links") return { x: v.x + 14 - k.w, y: v.y + v.h / 2 - KANS_H / 2 + dy, w: k.w, h: KANS_H };
+    return { x: v.x + v.w - 14, y: v.y + v.h / 2 - KANS_H / 2 + dy, w: k.w, h: KANS_H };
+  }
+  const mensRect = (v) => ({ x: v.x - 4, y: v.y - 8 - MENS_H, w: MENS_W, h: MENS_H });
+
+  const INDELINGEN = STAPPEN.map(indeling);
+
+  // De kansenkaart mag geen vak, markering of baankop raken, en moet binnen het bord blijven.
+  STAPPEN.forEach((s, n) => {
+    if (!s.kansen) return;
+    const L = INDELINGEN[n];
+    const rects = KANSEN.map((k) => ({ naam: `markering ${k.nr}`, eigen: k.vak, ...kansRect(k, L.vakken[k.vak]) }));
+    rects.push({ naam: "het label bij route 4", eigen: "escalatie", ...mensRect(L.vakken.escalatie) });
+    const raakt = (a, b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+    rects.forEach((r, i) => {
+      Object.entries(L.vakken).forEach(([id, v]) => id !== r.eigen && raakt(r, v) && pastNiet(`${r.naam} raakt vak ${id}`));
+      rects.slice(i + 1).forEach((q) => raakt(r, q) && pastNiet(`${r.naam} raakt ${q.naam}`));
+      if (r.x < LBL - 10 || r.x + r.w > VW || r.y < Y0 - 6 || r.y + r.h > VH) pastNiet(`${r.naam} valt buiten het bord`);
+    });
+  });
+
+  /* ---------- Tekenen ---------- */
+  const svg = d3.select("#schema");
+  const defs = svg.append("defs");
+  for (const id of ["punt", "punt-grijs"]) {
+    defs.append("marker").attr("id", id).attr("viewBox", "0 0 10 10").attr("refX", 9).attr("refY", 5)
+      .attr("markerWidth", 7).attr("markerHeight", 7).attr("orient", "auto-start-reverse")
+      .append("path").attr("d", "M0,1 L9,5 L0,9 z");
+  }
+
+  // Fasekoppen
+  const koppen = svg.append("g");
+  [...FASEN, "Eindpunt"].forEach((f, k) => {
+    koppen.append("text").attr("class", "fase").attr("x", kolX(k) + 2).attr("y", 30)
+      .attr("font-size", FASE_PX).attr("letter-spacing", `${FASE_LS}em`).text(f.toUpperCase());
+  });
+
+  // Banen
+  const banenG = svg.append("g");
+  const baan = banenG.selectAll("g.baan").data(BANEN).join("g").attr("class", "baan");
+  baan.append("rect").attr("class", "baan-vlak").attr("x", 0).attr("width", VW).attr("rx", 10);
+  baan.append("rect").attr("class", "baan-kop").attr("x", 0).attr("width", LBL - 14).attr("rx", 10);
+  const groot = baan.append("g").attr("class", "baan-groot");
+  groot.append("text").attr("class", "baan-naam").attr("font-size", NAAM_PX)
+    .selectAll("tspan").data((b) => b.naamRegels).join("tspan").attr("x", 16).text((r) => r);
+  groot.append("text").attr("class", "baan-sub").attr("font-size", SUB_PX)
+    .selectAll("tspan").data((b) => b.subRegels).join("tspan").attr("x", 16).text((r) => r);
+  baan.append("text").attr("class", "baan-klein").attr("x", 16).attr("font-size", (b) => b.kleinPx).text((b) => b.naam);
+
+  // Pijlen onder de vakken; verbinders tussen vakken in één cel.
+  const pijlenG = svg.append("g");
+  const pijl = pijlenG.selectAll("g.pijl-g").data(PIJLEN).join("g").attr("class", "pijl-g").style("opacity", 0);
+  pijl.append("path").attr("class", (p) => `pijl${p.grijs ? " grijs" : ""}`).attr("pathLength", 1)
+    .attr("marker-end", (p) => `url(#${p.grijs ? "punt-grijs" : "punt"})`);
+  pijl.append("text").attr("class", "pijl-label").text((p) => p.label);
+  const verbinder = pijlenG.selectAll("line.verbinder").data(CELPAREN).join("line").attr("class", "verbinder").style("opacity", 0);
+
+  // Vakken
+  const vakkenG = svg.append("g");
+  const vak = vakkenG.selectAll("g.vak").data(Object.keys(VAKKEN)).join("g")
+    .attr("class", (id) => `vak${VAKKEN[id].beslis ? " beslis" : ""}${VAKKEN[id].eind ? " eind" : ""}`)
+    .style("opacity", 0);
+  const binnen = vak.append("g").attr("class", "vak-binnen");
+  binnen.append("rect").attr("class", "vak-halo");
+  binnen.append("rect").attr("class", "vak-rand");
+  binnen.append("text").attr("class", "kort").attr("font-size", (id) => VAKKEN[id].kortPx).text((id) => VAKKEN[id].kort);
+  const detail = binnen.append("g").attr("class", "detail");
+  detail.append("text").attr("class", "titel").style("font-size", (id) => `${VAKKEN[id].titelPx}px`)
+    .selectAll("tspan").data((id) => VAKKEN[id].titelRegels).join("tspan")
+    .attr("x", PAD_X).attr("y", (_, i) => 10 + 19 + i * TITEL_LH).text((r) => r);
+  detail.append("text").attr("class", "lang").selectAll("tspan")
+    .data((id) => VAKKEN[id].langRegels.map((r) => [id, r])).join("tspan")
+    .attr("x", PAD_X).attr("y", ([id], i) => 10 + VAKKEN[id].titelRegels.length * TITEL_LH + 4 + 18 + i * LANG_LH)
+    .text(([, r]) => r);
+
+  // Kansenkaart: vijf AI-markeringen en het label bij route 4.
+  const kansG = svg.append("g");
+  const kans = kansG.selectAll("g.kans").data(KANSEN).join("g").attr("class", "kans").style("opacity", 0)
+    .attr("role", "img").attr("aria-label", (k) => `AI-kans ${k.nr}, ${k.fase}: ${k.tekst}`);
+  kans.append("rect").attr("class", "kans-vlak").attr("width", (k) => k.w).attr("height", KANS_H).attr("rx", 14);
+  kans.append("g").attr("class", "kans-icoon").attr("transform", `translate(11,${(KANS_H - 22) / 2}) scale(${22 / 24})`).html(BOT_BINNEN);
+  kans.append("circle").attr("class", "kans-bol").attr("cx", 49).attr("cy", KANS_H / 2).attr("r", 12);
+  kans.append("text").attr("class", "kans-nr").attr("x", 49).attr("y", KANS_H / 2).text((k) => k.nr);
+  kans.append("text").attr("class", "kans-label").attr("x", 70).attr("y", 22).text((k) => k.label);
+  kans.append("text").attr("class", "kans-sub").attr("x", 70).attr("y", 41).text((k) => k.sub);
+  const mens = kansG.append("g").attr("class", "mens").style("opacity", 0).attr("role", "img").attr("aria-label", REGEL[1]);
+  mens.append("rect").attr("class", "mens-vlak").attr("width", MENS_W).attr("height", MENS_H).attr("rx", MENS_H / 2);
+  mens.append("g").attr("class", "mens-icoon").attr("transform", `translate(12,${(MENS_H - 20) / 2}) scale(${20 / 24})`).html(MENS_BINNEN);
+  mens.append("text").attr("class", "mens-tekst").attr("x", 40).attr("y", MENS_H / 2 + 1).text(MENS_TEKST);
+
+  const stip = svg.append("circle").attr("class", "klacht").attr("r", 10).style("opacity", 0);
+
+  // Pijlen volgen de vakken; ze worden elk beeld opnieuw berekend.
+  function pijlPad(p, V, B) {
+    const a = V[p.van], b = V[p.naar];
+    const r = 7;
+    const haaks = (pts) => { // lijn door hoekpunten met afgeronde hoeken
+      const pad = d3.path();
+      pad.moveTo(...pts[0]);
+      for (let i = 1; i < pts.length - 1; i++) {
+        const [p0, c, p1] = [pts[i - 1], pts[i], pts[i + 1]];
+        const l1 = Math.hypot(c[0] - p0[0], c[1] - p0[1]) || 1, l2 = Math.hypot(p1[0] - c[0], p1[1] - c[1]) || 1;
+        const rr = Math.min(r, l1 / 2, l2 / 2);
+        pad.lineTo(c[0] + ((p0[0] - c[0]) / l1) * rr, c[1] + ((p0[1] - c[1]) / l1) * rr);
+        pad.quadraticCurveTo(c[0], c[1], c[0] + ((p1[0] - c[0]) / l2) * rr, c[1] + ((p1[1] - c[1]) / l2) * rr);
+      }
+      pad.lineTo(...pts.at(-1));
+      return pad.toString();
+    };
+    const mid = (v) => v.y + v.h / 2, cx = (v) => v.x + v.w / 2;
+    let pts, lab = [0, 0, "start"];
+    if (p.modus === "hoek") {
+      pts = [[a.x + a.w, mid(a)], [cx(b), mid(a)], [cx(b), b.y]];
+    } else if (p.modus === "omlaag") {
+      pts = [[cx(a), a.y + a.h], [cx(a), b.y]];
+    } else if (p.modus === "omhoog") {
+      pts = [[cx(a), a.y], [cx(a), b.y + b.h]];
+    } else if (p.modus === "goot") {
+      const gx = a.x - 11;
+      pts = [[a.x, mid(a)], [gx, mid(a)], [gx, mid(b)], [b.x, mid(b)]];
+      lab = [gx - 6, mid(a) + 22, "end"];
+    } else if (p.modus === "onder") {
+      const baan = B[PLEK[p.van].bi], x = cx(a), yb = baan.y + baan.h - 7, gx = b.x - 12;
+      pts = [[x, a.y + a.h], [x, yb], [gx, yb], [gx, mid(b)], [b.x, mid(b)]];
+    } else if (p.modus === "terugBoven") {
+      pts = [[cx(a), a.y], [cx(a), mid(b)], [b.x + b.w, mid(b)]];
+    } else if (p.modus === "terugRechts") {
+      const xr = a.x + a.w + 9;
+      pts = [[a.x + a.w, mid(a)], [xr, mid(a)], [xr, mid(b)], [b.x + b.w, mid(b)]];
+    } else {
+      const x1 = a.x + a.w, x2 = b.x, mx = (x1 + x2) / 2 + p.dx;
+      pts = Math.abs(mid(a) - mid(b)) < 0.5 ? [[x1, mid(a)], [x2, mid(b)]]
+        : [[x1, mid(a)], [mx, mid(a)], [mx, mid(b)], [x2, mid(b)]];
+      lab = [x1 + 4, mid(a) - 7, "start"];
+    }
+    return { d: haaks(pts), lab };
+  }
+
+  function teken(L) {
+    baan.each(function (b, bi) {
+      const g = d3.select(this), m = L.banen[bi];
+      g.select(".baan-vlak").attr("y", m.y).attr("height", m.h);
+      g.select(".baan-kop").attr("y", m.y).attr("height", m.h);
+      const n = b.naamRegels.length, sn = b.subRegels.length;
+      const top = m.y + m.h / 2 - (n * NAAM_LH + 6 + sn * SUB_LH) / 2;
+      g.select(".baan-naam").selectAll("tspan").attr("y", (_, i) => top + NAAM_LH * 0.8 + i * NAAM_LH);
+      g.select(".baan-sub").selectAll("tspan").attr("y", (_, i) => top + n * NAAM_LH + 6 + SUB_LH * 0.8 + i * SUB_LH);
+      g.select(".baan-groot").style("opacity", (1 - m.mini) ** 2);
+      g.select(".baan-klein").attr("y", m.y + m.h / 2).style("opacity", m.mini ** 2);
+    });
+    vak.each(function (id) {
+      const v = L.vakken[id], g = d3.select(this);
+      const rx = VAKKEN[id].beslis ? Math.min(v.h / 2, 19) : Math.min(6, v.h / 2);
+      g.attr("transform", `translate(${v.x},${v.y})`);
+      g.select(".vak-rand").attr("width", v.w).attr("height", v.h).attr("rx", rx);
+      g.select(".vak-halo").attr("x", -2).attr("y", -2).attr("width", v.w + 4).attr("height", v.h + 4).attr("rx", rx + 2);
+      g.select(".kort").attr("x", v.w / 2).attr("y", v.h / 2).style("opacity", v.kort ** 3);
+      g.select(".detail").style("opacity", v.detail ** 4);
+    });
+    verbinder.each(function (c) {
+      const a = L.vakken[c.van], b = L.vakken[c.naar], x = a.x + a.w / 2;
+      d3.select(this).attr("x1", x).attr("y1", a.y + a.h).attr("x2", x).attr("y2", b.y);
+    });
+    pijl.each(function (p) {
+      const { d, lab } = pijlPad(p, L.vakken, L.banen);
+      const g = d3.select(this);
+      g.select("path").attr("d", d);
+      const klein = Math.max(L.banen[PLEK[p.van].bi].mini, L.banen[PLEK[p.naar].bi].mini);
+      g.select("text").attr("x", lab[0]).attr("y", lab[1]).attr("text-anchor", lab[2]).style("opacity", 1 - klein);
+    });
+    kans.attr("transform", (k) => { const r = kansRect(k, L.vakken[k.vak]); return `translate(${r.x},${r.y})`; });
+    const m = mensRect(L.vakken.escalatie);
+    mens.attr("transform", `translate(${m.x},${m.y})`);
+  }
+
+  /* ---------- De klacht die meeloopt ---------- */
+  let reisNr = 0, stipAnim = null;
+  const halo = (id, aan) => {
+    const set = new Set([id, ...(VAKKEN[id].met || [])]);
+    vak.filter((x) => set.has(x)).classed("aan", aan);
+  };
+  const zet = ([x, y]) => stip.attr("cx", x).attr("cy", y);
+
+  // De stip is alleen te zien als de klacht onderweg is. In een vak licht het vak op.
+  async function reizen(reis, nr) {
+    const delen = Array.isArray(reis[0]) ? reis : [reis];
+    vak.classed("aan", false);
+    if (reduce || !M) { delen.flat().forEach((id) => halo(id, true)); return; }
+    for (let d = 0; d < delen.length; d++) {
+      const ids = delen[d];
+      for (let i = 0; i < ids.length; i++) {
+        if (nr !== reisNr) return;
+        const id = ids[i], volgende = ids[i + 1];
+        halo(id, true);
+        await wacht(0.5);
+        if (nr !== reisNr) return;
+        if (!volgende) { if (d < delen.length - 1) halo(id, false); break; }
+        halo(id, false);
+        const p = pijlVan(id, volgende);
+        let punt, duur;
+        if (p) {
+          const el = pijl.filter((x) => x === p).select("path").node(), lengte = el.getTotalLength();
+          punt = (t) => { const q = el.getPointAtLength(t * lengte); return [q.x, q.y]; };
+          duur = 0.45 + lengte / 1400;
+        } else { // naar het volgende vak in dezelfde cel
+          const a = indelingNu.vakken[id], b = indelingNu.vakken[volgende], x = a.x + a.w / 2;
+          punt = (t) => [x, a.y + a.h + (b.y - a.y - a.h) * t];
+          duur = 0.3;
+        }
+        zet(punt(0));
+        stip.style("opacity", 1);
+        stipAnim = tween(duur, "easeInOut", (t) => zet(punt(t)));
+        await stipAnim.klaar;
+        stip.style("opacity", 0);
+      }
+    }
+  }
+
+  /* ---------- Bijschrift en opdracht ---------- */
+  function bijschriftTekenen(s, n) {
+    const el = $("bijschrift");
+    const ps = (s.tekst || []).map((t) => `<p>${t}</p>`).join("") + (s.nadrukTekst ? `<p class="nadruk">${s.nadrukTekst}</p>` : "");
+    let html = `<div class="station"><div class="wat">${s.wat}</div><h2>${s.titel}</h2>${ps}</div>`;
+    if (s.eindpunten) {
+      html += `<div class="kaarten">${["A", "B", "C", "D"].map((l) => {
+        const v = VAKKEN[l];
+        return `<div class="kaartje"><b><span class="letter">${l}</span>${v.kort.slice(4)}</b>${v.lang}</div>`;
+      }).join("")}</div>`;
+    }
+    if (s.kansen) html += `<ol class="lijst kansen-lijst alleen-smal">${KANSEN.map((k) => `<li>${aiChip(k.nr)} <b>${k.fase}.</b> ${k.tekst}</li>`).join("")}</ol>`;
+    if (s.opdracht) html += `<ol class="lijst alleen-smal">${OPDRACHT.map((t) => `<li>${t}</li>`).join("")}</ol>`;
+    el.className = `bijschrift${s.eindpunten ? " naast" : ""}`;
+    el.innerHTML = html;
+    verschijn(el.children);
+    // Past het bijschrift? Gemeten zonder de beweging (offsetTop negeert transform).
+    if (!matchMedia("(max-width: 760px)").matches) {
+      const onder = Math.max(0, ...[...el.children].map((c) => c.offsetTop + c.offsetHeight));
+      if (onder > el.clientHeight + 1) pastNiet(`het bijschrift van stap ${n + 1} is ${Math.round(onder - el.clientHeight)} px te hoog`);
+    }
+  }
+
+  const MINI_RASTER = `<svg class="mini-raster" viewBox="0 0 160 70" aria-hidden="true">${[0, 25, 50].map((y) =>
+    `<rect x="0" y="${y}" width="30" height="20" rx="3" fill="#1a1a1a"/><rect x="34" y="${y}" width="126" height="20" rx="3" fill="#f0ebe0"/>`).join("")}
+    ${[66, 97, 128].map((x) => `<line x1="${x}" y1="0" x2="${x}" y2="70" stroke="#fff" stroke-width="2"/>`).join("")}</svg>`;
+  const BEELD = [MINI_RASTER, aiChip(1, "groot"), "", ""];
+  $("opdracht").innerHTML = `<div class="rij">${OPDRACHT.map((t, i) =>
+    `<div class="taak"><span class="nr">${i + 1}</span><p>${t}</p>${BEELD[i] ? `<div class="beeld">${BEELD[i]}</div>` : ""}</div>`).join("")}</div>`;
+  function controleerOpdracht() {
+    const el = $("opdracht"), rij = el.firstElementChild;
+    if (getComputedStyle(el).display !== "none" && rij.offsetHeight > el.clientHeight) pastNiet(`de opdracht is ${rij.offsetHeight - el.clientHeight} px te hoog`);
+  }
+
+  /* ---------- Regie ---------- */
+  let stap = -1;
+  let indelingNu = INDELINGEN[0];
+  let overgang = null;
+
+  function zichtbaarheid(n, vooruit) {
+    const L = INDELINGEN[n];
+    // Vakken: nieuw zichtbare vakken verschijnen per kolom, van links naar rechts.
+    const nieuw = [];
+    vak.each(function (id) {
+      const aan = VAKKEN[id].vanaf <= n, was = this.dataset.aan === "1";
+      this.dataset.aan = aan ? "1" : "0";
+      if (aan && !was) nieuw.push(this);
+      else if (!aan && was) d3.select(this).transition("zicht").duration(ms(T(0.2))).style("opacity", 0);
+    });
+    nieuw.sort((a, b) => L.vakken[a.__data__].x - L.vakken[b.__data__].x || L.vakken[a.__data__].y - L.vakken[b.__data__].y);
+    nieuw.forEach((el, i) => d3.select(el).transition("zicht").delay(ms(T((vooruit ? 0.35 : 0) + i * 0.05)))
+      .duration(ms(T(0.4))).style("opacity", 1));
+    verbinder.transition("zicht").delay(ms(T(vooruit ? 0.5 : 0))).duration(ms(T(0.4)))
+      .style("opacity", (c) => (VAKKEN[c.naar].vanaf <= n ? 1 : 0));
+    // Pijlen tekenen zich als ze verschijnen.
+    pijl.each(function (p) {
+      const aan = p.vanaf <= n, was = this.dataset.aan === "1";
+      this.dataset.aan = aan ? "1" : "0";
+      const g = d3.select(this);
+      if (aan && !was) {
+        g.transition("zicht").delay(ms(T(0.6))).duration(ms(T(0.3))).style("opacity", 1);
+        if (!reduce) {
+          g.select("path").style("stroke-dasharray", "1 1").style("stroke-dashoffset", 1)
+            .transition("teken").delay(ms(0.6)).duration(ms(0.7)).ease(d3.easeCubicOut).style("stroke-dashoffset", 0)
+            .on("end interrupt", function () { d3.select(this).style("stroke-dasharray", null).style("stroke-dashoffset", null); });
+        }
+      } else if (!aan && was) g.transition("zicht").duration(ms(T(0.2))).style("opacity", 0);
+    });
+  }
+
+  function ga(n) {
+    n = Math.max(0, Math.min(STAPPEN.length - 1, n));
+    if (n === stap) return;
+    const vooruit = n > stap;
+    stap = n;
+    const s = STAPPEN[n];
+    $("teller").textContent = `${n + 1} / ${STAPPEN.length}`;
+    $("balk").style.width = `${((n + 1) / STAPPEN.length) * 100}%`;
+    history.replaceState(null, "", `#stap-${n + 1}`);
+
+    // Lopende klacht stoppen.
+    reisNr++;
+    stipAnim?.stop();
+    stip.style("opacity", 0);
+    vak.classed("aan", false);
+
+    // Opmaak per stap: welke banen groot zijn, wat vervaagt.
+    const focus = new Set(s.focus || []);
+    const mini = (bi) => Boolean(s.focus) && !focus.has(bi);
+    baan.classed("focus", (_, bi) => focus.has(bi));
+    vak.classed("mini", (id) => mini(PLEK[id].bi));
+    const nadruk = s.nadruk ? new Set(s.nadruk) : null;
+    const vakStil = (id) => (s.eindpunten && !VAKKEN[id].eind) || (nadruk && !nadruk.has(id));
+    vak.select(".vak-binnen").classed("stil", (id) => Boolean(vakStil(id)));
+    verbinder.classed("stil", (c) => Boolean(vakStil(c.van) || vakStil(c.naar)));
+    pijl.classed("stil", (p) => Boolean((s.eindpunten && !VAKKEN[p.naar].eind) || (nadruk && !(nadruk.has(p.van) && nadruk.has(p.naar)))));
+
+    // Overgang van de huidige indeling naar die van deze stap.
+    overgang?.stop();
+    const van = indelingNu, naar = INDELINGEN[n], nr = reisNr;
+    overgang = tween(T(0.8), [0.65, 0, 0.35, 1], (t) => { indelingNu = meng(van, naar, t); teken(indelingNu); });
+    overgang.klaar.then(() => {
+      if (nr !== reisNr) return;
+      indelingNu = naar;
+      teken(naar);
+      if (s.reis) wacht(T(0.5)).then(() => nr === reisNr && reizen(s.reis, nr));
+    });
+
+    // Kansenkaart: de markeringen verschijnen een voor een, daarna het label bij route 4.
+    kans.transition("zicht").delay((_, i) => ms(s.kansen ? T(0.7 + i * 0.15) : 0)).duration(ms(T(0.35)))
+      .style("opacity", s.kansen ? 1 : 0);
+    mens.transition("zicht").delay(ms(s.kansen ? T(1.6) : 0)).duration(ms(T(0.35))).style("opacity", s.kansen ? 1 : 0);
+
+    // Jouw proces: kaarten over het gedimde bord.
+    svg.classed("achter", Boolean(s.opdracht));
+    $("opdracht").classList.toggle("aan", Boolean(s.opdracht));
+    document.querySelector("main.swimlane").classList.toggle("is-opdracht", Boolean(s.opdracht));
+    if (s.opdracht) { verschijn($("opdracht").querySelectorAll(".taak"), { y: 16, duur: 0.45, stap: 0.09, start: 0.2 }); controleerOpdracht(); }
+
+    zichtbaarheid(n, vooruit);
+    bijschriftTekenen(s, n);
+  }
+
+  addEventListener("keydown", (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest?.("a, button")) return; // de knop of link zelf
+    const volgende = ["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"];
+    const vorige = ["ArrowLeft", "ArrowUp", "PageUp", "Backspace"];
+    if (volgende.includes(e.key)) { e.preventDefault(); ga(stap + 1); }
+    else if (vorige.includes(e.key)) { e.preventDefault(); ga(stap - 1); }
+    else if (e.key === "Home") ga(0);
+    else if (e.key === "End") ga(STAPPEN.length - 1);
+  });
+  $("verder").addEventListener("click", () => ga(stap + 1));
+  $("terug").addEventListener("click", () => ga(stap - 1));
+
+  // #stap-N in de adresbalk: handig om te oefenen vanaf een bepaalde stap.
+  const stapUitHash = () => {
+    const n = parseInt((location.hash.match(/stap-(\d+)/) || [])[1], 10);
+    return Number.isFinite(n) ? n - 1 : 0;
+  };
+  addEventListener("hashchange", () => ga(stapUitHash()));
+
+  teken(indelingNu);
+  // De banen schuiven bij het openen een voor een in beeld.
+  baan.style("opacity", 0).attr("transform", "translate(-30,0)")
+    .transition("in").delay((_, i) => ms(T(i * 0.08))).duration(ms(T(0.5))).ease(d3.easeCubicOut)
+    .style("opacity", 1).attr("transform", "translate(0,0)");
+  koppen.style("opacity", 0).transition("in").delay(ms(T(0.3))).duration(ms(T(0.6))).style("opacity", 1);
+  ga(stapUitHash());
+}
+</script>
+</body>
+</html>
