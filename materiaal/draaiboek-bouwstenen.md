@@ -104,23 +104,41 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 - Vraag bij elke stakeholder met weerstand: "Wat verliest deze persoon?" Op dag 3 komt dit terug in de vier vragen bij weerstand.
 
-## Dag 1 · Werkplaats 1: de boards als skill (FR-17, ADR-027)
+## Dag 1 · Je supervisory board en de stukken van je bestuur (FR-17, FR-32, ADR-028)
 
-**Voordoen (10 minuten).** Open `materiaal/boards.html` op het scherm.
+**Voordoen (3 minuten).** Open `materiaal/boards.html` op het scherm, bij stap 2.
 
-1. Klik op "Vul in met Voorbeeld BV". Laat zien dat de controles groen worden: zes leden, twee sceptici, vier commissarissen.
-2. Download `advisory-board.zip` en zet hem in je eigen omgeving, met de stappen uit stap 5 van de pagina.
-3. Stel de testvraag uit stap 6 en lees één lid voor, met de zwakke plek die het noemt.
-4. Zeg: "Jullie doen hetzelfde, met je eigen organisatie. Wat je invult, blijft in je browser. Schrijf alleen op wat openbaar mag."
+1. Laat je eigen supervisory board zien, bijvoorbeeld v_Churchill, v_Gandhi, v_Patton, v_Springsteen en v_Obama. Zeg waarom je juist hen koos: ze inspireren je, en ze denken strategisch.
+2. Wijs de tegenspreker aan: "Kies er minstens één die tegen je koers in zou gaan. Een board van alleen helden geeft je snel gelijk."
+3. Zeg: "Deze helden helpen je om je verhaal voor je stakeholders scherp te krijgen. Wat je net over je stakeholders opschreef, gebruik je daarbij."
+
+**Daarna (12 minuten).** Elke deelnemer kiest drie tot vijf strategen, downloadt `supervisory-board.zip` en zet hem in de eigen AI-omgeving (stap 4 en 5 van de pagina). Dan zoekt iedereen stukken waarin het eigen bestuur iets zegt over visie, missie en strategie: een jaarverslag, artikelen, interviews.
+
+- **Alleen openbare stukken** (NFR-01). Een intern strategiestuk gaat geen AI-tool in.
+- Vindt iemand niets, of werkt die met Voorbeeld BV? Dan neemt die het jaarverslag van een organisatie uit dezelfde sector.
+- Lukt het installeren niet vóór 12:30? Laat het stuk dan door de AI samenvatten met de vraag uit de AI-taak, en installeer het board in werkplaats 1.
+
+**De AI-taak voor de lunch** staat op de startpagina en onder stap 2 van de pagina: het board bespreekt de stukken en komt tot een gezamenlijke conclusie en advies.
+
+## Dag 1 · Werkplaats 1: het advisory board (FR-17, ADR-027, ADR-028)
+
+**Begin (5 minuten).** Elke deelnemer leest het advies van het supervisory board uit de lunch. Vraag twee deelnemers: "Wat zei je board over hoe jullie bestuur visie, missie en strategie beschrijft? Een vaste stip, of ruimte om te leren?"
+
+**Voordoen (10 minuten).** Open `materiaal/boards.html` op het scherm, bij stap 3.
+
+1. Klik op "Vul in met Voorbeeld BV". Laat zien dat de controles groen worden.
+2. Zeg: "Kies experts uit de vakgebieden die je casus nodig heeft. Mis je er een, zoals recht of inkoop, voeg dan je eigen expert toe."
+3. Download `advisory-board.zip` en zet hem in je eigen omgeving, met de stappen uit stap 5 van de pagina.
+4. Stel de testvraag uit stap 6 en lees één lid voor, met de zwakke plek die het vanuit het eigen vak noemt.
+5. Zeg: "Jullie doen hetzelfde, met je eigen organisatie. Wat je invult, blijft in je browser. Schrijf alleen op wat openbaar mag."
 
 **Tijdens het bouwen.**
 
-- De commissarissen komen uit de AI-taak van de lunch: de top 3 stakeholders, met wat ze winnen en verliezen. Wie die taak oversloeg, kiest uit de voorstellen op de pagina.
 - Geef de pagina als bestand mee, of zet hem in de leeromgeving. Hij werkt zonder server en zonder internet.
 - Geen skills in de eigen omgeving (vaak ChatGPT zonder werkruimteplan)? Dan geldt de terugvaloptie: een project met de tekst als instructie. Het werkt hetzelfde, alleen roep je het board dan op door in dat project te werken.
 - Wie een Gem wil maken: niet doen. Bij persoonlijke accounts zijn Gems vanaf 17 november alleen-lezen, vóór dag 2.
 
-**Aan het eind van de werkplaats** kijk je bij iedereen of elk board een harde scepticus heeft (FR-17). De controles op de pagina laten het zien, maar wie de tekst daarna aanpast, kan de scepticus er weer uit halen.
+**Aan het eind van de werkplaats** kijk je bij iedereen of het advisory board een harde scepticus heeft en het supervisory board een tegenspreker (FR-17). De controles op de pagina laten het zien, maar wie de tekst daarna aanpast, kan ze er weer uit halen.
 
 ## Dag 2 · Investeringscomité (FR-09)
 

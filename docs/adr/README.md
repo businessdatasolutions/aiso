@@ -9,7 +9,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-003](ADR-003-lrd-als-interactieve-html.md) | De LRD als interactieve HTML-pagina in de huisstijl | Aanvaard | 2026-11-04 |
 | [ADR-004](ADR-004-gemini-voor-iedereen.md) | Gemini-accounts van de trainer voor iedereen | Vervangen door ADR-005 | 2026-11-04 |
 | [ADR-005](ADR-005-eigen-account-gemini-reserve.md) | Eigen frontieraccount, Gemini-accounts als reserve | Aanvaard | 2026-11-04 |
-| [ADR-006](ADR-006-advisory-en-supervisory-board.md) | Advisory board en supervisory board | Aanvaard | 2026-11-04 |
+| [ADR-006](ADR-006-advisory-en-supervisory-board.md) | Advisory board en supervisory board | Deels vervangen door ADR-028 | 2026-11-04 |
 | [ADR-007](ADR-007-bouwstraat.md) | Bouwstraat over dag 2, thuis en dag 3 | Aanvaard | 2026-11-04 |
 | [ADR-008](ADR-008-experimentverslag-als-kort-paper.md) | Experimentverslag als kort paper | Vervangen door ADR-009 | 2026-11-04 |
 | [ADR-009](ADR-009-experimentverslag-als-interactieve-pagina.md) | Experimentverslag als interactieve webpagina, gebouwd met AI | Aanvaard | 2026-11-04 |
@@ -30,7 +30,8 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-024](ADR-024-resultaten-sn-als-enige-doelen.md) | De resultaten van S&N als enige doelen; geen leeruitkomsten en geen Bloom | Aanvaard | 2026-11-07 |
 | [ADR-025](ADR-025-kiss-opschoning-na-de-scan.md) | KISS-opschoning na de scan: minder dubbel, eerlijke KISS-keuzes, FR-12 in FR-18 | Aanvaard | 2026-11-07 |
 | [ADR-026](ADR-026-strategie-als-bril.md) | Strategie als bril: vaste definities, emergente strategie en de missie op dag 3 | Aanvaard | 2026-11-07 |
-| [ADR-027](ADR-027-boards-als-skill.md) | De boards als skill, met een startsjabloon om in te vullen | Aanvaard | 2026-11-07 |
+| [ADR-027](ADR-027-boards-als-skill.md) | De boards als skill, met een startsjabloon om in te vullen | Deels vervangen door ADR-028 | 2026-11-07 |
+| [ADR-028](ADR-028-experts-en-strategen-in-de-boards.md) | Experts in het advisory board, zelfgekozen strategen in het supervisory board | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

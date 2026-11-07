@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-028](ADR-028-experts-en-strategen-in-de-boards.md): het supervisory board bestaat uit zelfgekozen strategen in plaats van commissarissen, het advisory board uit experts per vakgebied |
 | **Datum** | 2026-11-04 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

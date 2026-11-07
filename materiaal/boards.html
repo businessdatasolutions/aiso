@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Je boards als skill</title>
-<meta name="description" content="Startsjabloon voor werkplaats 1 van AISO26009: vul je advisory board en je supervisory board aan, download ze als skill en zet ze in Claude, ChatGPT of Gemini.">
+<meta name="description" content="Startsjabloon voor dag 1 van AISO26009: stel je supervisory board en je advisory board samen, download ze als skill en zet ze in Claude, ChatGPT of Gemini.">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
 <style>
@@ -135,13 +135,6 @@ input[type="text"]:focus, textarea:focus { outline: 2px solid var(--primary); ou
 .vink { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
 .vink input { width: 18px; height: 18px; accent-color: var(--supporting); }
 
-/* Commissarissen */
-.voorstellen { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
-.com-lijst { display: grid; gap: 14px; }
-.com { border: 1px solid var(--border); border-left: 4px solid var(--supporting); border-radius: var(--radius-md); padding: 14px 16px 16px; background: var(--bg-off-white); }
-.com-kop { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
-.com-kop strong { font-size: 1rem; }
-.com .velden { gap: 10px; }
 .leeg { color: var(--text-muted); border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: 16px; margin: 0; }
 
 /* Tabs */
@@ -174,7 +167,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   *, *::before, *::after { transition: none !important; }
 }
 @media print {
-  nav.stappen, .knoppen, .voorstellen, .eigen-lid, .lid .weg { display: none !important; }
+  nav.stappen, .knoppen, .eigen-lid, .lid .weg { display: none !important; }
   section.stap { break-inside: avoid; border-color: #999; }
   pre.voorbeeld { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
   [role="tabpanel"][hidden] { display: block !important; }
@@ -184,7 +177,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 <body>
 <header class="kop">
   <div class="kop-binnen">
-    <p class="eyebrow">AISO26009 · Werkplaats 1 · startsjabloon</p>
+    <p class="eyebrow">AISO26009 · Dag 1 · startsjabloon</p>
     <h1>Je boards als skill</h1>
     <p class="lead">Vul het sjabloon aan, download je twee boards en zet ze in je eigen AI-omgeving. Het werkt in Claude, ChatGPT en Gemini. Daarna roep je je board in elke chat op met één naam.</p>
   </div>
@@ -193,8 +186,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   <div class="stappen-binnen">
     <a href="#wat"><b>0</b> Skill</a>
     <a href="#jij"><b>1</b> Over jou</a>
-    <a href="#advisory"><b>2</b> Advisory</a>
-    <a href="#supervisory"><b>3</b> Supervisory</a>
+    <a href="#supervisory"><b>2</b> Supervisory</a>
+    <a href="#advisory"><b>3</b> Advisory</a>
     <a href="#downloaden"><b>4</b> Downloaden</a>
     <a href="#installeren"><b>5</b> Installeren</a>
     <a href="#gebruiken"><b>6</b> Boardmoment</a>
@@ -204,10 +197,10 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 <main>
   <section class="stap" id="wat" aria-labelledby="wat-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">0</span><h2 id="wat-kop">Wat is een skill?</h2></div>
-    <p class="uitleg">Een skill is een map met één tekstbestand: <code>SKILL.md</code>. Bovenin staan een naam en een korte beschrijving. Daaronder staat hoe de AI het werk doet. Claude, ChatGPT en Gemini lezen hetzelfde formaat. Je maakt hier twee skills, één per board, en gebruikt ze bij elk boardmoment van de training.</p>
+    <p class="uitleg">Een skill is een map met één tekstbestand: <code>SKILL.md</code>. Bovenin staan een naam en een korte beschrijving. Daaronder staat hoe de AI het werk doet. Claude, ChatGPT en Gemini lezen hetzelfde formaat. Je maakt hier twee skills, één per board, en gebruikt ze bij elk boardmoment van de training. Je supervisory board stel je samen vóór de lunch op dag 1, je advisory board in werkplaats 1.</p>
     <div class="kaarten">
-      <div class="kaart is-tier-1"><p class="kaart-eyebrow">Advisory board · verbreedt</p><p>Vijf tot zeven denkperspectieven, zoals v_Kahneman (denkfouten) of v_Cuban (wie betaalt?). Ze bekijken je plan van verschillende kanten, debatteren en sluiten af met een oordeel, voorwaarden en stopcriteria.</p></div>
-      <div class="kaart is-tier-2"><p class="kaart-eyebrow">Supervisory board · toetst</p><p>Drie tot vijf commissarissen met de rol van echte belanghebbenden, zoals een financieel directeur of een OR-lid. Elke commissaris geeft apart advies over geld, risico, mensen en regels.</p></div>
+      <div class="kaart is-tier-1"><p class="kaart-eyebrow">Supervisory board · denkt strategisch</p><p>Drie tot vijf strategen die jij kiest omdat ze je inspireren: je eigen helden, zoals Churchill, Michelle Obama of Dolly Parton. Ze bespreken visie, missie en strategie, helpen je verhaal voor je stakeholders scherp te krijgen en komen tot een gezamenlijk advies.</p></div>
+      <div class="kaart is-tier-2"><p class="kaart-eyebrow">Advisory board · vakkennis</p><p>Vijf tot zeven experts, elk met veel kennis van één vakgebied, zoals sales, HR, productmanagement of AI. Ze toetsen je plan vanuit hun vak, debatteren en sluiten af met een oordeel, voorwaarden en stopcriteria.</p></div>
     </div>
     <div class="let-op">
       <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De tekst komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
@@ -232,41 +225,70 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     </div>
   </section>
 
-  <section class="stap" id="advisory" aria-labelledby="advisory-kop">
-    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="advisory-kop">Je advisory board</h2></div>
-    <p class="uitleg">Kies vijf tot zeven leden die bij je casus passen. Minstens één lid is een harde scepticus. Een onverwacht lid mag ook: voeg dan je eigen lid toe. De leden zijn denkperspectieven, geïnspireerd op publieke personen. Daarom heten ze v_Naam.</p>
-    <p class="teller" id="teller-advisory" aria-live="polite"></p>
-    <div class="leden" id="leden"></div>
+  <section class="stap" id="supervisory" aria-labelledby="supervisory-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="supervisory-kop">Je supervisory board</h2></div>
+    <p class="uitleg">Kies drie tot vijf mensen die strategisch kunnen denken en die jou inspireren: je eigen helden. Kies uit de lijst, of voeg je eigen held toe. Kies er minstens één die tegen je koers in zou gaan, een tegenspreker. Een board van alleen mensen die je bewondert, geeft je snel gelijk. De leden zijn denkperspectieven, geïnspireerd op publieke personen. Daarom heten ze v_Naam.</p>
+    <p class="teller" id="teller-supervisory" aria-live="polite"></p>
+    <div class="leden" id="helden"></div>
     <details class="eigen-lid">
-      <summary>Eigen lid toevoegen</summary>
-      <form id="eigen-form" class="velden">
+      <summary>Eigen held toevoegen</summary>
+      <form data-eigen="sup" class="velden">
         <div class="rij-2">
-          <div class="veld"><label for="eigen-naam">Naam</label><div class="prefix"><span aria-hidden="true">v_</span><input type="text" id="eigen-naam" required placeholder="Curie"></div></div>
-          <div class="veld"><label for="eigen-kijkt">Kijkt naar</label><input type="text" id="eigen-kijkt" required placeholder="Bewijs, meten, geduld"></div>
+          <div class="veld"><label for="held-naam">Naam</label><div class="prefix"><span aria-hidden="true">v_</span><input type="text" id="held-naam" name="naam" required placeholder="Mandela"></div></div>
+          <div class="veld"><label for="held-blik">Kijkt naar</label><input type="text" id="held-blik" name="blik" required placeholder="Verzoening en geduld"></div>
         </div>
-        <div class="veld"><label for="eigen-vraag">Typische vraag</label><input type="text" id="eigen-vraag" required placeholder="Hoe weet je dat het werkt?"></div>
-        <label class="vink"><input type="checkbox" id="eigen-scepticus"> Dit lid is een harde scepticus</label>
+        <div class="veld"><label for="held-vraag">Typische vraag</label><input type="text" id="held-vraag" name="vraag" required placeholder="Wie moet je straks nog recht in de ogen kunnen kijken?"></div>
+        <label class="vink"><input type="checkbox" name="vlag"> Deze held zou tegen mijn koers in gaan</label>
         <div><button type="submit" class="knop geel klein-knop">Voeg toe</button></div>
       </form>
     </details>
+    <div class="blok gebruik" id="lunch">
+      <h4>Daarna: je AI-taak voor de lunch</h4>
+      <ol class="stappenlijst">
+        <li>Download je supervisory board in stap 4 en zet het in je AI (stap 5).</li>
+        <li>Zoek stukken waarin het bestuur van je organisatie iets zegt over visie, missie en strategie: een jaarverslag, artikelen, interviews. Alleen wat openbaar is.</li>
+        <li>Geef de stukken aan je supervisory board, met deze opdracht:</li>
+      </ol>
+      <span class="prompt">Leg deze stukken van ons bestuur voor aan mijn supervisory board. Wat zeggen ze over visie, missie en strategie? Bespreek het met elkaar en kom tot een gezamenlijke conclusie en advies.</span>
+      <p>Na de lunch begin je werkplaats 1 met dat advies. Vind je niets openbaars, of werk je met Voorbeeld BV? Neem dan het jaarverslag van een organisatie uit dezelfde sector.</p>
+    </div>
   </section>
 
-  <section class="stap" id="supervisory" aria-labelledby="supervisory-kop">
-    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="supervisory-kop">Je supervisory board</h2></div>
-    <p class="uitleg">Kies drie tot vijf commissarissen. Neem de stakeholders uit je AI-taak van de lunch: wat wint en wat verliest die persoon met AI? Geef elke commissaris een rol of een verzonnen naam, nooit de naam van een echte collega. Minstens één commissaris is een harde scepticus.</p>
-    <p class="teller" id="teller-supervisory" aria-live="polite"></p>
-    <div class="voorstellen" id="voorstellen" role="group" aria-label="Voeg een commissaris toe"></div>
-    <div class="com-lijst" id="com-lijst"></div>
+  <section class="stap" id="advisory" aria-labelledby="advisory-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="advisory-kop">Je advisory board</h2></div>
+    <p class="uitleg">Kies vijf tot zeven experts, elk met veel kennis van een vakgebied dat je casus nodig heeft, zoals sales, financiën, HR, productmanagement, AI of regels. Minstens één is een harde scepticus. Mis je een vakgebied, zoals recht of inkoop, voeg dan je eigen expert toe. De leden zijn denkperspectieven, geïnspireerd op publieke personen. Daarom heten ze v_Naam.</p>
+    <p class="teller" id="teller-advisory" aria-live="polite"></p>
+    <div class="leden" id="leden"></div>
+    <details class="eigen-lid">
+      <summary>Eigen expert toevoegen</summary>
+      <form data-eigen="adv" class="velden">
+        <div class="rij-2">
+          <div class="veld"><label for="expert-naam">Naam</label><div class="prefix"><span aria-hidden="true">v_</span><input type="text" id="expert-naam" name="naam" required placeholder="Curie"></div></div>
+          <div class="veld"><label for="expert-blik">Vakgebied</label><input type="text" id="expert-blik" name="blik" required placeholder="Onderzoek en meten"></div>
+        </div>
+        <div class="veld"><label for="expert-vraag">Typische vraag</label><input type="text" id="expert-vraag" name="vraag" required placeholder="Hoe weet je dat het werkt?"></div>
+        <label class="vink"><input type="checkbox" name="vlag"> Deze expert is een harde scepticus</label>
+        <div><button type="submit" class="knop geel klein-knop">Voeg toe</button></div>
+      </form>
+    </details>
   </section>
 
   <section class="stap" id="downloaden" aria-labelledby="downloaden-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="downloaden-kop">Bekijk en download</h2></div>
     <p class="uitleg">Hieronder staat de tekst van je twee skills. Download elk board als zip: die werkt in alle drie de omgevingen. Met <em>Kopieer de tekst</em> heb je de terugvaloptie uit stap 5.</p>
     <div class="tabs" role="tablist" aria-label="Board" data-tabs="board">
-      <button type="button" role="tab" id="tab-adv" aria-controls="paneel-adv" aria-selected="true">Advisory board</button>
-      <button type="button" role="tab" id="tab-sup" aria-controls="paneel-sup" aria-selected="false" tabindex="-1">Supervisory board</button>
+      <button type="button" role="tab" id="tab-sup" aria-controls="paneel-sup" aria-selected="true">Supervisory board</button>
+      <button type="button" role="tab" id="tab-adv" aria-controls="paneel-adv" aria-selected="false" tabindex="-1">Advisory board</button>
     </div>
-    <div role="tabpanel" id="paneel-adv" aria-labelledby="tab-adv">
+    <div role="tabpanel" id="paneel-sup" aria-labelledby="tab-sup">
+      <ul class="controles" id="controles-sup"></ul>
+      <pre class="voorbeeld" id="tekst-sup" tabindex="0" aria-label="Tekst van de skill supervisory-board"></pre>
+      <div class="knoppen">
+        <button type="button" class="knop geel" data-zip="sup">Download supervisory-board.zip</button>
+        <button type="button" class="knop licht" data-kopieer="sup">Kopieer de tekst</button>
+        <span class="status" id="status-sup" aria-live="polite"></span>
+      </div>
+    <div role="tabpanel" id="paneel-adv" aria-labelledby="tab-adv" hidden>
       <ul class="controles" id="controles-adv"></ul>
       <pre class="voorbeeld" id="tekst-adv" tabindex="0" aria-label="Tekst van de skill advisory-board"></pre>
       <div class="knoppen">
@@ -275,14 +297,6 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
         <span class="status" id="status-adv" aria-live="polite"></span>
       </div>
     </div>
-    <div role="tabpanel" id="paneel-sup" aria-labelledby="tab-sup" hidden>
-      <ul class="controles" id="controles-sup"></ul>
-      <pre class="voorbeeld" id="tekst-sup" tabindex="0" aria-label="Tekst van de skill supervisory-board"></pre>
-      <div class="knoppen">
-        <button type="button" class="knop geel" data-zip="sup">Download supervisory-board.zip</button>
-        <button type="button" class="knop licht" data-kopieer="sup">Kopieer de tekst</button>
-        <span class="status" id="status-sup" aria-live="polite"></span>
-      </div>
     </div>
     <div class="knoppen">
       <button type="button" class="knop licht klein-knop" id="opnieuw">Begin opnieuw</button>
@@ -292,7 +306,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
   <section class="stap" id="installeren" aria-labelledby="installeren-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="installeren-kop">Zet je boards in je AI</h2></div>
-    <p class="uitleg">Kies je eigen AI-omgeving. De knoppen staan hieronder zoals de aanbieder ze noemt. In een Nederlandse omgeving kunnen ze anders heten. Doe de stappen twee keer: één keer per zip.</p>
+    <p class="uitleg">Kies je eigen AI-omgeving. De knoppen staan hieronder zoals de aanbieder ze noemt. In een Nederlandse omgeving kunnen ze anders heten. Doe de stappen twee keer, één keer per zip: vóór de lunch voor je supervisory board, in werkplaats 1 voor je advisory board.</p>
     <div class="tabs" role="tablist" aria-label="AI-omgeving" data-tabs="aanbieder">
       <button type="button" role="tab" id="tab-claude" aria-controls="paneel-claude" aria-selected="true">Claude</button>
       <button type="button" role="tab" id="tab-chatgpt" aria-controls="paneel-chatgpt" aria-selected="false" tabindex="-1">ChatGPT</button>
@@ -304,7 +318,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <ol class="stappenlijst">
         <li>Zet code-uitvoering aan: <span class="menu">Settings › Capabilities</span>, schakelaar <span class="menu">Code execution and file creation</span>. Zonder die schakelaar werkt een skill niet.</li>
         <li>Ga naar <span class="menu">Customize › Skills</span>. Klik op <span class="menu">+</span>, dan op <span class="menu">Create skill</span> en kies <span class="menu">Upload a skill</span>.</li>
-        <li>Kies <code>advisory-board.zip</code>. Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+        <li>Kies <code>supervisory-board.zip</code>. Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
         <li>Kijk of beide skills aan staan.</li>
       </ol>
       <div class="blok gebruik"><h4>Gebruiken</h4><p>Noem het board in je vraag:</p><span class="prompt">Leg dit voor aan mijn advisory board: …</span><p>Claude kiest de skill ook zelf als je vraag bij de beschrijving past.</p></div>
@@ -316,8 +330,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <p><strong>Wat je nodig hebt:</strong> skills in je abonnement. Volgens de helppagina van OpenAI hebben Business, Enterprise, Edu en Healthcare ze. Bij andere abonnementen kunnen ze als bèta verschijnen. Zie je geen <span class="menu">Skills</span>, gebruik dan de terugvaloptie hieronder.</p>
       <ol class="stappenlijst">
         <li>Open <span class="menu">Skills</span>, kies <span class="menu">Create</span> en dan <span class="menu">Upload from your computer</span>.</li>
-        <li>Kies <code>advisory-board.zip</code>. ChatGPT controleert een skill voordat je hem kunt gebruiken.</li>
-        <li>Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+        <li>Kies <code>supervisory-board.zip</code>. ChatGPT controleert een skill voordat je hem kunt gebruiken.</li>
+        <li>Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
       </ol>
       <div class="blok gebruik"><h4>Gebruiken</h4><p>Typ <code>@</code>, kies <code>advisory-board</code> en stel je vraag:</p><span class="prompt">@advisory-board Leg dit voor aan mijn advisory board: …</span><p>ChatGPT kiest de skill ook zelf als je vraag bij de beschrijving past.</p></div>
       <div class="blok terugval"><h4>Geen Skills? Gebruik een project</h4><ol class="stappenlijst"><li>Maak een project per board: <span class="menu">Projects › New project</span>.</li><li>Open de instellingen van het project en plak bij <span class="menu">Instructions</span> de tekst uit stap 4 (<em>Kopieer de tekst</em>).</li><li>Stel je vraag in een chat binnen dat project.</li></ol></div>
@@ -328,8 +342,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <ol class="stappenlijst">
         <li>Klik in de zijbalk op <span class="menu">Customize</span>. Staat het er niet, klik dan eerst op <span class="menu">More</span>.</li>
         <li>Kies bovenaan het tabblad <span class="menu">Skills</span> en klik op <span class="menu">Create</span>, dan <span class="menu">Upload</span>.</li>
-        <li>Kies <code>advisory-board.zip</code>, klik op <span class="menu">Open</span>, dan <span class="menu">Upload</span> en <span class="menu">Create</span>.</li>
-        <li>Doe daarna hetzelfde met <code>supervisory-board.zip</code>.</li>
+        <li>Kies <code>supervisory-board.zip</code>, klik op <span class="menu">Open</span>, dan <span class="menu">Upload</span> en <span class="menu">Create</span>.</li>
+        <li>Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
       </ol>
       <div class="blok gebruik"><h4>Gebruiken</h4><p>Typ <code>/</code> en de naam van het board, gevolgd door je vraag:</p><span class="prompt">/advisory-board Leg dit voor aan mijn advisory board: …</span><p>Gemini gebruikt een actieve skill ook zelf als je vraag erbij past.</p></div>
       <div class="blok terugval"><h4>Maak geen Gem meer</h4><p>Google vervangt Gems door skills. Bij een persoonlijk account kun je een Gem vanaf 17 november 2026 niet meer gebruiken, en op 17 december 2026 verdwijnt hij. Bij een Workspace-account van je werkgever blijven Gems tot ten minste maart 2027.</p></div>
@@ -343,19 +357,21 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <p class="uitleg">Elke lesdag eindigt met een boardmoment van 15 minuten. Het beslispunt van die dag staat op de startpagina.</p>
     <ol class="stappenlijst">
       <li><strong>Zet het beslispunt in drie zinnen.</strong> Wat wil je besluiten, welke opties heb je, en wat staat er op het spel? Voeg het deckonderdeel van vandaag toe.</li>
-      <li><strong>Leg het voor aan je advisory board.</strong> Lees vooral de zwakke plekken en de stopcriteria.</li>
-      <li><strong>Leg het daarna voor aan je supervisory board.</strong> Elke commissaris geeft apart advies. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
+      <li><strong>Leg het voor aan je advisory board.</strong> Elk lid toetst vanuit het eigen vak. Lees vooral de zwakke plekken en de stopcriteria. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
+      <li><strong>Leg het daarna voor aan je supervisory board.</strong> Het board bespreekt of de koers klopt en hoe je het vertelt aan je stakeholders, en komt tot een gezamenlijke conclusie en advies.</li>
       <li><strong>Neem zelf het besluit en leg het vast als ADR:</strong> context, besluit, overwogen alternatieven met het advies van de boards, en gevolgen met de eerste volgende stap. Beide boards sluiten af met drie regels voor je ADR. Wijk je af van een board, schrijf dan op waarom.</li>
     </ol>
     <div class="blok gebruik">
       <h4>Test je boards meteen na het installeren</h4>
       <span class="prompt">Leg dit voor aan mijn advisory board: we willen volgend kwartaal een AI-assistent voor klantvragen invoeren.</span>
-      <p>Doen al je leden mee? Noemt elk lid een zwakke plek? Eindigt het met een oordeel en stopcriteria? Zo niet: kijk of de skill aan staat, en noem hem bij zijn naam.</p>
-      <span class="prompt">Leg mijn AI-visie voor aan mijn supervisory board: wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?</span>
-      <p>Dit is de opdracht van werkplaats 1. Controleer minstens één genoemde bron zelf.</p>
+      <p>Doen al je leden mee? Spreekt elk lid vanuit het eigen vak, en noemt elk lid een zwakke plek? Eindigt het met een oordeel en stopcriteria? Zo niet: kijk of de skill aan staat, en noem hem bij zijn naam.</p>
+      <h4>De opdracht van werkplaats 1</h4>
+      <span class="prompt">Leg mijn AI-visie voor aan mijn advisory board: wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?</span>
+      <span class="prompt">Leg mijn AI-visie voor aan mijn supervisory board: past ze bij wat ons bestuur zegt over visie, missie en strategie?</span>
+      <p>Controleer minstens één genoemde bron zelf.</p>
     </div>
     <div class="let-op">
-      <p><strong>Eerlijkheidsregels.</strong> De leden en commissarissen zijn denkperspectieven en verzonnen rollen. Hun uitspraken zijn nooit citaten en horen niet in materiaal voor buiten. Een oordeel van een board is een mening; bewijs dat een plan werkt, komt uit je experiment of pilot. Het besluit blijft bij jou.</p>
+      <p><strong>Eerlijkheidsregels.</strong> De leden van beide boards zijn denkperspectieven, geïnspireerd op publieke personen. Hun uitspraken zijn nooit citaten en horen niet in materiaal voor buiten. Een oordeel van een board is een mening; bewijs dat een plan werkt, komt uit je experiment of pilot. Het besluit blijft bij jou.</p>
     </div>
   </section>
 </main>
@@ -372,80 +388,91 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
 <script>
 /* ================================================================
-   Startsjabloon voor de boards als skill (FR-17, ADR-027).
-   De tekst van beide skills staat alleen hier, in advisoryTekst()
-   en supervisoryTekst(). Geen bibliotheek: de zip maakt de pagina zelf.
+   Startsjabloon voor de boards als skill (FR-17, FR-32, ADR-027, ADR-028).
+   De tekst van beide skills staat alleen hier, in supervisoryTekst()
+   en advisoryTekst(). Geen bibliotheek: de zip maakt de pagina zelf.
    ================================================================ */
 'use strict';
-const OPSLAG = 'aiso26009-boards';
+const OPSLAG = 'aiso26009-boards-v2';
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /* Beschrijvingen: vast, onder 200 tekens (grens van Claude), zonder dubbele aanhalingstekens (YAML). */
 const BESCHRIJVING = {
-  adv: "Mijn advisory board: 5 tot 7 denkperspectieven (v_Naam) bekijken een plan of besluit van alle kanten en geven een oordeel met voorwaarden en stopcriteria. Gebruik bij 'advisory board'.",
-  sup: "Mijn supervisory board: 3 tot 5 commissarissen toetsen een plan of besluit op geld, risico, mensen en regels, elk apart. Het besluit blijft bij mij. Gebruik bij 'supervisory board'.",
+  sup: "Mijn supervisory board: 3 tot 5 strategen (v_Naam) die ik zelf koos. Ze bespreken visie, missie, strategie en mijn verhaal, en geven een gezamenlijk advies. Gebruik bij 'supervisory board'.",
+  adv: "Mijn advisory board: 5 tot 7 experts (v_Naam), elk met een eigen vakgebied. Ze toetsen een plan of besluit en geven een oordeel met voorwaarden en stopcriteria. Gebruik bij 'advisory board'.",
 };
 
-/* Denkperspectieven, naar het virtuele board van de trainer. */
-const LEDEN = [
-  { id: 'kahneman', naam: 'v_Kahneman', kijkt: 'Denkfouten, aannames en de kwaliteit van een besluit', vraag: 'Welke denkfout stuurt dit? Wat is het basisgetal?', scepticus: true },
-  { id: 'cuban', naam: 'v_Cuban', kijkt: 'Commercieel realisme: verkoop en winst', vraag: 'Wie betaalt, hoeveel, en hoeveel hebben er al betaald?', scepticus: true },
-  { id: 'machiavelli', naam: 'v_Machiavelli', kijkt: 'Macht, belangen en concurrentie', vraag: 'Wiens belang bedreigt dit, en hoe reageert die?', scepticus: true },
-  { id: 'nadella', naam: 'v_Nadella', kijkt: 'Cultuur, empathie en de wil om te leren', vraag: 'Wat moeten de mensen leren en voelen?' },
-  { id: 'bezos', naam: 'v_Bezos', kijkt: 'De klant voorop, en de lange termijn', vraag: 'Wat wil de klant echt, en doet dit er over tien jaar nog toe?' },
-  { id: 'ng', naam: 'v_Ng', kijkt: 'AI in de praktijk: haalbaar en uit te leggen', vraag: 'Kan het AI-deel echt, en kun je het uitleggen?' },
-  { id: 'jobs', naam: 'v_Jobs', kijkt: 'Eenvoud en de ervaring van de gebruiker', vraag: 'Wat kun je schrappen? Is de ervaring goed?' },
-  { id: 'gandhi', naam: 'v_Gandhi', kijkt: 'Ethiek, eerlijkheid en je eigen waarden', vraag: 'Is dit eerlijk, en wie kan er schade van hebben?' },
-  { id: 'springsteen', naam: 'v_Springsteen', kijkt: 'Echtheid en de mensen die het werk doen', vraag: 'Is dit echt, of praat van de directie?' },
-  { id: 'patton', naam: 'v_Patton', kijkt: 'Daadkracht en vaart', vraag: 'Wat is de volgende zet, en waarom is die nog niet gedaan?' },
-  { id: 'akio', naam: 'v_Akio', kijkt: 'Discipline in de uitvoering en vaste kwaliteit (Toyoda)', vraag: 'Kun je dit steeds opnieuw in dezelfde kwaliteit leveren?' },
-  { id: 'ury', naam: 'v_Ury', kijkt: 'Onderhandelen op belangen', vraag: 'Wat zijn de echte belangen van elke partij?' },
-  { id: 'obama', naam: 'v_Obama', kijkt: 'Visie, het verhaal en draagvlak', vraag: 'Hoe vertel je dit zo dat mensen meedoen?' },
-  { id: 'suntzu', naam: 'v_SunTzu', kijkt: 'Positie, timing en terrein', vraag: 'Waar is de concurrent zwak, en is dit het moment?' },
-  { id: 'brin', naam: 'v_Brin', kijkt: 'Tien keer beter, met technologie eerst', vraag: 'Wat zou dit probleem overbodig maken?' },
-  { id: 'luckey', naam: 'v_Luckey', kijkt: 'Iets tastbaars opleveren in een trage sector', vraag: 'Wat lever je op, en hoe snel?' },
-  { id: 'churchill', naam: 'v_Churchill', kijkt: 'Volhouden onder druk, en een heldere koers', vraag: 'Wat mag je niet uit het oog verliezen?' },
-  { id: 'buddha', naam: 'v_Buddha', kijkt: 'Gehechtheid, angst en ego', vraag: 'Waar houd je aan vast dat je niet helpt?' },
-  { id: 'oprah', naam: 'v_Oprah', kijkt: 'Intuïtie en gevoel', vraag: 'Voelt dit als iets van jou?' },
-  { id: 'spielberg', naam: 'v_Spielberg', kijkt: 'Het verhaal en de emotie', vraag: 'Wat is het verhaal, en wie is de held?' },
+/* Supervisory board: strategen die de deelnemer kiest om inspiratie, naar het virtuele board van de trainer.
+   vlag = tegenspreker: kijkt vaak tegen de koers in. */
+const HELDEN = [
+  { id: 'churchill', naam: 'v_Churchill', blik: 'Volhouden onder druk, en een heldere koers', vraag: 'Wat mag je niet uit het oog verliezen?' },
+  { id: 'obama', naam: 'v_Obama', blik: 'Visie, het verhaal en draagvlak', vraag: 'Hoe vertel je dit zo dat mensen meedoen?' },
+  { id: 'michelleobama', naam: 'v_MichelleObama', blik: 'Verbinding en waardigheid: wie zich gezien voelt', vraag: 'Wie voelt zich hierin gezien, en wie niet?' },
+  { id: 'gandhi', naam: 'v_Gandhi', blik: 'Ethiek, eerlijkheid en je eigen waarden', vraag: 'Is dit eerlijk, en wie kan er schade van hebben?', vlag: true },
+  { id: 'parton', naam: 'v_Parton', blik: 'Echtheid, humor en ondernemerschap', vraag: 'Weet je wie je bent, en kies je hier bewust voor?' },
+  { id: 'patton', naam: 'v_Patton', blik: 'Daadkracht en vaart', vraag: 'Wat is de volgende zet, en waarom is die nog niet gedaan?' },
+  { id: 'springsteen', naam: 'v_Springsteen', blik: 'Echtheid en de mensen die het werk doen', vraag: 'Is dit echt, of praat van de directie?', vlag: true },
+  { id: 'aoc', naam: 'v_AOC', blik: 'Mobiliseren van onderop, en zeggen wat anderen niet durven (Alexandria Ocasio-Cortez)', vraag: 'Wie heeft hier geen stem, en wat zou die zeggen?', vlag: true },
+  { id: 'brown', naam: 'v_Brown', blik: 'Moed en kwetsbaarheid in leiderschap (Brené Brown)', vraag: 'Welk lastig gesprek ga je hier uit de weg?' },
+  { id: 'nadella', naam: 'v_Nadella', blik: 'Een cultuur veranderen: empathie en de wil om te leren', vraag: 'Wat moeten de mensen leren en voelen?' },
+  { id: 'merkel', naam: 'v_Merkel', blik: 'Stap voor stap, vanuit de feiten', vraag: 'Wat weten we zeker, en wat is de volgende kleine stap?' },
+  { id: 'bezos', naam: 'v_Bezos', blik: 'De klant voorop, en de lange termijn', vraag: 'Wat wil de klant echt, en doet dit er over tien jaar nog toe?' },
+  { id: 'ardern', naam: 'v_Ardern', blik: 'Empathie en snel handelen in een crisis', vraag: 'Hoe neem je mensen mee als het snel moet?' },
+  { id: 'suntzu', naam: 'v_SunTzu', blik: 'Positie, timing en terrein', vraag: 'Waar is de concurrent zwak, en is dit het moment?' },
+  { id: 'thatcher', naam: 'v_Thatcher', blik: 'Overtuiging en vasthoudendheid', vraag: 'Waar sta je voor, ook als iedereen tegen is?', vlag: true },
+  { id: 'machiavelli', naam: 'v_Machiavelli', blik: 'Macht, belangen en tegenkrachten', vraag: 'Wiens belang bedreigt dit, en hoe reageert die?', vlag: true },
+  { id: 'brin', naam: 'v_Brin', blik: 'Tien keer beter, met technologie eerst', vraag: 'Wat zou dit probleem overbodig maken?' },
+  { id: 'buddha', naam: 'v_Buddha', blik: 'Gehechtheid, angst en ego', vraag: 'Waar houd je aan vast dat je niet helpt?', vlag: true },
+  { id: 'oprah', naam: 'v_Oprah', blik: 'Intuïtie en gevoel', vraag: 'Voelt dit als iets van jou?' },
+  { id: 'spielberg', naam: 'v_Spielberg', blik: 'Het verhaal en de emotie', vraag: 'Wat is het verhaal, en wie is de held?' },
 ];
 
-/* Voorstellen voor commissarissen: de belanghebbenden uit deel 6.3 van de LRD en een paar meer. */
-const VOORSTELLEN = [
-  { rol: 'Financieel directeur', achtergrond: 'Jaren ervaring in financiën, verantwoordelijk voor budget en investeringen', denkstijl: 'Rekent alles door en wil een terugverdientijd en een plan B zien' },
-  { rol: 'Privacyfunctionaris', achtergrond: 'Jurist, functionaris gegevensbescherming', denkstijl: 'Precies; vraagt naar de grondslag, de bewaartermijn en wie bij de gegevens kan' },
-  { rol: 'OR-lid', achtergrond: 'Werkt al lang in de uitvoering en zit in de ondernemingsraad', denkstijl: 'Denkt vanuit de medewerkers en vraagt wat er aan hun werk verandert' },
-  { rol: 'Toezichthouder', achtergrond: 'Inspecteur bij de toezichthouder van de sector', denkstijl: 'Toetst aan wet- en regelgeving en wil bewijs zien' },
-  { rol: 'Klant', achtergrond: 'Vaste klant van de organisatie', denkstijl: 'Wil snel geholpen worden, en een mens als het misgaat' },
-  { rol: 'Informatiebeveiliger', achtergrond: 'Verantwoordelijk voor informatiebeveiliging, eerder systeembeheerder', denkstijl: 'Gaat uit van het slechtste geval: wat lekt er, en wat valt uit?' },
-  { rol: 'Teamleider uitvoering', achtergrond: 'Leidt een team dat het werk elke dag doet', denkstijl: 'Praktisch: werkt het ook op een drukke maandagochtend?' },
+/* Advisory board: experts, elk met een eigen vakgebied. vlag = harde scepticus. */
+const EXPERTS = [
+  { id: 'cuban', naam: 'v_Cuban', blik: 'Sales en verdienmodel', vraag: 'Wie betaalt, hoeveel, en hoeveel hebben er al betaald?', vlag: true },
+  { id: 'buffett', naam: 'v_Buffett', blik: 'Financiën en investeren', vraag: 'Wat kost het, wat levert het op, en begrijp je waar het geld vandaan komt?', vlag: true },
+  { id: 'kahneman', naam: 'v_Kahneman', blik: 'Besliskunde: denkfouten en aannames', vraag: 'Welke denkfout stuurt dit? Wat is het basisgetal?', vlag: true },
+  { id: 'ng', naam: 'v_Ng', blik: 'AI en data in de praktijk', vraag: 'Kan het AI-deel echt, en kun je het uitleggen?' },
+  { id: 'feifeili', naam: 'v_FeiFeiLi', blik: 'AI met de mens in het midden', vraag: 'Wie heeft hier baat bij, en welke mens houdt de regie?' },
+  { id: 'jobs', naam: 'v_Jobs', blik: 'Productmanagement en de ervaring van de gebruiker', vraag: 'Wat kun je schrappen? Is de ervaring goed?' },
+  { id: 'edmondson', naam: 'v_Edmondson', blik: 'HR en teams: leren en psychologische veiligheid', vraag: 'Durven mensen hier te zeggen dat iets niet werkt?' },
+  { id: 'kotter', naam: 'v_Kotter', blik: 'Verandermanagement', vraag: 'Waarom nu, en wie heb je nodig om het te laten slagen?' },
+  { id: 'mcgrath', naam: 'v_McGrath', blik: 'Strategie bij onzekerheid: plannen door te ontdekken', vraag: 'Welke aanname test je eerst, en wat kost het als die niet klopt?' },
+  { id: 'akio', naam: 'v_Akio', blik: 'Uitvoering en vaste kwaliteit (Toyoda)', vraag: 'Kun je dit steeds opnieuw in dezelfde kwaliteit leveren?' },
+  { id: 'schneier', naam: 'v_Schneier', blik: 'Informatiebeveiliging en privacy', vraag: 'Wat lekt er, wie misbruikt het, en wat valt uit?', vlag: true },
+  { id: 'oneil', naam: "v_O'Neil", blik: 'Algoritmen en de schade die ze doen', vraag: 'Wie wordt hier onterecht door benadeeld, en wie merkt het?', vlag: true },
+  { id: 'schaake', naam: 'v_Schaake', blik: 'Techbeleid en regels, zoals de AI-verordening', vraag: 'Mag dit, en wie is aanspreekbaar als het misgaat?', vlag: true },
+  { id: 'ury', naam: 'v_Ury', blik: 'Onderhandelen op belangen', vraag: 'Wat zijn de echte belangen van elke partij?' },
+  { id: 'kotler', naam: 'v_Kotler', blik: 'Marketing en de klant', vraag: 'Voor wie is dit, en waarom zou die het willen?' },
 ];
+
+/* Per board: welke lijst, waar de keuze staat, en wat de controles eisen. */
+const BOARD = {
+  sup: { lijst: HELDEN, gekozen: 'helden', eigen: 'eigenHelden', rooster: 'helden', teller: 'teller-supervisory', min: 3, max: 5, wie: 'strategen', vlagNaam: 'tegenspreker', tag: 'tegenspreker', eigenTag: 'eigen held' },
+  adv: { lijst: EXPERTS, gekozen: 'leden', eigen: 'eigen', rooster: 'leden', teller: 'teller-advisory', min: 5, max: 7, wie: 'experts', vlagNaam: 'harde scepticus', tag: 'scepticus', eigenTag: 'eigen expert' },
+};
 
 /* Voorbeeld BV: de verzonnen voorbeeldcasus (materiaal/voorbeeldcasus.md). */
 const VOORBEELD = {
   org: 'Voorbeeld BV (verzonnen) is een dienstverlener met ongeveer 400 medewerkers. We installeren en onderhouden verwarming, ventilatie en zonnepanelen bij klanten thuis. We krijgen ongeveer 1.200 klantvragen en klachten per maand; een klacht duurt gemiddeld 9 werkdagen.',
   rol: 'Manager Klantcontact',
   ambitie: 'Met AI klantvragen en klachten sneller en beter afhandelen, en van klachten leren. De AI doet een voorstel en een mens beslist. Ernstige klachten blijven mensenwerk.',
-  leden: ['kahneman', 'cuban', 'nadella', 'springsteen', 'bezos', 'ng'],
+  helden: ['churchill', 'michelleobama', 'springsteen', 'merkel'],
+  eigenHelden: [],
+  leden: ['kahneman', 'cuban', 'feifeili', 'jobs', 'edmondson', 'oneil'],
   eigen: [],
-  com: [
-    { rol: 'Financieel directeur', achtergrond: 'Twintig jaar in de financiën, nu verantwoordelijk voor het budget van Voorbeeld BV', denkstijl: 'Rekent alles door en wil een terugverdientijd en een plan B zien', belang: 'Wint lagere kosten per klacht. Verliest geld als de invoering langer duurt dan gepland.', scepticus: false },
-    { rol: 'OR-lid', achtergrond: 'Werkt vijftien jaar bij Klantcontact en zit in de ondernemingsraad', denkstijl: 'Denkt vanuit de medewerkers en vraagt wat er aan hun werk verandert', belang: 'Wint minder sorteerwerk. Verliest misschien taken en zeggenschap over het eigen werk.', scepticus: false },
-    { rol: 'Privacyfunctionaris', achtergrond: 'Jurist, functionaris gegevensbescherming', denkstijl: 'Precies; vraagt naar de grondslag, de bewaartermijn en wie bij de gegevens kan', belang: 'Wint beter zicht op waar klantgegevens staan. Verliest grip als klachten in een AI-dienst van buiten belanden.', scepticus: true },
-    { rol: 'Klant', achtergrond: 'Huiseigenaar met een cv-ketel en zonnepanelen, al tien jaar klant', denkstijl: 'Wil snel antwoord, en een mens aan de lijn als het misgaat', belang: 'Wint sneller antwoord. Verliest vertrouwen als een AI een ernstige klacht verkeerd inschat.', scepticus: false },
-  ],
 };
 
 /* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
-const leeg = () => ({ org: '', rol: '', ambitie: '', leden: [], eigen: [], com: [] });
+const leeg = () => ({ org: '', rol: '', ambitie: '', helden: [], eigenHelden: [], leden: [], eigen: [] });
+const schoonLid = x => ({ id: x.id, naam: String(x.naam || ''), blik: String(x.blik || ''), vraag: String(x.vraag || ''), vlag: !!x.vlag });
 function schoon(v) {
   const s = leeg();
   if (!v || typeof v !== 'object') return s;
   for (const k of ['org', 'rol', 'ambitie']) if (typeof v[k] === 'string') s[k] = v[k];
-  if (Array.isArray(v.leden)) s.leden = v.leden.filter(x => typeof x === 'string');
-  if (Array.isArray(v.eigen)) s.eigen = v.eigen.filter(x => x && typeof x.id === 'string').map(x => ({ id: x.id, naam: String(x.naam || ''), kijkt: String(x.kijkt || ''), vraag: String(x.vraag || ''), scepticus: !!x.scepticus }));
-  if (Array.isArray(v.com)) s.com = v.com.filter(x => x && typeof x === 'object').slice(0, 8).map(x => ({ rol: String(x.rol || ''), achtergrond: String(x.achtergrond || ''), denkstijl: String(x.denkstijl || ''), belang: String(x.belang || ''), scepticus: !!x.scepticus }));
+  for (const k of ['helden', 'leden']) if (Array.isArray(v[k])) s[k] = v[k].filter(x => typeof x === 'string');
+  for (const k of ['eigenHelden', 'eigen']) if (Array.isArray(v[k])) s[k] = v[k].filter(x => x && typeof x.id === 'string').map(schoonLid);
   return s;
 }
 const opslag = {
@@ -465,10 +492,11 @@ function lijst(namen) {
   return `${namen.slice(0, -1).join(', ')} en ${namen[namen.length - 1]}`;
 }
 const vNaam = t => { const n = plat(t).replace(/^v_/i, ''); return n ? `v_${n}` : ''; };
-function gekozenLeden() {
-  const alle = [...LEDEN, ...s.eigen.map(e => ({ ...e, naam: vNaam(e.naam), eigen: true }))];
-  return alle.filter(l => s.leden.includes(l.id));
+function alleLeden(b) {
+  const B = BOARD[b];
+  return [...B.lijst, ...s[B.eigen].map(e => ({ ...e, naam: vNaam(e.naam), eigen: true }))];
 }
+function gekozen(b) { return alleLeden(b).filter(l => s[BOARD[b].gekozen].includes(l.id)); }
 function kopTekst(naam, wat) {
   return `---\nname: ${naam}\ndescription: "${BESCHRIJVING[wat]}"\n---\n`;
 }
@@ -481,22 +509,24 @@ function overMij() {
 
 Gebruik dit als achtergrond bij elke vraag. Mis je iets wat nodig is voor een goed oordeel, vraag het dan.`;
 }
+function ledenTabel(b, kolom, leeg) {
+  const leden = gekozen(b);
+  const rijen = leden.length ? leden.map(l => `| ${cel(l.naam)} | ${cel(l.blik)} | ${cel(l.vraag)} |`).join('\n') : `| [${leeg}] | | |`;
+  return `| Lid | ${kolom} | Typische vraag |\n|---|---|---|\n${rijen}`;
+}
+const REGEL_CITAAT = '- Leden heten v_Naam. Hun uitspraken zijn nooit citaten van de echte persoon. Wil ik een uitspraak van het board gebruiken in materiaal voor buiten, zoals een pitch of een website? Waarschuw me dan, want dat leest als een valse aanbeveling.';
 const REGEL_BEWIJS = '- Scheid bewijs (data, resultaten, betalende klanten) van bedoeling (plannen, overtuigingen, instemming). Instemming van het board bewijst niet dat een plan werkt. Dat bewijs komt uit een experiment of pilot.';
 const REGEL_VERTROUWELIJK = '- Lijkt iets wat ik stuur vertrouwelijk voor mijn organisatie, zeg dat dan en vraag om een verzonnen of openbare versie.';
 
-function advisoryTekst() {
-  const leden = gekozenLeden();
-  const sceptici = leden.filter(l => l.scepticus).map(l => l.naam);
-  const rijen = leden.length
-    ? leden.map(l => `| ${cel(l.naam)} | ${cel(l.kijkt)} | ${cel(l.vraag)} |`).join('\n')
-    : '| [kies 5 tot 7 leden] | | |';
-  const scepticusZin = sceptici.length
-    ? `**Harde scepticus:** ${lijst(sceptici)}. ${sceptici.length > 1 ? 'Zij zoeken' : 'Dit lid zoekt'} actief naar redenen waarom het plan mislukt.`
-    : '**Harde scepticus:** [kies minstens één]';
-  return `${kopTekst('advisory-board', 'adv')}
-# Mijn advisory board
+function supervisoryTekst() {
+  const tegen = gekozen('sup').filter(l => l.vlag).map(l => l.naam);
+  const tegenZin = tegen.length
+    ? `**Tegenspreker:** ${lijst(tegen)}. ${tegen.length > 1 ? 'Zij gaan' : 'Dit lid gaat'} tegen mijn koers in als daar reden voor is, en ${tegen.length > 1 ? 'zeggen' : 'zegt'} dat hardop.`
+    : '**Tegenspreker:** [kies minstens één]';
+  return `${kopTekst('supervisory-board', 'sup')}
+# Mijn supervisory board
 
-Je roept mijn advisory board bijeen. Het board bekijkt een plan, besluit of stuk van verschillende kanten, zodat ik zie wat ik over het hoofd zie. Het board verbreedt mijn blik. Het keurt niets goed, en het besluit blijft bij mij.
+Je roept mijn supervisory board bijeen. Ik heb deze strategen zelf gekozen, omdat ze mij inspireren. Ze denken met me mee over de koers: kloppen mijn visie, missie en strategie, en hoe vertel ik dit zo dat mijn stakeholders meegaan? Het board komt tot een gezamenlijke conclusie en een advies. Het besluit blijft bij mij.
 
 ${overMij()}
 
@@ -504,9 +534,72 @@ ${overMij()}
 
 Elk lid is een denkperspectief, geïnspireerd op een publiek persoon. Het is niet die persoon zelf.
 
-| Lid | Kijkt naar | Typische vraag |
-|---|---|---|
-${rijen}
+${ledenTabel('sup', 'Kijkt naar', 'kies 3 tot 5 strategen')}
+
+${tegenZin}
+
+## Visie, missie en strategie
+
+Gebruik deze vaste definities:
+
+- **Visie:** hoe de wereld eruitziet in de toekomst. Een beeld van de veranderende omgeving waarin de organisatie zal opereren.
+- **Missie:** welke plek je ziet voor de organisatie in die toekomstige wereld. De rol en positie die je wilt innemen.
+- **Strategie:** welk pad je gaat volgen richting die nieuwe positie. De keuzes en stappen om van nu naar de gewenste plek te komen.
+
+Bij AI is de omgeving complex: één vaste stip met een vooraf getekende route loopt snel vast. Kijk daarom ook of een strategie ruimte laat om te leren en bij te sturen.
+
+## Werkwijze
+
+1. **Intake.** Lees alles wat ik meestuur, zoals een plan, een besluit of stukken van ons bestuur. Vat in twee of drie zinnen samen wat er voorligt en wat ik wil weten. Is mijn vraag onduidelijk, stel dan eerst één vraag.
+2. **Eerste ronde.** Noem vooraf het lid dat het meest tegen mijn koers in zal gaan. Daarna zegt elk lid kort, vanuit de eigen blik, wat hier strategisch de kern is en wat ik over het hoofd zie. Elk lid noemt een zwakke plek, ook als het positief is.
+3. **Discussie.** De leden reageren op elkaar. Laat twee of drie echte meningsverschillen zien, en laat elk lid één keer terugpraten. Los ze niet kunstmatig op.
+4. **Gezamenlijke conclusie en advies.** De voorzitter vat samen. De voorzitter is geen lid en geeft geen eigen mening.
+   - **Conclusie:** waar het board het over eens is, en waar niet.
+   - **Advies:** wat ik nu moet doen, in hooguit drie punten.
+   - **Mijn verhaal:** de kern in drie zinnen. Noem ik stakeholders, zeg dan per stakeholder wat die moet horen om mee te gaan.
+5. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem de conclusie, het sterkste bezwaar en het advies.
+
+## Als ik stukken van ons bestuur stuur
+
+Bij een jaarverslag, artikel of interview over visie, missie en strategie:
+
+- Zet per stuk op een rij wat het bestuur zegt over visie, missie en strategie, met een korte zin uit het stuk als bewijs. Staat iets er niet in, zeg dat dan.
+- Bespreek of het bestuur een vaste stip met een route beschrijft, of een koers die ruimte laat om te leren.
+- Bespreek wat dit betekent voor AI in mijn organisatie, en voor mijn AI-visie.
+
+## Eerlijkheidsregels
+
+${REGEL_CITAAT}
+- Citeer alleen uit stukken die ik zelf meestuur. Verzin nooit een uitspraak van ons bestuur of een bron.
+- Eensgezindheid is geen standaard. De tegenspreker zegt het als het board te snel gelijk geeft.
+- Geen vleierij. Prijs alleen wat specifiek is en verdiend.
+${REGEL_BEWIJS}
+${REGEL_VERTROUWELIJK}
+- Het besluit blijft bij mij.
+
+## Vorm
+
+Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met de conclusie, het advies, mijn verhaal en de drie regels voor mijn ADR. Schrijf in het Nederlands en houd de namen als v_Naam.
+`;
+}
+
+function advisoryTekst() {
+  const sceptici = gekozen('adv').filter(l => l.vlag).map(l => l.naam);
+  const scepticusZin = sceptici.length
+    ? `**Harde scepticus:** ${lijst(sceptici)}. ${sceptici.length > 1 ? 'Zij zoeken' : 'Dit lid zoekt'} actief naar redenen waarom het plan mislukt.`
+    : '**Harde scepticus:** [kies minstens één]';
+  return `${kopTekst('advisory-board', 'adv')}
+# Mijn advisory board
+
+Je roept mijn advisory board bijeen. Elk lid is expert op één vakgebied, zoals sales, financiën, HR of AI. Het board toetst een plan, besluit of stuk vanuit die vakgebieden, zodat ik zie wat ik over het hoofd zie. Het keurt niets goed, en het besluit blijft bij mij.
+
+${overMij()}
+
+## De leden
+
+Elk lid is een denkperspectief, geïnspireerd op een publiek persoon met veel kennis van het vakgebied. Het is niet die persoon zelf.
+
+${ledenTabel('adv', 'Vakgebied', 'kies 5 tot 7 experts')}
 
 ${scepticusZin}
 
@@ -514,25 +607,26 @@ ${scepticusZin}
 
 1. **Intake.** Lees alles wat ik meestuur. Vat in twee of drie zinnen samen wat het plan of besluit is, wat er op het spel staat en wat ik wil weten. Is mijn vraag onduidelijk, stel dan eerst één vraag.
 2. **Aan tafel.** Alle leden hierboven doen mee. Noem vooraf het lid dat het meest tegen mijn huidige richting in zal gaan.
-3. **Standpunt per lid.** Geef per lid een kort blok:
+3. **Standpunt per lid.** Elk lid spreekt vanuit het eigen vakgebied. Wat buiten dat vak valt, laat het lid aan de anderen over. Geef per lid een kort blok:
    - **Standpunt:** voor, tegen of onder voorwaarden.
-   - **Argument:** twee tot vier zinnen over de feiten, cijfers en aannames in mijn stuk. Algemene uitspraken over het perspectief tellen niet.
+   - **Argument:** twee tot vier zinnen over de feiten, cijfers en aannames in mijn stuk, gezien vanuit het vak. Algemene uitspraken tellen niet.
    - **Zwakke plek:** verplicht, ook als het lid voor is.
    - **Wat mijn mening verandert:** welk bewijs of welke voorwaarde.
-4. **Debat.** Laat twee of drie echte spanningen tussen leden zien, bijvoorbeeld snelheid tegenover voorzichtigheid. Elk lid reageert één keer. Los de spanningen niet kunstmatig op.
+4. **Debat.** Laat twee of drie echte spanningen tussen vakgebieden zien, bijvoorbeeld snelheid tegenover kwaliteit, of omzet tegenover privacy. Elk lid reageert één keer. Los de spanningen niet kunstmatig op.
 5. **Feiten en cijfers.** Controleer vóór het oordeel zelf mijn stuk. Kloppen de getallen? Is wat ik bewezen noem echt bewezen? Noem elke fout zonder omweg.
-6. **Samenvatting van de voorzitter.** De voorzitter is geen lid en geeft geen eigen mening.
+6. **Bronnen.** Vraag ik om bronnen die mij tegenspreken, noem dan per bron de auteur, het jaar, de titel en wat erin staat. Zeg erbij als je niet zeker weet dat een bron bestaat. Verzin nooit een bron.
+7. **Samenvatting van de voorzitter.** De voorzitter is geen lid en geeft geen eigen mening.
    - Waar het board het over eens is.
    - Waar het verdeeld is, en waarom.
    - Het sterkste bezwaar.
    - **Oordeel:** doorgaan, doorgaan onder voorwaarden, nog niet, of niet doen. Noem de voorwaarden.
    - Drie volgende stappen, de kleinste eerst.
    - **Stopcriteria:** welk resultaat in de komende 30 tot 90 dagen betekent stoppen of bijsturen.
-7. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem het oordeel, het sterkste bezwaar en de belangrijkste voorwaarde.
+8. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem het oordeel, het sterkste bezwaar en de belangrijkste voorwaarde.
 
 ## Eerlijkheidsregels
 
-- Leden heten v_Naam. Hun uitspraken zijn nooit citaten van de echte persoon. Wil ik een uitspraak van het board gebruiken in materiaal voor buiten, zoals een pitch of een website? Waarschuw me dan, want dat leest als een valse aanbeveling.
+${REGEL_CITAAT}
 - Eensgezindheid is geen standaard. Een unaniem oordeel mag alleen als elk lid een zwakke plek noemde en geen daarvan zwaar genoeg is om de stem te veranderen. Zeg dan waarom het oordeel unaniem is.
 - Geen vleierij. Prijs alleen wat specifiek is en verdiend.
 ${REGEL_BEWIJS}
@@ -546,78 +640,15 @@ ${REGEL_VERTROUWELIJK}
 Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met het oordeel, de volgende stappen, de stopcriteria en de drie regels voor mijn ADR. Schrijf in het Nederlands en houd de namen als v_Naam.
 `;
 }
-
-function supervisoryTekst() {
-  const com = s.com;
-  const sceptici = com.map((c, i) => c.scepticus ? (plat(c.rol) || `commissaris ${i + 1}`) : null).filter(Boolean);
-  const blokken = com.length
-    ? com.map((c, i) => `### ${i + 1}. ${veld(c.rol, 'rol of verzonnen naam')}${c.scepticus ? ' (harde scepticus)' : ''}
-
-- **Achtergrond:** ${veld(c.achtergrond, 'achtergrond')}
-- **Denkstijl:** ${veld(c.denkstijl, 'denkstijl')}
-- **Wat deze persoon met AI wint en verliest:** ${veld(c.belang, 'wat wint en verliest deze persoon met AI?')}`).join('\n\n')
-    : '[kies 3 tot 5 commissarissen]';
-  const scepticusZin = sceptici.length
-    ? `**Harde scepticus:** ${lijst(sceptici)}. ${sceptici.length > 1 ? 'Zij zoeken' : 'Deze commissaris zoekt'} actief naar redenen om niet akkoord te gaan, met bij elk bezwaar bewijs en tegenbewijs.`
-    : '**Harde scepticus:** [kies minstens één]';
-  const aantal = com.length >= 3 && com.length <= 5 ? `${['', '', '', 'drie', 'vier', 'vijf'][com.length]} commissarissen` : 'drie tot vijf commissarissen';
-  return `${kopTekst('supervisory-board', 'sup')}
-# Mijn supervisory board
-
-Je roept mijn supervisory board bijeen: ${aantal} die een plan of besluit toetsen voordat ik het neem. Elke commissaris kijkt met de ogen van een belanghebbende van mijn organisatie. De vraag is steeds: houdt het plan stand bij geld, risico, mensen en regels?
-
-${overMij()}
-
-## De commissarissen
-
-De commissarissen zijn verzonnen. Elk heeft de rol van een belanghebbende, en geen van hen is een echte collega.
-
-${blokken}
-
-${scepticusZin}
-
-## Werkwijze
-
-1. **Intake.** Vat in twee of drie zinnen samen wat er voorligt en welk besluit ik wil nemen. Is dat niet duidelijk, stel dan eerst één vraag.
-2. **Advies per commissaris.** Elke commissaris adviseert apart, vanuit de eigen achtergrond en denkstijl. Maak er geen gezamenlijk advies van: de verschillen moeten zichtbaar blijven. Per commissaris:
-   - **Oordeel:** akkoord, akkoord onder voorwaarden, of niet akkoord.
-   - **Toets:** wat betekent dit voor geld, risico, mensen en regels, gezien vanuit deze rol? Sla over wat voor deze rol niet speelt.
-   - **De drie zwakste punten** van het plan.
-   - **Eerste vraag:** wat moet ik eerst beantwoorden?
-   - **Voorwaarde:** wat moet er gebeuren voordat deze commissaris akkoord gaat?
-3. **Bronnen.** Vraag ik om bronnen die mij tegenspreken, noem dan per bron de auteur, het jaar, de titel en wat erin staat. Zeg erbij als je niet zeker weet dat een bron bestaat. Verzin nooit een bron. Ik controleer zelf minstens één bron.
-4. **Overzicht.** Zet in een tabel per commissaris het oordeel en de voorwaarde. Geef daarna geen eindoordeel namens het board: het besluit is aan mij.
-5. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem hoeveel commissarissen akkoord zijn, het zwaarste bezwaar en de voorwaarde die het vaakst terugkomt.
-
-## Eerlijkheidsregels
-
-- Een oordeel van het board is een mening. Uitspraken van commissarissen horen niet in materiaal voor buiten: het zijn geen echte mensen.
-- Geen vleierij. Elke commissaris noemt zwakke punten, ook bij akkoord.
-${REGEL_BEWIJS}
-${REGEL_VERTROUWELIJK}
-- Het board stemt niet en tekent niets. Het besluit blijft bij mij.
-
-## Vorm
-
-Begin met een kop met mijn vraag en de commissarissen. Geef elke commissaris een eigen blok. Eindig met de tabel en de drie regels voor mijn ADR. Schrijf in het Nederlands.
-`;
-}
+const tekstVan = b => b === 'sup' ? supervisoryTekst() : advisoryTekst();
+const ZIPNAAM = { sup: 'supervisory-board', adv: 'advisory-board' };
 
 /* ---------- Controles ---------- */
-function controlesAdv() {
-  const leden = gekozenLeden();
+function controles(b) {
+  const B = BOARD[b], leden = gekozen(b), n = leden.length;
   return [
-    [leden.length >= 5 && leden.length <= 7, `${leden.length} leden gekozen (5 tot 7)`],
-    [leden.some(l => l.scepticus), 'Minstens één harde scepticus'],
-    [!!plat(s.org), 'Je organisatie is beschreven'],
-  ];
-}
-function controlesSup() {
-  const n = s.com.length;
-  return [
-    [n >= 3 && n <= 5, `${n} commissarissen (3 tot 5)`],
-    [n > 0 && s.com.every(c => plat(c.rol) && plat(c.achtergrond) && plat(c.denkstijl)), 'Elke commissaris heeft een rol, achtergrond en denkstijl'],
-    [s.com.some(c => c.scepticus), 'Minstens één harde scepticus'],
+    [n >= B.min && n <= B.max, `${n} ${B.wie} gekozen (${B.min} tot ${B.max})`],
+    [leden.some(l => l.vlag), `Minstens één ${B.vlagNaam}`],
     [!!plat(s.org), 'Je organisatie is beschreven'],
   ];
 }
@@ -630,140 +661,86 @@ function toonControles(id, lijstje, tekst) {
 }
 
 /* ---------- Tekenen ---------- */
-function tekenLeden() {
-  const kaarten = [...LEDEN, ...s.eigen.map(e => ({ ...e, naam: vNaam(e.naam), eigen: true }))].map(l => `
+function tekenLeden(b) {
+  const B = BOARD[b];
+  $(B.rooster).innerHTML = alleLeden(b).map(l => `
     <div class="lid${l.eigen ? ' is-eigen' : ''}">
       <label>
-        <input type="checkbox" data-lid="${esc(l.id)}"${s.leden.includes(l.id) ? ' checked' : ''}>
-        <span class="lid-naam">${esc(l.naam)}${l.scepticus ? ' <span class="tag">scepticus</span>' : ''}${l.eigen ? ' <span class="tag eigen">eigen lid</span>' : ''}</span>
-        <span class="lid-kijkt">${esc(l.kijkt)}</span>
+        <input type="checkbox" data-board="${b}" data-lid="${esc(l.id)}"${s[B.gekozen].includes(l.id) ? ' checked' : ''}>
+        <span class="lid-naam">${esc(l.naam)}${l.vlag ? ` <span class="tag">${B.tag}</span>` : ''}${l.eigen ? ` <span class="tag eigen">${B.eigenTag}</span>` : ''}</span>
+        <span class="lid-kijkt">${esc(l.blik)}</span>
         <span class="lid-vraag">“${esc(l.vraag)}”</span>
       </label>
-      ${l.eigen ? `<button type="button" class="weg" data-weg-eigen="${esc(l.id)}">verwijder<span class="sr"> ${esc(l.naam)}</span></button>` : ''}
-    </div>`);
-  $('leden').innerHTML = kaarten.join('');
+      ${l.eigen ? `<button type="button" class="weg" data-board="${b}" data-weg-eigen="${esc(l.id)}">verwijder<span class="sr"> ${esc(l.naam)}</span></button>` : ''}
+    </div>`).join('');
 }
-function tekenVoorstellen() {
-  const gebruikt = new Set(s.com.map(c => plat(c.rol)));
-  const vol = s.com.length >= 5 ? ' disabled' : '';
-  $('voorstellen').innerHTML = VOORSTELLEN.filter(v => !gebruikt.has(v.rol))
-    .map(v => `<button type="button" class="knop licht klein-knop" data-voorstel="${esc(v.rol)}"${vol}>+ ${esc(v.rol)}</button>`).join('')
-    + `<button type="button" class="knop licht klein-knop" data-voorstel=""${vol}>+ Eigen commissaris</button>`
-    + (vol ? '<span class="klein">Vijf is het maximum. Verwijder er eerst een om te wisselen.</span>' : '');
-}
-function tekenCom() {
-  const lijst = $('com-lijst');
-  if (!s.com.length) { lijst.innerHTML = '<p class="leeg">Nog geen commissarissen. Kies hierboven een voorstel of begin met een eigen commissaris.</p>'; return; }
-  lijst.innerHTML = s.com.map((c, i) => `
-    <fieldset class="com" style="margin:0">
-      <legend class="sr">Commissaris ${i + 1}</legend>
-      <div class="com-kop"><strong>Commissaris ${i + 1}</strong>
-        <span class="knoppen" style="margin:0">
-          <label class="vink"><input type="checkbox" data-com="${i}" data-veld="scepticus"${c.scepticus ? ' checked' : ''}> Harde scepticus</label>
-          <button type="button" class="knop licht klein-knop" data-weg-com="${i}">Verwijder<span class="sr"> commissaris ${i + 1}</span></button>
-        </span>
-      </div>
-      <div class="velden">
-        <div class="rij-2">
-          <div class="veld"><label for="com-${i}-rol">Rol of verzonnen naam</label><input type="text" id="com-${i}-rol" data-com="${i}" data-veld="rol" value="${esc(c.rol)}" placeholder="Bijvoorbeeld: financieel directeur"></div>
-          <div class="veld"><label for="com-${i}-achtergrond">Achtergrond</label><input type="text" id="com-${i}-achtergrond" data-com="${i}" data-veld="achtergrond" value="${esc(c.achtergrond)}"></div>
-        </div>
-        <div class="veld"><label for="com-${i}-denkstijl">Denkstijl</label><input type="text" id="com-${i}-denkstijl" data-com="${i}" data-veld="denkstijl" value="${esc(c.denkstijl)}"></div>
-        <div class="veld"><label for="com-${i}-belang">Wat wint en verliest deze persoon met AI?</label><input type="text" id="com-${i}-belang" data-com="${i}" data-veld="belang" value="${esc(c.belang)}" placeholder="Uit je AI-taak van de lunch"></div>
-      </div>
-    </fieldset>`).join('');
-}
-function tekenTeller(id, controles) {
-  const ok = controles.every(([v]) => v);
+function tekenTeller(id, lijstje) {
+  const ok = lijstje.every(([v]) => v);
   const el = $(id);
   el.dataset.ok = String(ok);
-  el.innerHTML = controles.slice(0, -1).map(([v, t]) => `<span style="display:inline-flex;gap:6px;align-items:center">${teken(v)}${esc(t)}</span>`).join('');
+  el.innerHTML = lijstje.slice(0, -1).map(([v, t]) => `<span style="display:inline-flex;gap:6px;align-items:center">${teken(v)}${esc(t)}</span>`).join('');
 }
 function ververs() {
-  const adv = advisoryTekst(), sup = supervisoryTekst();
-  const ca = controlesAdv(), cs = controlesSup();
-  $('tekst-adv').textContent = adv;
-  $('tekst-sup').textContent = sup;
-  toonControles('controles-adv', ca, adv);
-  toonControles('controles-sup', cs, sup);
-  tekenTeller('teller-advisory', ca);
-  tekenTeller('teller-supervisory', cs);
+  for (const b of ['sup', 'adv']) {
+    const tekst = tekstVan(b), c = controles(b);
+    $(`tekst-${b}`).textContent = tekst;
+    toonControles(`controles-${b}`, c, tekst);
+    tekenTeller(BOARD[b].teller, c);
+  }
 }
 function vulVelden() {
-  for (const el of document.querySelectorAll('[data-veld]:not([data-com])')) el.value = s[el.dataset.veld] || '';
+  for (const el of document.querySelectorAll('[data-veld]')) el.value = s[el.dataset.veld] || '';
 }
-function allesTekenen() { vulVelden(); tekenLeden(); tekenVoorstellen(); tekenCom(); ververs(); }
+function allesTekenen() { vulVelden(); tekenLeden('sup'); tekenLeden('adv'); ververs(); }
 
 /* ---------- Invoer ---------- */
 document.addEventListener('input', e => {
   const el = e.target;
-  if (el.matches('[data-veld]:not([data-com])')) { s[el.dataset.veld] = el.value; }
-  else if (el.matches('[data-com][data-veld]') && el.type !== 'checkbox') {
-    const c = s.com[+el.dataset.com]; if (!c) return;
-    c[el.dataset.veld] = el.value;
-    if (el.dataset.veld === 'rol') tekenVoorstellen();
-  } else return;
+  if (!el.matches('[data-veld]')) return;
+  s[el.dataset.veld] = el.value;
   bewaar(); ververs();
 });
 document.addEventListener('change', e => {
   const el = e.target;
-  if (el.matches('[data-lid]')) {
-    const id = el.dataset.lid;
-    s.leden = el.checked ? [...new Set([...s.leden, id])] : s.leden.filter(x => x !== id);
-  } else if (el.matches('[data-com][data-veld="scepticus"]')) {
-    const c = s.com[+el.dataset.com]; if (!c) return;
-    c.scepticus = el.checked;
-  } else return;
+  if (!el.matches('[data-lid]')) return;
+  const B = BOARD[el.dataset.board], id = el.dataset.lid;
+  s[B.gekozen] = el.checked ? [...new Set([...s[B.gekozen], id])] : s[B.gekozen].filter(x => x !== id);
   bewaar(); ververs();
 });
 document.addEventListener('click', e => {
   const weg = e.target.closest('[data-weg-eigen]');
   if (weg) {
     e.preventDefault();
-    const id = weg.dataset.wegEigen;
-    s.eigen = s.eigen.filter(x => x.id !== id);
-    s.leden = s.leden.filter(x => x !== id);
-    bewaar(); tekenLeden(); ververs(); return;
-  }
-  const voorstel = e.target.closest('[data-voorstel]');
-  if (voorstel) {
-    if (s.com.length >= 5) return;
-    const v = VOORSTELLEN.find(x => x.rol === voorstel.dataset.voorstel);
-    s.com.push({ rol: v?.rol || '', achtergrond: v?.achtergrond || '', denkstijl: v?.denkstijl || '', belang: '', scepticus: false });
-    bewaar(); tekenVoorstellen(); tekenCom(); ververs();
-    $(`com-${s.com.length - 1}-${v ? 'belang' : 'rol'}`)?.focus();
-    return;
-  }
-  const wegCom = e.target.closest('[data-weg-com]');
-  if (wegCom) {
-    s.com.splice(+wegCom.dataset.wegCom, 1);
-    bewaar(); tekenVoorstellen(); tekenCom(); ververs(); return;
+    const b = weg.dataset.board, B = BOARD[b], id = weg.dataset.wegEigen;
+    s[B.eigen] = s[B.eigen].filter(x => x.id !== id);
+    s[B.gekozen] = s[B.gekozen].filter(x => x !== id);
+    bewaar(); tekenLeden(b); ververs(); return;
   }
   const zipKnop = e.target.closest('[data-zip]');
   if (zipKnop) {
-    const wat = zipKnop.dataset.zip, naam = wat === 'adv' ? 'advisory-board' : 'supervisory-board';
-    const tekst = wat === 'adv' ? advisoryTekst() : supervisoryTekst();
-    download(`${naam}.zip`, maakZip([{ naam: `${naam}/` }, { naam: `${naam}/SKILL.md`, data: new TextEncoder().encode(tekst) }]));
+    const wat = zipKnop.dataset.zip, naam = ZIPNAAM[wat];
+    download(`${naam}.zip`, maakZip([{ naam: `${naam}/` }, { naam: `${naam}/SKILL.md`, data: new TextEncoder().encode(tekstVan(wat)) }]));
     $(`status-${wat}`).textContent = `${naam}.zip staat in je map met downloads.`;
     return;
   }
   const kop = e.target.closest('[data-kopieer]');
   if (kop) { kopieer(kop.dataset.kopieer); return; }
 });
-$('eigen-form').addEventListener('submit', e => {
+document.querySelectorAll('form[data-eigen]').forEach(form => form.addEventListener('submit', e => {
   e.preventDefault();
-  const naam = plat($('eigen-naam').value).replace(/^v_/i, '');
+  const b = form.dataset.eigen, B = BOARD[b], v = form.elements;
+  const naam = plat(v.naam.value).replace(/^v_/i, '');
   if (!naam) return;
-  const id = `eigen-${Date.now().toString(36)}`;
-  s.eigen.push({ id, naam, kijkt: plat($('eigen-kijkt').value), vraag: plat($('eigen-vraag').value), scepticus: $('eigen-scepticus').checked });
-  s.leden.push(id);
-  e.target.reset();
-  bewaar(); tekenLeden(); ververs();
+  const id = `eigen-${b}-${Date.now().toString(36)}`;
+  s[B.eigen].push({ id, naam, blik: plat(v.blik.value), vraag: plat(v.vraag.value), vlag: v.vlag.checked });
+  s[B.gekozen].push(id);
+  form.reset();
+  bewaar(); tekenLeden(b); ververs();
   document.querySelector(`[data-lid="${id}"]`)?.focus();
-});
+}));
 
 $('voorbeeld').addEventListener('click', () => {
-  const ingevuld = plat(s.org) || s.leden.length || s.com.length;
+  const ingevuld = plat(s.org) || s.helden.length || s.leden.length;
   if (ingevuld && !confirm('Dit vervangt wat je al hebt ingevuld door Voorbeeld BV. Doorgaan?')) return;
   s = schoon(JSON.parse(JSON.stringify(VOORBEELD)));
   bewaar(); allesTekenen();

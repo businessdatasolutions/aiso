@@ -2,6 +2,25 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.17 — 2026-11-07
+
+**Gewijzigd** (ADR-028)
+- Het supervisory board bestaat uit drie tot vijf strategen die de deelnemer zelf kiest, om inspiratie, met minstens één tegenspreker. Het bespreekt visie, missie en strategie, helpt het verhaal voor de stakeholders scherp te krijgen en komt tot een gezamenlijke conclusie en advies. De commissarissen vervallen.
+- Het advisory board bestaat uit vijf tot zeven experts, elk met een eigen vakgebied, met minstens één harde scepticus.
+- `materiaal/boards.html` is herschreven. Het supervisory board is stap 2, met twintig helden (acht vrouwen) en eigen helden. Het advisory board is stap 3, met vijftien experts (vijf vrouwen) en eigen experts. De lunchtaak staat bij stap 2.
+- Dag 1: Stakeholders duurt van 11:45 tot 12:15. De lunchtaak gaat over de stukken van het bestuur in plaats van over de stakeholders. Werkplaats 1 begint met het advies van het supervisory board en bouwt het advisory board.
+- FR-06, FR-17 en FR-19, deel 6.3, deel 9, de spanning "twee boards", de opdracht van werkplaats 1, de boardmomenten en twee risico's volgen de nieuwe rollen.
+- Bouwstenen voor het draaiboek: het nieuwe blok om 12:15 en werkplaats 1.
+- ADR-006 en ADR-027 zijn deels vervangen door ADR-028.
+
+**Toegevoegd** (ADR-028)
+- FR-32: vóór de lunch op dag 1 stelt elke deelnemer het supervisory board samen. Daarna legt de deelnemer het openbare stukken van het eigen bestuur over visie, missie en strategie voor. Het board komt tot een gezamenlijke conclusie en advies. AC-12 meet dat advies.
+- Programma dag 1, 12:15–12:30: "Je supervisory board en de stukken van je bestuur".
+- Boardmomenten: de lunch op dag 1.
+- Risico: het bestuur zegt openbaar weinig, of de stukken zijn vertrouwelijk.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7. Versie 0.16 is niet apart gepubliceerd.
+
 ## 0.16 — 2026-11-07
 
 **Toegevoegd** (ADR-027)
