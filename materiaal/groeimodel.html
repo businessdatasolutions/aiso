@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<title>Ask, Assist, Automate</title>
+<style>
+/* Groeimodel Ask → Assist → Automate, toegepast op Voorbeeld BV, route 3.
+   Bron van de teksten: materiaal/voorbeeldcasus.md, "Ask → Assist → Automate op route 3". Verander ze daar en hier samen.
+   Huisstijl Business Data Solutions (brand-project/stylebook/shared.css), alleen licht.
+   AI = warm zwart met geel plus het Bot-icoon. Geel is het enige accent: nooit als tekstkleur op licht.
+   De werkverdelingsbalk is een beeld van wie het werk doet, geen meting. */
+:root{
+  color-scheme:light;
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --ok:#2E8B72; --warn:#B23A2E;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  --rand:2.2rem;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+
+/* ---------- Kop, voortgang, bediening ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:1.3rem var(--rand) .9rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:2rem;margin:.25rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.teller{margin-left:auto;font-family:var(--mono);color:var(--mutedSoft);font-size:.9rem;white-space:nowrap}
+.voortgang{background:var(--line)}
+.voortgang i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s ease}
+main{position:relative;min-height:0}
+
+nav.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem var(--rand);border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft)}
+nav.bediening button{font:inherit;font-size:1rem;font-weight:700;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  border-radius:.4rem;padding:.2rem .9rem;cursor:pointer;min-width:2.6rem;min-height:2rem}
+nav.bediening button.volgende{background:var(--accent);border-color:var(--accent)}
+nav.bediening button:disabled{opacity:.35;cursor:default}
+nav.bediening button:focus-visible,nav.bediening a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+nav.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* Iconen als masker: kleur volgt currentColor. lucide "bot" en "user-round". */
+.bot-i,.mens-i{display:inline-block;width:1em;height:1em;flex-shrink:0;background:currentColor;vertical-align:-.12em;
+  -webkit-mask:var(--icoon) center/contain no-repeat;mask:var(--icoon) center/contain no-repeat}
+.bot-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E")}
+.mens-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='5'/%3E%3Cpath d='M20 21a8 8 0 0 0-16 0'/%3E%3C/svg%3E")}
+
+/* ---------- De trap ---------- */
+.trap{position:absolute;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;padding:.6rem var(--rand) 1rem;gap:.6rem}
+.vraag{margin:0;font-size:1.5rem;font-weight:600;color:var(--muted);line-height:1.25}
+body[data-stap="0"] .vraag,body.plan .vraag{color:var(--ink)}
+
+.treden{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;min-height:0}
+.trede{display:flex;flex-direction:column;justify-content:flex-end;min-height:0;transition:opacity .5s ease}
+.blok{flex:0 0 max(var(--hoog),2.8rem);background:var(--cream2);border-top:4px solid var(--ink);border-radius:.2rem .2rem 0 0;
+  transition:border-color .4s,background .4s;display:flex;align-items:flex-start;padding:.45rem .8rem;overflow:hidden}
+.trede.actief .blok{border-top-color:var(--accent);background:var(--cream)}
+
+.kaart{background:var(--card);border:1.5px solid var(--line);border-radius:.9rem;padding:.9rem 1.2rem 1rem;
+  margin-bottom:.9rem;transition:border-color .4s,box-shadow .4s,transform .5s ease}
+.trede.actief .kaart{border-color:var(--ink);box-shadow:0 .6rem 1.6rem rgba(26,26,26,.08);transform:translateY(-.3rem)}
+.trede.dim{opacity:.32}
+
+.naam{display:flex;align-items:center;gap:.6rem;font-size:2.3rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;flex-wrap:wrap;margin:0}
+.nr{font-family:var(--mono);font-size:.9rem;font-weight:600;color:var(--mutedSoft);border:1.5px solid var(--line);
+  border-radius:99px;width:1.8rem;height:1.8rem;display:inline-grid;place-items:center;letter-spacing:0}
+.trede.actief .nr{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.kort{margin:.35rem 0 0;font-size:1.1rem;color:var(--muted);line-height:1.35}
+
+/* Openklappen zonder hoogte te meten: rij van 0fr naar 1fr */
+.open{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s ease,opacity .45s ease}
+.open>div{overflow:hidden;min-height:0}
+.trede.vol .samen-deel,.trede.samen .samen-deel,.trede.vol .vol-deel{grid-template-rows:1fr;opacity:1}
+
+.motto{margin:.6rem 0 .5rem;font-size:1.45rem;font-weight:700;line-height:1.2}
+
+/* Werkverdeling: wie doet het werk? Het AI-deel groeit, het mensdeel blijft altijd bestaan. */
+.verdeling{display:flex;height:2.1rem;border-radius:.45rem;overflow:hidden;border:1.5px solid var(--ink);font-size:.9rem;font-weight:700}
+.verdeling i{font-style:normal;display:flex;align-items:center;gap:.35rem;padding:0 .6rem;white-space:nowrap;overflow:hidden}
+.ai-deel{background:var(--ink);color:var(--accent);flex:0 0 0%;transition:flex-basis .9s cubic-bezier(.2,.7,.2,1) .15s}
+.mens-deel{background:var(--cream);color:var(--ink);flex:1 1 auto;justify-content:flex-end;min-width:2rem}
+.trede.vol .ai-deel,.trede.samen .ai-deel{flex-basis:var(--ai)}
+
+.rol{display:grid;grid-template-columns:4.8rem 1fr;gap:.6rem;align-items:baseline;margin:.6rem 0 0;font-size:1.05rem;line-height:1.35}
+.rol.vervolg{margin-top:.45rem}
+.wie{display:inline-flex;align-items:center;gap:.35rem;justify-self:start;font-size:.85rem;font-weight:700;
+  border:1.5px solid var(--ink);border-radius:99px;padding:.05rem .6rem}
+.wie.ai{background:var(--ink);color:var(--accent)}
+.voorbeeld{margin:.7rem 0 0;background:var(--ink);color:#fff;border-radius:.7rem;padding:.7rem .9rem;font-size:1.05rem;line-height:1.4}
+.voorbeeld .label{display:flex;align-items:center;gap:.4rem;color:var(--accent);font-weight:700;font-size:.8rem;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:.25rem}
+.grenzen{display:flex;flex-wrap:wrap;gap:.45rem;margin:.45rem 0 0 5.4rem}
+.grens-chip{border:1.5px solid var(--ink);border-radius:.45rem;padding:.15rem .65rem;font-size:1rem;font-weight:600;background:#fff}
+.grens-chip.ernstig{border-color:var(--warn);background:var(--warn);color:#fff}
+
+/* Stap 6: de fasen van het buildplan staan op de trede. Mensenwerk: geen AI-markering. */
+.fasen{display:flex;flex-wrap:wrap;gap:.4rem;opacity:0;transform:translateY(.3rem);transition:opacity .45s ease .2s,transform .45s ease .2s}
+body.plan .fasen{opacity:1;transform:none}
+.fase{display:inline-flex;align-items:center;gap:.35rem;font-size:.95rem;font-weight:700;line-height:1.2;
+  background:var(--accent);color:var(--ink);border-radius:.4rem;padding:.2rem .65rem}
+.fase small{font-size:.8rem;font-weight:600}
+.fase.voorwaarde{background:#fff;border:1.5px solid var(--ink);font-weight:600}
+body.plan .blok{border-top-color:var(--accent);background:var(--cream)}
+
+/* ---------- As en onderkant ---------- */
+.as{display:flex;align-items:center;gap:.8rem;color:var(--mutedSoft);font-size:.85rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase}
+.as i{flex:1;height:2px;background:var(--mutedSoft);position:relative}
+.as i::after{content:"";position:absolute;right:-2px;top:50%;width:.6rem;height:.6rem;border-top:2px solid var(--mutedSoft);
+  border-right:2px solid var(--mutedSoft);transform:translateY(-50%) rotate(45deg)}
+.onder{display:flex;align-items:center;gap:1.4rem;min-height:2.6rem}
+.grens{margin:0;display:flex;align-items:center;gap:.6rem;font-size:1.15rem;font-weight:700;border-left:5px solid var(--warn);
+  background:#fff;padding:.45rem 1rem;border-radius:0 .5rem .5rem 0;opacity:0;transform:translateY(.4rem);transition:opacity .5s,transform .5s}
+body.grens-aan .grens{opacity:1;transform:none}
+.voet{margin:0 0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:.15rem;font-size:.8rem;color:var(--mutedSoft);text-align:right}
+.voet span{white-space:nowrap}
+.voet .beeld{transition:opacity .5s}
+body[data-stap="0"] .voet .beeld{opacity:0}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+@media (max-width:760px){
+  :root{--rand:16px}
+  html{font-size:14px}
+  body{overflow:auto;height:auto;min-height:100vh}
+  header.top{gap:1rem;padding-top:1rem}
+  h1{font-size:1.6rem}
+  .trap{position:static;padding:.6rem var(--rand) 1rem}
+  .vraag{font-size:1.2rem}
+  .treden{grid-template-columns:1fr;gap:.8rem}
+  .naam{font-size:1.8rem}
+  .kaart{margin-bottom:0}
+  .trede.dim{opacity:.5}
+  .blok{display:none}
+  body.plan .blok{display:flex;flex:none;border-radius:0 0 .5rem .5rem;margin-top:-.2rem}
+  .rol{grid-template-columns:4.4rem 1fr}
+  .grenzen{margin-left:0}
+  .as{display:none}
+  .onder{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .grens{display:none}
+  body.grens-aan .grens{display:flex}
+  .voet{margin:0;align-items:flex-start;text-align:left}
+  .voet span{white-space:normal}
+  nav.bediening{flex-wrap:wrap}
+  .merk{margin-left:0}
+}
+</style>
+</head>
+<body data-stap="0">
+<header class="top">
+  <div>
+    <div class="eyebrow">Groeimodel · Voorbeeld BV · route 3</div>
+    <h1>Ask → Assist → Automate</h1>
+  </div>
+  <div class="teller" id="teller" aria-live="polite">1 / 6</div>
+</header>
+<div class="voortgang" aria-hidden="true"><i id="balk"></i></div>
+
+<main>
+  <section class="trap" aria-label="Drie niveaus van zelfstandigheid voor de AI">
+    <p class="vraag" id="vraag">Hoeveel zelfstandigheid geef je de AI? En in welke volgorde?</p>
+
+    <div class="treden">
+      <article class="trede" data-niveau="ask" style="--ai:20%;--hoog:6%">
+        <div class="kaart">
+          <h2 class="naam"><span class="nr">1</span>Ask</h2>
+          <p class="kort">Alleen lezen. De AI doet zelf niets.</p>
+          <div class="open samen-deel"><div>
+            <p class="motto">AI leest mee, jij beslist</p>
+            <div class="verdeling" role="img" aria-label="Werkverdeling: de mens doet het meeste werk">
+              <i class="ai-deel"><span class="bot-i"></span>AI</i><i class="mens-deel"><span class="mens-i"></span>Mens</i>
+            </div>
+          </div></div>
+          <div class="open vol-deel"><div>
+            <p class="rol"><span class="wie ai"><span class="bot-i"></span>AI</span>Leest de klachten van alle afdelingen en geeft een signaal.</p>
+            <p class="rol"><span class="wie"><span class="mens-i"></span>Mens</span>Kwaliteit beoordeelt het signaal en beslist.</p>
+            <div class="voorbeeld"><span class="label"><span class="bot-i"></span>AI-signaal</span>Service Noord en Service Zuid kregen deze maand vijf klachten over lekkage na onderhoud.</div>
+          </div></div>
+        </div>
+        <div class="blok"><div class="fasen" aria-label="Fasen in het buildplan">
+          <span class="fase">Experiment</span><span class="fase">Pilot <small>met een steekproef</small></span>
+        </div></div>
+      </article>
+
+      <article class="trede" data-niveau="assist" style="--ai:50%;--hoog:15%">
+        <div class="kaart">
+          <h2 class="naam"><span class="nr">2</span>Assist</h2>
+          <p class="kort">Een mens zit in elke stap.</p>
+          <div class="open samen-deel"><div>
+            <p class="motto">AI stelt op, jij autoriseert</p>
+            <div class="verdeling" role="img" aria-label="Werkverdeling: AI en mens doen elk de helft van het werk">
+              <i class="ai-deel"><span class="bot-i"></span>AI</i><i class="mens-deel"><span class="mens-i"></span>Mens</i>
+            </div>
+          </div></div>
+          <div class="open vol-deel"><div>
+            <p class="rol"><span class="wie ai"><span class="bot-i"></span>AI</span>Maakt een concept-analyse met oorzaken en een verbetervoorstel.</p>
+            <p class="rol"><span class="wie"><span class="mens-i"></span>Mens</span>Het kwaliteitsoverleg corrigeert en autoriseert. Pas dan gaat het naar het MT.</p>
+            <div class="voorbeeld"><span class="label"><span class="bot-i"></span>AI-concept</span>Twee oorzaken in het proces: pakkingen uit één levering, en geen lektest na onderhoud. Voorstel: de lektest als vaste stap op de werkbon.</div>
+          </div></div>
+        </div>
+        <div class="blok"><div class="fasen" aria-label="Fasen in het buildplan">
+          <span class="fase">Pilot</span><span class="fase">Opschaling</span>
+        </div></div>
+      </article>
+
+      <article class="trede" data-niveau="automate" style="--ai:85%;--hoog:24%">
+        <div class="kaart">
+          <h2 class="naam"><span class="nr">3</span>Automate</h2>
+          <p class="kort">De AI werkt zelf. Uitzonderingen gaan naar een mens.</p>
+          <div class="open samen-deel"><div>
+            <p class="motto">AI handelt zelf af, met een harde grens</p>
+            <div class="verdeling" role="img" aria-label="Werkverdeling: de AI doet het meeste werk, de mens houdt de uitzonderingen">
+              <i class="ai-deel"><span class="bot-i"></span>AI</i><i class="mens-deel"><span class="mens-i"></span></i>
+            </div>
+          </div></div>
+          <div class="open vol-deel"><div>
+            <p class="rol"><span class="wie ai"><span class="bot-i"></span>AI</span>Sorteert en archiveert duidelijke klachten met lage urgentie, en informeert de afdeling.</p>
+            <p class="rol"><span class="wie"><span class="mens-i"></span>Mens</span>Krijgt altijd:</p>
+            <div class="grenzen">
+              <span class="grens-chip ernstig">ernstige klachten</span>
+              <span class="grens-chip">twijfelgevallen</span>
+              <span class="grens-chip">stijgende patronen</span>
+            </div>
+            <p class="rol vervolg"><span></span>Een bericht aan klanten gaat eerst als voorbeeld langs een mens.</p>
+          </div></div>
+        </div>
+        <div class="blok"><div class="fasen" aria-label="Voorwaarde in het buildplan">
+          <span class="fase voorwaarde">Alleen voor duidelijke gevallen met een laag risico</span>
+        </div></div>
+      </article>
+    </div>
+
+    <div class="as" aria-hidden="true"><span>Meer zelfstandigheid voor de AI</span><i></i></div>
+
+    <div class="onder">
+      <p class="grens" id="grens"><span class="mens-i"></span>Op elk niveau gaan ernstige klachten en twijfelgevallen naar een mens. Leg vast wie beslist en wie verantwoordelijk is.</p>
+      <p class="voet">
+        <span class="beeld">De balk is een beeld van wie het werk doet, geen meting.</span>
+        <span>Naar Joe Beutler (OpenAI), 2026 · toegepast op Voorbeeld BV, route 3</span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<nav class="bediening" aria-label="Stappen">
+  <button type="button" id="terug" aria-label="Vorige stap">←</button>
+  <button type="button" id="verder" class="volgende" aria-label="Volgende stap">→</button>
+  <a href="./index.html">Startpagina</a>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    Business Data Solutions
+  </span>
+</nav>
+
+<script>
+/* Elke stap zet body[data-stap] en de klassen actief / vol / dim / samen op de drie treden; CSS doet de overgangen.
+   Stap 1: overzicht · 2–4: één niveau uitgelicht · 5: samenvatting met de harde grens · 6: de fasen van het buildplan.
+   Geen bibliotheken, geen netwerkaanroepen. */
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const TREDEN = [...document.querySelectorAll(".trede")];
+  const VRAAG = "Hoeveel zelfstandigheid geef je de AI? En in welke volgorde?";
+
+  // actief = het niveau dat openklapt; samen = alle niveaus met motto en werkverdeling;
+  // grens = de harde grens in beeld; plan = de fasen van het buildplan op de treden.
+  const STAPPEN = [
+    { actief: null, vraag: VRAAG },
+    { actief: "ask", vraag: VRAAG },
+    { actief: "assist", vraag: VRAAG },
+    { actief: "automate", vraag: VRAAG },
+    { samen: true, grens: true, vraag: VRAAG },
+    { samen: true, grens: true, plan: true, vraag: "In je buildplan: welk niveau past bij welke fase?" },
+  ];
+
+  let stap = -1;
+
+  function ga(n) {
+    n = Math.max(0, Math.min(STAPPEN.length - 1, n));
+    if (n === stap) return;
+    stap = n;
+    const s = STAPPEN[n];
+
+    document.body.dataset.stap = n;
+    document.body.classList.toggle("grens-aan", Boolean(s.grens));
+    document.body.classList.toggle("plan", Boolean(s.plan));
+    $("vraag").textContent = s.vraag;
+    $("teller").textContent = `${n + 1} / ${STAPPEN.length}`;
+    $("balk").style.width = `${((n + 1) / STAPPEN.length) * 100}%`;
+    $("terug").disabled = n === 0;
+    $("verder").disabled = n === STAPPEN.length - 1;
+    if (location.hash !== `#stap-${n + 1}`) history.replaceState(null, "", `#stap-${n + 1}`);
+
+    for (const t of TREDEN) {
+      const niveau = t.dataset.niveau;
+      t.classList.toggle("actief", s.actief === niveau);
+      t.classList.toggle("vol", s.actief === niveau);
+      t.classList.toggle("dim", Boolean(s.actief) && s.actief !== niveau);
+      t.classList.toggle("samen", Boolean(s.samen));
+    }
+  }
+
+  addEventListener("keydown", (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target.closest && e.target.closest("a")) return;
+    // Enter of spatie op een knop: de knop zelf geeft de klik, anders telt de stap dubbel
+    if (e.target.closest && e.target.closest("button") && (e.key === "Enter" || e.key === " ")) return;
+    const volgende = ["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"];
+    const vorige = ["ArrowLeft", "ArrowUp", "PageUp", "Backspace"];
+    if (volgende.includes(e.key)) { e.preventDefault(); ga(stap + 1); }
+    else if (vorige.includes(e.key)) { e.preventDefault(); ga(stap - 1); }
+    else if (e.key === "Home") { e.preventDefault(); ga(0); }
+    else if (e.key === "End") { e.preventDefault(); ga(STAPPEN.length - 1); }
+  });
+  $("verder").addEventListener("click", () => ga(stap + 1));
+  $("terug").addEventListener("click", () => ga(stap - 1));
+
+  // #stap-N in de adresbalk springt naar stap N
+  const stapUitHash = () => {
+    const n = parseInt((location.hash.match(/stap-(\d+)/) || [])[1], 10);
+    return Number.isFinite(n) ? n - 1 : 0;
+  };
+  addEventListener("hashchange", () => ga(stapUitHash()));
+  ga(stapUitHash());
+})();
+</script>
+</body>
+</html>

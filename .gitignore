@@ -6,3 +6,9 @@ Overeenkomst*
 
 # Systeemrommel
 .DS_Store
+
+# Uittreksel uit de ASD-STE100-specificatie: privé, niet verspreiden
+.claude/skills/aiso-ste100-writer/references/ste100_dictionary.json
+
+# Testbrowser
+.playwright-mcp/

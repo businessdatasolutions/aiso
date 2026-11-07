@@ -21,6 +21,11 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-015](ADR-015-deelnemers-adr-register.md) | Deelnemers houden ADR's en een wijzigingslog bij; het boardlog wordt het ADR-register | Aanvaard | 2026-11-05 |
 | [ADR-016](ADR-016-geen-organisaties-van-deelnemers.md) | Geen organisaties van deelnemers in documenten | Aanvaard | 2026-11-07 |
 | [ADR-017](ADR-017-pseudoniemen-voor-deelnemers.md) | Pseudoniemen voor deelnemers | Aanvaard | 2026-11-07 |
+| [ADR-018](ADR-018-bronnen-en-werkvormen-uit-de-santeon-sessie.md) | Bronnen en werkvormen uit de sessie over AI in de zorg | Aanvaard | 2026-11-07 |
+| [ADR-019](ADR-019-ask-assist-automate-in-het-buildplan.md) | Ask → Assist → Automate in het buildplan, als derde nieuw model | Aanvaard | 2026-11-07 |
+| [ADR-020](ADR-020-vijfde-governancevraag.md) | Vijfde governancevraag: kijkt de AI naar het werk of naar personen? | Aanvaard | 2026-11-07 |
+| [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Aanvaard | 2026-11-07 |
+| [ADR-022](ADR-022-gereedschap-lekcheck-schemas-en-skills.md) | Gereedschap: lekcheck vóór publicatie, schemascript en drie projectskills | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

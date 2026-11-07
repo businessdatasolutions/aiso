@@ -12,6 +12,8 @@ The central deliverable is a **Learner Requirement Document (LRD)**: [LRD-AISO26
 - `background-docs/`: source material. These are the S&N course page (saved as PDF), the contract (it includes rates) and an overview of the online environment.
 - `temp/`: participants' submissions, which contain personal data.
 - `onderzoek/`: reviews of the LRD, such as the test against the AI wiki.
+- `materiaal/`: classroom material (ADR-021). `voorbeeldcasus.md` (the fictitious Voorbeeld BV) is the content source for the lesson pages `groeimodel.html`, `kennisvormen.html` and `kansenkaart.html`: change a text there, then copy it into the page by hand. `index.html` is the start page per lesdag (`?dag=1|2|3`); it reads the programme from `DATA` in the LRD (fetch + parse), so it only works via a local server. For rehearsal, `?tijd=HH:MM` sets the clock to that time of day. `draaiboek-bouwstenen.md` and `rolkaarten-kritiekpunten.md` are trainer material.
+- `scripts/`: `controleer-publicatie.py` (the leak check before publishing, ADR-022) and `excalidraw-huisstijl.py` (redraws an `.excalidraw` file as a house-style SVG).
 - `.claude/skills/aiso-*`: project copies of the user's education skills, made generic (no HAN references). The `aiso-` prefix stops them clashing with the personal skills of the same name in `~/.claude/skills`.
 
 ## Privacy of participants (ADR-016, ADR-017)
@@ -27,6 +29,7 @@ The LRD is one self-contained HTML page. The skill `aiso-building-lrds` defines 
 - **To add or change an item, edit `DATA`.** Do not hand-edit rendered tables. Cross-references are ID arrays: `lu` on FR/NFR/SN, `measuredBy` on AC, `refs` on risks, `fr` and `lu` on programme blocks. At load time, any ID that doesn't resolve is logged as `LRD: verwijzingen zonder doel`.
 - **Counts are computed.** The `<b data-count="…">` stat numbers are rewritten by JS. Their static values are only a no-JS fallback, but keep them in sync.
 - **ID scheme.** `SN1–7` are the contractual S&N results. `LU1–9` are learning outcomes, tagged with a Bloom process/knowledge cell. Then `FR-NN`, `NFR-NN` and `AC-NN`. Never renumber: add new IDs at the end. Anchors are the lowercase IDs (`#fr-15`).
+- **Materials per block.** A programme block may have `materials: [{ label, href }]`. `href` is relative to the repo root or an absolute https URL. The detail panel in Part 8 and the start page `materiaal/index.html` both render it.
 - **Visuals.** D3, Three.js and Motion load as ES modules from pinned jsDelivr versions (`d3@7.9.0`, `three@0.160.0`, `motion@11.11.13`). Each loads via its own dynamic `import()`, so one failing CDN doesn't break the rest. Tables render without any library.
 - **Brand.** The tokens and components are copied verbatim from `~/Projects/brand-project/stylebook/shared.css` (Business Data Solutions). The palette is chartreuse `#d4db3e` as the single signal accent, warm black, cream, and tier/edge cards. The page is deliberately light-only.
 
@@ -54,6 +57,14 @@ python3 -c "t=open('LRD-AISO26009-lesdagen.html').read(); open('/tmp/lrd.mjs','w
 python3 .claude/skills/aiso-schrap-ai-taal/scripts/aitaal.py LRD-AISO26009-lesdagen.html --codes A1,A2,A3,A5,A7,A8
 python3 .claude/skills/aiso-redigeer-nederlandse-tekst/scripts/tekstcheck.py CHANGELOG.md docs/adr --recursief
 
+# Leak check: on the artifact copy before every publish (must report nothing),
+# or with --alleen-privacy on files that stay in the repo. Never prints a found value.
+python3 scripts/controleer-publicatie.py /path/to/artifact-copy.html
+python3 scripts/controleer-publicatie.py --alleen-privacy LRD-AISO26009-lesdagen.html CHANGELOG.md docs/adr/*.md materiaal/*.md
+
+# Diagram in the house style from an .excalidraw source
+python3 scripts/excalidraw-huisstijl.py IN.excalidraw UIT.svg
+
 # Tests for the AI-language checker (45 parametrised cases); a single test via -k
 cd .claude/skills/aiso-schrap-ai-taal/scripts && PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider
 PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider -k test_schone_tekst_blijft_stil
@@ -68,7 +79,9 @@ The LRD is published privately at https://claude.ai/artifact/P9qt4SHNze6mtWmEfny
 - Keep only the `<title>`, the early inline `<script>`, the `<style>` and the body content. The Artifact tool adds its own html/head/body skeleton.
 - Make the sticky nav and the progress bar use `top: env(safe-area-inset-top, 0px)`, and add a `body::before` band.
 - Point the course-page link to `https://www.sn.nl/aiso`.
-- Turn every link into `background-docs/`, `temp/`, `onderzoek/`, `docs/` and `CHANGELOG.md` into plain text. The contract (rates) and participant data must never be published.
+- Turn every link into `background-docs/`, `temp/`, `onderzoek/`, `docs/`, `materiaal/` and `CHANGELOG.md` into plain text. The contract (rates) and participant data must never be published.
+- `scripts/bouw-artifact.py SOURCE OUT` does the steps above, and also blanks the local `materials` hrefs in `DATA` so the detail panel shows plain text. If the working tree holds unfinished LRD work, build from `git show HEAD:LRD-AISO26009-lesdagen.html`.
+- Run `scripts/controleer-publicatie.py` on the copy; publish only when it reports nothing. It finds real first names from the file names in `temp/`; organisations and surnames only if `temp/verboden-woorden.txt` is filled (one entry per line, never committed).
 
 From a new session, publish to the existing URL with the `url` parameter after reading it first. Every publish gets a changelog line.
 

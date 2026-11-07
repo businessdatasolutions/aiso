@@ -2,6 +2,28 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.11 — 2026-11-07
+
+**Toegevoegd** (ADR-018 t/m ADR-022, uit de [hergebruiknotitie](onderzoek/2026-11-07-hergebruik-santeon-presentatie.md))
+- FR-26: "Mens tegen agent" en de nieuwe inhoud van "Wat AI nu kan en niet kan" op dag 1.
+- FR-27 en AC-18: een kansenkaart van de eigen procesketen vóór het onderzoek voor de businesscase.
+- NFR-09: een startpagina per lesdag met tijdlijn en afteller, en alle lesmateriaal in `materiaal/`.
+- Lesmateriaal: de voorbeeldcasus Voorbeeld BV, de startpagina, drie lespagina's (groeimodel, kennisvormen, kansenkaart), kritiekpunten voor de rolkaarten en bouwstenen voor het draaiboek.
+- Bronnen: het onderzoek naar AI-volwassenheid en de kritiektrace in `background-docs/`, en acht nieuwe bronnen in APA 7.
+- KISS-keuzes: de atlas blijft achtergrond; één voorbeeldcasus. Twee risico's: een voorbeeld uit een andere sector leidt af, en een lespagina laadt niet.
+- Kader "Zelfstandigheid per fase" in deel 6.4. Veld `materials` per blok in het programma, met links in het detailpaneel.
+- Gereedschap: `scripts/controleer-publicatie.py` (lekcheck), `scripts/excalidraw-huisstijl.py` en de skills `aiso-ste100-writer`, `aiso-taalredactie-publicatie` en `aiso-ontwerp-dia`.
+
+**Gewijzigd**
+- KISS-keuze over modellen: drie toevoegingen, met Ask → Assist → Automate (ADR-019). Zelftoets 5.2 en het risico "Te veel modellen" aangepast.
+- FR-15 en AC-06: per fase een niveau van zelfstandigheid en een steekproef in de gate voor gebruik.
+- FR-16 en AC-07: vijf governancevragen, met de vorm "Weet je …?" en een vuistregel voor toezicht (ADR-020).
+- FR-06, FR-09, FR-20, FR-22, FR-24: scepticus met bewijs en tegenbewijs, kritiekpunten op de rolkaarten, eerst zelf scoren, regels als aanleiding, controle en handhaving, en wie het vak nog leert.
+- Programma: details van negen blokken, de opleverlijsten en de fasen 0 en 2.
+- Lekcheck: vindt nu ook links die in JavaScript staan (`href:` in `DATA`), zoals het materiaal per blok. Nieuw: `scripts/bouw-artifact.py` bouwt de kopie voor het artifact.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7. De links naar `materiaal/` zijn daar platte tekst, ook in het detailpaneel van het programma.
+
 ## 0.10 — 2026-11-07
 
 **Gewijzigd** (ADR-017)
