@@ -1,0 +1,8 @@
+# Deelnemersgegevens: inzendingen en pseudoniemen (ADR-016)
+temp/
+
+# Overeenkomst met S&N: bevat tarieven
+Overeenkomst*
+
+# Systeemrommel
+.DS_Store

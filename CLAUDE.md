@@ -1,0 +1,78 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this repository is
+
+The design workspace for the three classroom days of **AISO26009 "AI Strategie en Organisatietransformatie"**, a training by Schouten & Nelissen (S&N) that Witek ten Hove delivers on 12 Nov, 26 Nov and 10 Dec 2026 in Zwolle. S&N owns the online learning environment; this repo only designs the classroom days (ADR-001). Everything is in Dutch. It is a git repository with the private remote `businessdatasolutions/aiso` (branch `main`). `.gitignore` keeps `temp/` (participant data) and the contract in `background-docs/` (rates) out of git: never stage or commit them, and never quote them into tracked files.
+
+The central deliverable is a **Learner Requirement Document (LRD)**: [LRD-AISO26009-lesdagen.html](LRD-AISO26009-lesdagen.html). Around it:
+
+- `docs/adr/`: one ADR per design decision, with an index in `README.md`. `CHANGELOG.md`: one entry per LRD version.
+- `background-docs/`: source material. These are the S&N course page (saved as PDF), the contract (it includes rates) and an overview of the online environment.
+- `temp/`: participants' submissions, which contain personal data.
+- `onderzoek/`: reviews of the LRD, such as the test against the AI wiki.
+- `.claude/skills/aiso-*`: project copies of the user's education skills, made generic (no HAN references). The `aiso-` prefix stops them clashing with the personal skills of the same name in `~/.claude/skills`.
+
+## Privacy of participants (ADR-016, ADR-017)
+
+No document we build may name a participant's employer, own company or a work domain that points to it. That covers the LRD, ADRs, the changelog, reports, artifacts and logs in other repos such as the ai-wiki. A rare first name plus a function plus an organisation identifies a person. Participants appear only as pseudonyms (Deelnemer A–F) with a general role. The key is in `temp/pseudoniemen.md` and nowhere else. Don't link to individual submissions either, because their filenames contain names. The raw submissions in `temp/` are input only: never quote their organisation details and never publish them.
+
+## How the LRD works
+
+The LRD is one self-contained HTML page. The skill `aiso-building-lrds` defines its shape and process; follow it for every change.
+
+- **One data source.** All numbered items live in the `const DATA = {...}` object inside the `<script type="module">`. That covers learning outcomes `lu`, S&N results `sn`, requirements `fr` and `nfr`, acceptance criteria `ac`, the programme `days`, KISS choices `kiss`, the build pipeline `pipeline`, experiment types `experimentTypes`, board moments `boardMoments`, risks `risks`, phases `phases` and more. Tables, diagrams, chips and counts are all rendered from it.
+- **Prose is static HTML.** This covers Parts 1–13, the didactic frameworks and the explanations.
+- **To add or change an item, edit `DATA`.** Do not hand-edit rendered tables. Cross-references are ID arrays: `lu` on FR/NFR/SN, `measuredBy` on AC, `refs` on risks, `fr` and `lu` on programme blocks. At load time, any ID that doesn't resolve is logged as `LRD: verwijzingen zonder doel`.
+- **Counts are computed.** The `<b data-count="…">` stat numbers are rewritten by JS. Their static values are only a no-JS fallback, but keep them in sync.
+- **ID scheme.** `SN1–7` are the contractual S&N results. `LU1–9` are learning outcomes, tagged with a Bloom process/knowledge cell. Then `FR-NN`, `NFR-NN` and `AC-NN`. Never renumber: add new IDs at the end. Anchors are the lowercase IDs (`#fr-15`).
+- **Visuals.** D3, Three.js and Motion load as ES modules from pinned jsDelivr versions (`d3@7.9.0`, `three@0.160.0`, `motion@11.11.13`). Each loads via its own dynamic `import()`, so one failing CDN doesn't break the rest. Tables render without any library.
+- **Brand.** The tokens and components are copied verbatim from `~/Projects/brand-project/stylebook/shared.css` (Business Data Solutions). The palette is chartreuse `#d4db3e` as the single signal accent, warm black, cream, and tier/edge cards. The page is deliberately light-only.
+
+## Every change to the LRD
+
+1. Edit `DATA` or the prose.
+2. If the change is a design decision, add a new ADR in `docs/adr/` and add it to the index. A reversed decision gets a new ADR, and the old one is set to "Vervangen door ADR-NNN". Never rewrite an old decision.
+3. Add a `CHANGELOG.md` entry and bump the version in three places: the eyebrow (`versie 0.8 (concept)`), the `<dt>Datum</dt>` row and the footer.
+4. Verify (commands below).
+5. If the published artifact should follow, republish it (see below).
+
+Architecture-level changes ripple through many Parts. Before editing, list the affected Parts and IDs, and ask the user when the ripple is ambiguous.
+
+## Commands
+
+```bash
+# Preview: VS Code Live Server is set to port 5501 (.vscode/settings.json), or:
+python3 -m http.server 8765        # then open http://127.0.0.1:8765/LRD-AISO26009-lesdagen.html
+                                   # (Playwright blocks file:// URLs)
+
+# JS syntax check of the LRD module script
+python3 -c "t=open('LRD-AISO26009-lesdagen.html').read(); open('/tmp/lrd.mjs','w').write(t.split('<script type=\"module\">')[1].split('</script>')[0])" && node --check /tmp/lrd.mjs
+
+# Dutch text checks (run on the LRD, ADRs and any Dutch document before it goes out)
+python3 .claude/skills/aiso-schrap-ai-taal/scripts/aitaal.py LRD-AISO26009-lesdagen.html --codes A1,A2,A3,A5,A7,A8
+python3 .claude/skills/aiso-redigeer-nederlandse-tekst/scripts/tekstcheck.py CHANGELOG.md docs/adr --recursief
+
+# Tests for the AI-language checker (45 parametrised cases); a single test via -k
+cd .claude/skills/aiso-schrap-ai-taal/scripts && PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider
+PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider -k test_schone_tekst_blijft_stil
+```
+
+`tekstcheck.py` flags F4 ("kondigt 3 aan, maar er volgen N") as a false positive when a table follows a numbered list. Judge each hit; don't apply them blindly. In a browser check, confirm there are no console errors and that the coverage line under "Van resultaat van S&N naar leeruitkomst, eis en bewijs" reports full coverage.
+
+## Publishing as an artifact
+
+The LRD is published privately at https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7 (ADR-013). The repo file stays the source. The artifact is a derived copy, built like this:
+
+- Keep only the `<title>`, the early inline `<script>`, the `<style>` and the body content. The Artifact tool adds its own html/head/body skeleton.
+- Make the sticky nav and the progress bar use `top: env(safe-area-inset-top, 0px)`, and add a `body::before` band.
+- Point the course-page link to `https://www.sn.nl/aiso`.
+- Turn every link into `background-docs/`, `temp/`, `onderzoek/`, `docs/` and `CHANGELOG.md` into plain text. The contract (rates) and participant data must never be published.
+
+From a new session, publish to the existing URL with the `url` parameter after reading it first. Every publish gets a changelog line.
+
+## Related outside this repo
+
+- `~/Projects/brand-project/stylebook/` holds the brand source: tokens, logo and voice. Voice is plain Dutch with no anglicisms where a Dutch word exists.
+- `~/Projects/ai-wiki/` is the user's LLM wiki. Research questions about the LRD go through its `iterative-wiki-query` skill, and its research logs are written in that repo's `inspiration/` folder.

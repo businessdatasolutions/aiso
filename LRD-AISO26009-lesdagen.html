@@ -1,0 +1,1407 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LRD AISO26009 Lesdagen</title>
+<meta name="description" content="Learner Requirement Document voor de drie lesdagen van AISO26009 AI Strategie en Organisatietransformatie (Schouten & Nelissen).">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<script>
+  // Zet animatieklasse vóór de eerste weergave, zodat inhoud niet eerst verschijnt en dan verdwijnt.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');
+  document.documentElement.classList.add('js');
+</script>
+<style>
+/* ================================================================
+   Business Data Solutions — tokens en componenten, overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19)
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --cream: #f5f0e6;
+  --bg-yellow: #fafbf0;
+  --bg-cream: #f5f0e6;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem;
+  --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 1.875rem; --text-4xl: 2.25rem; --text-5xl: 3rem;
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.04), 0 2px 6px rgba(0,0,0,.04);
+  --shadow-md: 0 2px 4px rgba(0,0,0,.06), 0 8px 16px rgba(0,0,0,.06);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,.08), 0 16px 32px rgba(0,0,0,.08);
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--text-base); line-height: 1.6; color: var(--text-primary); background: var(--bg-page);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: var(--bg-yellow); }
+
+.bds-nav { position: sticky; top: 0; z-index: 100; background: var(--bg-page); border-bottom: 1px solid var(--border); padding: var(--space-4) var(--space-8); }
+.bds-nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+.bds-wordmark { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: 700; font-size: var(--text-xl); text-decoration: none; color: var(--text-primary); }
+.bds-wordmark svg { width: 28px; height: 28px; flex-shrink: 0; }
+.bds-wordmark:hover { background: transparent; }
+.bds-nav-links { display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center; }
+.bds-nav-links a { font-size: var(--text-sm); color: var(--text-secondary); text-decoration: none; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); }
+.bds-nav-links a:hover { background: var(--bg-yellow); color: var(--text-primary); }
+.bds-nav-links a.active { background: var(--primary); color: var(--text-primary); font-weight: 600; }
+
+.bds-page { max-width: 1024px; margin: 0 auto; padding: var(--space-12) var(--space-8) var(--space-20); }
+.bds-page-header { margin-bottom: var(--space-12); padding-bottom: var(--space-6); border-bottom: 1px solid var(--border); }
+.bds-eyebrow { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); font-weight: 600; margin-bottom: var(--space-2); }
+h1.bds-h1 { font-size: var(--text-4xl); font-weight: 700; margin: 0 0 var(--space-3); line-height: 1.2; }
+p.bds-lead { font-size: var(--text-lg); color: var(--text-secondary); margin: 0; max-width: 70ch; line-height: 1.5; }
+h2 { font-size: var(--text-3xl); font-weight: 700; margin: 0 0 var(--space-4); line-height: 1.25; }
+h3 { font-size: var(--text-xl); font-weight: 600; margin: var(--space-8) 0 var(--space-2); line-height: 1.3; }
+p { margin: 0 0 var(--space-4); max-width: 70ch; }
+
+.bds-card { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-6); margin: var(--space-4) 0; }
+.bds-card.is-highlight { border-color: var(--primary); background: var(--bg-yellow); }
+.bds-card.is-warning { border-color: var(--supporting); border-style: dashed; background: var(--bg-page); }
+.bds-card.is-info { border-color: var(--border-strong); background: var(--bg-cream); }
+.bds-card.is-tier-1 { border-color: var(--border); border-left: 4px solid var(--primary); }
+.bds-card.is-tier-2 { border-color: var(--border); border-left: 4px solid var(--border-strong); }
+.bds-card.is-tier-3 { border-color: var(--border); border-left: 4px dashed var(--border-strong); color: var(--text-secondary); }
+.bds-card.is-warning-edge { border-color: var(--border); border-left: 4px dashed var(--supporting); }
+.bds-card.is-info-edge { border-color: var(--border); border-left: 4px solid var(--border-strong); background: var(--bg-cream); }
+.bds-grid { display: grid; gap: var(--space-6); margin: var(--space-6) 0; }
+.bds-grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.bds-grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.bds-grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+code { font-family: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace; font-size: .9em; background: var(--bg-section); padding: .15em .4em; border-radius: 4px; border: 1px solid var(--border); }
+.bds-toc { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: var(--space-8); }
+.bds-toc-item { display: block; padding: var(--space-4) var(--space-6); background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: all .15s ease; }
+.bds-toc-item:hover { background: var(--bg-yellow); border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.bds-toc-item-number { font-family: monospace; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: .1em; }
+.bds-toc-item-title { font-size: var(--text-lg); font-weight: 700; margin: 0; color: var(--text-primary); }
+.bds-highlight { background: var(--primary); padding: .05em .3em; border-radius: 4px; }
+.bds-badge { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-3); background: var(--primary); color: var(--text-primary); font-size: var(--text-xs); font-weight: 700; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: .05em; }
+.bds-badge.is-outline { background: transparent; border: 1px solid var(--primary); }
+.bds-footer { border-top: 1px solid var(--border); padding: var(--space-8); background: var(--bg-section); text-align: center; color: var(--text-muted); font-size: var(--text-sm); }
+.bds-footer p { margin: 0 auto; }
+
+/* ================================================================
+   LRD-specifiek
+   ================================================================ */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--primary); transform-origin: 0 50%; transform: scaleX(0); z-index: 200; }
+section.part { padding-top: var(--space-16); margin-top: var(--space-16); border-top: 1px solid var(--border); }
+section.part:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.part-num { font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: var(--text-xs); letter-spacing: .12em; color: var(--text-muted); text-transform: uppercase; }
+.muted { color: var(--text-muted); }
+.small { font-size: var(--text-sm); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); align-items: center; }
+.hero-visual { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-off-white); padding: var(--space-4); }
+#deck-canvas { width: 100%; height: 300px; position: relative; }
+#deck-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+.deck-controls { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-3) 0 var(--space-2); }
+.seg { font: inherit; font-size: var(--text-xs); font-weight: 600; border: 1px solid var(--border-strong); background: var(--bg-page); color: var(--text-secondary); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); cursor: pointer; }
+.seg:hover { background: var(--bg-yellow); color: var(--text-primary); }
+.seg[aria-pressed="true"], .seg[aria-selected="true"] { background: var(--supporting); border-color: var(--supporting); color: #fff; }
+.seg:focus-visible, .chip:focus-visible, .tl-block:focus-visible, .node:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+.deck-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px var(--space-4); font-size: var(--text-xs); }
+.deck-legend li { display: flex; gap: var(--space-2); align-items: baseline; color: var(--text-muted); }
+.deck-legend li .dot { transform: translateY(1px); }
+.deck-legend li .dot { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--border-strong); flex-shrink: 0; }
+.deck-legend li.is-built { color: var(--text-primary); }
+.deck-legend li.is-built .dot { background: var(--cream); border-color: var(--supporting); }
+.deck-legend li.is-current { color: var(--text-primary); font-weight: 600; }
+.deck-legend li.is-current .dot { background: var(--primary); border-color: var(--supporting); }
+.meta { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-1) var(--space-4); font-size: var(--text-sm); margin: var(--space-6) 0 0; }
+.meta dt { color: var(--text-muted); font-weight: 600; }
+.meta dd { margin: 0; }
+blockquote.lead-quote { margin: var(--space-6) 0 0; padding-left: var(--space-4); border-left: 3px solid var(--primary); font-size: var(--text-lg); color: var(--text-secondary); }
+blockquote.lead-quote cite { display: block; font-size: var(--text-xs); font-style: normal; color: var(--text-muted); margin-top: var(--space-1); }
+
+/* Stat strip */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--space-4); margin: var(--space-8) 0 0; }
+.stat { border-top: 2px solid var(--supporting); padding-top: var(--space-2); }
+.stat b { display: block; font-size: var(--text-3xl); line-height: 1.1; }
+.stat span { font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+
+/* Tabellen */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--border); border-radius: var(--radius-md); }
+table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); }
+th, td { text-align: left; vertical-align: top; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); }
+th { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); background: var(--bg-section); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td.id { font-family: 'SF Mono', Monaco, Consolas, monospace; font-weight: 700; white-space: nowrap; }
+tr.flash td { animation: flash 1.6s ease-out; }
+@keyframes flash { 0%, 30% { background: var(--primary); } 100% { background: transparent; } }
+.chip { display: inline-block; font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: .72rem; font-weight: 700; padding: 1px 7px; margin: 1px 2px 1px 0; border: 1px solid var(--border-strong); border-radius: var(--radius-full); text-decoration: none; color: var(--text-primary); background: var(--bg-page); white-space: nowrap; }
+.chip:hover { background: var(--bg-yellow); border-color: var(--primary); }
+.tag { display: inline-block; font-size: .7rem; font-weight: 600; color: var(--text-secondary); background: var(--bg-cream); border-radius: var(--radius-sm); padding: 1px 6px; white-space: nowrap; }
+.filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 var(--space-2); }
+
+/* Kaders didactiek */
+.axiom { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-4); align-items: stretch; margin: var(--space-4) 0 var(--space-8); }
+.axiom .bds-card { margin: 0; }
+.axiom .arrow { align-self: center; font-size: var(--text-2xl); color: var(--text-muted); }
+.axiom h4 { margin: 0 0 var(--space-2); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
+.axiom p { margin: 0; font-size: var(--text-sm); }
+
+/* Diagrammen */
+.viz { width: 100%; margin: var(--space-4) 0; }
+.viz svg { width: 100%; height: auto; display: block; overflow: visible; font-family: inherit; }
+.viz-panel { min-height: 4.5em; font-size: var(--text-sm); }
+/* Het paneel plakt onderaan het scherm zolang het diagram in beeld is: wat je aanwijst, zie je altijd. */
+.viz-panel.is-sticky { position: sticky; bottom: var(--space-4); z-index: 5; box-shadow: var(--shadow-lg); border-color: var(--border-strong); }
+.viz-panel.is-sticky::before { content: "Detail"; display: block; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); font-weight: 600; margin-bottom: var(--space-1); }
+@media print { .viz-panel.is-sticky { position: static; box-shadow: none; } }
+.viz-panel .id { font-family: 'SF Mono', Monaco, Consolas, monospace; font-weight: 700; margin-right: var(--space-2); }
+.node { cursor: pointer; }
+.legend-row { display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: var(--text-xs); color: var(--text-muted); margin: var(--space-2) 0; }
+.legend-row span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -2px; border: 1px solid var(--border-strong); background: var(--sw, #fff); }
+
+/* KISS-paren */
+.kiss-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-4) 0; }
+.kiss-pair .bds-card { margin: 0; }
+.kiss-pair h4 { margin: 0 0 var(--space-1); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
+.kiss-pair p { margin: 0; font-size: var(--text-sm); }
+.kiss-reason { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--text-secondary); margin: calc(-1 * var(--space-2)) 0 0; padding-left: var(--space-4); }
+
+/* Werkplaats */
+.rhythm { display: grid; grid-template-columns: 220px 1fr; gap: var(--space-8); align-items: center; }
+.rhythm ol { margin: 0; padding-left: 1.2em; font-size: var(--text-sm); }
+.rhythm ol li { margin-bottom: var(--space-2); }
+
+/* Programma */
+.prog { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+.timeline { position: relative; border-left: 2px solid var(--supporting); margin-left: 3.2rem; }
+.tl-block { position: absolute; left: var(--space-3); right: 0; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg-page); padding: 2px var(--space-3); font: inherit; font-size: var(--text-xs); text-align: left; cursor: pointer; overflow: hidden; display: flex; gap: var(--space-2); align-items: center; color: var(--text-primary); }
+.tl-block:hover { box-shadow: var(--shadow-md); z-index: 2; }
+.tl-block .tl-time { position: absolute; left: -4.2rem; width: 3.2rem; text-align: right; color: var(--text-muted); font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: .68rem; top: 2px; }
+.tl-block { overflow: visible; }
+.tl-block .tl-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.tl-block.t-werkplaats { background: var(--bg-yellow); border-color: var(--primary); border-left: 4px solid var(--primary); }
+.tl-block.t-deck { background: var(--bg-cream); }
+.tl-block.t-samen { border-left: 4px solid var(--supporting); }
+.tl-block.t-board { border-left: 4px solid var(--text-muted); background: var(--bg-off-white); }
+.flow { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); gap: var(--space-4); margin: var(--space-6) 0; counter-reset: step; }
+.flow > div { position: relative; border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-4); font-size: var(--text-sm); background: var(--bg-page); }
+.flow > div::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--supporting); color: #fff; font-weight: 700; font-size: var(--text-xs); margin-bottom: var(--space-2); }
+.flow > div:not(:last-child)::after { content: "→"; position: absolute; right: -0.95rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: var(--text-lg); }
+.flow > div:last-child { border-color: var(--primary); background: var(--bg-yellow); }
+.flow strong { display: block; margin-bottom: var(--space-1); }
+@media (max-width: 820px) { .flow { grid-template-columns: 1fr 1fr; } .flow > div::after { display: none; } }
+.tl-block.t-pauze { background: repeating-linear-gradient(135deg, var(--bg-section) 0 6px, var(--bg-page) 6px 12px); border-style: dashed; color: var(--text-muted); font-weight: 400; }
+.tl-block.t-pauze .tl-title { font-weight: 400; }
+.tl-block[aria-pressed="true"] { outline: 2px solid var(--supporting); outline-offset: 1px; z-index: 3; }
+.prog-detail { position: sticky; top: 90px; }
+.prog-detail dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); font-size: var(--text-sm); margin: var(--space-4) 0 0; }
+.prog-detail dt { color: var(--text-muted); font-weight: 600; }
+.prog-detail dd { margin: 0; }
+.mix { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; margin: var(--space-2) 0 var(--space-1); border: 1px solid var(--border); }
+.mix i { display: block; height: 100%; }
+.print-only { display: none; }
+
+/* Deelnemers */
+.person h4 { margin: 0; font-size: var(--text-lg); }
+.person p { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-sm); }
+
+/* Reveal (alleen als animatie mag) */
+.js-motion .reveal:not(.is-in) { opacity: 0; transform: translateY(16px); }
+.js-motion .reveal-group:not(.is-in) > * { opacity: 0; transform: translateY(12px); }
+
+@media (max-width: 820px) {
+  .hero, .prog, .rhythm { grid-template-columns: 1fr; }
+  .prog-detail { position: static; }
+  .axiom { grid-template-columns: 1fr; }
+  .axiom .arrow { transform: rotate(90deg); justify-self: center; }
+  .kiss-pair { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .bds-nav { padding: var(--space-3) var(--space-4); }
+  .bds-page { padding: var(--space-8) var(--space-4) var(--space-12); }
+  h1.bds-h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+  .bds-nav-links { gap: var(--space-1); }
+  .bds-nav-links a { padding: var(--space-1) var(--space-2); font-size: var(--text-xs); }
+  .deck-legend { grid-template-columns: 1fr; }
+  .meta { grid-template-columns: 1fr; }
+  .meta dt { margin-top: var(--space-2); }
+}
+@media print {
+  .bds-nav, .progress, .deck-controls, .filters, #deck-canvas, .prog .timeline-wrap, .prog-detail, .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .js-motion .reveal, .js-motion .reveal-group > * { opacity: 1 !important; transform: none !important; }
+  section.part { break-inside: auto; }
+  .table-wrap { overflow: visible; border: 0; }
+  tr { break-inside: avoid; }
+  a { text-decoration: none; }
+  body { font-size: 11pt; }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="bds-nav" aria-label="Hoofdnavigatie">
+  <div class="bds-nav-inner">
+    <a class="bds-wordmark" href="#top">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vuurtoren-logo">
+        <g fill="#1a1a1a">
+          <polygon points="9,29 11,10 17,10 19,29"/>
+          <polygon points="8,8.5 20,8.5 19,10 9,10"/>
+          <rect x="11" y="5" width="6" height="3.5"/>
+          <path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/>
+          <rect x="13.5" y="0" width="1" height="1.8"/>
+        </g>
+        <rect x="13" y="6" width="2" height="2" fill="#d4db3e"/>
+        <g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M21 4 L26 7 L21 10"/>
+          <path d="M26 4 L31 7 L26 10"/>
+        </g>
+      </svg>
+      Business Data Solutions
+    </a>
+    <div class="bds-nav-links">
+      <a href="#kern">Kern</a>
+      <a href="#leeruitkomsten">Leeruitkomsten</a>
+      <a href="#programma">Programma</a>
+      <a href="#eisen">Eisen</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<main class="bds-page" id="top">
+
+  <!-- ============ KOP ============ -->
+  <header class="bds-page-header">
+    <div class="hero">
+      <div>
+        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.10 (concept)</div>
+        <h1 class="bds-h1">AI Strategie en Organisatietransformatie: <span class="bds-highlight">de drie lesdagen</span></h1>
+        <p class="bds-lead">Het ontwerp van de lesdagen in BCN Zwolle. Elke deelnemer werkt aan de eigen organisatie, bouwt in drie dagen het concept van de integrale opdracht, werkt elke middag zelf met AI en legt elke dag een besluit voor aan een eigen AI-board.</p>
+        <blockquote class="lead-quote">“Van AI-experiment naar organisatiebrede transformatie.”<cite>Ondertitel op de webpagina van de training bij Schouten &amp; Nelissen</cite></blockquote>
+      </div>
+      <figure class="hero-visual" style="margin:0">
+        <div id="deck-canvas" role="img" aria-label="Driedimensionale weergave van het casusdeck: acht onderdelen die over drie lesdagen en de online afronding op elkaar gestapeld worden. De lijst eronder geeft dezelfde informatie als tekst."></div>
+        <div class="deck-controls" role="group" aria-label="Kies een moment in de training"></div>
+        <ul class="deck-legend" aria-live="polite"></ul>
+        <figcaption class="small muted" style="margin-top:var(--space-2)">Het casusdeck groeit per lesdag. Kies een moment om te zien welke onderdelen er dan staan.</figcaption>
+      </figure>
+    </div>
+
+    <dl class="meta">
+      <dt>Document</dt><dd>Learner Requirement Document (LRD)</dd>
+      <dt>Datum</dt><dd>7 november 2026</dd>
+      <dt>Programma</dt><dd>AISO26009 AI Strategie en Organisatietransformatie, Schouten &amp; Nelissen</dd>
+      <dt>Scope</dt><dd>De drie lesdagen in BCN Zwolle: 12 november, 26 november en 10 december 2026, telkens 9:30–16:30</dd>
+      <dt>Auteur</dt><dd>Witek ten Hove (trainer)</dd>
+      <dt>Gerelateerd</dt><dd>
+        <a href="background-docs/start-documentatie-leeromgeving.md">Startdocumentatie leeromgeving</a> ·
+        <a href="background-docs/AI%20Strategie%20en%20Organisatietransformatie.pdf">Webpagina van de training (S&amp;N)</a> ·
+        <a href="background-docs/Overeenkomst%20van%20opdracht%20SN%20FL%20All-in%20tarief%20AISO26009%20REF260016389.pdf">Overeenkomst van opdracht</a> ·
+        Ontwikkeldoelen van deelnemers B, E en F (map <a href="temp/">temp</a>, vertrouwelijk)
+      </dd>
+    </dl>
+
+    <div class="stats reveal-group">
+      <div class="stat"><b>3</b><span>lesdagen</span></div>
+      <div class="stat"><b data-count="lu">9</b><span>leeruitkomsten</span></div>
+      <div class="stat"><b data-count="fr">25</b><span>functionele eisen</span></div>
+      <div class="stat"><b data-count="nfr">8</b><span>niet-functionele eisen</span></div>
+      <div class="stat"><b data-count="ac">17</b><span>acceptatiecriteria</span></div>
+      <div class="stat"><b data-count="risks">19</b><span>risico's</span></div>
+    </div>
+
+    <nav class="bds-toc" aria-label="Inhoud">
+      <a class="bds-toc-item" href="#context"><div class="bds-toc-item-number">01</div><p class="bds-toc-item-title">Context</p></a>
+      <a class="bds-toc-item" href="#didactiek"><div class="bds-toc-item-number">02</div><p class="bds-toc-item-title">Didactiek</p></a>
+      <a class="bds-toc-item" href="#leeruitkomsten"><div class="bds-toc-item-number">03</div><p class="bds-toc-item-title">Leeruitkomsten</p></a>
+      <a class="bds-toc-item" href="#doelgroep"><div class="bds-toc-item-number">04</div><p class="bds-toc-item-title">Doelgroep</p></a>
+      <a class="bds-toc-item" href="#ontwerp"><div class="bds-toc-item-number">05</div><p class="bds-toc-item-title">Ontwerpcriteria</p></a>
+      <a class="bds-toc-item" href="#kern"><div class="bds-toc-item-number">06</div><p class="bds-toc-item-title">Kernmechanisme</p></a>
+      <a class="bds-toc-item" href="#eisen"><div class="bds-toc-item-number">07</div><p class="bds-toc-item-title">Eisen</p></a>
+      <a class="bds-toc-item" href="#programma"><div class="bds-toc-item-number">08</div><p class="bds-toc-item-title">Programma</p></a>
+      <a class="bds-toc-item" href="#toetsing"><div class="bds-toc-item-number">09</div><p class="bds-toc-item-title">Toetsing</p></a>
+      <a class="bds-toc-item" href="#opleveren"><div class="bds-toc-item-number">10</div><p class="bds-toc-item-title">Op te leveren</p></a>
+      <a class="bds-toc-item" href="#acceptatie"><div class="bds-toc-item-number">11</div><p class="bds-toc-item-title">Acceptatie</p></a>
+      <a class="bds-toc-item" href="#risicos"><div class="bds-toc-item-number">12</div><p class="bds-toc-item-title">Risico's</p></a>
+      <a class="bds-toc-item" href="#roadmap"><div class="bds-toc-item-number">13</div><p class="bds-toc-item-title">Roadmap</p></a>
+      <a class="bds-toc-item" href="#bronnen"><div class="bds-toc-item-number">B</div><p class="bds-toc-item-title">Bronnen</p></a>
+    </nav>
+  </header>
+
+  <noscript><div class="bds-card is-warning"><strong>JavaScript staat uit.</strong> De tekst is leesbaar, maar de tabellen met leeruitkomsten, eisen, programma en risico's en alle diagrammen worden met JavaScript opgebouwd.</div></noscript>
+
+  <!-- ============ 1 CONTEXT ============ -->
+  <section class="part" id="context">
+    <div class="part-num">Deel 1</div>
+    <h2>Context en positionering</h2>
+    <p>Deze LRD beschrijft de drie lesdagen die de trainer ontwerpt en geeft. De rest van de training ligt vast bij Schouten &amp; Nelissen: de online leeromgeving met ongeveer 20 uur zelfstudie, het boek, de mentor, de buddy, de intervisie en de integrale opdracht. Wat daarin staat, vat de <a href="background-docs/start-documentatie-leeromgeving.md">startdocumentatie</a> samen. Deze LRD herhaalt dat niet.</p>
+    <p><strong>Wat deze LRD is:</strong> het ontwerp van de lesdagen. Het dekt de zeven resultaten die S&amp;N op de webpagina van de training belooft (<a href="#sn-dekking">deel 3</a>). De dagen bouwen voort op de online opdrachten en vullen drie gaten die de startdocumentatie noemt.</p>
+    <div class="bds-grid bds-grid-3 reveal-group">
+      <div class="bds-card is-tier-1"><div class="part-num">Gat 1</div><p style="margin:0">Er is bijna geen inhoud over wat AI zelf kan en niet kan, en weinig over de data die je nodig hebt.</p></div>
+      <div class="bds-card is-tier-1"><div class="part-num">Gat 2</div><p style="margin:0">De businesscase en de ROI komen alleen terug in de pitch en een impactscore.</p></div>
+      <div class="bds-card is-tier-1"><div class="part-num">Gat 3</div><p style="margin:0">Governance, ethiek, de AI-verordening en de roadmap krijgen online elk maar één slide.</p></div>
+    </div>
+    <p><strong>Wat deze LRD niet is:</strong> een herontwerp van de online leeromgeving, of een document van S&amp;N. Fouten in de online omgeving (de ontbrekende slide 4, Lewin zonder uitleg, de spelfout "Wat gebeurd er…") meldt de trainer apart bij S&amp;N.</p>
+    <h3>Open punten die het ontwerp raken</h3>
+    <div class="reveal-group">
+      <div class="bds-card is-warning-edge">Op welke voorwaarden deelnemers het certificaat krijgen, en of de trainer de integrale opdracht beoordeelt, is niet bekend.</div>
+      <div class="bds-card is-warning-edge">Van deelnemers A, C en D zijn de ontwikkeldoelen nog niet bekend.</div>
+    </div>
+  </section>
+
+  <!-- ============ 2 DIDACTIEK ============ -->
+  <section class="part" id="didactiek">
+    <div class="part-num">Deel 2</div>
+    <h2>Didactisch kwaliteitssysteem</h2>
+    <p>Vier kaders. Bij elk kader staat wat de bron zegt, en welke keuze dat in dit ontwerp afdwingt.</p>
+
+    <h3>2.1 Herziene taxonomie van Bloom <span class="muted small">(Anderson &amp; Krathwohl, 2001)</span></h3>
+    <div class="axiom reveal-group">
+      <div class="bds-card is-info-edge"><h4>Punt</h4><p>Een leerdoel heeft twee dimensies: een cognitief proces (onthouden, begrijpen, toepassen, analyseren, evalueren, creëren) en een kennistype (feitelijk, conceptueel, procedureel, metacognitief).</p></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>Elke leeruitkomst krijgt een tag met beide dimensies. De lesdagen besteden hun tijd aan toepassen, evalueren en creëren op de eigen casus. Begrijpen krijgt alleen klassikale tijd waar de online omgeving het niet dekt: bij wat AI zelf kan (LU1).</p></div>
+    </div>
+
+    <h3>2.2 Drive, aangevuld met Social <span class="muted small">(Pink, 2009)</span></h3>
+    <div class="axiom reveal-group">
+      <div class="bds-card is-info-edge"><h4>Punt</h4><p>Bij complex werk komt motivatie vooral uit autonomie (zelf richting geven), meesterschap (beter worden in iets wat ertoe doet) en zingeving (weten waarvoor je het doet). Social is een toevoeging van de ontwerper en staat niet bij Pink: leren van en met anderen.</p></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>Elke deelnemer werkt aan de eigen organisatie, dus kiest zelf en weet waarvoor (Purpose, Autonomy). De werkplaats geeft binnen het blok feedback op eigen werk (Mastery). Duo's en het investeringscomité maken de anderen nodig (Social). Het ontwerp wordt getoetst met <code>aiso-beoordeel-onderwijsontwerp</code>, zie <a href="#pams">5.2</a>.</p></div>
+    </div>
+
+    <h3>2.3 Ervaringsleren <span class="muted small">(Kolb, 1984)</span></h3>
+    <div class="axiom reveal-group">
+      <div class="bds-card is-info-edge"><h4>Punt</h4><p>Leren verloopt als een cyclus: een concrete ervaring, reflectie op die ervaring, abstraheren tot een begrip, en actief uitproberen in een nieuwe situatie.</p></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De AI-werkplaats begint met doen. Elk blok sluit af met drie vaste vragen (<a class="chip" href="#fr-05" data-ref="FR-05">FR-05</a>). De derde vraag, "Wat vraagt dit van mijn organisatie?", is de stap van ervaring naar begrip. Het uitproberen gebeurt op de volgende lesdag en in het casusdeck.</p></div>
+    </div>
+
+    <h3>2.4 COM-B <span class="muted small">(Michie, van Stralen &amp; West, 2011)</span></h3>
+    <div class="axiom reveal-group">
+      <div class="bds-card is-info-edge"><h4>Punt</h4><p>Gedrag ontstaat als iemand het kan (Capability), de gelegenheid heeft (Opportunity) en het wil (Motivation). Een interventie die één van de drie mist, verandert het gedrag niet.</p></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="bds-card is-tier-1"><h4>Ontwerpaxioma</h4><p>De training is zelf een gedragsinterventie: deelnemers moeten na afloop AI anders inzetten en bespreken. Capability komt uit de werkplaats, Opportunity uit een eigen account op een frontiermodel, met een reserve-account van de trainer voor wie dat niet heeft (<a class="chip" href="#nfr-02" data-ref="NFR-02">NFR-02</a><a class="chip" href="#nfr-03" data-ref="NFR-03">NFR-03</a>), Motivation uit de eigen casus. De trainer laat op dag 3 zien hoe de training zelf dat model volgt. Het vaste boardmoment aan het eind van elke lesdag maakt AI bij besluiten een gewoonte (<a class="chip" href="#fr-18" data-ref="FR-18">FR-18</a>).</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 3 LEERUITKOMSTEN ============ -->
+  <section class="part" id="leeruitkomsten">
+    <div class="part-num">Deel 3</div>
+    <h2>Leeruitkomsten</h2>
+    <div class="bds-card is-highlight reveal">
+      <div class="bds-eyebrow">De rol</div>
+      <p style="margin:0"><strong>AI-transformatieregisseur.</strong> Iemand die in de eigen organisatie AI van losse experimenten naar structurele inzet brengt, en daarvoor strategie, data, regels en mensen verbindt. Die rol hangt niet aan een formele positie. In deze groep vervult een informatiemanager, een teamcoach en een veranderkundige haar elk vanuit een andere plek. De regisseur hoeft geen eigenaar te zijn: het buildplan noemt een senior sponsor uit de business (<a class="chip" href="#fr-15" data-ref="FR-15">FR-15</a>).</p>
+    </div>
+
+    <h3>Waar de leeruitkomsten zitten in de taxonomie</h3>
+    <p class="small muted">Klik of tab naar een leeruitkomst om de volledige tekst te zien. Het gele vlak is het zwaartepunt van de lesdagen (axioma 2.1).</p>
+    <div class="viz-wrap">
+    <div class="viz" id="bloom"></div>
+    <div class="bds-card is-info viz-panel is-sticky" id="bloom-panel" aria-live="polite"><span class="muted">Wijs een leeruitkomst in de matrix aan om de volledige tekst te zien.</span></div>
+    </div>
+
+    <div class="table-wrap"><table id="lu-table"><thead><tr><th>ID</th><th>Leeruitkomst</th><th>Bloom</th><th>Dag</th></tr></thead><tbody></tbody></table></div>
+
+    <h3 id="sn-dekking">Dekking van de resultaten van S&amp;N</h3>
+    <p>De overeenkomst van opdracht verwijst voor het eindresultaat naar de webpagina van de training. Daar belooft S&amp;N zeven resultaten. Elk resultaat heeft hieronder minstens één leeruitkomst. LU8 en LU9 zijn toevoegingen van deze LRD.</p>
+    <div class="table-wrap"><table id="sn-table"><thead><tr><th>ID</th><th>Resultaat volgens S&amp;N</th><th>Leeruitkomsten</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <!-- ============ 4 DOELGROEP ============ -->
+  <section class="part" id="doelgroep">
+    <div class="part-num">Deel 4</div>
+    <h2>Doelgroep en voorkennis</h2>
+    <p><strong>Volgens S&amp;N:</strong> directie, MT-leden, senior beleidsmakers en managers die verantwoordelijk zijn voor strategie en innovatie. Ze hebben minimaal hbo-werk- en denkniveau en ervaring met strategische vraagstukken. Voorkennis van AI is niet nodig. Groepsgrootte 4–12.</p>
+    <p><strong>Deze groep:</strong> zes deelnemers. Van drie is het profiel bekend.</p>
+    <div class="bds-grid bds-grid-3 reveal-group" id="people"></div>
+
+    <h3>Wat dit betekent voor het ontwerp</h3>
+    <ul>
+      <li>De groep is minder "directie en MT" dan de doelgroep van S&amp;N, en sterker in verandering en informatievoorziening. Een casus mag daarom op het niveau van een directie, afdeling of keten liggen, als er maar een strategische vraag in zit (<a class="chip" href="#fr-01" data-ref="FR-01">FR-01</a>).</li>
+      <li>Verandermanagement is voor minstens twee deelnemers bekend terrein. De meeste nieuwe kennis zit dus in LU1, LU4, LU5, LU6 en LU9.</li>
+      <li>Minstens één deelnemer werkt in een domein dat de AI-verordening in bijlage III als hoog risico noemt. Dat maakt LU6 concreet. In de werkplaats werkt iedereen met een eigen account of een reserve-account van de training, en alleen met openbare of verzonnen gegevens (<a class="chip" href="#nfr-01" data-ref="NFR-01">NFR-01</a>).</li>
+    </ul>
+    <div class="bds-grid bds-grid-2">
+      <div class="bds-card is-tier-2"><div class="bds-eyebrow">Aangenomen</div>Strategisch denkvermogen, ervaring met veranderprocessen, de online voorbereiding van de betreffende bijeenkomst gedaan.</div>
+      <div class="bds-card is-tier-3"><div class="bds-eyebrow">Niet aangenomen</div>Technische kennis van AI, ervaring met prompten, toegang tot een frontiermodel. Wie geen eigen account heeft, krijgt een reserve-account op Gemini van de trainer.</div>
+    </div>
+    <p><strong>Teamstructuur.</strong> Drie vaste duo's voor alle drie de dagen. Waar mogelijk zijn dat de buddy's uit de leeromgeving. Het team in de zin van PAMS is het duo. De hele groep werkt samen als investeringscomité op dag 2 (<a class="chip" href="#fr-09" data-ref="FR-09">FR-09</a>).</p>
+  </section>
+
+  <!-- ============ 5 ONTWERPCRITERIA ============ -->
+  <section class="part" id="ontwerp">
+    <div class="part-num">Deel 5</div>
+    <h2>Ontwerpcriteria</h2>
+    <h3>5.1 KISS als verwerping</h3>
+    <p>Elke eenvoudsregel noemt het alternatief dat is afgewezen, en waarom.</p>
+    <div id="kiss"></div>
+
+    <h3 id="pams">5.2 Toetsing aan PAMS en KISS</h3>
+    <p class="small muted">Voorlopige zelftoets van dit ontwerp, nog niet door een tweede beoordelaar gedaan.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Criterium</th><th>Sterk</th><th>Nog zwak</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Purpose</strong></td><td>Eigen casus; elk blok levert een deel van de integrale opdracht op; het experiment levert bewijs over de eigen use case</td><td>Of het deck na de training echt in de organisatie gebruikt wordt, ligt buiten de lesdagen</td></tr>
+        <tr><td><strong>Autonomy</strong></td><td>Deelnemer kiest casus, use case, het eigen AI-account en de leden van de eigen boards; werkplaats en deck tellen niet mee voor een oordeel (veilig proberen)</td><td>Weinig ruimte voor verschil in tempo binnen het vaste werkplaatsblok; verdieping voor wie snel klaar is moet per werkplaats nog uitgewerkt worden</td></tr>
+        <tr><td><strong>Mastery</strong></td><td>Feedback binnen het blok (werkplaats, comité, duo, board); drie vaste reflectievragen; drie keer een board op een beslispunt; een experiment met normen vooraf</td><td>Er is geen nulmeting van wat deelnemers met AI kunnen</td></tr>
+        <tr><td><strong>Social</strong></td><td>Duo's, comité met rollen, feedback van minstens twee anderen op dag 3</td><td>Bij zes deelnemers kan een duo uitvallen; dan wordt het een trio</td></tr>
+        <tr><td><strong>KISS · Deelnemer</strong></td><td>Eén product, één vast ritme, alle materialen op één plek; iedereen werkt in een AI-omgeving die al bekend is of klaarstaat</td><td>Vijf modellen uit de online omgeving plus twee nieuwe is veel; het deckblok op dag 3 is met 30 minuten krap; het thuiswerk tussen dag 2 en 3 (experiment, verslag, blueprint) komt bovenop de 20 uur zelfstudie</td></tr>
+        <tr><td><strong>KISS · Begeleider</strong></td><td>Draaiboek per blok (<a class="chip" href="#nfr-07" data-ref="NFR-07">NFR-07</a>); vaste tijden</td><td>Drie werkplaatsen met voorbeeldcasus moeten nog gebouwd en getest worden; reserve-accounts aanmaken en beheren kost voorbereidingstijd; het startsjabloon moet in drie tools werken; vijf sjablonen voor de bouwstraat maken</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ 6 KERNMECHANISME ============ -->
+  <section class="part" id="kern">
+    <div class="part-num">Deel 6</div>
+    <h2>Kernmechanisme: casusdeck, AI-werkplaats, boards en bouwstraat</h2>
+
+    <h3>6.1 Het casusdeck</h3>
+    <p>Elke deelnemer kiest op dag 1 één casus: de eigen organisatie, of een deel daarvan, met een strategische AI-vraag. Alles wat de deelnemer in de lesdagen maakt, komt in één deck. Dat deck volgt de onderdelen van de integrale opdracht van S&amp;N. Aan het eind van dag 3 is het een volledig concept, dat de deelnemer online afmaakt en inlevert. <a href="#top">Bovenaan de pagina</a> zie je het deck groeien.</p>
+    <div class="table-wrap"><table id="deck-table"><thead><tr><th>Onderdeel van de integrale opdracht</th><th>Gemaakt op</th></tr></thead><tbody></tbody></table></div>
+    <p>Achter in het deck staat het <strong>werkplaatslog</strong>: per werkplaats drie regels, één per reflectievraag. Naast het deck houdt elke deelnemer een <strong>ADR-register</strong> bij, met per besluit een ADR, en een <strong>wijzigingslog</strong> van de eigen stack (<a href="#boards">6.3</a>, <a href="#bouwstraat">6.4</a>).</p>
+    <div class="bds-card is-info-edge"><strong>Eigenaarschap.</strong> De deelnemer is eigenaar van het deck en bepaalt de inhoud. De trainer maakt het template en geeft feedback, maar schrijft niet mee. Het deck is geen beoordelingsinstrument van de lesdagen (<a href="#toetsing">deel 9</a>).</div>
+
+    <h3>6.2 De AI-werkplaats</h3>
+    <p>Elke lesdag van 13:30 tot 15:00, altijd in hetzelfde ritme.</p>
+    <div class="rhythm">
+      <div class="viz" id="rhythm" style="max-width:220px"></div>
+      <div>
+        <ol>
+          <li><strong>13:30–13:45 · Voordoen.</strong> De trainer doet de opdracht op een voorbeeldcasus en laat ook iets zien wat misgaat.</li>
+          <li><strong>13:45–14:35 · Zelf doen</strong> op de eigen casus, in duo's naast elkaar.</li>
+          <li><strong>14:35–15:00 · Nabespreken</strong> met drie vaste vragen, daarna invullen in het werkplaatslog.</li>
+        </ol>
+        <div class="bds-card is-highlight" style="margin-top:var(--space-4)">
+          <div class="bds-eyebrow">De drie vragen</div>
+          <ol style="margin:0;padding-left:1.2em">
+            <li>Wat deed de AI goed voor mijn casus?</li>
+            <li>Waar ging het mis, of waar moest ik corrigeren?</li>
+            <li>Wat vraagt dit van mijn organisatie: aan data, mensen en regels?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="bds-grid bds-grid-3 reveal-group" id="workshops"></div>
+    <div class="bds-grid bds-grid-2">
+      <div class="bds-card is-info-edge"><strong>Terugvaloptie.</strong> Wie geen bruikbare eigen casus heeft, werkt met de voorbeeldcasus van de trainer: een fictieve middelgrote organisatie met dezelfde opdrachten. Wie geen eigen account heeft, krijgt een reserve-account. Wie niet kan inloggen, werkt mee op het account van het duo en vult het eigen werkplaatslog in.</div>
+      <div class="bds-card is-info-edge"><strong>Verdieping</strong> voor wie klaar is: dezelfde opdracht met een tweede model, bijvoorbeeld een reserve-account op Gemini, en de verschillen in het log zetten.</div>
+    </div>
+
+    <h3 id="boards">6.3 De boards</h3>
+    <p>In werkplaats 1 bouwt elke deelnemer twee AI-boards in de eigen AI-omgeving, als ChatGPT-project, Claude Project of Gemini Gem. De trainer levert een startsjabloon (<a class="chip" href="#fr-17" data-ref="FR-17">FR-17</a>) en laat in het voordoen een eigen board zien. Daarna gaan de boards mee naar elk beslispunt in het programma.</p>
+    <div class="bds-grid bds-grid-2 reveal-group">
+      <div class="bds-card is-tier-1"><div class="bds-eyebrow">Advisory board · verbreedt</div><p class="small" style="margin:0">Vijf tot zeven denkperspectieven, zoals v_Kahneman (denkfouten), v_Cuban (wie betaalt?) of v_Nadella (cultuur). Ze bekijken een plan van verschillende kanten, debatteren en sluiten af met een oordeel, voorwaarden en stopcriteria. Minstens één lid is een harde scepticus.</p></div>
+      <div class="bds-card is-tier-2"><div class="bds-eyebrow">Supervisory board · toetst</div><p class="small" style="margin:0">Drie tot vijf commissarissen, elk met een achtergrond en een denkstijl die passen bij de echte belanghebbenden van de organisatie, zoals een financieel directeur, een privacyfunctionaris, een OR-lid of een toezichthouder. Elke commissaris geeft apart advies. Het besluit blijft bij de deelnemer.</p></div>
+    </div>
+    <div class="flow reveal-group" role="list" aria-label="Verloop van een boardmoment">
+      <div role="listitem"><strong>Beslispunt</strong>Het concept dat vandaag af is, zoals de visie of de businesscase.</div>
+      <div role="listitem"><strong>Advisory board verbreedt</strong>Welke kanten zie je over het hoofd?</div>
+      <div role="listitem"><strong>Supervisory board toetst</strong>Houdt het stand bij geld, risico, mensen en regels?</div>
+      <div role="listitem"><strong>Eigen besluit als ADR</strong>Context, besluit, overwogen alternatieven met het advies van de boards, en gevolgen.</div>
+    </div>
+    <div class="table-wrap"><table id="board-table"><thead><tr><th>Wanneer</th><th>Beslispunt</th><th>Board</th><th>Eis</th></tr></thead><tbody></tbody></table></div>
+    <div class="bds-card is-warning"><strong>Eerlijkheidsregels in het sjabloon.</strong> Leden heten v_&lt;Naam&gt;: het zijn denkperspectieven, geïnspireerd op publieke personen. Hun uitspraken zijn nooit citaten en horen niet in materiaal voor buiten. Een oordeel van het board is een mening; bewijs dat een plan werkt komt uit de pilot. Het besluit blijft bij de deelnemer.</div>
+
+    <h3 id="bouwstraat">6.4 De bouwstraat</h3>
+    <p>Op dag 2 leren deelnemers bouwen met AI zoals AI-bedrijven dat doen: in vijf documenten die elk beginnen waar het vorige eindigt. De businesscase zegt waarom, het experiment of het kan, en het buildplan hoe. De meeste waarde zit volgens Bain en OpenAI in het herontwerp van het werkproces, en minder in de AI zelf (Dutt et al., 2026). Daarom beschrijven businesscase en PRD de hele procesketen, en toetst elke gate in het buildplan ook of het nieuwe proces echt draait. De trainer levert de sjablonen en laat de eigen werkwijze zien (<a class="chip" href="#fr-23" data-ref="FR-23">FR-23</a>).</p>
+    <div class="flow reveal-group" style="--n:5" role="list" aria-label="De bouwstraat in vijf stappen" id="pipeline-flow"></div>
+    <div class="bds-card is-info-edge"><strong>Langs alle vijf stappen</strong> lopen twee bestanden mee: een ADR-register, met per besluit de context, het besluit, de overwogen alternatieven en de gevolgen (Nygard, 2011), en een wijzigingslog met per versie van de stack wat er veranderde (Lacan, z.d.). Een besluit dat later verandert, krijgt een nieuwe ADR. Zo werkt de trainer ook aan deze LRD. <a class="chip" href="#fr-25" data-ref="FR-25">FR-25</a></div>
+    <div class="bds-card is-highlight"><div class="bds-eyebrow">Snel experimenteren</div><p style="margin:0">Met AI kost een eerste experiment uren. Daarom komt het experiment vóór de grote investering, en ligt de norm vast vóór de uitvoering. Dan beslist het resultaat over doorgaan, aanpassen of stoppen.</p></div>
+    <p><strong>Een experiment kan van alles zijn.</strong> De vraag bepaalt de vorm. In werkplaats 2 kiest elke deelnemer de vorm die de eigen vraag beantwoordt (<a class="chip" href="#fr-20" data-ref="FR-20">FR-20</a>). De normen hieronder zijn voorbeelden van hoe concreet een norm moet zijn.</p>
+    <div class="bds-grid reveal-group" id="exptypes" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr))"></div>
+    <p><strong>Het experimentverslag</strong> is een interactieve webpagina. Deelnemers bouwen het met hun AI-model, bijvoorbeeld als artifact in Claude of als canvas in ChatGPT of Gemini, met diagrammen, schema's en simulaties (D3, Three.js of Motion; wie verder wil, maakt met Remotion een korte video). Zo ervaren ze zelf wat AI nu kan bouwen. Deze LRD is op dezelfde manier gemaakt. Het verslag volgt de opbouw van een wetenschappelijk artikel (<a class="chip" href="#fr-21" data-ref="FR-21">FR-21</a>):</p>
+    <ol class="small reveal-group">
+      <li>Inleiding en vooronderzoek, met literatuur</li>
+      <li>Vraagstelling en verwachting</li>
+      <li>Databronnen of deelnemers: openbaar, verzonnen of met toestemming (<a class="chip" href="#nfr-01" data-ref="NFR-01">NFR-01</a>)</li>
+      <li>Methode en experimentontwerp: de vorm, de opzet, en evaluatiecriteria met normen en een referentiewaarde zonder AI</li>
+      <li>Dataverwerking</li>
+      <li>Resultaten, met minstens één interactief diagram, schema of simulatie</li>
+      <li>Discussie: wat zegt het resultaat, en wat zegt het niet?</li>
+      <li>Conclusie en besluit: doorgaan, aanpassen of stoppen</li>
+      <li>Bronnen en verwijzingen in APA 7</li>
+    </ol>
+    <p><strong>Zo werken AI-bedrijven.</strong> De voorbeelden laat de trainer zien in het eerste ochtendblok van dag 2.</p>
+    <div class="table-wrap"><table id="examples-table"><thead><tr><th>Organisatie</th><th>Werkwijze</th><th>Terug te zien in</th><th>Bron</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">De trainer controleert links en versies vóór gebruik (fase 2).</p>
+  </section>
+
+  <!-- ============ 7 EISEN ============ -->
+  <section class="part" id="eisen">
+    <div class="part-num">Deel 7</div>
+    <h2>Functionele en niet-functionele eisen</h2>
+    <h3>Van resultaat van S&amp;N naar leeruitkomst, eis en bewijs</h3>
+    <p class="small muted">Wijs een resultaat, leeruitkomst, eis of acceptatiecriterium aan om de hele keten te zien. <span id="coverage"></span></p>
+    <div class="viz-wrap">
+    <div class="viz" id="trace"></div>
+    <div class="bds-card is-info viz-panel is-sticky" id="trace-panel" aria-live="polite"><span class="muted">Wijs een resultaat van S&amp;N, leeruitkomst, eis of acceptatiecriterium aan. Hier verschijnt de tekst en alles wat ermee verbonden is.</span></div>
+    </div>
+
+    <h3>7.1 Functioneel</h3>
+    <div class="filters" role="group" aria-label="Filter functionele eisen"></div>
+    <div class="table-wrap"><table id="fr-table"><thead><tr><th>ID</th><th>Eis</th><th>Draagt bij aan</th></tr></thead><tbody></tbody></table></div>
+    <h3>7.2 Niet-functioneel</h3>
+    <div class="table-wrap"><table id="nfr-table"><thead><tr><th>ID</th><th>Eis</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <!-- ============ 8 PROGRAMMA ============ -->
+  <section class="part" id="programma">
+    <div class="part-num">Deel 8</div>
+    <h2>Programma per lesdag</h2>
+    <p>Lunch is telkens 12:30–13:30. De volgorde volgt die van de online voorbereiding: visie, use case, verandering. Kies een dag en een blok.</p>
+    <div class="deck-controls no-print" role="tablist" aria-label="Lesdag" id="day-tabs"></div>
+    <div id="day-mix" class="small muted"></div>
+    <div class="legend-row">
+      <span style="--sw:var(--primary)">AI-werkplaats</span>
+      <span style="--sw:var(--bg-cream-2)">Deckblok</span>
+      <span style="--sw:#fff">Inhoud</span>
+      <span style="--sw:var(--supporting)">Samenwerken</span>
+      <span style="--sw:var(--text-muted)">Boardmoment</span>
+      <span style="--sw:var(--bg-section)">Pauze</span>
+    </div>
+    <div class="prog">
+      <div class="timeline-wrap"><div class="timeline" id="timeline" role="group" aria-label="Tijdlijn van de gekozen dag"></div></div>
+      <aside class="prog-detail bds-card" id="block-detail" aria-live="polite"></aside>
+    </div>
+    <div class="print-only" id="prog-print"></div>
+  </section>
+
+  <!-- ============ 9 TOETSING ============ -->
+  <section class="part" id="toetsing">
+    <div class="part-num">Deel 9</div>
+    <h2>Toetsing</h2>
+    <p>De lesdagen geven geen cijfer en geen oordeel. Het werk in de werkplaats en het casusdeck telt nergens voor mee. Dat is bewust: wie eerst iets fout mag doen, probeert meer (<a href="#pams">5.2</a>, Autonomy).</p>
+    <p>Het casusdeck is het concept van de integrale opdracht. Deelnemers maken die online af, leveren hem in en krijgen feedback van twee anderen, zoals de online omgeving voorschrijft. De voorwaarden voor het certificaat bepaalt S&amp;N. Of de trainer de integrale opdracht beoordeelt, is een open punt (<a href="#roadmap">deel 13</a>, fase 0).</p>
+    <p>Het supervisory board heeft geen stem in een oordeel, en de deelnemer bouwt het zelf. Wie het eigen werk toetst met een eigen board, kan een board bouwen dat gelijk geeft. Daarom eist het sjabloon een harde scepticus, kijkt de trainer aan het eind van werkplaats 1 naar de samenstelling, en legt de groep op dag 2 het oordeel van het AI-board naast dat van de mensen (<a class="chip" href="#fr-17" data-ref="FR-17">FR-17</a><a class="chip" href="#fr-19" data-ref="FR-19">FR-19</a>).</p>
+    <p>Ook de bouwstraat telt niet mee voor een oordeel. Het besluit in het experimentverslag is van de deelnemer: doorgaan, aanpassen of stoppen. De trainer geeft feedback op de opbouw, zoals of de normen vóór de resultaten vastlagen (<a class="chip" href="#ac-15" data-ref="AC-15">AC-15</a>).</p>
+    <div class="bds-card is-warning">De rolkaarten en de vragen van het investeringscomité maakt de trainer, niet de deelnemers. Zo bepaalt niemand de vragen waarmee de eigen pitch beoordeeld wordt.</div>
+  </section>
+
+  <!-- ============ 10 OPLEVEREN ============ -->
+  <section class="part" id="opleveren">
+    <div class="part-num">Deel 10</div>
+    <h2>Op te leveren</h2>
+    <div class="bds-grid bds-grid-2">
+      <div class="bds-card is-tier-1"><div class="bds-eyebrow">Door elke deelnemer</div><ol id="deliv-participant" style="margin:0;padding-left:1.2em"></ol></div>
+      <div class="bds-card is-tier-2"><div class="bds-eyebrow">Door de trainer, vóór de lesdag waarop het nodig is</div><ol id="deliv-trainer" style="margin:0;padding-left:1.2em"></ol></div>
+    </div>
+  </section>
+
+  <!-- ============ 11 ACCEPTATIE ============ -->
+  <section class="part" id="acceptatie">
+    <div class="part-num">Deel 11</div>
+    <h2>Acceptatiecriteria</h2>
+    <div class="table-wrap"><table id="ac-table"><thead><tr><th>ID</th><th>Criterium</th><th>Gemeten met</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <!-- ============ 12 RISICO'S ============ -->
+  <section class="part" id="risicos">
+    <div class="part-num">Deel 12</div>
+    <h2>Risico's en maatregelen</h2>
+    <div class="table-wrap"><table id="risk-table"><thead><tr><th>Risico</th><th>Gevolg</th><th>Maatregel</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <!-- ============ 13 ROADMAP ============ -->
+  <section class="part" id="roadmap">
+    <div class="part-num">Deel 13</div>
+    <h2>Roadmap</h2>
+    <p>Deze uitvoering is de pilot. Daarna volgt een evaluatie, vóór de volgende uitvoering op 8 februari 2027 in Utrecht.</p>
+    <div class="viz" id="roadmap-viz"></div>
+    <div class="table-wrap"><table id="phase-table"><thead><tr><th>Fase</th><th>Wanneer</th><th>Wat</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <!-- ============ BRONNEN ============ -->
+  <section class="part" id="bronnen">
+    <div class="part-num">Bijlage</div>
+    <h2>Bronnen</h2>
+    <h3>Didactiek (deel 2)</h3>
+    <ul class="small">
+      <li>Anderson, L.W. &amp; Krathwohl, D.R., 2001. <em>A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives</em>. Longman.</li>
+      <li>Kolb, D.A., 1984. <em>Experiential Learning: Experience as the Source of Learning and Development</em>. Prentice Hall.</li>
+      <li>Michie, S., van Stralen, M.M. &amp; West, R., 2011. "The behaviour change wheel: A new method for characterising and designing behaviour change interventions". <em>Implementation Science</em>, 6, 42.</li>
+      <li>Pink, D.H., 2009. <em>Drive: The Surprising Truth About What Motivates Us</em>. Riverhead Books.</li>
+    </ul>
+    <h3>Inhoud van de training</h3>
+    <ul class="small">
+      <li>Gieling &amp; Van den Berg. <em>Handboek AI Strategie</em>. Het cursusboek. <span class="tag">jaartal en uitgever aanvullen</span></li>
+      <li>Pot, K. <em>Werk hand in hand met AI</em>. Literatuurtip in de handleiding. <span class="tag">jaartal en uitgever aanvullen</span></li>
+      <li>Hiatt, J., 2006. <em>ADKAR: A Model for Change in Business, Government and Our Community</em>. Prosci.</li>
+      <li>Kotter, J.P., 1996. <em>Leading Change</em>. Harvard Business School Press.</li>
+      <li>Waterman, R.H., Peters, T.J. &amp; Phillips, J.R., 1980. "Structure is not organization". <em>Business Horizons</em>, 23(3), 14–26. (McKinsey 7S)</li>
+      <li>Verordening (EU) 2024/1689 van het Europees Parlement en de Raad van 13 juni 2024 (de AI-verordening).</li>
+    </ul>
+    <h3>Bouwen, experimenteren en opschalen (deel 6.4)</h3>
+    <ul class="small">
+      <li>Anthropic. (2023). <em>Anthropic's responsible scaling policy</em>. Anthropic.</li>
+      <li>Brynjolfsson, E., Rock, D., &amp; Syverson, C. (2021). The productivity J-curve: How intangibles complement general purpose technologies. <em>American Economic Journal: Macroeconomics, 13</em>(1), 333–372.</li>
+      <li>Dutt, A., Rapoport, G., Chatterji, A., Weeratunga, G., &amp; Satcher, H. (2026, 30 april). How to move from AI experimentation to AI transformation. <em>Harvard Business Review</em>. https://hbr.org/2026/04/how-to-move-from-ai-experimentation-to-ai-transformation</li>
+      <li>Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy online controlled experiments: A practical guide to A/B testing</em>. Cambridge University Press.</li>
+      <li>Lacan, O. (z.d.). <em>Keep a changelog</em>. https://keepachangelog.com</li>
+      <li>Microsoft. (2022). <em>Microsoft responsible AI impact assessment template</em>. Microsoft.</li>
+      <li>Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., &amp; Gebru, T. (2019). Model cards for model reporting. In <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em> (pp. 220–229). ACM.</li>
+      <li>Nygard, M. (2011, 15 november). <em>Documenting architecture decisions</em>. Cognitect. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions</li>
+      <li>OpenAI. (2023a). <em>GPT-4 technical report</em>. arXiv. https://arxiv.org/abs/2303.08774</li>
+      <li>OpenAI. (2023b). <em>Evals</em> [Computer software]. GitHub. https://github.com/openai/evals</li>
+      <li>Schluntz, E., &amp; Zhang, B. (2024). <em>Building effective agents</em>. Anthropic.</li>
+      <li>Ubl, M. (2020). <em>Design docs at Google</em>. Industrial Empathy. https://www.industrialempathy.com/posts/design-docs-at-google/</li>
+    </ul>
+    <p class="small muted">Links en versies controleren vóór gebruik (fase 2).</p>
+    <h3>Projectdocumenten</h3>
+    <ul class="small">
+      <li><a href="background-docs/start-documentatie-leeromgeving.md">Startdocumentatie leeromgeving</a></li>
+      <li><a href="background-docs/AI%20Strategie%20en%20Organisatietransformatie.pdf">Webpagina van de training (S&amp;N), opgeslagen als PDF</a></li>
+      <li><a href="background-docs/Overeenkomst%20van%20opdracht%20SN%20FL%20All-in%20tarief%20AISO26009%20REF260016389.pdf">Overeenkomst van opdracht</a></li>
+      <li>Ontwikkeldoelen en inzendingen van deelnemers, met de sleutel van de pseudoniemen: map <a href="temp/">temp</a> (vertrouwelijk)</li>
+      <li><a href="onderzoek/2026-11-04-lrd-wiki-toets.md">Toetsing van deze LRD aan de AI-wiki (4 november 2026)</a></li>
+      <li><a href="docs/adr/README.md">Besluiten (ADR's)</a> en <a href="CHANGELOG.md">wijzigingslog</a> van deze LRD</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="bds-footer">
+  <p>LRD AISO26009 · versie 0.10 · 7 november 2026 · Witek ten Hove · Business Data Solutions</p>
+</footer>
+
+<script type="module">
+/* ================================================================
+   ÉÉN DATABRON. Tabellen, diagrammen en tellingen komen hieruit.
+   ================================================================ */
+const DATA = {
+  lu: [
+    { id: 'LU1', p: 1, k: 1, days: [1,2,3], text: 'Een deelnemer kan aan de hand van eigen ervaring uitleggen wat generatieve AI, AI-agents en voorspellende modellen wel en niet kunnen, en wat ze vragen van data, zodat de AI-plannen in de eigen organisatie op realistische verwachtingen rusten.' },
+    { id: 'LU2', p: 5, k: 1, days: [1], text: 'Een deelnemer kan een AI-visie formuleren die kansen, risico\'s en de rol van de mens koppelt aan twee tot vier organisatiedoelen, zodat AI-initiatieven aansluiten op de bestaande strategie.' },
+    { id: 'LU3', p: 4, k: 2, days: [2], text: 'Een deelnemer kan AI-kansen uit knelpunten afleiden en ze rangschikken op waarde en haalbaarheid, inclusief de beschikbaarheid en het eigenaarschap van data, zodat de organisatie begint waar het meeste te winnen valt.' },
+    { id: 'LU4', p: 5, k: 2, days: [2], text: 'Een deelnemer kan voor de eerste prioriteit een businesscase opstellen en verdedigen die het herontwerp van het werkproces beschrijft, met waarde als uitkomst, kosten, aannames en het grootste risico, onderbouwd met literatuur, desk- en marktonderzoek, zodat een directie op basis van feiten kan besluiten.' },
+    { id: 'LU5', p: 5, k: 2, days: [2,3], text: 'Een deelnemer kan vanuit een PRD een blueprint en een buildplan opstellen: het doel in regels met een meetbaar criterium, en de route van experiment via pilot naar opschaling in fasen met elk een eigenaar en een test gate die werking, integratie in het werkproces en gebruik toetst, zodat een experiment niet als demo blijft hangen en elke stap toetsbaar is.' },
+    { id: 'LU6', p: 2, k: 1, days: [3], text: 'Een deelnemer kan de eigen use case indelen in een risicoklasse van de AI-verordening en de gevolgen voor privacy, eigenaarschap en menselijk toezicht benoemen, zodat de inzet van AI veilig en verantwoord is.' },
+    { id: 'LU7', p: 5, k: 2, days: [1,3], text: 'Een deelnemer kan een transformatieplan opstellen voor processen, structuren, cultuur en vaardigheden, en voor de belangrijkste stakeholders een aanpak ontwerpen die weerstand omzet in draagvlak, onderbouwd met verandermodellen, zodat de verandering in teams landt.' },
+    { id: 'LU8', p: 4, k: 3, days: [1,2,3], text: 'Een deelnemer kan de eigen besluiten en de eigen rol in de AI-transformatie beoordelen, de besluiten vastleggen in ADR\'s, mede met een zelfgebouwd advisory en supervisory board, en een concrete volgende stap formuleren, zodat het leren na de training doorgaat in het werk.' },
+    { id: 'LU9', p: 3, k: 2, days: [2,3], text: 'Een deelnemer kan met AI een experiment opzetten (zoals een gebruikersworkshop, een simulatie of een technische test), uitvoeren en rapporteren als interactief verslag, met vooronderzoek, vraagstelling, databronnen, een methode met vooraf vastgelegde evaluatiecriteria en normen, resultaten, discussie en een besluit, zodat een AI-kans snel en onderbouwd getoetst is voordat de organisatie investeert.' },
+  ],
+  sn: [
+    { id: 'SN1', lu: ['LU1','LU2','LU6'], text: 'Je begrijpt de strategische kansen en risico\'s van AI voor jouw organisatie en sector' },
+    { id: 'SN2', lu: ['LU2'], text: 'Je hebt een AI-visie en strategie geformuleerd die aansluit bij organisatiedoelstellingen' },
+    { id: 'SN3', lu: ['LU3','LU5'], text: 'Je kunt een AI-roadmap ontwerpen met duidelijke prioriteiten en mijlpalen' },
+    { id: 'SN4', lu: ['LU4'], text: 'Je ontwikkelt overtuigende businesscases voor AI-projecten' },
+    { id: 'SN5', lu: ['LU7'], text: 'Je past verandermanagementprincipes toe op AI-adoptie uitdagingen' },
+    { id: 'SN6', lu: ['LU7'], text: 'Je stelt een transformatieplan op voor processen, structuren, cultuur en vaardigheden' },
+    { id: 'SN7', lu: ['LU7'], text: 'Je creëert draagvlak en adresseert weerstand bij AI-implementatie' },
+  ],
+  bloomP: ['Onthouden','Begrijpen','Toepassen','Analyseren','Evalueren','Creëren'],
+  bloomK: ['Feitelijk','Conceptueel','Procedureel','Metacognitief'],
+
+  fr: [
+    { id: 'FR-01', tag: 'Casus en deck', lu: ['LU2'], text: 'Elke deelnemer legt op dag 1 vóór 10:00 één casus vast: organisatie of organisatiedeel, plus een strategische AI-vraag. Daar werkt de deelnemer alle drie de dagen aan.' },
+    { id: 'FR-02', tag: 'Casus en deck', lu: ['LU2','LU5'], text: 'De trainer deelt bij de start van dag 1 een leeg casusdeck-template. Het template bevat de onderdelen van de integrale opdracht, op naam, en een werkplaatslog.' },
+    { id: 'FR-03', tag: 'Casus en deck', lu: ['LU2','LU4','LU5','LU6','LU7'], text: 'Elke lesdag heeft na de werkplaats een deckblok dat om 15:15 begint: 45 minuten op dag 1 en 2, en 30 minuten op dag 3 vanwege de rondgang (FR-13). Daarin maakt elke deelnemer de onderdelen van het casusdeck die bij die dag horen. Elk deckblok eindigt met een boardmoment (FR-18).' },
+    { id: 'FR-04', tag: 'Werkplaats', lu: ['LU1'], text: 'De AI-werkplaats loopt elke lesdag van 13:30 tot 15:00 in het ritme voordoen (15), zelf doen (50), nabespreken (25).' },
+    { id: 'FR-05', tag: 'Werkplaats', lu: ['LU1','LU8'], text: 'Het nabespreken gebruikt de drie vaste vragen. Elke deelnemer zet per vraag minstens één regel in het werkplaatslog.' },
+    { id: 'FR-06', tag: 'Werkplaats', lu: ['LU1','LU2','LU3','LU6','LU7'], text: 'Elke werkplaats heeft een eigen opdracht: dag 1 de boards bouwen en de AI-visie voorleggen aan het supervisory board, dag 2 PRD en experimentontwerp met een eerste snelle proef, dag 3 scepticus en indeling in de AI-verordening.' },
+    { id: 'FR-07', tag: 'Werkplaats', lu: ['LU1'], text: 'Elke werkplaats heeft een terugvaloptie met een voorbeeldcasus, en een verdiepingsopdracht.' },
+    { id: 'FR-08', tag: 'Samenwerken', lu: ['LU8'], text: 'Deelnemers werken alle drie de dagen in hetzelfde duo. Het duo geeft elkaar in elk deckblok feedback in de vorm "Toen je … / Ik zou …".' },
+    { id: 'FR-09', tag: 'Samenwerken', lu: ['LU3','LU4'], text: 'Dag 2 opent met een investeringscomité. Elke deelnemer pitcht 3 minuten (de online pitch, live of als video). Daarna stelt het comité 5 minuten vragen vanuit rolkaarten: financieel directeur, privacy- of securityfunctionaris, OR-lid en eindgebruiker of klant. Een voorzitter sluit af met een besluit (investeren, investeren onder voorwaarde of niet investeren) en één reden.' },
+    { id: 'FR-10', tag: 'Regie', lu: ['LU2','LU3','LU7'], text: 'Elk ochtendblok begint met de uitkomsten van de online voorbereiding van die bijeenkomst. Wie de voorbereiding niet deed, gebruikt de voorbeeldcasus.' },
+    { id: 'FR-11', tag: 'Regie', lu: ['LU8'], text: 'De trainer leest vóór dag 1 de ontwikkeldoelen van alle deelnemers en koppelt elk leerdoel aan een leeruitkomst en een blok. Leerdoelen die niet passen, bespreekt de trainer op dag 1 met de deelnemer.' },
+    { id: 'FR-12', tag: 'Regie', lu: ['LU8'], text: 'Elke lesdag sluit af met één concrete volgende stap per deelnemer. Die neemt de deelnemer op in het actieplan in de leeromgeving.' },
+    { id: 'FR-13', tag: 'Samenwerken', lu: ['LU8'], text: 'Op dag 3 krijgt elk casusdeck feedback van minstens twee andere deelnemers, in een rondgang langs de decks.' },
+    { id: 'FR-14', tag: 'Bouwstraat', lu: ['LU4'], text: 'De businesscase op dag 2 telt hooguit twee pagina\'s en bevat: het knelpunt met frequentie; de procesketen, met waar het knelpunt heen schuift als AI het oplost en wat er in het omliggende werk moet veranderen; de oplossing; de waarde, met minstens één uitkomstmaat (zoals omzet, kwaliteit of klanttevredenheid) naast tijd of fte; de kosten (bouw, data, beheer, verandering) en het verloop van kosten en baten over de tijd, met het dal vóór de winst; minstens twee aannames; en het grootste risico. Elke claim over waarde, kosten of markt heeft een bron. Er zijn minstens drie bronnen in APA 7, waarvan één wetenschappelijk. Het duo zoekt van elke businesscase minstens één bron op in het origineel.' },
+    { id: 'FR-15', tag: 'Bouwstraat', lu: ['LU5','LU9'], text: 'Het buildplan op dag 3 is de roadmap voor jaar 1 en heeft drie fasen (experiment, pilot, opschaling). Elke fase heeft een doel, een eigenaar, een artefact dat een tester kan proberen en een test gate. Elke gate toetst drie dingen: werkt het, zit het in het werkproces (gekoppeld aan echte besluiten of overdrachten), en wordt het gebruikt (met een gebruiksnorm). Het buildplan noemt een senior sponsor uit de business die eigenaar is van de uitkomst, en in de fase opschaling wie het nieuwe werkproces verspreidt. De uitkomst van het experiment bepaalt de eerste fase.' },
+    { id: 'FR-16', tag: 'Inhoud', lu: ['LU6'], text: 'Het governanceblok op dag 3 behandelt per use case vier vragen: welke risicoklasse uit de AI-verordening, welke persoonsgegevens (en of een DPIA nodig is), wie eigenaar is van model en data, en waar een mens het besluit neemt.' },
+    { id: 'FR-17', tag: 'Boards', lu: ['LU1','LU8'], text: 'De trainer levert een startsjabloon met twee instructieteksten die werken als ChatGPT-project, Claude Project of Gemini Gem: een advisory board van vijf tot zeven denkperspectieven met minstens één harde scepticus, en een supervisory board van drie tot vijf commissarissen met elk een achtergrond en een denkstijl. Het sjabloon bevat de eerlijkheidsregels. Aan het eind van werkplaats 1 kijkt de trainer of elk board een harde scepticus heeft.' },
+    { id: 'FR-18', tag: 'Boards', lu: ['LU8','LU2','LU4','LU5','LU6','LU9'], text: 'Elk deckblok eindigt met een boardmoment van 15 minuten op een vast beslispunt: dag 1 visie en strategische doelen, dag 2 businesscase en experimentontwerp, dag 3 buildplan en governance. De deelnemer legt het beslispunt voor en legt het besluit vast als ADR: context, besluit, overwogen alternatieven met het advies van de boards, en gevolgen, met de reden als het besluit afwijkt van het board (FR-25).' },
+    { id: 'FR-19', tag: 'Boards', lu: ['LU4','LU8'], text: 'Tussen dag 1 en dag 2 legt elke deelnemer de pitch thuis voor aan het supervisory board. Na de pitches op dag 2 bespreekt de groep wat het AI-board zag dat het comité miste, en andersom.' },
+    { id: 'FR-20', tag: 'Bouwstraat', lu: ['LU3','LU5','LU9'], text: 'In werkplaats 2 schrijft elke deelnemer met de AI en het sjabloon een PRD voor de eerste prioriteit: probleem, gebruiker, doel, wat erin zit en wat niet, eisen met Must, Should of Could, en het werkproces vóór en na: welke stappen, rollen en overdrachten veranderen. Daarna ontwerpt de deelnemer het experiment: vraag, vorm, databronnen of deelnemers, methode, en evaluatiecriteria met normen die vastliggen vóór de uitvoering. Elke norm noemt een referentiewaarde: hoe het nu gaat, zonder AI. De vraag bepaalt de vorm: bijvoorbeeld een gebruikersworkshop, een simulatie, een technische test of een vergelijking (deel 6.4).' },
+    { id: 'FR-21', tag: 'Bouwstraat', lu: ['LU9','LU1'], text: 'Tussen dag 2 en dag 3 voert elke deelnemer het experiment uit, met openbare of verzonnen gegevens of met deelnemers die toestemming gaven (NFR-01), en bouwt met de AI een interactief verslag: één webpagina, in tien minuten te doorlopen, met minstens één diagram, schema of simulatie van de resultaten (bijvoorbeeld met D3, Three.js of Motion). Het verslag bevat: inleiding met vooronderzoek, vraagstelling, databronnen, methode met evaluatiecriteria en normen, dataverwerking, resultaten, discussie, en een conclusie met besluit (doorgaan, aanpassen of stoppen). Bronnen en verwijzingen staan in APA 7.' },
+    { id: 'FR-22', tag: 'Bouwstraat', lu: ['LU5'], text: 'Tussen dag 2 en dag 3 zet elke deelnemer de PRD en de uitkomst van het experiment om in een blueprint: het doel als genummerde regels, elk met Must, Should of Could, een criterium met een getal en een eenheid, en een verificatiemethode. De blueprint bevat geen planning; die staat in het buildplan.' },
+    { id: 'FR-23', tag: 'Bouwstraat', lu: ['LU4','LU5','LU8','LU9'], text: 'De trainer levert vijf sjablonen die op elkaar aansluiten: businesscase, PRD, experimentverslag (met een startopdracht voor de AI om de interactieve pagina te bouwen), blueprint met buildplan, en ADR met wijzigingslog. In het voordoen van werkplaats 2 laat de trainer de eigen werkwijze zien op de voorbeeldcasus.' },
+    { id: 'FR-24', tag: 'Inhoud', lu: ['LU7'], text: 'Op dag 3 maakt elke deelnemer met McKinsey 7S een transformatieplan op één pagina: wat er door AI verandert in processen en systemen, structuur, cultuur (gedeelde waarden en stijl) en vaardigheden en mensen, met per onderdeel één actie. Het plan komt in het deckonderdeel Adoptie.' },
+    { id: 'FR-25', tag: 'Bouwstraat', lu: ['LU8','LU5'], text: 'Naast het casusdeck houdt elke deelnemer een ADR-register en een wijzigingslog bij, als bestanden bij de eigen stack. Elk boardmoment levert minstens één ADR. Een besluit dat later verandert, krijgt een nieuwe ADR, en de oude krijgt de status vervangen. Het wijzigingslog noteert per versie van de stack (businesscase, PRD, experimentverslag, blueprint, buildplan) wat er veranderde en welke ADR erbij hoort.' },
+  ],
+  nfr: [
+    { id: 'NFR-01', lu: ['LU6'], text: 'Deelnemers voeren geen vertrouwelijke gegevens van hun organisatie in, ook niet in een eigen account of een reserve-account. De werkplaatsen werken met openbare informatie of verzonnen gegevens. De trainer zegt dit bij de start van elke werkplaats. Een experiment met echte mensen, zoals een gebruikersworkshop, vraagt vooraf hun toestemming; hun antwoorden gaan alleen geanonimiseerd een AI-tool in.' },
+    { id: 'NFR-02', lu: ['LU1'], text: 'Elke werkplaats werkt met elk frontiermodel in de browser, zoals Claude, ChatGPT of Gemini, zonder installatie. Een gratis versie met een beperkt model volstaat niet; dan gebruikt de deelnemer een reserve-account.' },
+    { id: 'NFR-03', lu: [], text: 'De trainer vraagt vóór dag 1 per deelnemer na of die een eigen account op een frontiermodel heeft. Voor wie dat niet heeft, maakt de trainer een reserve-account op Gemini aan, met de instelling uit waarmee Google gesprekken gebruikt om zijn modellen te verbeteren. Wie een reserve-account krijgt, logt vóór dag 1 één keer in, zodat een beveiligingscontrole niet in de les valt.' },
+    { id: 'NFR-04', lu: [], text: 'Alle materialen van de lesdagen staan op één plek: template, werkplaatsopdrachten, voorbeeldcasus en rolkaarten.' },
+    { id: 'NFR-05', lu: [], text: 'Het ontwerp werkt bij 4 tot 12 deelnemers. Boven de 8 splitst het investeringscomité zich in twee parallelle comités.' },
+    { id: 'NFR-06', lu: [], text: 'Tijdblokken zijn veelvouden van 5 minuten, en een timer is zichtbaar voor de groep.' },
+    { id: 'NFR-07', lu: [], text: 'Een andere trainer kan een lesdag geven met alleen het draaiboek. Per blok staat wat de trainer doet en wat de deelnemers doen.' },
+    { id: 'NFR-08', lu: [], text: 'Engelse vaktermen krijgen bij het eerste gebruik een Nederlandse uitleg.' },
+  ],
+  ac: [
+    { id: 'AC-01', measuredBy: ['FR-02','FR-03'], text: 'Aan het eind van dag 3 heeft elke deelnemer een casusdeck waarin alle onderdelen behalve de conclusie een concept bevatten.' },
+    { id: 'AC-02', measuredBy: ['FR-04','FR-05'], text: 'Elke deelnemer heeft na drie werkplaatsen negen regels in het werkplaatslog, elk over de eigen casus of de voorbeeldcasus.' },
+    { id: 'AC-03', measuredBy: ['FR-05','FR-06'], text: 'Elke deelnemer noemt in het werkplaatslog minstens twee concrete dingen die de AI in de casus niet goed deed (LU1).' },
+    { id: 'AC-04', measuredBy: ['FR-14'], text: 'Elke businesscase bevat alle elementen uit FR-14, waaronder de procesketen en een uitkomstmaat naast tijd of fte, met minstens drie bronnen in APA 7, waarvan het duo er één in het origineel heeft teruggevonden (LU4).' },
+    { id: 'AC-05', measuredBy: ['FR-09'], text: 'Elke pitch heeft een besluit van het comité met één reden (LU3, LU4).' },
+    { id: 'AC-06', measuredBy: ['FR-15'], text: 'Elk buildplan heeft drie fasen, met per fase een eigenaar, een testbaar artefact en een test gate die werking, integratie en gebruik toetst, en noemt een senior sponsor uit de business (LU5).' },
+    { id: 'AC-07', measuredBy: ['FR-16','FR-06'], text: 'Elke use case heeft een risicoklasse uit de AI-verordening met motivering, en antwoorden op de vier governancevragen (LU6).' },
+    { id: 'AC-08', measuredBy: ['FR-08','FR-13'], text: 'Elk casusdeck heeft feedback van minstens twee andere deelnemers.' },
+    { id: 'AC-09', measuredBy: ['FR-11'], text: 'Elk leerdoel uit de ontwikkeldoelen is gekoppeld aan een leeruitkomst en een blok, of op dag 1 met de deelnemer besproken.' },
+    { id: 'AC-10', measuredBy: ['NFR-01','NFR-03'], text: 'In geen enkele werkplaats zijn vertrouwelijke organisatiegegevens ingevoerd. Elke deelnemer heeft vóór dag 1 een werkend account: een eigen account, of een reserve-account waarop die al één keer heeft ingelogd.' },
+    { id: 'AC-11', measuredBy: ['NFR-07'], text: 'Een collega-trainer kan elk blok uit het draaiboek uitvoeren zonder vragen aan de ontwerper.' },
+    { id: 'AC-12', measuredBy: ['FR-17','FR-18','FR-25'], text: 'Aan het eind van dag 3 heeft elke deelnemer een advisory board en een supervisory board in de eigen AI-omgeving, en een ADR-register met minstens één ADR per boardmoment, elk met het advies van de boards bij de overwogen alternatieven (LU8).' },
+    { id: 'AC-13', measuredBy: ['FR-19','FR-09'], text: 'Voor elke pitch op dag 2 is benoemd wat het AI-board zag dat het comité miste, of andersom (LU4, LU8).' },
+    { id: 'AC-14', measuredBy: ['FR-20','FR-21','FR-22'], text: 'Bij de start van dag 3 heeft elke deelnemer een PRD, een interactief experimentverslag met alle onderdelen uit FR-21 en minstens één diagram, schema of simulatie, en een blueprint waarin elke regel een prioriteit, een criterium met getal en eenheid, en een verificatiemethode heeft (LU5, LU9).' },
+    { id: 'AC-15', measuredBy: ['FR-20','FR-21'], text: 'In elk experimentverslag liggen de evaluatiecriteria en normen vast vóór de resultaten, heeft elke norm een referentiewaarde zonder AI, en volgt het besluit uit de vergelijking van resultaat en norm (LU9).' },
+    { id: 'AC-16', measuredBy: ['FR-24'], text: 'Elk casusdeck bevat een transformatieplan dat processen, structuren, cultuur en vaardigheden behandelt, met per onderdeel minstens één actie (LU7).' },
+    { id: 'AC-17', measuredBy: ['FR-25'], text: 'Bij de start van dag 3 heeft elke deelnemer een wijzigingslog waarin elke versie van de stack staat, met bij elke wijziging de ADR die erbij hoort (LU5, LU8).' },
+  ],
+
+  deck: [
+    { name: 'Aanleiding', day: 1 },
+    { name: 'Strategische doelen (2–4)', day: 1 },
+    { name: 'Eerste prioriteit, met de businesscase', day: 2 },
+    { name: 'Adoptie (ADKAR, Kotter, 7S)', day: 3 },
+    { name: 'Roadmap jaar 1', day: 3 },
+    { name: 'Governance, ethiek en privacy', day: 3 },
+    { name: 'Randvoorwaarden en risicoanalyse', day: 3 },
+    { name: 'Conclusie', day: 4 },
+  ],
+  moments: ['Start', 'Na dag 1 · 12 nov', 'Na dag 2 · 26 nov', 'Na dag 3 · 10 dec', 'Online afronding'],
+
+  workshops: [
+    { day: 1, name: 'Bouw je boards', lu: ['LU1','LU2','LU8'], task: 'Maak met het startsjabloon je advisory board en je supervisory board in je eigen AI-omgeving, met leden die bij je casus passen. Leg daarna je AI-visie uit de online opdracht voor aan het supervisory board: wat zijn de drie zwakste punten, en welke bronnen spreken je tegen? Controleer minstens één genoemde bron zelf.' },
+    { day: 2, name: 'PRD en experiment', lu: ['LU1','LU3','LU9'], task: 'Schrijf met je AI-model en het sjabloon een PRD voor je eerste prioriteit. Ontwerp daarna het experiment: kies de vorm die je vraag beantwoordt, zoals een gebruikersworkshop, een simulatie of een technische test, en leg evaluatiecriteria en normen vast. Doe een eerste snelle proef: een technische test of simulatie op openbare of verzonnen gegevens, of het draaiboek van een workshop uitproberen bij je duo. Noteer welke echte data of deelnemers het experiment nodig heeft, en wie daarover beslist.' },
+    { day: 3, name: 'AI als scepticus', lu: ['LU1','LU6','LU7'], task: 'Laat de AI de stakeholder spelen met de meeste weerstand uit je online opdracht, en oefen het gesprek. Laat de AI daarna je use case indelen in een risicoklasse van de AI-verordening, en controleer die indeling in de tekst van de verordening.' },
+  ],
+  rhythm: [
+    { label: 'Voordoen', min: 15, color: '#1a1a1a' },
+    { label: 'Zelf doen', min: 50, color: '#d4db3e' },
+    { label: 'Nabespreken', min: 25, color: '#f0ebe0' },
+  ],
+
+  people: [
+    { name: 'Deelnemer B', role: 'Informatiemanager, schakel tussen het primaire proces en IV', seeks: 'AI-visie vertalen naar een roadmap binnen de IV-strategie, businesscases met data-readiness, governance en architectuur, opschaling, adoptie', lu: ['LU2','LU3','LU4','LU5','LU6','LU7'] },
+    { name: 'Deelnemer E', role: 'Teamcoach in IT en ervaren Agile-coach', seeks: 'De brug tussen AI-strategie op organisatieniveau en wat die in teams betekent', lu: ['LU7','LU1'] },
+    { name: 'Deelnemer F', role: 'Ervaring met transformatie-, verander- en verbeterprogramma\'s', seeks: 'Hoe organisaties AI inzetten vanuit strategie, leiderschap en verandermanagement', lu: ['LU2','LU7'] },
+    { name: 'Deelnemer A', unknown: true }, { name: 'Deelnemer C', unknown: true }, { name: 'Deelnemer D', unknown: true },
+  ],
+
+  kiss: [
+    { chosen: 'Eén product dat drie dagen groeit: het casusdeck, dat het concept van de integrale opdracht is', rejected: 'Een eigen werkboek of dagproduct per lesdag', why: 'Een tweede plek voor het werk. De online omgeving eindigt al met de integrale opdracht; een tweede product concurreert daarmee om dezelfde uren.' },
+    { chosen: 'Elke dag dezelfde werkplaats om 13:30–15:00 met hetzelfde ritme', rejected: 'Per dag een andere werkvorm voor AI', why: 'Het ritme hoeft maar één keer uitgelegd te worden. De aandacht gaat naar de casus.' },
+    { chosen: 'Geen nieuwe modellen naast die uit de online omgeving (Mendelow, Kotter, COM-B, ADKAR, McKinsey 7S), op twee na: de risicoklassen van de AI-verordening en een businesscase op één pagina', rejected: 'Een eigen strategiekader, zoals een Business Model Canvas of Wardley-kaart', why: 'Deelnemers hebben online al vijf modellen. Elk extra model kost uitleg en levert geen nieuwe leeruitkomst op. De twee toevoegingen vullen de gaten uit deel 1.' },
+    { chosen: 'Online uitkomsten zijn de invoer van de lesdag', rejected: 'De online opdracht in de les nog eens doen', why: 'Dubbel werk, en het straft wie de voorbereiding wel deed.' },
+    { chosen: 'Iedereen werkt met een frontiermodel: een eigen account (zoals Claude, ChatGPT of Gemini), of anders een reserve-account op Gemini van de trainer', rejected: 'Eén voorgeschreven tool voor iedereen, met accounts van de trainer', why: 'Wie al een eigen account heeft, kent die omgeving en werkt er na de training mee verder. Een voorgeschreven tool vraagt van iedereen inlogtijd. De reserve-accounts zijn er voor wie alleen een gratis of door de organisatie afgeschermde tool heeft: die laat slecht zien wat AI nu kan. Verschillen tussen modellen zijn stof voor de nabespreking.' },
+    { chosen: 'Onderdelen van de integrale opdracht aanduiden met hun naam', rejected: 'Verwijzen naar slidenummers', why: 'De nummering in de online opdracht springt van 3 naar 5. Namen blijven kloppen.' },
+    { chosen: 'Lewin niet toevoegen', rejected: 'Lewin uitwerken omdat de online omgeving hem aankondigt', why: 'Het is een fout in de online omgeving en geen leeruitkomst. De trainer meldt hem bij S&N.' },
+    { chosen: 'Twee boards met elk een vaste rol: het advisory board verbreedt, het supervisory board toetst', rejected: 'Eén groot board dat alles doet', why: 'Verbreden en toetsen vragen een andere houding. In één board wint de luidste stem, en zie je niet of een idee de toets doorstaat.' },
+    { chosen: 'Een vast boardmoment aan het eind van elk deckblok', rejected: 'Deelnemers kiezen zelf wanneer ze hun boards raadplegen', why: 'Een gewoonte ontstaat door herhaling op een vast moment. Wie zelf kiest, slaat het over als de tijd krap is.' },
+    { chosen: 'Het boardlog is het ADR-register: elk boardmoment levert een ADR', rejected: 'Een boardlog en een apart ADR-register naast elkaar', why: 'Twee logs met dezelfde besluiten lopen uit elkaar. In één register staat het advies van de boards bij de overwogen alternatieven, naast het besluit.' },
+    { chosen: 'Vijf sjablonen die op elkaar aansluiten: elk document begint waar het vorige eindigt', rejected: 'Elk document vanaf een leeg vel', why: 'Deelnemers leren de werkwijze. Een leeg vel kost de tijd die naar het experiment moet.' },
+    { chosen: 'Een interactief verslag met de opbouw van een wetenschappelijk artikel, gebouwd met AI', rejected: 'Een traditioneel paper als tekstdocument', why: 'Een diagram of simulatie laat zien wat er in het experiment gebeurde, en deelnemers ervaren meteen wat AI nu kan bouwen. De discipline blijft in de opbouw: criteria vooraf, resultaat tegen norm, besluit met bronnen.' },
+    { chosen: 'Het buildplan is de roadmap voor jaar 1', rejected: 'Een aparte roadmap naast het buildplan', why: 'Twee plannen voor dezelfde route lopen uit elkaar.' },
+    { chosen: 'Deelnemers kiezen de vorm van het experiment die hun vraag beantwoordt', rejected: 'Eén voorgeschreven vorm, zoals alleen een AI-prototype', why: 'Of gebruikers iets willen, toets je met mensen. Of een methode technisch werkt, toets je met een technische test. Een vaste vorm geeft op de helft van de vragen geen antwoord.' },
+  ],
+
+  days: [
+    { n: 1, date: '12 november', title: 'Visie en context', blocks: [
+      { s: '9:30', e: '10:00', t: 'inhoud', title: 'Opening: leerdoelen en eigen casus vastleggen', input: 'Ontwikkeldoelen, kennismaking', output: 'Casus per deelnemer, duo\'s', lu: ['LU8'], fr: ['FR-01','FR-11'] },
+      { s: '10:00', e: '10:45', t: 'inhoud', title: 'Wat AI nu kan en niet kan', detail: 'Generatieve AI, agents, voorspellende modellen, data.', input: '—', output: 'Begrippenkader voor de werkplaatsen', lu: ['LU1'], fr: ['NFR-08'] },
+      { s: '10:45', e: '11:00', t: 'pauze', title: 'Pauze' },
+      { s: '11:00', e: '11:45', t: 'inhoud', title: 'Van visie naar doelen', detail: 'De eigen visie koppelen aan 2–4 organisatiedoelen, feedback in duo\'s.', input: 'AI-visie ontwikkelen en aanscherpen, AI koppelen aan doelen', output: 'Concept van de strategische doelen', lu: ['LU2'], fr: ['FR-08','FR-10'] },
+      { s: '11:45', e: '12:30', t: 'inhoud', title: 'Stakeholders', detail: 'Wie moet ja zeggen, en wie kan het tegenhouden?', input: 'Stakeholderanalyse (Mendelow)', output: 'Top 3 stakeholders per casus', lu: ['LU7'], fr: ['FR-10'] },
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 1: bouw je boards', detail: 'De trainer laat in het voordoen een eigen board zien.', input: 'AI-visie', output: 'Advisory en supervisory board, aangescherpte visie, werkplaatslog', lu: ['LU1','LU2','LU8'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-17'] },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: aanleiding en strategische doelen', input: '—', output: 'Twee onderdelen van het deck', lu: ['LU2'], fr: ['FR-03','FR-08'] },
+      { s: '16:00', e: '16:15', t: 'board', title: 'Boardmoment: visie en strategische doelen', input: 'Concept van visie en doelen', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU2'], fr: ['FR-18'] },
+      { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: één volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
+    ]},
+    { n: 2, date: '26 november', title: 'Van knelpunt naar businesscase', blocks: [
+      { s: '9:30', e: '10:30', t: 'samen', title: 'Investeringscomité', detail: 'Na de pitches: wat zag het AI-board dat het comité miste, en andersom?', input: 'Pitch, knelpunten en prioritering, advies van het supervisory board', output: 'Besluit en één reden per pitch, vergelijking met het AI-board', lu: ['LU3','LU4','LU8'], fr: ['FR-09','FR-19'] },
+      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze' },
+      { s: '10:45', e: '11:30', t: 'inhoud', title: 'Zo bouwen AI-bedrijven', detail: 'Voorbeelden van Google, Microsoft, OpenAI en Anthropic (deel 6.4), de bouwstraat in vijf stappen, en een demo van onderzoek met AI: literatuur, desk- en marktonderzoek, bronnen in APA 7. Waarde zit vooral in het herontwerp van het werkproces (Dutt et al., 2026). Kosten en baten over de tijd: eerst een dal, dan de winst (Brynjolfsson et al., 2021).', input: 'Prioritering en haalbaarheid, Kotter', output: 'Sjablonen en werkwijze', lu: ['LU4','LU9'], fr: ['FR-23'] },
+      { s: '11:30', e: '12:30', t: 'inhoud', title: 'Businesscase met AI-onderzoek', detail: 'Eerst de procesketen in kaart: waar schuift het knelpunt heen? Daarna literatuur, desk- en marktonderzoek met de onderzoeksfunctie van je AI-omgeving. Het duo zoekt één bron op in het origineel.', input: 'Vragen van het comité', output: 'Businesscase van hooguit twee pagina\'s, met bronnen in APA 7', lu: ['LU4'], fr: ['FR-14','FR-08'] },
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 2: PRD en experiment', detail: 'De trainer laat in het voordoen de eigen werkwijze zien, met als voorbeeld de test of een AI-model uit foto\'s van ruimtes plattegronden kan bouwen. Na de werkplaats gaat het experiment thuis verder (FR-21, FR-22).', input: 'Businesscase', output: 'PRD, experimentontwerp met criteria en normen, eerste proef, werkplaatslog', lu: ['LU1','LU3','LU5','LU9'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-20'] },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: eerste prioriteit met businesscase', input: '—', output: 'Eén onderdeel van het deck', lu: ['LU3','LU4'], fr: ['FR-03','FR-08'] },
+      { s: '16:00', e: '16:15', t: 'board', title: 'Boardmoment: businesscase en experimentontwerp', input: 'Businesscase en experimentontwerp', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU4','LU9'], fr: ['FR-18'] },
+      { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: één volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
+    ]},
+    { n: 3, date: '10 december', title: 'Gedrag, roadmap en governance', blocks: [
+      { s: '9:30', e: '10:30', t: 'inhoud', title: 'Transformatieplan en draagvlak', detail: 'Met McKinsey 7S een plan voor processen, structuren, cultuur en vaardigheden; daarna per stakeholder één actie van weerstand naar draagvlak. Inclusief COM-B toegepast op deze training (axioma 2.4).', input: 'COM-B, verandermodellen (ADKAR, 7S), weerstand naar draagvlak', output: 'Transformatieplan op één pagina, één actie per stakeholder', lu: ['LU7'], fr: ['FR-10','FR-24'] },
+      { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze' },
+      { s: '10:45', e: '11:35', t: 'inhoud', title: 'Van experiment naar buildplan', detail: 'De uitkomst van het experiment bepaalt de eerste fase. Experiment, pilot, opschaling, elk met eigenaar, testbaar artefact en een gate voor werking, integratie en gebruik. Wie is de senior sponsor uit de business? Het buildplan is de roadmap voor jaar 1.', input: 'Experimentverslag, blueprint, actieplan', output: 'Buildplan', lu: ['LU5','LU9'], fr: ['FR-15','FR-22'] },
+      { s: '11:35', e: '12:30', t: 'inhoud', title: 'Governance', detail: 'Risicoklassen van de AI-verordening, privacy, eigenaarschap, menselijk toezicht.', input: '—', output: 'Vier antwoorden per use case', lu: ['LU6'], fr: ['FR-16'] },
+      { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch' },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 3: AI als scepticus', input: 'Weerstand naar draagvlak', output: 'Geoefend gesprek, risicoklasse, werkplaatslog', lu: ['LU1','LU6','LU7'], fr: ['FR-04','FR-05','FR-06','FR-07'] },
+      { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze' },
+      { s: '15:15', e: '15:45', t: 'deck', title: 'Deckblok: adoptie, roadmap, governance, randvoorwaarden en risico\'s', input: '—', output: 'Volledig concept van het deck', lu: ['LU5','LU6','LU7'], fr: ['FR-03'] },
+      { s: '15:45', e: '16:00', t: 'board', title: 'Boardmoment: buildplan en governance', input: 'Buildplan en governance-antwoorden', output: 'ADR met het besluit en het advies van de boards', lu: ['LU8','LU5','LU6'], fr: ['FR-18'] },
+      { s: '16:00', e: '16:15', t: 'samen', title: 'Rondgang langs de decks', detail: 'Feedback van minstens twee anderen.', input: '—', output: 'Feedback per deck', lu: ['LU8'], fr: ['FR-13'] },
+      { s: '16:15', e: '16:30', t: 'inhoud', title: 'Afsluiting: eigen rol en volgende stap', input: '—', output: 'Actie in het actieplan', lu: ['LU8'], fr: ['FR-12'] },
+    ]},
+  ],
+  typeLabel: { inhoud: 'Inhoud', werkplaats: 'AI-werkplaats', deck: 'Deckblok', samen: 'Samenwerken', board: 'Boardmoment', pauze: 'Pauze' },
+  experimentTypes: [
+    { type: 'Gebruikersworkshop', question: 'Willen en kunnen gebruikers ermee werken?', example: 'Zes medewerkers proberen een AI-assistent voor klantvragen, met een draaiboek en observatie.', norm: 'Bijvoorbeeld: minstens 4 van de 6 ronden de taak zonder hulp af binnen 5 minuten; nu, zonder AI, kost die taak 20 minuten.' },
+    { type: 'Simulatie', question: 'Wat gebeurt er als we dit invoeren?', example: 'Een model van het intakeproces laat zien wat AI-triage plus een herontworpen proces doet met wachttijd en werkdruk.', norm: 'Bijvoorbeeld: de doorlooptijd daalt in het model van 15 naar hooguit 5 werkdagen. Dat haal je alleen door het proces anders in te richten; hetzelfde proces sneller doen levert hooguit een paar dagen op.' },
+    { type: 'Technische test', question: 'Werkt een methode of tool, en hoe goed?', example: 'De trainer testte of een AI-model uit foto\'s van ruimtes plattegronden kan bouwen.', norm: 'Bijvoorbeeld: in 8 van de 10 ruimtes wijkt elke wand hooguit 10 cm af van de echte maat, in minder tijd dan handmatig opmeten nu kost.' },
+    { type: 'Vergelijking', question: 'Welke aanpak werkt het best, en is die beter dan hoe het nu gaat?', example: 'Drie AI-modellen en een medewerker vatten dezelfde twintig dossiers samen; een vakexpert scoort ze zonder te weten wie wat schreef.', norm: 'Bijvoorbeeld: het beste model scoort minstens zo goed als de medewerker, in een tiende van de tijd.' },
+  ],
+  pipeline: [
+    { step: 'Businesscase', when: 'Dag 2, ochtend', what: 'Waarom: de procesketen, waarde als uitkomst, kosten en het dal vóór de winst, aannames en risico, onderbouwd met literatuur, desk- en marktonderzoek, bronnen in APA 7.', fr: ['FR-14'] },
+    { step: 'PRD', when: 'Werkplaats 2', what: 'Wat: probleem, gebruiker, doel, het werkproces vóór en na, wat erin zit en wat niet, eisen met Must, Should of Could.', fr: ['FR-20'] },
+    { step: 'Experiment', when: 'Ontwerp in werkplaats 2, uitvoeren thuis', what: 'Of het kan: een workshop, simulatie, technische test of vergelijking, met vraag, methode, criteria en normen vooraf, resultaat en besluit, als interactief verslag.', fr: ['FR-20','FR-21'] },
+    { step: 'Blueprint', when: 'Thuis, vóór dag 3', what: 'Het doel: genummerde regels met prioriteit, een criterium met getal en eenheid, en een verificatiemethode.', fr: ['FR-22'] },
+    { step: 'Buildplan', when: 'Dag 3', what: 'De route: experiment, pilot, opschaling, met per fase een testbaar artefact, een gate voor werking, integratie en gebruik, en een senior sponsor.', fr: ['FR-15'] },
+  ],
+  examples: [
+    { org: 'Google', practice: 'Design docs: vóór het bouwen een document met context, doelen, wat er niet in zit en afwegingen. Model cards: per model vastleggen waarvoor het werkt en waarvoor niet.', take: 'PRD en blueprint', src: 'Ubl (2020); Mitchell et al. (2019)' },
+    { org: 'Microsoft', practice: 'Gecontroleerde online experimenten op grote schaal, met vooraf vastgelegde metrieken, en een Responsible AI Impact Assessment vóór de inzet van een AI-systeem.', take: 'Experimentontwerp en governance', src: 'Kohavi et al. (2020); Microsoft (2022)' },
+    { org: 'OpenAI', practice: 'Technische rapporten en system cards bij grote modellen, en Evals: een open raamwerk om modellen op vaste taken te toetsen.', take: 'Experimentverslag en evaluatiecriteria', src: 'OpenAI (2023a, 2023b)' },
+    { org: 'Anthropic', practice: 'Een Responsible Scaling Policy met drempels die bepalen of een volgende stap mag, en lessen om bij agents te beginnen met het eenvoudigste dat werkt.', take: 'Test gates in het buildplan', src: 'Anthropic (2023); Schluntz & Zhang (2024)' },
+  ],
+  boardMoments: [
+    { when: 'Dag 1 · 16:00', point: 'AI-visie en strategische doelen', board: 'Advisory verbreedt, supervisory toetst', fr: ['FR-18'] },
+    { when: 'Thuis, vóór dag 2', point: 'Pitch voor het investeringscomité', board: 'Supervisory; op dag 2 vergeleken met het menselijke comité', fr: ['FR-19'] },
+    { when: 'Dag 2 · 16:00', point: 'Businesscase en experimentontwerp', board: 'Supervisory toetst de normen van het experiment', fr: ['FR-18'] },
+    { when: 'Dag 3 · 15:45', point: 'Buildplan en governance', board: 'Supervisory toetst de test gates, advisory verbreedt de adoptie', fr: ['FR-18'] },
+  ],
+
+  deliverables: {
+    participant: [
+      'Een casusdeck met alle onderdelen van de integrale opdracht in concept, behalve de conclusie.',
+      'Een werkplaatslog met drie werkplaatsen en per werkplaats drie regels.',
+      'Een pitch en het besluit van het investeringscomité (dag 2).',
+      'Een businesscase met bronnen in APA 7 en een PRD (dag 2), een interactief experimentverslag en een blueprint (thuis), en een buildplan (dag 3).',
+      'Een indeling van de eigen use case in een risicoklasse van de AI-verordening, met motivering (dag 3).',
+      'Een advisory board en een supervisory board in de eigen AI-omgeving.',
+      'Een ADR-register met minstens drie ADR\'s en een wijzigingslog bij de eigen stack.',
+      'Drie volgende stappen in het actieplan, één per lesdag.',
+    ],
+    trainer: [
+      ['Een draaiboek per lesdag', ['NFR-07']],
+      ['Het casusdeck-template', ['FR-02']],
+      ['Drie werkplaatsopdrachten met voorbeeldcasus en verdieping', ['FR-06','FR-07']],
+      ['Rolkaarten voor het investeringscomité', ['FR-09']],
+      ['Het startsjabloon voor het advisory en het supervisory board', ['FR-17']],
+      ['Vijf sjablonen voor de bouwstraat: businesscase, PRD, experimentverslag, blueprint met buildplan, ADR met wijzigingslog', ['FR-23']],
+      ['Reserve-accounts op Gemini voor wie geen eigen account op een frontiermodel heeft, met de instelling voor modelverbetering uit', ['NFR-03']],
+      ['Een overzicht van de leerdoelen per deelnemer, gekoppeld aan leeruitkomsten', ['FR-11']],
+    ],
+  },
+
+  risks: [
+    { risk: 'Deelnemers komen zonder online voorbereiding', effect: 'Het ochtendblok heeft geen invoer', mit: 'De voorbeeldcasus vangt het op.', refs: ['FR-10','FR-07'] },
+    { risk: 'De organisatie verbiedt publieke AI-tools op het werkapparaat', effect: 'De deelnemer kan op de eigen laptop niet inloggen', mit: 'Een eigen privéaccount of een reserve-account staat los van de organisatie en werkt alleen met openbare of verzonnen gegevens. Lukt het op de werklaptop niet, dan werkt de deelnemer op een privéapparaat of mee op het account van het duo.', refs: ['NFR-01','NFR-02','FR-07'] },
+    { risk: 'Inloggen op een nieuw reserve-account vraagt een beveiligingscode', effect: 'De werkplaats begint met wachten', mit: 'Wie een reserve-account krijgt, logt vóór dag 1 één keer in, en de trainer heeft de telefoon voor de codes bij zich.', refs: ['NFR-03'] },
+    { risk: 'Een eigen account blijkt een gratis versie met een beperkt model', effect: 'De deelnemer ervaart niet wat AI nu kan', mit: 'De trainer vraagt het vooraf na; in de les wisselt de deelnemer naar een reserve-account.', refs: ['NFR-02','NFR-03'] },
+    { risk: 'De casus is te klein of te operationeel voor een strategie', effect: 'Het deck wordt een projectplan', mit: 'De casus moet een strategische AI-vraag bevatten, en de trainer toetst dat vóór 10:00 op dag 1.', refs: ['FR-01'] },
+    { risk: 'Te veel modellen', effect: 'Deelnemers raken het overzicht kwijt', mit: 'Geen nieuwe modellen behalve de twee die de gaten vullen (5.1).', refs: [] },
+    { risk: 'Wifi, accounts of tools werken niet', effect: 'De werkplaats valt stil', mit: 'Geen installatie nodig; voorbeeldcasus; de trainer heeft schermafbeeldingen van de demo.', refs: ['NFR-02','FR-07'] },
+    { risk: 'De pitchvideo is niet gemaakt', effect: 'Het comité heeft niets te beoordelen', mit: 'De pitch mag live, vanaf de prioritering uit de online opdracht.', refs: ['FR-09'] },
+    { risk: 'Een deelnemer valt uit', effect: 'Een duo valt weg', mit: 'Het overgebleven duo wordt een trio (deel 4).', refs: ['FR-08'] },
+    { risk: 'De ontwikkeldoelen van drie deelnemers ontbreken', effect: 'De dagen sluiten niet aan op hun vragen', mit: 'De trainer leest alle ontwikkeldoelen vóór dag 1.', refs: ['FR-11'] },
+    { risk: 'Een deelnemer bouwt een board dat gelijk geeft', effect: 'Het boardmoment bevestigt in plaats van te toetsen', mit: 'Het sjabloon eist een harde scepticus, de trainer kijkt naar de samenstelling, en dag 2 legt het AI-board naast het menselijke comité.', refs: ['FR-17','FR-19'] },
+    { risk: 'Het oordeel van het board wordt gebruikt als bewijs of als citaat', effect: 'Een mening of een verzonnen uitspraak komt in een besluit of in materiaal voor buiten', mit: 'De eerlijkheidsregels in het sjabloon; in elke ADR staat het eigen besluit naast het advies van de boards.', refs: ['FR-17','FR-18'] },
+    { risk: 'Een boardmoment loopt uit', effect: 'De afsluiting en de volgende stap schieten erbij in', mit: 'Eén beslispunt per moment en een zichtbare timer; wat niet af is, gaat thuis verder.', refs: ['FR-18','NFR-06'] },
+    { risk: 'De AI verzint bronnen of citaten', effect: 'De businesscase of het verslag rust op bronnen die niet bestaan', mit: 'Het duo zoekt van elke businesscase minstens één bron op in het origineel; werkplaats 1 oefent dat al.', refs: ['FR-14','FR-06'] },
+    { risk: 'Het thuiswerk tussen dag 2 en 3 past niet naast werk en zelfstudie', effect: 'Een deelnemer komt zonder verslag of blueprint naar dag 3', mit: 'Het verslag is één pagina, het sjabloon geeft de opbouw en de AI bouwt de diagrammen. Wie het niet af heeft, werkt op dag 3 verder met het experimentontwerp uit werkplaats 2.', refs: ['FR-21','FR-23'] },
+    { risk: 'Het experiment meet wat makkelijk te meten is', effect: 'De norm zegt weinig over de waarde voor de organisatie', mit: 'De normen komen uit de businesscase en liggen vast vóór de uitvoering; het supervisory board toetst het ontwerp op dag 2.', refs: ['FR-20','FR-18'] },
+    { risk: 'Het interactieve verslag wordt een technisch project', effect: 'Het bouwen kost de tijd die naar het experiment moet', mit: 'Het sjabloon bevat een startopdracht voor de AI, en één diagram of simulatie is genoeg. De opbouw telt zwaarder dan de techniek.', refs: ['FR-21','FR-23'] },
+    { risk: 'Een gebruikersworkshop past niet in de agenda vóór dag 3', effect: 'Het experiment wordt niet uitgevoerd', mit: 'Kies een kleinere vorm, zoals twee gebruikers of een simulatie, en noem de beperking in de discussie van het verslag.', refs: ['FR-20','FR-21'] },
+    { risk: 'De pilot blijft een demo die niet in het werk terechtkomt', effect: 'Opschaling komt niet op gang (pilot purgatory)', mit: 'Elke gate toetst ook integratie in het werkproces en gebruik, en een senior sponsor uit de business is eigenaar van de uitkomst.', refs: ['FR-15'] },
+  ],
+
+  phases: [
+    { name: '0 — Voorbereiden', when: 'Tot 12 november', start: '2026-11-04', end: '2026-11-11', text: 'Certificaatvoorwaarden van S&N opvragen, en deel 9 bijwerken. Ontwikkeldoelen van alle zes deelnemers lezen (FR-11). Per deelnemer navragen of die een eigen account op een frontiermodel heeft. Voor de anderen een reserve-account op Gemini aanmaken, nagaan welk abonnement het sterkste model geeft, en ze één keer laten inloggen (NFR-03). Template, werkplaats 1 en de voorbeeldcasus bouwen en zelf doorlopen. Het startsjabloon voor de boards maken en testen in ChatGPT, Claude en Gemini (FR-17). Fouten in de online omgeving melden bij S&N.' },
+    { name: '1 — Dag 1 als test', when: '12 november', start: '2026-11-12', end: '2026-11-12', text: 'Ritme van de werkplaats, de deckblokken en het boardmoment testen. Aan het eind van de dag noteren welke blokken uitliepen.' },
+    { name: '2 — Bijsturen', when: '13–25 november', start: '2026-11-13', end: '2026-11-25', text: 'Werkplaats 2, de rolkaarten, de vijf sjablonen van de bouwstraat en de voorbeelden van AI-bedrijven (met gecontroleerde links) bouwen, met wat dag 1 leerde. Werkplaats 3 bouwen vóór 10 december.' },
+    { name: '3 — Dag 2 en 3', when: '26 november, 10 december', start: '2026-11-26', end: '2026-12-10', text: 'Uitvoeren volgens deze LRD, met de bijsturing uit fase 2.' },
+    { name: '4 — Evalueren', when: 'December 2026 – januari 2027', start: '2026-12-11', end: '2027-01-31', text: 'Het ontwerp beoordelen met aiso-beoordeel-onderwijsontwerp. De acceptatiecriteria nalopen. De bevindingen bespreken met S&N, en een versie 1.0 maken voor de uitvoering van februari 2027.' },
+  ],
+  milestones: [
+    { date: '2026-11-12', label: 'Dag 1' }, { date: '2026-11-26', label: 'Dag 2' },
+    { date: '2026-12-10', label: 'Dag 3' }, { date: '2027-02-08', label: 'Volgende uitvoering' },
+  ],
+};
+
+/* ================================================================
+   HULPFUNCTIES
+   ================================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let deckState = 3, setDeckState = () => {};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const anchor = id => id.toLowerCase();
+const chip = id => `<a class="chip" href="#${anchor(id)}" data-ref="${id}">${id}</a>`;
+const chips = ids => (ids || []).map(chip).join('');
+const toMin = t => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+const reqById = Object.fromEntries([...DATA.fr, ...DATA.nfr].map(r => [r.id, r]));
+const allIds = new Set([...DATA.sn, ...DATA.lu, ...DATA.fr, ...DATA.nfr, ...DATA.ac].map(x => x.id));
+
+// Controle: elke verwijzing moet bestaan.
+const refsUsed = [
+  ...DATA.sn.flatMap(s => s.lu), ...DATA.fr.flatMap(f => f.lu), ...DATA.nfr.flatMap(f => f.lu), ...DATA.ac.flatMap(a => a.measuredBy),
+  ...DATA.risks.flatMap(r => r.refs), ...DATA.days.flatMap(d => d.blocks.flatMap(b => [...(b.lu || []), ...(b.fr || [])])),
+  ...DATA.workshops.flatMap(w => w.lu), ...DATA.people.flatMap(p => p.lu || []), ...DATA.boardMoments.flatMap(b => b.fr), ...DATA.pipeline.flatMap(s => s.fr),
+];
+const broken = refsUsed.filter(id => !allIds.has(id));
+if (broken.length) console.error('LRD: verwijzingen zonder doel:', [...new Set(broken)]);
+
+/* ================================================================
+   TABELLEN EN LIJSTEN (geen bibliotheek nodig)
+   ================================================================ */
+function renderTables() {
+  const counts = { lu: DATA.lu.length, fr: DATA.fr.length, nfr: DATA.nfr.length, ac: DATA.ac.length, risks: DATA.risks.length };
+  $$('[data-count]').forEach(el => { el.textContent = counts[el.dataset.count]; });
+
+  $('#sn-table tbody').innerHTML = DATA.sn.map(s => `<tr id="${anchor(s.id)}"><td class="id">${s.id}</td><td>${esc(s.text)}</td><td>${chips(s.lu)}</td></tr>`).join('');
+  $('#lu-table tbody').innerHTML = DATA.lu.map(l => `<tr id="${anchor(l.id)}"><td class="id">${l.id}</td><td>${esc(l.text)}</td><td><code>${DATA.bloomP[l.p]} / ${DATA.bloomK[l.k]}</code></td><td>${l.days.join(', ')}</td></tr>`).join('');
+
+  const tags = ['Alle', ...new Set(DATA.fr.map(f => f.tag))];
+  const filt = $('#eisen .filters');
+  filt.innerHTML = tags.map((t, i) => `<button class="seg" type="button" aria-pressed="${i === 0}" data-tag="${t}">${t}</button>`).join('');
+  const drawFr = tag => {
+    $('#fr-table tbody').innerHTML = DATA.fr.filter(f => tag === 'Alle' || f.tag === tag)
+      .map(f => `<tr id="${anchor(f.id)}"><td class="id">${f.id}</td><td>${esc(f.text)} <span class="tag">${f.tag}</span></td><td>${chips(f.lu)}</td></tr>`).join('');
+  };
+  drawFr('Alle');
+  filt.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('button', filt).forEach(x => x.setAttribute('aria-pressed', x === b));
+    drawFr(b.dataset.tag);
+  });
+
+  $('#nfr-table tbody').innerHTML = DATA.nfr.map(f => `<tr id="${anchor(f.id)}"><td class="id">${f.id}</td><td>${esc(f.text)}</td></tr>`).join('');
+  $('#ac-table tbody').innerHTML = DATA.ac.map(a => `<tr id="${anchor(a.id)}"><td class="id">${a.id}</td><td>${esc(a.text)}</td><td>${chips(a.measuredBy)}</td></tr>`).join('');
+  $('#risk-table tbody').innerHTML = DATA.risks.map(r => `<tr><td><strong>${esc(r.risk)}</strong></td><td>${esc(r.effect)}</td><td>${esc(r.mit)} ${chips(r.refs)}</td></tr>`).join('');
+  $('#exptypes').innerHTML = DATA.experimentTypes.map(x => `<div class="bds-card is-tier-2"><div class="bds-eyebrow">${esc(x.type)}</div><h4 style="margin:0 0 var(--space-2);font-size:var(--text-lg)">${esc(x.question)}</h4><p class="small" style="margin:0 0 var(--space-2)">${esc(x.example)}</p><p class="small muted" style="margin:0">${esc(x.norm)}</p></div>`).join('');
+  $('#pipeline-flow').innerHTML = DATA.pipeline.map(s => `<div role="listitem"><strong>${esc(s.step)}</strong><span class="small muted">${esc(s.when)}</span><p class="small" style="margin:var(--space-2) 0">${esc(s.what)}</p>${chips(s.fr)}</div>`).join('');
+  $('#examples-table tbody').innerHTML = DATA.examples.map(e => `<tr><td><strong>${esc(e.org)}</strong></td><td>${esc(e.practice)}</td><td>${esc(e.take)}</td><td style="white-space:nowrap">${esc(e.src)}</td></tr>`).join('');
+  $('#board-table tbody').innerHTML = DATA.boardMoments.map(b => `<tr><td style="white-space:nowrap"><strong>${esc(b.when)}</strong></td><td>${esc(b.point)}</td><td>${esc(b.board)}</td><td>${chips(b.fr)}</td></tr>`).join('');
+  $('#deck-table tbody').innerHTML = DATA.deck.map(d => `<tr><td>${esc(d.name)}</td><td>${d.day <= 3 ? 'Dag ' + d.day : 'Online, na dag 3'}</td></tr>`).join('');
+  $('#phase-table tbody').innerHTML = DATA.phases.map(p => `<tr><td><strong>${esc(p.name)}</strong></td><td style="white-space:nowrap">${esc(p.when)}</td><td>${esc(p.text)}</td></tr>`).join('');
+
+  $('#deliv-participant').innerHTML = DATA.deliverables.participant.map(d => `<li>${esc(d)}</li>`).join('');
+  $('#deliv-trainer').innerHTML = DATA.deliverables.trainer.map(([d, r]) => `<li>${esc(d)} ${chips(r)}</li>`).join('');
+
+  $('#people').innerHTML = DATA.people.map(p => p.unknown
+    ? `<div class="bds-card is-tier-3 person"><h4>${p.name}</h4><p>Ontwikkeldoelen nog niet bekend.</p></div>`
+    : `<div class="bds-card is-tier-2 person"><h4>${p.name}</h4><p>${esc(p.role)}</p><p class="muted"><strong>Zoekt:</strong> ${esc(p.seeks)}</p><div>${chips(p.lu)}</div></div>`).join('');
+
+  $('#kiss').innerHTML = DATA.kiss.map(k => `
+    <div class="kiss-pair reveal">
+      <div class="bds-card is-tier-1"><h4>Gekozen</h4><p>${esc(k.chosen)}</p></div>
+      <div class="bds-card is-tier-3"><h4>Verworpen</h4><p>${esc(k.rejected)}</p></div>
+      <p class="kiss-reason"><strong>Waarom:</strong> ${esc(k.why)}</p>
+    </div>`).join('');
+
+  $('#workshops').innerHTML = DATA.workshops.map(w => `
+    <div class="bds-card is-tier-1"><div class="bds-eyebrow">Dag ${w.day}</div><h4 style="margin:0 0 var(--space-2);font-size:var(--text-lg)">${esc(w.name)}</h4>
+    <p class="small" style="margin:0 0 var(--space-2)">${esc(w.task)}</p>${chips(w.lu)}</div>`).join('');
+
+  // Programma voor print: alle dagen als tabel.
+  $('#prog-print').innerHTML = DATA.days.map(d => `<h3>Dag ${d.n} — ${d.date}: ${esc(d.title)}</h3>
+    <div class="table-wrap"><table><thead><tr><th>Tijd</th><th>Blok</th><th>Invoer uit de online omgeving</th><th>Uitkomst</th><th>LU</th></tr></thead><tbody>
+    ${d.blocks.map(b => `<tr><td style="white-space:nowrap">${b.s}–${b.e}</td><td><strong>${esc(b.title)}</strong>${b.detail ? ' ' + esc(b.detail) : ''}</td><td>${esc(b.input || '')}</td><td>${esc(b.output || '')}</td><td>${(b.lu || []).join(', ')}</td></tr>`).join('')}
+    </tbody></table></div>`).join('');
+}
+
+/* Verwijzingschips: spring naar de rij en laat die even oplichten. */
+function initChips() {
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a.chip'); if (!a) return;
+    const id = a.dataset.ref; let row = document.getElementById(anchor(id));
+    if (!row && id.startsWith('FR-')) { $('#eisen .filters button[data-tag="Alle"]').click(); row = document.getElementById(anchor(id)); }
+    if (!row) return;
+    e.preventDefault();
+    row.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    row.classList.remove('flash'); void row.offsetWidth; row.classList.add('flash');
+    history.replaceState(null, '', '#' + anchor(id));
+  });
+}
+
+/* ================================================================
+   PROGRAMMA-TIJDLIJN
+   ================================================================ */
+function initProgramme() {
+  const tabs = $('#day-tabs'), tl = $('#timeline'), det = $('#block-detail'), mix = $('#day-mix');
+  const start = toMin('9:30'), end = toMin('16:30'), px = 1.35;
+  tabs.innerHTML = DATA.days.map((d, i) => `<button class="seg" type="button" role="tab" aria-selected="${i === 0}" data-day="${i}">Dag ${d.n} · ${d.date}</button>`).join('');
+
+  const showBlock = (d, b, btn) => {
+    $$('.tl-block', tl).forEach(x => x.setAttribute('aria-pressed', x === btn));
+    det.innerHTML = `<div class="bds-eyebrow">Dag ${d.n} · ${b.s}–${b.e} · ${DATA.typeLabel[b.t]}</div>
+      <h3 style="margin:0">${esc(b.title)}</h3>${b.detail ? `<p class="small" style="margin:var(--space-2) 0 0">${esc(b.detail)}</p>` : ''}
+      ${b.t === 'pauze' ? '' : `<dl><dt>Invoer</dt><dd>${esc(b.input || '—')}</dd><dt>Uitkomst</dt><dd>${esc(b.output || '—')}</dd>
+      <dt>Leeruitkomsten</dt><dd>${chips(b.lu) || '—'}</dd><dt>Eisen</dt><dd>${chips(b.fr) || '—'}</dd></dl>`}`;
+  };
+
+  const showDay = i => {
+    const d = DATA.days[i];
+    $$('button', tabs).forEach(x => x.setAttribute('aria-selected', x.dataset.day == i));
+    tl.style.height = (end - start) * px + 'px';
+    tl.innerHTML = '';
+    d.blocks.forEach((b, j) => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = `tl-block t-${b.t}`;
+      btn.style.top = (toMin(b.s) - start) * px + 'px';
+      btn.style.height = Math.max((toMin(b.e) - toMin(b.s)) * px - 3, 16) + 'px';
+      btn.innerHTML = `<span class="tl-time">${b.s}</span><span class="tl-title">${esc(b.title)}</span>`;
+      btn.setAttribute('aria-label', `${b.s} tot ${b.e}: ${b.title}`);
+      btn.addEventListener('click', () => showBlock(d, b, btn));
+      tl.appendChild(btn);
+      if (!reduce && window.__motion) window.__motion.animate(btn, { opacity: [0, 1], transform: ['translateX(-8px)', 'none'] }, { duration: .35, delay: j * 0.04 });
+    });
+    // Tijdsverdeling per type, berekend uit de blokken.
+    const tot = {}; d.blocks.filter(b => b.t !== 'pauze').forEach(b => tot[b.t] = (tot[b.t] || 0) + toMin(b.e) - toMin(b.s));
+    const sum = Object.values(tot).reduce((a, b) => a + b, 0);
+    const col = { inhoud: '#ffffff', werkplaats: '#d4db3e', deck: '#f0ebe0', samen: '#1a1a1a', board: '#6b7280' };
+    mix.innerHTML = `<div class="mix" aria-hidden="true">${Object.entries(tot).map(([t, m]) => `<i style="width:${m / sum * 100}%;background:${col[t]}"></i>`).join('')}</div>`
+      + Object.entries(tot).map(([t, m]) => `${DATA.typeLabel[t]} ${m} min`).join(' · ') + ` · <strong>${sum} min</strong> leertijd`;
+    const first = d.blocks.find(b => b.t === 'werkplaats');
+    showBlock(d, first, $$('.tl-block', tl)[d.blocks.indexOf(first)]);
+  };
+  tabs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) showDay(+b.dataset.day); });
+  tabs.addEventListener('keydown', e => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    const cur = +($('[aria-selected="true"]', tabs)?.dataset.day || 0);
+    const nxt = (cur + (e.key === 'ArrowRight' ? 1 : DATA.days.length - 1)) % DATA.days.length;
+    showDay(nxt); $$('button', tabs)[nxt].focus();
+  });
+  showDay(0);
+}
+
+/* ================================================================
+   VOORTGANGSBALK EN ACTIEVE NAVIGATIE
+   ================================================================ */
+function initScrollUi() {
+  const bar = $('.progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    bar.style.transform = `scaleX(${h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)})`;
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const links = $$('.bds-nav-links a');
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  links.forEach(a => { const s = $(a.getAttribute('href')); if (s) io.observe(s); });
+}
+
+/* Start de onderdelen zonder bibliotheek meteen. */
+renderTables(); initChips(); initScrollUi();
+
+/* ================================================================
+   BIBLIOTHEKEN — elk apart geladen, zodat één storing de rest niet raakt
+   ================================================================ */
+const CDN = {
+  motion: 'https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm',
+  d3: 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm',
+  three: 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js',
+};
+
+// Motion: onthullen bij scrollen.
+(async () => {
+  try {
+    if (reduce) throw 0;
+    const M = await import(CDN.motion);
+    window.__motion = M;
+    const ease = [0.22, 1, 0.36, 1];
+    M.inView('.reveal', ({ target }) => {
+      target.classList.add('is-in');
+      M.animate(target, { opacity: [0, 1], transform: ['translateY(16px)', 'none'] }, { duration: .6, ease });
+    }, { amount: 0.15 });
+    M.inView('.reveal-group', ({ target }) => {
+      target.classList.add('is-in');
+      M.animate([...target.children], { opacity: [0, 1], transform: ['translateY(12px)', 'none'] }, { duration: .5, delay: M.stagger(0.08), ease });
+    }, { amount: 0.15 });
+  } catch (e) {
+    document.documentElement.classList.remove('js-motion');
+  }
+  initProgramme();
+})();
+
+// D3: taxonomie, herleidbaarheid, ritme, roadmap.
+(async () => {
+  let d3;
+  try { d3 = await import(CDN.d3); } catch (e) { console.warn('D3 niet geladen', e); return; }
+  for (const f of [drawBloom, drawTrace, drawRhythm, drawRoadmap]) {
+    try { f(d3); } catch (e) { console.error(f.name, e); }
+  }
+})();
+
+// Three.js: het groeiende casusdeck.
+(async () => {
+  initDeckLegend();
+  let THREE;
+  try { THREE = await import(CDN.three); drawDeck(THREE); }
+  catch (e) { console.warn('Three.js niet beschikbaar; de lijst toont de stand van het deck.', e); $('#deck-canvas').style.display = 'none'; }
+})();
+
+/* Activeer een animatie zodra een element in beeld komt. */
+function whenVisible(el, fn) {
+  if (reduce) return fn(true);
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); fn(false); } }, { threshold: 0.2 });
+  io.observe(el);
+}
+
+/* ---------------- Bloom-matrix ---------------- */
+function drawBloom(d3) {
+  const P = DATA.bloomP, K = DATA.bloomK;
+  const W = 760, x0 = 112, y0 = 56, cw = 108, ch = 66, H = y0 + K.length * ch + 10;
+  const svg = d3.select('#bloom').append('svg').attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role', 'img').attr('aria-label', 'Matrix van cognitief proces tegen kennistype. ' + DATA.lu.map(l => `${l.id}: ${P[l.p]}, ${K[l.k]}`).join('; ') + '.');
+  // Zwaartepunt lesdagen: toepassen t/m creëren.
+  svg.append('rect').attr('x', x0 + 2 * cw).attr('y', y0 - 26).attr('width', 4 * cw).attr('height', K.length * ch + 26).attr('rx', 10).attr('fill', '#fafbf0').attr('stroke', '#d4db3e');
+  svg.append('text').attr('x', x0 + 6 * cw - 8).attr('y', y0 - 10).attr('text-anchor', 'end').attr('font-size', 11).attr('font-weight', 700).attr('fill', '#1a1a1a').text('Zwaartepunt van de lesdagen');
+  P.forEach((p, i) => svg.append('text').attr('x', x0 + i * cw + cw / 2).attr('y', y0 - 34).attr('text-anchor', 'middle').attr('font-size', 12).attr('font-weight', 600).attr('fill', '#4b5563').text(p));
+  K.forEach((k, j) => {
+    svg.append('text').attr('x', x0 - 10).attr('y', y0 + j * ch + ch / 2 + 4).attr('text-anchor', 'end').attr('font-size', 12).attr('font-weight', 600).attr('fill', '#4b5563').text(k);
+    P.forEach((_, i) => svg.append('rect').attr('x', x0 + i * cw + 3).attr('y', y0 + j * ch + 3).attr('width', cw - 6).attr('height', ch - 6).attr('rx', 6).attr('fill', 'none').attr('stroke', '#e5e7eb'));
+  });
+  const groups = d3.group(DATA.lu, l => `${l.p}-${l.k}`);
+  const pos = new Map();
+  groups.forEach(arr => arr.forEach((l, j) => pos.set(l.id, [x0 + l.p * cw + cw / 2 + (j - (arr.length - 1) / 2) * 34, y0 + l.k * ch + ch / 2])));
+  const panel = $('#bloom-panel');
+  const select = id => {
+    const l = DATA.lu.find(x => x.id === id);
+    nodes.select('circle').attr('fill', d => d.id === id ? '#d4db3e' : '#fff');
+    panel.innerHTML = `<span class="id">${l.id}</span><code>${P[l.p]} / ${K[l.k]}</code> · dag ${l.days.join(', ')}<p style="margin:var(--space-2) 0 0">${esc(l.text)}</p>`;
+  };
+  const nodes = svg.selectAll('g.lu').data(DATA.lu).join('g').attr('class', 'node lu')
+    .attr('transform', d => `translate(${pos.get(d.id)})`).attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => `${d.id}: ${d.text}`)
+    .on('click', (e, d) => select(d.id)).on('mouseenter', (e, d) => select(d.id))
+    .on('keydown', (e, d) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(d.id); } })
+    .on('focus', (e, d) => select(d.id));
+  nodes.append('circle').attr('r', reduce ? 15 : 0).attr('fill', '#fff').attr('stroke', '#1a1a1a').attr('stroke-width', 2);
+  nodes.append('text').attr('text-anchor', 'middle').attr('dy', 4).attr('font-size', 10).attr('font-weight', 700).attr('fill', '#1a1a1a').text(d => d.id);
+  whenVisible($('#bloom'), now => {
+    if (now) return;
+    nodes.select('circle').transition().delay((d, i) => i * 90).duration(500).ease(d3.easeBackOut).attr('r', 15);
+  });
+}
+
+/* ---------------- Herleidbaarheid S&N → LU → eis → AC ---------------- */
+function drawTrace(d3) {
+  const reqs = [...DATA.fr, ...DATA.nfr], S = DATA.sn, L = DATA.lu, A = DATA.ac;
+  const rowH = 24, top = 40, span = reqs.length * rowH, H = top + span + 10, W = 760;
+  const colX = [44, 260, 480, 712];
+  const spread = (i, n) => top + (i + 0.5) * (span / n);
+  const nodes = [
+    ...S.map((d, i) => ({ id: d.id, col: 0, x: colX[0], y: spread(i, S.length), text: d.text })),
+    ...L.map((d, i) => ({ id: d.id, col: 1, x: colX[1], y: spread(i, L.length), text: d.text })),
+    ...reqs.map((d, i) => ({ id: d.id, col: 2, x: colX[2], y: top + (i + 0.5) * rowH, text: d.text })),
+    ...A.map((d, i) => ({ id: d.id, col: 3, x: colX[3], y: spread(i, A.length), text: d.text })),
+  ];
+  const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+  const links = [
+    ...S.flatMap(s => s.lu.map(l => ({ s: s.id, t: l }))),
+    ...reqs.flatMap(r => r.lu.map(l => ({ s: l, t: r.id }))),
+    ...A.flatMap(a => a.measuredBy.map(r => ({ s: r, t: a.id }))),
+  ].filter(l => byId[l.s] && byId[l.t]);
+  const fwd = new Map(), back = new Map();
+  links.forEach(l => { if (!fwd.has(l.s)) fwd.set(l.s, []); fwd.get(l.s).push(l.t); if (!back.has(l.t)) back.set(l.t, []); back.get(l.t).push(l.s); });
+  const walk = (id, m, set) => (m.get(id) || []).forEach(n => { if (!set.has(n)) { set.add(n); walk(n, m, set); } });
+  const related = id => { const s = new Set([id]); walk(id, fwd, s); walk(id, back, s); return s; };
+
+  // Dekking, berekend.
+  const snNoLu = S.filter(s => !s.lu.length).map(s => s.id);
+  const luNoReq = L.filter(l => !reqs.some(r => r.lu.includes(l.id))).map(l => l.id);
+  const luNoAc = L.filter(l => !A.some(a => a.measuredBy.some(r => reqById[r]?.lu.includes(l.id)))).map(l => l.id);
+  $('#coverage').textContent = (!snNoLu.length && !luNoReq.length && !luNoAc.length)
+    ? `Dekking: alle ${S.length} resultaten van S&N hebben een leeruitkomst, en alle ${L.length} leeruitkomsten hebben minstens één eis en één acceptatiecriterium.`
+    : `Let op: ${[...snNoLu.map(x => x + ' zonder leeruitkomst'), ...luNoReq.map(x => x + ' zonder eis'), ...luNoAc.map(x => x + ' zonder acceptatiecriterium')].join(', ')}.`;
+
+  const fill = n => n.col === 1 ? '#1a1a1a' : n.col === 0 ? '#f5f0e6' : '#fff';
+  const ink = n => n.col === 1 ? '#fff' : '#1a1a1a';
+  const svg = d3.select('#trace').append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+    .attr('aria-label', 'Herleidbaarheid van de resultaten van S&N via leeruitkomsten en eisen naar acceptatiecriteria. Dezelfde koppelingen staan in de tabellen van deel 3, 7 en 11.');
+  ['S&N', 'Leeruitkomsten', 'Eisen', 'Acceptatiecriteria'].forEach((t, i) => svg.append('text').attr('x', colX[i]).attr('y', 18).attr('text-anchor', 'middle')
+    .attr('font-size', 11).attr('font-weight', 700).attr('letter-spacing', '.08em').attr('fill', '#6b7280').text(t.toUpperCase()));
+  const link = d3.linkHorizontal().x(d => d[0]).y(d => d[1]);
+  const paths = svg.append('g').attr('fill', 'none').selectAll('path').data(links).join('path')
+    .attr('d', d => link({ source: [byId[d.s].x + 32, byId[d.s].y], target: [byId[d.t].x - 32, byId[d.t].y] }))
+    .attr('stroke', '#9ca3af').attr('stroke-width', 1.2).attr('opacity', .55);
+  const g = svg.append('g').selectAll('g').data(nodes).join('g').attr('class', 'node')
+    .attr('transform', d => `translate(${d.x},${d.y})`).attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => `${d.id}: ${d.text}`);
+  g.append('rect').attr('x', -32).attr('y', -9).attr('width', 64).attr('height', 18).attr('rx', 9)
+    .attr('fill', fill).attr('stroke', '#1a1a1a').attr('stroke-dasharray', d => d.id.startsWith('NFR') ? '3 2' : null);
+  g.append('text').attr('text-anchor', 'middle').attr('dy', 3.5).attr('font-size', 10).attr('font-weight', 700)
+    .attr('font-family', 'SF Mono, Monaco, Consolas, monospace').attr('fill', ink).text(d => d.id);
+
+  const panel = $('#trace-panel');
+  const focus = d => {
+    const s = related(d.id);
+    const on = l => s.has(l.s) && s.has(l.t);
+    g.attr('opacity', n => s.has(n.id) ? 1 : .18);
+    g.select('rect').attr('fill', n => n.id === d.id ? '#d4db3e' : fill(n));
+    g.select('text').attr('fill', n => n.id === d.id ? '#1a1a1a' : ink(n));
+    paths.attr('stroke', l => on(l) ? '#1a1a1a' : '#9ca3af').attr('opacity', l => on(l) ? 1 : .08).attr('stroke-width', l => on(l) ? 2 : 1.2);
+    const other = [...s].filter(x => x !== d.id);
+    panel.innerHTML = `<span class="id">${d.id}</span>${esc(d.text)}<div style="margin-top:var(--space-2)">${other.length ? 'Gekoppeld: ' + chips(other) : '<span class="muted">Geen koppelingen.</span>'}</div>`;
+  };
+  const reset = () => { g.attr('opacity', 1); g.select('rect').attr('fill', fill); g.select('text').attr('fill', ink); paths.attr('stroke', '#9ca3af').attr('opacity', .55).attr('stroke-width', 1.2); };
+  g.on('mouseenter', (e, d) => focus(d)).on('focus', (e, d) => focus(d)).on('click', (e, d) => focus(d));
+  svg.on('mouseleave', reset);
+
+  whenVisible($('#trace'), now => {
+    if (now) return;
+    paths.each(function () { const len = this.getTotalLength(); d3.select(this).attr('stroke-dasharray', `${len} ${len}`).attr('stroke-dashoffset', len); })
+      .transition().delay((d, i) => i * 14).duration(700).ease(d3.easeCubicOut).attr('stroke-dashoffset', 0)
+      .on('end', function () { d3.select(this).attr('stroke-dasharray', null); });
+  });
+}
+
+/* ---------------- Ritme van de werkplaats ---------------- */
+function drawRhythm(d3) {
+  const S = 220, R = 100, r = 62, data = DATA.rhythm, total = d3.sum(data, d => d.min);
+  const svg = d3.select('#rhythm').append('svg').attr('viewBox', `0 0 ${S} ${S}`).attr('role', 'img')
+    .attr('aria-label', 'Ritme van de werkplaats: ' + data.map(d => `${d.label} ${d.min} minuten`).join(', ') + '.');
+  const g = svg.append('g').attr('transform', `translate(${S / 2},${S / 2})`);
+  const pie = d3.pie().sort(null).value(d => d.min);
+  const arc = d3.arc().innerRadius(r).outerRadius(R).padAngle(0.015).cornerRadius(3);
+  const arcs = g.selectAll('path').data(pie(data)).join('path').attr('fill', d => d.data.color).attr('stroke', '#1a1a1a').attr('stroke-width', .8);
+  const label = d3.arc().innerRadius((r + R) / 2).outerRadius((r + R) / 2);
+  const lbl = g.selectAll('text.l').data(pie(data)).join('text').attr('class', 'l').attr('transform', d => `translate(${label.centroid(d)})`)
+    .attr('text-anchor', 'middle').attr('dy', 4).attr('font-size', 12).attr('font-weight', 700).attr('fill', d => d.data.color === '#1a1a1a' ? '#fff' : '#1a1a1a').text(d => d.data.min);
+  g.append('text').attr('text-anchor', 'middle').attr('dy', -2).attr('font-size', 30).attr('font-weight', 700).attr('fill', '#1a1a1a').text(total);
+  g.append('text').attr('text-anchor', 'middle').attr('dy', 18).attr('font-size', 11).attr('fill', '#6b7280').text('minuten');
+  if (reduce) { arcs.attr('d', arc); return; }
+  arcs.attr('d', d => arc({ ...d, endAngle: d.startAngle })); lbl.attr('opacity', 0);
+  whenVisible($('#rhythm'), () => {
+    arcs.transition().delay((d, i) => i * 250).duration(700).ease(d3.easeCubicOut)
+      .attrTween('d', d => { const i = d3.interpolate(d.startAngle, d.endAngle); return t => arc({ ...d, endAngle: i(t) }); });
+    lbl.transition().delay((d, i) => i * 250 + 600).duration(300).attr('opacity', 1);
+  });
+}
+
+/* ---------------- Roadmap ---------------- */
+function drawRoadmap(d3) {
+  const W = 760, left = 150, right = 20, top = 58, rowH = 30, ph = DATA.phases;
+  const H = top + ph.length * rowH + 28;
+  const parse = d3.utcParse('%Y-%m-%d');
+  const x = d3.scaleUtc().domain([parse('2026-11-01'), parse('2027-02-15')]).range([left, W - right]);
+  const svg = d3.select('#roadmap-viz').append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+    .attr('aria-label', 'Tijdlijn van de vijf fasen van november 2026 tot februari 2027. De tabel eronder bevat dezelfde fasen.');
+  const months = d3.utcMonth.range(parse('2026-11-01'), parse('2027-02-16'));
+  svg.append('g').selectAll('g').data(months).join('g').each(function (m) {
+    const s = d3.select(this);
+    s.append('line').attr('x1', x(m)).attr('x2', x(m)).attr('y1', top - 8).attr('y2', H - 22).attr('stroke', '#e5e7eb');
+    s.append('text').attr('x', x(m) + 4).attr('y', H - 8).attr('font-size', 11).attr('fill', '#6b7280')
+      .text(m.toLocaleDateString('nl-NL', { month: 'short', year: m.getUTCMonth() === 0 || m.getUTCMonth() === 10 ? 'numeric' : undefined, timeZone: 'UTC' }));
+  });
+  DATA.milestones.forEach(m => {
+    const mx = x(parse(m.date));
+    svg.append('line').attr('x1', mx).attr('x2', mx).attr('y1', top - 10).attr('y2', H - 22).attr('stroke', '#1a1a1a').attr('stroke-width', 1);
+    svg.append('text').attr('x', mx).attr('y', top - 16).attr('text-anchor', 'middle').attr('font-size', 10).attr('font-weight', 700).attr('fill', '#1a1a1a').text(m.label);
+  });
+  const rows = svg.append('g').selectAll('g').data(ph).join('g').attr('transform', (d, i) => `translate(0,${top + i * rowH})`);
+  rows.append('text').attr('x', left - 10).attr('y', rowH / 2 + 4).attr('text-anchor', 'end').attr('font-size', 12).attr('font-weight', 600).attr('fill', '#111827').text(d => d.name);
+  const bars = rows.append('rect').attr('y', 6).attr('height', rowH - 12).attr('rx', 5)
+    .attr('x', d => x(parse(d.start))).attr('fill', (d, i) => i === 1 || i === 3 ? '#d4db3e' : '#f0ebe0').attr('stroke', '#1a1a1a').attr('stroke-width', .8)
+    .attr('width', d => reduce ? Math.max(6, x(d3.utcDay.offset(parse(d.end), 1)) - x(parse(d.start))) : 0);
+  bars.append('title').text(d => `${d.name}: ${d.when}`);
+  // Vandaag
+  const today = new Date(); const t0 = x.domain();
+  if (today >= t0[0] && today <= t0[1]) {
+    const tx = x(today);
+    svg.append('line').attr('x1', tx).attr('x2', tx).attr('y1', 20).attr('y2', H - 22).attr('stroke', '#1a1a1a').attr('stroke-width', 2).attr('stroke-dasharray', '4 3');
+    svg.append('rect').attr('x', tx - 28).attr('y', 2).attr('width', 56).attr('height', 16).attr('rx', 8).attr('fill', '#d4db3e');
+    svg.append('text').attr('x', tx).attr('y', 14).attr('text-anchor', 'middle').attr('font-size', 10).attr('font-weight', 700).attr('fill', '#1a1a1a').text('VANDAAG');
+  }
+  if (!reduce) whenVisible($('#roadmap-viz'), () => bars.transition().delay((d, i) => i * 150).duration(700).ease(d3.easeCubicOut)
+    .attr('width', d => Math.max(6, x(d3.utcDay.offset(parse(d.end), 1)) - x(parse(d.start)))));
+}
+
+/* ---------------- Casusdeck in 3D ---------------- */
+function initDeckLegend() {
+  const ctr = $('.deck-controls'), leg = $('.deck-legend');
+  ctr.innerHTML = DATA.moments.map((m, i) => `<button class="seg" type="button" aria-pressed="${i === deckState}" data-m="${i}">${m}</button>`).join('');
+  const update = m => {
+    deckState = m;
+    $$('button', ctr).forEach(b => b.setAttribute('aria-pressed', +b.dataset.m === m));
+    leg.innerHTML = DATA.deck.map(d => {
+      const cls = d.day === m ? 'is-current' : d.day < m ? 'is-built' : '';
+      const st = d.day === m ? 'nu gemaakt' : d.day < m ? 'staat er' : 'nog niet';
+      return `<li class="${cls}"><span class="dot"></span><span>${esc(d.name)} <span class="muted">· ${st}</span></span></li>`;
+    }).join('');
+    setDeckState(m);
+  };
+  ctr.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; stopAuto(); update(+b.dataset.m); });
+  let timer = null; const stopAuto = () => { clearInterval(timer); timer = null; };
+  update(reduce ? 3 : 0);
+  if (!reduce) { let m = 0; timer = setInterval(() => { m++; update(m); if (m >= 3) stopAuto(); }, 1600); }
+}
+
+function drawDeck(THREE) {
+  const wrap = $('#deck-canvas');
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  wrap.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  camera.position.set(6.6, 5.0, 8.0); camera.lookAt(0.5, 1.4, 0);
+  const group = new THREE.Group(); scene.add(group);
+
+  const geo = new THREE.BoxGeometry(3.2, 0.08, 2.0);
+  const edges = new THREE.EdgesGeometry(geo);
+  const C = { yellow: new THREE.Color('#d4db3e'), cream: new THREE.Color('#f5f0e6'), white: new THREE.Color('#ffffff'), ink: new THREE.Color('#1a1a1a'), ghost: new THREE.Color('#d1d5db') };
+  const slabs = DATA.deck.map((d, i) => {
+    const mat = new THREE.MeshBasicMaterial({ color: C.white, transparent: true, opacity: 0 });
+    const mesh = new THREE.Mesh(geo, mat);
+    const lineMat = new THREE.LineBasicMaterial({ color: C.ghost.clone() });
+    mesh.add(new THREE.LineSegments(edges, lineMat));
+    const home = new THREE.Vector3(0, i * 0.27, 0);
+    const away = new THREE.Vector3(1.5 + (i % 2) * 0.35, 2.5 + i * 0.12, -1.3);
+    mesh.position.copy(away);
+    group.add(mesh);
+    return { d, mesh, mat, lineMat, home, away, target: away, fill: C.white, line: C.ghost, op: 0 };
+  });
+  setDeckState = m => slabs.forEach(s => {
+    const built = s.d.day <= m, cur = s.d.day === m;
+    s.target = built ? s.home : s.away;
+    s.fill = cur ? C.yellow : C.cream; s.op = built ? 1 : 0;
+    s.line = built ? C.ink : C.ghost;
+  });
+  setDeckState(deckState);
+
+  let px = 0, py = 0;
+  wrap.addEventListener('pointermove', e => { const r = wrap.getBoundingClientRect(); px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5; });
+  wrap.addEventListener('pointerleave', () => { px = 0; py = 0; });
+
+  const size = () => { const w = wrap.clientWidth, h = wrap.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  new ResizeObserver(size).observe(wrap); size();
+
+  let visible = true;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(wrap);
+  const clock = new THREE.Clock();
+  const k = reduce ? 1 : 0.08;
+  renderer.setAnimationLoop(() => {
+    if (!visible) return;
+    const t = clock.getElapsedTime();
+    slabs.forEach(s => {
+      s.mesh.position.lerp(s.target, k);
+      s.mat.color.lerp(s.fill, k); s.lineMat.color.lerp(s.line, k);
+      s.mat.opacity += (s.op - s.mat.opacity) * k;
+    });
+    const ry = -0.42 + (reduce ? 0 : Math.sin(t * 0.35) * 0.07) + px * 0.35;
+    group.rotation.y += (ry - group.rotation.y) * 0.06;
+    group.rotation.x += ((reduce ? 0 : py * 0.12) - group.rotation.x) * 0.06;
+    renderer.render(scene, camera);
+  });
+}
+</script>
+</body>
+</html>
