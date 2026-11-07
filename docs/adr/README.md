@@ -29,6 +29,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-023](ADR-023-regelboek-met-werkregels.md) | Een regelboek met werkregels dat de groep zelf schrijft | Aanvaard | 2026-11-07 |
 | [ADR-024](ADR-024-resultaten-sn-als-enige-doelen.md) | De resultaten van S&N als enige doelen; geen leeruitkomsten en geen Bloom | Aanvaard | 2026-11-07 |
 | [ADR-025](ADR-025-kiss-opschoning-na-de-scan.md) | KISS-opschoning na de scan: minder dubbel, eerlijke KISS-keuzes, FR-12 in FR-18 | Aanvaard | 2026-11-07 |
+| [ADR-026](ADR-026-strategie-als-bril.md) | Strategie als bril: vaste definities, emergente strategie en de missie op dag 3 | Aanvaard | 2026-11-07 |
 
 ## Opbouw van een ADR
 

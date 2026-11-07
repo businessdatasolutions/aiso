@@ -2,6 +2,25 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.15 — 2026-11-07
+
+**Toegevoegd** (ADR-026)
+- FR-30: tien minuten strategie aan het begin van "Van visie naar doelen" op dag 1. Het blok geeft de drie vaste definities van visie, missie en strategie. Daarna volgen twee filmpjes uit de tutorial "Van klassieke naar organische strategie", gecompliceerd tegenover complex, en de lus keuzes → dynamiek → opties → inzichten. Bij elk doel staat een signaal om het los te laten.
+- FR-31: in de afsluiting van dag 3 schrijft elke deelnemer de missie in één zin, uit de drie ADR's van de boardmomenten. De zin komt bovenaan het deckonderdeel Conclusie.
+- AC-20 meet het signaal bij elk doel en de missie.
+- Materiaal bij dag 1, 11:00: de twee filmpjes en de tutorial.
+- Bronnen: Mintzberg en Waters (1985), Werner en Le-Brun (2025) en de tutorial (ten Hove, 2026).
+
+**Gewijzigd** (ADR-026)
+- De KISS-keuze over modellen noemt de bril en de kosten ervan: tien minuten.
+- 6.3: elk boardmoment is één ronde van de lus.
+- Dag 2, "Zo bouwen AI-bedrijven": de voorbeelden laten de lus in het groot zien.
+- Dag 3, buildplan: bij de fase opschaling de vraag "verspreiden of opleggen?".
+- Dag 3, afsluiting: heet nu "missie, eigen rol en volgende stap" en dient SN2.
+- Bouwstenen voor het draaiboek: de tien minuten strategie, de vraag over verspreiden en de missie.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.14 — 2026-11-07
 
 **Gewijzigd** (ADR-025, na de [KISS-scan](onderzoek/2026-11-07-kiss-scan.md))

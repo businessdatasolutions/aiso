@@ -84,6 +84,20 @@ Toon het regelboek met de vier werkregels van de groep: "De werkregels die we ho
 
 ## Dag 1 · Van visie naar doelen
 
+### Tien minuten strategie (FR-30)
+
+**Herkomst.** De tutorial "Van klassieke naar organische strategie" van de trainer (ten Hove, 2026): https://businessdatasolutions.github.io/emergent-strategy-tutorial/. Download de twee filmpjes vooraf, zodat ze ook zonder internet werken.
+
+1. **Het klassieke pad.** Toon het eerste filmpje (10 seconden): vandaag → een boog → de visie over vijf jaar, met de missie als stip. Geef de drie definities:
+   - **Visie:** hoe de wereld eruitziet in de toekomst. Een beeld van de veranderende omgeving waarin je organisatie zal opereren.
+   - **Missie:** welke plek je ziet voor de organisatie in die toekomstige wereld. De rol en positie die je wilt innemen.
+   - **Strategie:** welk pad je gaat volgen richting die nieuwe positie. De keuzes en stappen om van nu naar je gewenste plek te komen.
+2. **Waarom dat bij AI vastloopt.** Een straalmotor is gecompliceerd: duizenden onderdelen, maar voorspelbaar. De oceaan is complex: een kleine verandering heeft onvoorspelbare gevolgen. AI hoort bij de oceaan; dat zagen de deelnemers om 10:00 aan de grillige grens. Wie één stip kiest en ernaartoe blijft lopen, loopt een groot risico dat het de verkeerde stip is.
+3. **Het organische pad.** Toon het tweede filmpje (25 seconden): korte stappen naar de "ware toekomst". De missie verschijnt pas onderweg. Mintzberg noemt dit emergente strategie: strategie die ontstaat uit wat je doet (Mintzberg & Waters, 1985).
+4. **De lus.** Keuzes → dynamiek → opties → inzichten. Zeg: "Elk boardmoment is één ronde. Een missie schrijven we vandaag niet; die zie je op dag 3."
+5. **Aanhaken.** In de Eerste blik online lazen ze het advies van Reid Hoffman: herzie de AI-strategie elke week. Vraag wat ze daar toen van vonden.
+
+- **Signaal om los te laten.** Vraag bij elk van de 2–4 doelen: "Wat zou er moeten gebeuren om dit doel los te laten?" Dat signaal staat bij het doel in het deck (AC-20).
 - **Risicobereidheid.** Besturen bespreken hun risicobereidheid zelden. Die verschilt per persoon, en dat blijft onuitgesproken (Linda Hill, in Bloomberg Podcasts, 2026). Vraag in de duo's: "Hoeveel risico wil jullie directie nemen met AI, en wie heeft dat ooit hardop gezegd?" Het antwoord hoort in de visie, bij de rol van de mens (SN2).
 
 ## Dag 1 · Stakeholders
@@ -138,6 +152,7 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 - **Zelfstandigheid per fase.** Toon `materiaal/groeimodel.html`. Elke fase in het buildplan krijgt een niveau: Ask, Assist of Automate, met wie beslist. Het experiment draait op Ask. Automate komt alleen in beeld voor duidelijke gevallen met een laag risico, en altijd met een harde grens.
 - **Afstempelen.** Na een reeks goede voorstellen wordt menselijke controle ongemerkt een stempel. Na ongeveer honderd goedkeuringen leest niemand ze meer [B3]. Tegenmaatregel in de test gate: laat een steekproef eerst door een mens scoren, en vergelijk pas daarna met de AI.
 - **Geen eigenaar, geen agent.** Wie is verantwoordelijk voor het resultaat? Zonder eigenaar blijft het een demo. Dat is de senior sponsor uit FR-15.
+- **Verspreiden of opleggen (Werner & Le-Brun, 2025).** Na een paar geslaagde experimenten is de reflex: "Hoe schalen we dit op?" Dat wordt meestal een opdracht van bovenaf om één werkwijze overal in te voeren. Dan verdwijnt het eigenaarschap, en wie niet aan het experiment meedeed, voert alleen nog uit. Octopusorganisaties laten een werkwijze die werkt zich verspreiden: een ander team neemt hem over en past hem aan. Vraag bij de fase opschaling: "Welk team neemt dit als eerste over, en waarom zou het dat willen?"
 - **Regels voor wat de AI mag doen (blueprint).** Schrijf ze als aanleiding → controle → handhaving: "Als X gebeurt, controleer Y. Doe dan Z: ga door, pauzeer voor een mens, of stop" (Wang e.a., 2026).
 
 ## Dag 3 · Governance (FR-16)
@@ -167,6 +182,12 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 
 - Geef de AI de kritiektrace als bron voor de scepticus, of het deel dat bij de use case past. Vraag de scepticus om bewijs én tegenbewijs. Een scepticus zonder tegenbewijs is een tegenstander, geen toets.
 - Nabespreken: welke van de vier soorten weerstand speelde de AI? Verlies, onzekerheid, verlies van controle, of een terechte zwakke plek?
+
+## Dag 3 · Afsluiting: de missie (FR-31)
+
+- Toon het tweede filmpje nog één keer (25 seconden): "Dit is het pad dat je in drie dagen liep."
+- Laat iedereen de drie ADR's van de boardmomenten naast elkaar leggen. Vraag: "Welke plek zie je nu voor je organisatie in de wereld uit je visie?" Eén zin, met de ADR waaruit die volgt. De zin komt bovenaan het deckonderdeel Conclusie (AC-20).
+- Zeg erbij: deze missie is de stand van nu. De volgende rondes van de lus kunnen hem nog veranderen.
 
 ## Achtergrond en reserve voor de trainer
 
