@@ -5,6 +5,47 @@
 - **Bronnen:** `background-docs/2026-11-07-volwassen-ai-blijft-zeldzaam.md` (het volwassenheidsrapport) en `background-docs/2026-11-06-kritiek-op-ai-inzet-query-trace.md` (de kritiektrace, met codes als [B2]). De literatuur staat in de LRD onder Bronnen.
 - **Regel:** kies per blok hooguit één of twee punten om echt te zeggen. De rest is reserve voor vragen.
 
+## Alle dagen · Het regelboek (FR-28, FR-29)
+
+**Herkomst.** Het regelboek komt uit de minor AI in Business van de trainer (ADR-023). Daar groeide het per week. Hier groeit het per lesdag, tot vier werkregels.
+
+### Opening dag 1: werkregel 1 (3 minuten)
+
+1. Toon het lege regelboek met vier plekken, op een flap of dia. Alleen werkregel 1 is ingevuld.
+2. Lees voor: "Voordat je pauze neemt, zet je **altijd** AI aan het werk."
+3. Zeg waarom: een onderzoek met de onderzoeksfunctie van je AI duurt tien tot twintig minuten. Dat is precies een pauze. Wie de AI vóór de pauze een taak geeft, heeft na de pauze iets om mee verder te werken.
+4. Doe het zelf voor bij de pauze van 10:45. Geef je eigen AI de taak van de startpagina, en laat na de pauze zien wat eruit kwam.
+
+### Vóór en na elke pauze
+
+- De startpagina toont werkregel 1 vijf minuten vóór elke pauze, met een idee voor een AI-taak die het blok erna voorbereidt. De taken staan in de LRD, bij de pauzes in het programma (veld `aiTask`). Zo staan ze op één plek.
+- Zeg de werkregel hardop bij de eerste twee pauzes. Daarna doet de startpagina het.
+- Na de pauze: "Wat heeft je AI gemaakt?" Eén voorbeeld is genoeg. Een taak die mislukte, is stof voor het nabespreken (vraag 2).
+- Ook in de pauze werkt de AI alleen met openbare of verzonnen gegevens (NFR-01).
+
+### Laatste vijf minuten van het nabespreken: een nieuwe werkregel
+
+1. Bij de derde vaste vraag ("Wat vraagt dit van mijn organisatie?") schrijft elk duo één werkregel op: één korte zin over gedrag.
+2. Elk duo leest de eigen werkregel voor, zonder discussie.
+3. Iedereen heeft één stem, niet voor de werkregel van het eigen duo. De meeste stemmen winnen. Staken de stemmen, dan beslist de trainer.
+4. Schrijf de werkregel in het regelboek en maak één woord vet. Zet de tekst na de lesdag in de LRD (`rules`). Dan staat hij ook in deel 6.2 en op de startpagina.
+
+**Een goede werkregel** beschrijft een handeling, past in één zin, en is te zien in het werk. "Wees kritisch op AI" is te vaag: wat doe je dan? "Zoek elke bron op voordat je hem doorstuurt" is een werkregel.
+
+**Reserve.** Komt de groep er niet uit, bied dan een werkregel uit het regelboek van de minor aan. Kies er een die past bij wat de groep die dag deed.
+
+| Werkregel | Past bij |
+|---|---|
+| Doe iets **geks**. | Werkplaats 1: een board met een onverwacht lid |
+| **Leren** gaat boven resultaat. | Werkplaats 2: ook een mislukt experiment levert iets op |
+| Technologie is **niet** de drempel. | Werkplaats 3: weerstand gaat zelden over techniek |
+| Maak het probleem van **een ander** nooit het jouwe. | Governance: wie is eigenaar? |
+| Het is **nooit** af. | ADR's en wijzigingslog: elk besluit kan een nieuwe ADR krijgen |
+
+### Afsluiting dag 3
+
+Toon het regelboek met de vier werkregels van de groep: "De werkregels die we houden, dag na dag."
+
 ## Dag 1 · Wat AI nu kan en niet kan (FR-26)
 
 ### Werkvorm "Mens tegen agent" (5 minuten, aan het begin van het blok)
@@ -30,7 +71,6 @@
   2. Een ontbrekend feit → doorvragen in plaats van invullen (K-0501).
   3. Tegenstrijdige feiten → escaleren naar een mens (K-0505).
   4. Het eigen huiswerk nakijken → een tweede, aparte controle.
-- **Vier kennisvormen.** Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt.
 - **Een agent is opgebouwd als een organisatie.** Toon als voorbeeld uit een andere sector de publieke pagina https://businessdatasolutions.github.io/santeon-presentatie/harness.html. Zeg erbij dat het voorbeeld uit een ziekenhuis komt. De kern: het taalmodel is de professional, de harness (de besturing rond het model) is het kwaliteitssysteem, het contextvenster is het dossier op tafel. Het model huur je, de harness bouw je zelf.
 
 ### Nederlandse uitleg bij Engelse termen (NFR-08)
@@ -40,14 +80,11 @@
 | Agent | Een systeem dat een taalmodel gebruikt om een taak in stappen uit te voeren, binnen vaste grenzen. |
 | Harness | Alles rond het model: welke informatie het krijgt, welke hulpmiddelen het mag gebruiken, en wat er gebeurt bij een fout. |
 | Contextvenster | Wat het model op dit moment leest. |
-| RAG | Het systeem zoekt passende documenten en zet die bij de vraag. |
-| Kennisgraaf | Begrippen en hun relaties, vooraf vastgelegd. |
-| LLM-wiki | Kennis als kaarten met bron en datum, door mensen bijgehouden. |
 | Jagged frontier | De grillige grens tussen taken die AI goed kan en taken waarbij AI fouten maakt. |
 
 ## Dag 1 · Van visie naar doelen
 
-- **Risicobereidheid.** Besturen bespreken hun risicobereidheid zelden. Die verschilt per persoon, en dat blijft onuitgesproken (Linda Hill, in Bloomberg Podcasts, 2026). Vraag in de duo's: "Hoeveel risico wil jullie directie nemen met AI, en wie heeft dat ooit hardop gezegd?" Het antwoord hoort in de visie, bij de rol van de mens (LU2).
+- **Risicobereidheid.** Besturen bespreken hun risicobereidheid zelden. Die verschilt per persoon, en dat blijft onuitgesproken (Linda Hill, in Bloomberg Podcasts, 2026). Vraag in de duo's: "Hoeveel risico wil jullie directie nemen met AI, en wie heeft dat ooit hardop gezegd?" Het antwoord hoort in de visie, bij de rol van de mens (SN2).
 
 ## Dag 1 · Stakeholders
 
@@ -71,7 +108,7 @@
 ## Dag 2 · Werkplaats 2: PRD en experiment (FR-20)
 
 - **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
-- **Kennisvorm.** Welke kennis heeft de use case nodig, en wie houdt die bij? Gebruik de laatste stap van `materiaal/kennisvormen.html`.
+- **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
 - **Experiment met een agent.** De vier faalwijzen van dag 1 zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
 
 ## Dag 3 · Transformatieplan en draagvlak (FR-24)
@@ -86,6 +123,11 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 4. Los het niet meteen op.
 
 **Drie valkuilen voor wie leiding geeft:** de weerstand persoonlijk maken, erover moraliseren, en te snel een oplossing willen. Bron: Carucci (2026). Breng dit als vier vragen, niet als nieuw model (KISS-keuze in deel 5.1 van de LRD).
+
+### Cultuur: werkregels voor het eigen team
+
+- Vraag: "Welke werkregel uit ons regelboek zou in jouw team werken? En welke werkregel heeft jouw team nodig die wij nog niet hebben?"
+- Elke deelnemer schrijft één of twee werkregels bij cultuur in het 7S-plan (FR-24, AC-16). Een werkregel voor een team gaat over hoe het team met AI werkt: de gedeelde waarden en de stijl uit 7S.
 
 ### Vaardigheden en mensen
 
@@ -110,7 +152,7 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
    4. Weet je waar een mens het besluit neemt?
    5. Weet je of de AI naar het werkproces kijkt of naar personen?
 3. Kies de vraag met de meeste "Nee, en ik weet niet wie het weet". Laat de duo's daar vijf minuten over praten: wie in jouw organisatie weet het antwoord?
-4. Vraag: "Wie vraag je morgen?" Iedereen noemt een functie, nooit een naam. Die vraag wordt de volgende stap in het actieplan (FR-12).
+4. Vraag: "Wie vraag je morgen?" Iedereen noemt een functie, nooit een naam. Die vraag kan de volgende stap worden: de deelnemer zet hem in de gevolgen van de ADR bij het boardmoment van 15:45 (FR-18), en van daaruit in het actieplan.
 5. Daarna beantwoordt elke deelnemer de vijf vragen voor de eigen use case (AC-07).
 
 ### Hulpmiddelen bij vraag 4 en 5
@@ -128,8 +170,8 @@ Gebruik ze bij het onderdeel "per stakeholder één actie van weerstand naar dra
 
 ## Achtergrond en reserve voor de trainer
 
-- **De atlas met raamwerken** (Engelstalig): `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-07-01-ai-maturity-frameworks-visuals.html`. Lokaal openen; de pagina laadt zijn bibliotheken uit een eigen map. Gebruik hem bij vragen, niet als lesstof (KISS-keuze in 5.1). De cijfers in sectie 0 zijn verouderd; gebruik het volwassenheidsrapport. De hergebruiknotitie (`onderzoek/2026-11-07-hergebruik-santeon-presentatie.md`, onderdeel 15) zegt per raamwerk bij welk blok het past. Twee kandidaten voor later: de 2×2 van Anand en Wu ("op welke taak richt je AI eerst?") bij LU3, en de ladder L0–L5 voor de eigen rol bij LU8.
-- **Het prototype van een agent, uit de zorg.** Een demo met doorvragen, controle, een tweede AI als beoordelaar en een terugval op trefwoorden. De publieke versie draait zonder live AI: https://businessdatasolutions.github.io/santeon-presentatie/demo.html. Een animatie zonder netwerk: https://businessdatasolutions.github.io/santeon-presentatie/vim-agent-animatie.html. Alleen als reserve bij vragen over FR-15 ("een artefact dat een tester kan proberen") of over een technische test (LU9). Zeg erbij dat het voorbeeld uit een ziekenhuis komt.
+- **De atlas met raamwerken** (Engelstalig): `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-07-01-ai-maturity-frameworks-visuals.html`. Lokaal openen; de pagina laadt zijn bibliotheken uit een eigen map. Gebruik hem bij vragen, niet als lesstof (KISS-keuze in 5.1). De cijfers in sectie 0 zijn verouderd; gebruik het volwassenheidsrapport. De hergebruiknotitie (`onderzoek/2026-11-07-hergebruik-santeon-presentatie.md`, onderdeel 15) zegt per raamwerk bij welk blok het past. Twee kandidaten voor later: de 2×2 van Anand en Wu ("op welke taak richt je AI eerst?") bij de prioriteiten van de roadmap (SN3), en de ladder L0–L5 voor de eigen rol bij de boardmomenten (FR-18).
+- **Het prototype van een agent, uit de zorg.** Een demo met doorvragen, controle, een tweede AI als beoordelaar en een terugval op trefwoorden. De publieke versie draait zonder live AI: https://businessdatasolutions.github.io/santeon-presentatie/demo.html. Een animatie zonder netwerk: https://businessdatasolutions.github.io/santeon-presentatie/vim-agent-animatie.html. Alleen als reserve bij vragen over FR-15 ("een artefact dat een tester kan proberen") of over een technische test (FR-21). Zeg erbij dat het voorbeeld uit een ziekenhuis komt.
 
 ## Voorbereide antwoorden
 

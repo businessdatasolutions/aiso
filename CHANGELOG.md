@@ -2,6 +2,60 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.14 — 2026-11-07
+
+**Gewijzigd** (ADR-025, na de [KISS-scan](onderzoek/2026-11-07-kiss-scan.md))
+- Acceptatiecriteria: AC-03 gaat op in AC-02, AC-13 in AC-05 en AC-18 in AC-04. AC-04, AC-06, AC-07, AC-14 en AC-16 verwijzen naar de elementen van hun FR.
+- NFR-04 gaat op in NFR-09. FR-12 gaat op in FR-18: de ADR van het boardmoment noemt de volgende stap voor het actieplan, en AC-12 meet die.
+- Risico's van 23 naar 15: toegang, thuiswerk en boards elk samengevoegd tot één risico.
+- KISS-keuzes van 18 naar 14 paren. De keuze over modellen telt al het gereedschap. De keuzes over fouten online zijn er nu één. Drie keuzes staan apart als "Spanningen".
+- De vier kennisvormen gaan van dag 1 (FR-26) naar de PRD in werkplaats 2 (FR-20). Dit staat ook zo in het materiaal per blok en in de draaiboek-bouwstenen.
+- Deel 10 voor de deelnemer komt uit het veld `deliverable` op de AC's. Het ritme in 6.2 komt uit `DATA.rhythm`.
+- FR-21 noemt de verwachting bij de vraagstelling. "Businesscase op één pagina" is "hooguit twee pagina's", zoals in FR-14.
+
+**Toegevoegd**
+- Toetsrapport van de KISS-scan in `onderzoek/`, met per voorstel de keuze van de trainer.
+
+**Verwijderd**
+- FR-12, NFR-04, AC-03, AC-13 en AC-18, acht risico's en vier KISS-paren.
+- De getypte lijsten met de opbouw van het verslag (6.4) en het ritme (6.2). Ook de dubbele beschrijving van een ADR in 6.3 en 6.4, en de takenlijst van de begeleider in 5.2.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7. Versie 0.12 en 0.13 zijn niet apart gepubliceerd.
+
+## 0.13 — 2026-11-07
+
+**Gewijzigd** (ADR-024)
+- Deel 3 heet "Doelen": de zeven resultaten van S&N zijn de enige doelen, met per resultaat de lesdagen, berekend uit het programma.
+- Alle eisen, programmablokken, werkplaatsen en deelnemerskaarten verwijzen met `sn` rechtstreeks naar de resultaten van S&N.
+- De herleidbaarheid in deel 7 heeft drie kolommen (S&N, eis, acceptatiecriterium). De dekkingsregel toetst per resultaat een eis en een acceptatiecriterium.
+- Deel 2 heeft drie kaders: Pink (2.1), Kolb (2.2) en COM-B (2.3).
+- De koptekst telt de resultaten van S&N. Deel 1, deel 4, FR-11, AC-09, de opleverlijst van de trainer en twee KISS-keuzes zijn aangepast.
+- Hersteld na de KISS-scan: de verwijzing naar axioma 2.4 in het programma van dag 3 is 2.3, en ADR-024 telt vijf programmablokken zonder resultaat. De laatste verwijzingen naar leeruitkomsten in de draaiboek-bouwstenen zijn omgezet.
+
+**Toegevoegd**
+- Een KISS-keuze: één laag doelen, in plaats van eigen leeruitkomsten tussen de resultaten van S&N en de eisen.
+
+**Verwijderd**
+- De leeruitkomsten LU1–9 (`DATA.lu`).
+- De taxonomie van Bloom: kader 2.1, de matrix in deel 3, `bloomP` en `bloomK`, en de bron Anderson & Krathwohl (2001).
+- De getypte verwijzingen naar leeruitkomsten tussen haakjes in 13 AC-teksten.
+
+## 0.12 — 2026-11-07
+
+**Toegevoegd** (ADR-023)
+- FR-28: werkregel 1 vanaf de opening van dag 1: "Voordat je pauze neemt, zet je altijd AI aan het werk." Elke pauze heeft een AI-taak (`aiTask`) die het blok erna voorbereidt.
+- FR-29 en AC-19: in het nabespreken van elke werkplaats kiest de groep een nieuwe werkregel. Na dag 3 telt het regelboek vier werkregels.
+- `DATA.rules` en de kaart "Het regelboek" in deel 6.2. De AI-taak staat bij elke pauze in het detailpaneel van deel 8.
+- Een KISS-keuze: vier werkregels die de groep zelf schrijft, in plaats van zes regels bij de start.
+- Twee risico's: werkregel 1 blijft een grap, en de groep komt niet tot een werkregel.
+- Startpagina: werkregel 1 met de AI-taak in de laatste vijf minuten vóór en tijdens elke pauze. De lijst toont de taak bij elke pauze.
+- Draaiboek-bouwstenen: het regelboek voor alle dagen, met reserveregels uit de minor, en werkregels voor het eigen team bij cultuur op dag 3.
+
+**Gewijzigd**
+- FR-24 en AC-16: bij cultuur in het transformatieplan staan één of twee werkregels voor het eigen team.
+- NFR-09: de startpagina toont werkregel 1 vóór elke pauze.
+- Axioma 2.3 en 2.4, de PAMS-tabel, het nabespreken in 6.2, zes programmablokken, de opleverlijsten en fase 0.
+
 ## 0.11 — 2026-11-07
 
 **Toegevoegd** (ADR-018 t/m ADR-022, uit de [hergebruiknotitie](onderzoek/2026-11-07-hergebruik-santeon-presentatie.md))

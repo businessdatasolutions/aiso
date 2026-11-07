@@ -74,6 +74,9 @@ h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.
 .nu-maakt { font-size: clamp(1rem, 1.35vw, 1.5rem); color: var(--border); margin: 12px 0 0; max-width: 60ch; }
 .nu-maakt b { color: var(--bg-off-white); }
 .nu-daarna { font-size: clamp(.875rem, 1.05vw, 1.2rem); color: var(--border-strong); margin: 8px 0 0; }
+/* Werkregel 1 vóór en tijdens een pauze (FR-28) */
+.nu-regel { font-size: clamp(1rem, 1.25vw, 1.4rem); color: var(--bg-off-white); margin: 14px 0 0; padding: 10px 16px; border-left: 4px solid var(--primary); background: rgba(212, 219, 62, .12); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 70ch; }
+.nu-regel b { color: var(--primary); }
 .bediening { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: clamp(14px, 1.6vw, 24px); }
 
 .timer { border: 1px solid var(--text-secondary); border-radius: var(--radius-lg); padding: clamp(8px, 1vw, 14px) clamp(18px, 2vw, 32px) clamp(10px, 1.1vw, 16px); text-align: center; min-width: 5.6ch; transition: background-color .3s, border-color .3s; }
@@ -142,6 +145,9 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; pad
 .rij.is-pauze .rij-inhoud { display: flex; align-items: center; gap: 12px; }
 .rij.is-pauze .blokknop { font-size: .95rem; color: var(--text-muted); }
 .rij.is-pauze.is-nu .blokknop { color: var(--text-primary); font-weight: 600; }
+.rij.is-pauze .rij-inhoud { flex-wrap: wrap; }
+.pauze-ai { flex: 1 1 28ch; min-width: 0; font-size: clamp(.875rem, .95vw, 1.05rem); color: var(--text-muted); }
+.pauze-ai b { color: var(--text-secondary); font-weight: 600; }
 
 .melding-kaart { background: var(--bg-page); border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: clamp(20px, 2.4vw, 32px); max-width: 70ch; }
 .melding-kaart h2 { font-size: clamp(1.25rem, 1.8vw, 1.75rem); margin: 0 0 12px; line-height: 1.25; }
@@ -196,6 +202,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
         <p class="nu-titel" id="nu-titel"></p>
         <p class="nu-maakt" id="nu-maakt" hidden></p>
         <p class="nu-daarna" id="nu-daarna" hidden></p>
+        <p class="nu-regel" id="nu-regel" hidden></p>
         <div class="bediening">
           <div class="pillen" role="group" aria-label="Timer">
             <button type="button" class="pil" data-modus="klok" aria-pressed="true">Volg de klok</button>
@@ -383,7 +390,7 @@ function tekenLijst() {
     if (b.t === 'pauze') {
       return `<li class="rij is-pauze" id="blok-${b.i}" data-blok-rij="${b.i}">
         <div class="rij-tijd"><span class="van-tot">${esc(b.s)}–${esc(b.e)}</span></div>
-        <div class="rij-inhoud">${knop}<span class="nu-badge">Nu</span></div></li>`;
+        <div class="rij-inhoud">${knop}<span class="nu-badge">Nu</span>${b.aiTask ? `<span class="pauze-ai"><b>AI aan het werk:</b> ${esc(b.aiTask)}</span>` : ''}</div></li>`;
     }
     const mat = Array.isArray(b.materials) ? b.materials.map(tegel).filter(Boolean) : [];
     return `<li class="rij" id="blok-${b.i}" data-blok-rij="${b.i}">
@@ -434,6 +441,29 @@ function bepaal() {
 }
 const naBlok = b => blokken.filter(x => x.sec >= b.eSec && x.i !== b.i).sort((p, q) => p.sec - q.sec)[0];
 
+/* Werkregel 1 uit het regelboek (DATA.rules): in de laatste vijf minuten vóór een pauze en
+   tijdens de pauze, met de AI-taak van die pauze. Staat buiten de sleutel van ververs(),
+   omdat het omslagpunt midden in een blok valt. */
+let vorigeRegel = '';
+function toonRegel(nu) {
+  const regel = (DATA.rules || []).find(r => r.n === 1 && r.text);
+  let pauze = null;
+  if (regel && nu.soort === 'blok') {
+    if (nu.b.t === 'pauze') pauze = nu.b;
+    else if (nu.rest <= VIJF_MIN) { const v = naBlok(nu.b); if (v?.t === 'pauze') pauze = v; }
+  }
+  const html = pauze
+    ? `<b>Werkregel 1</b> · ${esc(regel.text)}${pauze.aiTask ? `<br><b>Idee:</b> ${esc(pauze.aiTask)}` : ''}`
+    : '';
+  if (html === vorigeRegel) return;
+  const verschijnt = !vorigeRegel && !!html;
+  vorigeRegel = html;
+  const el = $('nu-regel');
+  el.hidden = !html;
+  el.innerHTML = html;
+  if (verschijnt && !eersteKeer) $('melding').textContent = `Werkregel 1: ${regel.text}`;
+}
+
 function ververs() {
   if (!dag) return;
   const nu = bepaal();
@@ -473,6 +503,7 @@ function ververs() {
   document.querySelectorAll('[data-modus]').forEach(k => k.setAttribute('aria-pressed', String(k.dataset.modus === staat.modus)));
   $('hand-knoppen').hidden = !(hand && nu.soort === 'blok');
   $('pauze').textContent = nu.gepauzeerd ? 'Verder' : 'Pauze';
+  toonRegel(nu);
 
   if (sleutel === vorigeSleutel) return;
   vorigeSleutel = sleutel;

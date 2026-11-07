@@ -24,11 +24,12 @@ No document we build may name a participant's employer, own company or a work do
 
 The LRD is one self-contained HTML page. The skill `aiso-building-lrds` defines its shape and process; follow it for every change.
 
-- **One data source.** All numbered items live in the `const DATA = {...}` object inside the `<script type="module">`. That covers learning outcomes `lu`, S&N results `sn`, requirements `fr` and `nfr`, acceptance criteria `ac`, the programme `days`, KISS choices `kiss`, the build pipeline `pipeline`, experiment types `experimentTypes`, board moments `boardMoments`, risks `risks`, phases `phases` and more. Tables, diagrams, chips and counts are all rendered from it.
+- **One data source.** All numbered items live in the `const DATA = {...}` object inside the `<script type="module">`. That covers the S&N results `sn` (the only goals: there are no separate learning outcomes and no Bloom tags, ADR-024), requirements `fr` and `nfr`, acceptance criteria `ac`, the programme `days`, KISS choices `kiss`, the build pipeline `pipeline`, experiment types `experimentTypes`, board moments `boardMoments`, risks `risks`, phases `phases` and more. Tables, diagrams, chips and counts are all rendered from it.
 - **Prose is static HTML.** This covers Parts 1–13, the didactic frameworks and the explanations.
-- **To add or change an item, edit `DATA`.** Do not hand-edit rendered tables. Cross-references are ID arrays: `lu` on FR/NFR/SN, `measuredBy` on AC, `refs` on risks, `fr` and `lu` on programme blocks. At load time, any ID that doesn't resolve is logged as `LRD: verwijzingen zonder doel`.
+- **To add or change an item, edit `DATA`.** Do not hand-edit rendered tables. Cross-references are ID arrays: `sn` on FR/NFR, workshops and participant cards, `measuredBy` on AC, `refs` on risks, `fr` and `sn` on programme blocks. At load time, any ID that doesn't resolve is logged as `LRD: verwijzingen zonder doel`.
 - **Counts are computed.** The `<b data-count="…">` stat numbers are rewritten by JS. Their static values are only a no-JS fallback, but keep them in sync.
-- **ID scheme.** `SN1–7` are the contractual S&N results. `LU1–9` are learning outcomes, tagged with a Bloom process/knowledge cell. Then `FR-NN`, `NFR-NN` and `AC-NN`. Never renumber: add new IDs at the end. Anchors are the lowercase IDs (`#fr-15`).
+- **ID scheme.** `SN1–7` are the contractual S&N results and the only goals. `LU1–9` existed up to version 0.12; don't reintroduce them, even though the skill `aiso-building-lrds` describes learning outcomes. Then `FR-NN`, `NFR-NN` and `AC-NN`. Never renumber: add new IDs at the end. Anchors are the lowercase IDs (`#fr-15`).
+- **Deliverables per participant** (Part 10) render from the `deliverable` field on AC items, so each product sits next to the criterion that measures it. The trainer list stays in `DATA.deliverables.trainer`.
 - **Materials per block.** A programme block may have `materials: [{ label, href }]`. `href` is relative to the repo root or an absolute https URL. The detail panel in Part 8 and the start page `materiaal/index.html` both render it.
 - **Visuals.** D3, Three.js and Motion load as ES modules from pinned jsDelivr versions (`d3@7.9.0`, `three@0.160.0`, `motion@11.11.13`). Each loads via its own dynamic `import()`, so one failing CDN doesn't break the rest. Tables render without any library.
 - **Brand.** The tokens and components are copied verbatim from `~/Projects/brand-project/stylebook/shared.css` (Business Data Solutions). The palette is chartreuse `#d4db3e` as the single signal accent, warm black, cream, and tier/edge cards. The page is deliberately light-only.
@@ -70,7 +71,7 @@ cd .claude/skills/aiso-schrap-ai-taal/scripts && PYTHONDONTWRITEBYTECODE=1 pytho
 PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider -k test_schone_tekst_blijft_stil
 ```
 
-`tekstcheck.py` flags F4 ("kondigt 3 aan, maar er volgen N") as a false positive when a table follows a numbered list. Judge each hit; don't apply them blindly. In a browser check, confirm there are no console errors and that the coverage line under "Van resultaat van S&N naar leeruitkomst, eis en bewijs" reports full coverage.
+`tekstcheck.py` flags F4 ("kondigt 3 aan, maar er volgen N") as a false positive when a table follows a numbered list. Judge each hit; don't apply them blindly. In a browser check, confirm there are no console errors and that the coverage line under "Van resultaat van S&N naar eis en bewijs" reports full coverage.
 
 ## Publishing as an artifact
 
