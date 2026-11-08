@@ -585,7 +585,7 @@ Elke deelnemer kiest per deel het briefje dat het zwaarst weegt. De zin bouwt zi
 
 ### 11:45–12:05 · De kansenkaart (20 minuten, FR-27)
 
-1. **Voordoen (10 minuten).** Toon `materiaal/kansenkaart.html`, stap 1 tot en met 8: het proces van Voorbeeld BV, de vier routes, en de vijf plekken waar AI kan helpen. Leg de brug: "Het vak Wie geeft de banen, het vak Waar en wanneer de fasen. Waar zit het probleem van Voorbeeld BV in de keten?"
+1. **Voordoen (10 minuten).** Toon `materiaal/kansenkaart.html`, stap 1 tot en met 8: het proces van Voorbeeld BV, de vier routes, en de vijf plekken waar AI kan helpen. Leg de brug: "Het vak Wie wijst de banen aan waar de last valt, het vak Waar en wanneer de situaties waarin het speelt. Waar zit het probleem van Voorbeeld BV in de keten?" Let op: de banen zijn alle rollen in de keten. Planning en Service staat niet in het vak Wie, maar daar gaat de klacht met de hand naartoe.
 2. **Zelf doen (10 minuten).** Toon stap 9, "Jouw proces". Elke deelnemer tekent de eigen procesketen op papier: rollen als banen, fasen als kolommen, een cijfer waar AI kan helpen, en bij elk cijfer wie beslist. Daarna de vraag uit FR-14: waar schuift het knelpunt heen als AI het oplost?
 
 ### 12:05–12:30 · De businesscase (25 minuten, FR-14)
