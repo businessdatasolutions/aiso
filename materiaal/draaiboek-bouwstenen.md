@@ -103,7 +103,7 @@ De kaart blijft drie dagen liggen, en je ziet je eerste antwoord terug zoals je 
 **"Mag ik de naam van mijn organisatie opschrijven?"**
 Ja, op je eigen kaart. Zet er niets vertrouwelijks op: de tekst gaat vanmiddag je AI in (NFR-01).
 
-## Dag 1 · 10:00–10:45 · Wat AI nu kan en niet kan (FR-26, NFR-08)
+## Dag 1 · 10:00–10:45 · Breed gebruikt, zelden volwassen (FR-26, NFR-08)
 
 **Materiaal:** klacht K-0505 uit `materiaal/voorbeeldcasus.md`, op een dia of het scherm; het voorbeeld uit de zorg, de maquette van een ziekenhuis (`materiaal/ziekenhuis.html`); de startpagina voor werkregel 1 om 10:40.
 **Uitkomst:** een begrippenkader voor de werkplaatsen.

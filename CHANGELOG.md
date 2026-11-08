@@ -2,6 +2,20 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.31 — 2026-11-08
+
+**Gewijzigd**
+- Het blok van 10:00 op dag 1 heet nu "Breed gebruikt, zelden volwassen", en niet meer "Wat AI nu kan en niet kan". De titel noemt de kernboodschap van het blok. De inhoud blijft gelijk. Ook FR-26, de kop in het draaiboek en de opmerkingen in `materiaal/ziekenhuis.html` hebben de nieuwe titel (ADR-044).
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
+## 0.30 — 2026-11-08
+
+**Gewijzigd**
+- Dag 1, "Wat AI nu kan en niet kan": het materiaal heet nu "Voorbeeld uit de zorg: AI in het ziekenhuis". Zo heet ook de kop van `materiaal/ziekenhuis.html`. "Als maquette" viel weg: dat is een woord uit het ontwerp, niet de titel van de pagina.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.29 — 2026-11-08
 
 **Gewijzigd**
