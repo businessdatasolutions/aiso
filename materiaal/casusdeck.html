@@ -11,7 +11,7 @@ Zo vul je in
 1. Vervang elke plaatshouder <span class="invul">[...]</span> in zijn geheel
    door de tekst van de deelnemer, dus zonder de span en zonder de haken.
 2. Schrijf hooguit drie zinnen per vak. Korte zinnen, in gewoon Nederlands.
-   Op dia 4, 5 en 6 zijn de vakken kleiner: daar hooguit twee korte zinnen.
+   Op dia 4, 5, 6 en 8 zijn de vakken kleiner: daar hooguit twee korte zinnen.
 3. Gebruik alleen wat de deelnemer geeft. Verzin geen cijfers, bronnen of
    citaten. Heb je voor een vak nog niets? Laat de plaatshouder dan staan.
 4. Noem mensen bij hun rol, niet bij hun naam.
@@ -209,8 +209,9 @@ table { border-collapse: collapse; width: 100%; }
 .regels li { min-height: 2.3em; padding: .35em 0 .25em; border-bottom: 1px solid var(--kleur-lijn); line-height: 1.3; }
 .regels b { font-weight: 650; margin-right: .3em; }
 
-/* ---------- Dia 2 en 8: twee kolommen ---------- */
+/* ---------- Dia 2 en 8: twee kolommen, dia 8 met een derde voor rem en aanjager ---------- */
 .twee { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1em; }
+.randvoorwaarden { grid-template-columns: 1.2fr 1fr 1fr; }
 .twee .stapel > .vak { min-height: 5.5em; }
 .twee .vak p, .doel p { font-size: .92em; }
 
@@ -710,7 +711,7 @@ table { border-collapse: collapse; width: 100%; }
         </dl>
       </div>
       <div class="kolom">
-        <h3 class="kolomkop">7S <span class="notitie">één actie per element</span></h3>
+        <h3 class="kolomkop">7S <span class="notitie">één actie per element, begin bij je sterkste rem</span></h3>
         <dl class="rijen">
           <div><dt>Strategie</dt><dd><span class="invul">[Hoe past AI in de koers?]</span></dd></div>
           <div><dt>Structuur</dt><dd><span class="invul">[Wie beslist, en wie werkt met wie?]</span></dd></div>
@@ -859,7 +860,7 @@ table { border-collapse: collapse; width: 100%; }
       <p class="label">V2 Transformeren</p>
       <h2 id="titel-8">Randvoorwaarden</h2>
     </header>
-    <div class="inhoud twee">
+    <div class="inhoud twee randvoorwaarden">
       <div class="kolom">
         <h3 class="kolomkop">Wat er moet zijn</h3>
         <dl class="rijen naast">
@@ -869,6 +870,19 @@ table { border-collapse: collapse; width: 100%; }
           <div><dt>Systemen en software</dt><dd><span class="invul">[Welke systemen en software? Wat moet erop aansluiten?]</span></dd></div>
           <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen kunnen dat ze nu nog niet kunnen?]</span></dd></div>
         </dl>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Wat remt, wat helpt <span class="notitie">Warner en Wäger</span></h3>
+        <div class="stapel">
+          <div class="vak">
+            <h3>Sterkste rem</h3>
+            <p><span class="invul">[Welke rem, waaraan zie je hem, en wat haal je weg?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Zwakste aanjager</h3>
+            <p><span class="invul">[Welke aanjager, waaraan zie je dat, en hoe versterk je hem?]</span></p>
+          </div>
+        </div>
       </div>
       <div class="kolom">
         <h3 class="kolomkop">Wat moet blijven werken</h3>

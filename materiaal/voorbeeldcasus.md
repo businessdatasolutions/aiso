@@ -208,6 +208,30 @@ verkennen naar benutten, staat uitvergroot ernaast, met twee banen (ADR-055).
 
 **Alleen in `vier-vragen.html`:** de tekening van de portfoliokaart en de korte woorden in de twee banen. Wijzig je hierboven iets, kijk dan ook daar.
 
+## Wat Voorbeeld BV moet kunnen (dag 3)
+
+- **Gebruik:** de lespagina `transformeren.html`, op dag 3 om 9:45 (FR-24). Het model is figuur 2 van Warner en Wäger (2019): drie vermogens, drie aanjagers en drie remmen (ADR-056).
+- **Verzonnen:** alles, net als de rest van Voorbeeld BV. Het komt uit de organisatie en de vier vragen hierboven.
+
+| Stap in het model | Bij Voorbeeld BV |
+|---|---|
+| Aanleiding van buiten | Installaties melden een storing zelf aan de fabrikant, en die kiest de monteur. Klanten vragen het eerst aan een AI-assistent. |
+| Waarnemen | Een signaal om los te laten: gaan de meeste storingen in 2027 rechtstreeks naar de fabrikant, dan kiest Voorbeeld BV opnieuw (V1). |
+| Kansen benutten | Twee sporen naast elkaar (V2), en zes weken AI-meesorteren in één team, met een norm vooraf (V3). |
+| Transformeren | Wat werkt, gaat via een pilot naar heel Klantcontact en dan naar Planning en Service. Service Zuid werkt een jaar per opdracht voor één fabrikant: de optie (V3). |
+| Vernieuwing | Het vaste aanspreekpunt van de klant, met een onderhoudsabonnement (doel 1). Van elke klacht leren, over de afdelingen heen (doel 3). |
+
+**Sterkste rem: starre strategische planning.** De nulmetingen laten het zien: een AI-strategie voor vijf jaar die
+het MT vaststelt (V1), één leverancier voor vijf jaar (V3) en elk kwartaal een mijlpaal met een datum (V4).
+
+**Zwakste aanjager: teams over afdelingen heen.** Elke afdeling ziet alleen de eigen klachten, en een klacht gaat met
+de hand van afdeling naar afdeling.
+
+Het transformatieplan van Voorbeeld BV begint bij die rem en die aanjager. In het casusdeck staan ze op de dia
+Randvoorwaarden.
+
+**Alleen in `transformeren.html`:** de tekening van het model, met de Nederlandse namen van de negen vermogens.
+
 ## De probleemformulering (dag 2)
 
 - **Gebruik:** het voorbeeld in stap 3 van `probleemformulering.html` (FR-39), aan het begin van het blok om 11:30 op dag 2. Het kader volgt de play "Problem framing" uit het Team Playbook van Atlassian: vier vakken en één probleemstelling.

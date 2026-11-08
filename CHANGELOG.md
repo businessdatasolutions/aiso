@@ -2,6 +2,22 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.40 — 2026-11-08
+
+**Nieuw**
+- Lespagina "Wat je organisatie moet kunnen" (`materiaal/transformeren.html`) voor dag 3 om 9:45: het model van
+  Warner en Wäger (2019) in het Nederlands. Drie vermogens (waarnemen, kansen benutten, transformeren), drie
+  aanjagers en drie remmen. Daarna Voorbeeld BV ingevuld, en de eigen sterkste rem en zwakste aanjager (ADR-056).
+- Casusdeck, dia 8 (Randvoorwaarden): een middelste kolom "Wat remt, wat helpt", voor de sterkste rem en de zwakste
+  aanjager. Dia 5 zegt bij 7S: "begin bij je sterkste rem". Het lege deck op de downloadpagina is bijgewerkt.
+
+**Gewijzigd**
+- Dag 3 om 9:45: na de twee portfolio's het model, dan de keuze, en het 7S-plan begint bij die rem. FR-24, de
+  werkkaart en het verloop volgen. De AI-taak van 15:00 en het deckblok van 15:15 nemen de rem en de aanjager mee.
+- V2 noemt het model bij de gereedschappen. Het ontwerpaxioma spreekt vier talen, en de KISS-keuze "één verklaring
+  en één patroon" noemt het model als de kant van de organisatie.
+- `voorbeeldcasus.md`: een sectie "Wat Voorbeeld BV moet kunnen". Het draaiboek heeft een script voor dag 3 om 9:50.
+
 ## 0.39 — 2026-11-08
 
 **Gewijzigd**

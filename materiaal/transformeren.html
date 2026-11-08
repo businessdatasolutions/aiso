@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Wat je organisatie moet kunnen</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Lespagina voor dag 3 om 9:45, bij vraag 2: het model van Warner en Wäger (2019). Drie vermogens, drie aanjagers en drie remmen, ingevuld voor Voorbeeld BV, en je eigen sterkste rem en zwakste aanjager.">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+/* Lespagina "Wat je organisatie moet kunnen" (dag 3 om 9:45, FR-24; ADR-056).
+   Bron van alles over Voorbeeld BV: materiaal/voorbeeldcasus.md, "Wat Voorbeeld BV moet kunnen".
+   Verander het daar en hier samen (ADR-021).
+   Huisstijl Business Data Solutions, alleen licht. De basis is gelijk aan vier-vragen.html.
+   Geel (--accent) is het enige accent: punt 5 en de keuze van de deelnemer. Nooit als tekstkleur op licht.
+   Zonder JavaScript staan alle stappen onder elkaar; de keuze werkt dan wel, maar blijft niet bewaard. */
+:root{
+  color-scheme:light;
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --warn:#B23A2E;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  --rand:2.2rem;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- Kop en voortgang ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:1rem var(--rand) .7rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:1.5rem;margin:.2rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.teller{margin-left:auto;font-family:var(--mono);color:var(--mutedSoft);font-size:.9rem;white-space:nowrap}
+.voortgang{background:var(--line)}
+.voortgang i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s ease}
+
+/* ---------- Stappen ---------- */
+main{min-height:0;overflow-y:auto;padding:1.2rem var(--rand) 2rem}
+.stap{max-width:110rem;margin:0 auto}
+.stap + .stap{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+.js .stap{display:none}
+.js .stap.actief{display:block}
+.js .stap + .stap{margin-top:0;padding-top:0;border-top:0}
+.wat{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+.stap h2{font-size:2.1rem;margin:.15rem 0 .7rem;letter-spacing:-.02em;line-height:1.12}
+.stap h3{font-size:1.2rem;margin:0 0 .35rem;line-height:1.25}
+p{margin:0 0 .6rem}
+.lead{font-size:1.25rem;line-height:1.45;color:var(--muted);max-width:66rem}
+.lead b{color:var(--ink)}
+.nadruk{font-size:1.2rem;font-weight:700;line-height:1.4;border-left:5px solid var(--accent);background:#fff;
+  padding:.55rem 1rem;border-radius:0 .5rem .5rem 0;margin:1rem 0 0;max-width:72rem}
+.kaart{background:var(--card);border:1.5px solid var(--line);border-radius:.9rem;padding:1rem 1.2rem}
+.kaart p:last-child{margin-bottom:0}
+.v{display:inline-block;font-family:var(--mono);font-size:.8rem;font-weight:700;background:var(--cream);border:1.5px solid var(--ink);
+  border-radius:.35rem;padding:.02rem .4rem;letter-spacing:0;line-height:1.5;white-space:nowrap}
+.label-klein{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700;margin-bottom:.2rem}
+a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+ol.lijst,ul.lijst{margin:.3rem 0 .6rem;padding-left:1.4rem;font-size:1.05rem;line-height:1.45}
+.lijst li{margin:.3rem 0}
+
+/* Iconen als masker: kleur volgt currentColor. lucide "bot", "door-open", "door-closed". */
+.icoon{display:inline-block;width:1.1em;height:1.1em;flex-shrink:0;background:currentColor;vertical-align:-.15em;
+  -webkit-mask:var(--icoon) center/contain no-repeat;mask:var(--icoon) center/contain no-repeat}
+.bot-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E")}
+.deur-open-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 4h3a2 2 0 0 1 2 2v14'/%3E%3Cpath d='M2 20h3'/%3E%3Cpath d='M13 20h9'/%3E%3Cpath d='M10 12v.01'/%3E%3Cpath d='M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z'/%3E%3C/svg%3E")}
+.deur-dicht-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14'/%3E%3Cpath d='M2 20h20'/%3E%3Cpath d='M14 12v.01'/%3E%3C/svg%3E")}
+
+/* ---------- Stap 1: het model ---------- */
+.model{margin:.6rem 0 0}
+.model svg{width:100%;height:auto;max-height:54vh;display:block;margin:0 auto}
+figcaption{font-size:.85rem;color:var(--mutedSoft);margin-top:.5rem;line-height:1.4}
+.m-kop{fill:#fff;stroke:var(--ink);stroke-width:2}
+.m-kop-buiten{fill:var(--cream);stroke:var(--ink);stroke-width:1.5}
+.m-kop-uit{fill:var(--cream2);stroke:var(--ink);stroke-width:1.5}
+.m-kop-tekst{font-size:21px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.m-kop-en{font-size:13px;fill:var(--mutedSoft);text-anchor:middle;font-style:italic}
+.m-vak{fill:#fff;stroke:#9ca3af;stroke-width:1.3}
+.m-vak-tekst{font-size:17px;fill:var(--ink);text-anchor:middle}
+.m-uit-tekst{font-size:17px;fill:var(--ink)}
+.m-dag{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.14em;fill:var(--mutedSoft);text-anchor:middle}
+.m-pijl{fill:none;stroke:var(--ink);stroke-width:2.2}
+.m-punthaak{fill:none;stroke:#9ca3af;stroke-width:1.4}
+.m-rij-naam{font-size:19px;font-weight:700;fill:var(--ink)}
+.m-rij-sub{font-size:14px;fill:var(--muted)}
+.m-aanjager{fill:#fff;stroke:var(--ink);stroke-width:1.6}
+.m-rem{fill:#fff;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:6 5}
+.m-teken{font-size:20px;font-weight:800;fill:var(--ink);text-anchor:middle}
+.m-vijf circle{fill:var(--accent);stroke:var(--ink);stroke-width:2.2}
+.m-vijf text{font-size:18px;font-weight:800;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.m-vijf-naam{font-size:13px;font-weight:700;fill:var(--ink);text-anchor:middle}
+
+/* ---------- Stap 2: Voorbeeld BV ---------- */
+.keten{list-style:none;margin:.9rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem}
+.keten li{background:#fff;border:1.5px solid var(--line);border-radius:.7rem;padding:.65rem .85rem;font-size:1rem;line-height:1.4;position:relative}
+.keten li.vermogen{border-color:var(--ink)}
+.keten li + li::before{content:"→";position:absolute;left:-.62rem;top:.55rem;font-weight:700;color:var(--mutedSoft);font-size:.9rem}
+.krachten{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.kracht{border-color:var(--ink)}
+.kracht.rem{border-style:dashed}
+.kracht h3 .teken{display:inline-block;width:1.1rem;font-weight:800}
+.kracht h3{font-size:1.2rem}
+.kracht p{font-size:1.05rem;line-height:1.45;color:var(--muted)}
+.kracht p b{color:var(--ink)}
+
+/* ---------- Stap 3: jouw keuze ---------- */
+form.keuze{margin:.9rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.4rem}
+form.keuze fieldset{border:0;margin:0;padding:0;min-width:0}
+form.keuze legend{font-size:1.2rem;font-weight:700;margin:0 0 .5rem;padding:0}
+.optie{display:grid;grid-template-columns:1.4rem minmax(0,1fr);gap:.1rem .6rem;align-items:start;background:#fff;border:1.5px solid var(--line);
+  border-radius:.7rem;padding:.6rem .85rem;margin:0 0 .5rem;cursor:pointer}
+.optie input{margin:.25rem 0 0;width:1.1rem;height:1.1rem;accent-color:var(--ink)}
+.optie b{font-size:1.05rem}
+.optie span{grid-column:2;font-size:.95rem;color:var(--muted);line-height:1.4}
+.optie:has(input:checked){border-color:var(--ink);box-shadow:inset 6px 0 0 var(--accent)}
+.optie:has(input:focus-visible){outline:2px solid var(--ink);outline-offset:2px}
+.waarom{grid-column:1 / -1;display:grid;gap:.4rem;font-size:1.05rem;font-weight:700}
+.waarom textarea{font:inherit;font-weight:400;font-size:1rem;line-height:1.45;border:1.5px solid var(--ink);border-radius:.5rem;padding:.55rem .7rem;
+  resize:vertical;min-height:4.6rem;background:#fff;color:var(--ink)}
+.bewaard{grid-column:1 / -1;font-size:.9rem;color:var(--muted);margin:0;min-height:1.3em}
+.bronnen{margin-top:1.6rem;font-size:.88rem;color:var(--muted);line-height:1.45}
+.bronnen h3{font-size:1rem;color:var(--ink)}
+.bronnen ul{list-style:none;margin:0;padding:0}
+.bronnen li{padding-left:1.6rem;text-indent:-1.6rem;margin:.25rem 0}
+
+/* ---------- Bediening en merk ---------- */
+nav.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem var(--rand);border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft);background:var(--paper)}
+nav.bediening button{font:inherit;font-size:1rem;font-weight:700;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  border-radius:.4rem;padding:.2rem .9rem;cursor:pointer;min-width:2.6rem;min-height:2rem}
+nav.bediening button.volgende{background:var(--accent);border-color:var(--accent)}
+nav.bediening button:disabled{opacity:.35;cursor:default}
+nav.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+html:not(.js) nav.bediening button{display:none}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* ---------- Smal scherm: de pagina scrolt, de bediening blijft onderaan ---------- */
+@media (max-width:760px){
+  :root{--rand:16px}
+  html{font-size:15px}
+  body{display:flex;flex-direction:column;height:auto;min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+  header.top{gap:1rem;padding-top:.9rem}
+  h1{font-size:1.3rem}
+  .voortgang{height:4px;flex-shrink:0}
+  main{flex:1 0 auto;overflow:visible;padding-bottom:1.4rem}
+  .stap h2{font-size:1.55rem}
+  .lead{font-size:1.1rem}
+  .keten,.krachten,form.keuze{grid-template-columns:1fr}
+  .keten li + li::before{content:none}
+  .model svg{max-height:none}
+  nav.bediening{position:sticky;bottom:0;flex-wrap:wrap;padding:.6rem 16px}
+}
+@media (max-width:480px){
+  .merk-tekst{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+/* ---------- Afdrukken: alle stappen onder elkaar ---------- */
+@media print{
+  html{font-size:11pt;background:#fff}
+  body{display:block;height:auto;overflow:visible;background:#fff}
+  main{overflow:visible;padding:0}
+  .js .stap,.stap{display:block !important}
+  .stap + .stap,.js .stap + .stap{break-before:page;margin-top:0;padding-top:0;border-top:0}
+  .stap > *{opacity:1 !important;transform:none !important}
+  nav.bediening,.voortgang,.teller{display:none !important}
+  header.top{padding:0 0 .6rem}
+  .model svg{max-height:none}
+  .kaart,figure,.optie{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <div class="eyebrow">Dag 3 · 9:45 · Vraag 2 · transformeren</div>
+    <h1>Wat je organisatie moet kunnen</h1>
+  </div>
+  <div class="teller" id="teller" aria-hidden="true">1 / 3</div>
+</header>
+<div class="voortgang" aria-hidden="true"><i id="balk"></i></div>
+<p class="sr" id="melding" aria-live="polite"></p>
+
+<main id="stappen">
+
+<!-- ============ Stap 1 ============ -->
+<section id="stap-1" class="stap actief" aria-labelledby="kop-1">
+  <div class="wat">Waarom de winst blijft hangen</div>
+  <h2 id="kop-1">Drie vermogens, drie aanjagers, drie remmen</h2>
+  <p class="lead">Op taakniveau levert AI vaak winst op, maar voor de organisatie als geheel nog nauwelijks. Die winst komt pas als de organisatie de nieuwe werkwijze overneemt. Daarvoor moet ze drie dingen kunnen: <b>waarnemen, benutten en transformeren</b> (Warner &amp; Wäger, 2019).</p>
+  <figure class="model" aria-labelledby="model-bijschrift">
+    <svg viewBox="0 0 1600 540" role="img" aria-labelledby="m-titel m-uitleg">
+      <title id="m-titel">Het model van Warner en Wäger: wat een organisatie moet kunnen voor een digitale transformatie</title>
+      <desc id="m-uitleg">Vijf kolommen van links naar rechts. Aanleidingen van buiten: nieuwe digitale concurrenten, klanten die zich anders gedragen, en nieuwe digitale technologie zoals AI. Dan drie vermogens, met pijlen ertussen. Waarnemen (in deze training dag 1): trends opsporen, scenario's uitwerken, een digitale houding vormen. Kansen benutten (dag 2): snel prototypes maken, portfolio's in balans houden, strategisch wendbaar zijn. Tussen benutten en transformeren staat punt 5, de overdracht. Transformeren (dag 3): samenwerken in een ecosysteem, de interne structuur herontwerpen, digitaal volwassener worden. Rechts de uitkomst: strategische vernieuwing van het businessmodel, de manier van samenwerken en de cultuur. Onder de drie vermogens staan drie aanjagers: teams over afdelingen heen, snel besluiten en steun van de top. Daaronder drie remmen: starre strategische planning, weerstand tegen verandering en veel hiërarchie.</desc>
+      <defs>
+        <marker id="m-pi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1a1a1a"/></marker>
+      </defs>
+
+      <!-- dagen van deze training -->
+      <text class="m-dag" x="480" y="32">DAG 1</text>
+      <text class="m-dag" x="800" y="32">DAG 2</text>
+      <text class="m-dag" x="1120" y="32">DAG 3</text>
+
+      <!-- koppen -->
+      <rect class="m-kop-buiten" x="20" y="46" width="280" height="60" rx="8"/>
+      <text class="m-kop-tekst" x="160" y="83">Aanleiding van buiten</text>
+      <rect class="m-kop" x="340" y="46" width="280" height="60" rx="8"/>
+      <text class="m-kop-tekst" x="480" y="78">Waarnemen</text>
+      <text class="m-kop-en" x="480" y="97" lang="en">sensing</text>
+      <rect class="m-kop" x="660" y="46" width="280" height="60" rx="8"/>
+      <text class="m-kop-tekst" x="800" y="78">Kansen benutten</text>
+      <text class="m-kop-en" x="800" y="97" lang="en">seizing</text>
+      <rect class="m-kop" x="980" y="46" width="280" height="60" rx="8"/>
+      <text class="m-kop-tekst" x="1120" y="78">Transformeren</text>
+      <text class="m-kop-en" x="1120" y="97" lang="en">transforming</text>
+      <rect class="m-kop-uit" x="1300" y="46" width="280" height="60" rx="8"/>
+      <text class="m-kop-tekst" x="1440" y="83">Vernieuwing</text>
+      <line class="m-pijl" x1="622" y1="76" x2="656" y2="76" marker-end="url(#m-pi)"/>
+      <line class="m-pijl" x1="942" y1="76" x2="976" y2="76" marker-end="url(#m-pi)"/>
+      <g class="m-vijf" transform="translate(960 76)"><circle r="17"/><text>5</text></g>
+      <text class="m-vijf-naam" x="960" y="34">OVERDRACHT</text>
+
+      <!-- vakken -->
+      <g>
+        <rect class="m-vak" x="20" y="124" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="160" y="151">Nieuwe digitale</text><text class="m-vak-tekst" x="160" y="172">concurrenten</text>
+        <rect class="m-vak" x="20" y="198" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="160" y="225">Klanten die zich</text><text class="m-vak-tekst" x="160" y="246">anders gedragen</text>
+        <rect class="m-vak" x="20" y="272" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="160" y="299">Nieuwe digitale</text><text class="m-vak-tekst" x="160" y="320">technologie, zoals AI</text>
+
+        <rect class="m-vak" x="340" y="124" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="480" y="161">Trends opsporen</text>
+        <rect class="m-vak" x="340" y="198" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="480" y="235">Scenario's uitwerken</text>
+        <rect class="m-vak" x="340" y="272" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="480" y="309">Een digitale houding vormen</text>
+
+        <rect class="m-vak" x="660" y="124" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="800" y="161">Snel prototypes maken</text>
+        <rect class="m-vak" x="660" y="198" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="800" y="235">Portfolio's in balans houden</text>
+        <rect class="m-vak" x="660" y="272" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="800" y="309">Strategisch wendbaar zijn</text>
+
+        <rect class="m-vak" x="980" y="124" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="1120" y="151">Samenwerken in</text><text class="m-vak-tekst" x="1120" y="172">een ecosysteem</text>
+        <rect class="m-vak" x="980" y="198" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="1120" y="225">De interne structuur</text><text class="m-vak-tekst" x="1120" y="246">herontwerpen</text>
+        <rect class="m-vak" x="980" y="272" width="280" height="62" rx="6"/><text class="m-vak-tekst" x="1120" y="309">Digitaal volwassener worden</text>
+
+        <rect class="m-vak" x="1300" y="124" width="280" height="210" rx="6"/>
+        <text class="m-uit-tekst" x="1324" y="160" style="font-weight:700">Strategische vernieuwing van:</text>
+        <text class="m-uit-tekst" x="1324" y="206">het businessmodel</text>
+        <text class="m-uit-tekst" x="1324" y="246">de manier van samenwerken</text>
+        <text class="m-uit-tekst" x="1324" y="286">de cultuur</text>
+      </g>
+      <!-- punthaken tussen de kolommen, zoals in het origineel -->
+      <path class="m-punthaak" d="M306,124 L330,229 L306,334"/>
+      <path class="m-punthaak" d="M626,124 L650,229 L626,334"/>
+      <path class="m-punthaak" d="M946,124 L970,229 L946,334"/>
+      <path class="m-punthaak" d="M1266,124 L1290,229 L1266,334"/>
+
+      <!-- aanjagers en remmen werken op de drie vermogens -->
+      <line class="m-pijl" x1="470" y1="384" x2="470" y2="342" marker-end="url(#m-pi)"/><line class="m-pijl" x1="490" y1="384" x2="490" y2="342" marker-end="url(#m-pi)"/>
+      <line class="m-pijl" x1="790" y1="384" x2="790" y2="342" marker-end="url(#m-pi)"/><line class="m-pijl" x1="810" y1="384" x2="810" y2="342" marker-end="url(#m-pi)"/>
+      <line class="m-pijl" x1="1110" y1="384" x2="1110" y2="342" marker-end="url(#m-pi)"/><line class="m-pijl" x1="1130" y1="384" x2="1130" y2="342" marker-end="url(#m-pi)"/>
+
+      <text class="m-rij-naam" x="20" y="420">Aanjagers</text>
+      <text class="m-rij-sub" x="20" y="442">maken het makkelijker</text>
+      <rect class="m-aanjager" x="340" y="392" width="280" height="58" rx="8"/><text class="m-teken" x="358" y="428">+</text><text class="m-vak-tekst" x="496" y="428">Teams over afdelingen heen</text>
+      <rect class="m-aanjager" x="660" y="392" width="280" height="58" rx="8"/><text class="m-teken" x="678" y="428">+</text><text class="m-vak-tekst" x="816" y="428">Snel besluiten</text>
+      <rect class="m-aanjager" x="980" y="392" width="280" height="58" rx="8"/><text class="m-teken" x="998" y="428">+</text><text class="m-vak-tekst" x="1136" y="428">Steun van de top</text>
+
+      <text class="m-rij-naam" x="20" y="496">Remmen</text>
+      <text class="m-rij-sub" x="20" y="518">maken het moeilijker</text>
+      <rect class="m-rem" x="340" y="468" width="280" height="58" rx="8"/><text class="m-teken" x="358" y="504">−</text><text class="m-vak-tekst" x="496" y="504">Starre strategische planning</text>
+      <rect class="m-rem" x="660" y="468" width="280" height="58" rx="8"/><text class="m-teken" x="678" y="504">−</text><text class="m-vak-tekst" x="816" y="504">Weerstand tegen verandering</text>
+      <rect class="m-rem" x="980" y="468" width="280" height="58" rx="8"/><text class="m-teken" x="998" y="504">−</text><text class="m-vak-tekst" x="1136" y="504">Veel hiërarchie</text>
+    </svg>
+    <figcaption id="model-bijschrift">Eigen tekening naar figuur 2 van Warner en Wäger (2019), in het Nederlands. Het model komt uit interviews met adviseurs die gevestigde bedrijven door een digitale transformatie leidden. De dagen erboven zijn die van deze training.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ Stap 2 ============ -->
+<section id="stap-2" class="stap" aria-labelledby="kop-2">
+  <div class="wat">Voorbeeld BV</div>
+  <h2 id="kop-2">Een sterke rem, een zwakke aanjager</h2>
+  <ol class="keten" aria-label="Het model bij Voorbeeld BV">
+    <li><span class="label-klein">Aanleiding van buiten</span>Installaties melden een storing zelf aan de fabrikant, en die kiest de monteur. Klanten vragen het eerst aan een AI-assistent.</li>
+    <li class="vermogen"><span class="label-klein">Waarnemen</span>Een signaal om los te laten: gaan de meeste storingen in 2027 rechtstreeks naar de fabrikant, dan kiest Voorbeeld BV opnieuw.</li>
+    <li class="vermogen"><span class="label-klein">Kansen benutten</span>Twee sporen naast elkaar, en zes weken AI-meesorteren in één team, met een norm vooraf.</li>
+    <li class="vermogen"><span class="label-klein">Transformeren</span>Wat werkt, gaat via een pilot naar heel Klantcontact en dan naar Planning en Service. Service Zuid werkt een jaar per opdracht voor één fabrikant.</li>
+    <li><span class="label-klein">Vernieuwing</span>Het vaste aanspreekpunt van de klant, met een onderhoudsabonnement. Van elke klacht leren, over de afdelingen heen.</li>
+  </ol>
+  <div class="krachten">
+    <div class="kaart kracht rem">
+      <h3><span class="teken" aria-hidden="true">−</span>Sterkste rem: starre strategische planning</h3>
+      <p>De eerste antwoorden van Voorbeeld BV laten het zien: <b>een AI-strategie voor vijf jaar</b> die het MT vaststelt, <b>één leverancier voor vijf jaar</b>, en <b>elk kwartaal een mijlpaal met een datum</b>.</p>
+    </div>
+    <div class="kaart kracht">
+      <h3><span class="teken" aria-hidden="true">+</span>Zwakste aanjager: teams over afdelingen heen</h3>
+      <p><b>Elke afdeling ziet alleen de eigen klachten.</b> Een klacht gaat met de hand van afdeling naar afdeling, en een patroon over de afdelingen heen ziet niemand.</p>
+    </div>
+  </div>
+  <p class="nadruk">Het transformatieplan van Voorbeeld BV begint bij die rem en die aanjager.</p>
+</section>
+
+<!-- ============ Stap 3 ============ -->
+<section id="stap-3" class="stap" aria-labelledby="kop-3">
+  <div class="wat">Jouw organisatie</div>
+  <h2 id="kop-3">Wat remt jouw organisatie het meest?</h2>
+  <p class="lead">Kies je sterkste rem en je zwakste aanjager. Je transformatieplan begint hier, en in je casusdeck komen ze op de dia Randvoorwaarden.</p>
+  <form class="keuze" id="keuze" autocomplete="off">
+    <fieldset>
+      <legend>Welke rem is bij jou het sterkst?</legend>
+      <label class="optie"><input type="radio" name="rem" value="Starre strategische planning"><b>Starre strategische planning</b><span>Plannen voor jaren vooruit, met vaste mijlpalen en budgetten.</span></label>
+      <label class="optie"><input type="radio" name="rem" value="Weerstand tegen verandering"><b>Weerstand tegen verandering</b><span>Mensen houden vast aan hoe het nu gaat.</span></label>
+      <label class="optie"><input type="radio" name="rem" value="Veel hiërarchie"><b>Veel hiërarchie</b><span>Een besluit gaat langs veel lagen.</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Welke aanjager is bij jou het zwakst?</legend>
+      <label class="optie"><input type="radio" name="aanjager" value="Teams over afdelingen heen"><b>Teams over afdelingen heen</b><span>Mensen van verschillende afdelingen werken samen aan één ding.</span></label>
+      <label class="optie"><input type="radio" name="aanjager" value="Snel besluiten"><b>Snel besluiten</b><span>Een besluit dat terug kan, valt binnen dagen.</span></label>
+      <label class="optie"><input type="radio" name="aanjager" value="Steun van de top"><b>Steun van de top</b><span>De directie draagt het uit en maakt tijd en geld vrij.</span></label>
+    </fieldset>
+    <label class="waarom">Waaraan zie je dat? Eén zin per keuze.
+      <textarea name="waarom" rows="3"></textarea>
+    </label>
+    <p class="bewaard" id="bewaard" aria-live="polite"></p>
+  </form>
+
+  <div class="bronnen">
+    <h3>Bron</h3>
+    <ul>
+      <li>Warner, K. S. R., &amp; Wäger, M. (2019). Building dynamic capabilities for digital transformation: An ongoing process of strategic renewal. <i>Long Range Planning, 52</i>(3), 326–349. https://doi.org/10.1016/j.lrp.2018.12.001</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<nav class="bediening" aria-label="Stappen">
+  <button type="button" id="terug" aria-label="Vorige stap">←</button>
+  <button type="button" id="verder" class="volgende" aria-label="Volgende stap">→</button>
+  <a href="./index.html?dag=3">Startpagina</a>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" role="img" aria-label="Logo Business Data Solutions"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    <span class="merk-tekst">Business Data Solutions</span>
+  </span>
+</nav>
+
+<script>
+/* Stappen: precies één section.stap heeft de klasse actief. Pijltjes links en rechts, PageUp en PageDown,
+   spatie en Enter, Home en End. Pijltjes omhoog en omlaag blijven scrollen.
+   #stap-N in de adresbalk springt naar stap N. Na elke wissel volgt het event "stap" (zie de module hieronder).
+   Uitklappers: zonder JavaScript en bij afdrukken staat alles open. Geen bibliotheken nodig. */
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const STAPPEN = [...document.querySelectorAll(".stap")];
+  const main = $("stappen");
+  let stap = -1;
+
+  function ga(n) {
+    n = Math.max(0, Math.min(STAPPEN.length - 1, n));
+    if (n === stap) return;
+    stap = n;
+    STAPPEN.forEach((s, i) => s.classList.toggle("actief", i === n));
+    const titel = STAPPEN[n].querySelector("h2").textContent;
+    $("teller").textContent = `${n + 1} / ${STAPPEN.length}`;
+    $("melding").textContent = `Stap ${n + 1} van ${STAPPEN.length}: ${titel}`;
+    $("balk").style.width = `${((n + 1) / STAPPEN.length) * 100}%`;
+    $("terug").disabled = n === 0;
+    $("verder").disabled = n === STAPPEN.length - 1;
+    main.scrollTop = 0;
+    if (matchMedia("(max-width: 760px)").matches) window.scrollTo(0, 0);
+    if (location.hash !== `#stap-${n + 1}`) history.replaceState(null, "", `#stap-${n + 1}`);
+    document.dispatchEvent(new CustomEvent("stap", { detail: { n, sectie: STAPPEN[n] } }));
+  }
+
+  addEventListener("keydown", (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    // Enter of spatie op een knop of link: die doet zelf het werk, anders telt de stap dubbel.
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest?.("a, button")) return;
+    const volgende = ["ArrowRight", "PageDown", " ", "Enter"];
+    const vorige = ["ArrowLeft", "PageUp", "Backspace"];
+    if (volgende.includes(e.key)) { e.preventDefault(); ga(stap + 1); }
+    else if (vorige.includes(e.key)) { e.preventDefault(); ga(stap - 1); }
+    else if (e.key === "Home") { e.preventDefault(); ga(0); }
+    else if (e.key === "End") { e.preventDefault(); ga(STAPPEN.length - 1); }
+  });
+  $("verder").addEventListener("click", () => ga(stap + 1));
+  $("terug").addEventListener("click", () => ga(stap - 1));
+
+  for (const knop of document.querySelectorAll(".uitklap-knop")) {
+    const doel = $(knop.getAttribute("aria-controls"));
+    knop.hidden = false;
+    knop.setAttribute("aria-expanded", "false");
+    doel.hidden = true;
+    knop.addEventListener("click", () => {
+      const open = knop.getAttribute("aria-expanded") === "true";
+      knop.setAttribute("aria-expanded", String(!open));
+      doel.hidden = open;
+    });
+  }
+
+  // "Toon groot": de portfoliokaart schermvullend, voor een laptop of een kleine beamer.
+  // Esc of de knop gaat terug; een andere stap ook.
+  const kaart = document.querySelector(".portfolio");
+  const groot = kaart && kaart.querySelector(".vergroot");
+  if (groot && document.fullscreenEnabled) {
+    groot.hidden = false;
+    groot.addEventListener("click", () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else kaart.requestFullscreen().catch(() => {});
+    });
+    document.addEventListener("fullscreenchange", () => {
+      groot.textContent = document.fullscreenElement === kaart ? "Terug" : "Toon groot";
+    });
+    document.addEventListener("stap", () => {
+      if (document.fullscreenElement === kaart) document.exitFullscreen();
+    });
+  }
+
+  const stapUitHash = () => {
+    const n = parseInt((location.hash.match(/stap-(\d+)/) || [])[1], 10);
+    return Number.isFinite(n) ? n - 1 : 0;
+  };
+  addEventListener("hashchange", () => ga(stapUitHash()));
+  ga(stapUitHash());
+})();
+</script>
+
+<script>
+/* De keuze van stap 3 blijft in deze browser, zodat ze in het deckblok van 15:15 terugkomt. Zonder opslag werkt het formulier
+   gewoon, maar onthoudt het niets. */
+(() => {
+  const OPSLAG = "aiso-transformeren-keuze";
+  const form = document.getElementById("keuze");
+  const melding = document.getElementById("bewaard");
+  const lees = () => { try { return JSON.parse(localStorage.getItem(OPSLAG)) || {}; } catch { return {}; } };
+  const schrijf = (v) => { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); return true; } catch { return false; } };
+  const oud = lees();
+  for (const naam of ["rem", "aanjager"]) {
+    const knop = form.querySelector(`input[name="${naam}"][value="${CSS.escape(oud[naam] || "")}"]`);
+    if (knop) knop.checked = true;
+  }
+  if (oud.waarom) form.elements.waarom.value = oud.waarom;
+  if (oud.rem || oud.aanjager) melding.textContent = "Je keuze van eerder staat er weer.";
+  const bewaar = () => {
+    const v = { rem: form.elements.rem.value, aanjager: form.elements.aanjager.value, waarom: form.elements.waarom.value };
+    melding.textContent = schrijf(v) ? "Bewaard in deze browser." : "Deze browser bewaart niets. Schrijf je keuze op.";
+  };
+  form.addEventListener("change", bewaar);
+  form.addEventListener("input", bewaar);
+})();
+</script>
+
+<script type="module">
+/* Beweging, los geladen: motion laat de onderdelen van een nieuwe stap een voor een verschijnen.
+   Lukt de import niet, of wil de bezoeker minder beweging, dan gebeurt er niets. */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  import("https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm").then((M) => {
+    document.addEventListener("stap", (e) => {
+      M.animate([...e.detail.sectie.children], { opacity: [0, 1], y: [14, 0] }, { duration: 0.4, delay: M.stagger(0.06) });
+    });
+  }).catch((e) => console.warn("Transformeren: motion niet geladen.", e));
+}
+</script>
+</body>
+</html>

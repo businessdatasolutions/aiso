@@ -626,6 +626,17 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 
 ## Dag 3 · Transformatieplan en draagvlak (FR-24)
 
+### 9:50–9:58 · Wat je organisatie moet kunnen (ADR-056)
+
+Na de twee portfolio's, vóór 7S. Toon `materiaal/transformeren.html`; de startpagina linkt ernaar.
+
+1. **De vraag.** "Op dag 2 zagen we: AI levert winst op taakniveau, voor de organisatie nog nauwelijks. Waar blijft die winst hangen?" Laat één of twee antwoorden toe.
+2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, dag 2 kansen benutten, vandaag transformeren. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt 5 aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
+3. **Voorbeeld BV** (stap 2). De sterkste rem is starre planning: zie de eerste antwoorden. De zwakste aanjager is teams over afdelingen heen: elke afdeling ziet alleen de eigen klachten.
+4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem en bij de laagste dimensie uit de scan van dag 1. In het deckblok van 15:15 komen de rem en de aanjager op de dia Randvoorwaarden; de keuze blijft tot dan in de browser.
+
+Leg het model in grote lijnen uit: drie vermogens, drie aanjagers, drie remmen. De negen vermogens één voor één bespreken past niet in acht minuten.
+
 ### Vier vragen bij weerstand
 
 Gebruik ze bij "per stakeholder één actie van weerstand naar draagvlak", met de top 3 uit online voorbereiding 1, en in het nabespreken van werkplaats 3.

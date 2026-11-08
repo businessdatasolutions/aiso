@@ -59,6 +59,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-053](ADR-053-het-meest-veranderd.md) | "Het meest veranderd" is wat je nu anders kiest of laat; het duo krijgt drie minuten | Aanvaard | 2026-11-08 |
 | [ADR-054](ADR-054-aantrekkelijk-alternatief-bewust-afwijzen.md) | "Wat je laat" wordt "welk aantrekkelijk alternatief je bewust afwijst" | Aanvaard | 2026-11-08 |
 | [ADR-055](ADR-055-portfoliokaart-met-de-overdracht-uitvergroot.md) | De portfoliokaart volgt de bron en vergroot de overdracht uit | Aanvaard | 2026-11-08 |
+| [ADR-056](ADR-056-wat-de-organisatie-moet-kunnen.md) | Het model van Warner en Wäger hoort bij vraag 2 op dag 3 | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 
