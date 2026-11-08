@@ -1,0 +1,1007 @@
+<!doctype html>
+<!--
+================================================================
+INSTRUCTIE VOOR JE AI
+================================================================
+Je vult een casusdeck in. Een deelnemer van de training "AI Strategie en
+Organisatietransformatie" geeft je dit bestand en eigen aantekeningen.
+Jij zet die aantekeningen in het deck en geeft het hele bestand terug.
+
+Zo vul je in
+1. Vervang elke plaatshouder <span class="invul">[...]</span> in zijn geheel
+   door de tekst van de deelnemer, dus zonder de span en zonder de haken.
+2. Schrijf hooguit drie zinnen per vak. Korte zinnen, in gewoon Nederlands.
+   Op dia 4, 5 en 6 zijn de vakken kleiner: daar hooguit twee korte zinnen.
+3. Gebruik alleen wat de deelnemer geeft. Verzin geen cijfers, bronnen of
+   citaten. Heb je voor een vak nog niets? Laat de plaatshouder dan staan.
+4. Noem mensen bij hun rol, niet bij hun naam.
+5. Schrijf bronnen in APA 7.
+6. Dia 1, de vragenkaart:
+   - Schrijf de nulmeting over zoals de deelnemer hem gaf. Daarna verander
+     je hem nooit meer.
+   - Bij "Mijn antwoord nu" vervang je het oude antwoord door het nieuwe.
+   - Bij "Na dag 1", "Na dag 2" en "Na dag 3" komt één regel: wat
+     veranderde en waarom. Oudere regels laat je staan.
+7. Dia 3: heeft de deelnemer twee of drie doelen, haal dan de lege
+   doelkaarten weg. Dia 9: zet het grootste risico bovenaan. Lege rijen
+   mag je weghalen.
+8. Dia 4: je mag één eenvoudige grafiek maken, als inline <svg> in het
+   vak met class "grafiek". Geen afbeeldingen, geen externe bibliotheken
+   en geen links naar buiten.
+9. Past de tekst niet op een dia? Maak hem korter. Maak de letter niet
+   kleiner. Op het scherm krijgt een te volle dia een rode rand.
+
+Wat altijd blijft
+- De tien dia's (<section class="dia">), in deze volgorde, met hun
+  titels, labels en classes. Maak er geen dia's bij: de opdracht mag
+  hooguit tien dia's hebben.
+- De kop en de uitleg boven de dia's, met de knoppen.
+- Het hele <style>-blok, ook de printregels (@page en @media print), en
+  het <script>-blok. Wil de deelnemer andere kleuren of letters? Verander
+  dan alleen de waarden in :root, bovenaan het <style>-blok.
+- Dit commentaarblok.
+
+Zo geef je het terug
+- Altijd het hele bestand, van <!doctype html> tot en met de laatste
+  regel: het commentaar EINDE CASUSDECK.
+- Kort niets in en laat niets weg, ook niet met "..." of met "de rest
+  blijft hetzelfde".
+- Als één codeblok, of als bestand om te downloaden dat eindigt op .html.
+================================================================
+-->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<title>Casusdeck</title>
+<style>
+/* Kleuren en letters. Een andere stijl? Verander alleen de waarden hieronder. */
+:root {
+  --kleur-pagina: #e9e8e4;        /* rond de dia's, alleen op het scherm */
+  --kleur-dia: #ffffff;
+  --kleur-tekst: #1d2125;
+  --kleur-zacht: #596069;
+  --kleur-invul: #737880;         /* plaatshouders tussen [haken] */
+  --kleur-vak: #f6f6f3;
+  --kleur-rand: #dfe1e4;
+  --kleur-lijn: #c5c9ce;          /* schrijflijnen en scheidingslijnen */
+  --kleur-accent: #2b6170;        /* labels en kopjes van de vragen */
+  --kleur-accent-zacht: #e8eff1;
+  --kleur-melding: #b3261e;
+  --letter: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --letter-titel: var(--letter);
+  color-scheme: light;
+}
+
+/* ---------- Basis ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--kleur-pagina);
+  color: var(--kleur-tekst);
+  font-family: var(--letter);
+  line-height: 1.35;
+}
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ---------- Alleen op het scherm: kop, uitleg, slotregel ---------- */
+.balk {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  max-width: 1400px; margin: 0 auto; padding: 20px 16px 8px;
+}
+.balk h1 { font-size: 26px; font-weight: 650; letter-spacing: -.01em; }
+.balk .onder { font-size: 15px; color: var(--kleur-zacht); margin-top: 2px; }
+.actie { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; max-width: 560px; }
+.knop {
+  font: inherit; font-size: 16px; font-weight: 650; color: #fff;
+  background: var(--kleur-accent); border: 0; border-radius: 6px;
+  padding: 10px 20px; min-height: 44px; cursor: pointer;
+}
+.knop:hover { filter: brightness(1.12); }
+.knop:focus-visible { outline: 3px solid var(--kleur-tekst); outline-offset: 2px; }
+.knop.tweede { color: var(--kleur-accent); background: var(--kleur-dia); box-shadow: inset 0 0 0 2px var(--kleur-accent); }
+.knop.tweede:hover { filter: none; background: var(--kleur-accent-zacht); }
+.hint { flex: 1 1 260px; font-size: 14px; color: var(--kleur-zacht); }
+.instructie { margin: 8px 0 6px; }
+.instructie summary { display: inline-block; list-style: none; font-size: 15px; }
+.instructie summary::-webkit-details-marker { display: none; }
+.instructie summary::before { content: "▸"; content: "▸" / ""; display: inline-block; width: 1.1em; }
+.instructie[open] summary::before { content: "▾"; content: "▾" / ""; }
+.instructie[open] .toon, .instructie:not([open]) .verberg { display: none; }
+.instructie pre {
+  margin-top: 8px; padding: 14px 16px; max-height: 60vh; overflow: auto;
+  background: var(--kleur-dia); border: 1px solid var(--kleur-rand); border-radius: 6px;
+  font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--kleur-tekst); white-space: pre-wrap;
+}
+.uitleg {
+  max-width: 1400px; margin: 0 auto; padding: 4px 16px 0;
+  font-size: 15px; color: var(--kleur-zacht);
+}
+.uitleg ol { list-style: decimal; padding-left: 1.4em; display: grid; gap: 2px; }
+.uitleg b { color: var(--kleur-tekst); }
+.melding { margin-top: 10px; color: var(--kleur-melding); font-weight: 650; }
+.melding span { display: block; }
+.einde { text-align: center; font-size: 13px; color: var(--kleur-zacht); padding: 8px 16px 40px; }
+
+/* ---------- De dia: 16:9, alles schaalt mee met de breedte ---------- */
+.deck { display: grid; gap: 28px; max-width: 1400px; margin: 0 auto; padding: 20px 16px 12px; }
+.dia {
+  position: relative; container-type: inline-size; aspect-ratio: 16 / 9;
+  background: var(--kleur-dia); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .12), 0 6px 18px rgb(0 0 0 / .06);
+}
+.vel {
+  position: absolute; inset: 0;
+  display: grid; grid-template-rows: auto 1fr auto; gap: .8em;
+  padding: 2em 2.7em 1.1em;
+  font-size: 1.2cqi;              /* 1 em = 1,2% van de breedte van de dia */
+}
+.kop { display: grid; gap: .1em; padding-bottom: .5em; border-bottom: 1px solid var(--kleur-rand); }
+.label { font-size: .7em; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--kleur-accent); }
+.kop h2 { font-family: var(--letter-titel); font-size: 1.65em; font-weight: 650; letter-spacing: -.01em; line-height: 1.15; }
+.voet { display: flex; justify-content: space-between; font-size: .64em; color: var(--kleur-zacht); }
+.dia.te-vol { outline: 3px solid var(--kleur-melding); outline-offset: -3px; }
+.dia.te-vol::after {
+  content: "Te vol: maak de tekst op deze dia korter";
+  position: absolute; top: 0; right: 0; padding: 6px 12px;
+  background: var(--kleur-melding); color: #fff; font-size: 13px; font-weight: 650;
+}
+
+/* ---------- Bouwstenen ---------- */
+.vak {
+  display: flex; flex-direction: column; gap: .2em;
+  background: var(--kleur-vak); border: 1px solid var(--kleur-rand); border-radius: .35em;
+  padding: .45em .65em .5em;
+}
+.vak h3, .vak h4, .kolomkop + .notitie { line-height: 1.25; }
+.vak h3, .vak h4 { font-size: .74em; font-weight: 650; }
+.vak h3 small, .vak h4 small { font-size: 1em; font-weight: 400; color: var(--kleur-zacht); }
+.vak p { font-size: .82em; line-height: 1.36; }
+.invul { color: var(--kleur-invul); font-style: italic; }
+.kolom { display: grid; grid-template-rows: auto 1fr; gap: .45em; align-content: start; }
+.kolom > .stapel { display: grid; gap: .5em; }
+.kolomkop { font-size: .9em; font-weight: 700; }
+.kolomkop .notitie { font-weight: 400; color: var(--kleur-zacht); font-size: .85em; margin-left: .4em; }
+.toelichting { font-size: .8em; color: var(--kleur-zacht); }
+.k2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5em; }
+.k4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7em; }
+
+/* Schrijflijnen in lege vakken, voor de geprinte vragenkaart */
+.schrijf { flex: 1; }
+.schrijf p:has(> .invul) {
+  flex: 1; min-height: 4.2em; line-height: 2.1em;
+  background-image: repeating-linear-gradient(to bottom,
+    transparent 0, transparent calc(2.1em - 1px),
+    var(--kleur-lijn) calc(2.1em - 1px), var(--kleur-lijn) 2.1em);
+}
+
+/* Lijst met label en tekst onder elkaar of naast elkaar */
+.rijen { display: grid; align-content: start; }
+.rijen > div { padding: .32em 0 .36em; border-bottom: 1px solid var(--kleur-rand); }
+.rijen > div:first-child { border-top: 1px solid var(--kleur-rand); }
+.rijen dt { font-size: .74em; font-weight: 650; }
+.rijen dd { font-size: .8em; line-height: 1.34; }
+.rijen.naast > div { display: grid; grid-template-columns: 8.6em minmax(0, 1fr); gap: .6em; align-items: baseline; }
+.rijen.naast dt { font-size: .74em; }
+
+/* ---------- Dia 1: vragenkaart ---------- */
+.vk { display: grid; grid-template-rows: auto 1fr; gap: .7em; }
+.casus { display: grid; grid-template-columns: 1fr 1.6fr; gap: .7em; }
+.casus .schrijf p:has(> .invul) { min-height: 2.1em; }
+.vragen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7em; }
+.vraag {
+  display: grid; grid-template-rows: auto auto 1fr 1fr auto; gap: .4em;
+  border-top: 3px solid var(--kleur-accent); padding-top: .4em;
+}
+.vraag.kort { grid-template-rows: auto auto 1fr 1fr; }
+.vraag h3 { font-size: 1em; font-weight: 700; }
+.vnr { color: var(--kleur-accent); margin-right: .25em; }
+.vraagtekst { font-size: .8em; line-height: 1.3; min-height: 3.9em; color: var(--kleur-zacht); }
+.regels { display: grid; font-size: .78em; }
+.regels li { min-height: 2.3em; padding: .35em 0 .25em; border-bottom: 1px solid var(--kleur-lijn); line-height: 1.3; }
+.regels b { font-weight: 650; margin-right: .3em; }
+
+/* ---------- Dia 2 en 8: twee kolommen ---------- */
+.twee { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1em; }
+.twee .stapel > .vak { min-height: 5.5em; }
+.twee .vak p, .doel p { font-size: .92em; }
+
+/* ---------- Dia 3: doelen ---------- */
+.doelen { display: grid; grid-template-rows: auto 1fr; gap: .5em; }
+.doel { display: grid; grid-template-rows: auto 1fr auto 1fr; gap: .25em; padding-top: .55em; }
+.doel h3 { font-size: .95em; color: var(--kleur-accent); }
+.doel h4 { padding-top: .45em; border-top: 1px solid var(--kleur-lijn); }
+
+/* ---------- Dia 4: eerste prioriteit ---------- */
+.prioriteit { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.1em; }
+.prioriteit .k2 { grid-template-rows: repeat(4, 1fr); }
+.prioriteit .experiment { grid-template-rows: auto auto 1fr; }
+.grafiek {
+  display: flex; align-items: center; justify-content: center; min-height: 8em;
+  border: 1px dashed var(--kleur-lijn); border-radius: .35em; padding: .6em;
+  font-size: .78em; text-align: center;
+}
+.grafiek svg { display: block; width: 100%; height: 100%; max-height: 100%; }
+
+/* ---------- Dia 5: adoptie ---------- */
+.adoptie { grid-template-columns: 1fr 1fr 1.15fr 1fr; }
+.stakeholder p + p { margin-top: .15em; }
+
+/* ---------- Dia 6: roadmap ---------- */
+.roadmap { display: grid; grid-template-rows: auto 1fr auto; gap: .55em; }
+.fasen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6em; }
+.fase { position: relative; padding: .55em .8em .6em; gap: .35em; }
+.fase:not(:last-child)::after {
+  content: ""; position: absolute; top: 50%; right: -1.25em; transform: translateY(-50%);
+  border-style: solid; border-width: .55em 0 .55em .7em;
+  border-color: transparent transparent transparent var(--kleur-accent);
+}
+.fase h3 { font-size: 1em; font-weight: 700; }
+.fase .rijen { margin-top: .2em; }
+.fnr {
+  display: inline-grid; place-items: center; width: 1.5em; height: 1.5em; margin-right: .35em;
+  border-radius: 50%; background: var(--kleur-accent); color: #fff; font-size: .8em;
+}
+.sponsor { flex-direction: row; align-items: baseline; gap: 1em; }
+.sponsor h3 { flex: none; }
+
+/* ---------- Dia 7: governance ---------- */
+.governance { display: grid; grid-template-columns: 1.45fr 1fr; gap: 1.1em; }
+.governance ol.stapel { counter-reset: vraag; }
+.governance ol.stapel > li { counter-increment: vraag; }
+.governance ol.stapel > li h3::before { content: counter(vraag) ". "; color: var(--kleur-accent); }
+.governance .kolom:last-child > .stapel { grid-template-rows: auto auto 1fr; }
+.uitgelicht { background: var(--kleur-accent-zacht); }
+.formule { font-size: .84em; font-weight: 650; line-height: 1.35; padding: .5em .65em; border-left: 3px solid var(--kleur-accent); background: var(--kleur-accent-zacht); }
+
+/* ---------- Dia 9: risicoanalyse ---------- */
+.risico { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.1em; }
+.tabel-wrap { min-width: 0; }
+.risicotabel th, .risicotabel td { text-align: left; vertical-align: top; padding: .4em .45em; border-bottom: 1px solid var(--kleur-rand); }
+.risicotabel th { font-size: .7em; font-weight: 650; color: var(--kleur-zacht); border-bottom: 1px solid var(--kleur-lijn); }
+.risicotabel td { font-size: .82em; line-height: 1.34; height: 6.2em; }
+.risicotabel th.getal { white-space: nowrap; }
+.risicotabel .nr { width: 1.8em; color: var(--kleur-accent); font-weight: 650; }
+.risicotabel .getal { width: 4.4em; }
+.risico .kolom:last-child > .stapel { grid-template-rows: auto 1fr 1fr; }
+.deur p + p { margin-top: .15em; }
+
+/* ---------- Dia 10: conclusie ---------- */
+.conclusie { display: grid; grid-template-rows: auto 1fr auto; gap: .6em; }
+.conclusie .vragen .vraag { grid-template-rows: auto auto 1fr 1fr; }
+.conclusie .breed { flex-direction: row; align-items: baseline; gap: 1em; }
+.conclusie .breed h3 { flex: none; }
+
+/* ---------- Smal scherm (telefoon, tablet): dia's lopen door in één kolom ---------- */
+@media screen and (max-width: 959px) {
+  .dia { aspect-ratio: auto; container-type: normal; }
+  .vel { position: static; font-size: 15px; padding: 18px 16px 12px; }
+  .casus, .vragen, .k2, .k4, .twee, .prioriteit, .fasen, .governance, .risico { grid-template-columns: minmax(0, 1fr); }
+  .prioriteit .k2 { grid-template-rows: none; }
+  .fase:not(:last-child)::after { display: none; }
+  .sponsor, .conclusie .breed { flex-direction: column; gap: .2em; }
+  .tabel-wrap { overflow-x: auto; }
+  .risicotabel { min-width: 520px; }
+  .risicotabel td { height: auto; }
+  .rijen.naast > div { grid-template-columns: 7.5em minmax(0, 1fr); }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .vragen, .k4, .k2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Print en PDF: één dia per pagina, 16:9 liggend, zonder marge ---------- */
+@page { size: 13.333in 7.5in; margin: 0; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; background: var(--kleur-dia); }
+  .scherm { display: none !important; }
+  .deck { display: block; max-width: none; margin: 0; padding: 0; }
+  .dia {
+    width: 13.333in; height: 7.5in; aspect-ratio: auto;
+    border-radius: 0; box-shadow: none;
+    break-inside: avoid; break-after: page; page-break-after: always;
+  }
+  .dia:last-child { break-after: auto; page-break-after: auto; }
+  .dia.te-vol { outline: none; }
+  .dia.te-vol::after { display: none; }
+}
+</style>
+<script>
+/* Controle op het scherm. Is het bestand heel, zijn er tien dia's, en past alles? Laat dit staan. */
+(function () {
+  function meld(tekst) {
+    var vak = document.getElementById('meldingen');
+    if (!vak) {
+      vak = document.createElement('p');
+      vak.id = 'meldingen';
+      vak.className = 'melding scherm';
+      document.body.insertBefore(vak, document.body.firstChild);
+    }
+    var regel = document.createElement('span');
+    regel.textContent = tekst;
+    vak.appendChild(regel);
+    vak.hidden = false;
+  }
+  function controleerVol() {
+    var dias = document.querySelectorAll('.dia');
+    for (var i = 0; i < dias.length; i++) {
+      var vel = dias[i].querySelector('.vel');
+      var voet = vel ? vel.querySelector('.voet') : null;
+      var vol = false;
+      if (vel) {
+        var rand = vel.getBoundingClientRect().bottom - parseFloat(getComputedStyle(vel).paddingBottom);
+        vol = vel.scrollHeight > vel.clientHeight + 1 ||
+              (voet !== null && voet.getBoundingClientRect().bottom > rand + 1);
+      }
+      dias[i].classList.toggle('te-vol', vol);
+    }
+  }
+
+  /* Knop "Download als HTML": bewaart het bestand zoals het binnenkwam, zonder rode randen of meldingen. */
+  var bron = '';
+  function leesBron() {
+    var delen = [];
+    for (var n = document.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === Node.DOCUMENT_TYPE_NODE) delen.push('<!doctype ' + n.name + '>');
+      else if (n.nodeType === Node.COMMENT_NODE) delen.push('<' + '!--' + n.data + '--' + '>');
+      else if (n.nodeType === Node.ELEMENT_NODE) delen.push(n.outerHTML);
+    }
+    return delen.join('\n') + '\n';
+  }
+  function twee(getal) { return (getal < 10 ? '0' : '') + getal; }
+  function downloadHtml() {
+    var nu = new Date();
+    var naam = 'casusdeck-' + nu.getFullYear() + '-' + twee(nu.getMonth() + 1) + '-' + twee(nu.getDate()) + '.html';
+    var url = URL.createObjectURL(new Blob([bron], { type: 'text/html;charset=utf-8' }));
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = naam;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  /* Knop "Toon de instructie voor je AI": laat het commentaarblok bovenaan zien. */
+  function toonInstructie() {
+    var vak = document.getElementById('instructie');
+    var tekst = document.getElementById('instructie-tekst');
+    if (!vak || !tekst) return;
+    var instructie = '';
+    for (var n = document.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === Node.COMMENT_NODE && n.data.indexOf('INSTRUCTIE VOOR JE AI') !== -1) {
+        instructie = n.data.split('\n').filter(function (regel) {
+          return !/^=+$/.test(regel.trim());
+        }).join('\n').trim();
+      }
+    }
+    tekst.textContent = instructie || 'De instructie ontbreekt in dit bestand. Download het lege casusdeck opnieuw.';
+    vak.hidden = false;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    bron = leesBron();
+    var knop = document.getElementById('knop-html');
+    if (knop) knop.addEventListener('click', downloadHtml);
+    toonInstructie();
+    if (!document.getElementById('einde')) {
+      meld('Het einde van het bestand ontbreekt: je bestand is afgekapt. Vraag je AI om het hele bestand.');
+    }
+    var aantal = document.querySelectorAll('.dia').length;
+    if (aantal !== 10) {
+      meld('Dit deck heeft ' + aantal + ' dia’s. Het hoort er tien te hebben.');
+    }
+    controleerVol();
+  });
+  window.addEventListener('load', controleerVol);
+  window.addEventListener('resize', controleerVol);
+})();
+</script>
+</head>
+<body>
+
+<header class="balk scherm">
+  <div>
+    <h1>Casusdeck</h1>
+    <p class="onder">Tien dia's voor de integrale opdracht van AI Strategie en Organisatietransformatie</p>
+  </div>
+  <div class="actie">
+    <button class="knop tweede" type="button" id="knop-html">Download als HTML</button>
+    <button class="knop" type="button" onclick="window.print()">Download als PDF</button>
+    <p class="hint">Zie je onderaan 'einde casusdeck' niet? Dan is je bestand afgekapt: vraag je AI om het hele bestand.</p>
+  </div>
+</header>
+
+<div class="uitleg scherm">
+  <ol>
+    <li>Staat dit bestand nog niet op je computer? Klik dan op <b>Download als HTML</b>.</li>
+    <li>Upload het bestand en je aantekeningen bij je AI. Vraag: <b>"Vul dit casusdeck in volgens de instructie bovenaan het bestand. Geef het hele bestand terug."</b> Die instructie staat in de code van het bestand. Je hoeft hem niet te lezen: je AI leest hem.
+      <details class="instructie" id="instructie" hidden>
+        <summary class="knop tweede"><span class="toon">Toon de instructie voor je AI</span><span class="verberg">Verberg de instructie</span></summary>
+        <pre id="instructie-tekst"></pre>
+      </details>
+    </li>
+    <li>Sla het antwoord op als HTML-bestand, met de datum in de naam, bijvoorbeeld <b>casusdeck-2026-11-12.html</b>. Bewaar ook de vorige versie.</li>
+    <li>Open het bestand in je browser en klik op <b>Download als PDF</b>. Kies in het printvenster <b>Opslaan als PDF</b>.</li>
+  </ol>
+  <p id="meldingen" class="melding" hidden></p>
+</div>
+
+<main class="deck">
+
+<!-- ================= DIA 1 ================= -->
+<section class="dia" aria-labelledby="titel-1">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">Vragen V1–V4</p>
+      <h2 id="titel-1">Vragenkaart</h2>
+    </header>
+    <div class="inhoud vk">
+      <div class="casus">
+        <div class="vak schrijf">
+          <h3>Casus <small>(organisatie of organisatiedeel)</small></h3>
+          <p><span class="invul">[Schrijf hier je organisatie of het deel ervan]</span></p>
+        </div>
+        <div class="vak schrijf">
+          <h3>Strategische AI-vraag</h3>
+          <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één zin]</span></p>
+        </div>
+      </div>
+      <div class="vragen">
+        <article class="vraag">
+          <h3><span class="vnr">V1</span>Richting</h3>
+          <p class="vraagtekst">Hoe bepaal ik een strategie als elk plan door de realiteit wordt ingehaald voordat het op papier staat?</p>
+          <div class="vak schrijf">
+            <h4>Nulmeting <small>(dag 1, 9:30)</small></h4>
+            <p><span class="invul">[Je antwoord vóór de inhoud van dag 1]</span></p>
+          </div>
+          <div class="vak schrijf">
+            <h4>Mijn antwoord nu <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord van nu]</span></p>
+          </div>
+          <ul class="regels">
+            <li><b>Na dag 1:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 2:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 3:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+          </ul>
+        </article>
+        <article class="vraag">
+          <h3><span class="vnr">V2</span>Transformeren</h3>
+          <p class="vraagtekst">Hoe transformeer ik de organisatie onder snel veranderende omstandigheden en houd ik de huidige business robuust?</p>
+          <div class="vak schrijf">
+            <h4>Nulmeting <small>(dag 1, 9:30)</small></h4>
+            <p><span class="invul">[Je antwoord vóór de inhoud van dag 1]</span></p>
+          </div>
+          <div class="vak schrijf">
+            <h4>Mijn antwoord nu <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord van nu]</span></p>
+          </div>
+          <ul class="regels">
+            <li><b>Na dag 1:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 2:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 3:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+          </ul>
+        </article>
+        <article class="vraag">
+          <h3><span class="vnr">V3</span>Investeren</h3>
+          <p class="vraagtekst">Hoe zorg ik dat mijn investeringen veilig zijn terwijl de toekomst onzeker is?</p>
+          <div class="vak schrijf">
+            <h4>Nulmeting <small>(dag 1, 9:30)</small></h4>
+            <p><span class="invul">[Je antwoord vóór de inhoud van dag 1]</span></p>
+          </div>
+          <div class="vak schrijf">
+            <h4>Mijn antwoord nu <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord van nu]</span></p>
+          </div>
+          <ul class="regels">
+            <li><b>Na dag 1:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 2:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 3:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+          </ul>
+        </article>
+        <article class="vraag">
+          <h3><span class="vnr">V4</span>Roadmap</h3>
+          <p class="vraagtekst">Hoe bouw ik een roadmap met mijlpalen als na stap 1 onduidelijk is of stap 2 de beste volgende is?</p>
+          <div class="vak schrijf">
+            <h4>Nulmeting <small>(dag 1, 9:30)</small></h4>
+            <p><span class="invul">[Je antwoord vóór de inhoud van dag 1]</span></p>
+          </div>
+          <div class="vak schrijf">
+            <h4>Mijn antwoord nu <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord van nu]</span></p>
+          </div>
+          <ul class="regels">
+            <li><b>Na dag 1:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 2:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+            <li><b>Na dag 3:</b> <span class="invul">[wat veranderde en waarom]</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 1 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 2 ================= -->
+<section class="dia" aria-labelledby="titel-2">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V1 Richting</p>
+      <h2 id="titel-2">Aanleiding</h2>
+    </header>
+    <div class="inhoud twee">
+      <div class="kolom">
+        <h3 class="kolomkop">Casus</h3>
+        <div class="stapel">
+          <div class="vak">
+            <h3>Organisatie of organisatiedeel</h3>
+            <p><span class="invul">[Schrijf hier om welke organisatie of welk deel het gaat. Wat doet het, en voor wie?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Strategische AI-vraag</h3>
+            <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één zin]</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Waarom nu</h3>
+        <div class="stapel">
+          <div class="vak">
+            <h3>Wat het bestuur openbaar zegt over visie, missie en strategie</h3>
+            <p><span class="invul">[Wat staat er in het jaarverslag, het strategiestuk of op de website? Hooguit drie zinnen.]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Wat dat nu van AI vraagt</h3>
+            <p><span class="invul">[Waarom moet de organisatie nu iets met AI? Wat gebeurt er als ze wacht?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Bronnen <small>(APA 7)</small></h3>
+            <p><span class="invul">[Bijvoorbeeld: Organisatie. (2026). Jaarverslag 2025. URL]</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 2 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 3 ================= -->
+<section class="dia" aria-labelledby="titel-3">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V1 Richting</p>
+      <h2 id="titel-3">Strategische doelen</h2>
+    </header>
+    <div class="inhoud doelen">
+      <p class="toelichting">Twee tot vier doelen. Bij elk doel staat wat er moet gebeuren om het los te laten.</p>
+      <div class="k4">
+        <article class="vak doel">
+          <h3>Doel 1</h3>
+          <p><span class="invul">[Schrijf hier het doel. Wat wil je bereiken, en wanneer?]</span></p>
+          <h4>Loslaatsignaal</h4>
+          <p><span class="invul">[Wat moet er gebeuren om dit doel los te laten?]</span></p>
+        </article>
+        <article class="vak doel">
+          <h3>Doel 2</h3>
+          <p><span class="invul">[Schrijf hier het doel. Wat wil je bereiken, en wanneer?]</span></p>
+          <h4>Loslaatsignaal</h4>
+          <p><span class="invul">[Wat moet er gebeuren om dit doel los te laten?]</span></p>
+        </article>
+        <article class="vak doel">
+          <h3>Doel 3</h3>
+          <p><span class="invul">[Doel 3, als je het hebt. Anders mag deze kaart weg.]</span></p>
+          <h4>Loslaatsignaal</h4>
+          <p><span class="invul">[Wat moet er gebeuren om dit doel los te laten?]</span></p>
+        </article>
+        <article class="vak doel">
+          <h3>Doel 4</h3>
+          <p><span class="invul">[Doel 4, als je het hebt. Anders mag deze kaart weg.]</span></p>
+          <h4>Loslaatsignaal</h4>
+          <p><span class="invul">[Wat moet er gebeuren om dit doel los te laten?]</span></p>
+        </article>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 3 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 4 ================= -->
+<section class="dia" aria-labelledby="titel-4">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V3 Investeren</p>
+      <h2 id="titel-4">Eerste prioriteit</h2>
+    </header>
+    <div class="inhoud prioriteit">
+      <div class="kolom">
+        <h3 class="kolomkop">Businesscase</h3>
+        <div class="k2">
+          <div class="vak">
+            <h3>Probleem op de kansenkaart</h3>
+            <p><span class="invul">[Welk probleem pak je aan, en waar zit het in de procesketen?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Uitkomstmaat</h3>
+            <p><span class="invul">[Waaraan zie je dat het werkt? Een getal met een eenheid.]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Kosten in de tijd, met de dip</h3>
+            <p><span class="invul">[Wat kost het per kwartaal? Wanneer zit je in de dip, en wanneer kom je eruit?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Twee aannames</h3>
+            <p><span class="invul">[Wat moet waar zijn om dit te laten werken? Noem er twee.]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Grootste risico</h3>
+            <p><span class="invul">[Wat kan dit het meest in de weg zitten?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Besluit dat niet terug kan <small>(one-way door)</small></h3>
+            <p><span class="invul">[Welk besluit kun je niet terugdraaien? Welke optie houdt de deur open?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Eerste kleine inzet</h3>
+            <p><span class="invul">[Wat doe je eerst? Welke norm leg je vooraf vast?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Bronnen <small>(APA 7)</small></h3>
+            <p><span class="invul">[Auteur, A. (jaar). Titel. Uitgever. URL]</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="kolom experiment">
+        <h3 class="kolomkop">Experiment</h3>
+        <dl class="rijen naast">
+          <div><dt>Vraag</dt><dd><span class="invul">[Wat wil je met het experiment weten?]</span></dd></div>
+          <div><dt>Norm, vooraf vastgelegd</dt><dd><span class="invul">[Bij welke uitkomst ga je door? Schrijf dit op vóór je meet.]</span></dd></div>
+          <div><dt>Referentiewaarde zonder AI</dt><dd><span class="invul">[Wat is de waarde nu, zonder AI?]</span></dd></div>
+          <div><dt>Uitkomst</dt><dd><span class="invul">[Wat heb je gemeten?]</span></dd></div>
+          <div><dt>Besluit</dt><dd><span class="invul">[Doorgaan, aanpassen of stoppen? En waarom?]</span></dd></div>
+        </dl>
+        <figure class="grafiek" aria-label="Grafiek bij het experiment">
+          <span class="invul">[Ruimte voor één eenvoudige grafiek, bijvoorbeeld referentiewaarde, norm en uitkomst naast elkaar]</span>
+        </figure>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 4 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 5 ================= -->
+<section class="dia" aria-labelledby="titel-5">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V2 Transformeren</p>
+      <h2 id="titel-5">Adoptie</h2>
+    </header>
+    <div class="inhoud k4 adoptie">
+      <div class="kolom">
+        <h3 class="kolomkop">ADKAR <span class="notitie">wat doe je per stap?</span></h3>
+        <dl class="rijen">
+          <div><dt>A · Bewustzijn</dt><dd><span class="invul">[Hoe horen mensen waarom dit nodig is?]</span></dd></div>
+          <div><dt>D · Bereidheid</dt><dd><span class="invul">[Wat maakt dat ze willen meedoen?]</span></dd></div>
+          <div><dt>K · Kennis</dt><dd><span class="invul">[Wat moeten ze weten, en hoe leren ze dat?]</span></dd></div>
+          <div><dt>A · Kunnen</dt><dd><span class="invul">[Hoe oefenen ze in hun eigen werk?]</span></dd></div>
+          <div><dt>R · Borgen</dt><dd><span class="invul">[Wat zorgt dat het blijft?]</span></dd></div>
+        </dl>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Kotter <span class="notitie">vier van de acht stappen</span></h3>
+        <dl class="rijen">
+          <div><dt>Urgentie</dt><dd><span class="invul">[Waarom nu?]</span></dd></div>
+          <div><dt>Coalitie</dt><dd><span class="invul">[Wie heb je nodig?]</span></dd></div>
+          <div><dt>Visie</dt><dd><span class="invul">[Waar werk je naartoe, in één zin?]</span></dd></div>
+          <div><dt>Eerste successen</dt><dd><span class="invul">[Welk eerste resultaat laat je snel zien?]</span></dd></div>
+        </dl>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">7S <span class="notitie">één actie per element</span></h3>
+        <dl class="rijen">
+          <div><dt>Strategie</dt><dd><span class="invul">[Hoe past AI in de koers?]</span></dd></div>
+          <div><dt>Structuur</dt><dd><span class="invul">[Wie beslist, en wie werkt met wie?]</span></dd></div>
+          <div><dt>Systemen</dt><dd><span class="invul">[Welke processen en systemen veranderen?]</span></dd></div>
+          <div><dt>Gedeelde waarden</dt><dd><span class="invul">[Wat moet iedereen belangrijk vinden?]</span></dd></div>
+          <div><dt>Stijl</dt><dd><span class="invul">[Wat doet de leiding anders?]</span></dd></div>
+          <div><dt>Personeel</dt><dd><span class="invul">[Wie heb je nodig, en wiens werk verandert?]</span></dd></div>
+          <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen leren?]</span></dd></div>
+        </dl>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Top 3 stakeholders <span class="notitie">één actie elk</span></h3>
+        <div class="stapel">
+          <div class="vak stakeholder">
+            <h4>Stakeholder 1</h4>
+            <p><span class="invul">[Rol of groep, en het bezwaar in een paar woorden]</span></p>
+            <p><b>Actie:</b> <span class="invul">[Eén actie, zoals een demo of een pilot]</span></p>
+          </div>
+          <div class="vak stakeholder">
+            <h4>Stakeholder 2</h4>
+            <p><span class="invul">[Rol of groep, en het bezwaar in een paar woorden]</span></p>
+            <p><b>Actie:</b> <span class="invul">[Eén actie, zoals een demo of een pilot]</span></p>
+          </div>
+          <div class="vak stakeholder">
+            <h4>Stakeholder 3</h4>
+            <p><span class="invul">[Rol of groep, en het bezwaar in een paar woorden]</span></p>
+            <p><b>Actie:</b> <span class="invul">[Eén actie, zoals een demo of een pilot]</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 5 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 6 ================= -->
+<section class="dia" aria-labelledby="titel-6">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V4 Roadmap</p>
+      <h2 id="titel-6">Roadmap jaar 1</h2>
+    </header>
+    <div class="inhoud roadmap">
+      <p class="toelichting">Elke fase eindigt bij een gate. Daar beslis je: door, bijsturen of de uitwijkroute nemen.</p>
+      <ol class="fasen">
+        <li class="vak fase">
+          <h3><span class="fnr">1</span>Experiment</h3>
+          <dl class="rijen naast">
+            <div><dt>Wanneer</dt><dd><span class="invul">[Bijvoorbeeld kwartaal 1]</span></dd></div>
+            <div><dt>Doel</dt><dd><span class="invul">[Wat wil je in deze fase bereiken?]</span></dd></div>
+            <div><dt>Eigenaar</dt><dd><span class="invul">[Welke rol is eigenaar?]</span></dd></div>
+            <div><dt>Gate</dt><dd><span class="invul">[Welke meting beslist of je doorgaat? Noem de norm.]</span></dd></div>
+            <div><dt>Uitwijkroute</dt><dd><span class="invul">[Wat doe je als de gate faalt?]</span></dd></div>
+            <div><dt>Niveau</dt><dd><span class="invul">[Ask, Assist of Automate]</span></dd></div>
+          </dl>
+        </li>
+        <li class="vak fase">
+          <h3><span class="fnr">2</span>Pilot</h3>
+          <dl class="rijen naast">
+            <div><dt>Wanneer</dt><dd><span class="invul">[Bijvoorbeeld kwartaal 2 en 3]</span></dd></div>
+            <div><dt>Doel</dt><dd><span class="invul">[Wat wil je in deze fase bereiken?]</span></dd></div>
+            <div><dt>Eigenaar</dt><dd><span class="invul">[Welke rol is eigenaar?]</span></dd></div>
+            <div><dt>Gate</dt><dd><span class="invul">[Welke meting beslist of je doorgaat? Noem de norm.]</span></dd></div>
+            <div><dt>Uitwijkroute</dt><dd><span class="invul">[Wat doe je als de gate faalt?]</span></dd></div>
+            <div><dt>Niveau</dt><dd><span class="invul">[Ask, Assist of Automate]</span></dd></div>
+          </dl>
+        </li>
+        <li class="vak fase">
+          <h3><span class="fnr">3</span>Opschaling</h3>
+          <dl class="rijen naast">
+            <div><dt>Wanneer</dt><dd><span class="invul">[Bijvoorbeeld kwartaal 4]</span></dd></div>
+            <div><dt>Doel</dt><dd><span class="invul">[Wat wil je in deze fase bereiken?]</span></dd></div>
+            <div><dt>Eigenaar</dt><dd><span class="invul">[Welke rol is eigenaar?]</span></dd></div>
+            <div><dt>Gate</dt><dd><span class="invul">[Welke meting beslist of je doorgaat? Noem de norm.]</span></dd></div>
+            <div><dt>Uitwijkroute</dt><dd><span class="invul">[Wat doe je als de gate faalt?]</span></dd></div>
+            <div><dt>Niveau</dt><dd><span class="invul">[Ask, Assist of Automate]</span></dd></div>
+          </dl>
+        </li>
+      </ol>
+      <div class="vak sponsor">
+        <h3>Sponsor uit de leiding</h3>
+        <p><span class="invul">[Wie uit de leiding staat achter deze route? Noem de rol.]</span></p>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 6 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 7 ================= -->
+<section class="dia" aria-labelledby="titel-7">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V3 Investeren</p>
+      <h2 id="titel-7">Governance, ethiek en privacy</h2>
+    </header>
+    <div class="inhoud governance">
+      <div class="kolom">
+        <h3 class="kolomkop">Vijf vragen <span class="notitie">veilig voor wie?</span></h3>
+        <ol class="stapel">
+          <li class="vak uitgelicht">
+            <h3>Risicoklasse in de AI-verordening</h3>
+            <p><span class="invul">[Verboden, hoog, beperkt of minimaal risico? En waarom?]</span></p>
+          </li>
+          <li class="vak">
+            <h3>Persoonsgegevens</h3>
+            <p><span class="invul">[Welke persoonsgegevens gebruikt de AI? Is een DPIA nodig?]</span></p>
+          </li>
+          <li class="vak">
+            <h3>Eigenaar van model en data</h3>
+            <p><span class="invul">[Welke rol is eigenaar van het model, en welke van de data?]</span></p>
+          </li>
+          <li class="vak">
+            <h3>Waar een mens beslist</h3>
+            <p><span class="invul">[Op welk punt neemt een mens het besluit?]</span></p>
+          </li>
+          <li class="vak">
+            <h3>Werk of personen</h3>
+            <p><span class="invul">[Kijkt de AI naar het werkproces of naar personen? Wat betekent dat voor medewerkers?]</span></p>
+          </li>
+        </ol>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Toezicht</h3>
+        <div class="stapel">
+          <p class="formule">Toezicht = kans op een fout × impact van de fout × hoe moeilijk de fout te zien is</p>
+          <dl class="rijen naast">
+            <div><dt>Kans op een fout</dt><dd><span class="invul">[Laag, midden of hoog]</span></dd></div>
+            <div><dt>Impact van de fout</dt><dd><span class="invul">[Laag, midden of hoog]</span></dd></div>
+            <div><dt>Moeilijk te zien</dt><dd><span class="invul">[Laag, midden of hoog]</span></dd></div>
+          </dl>
+          <div class="vak">
+            <h3>Regel voor toezicht</h3>
+            <p><span class="invul">[Wie controleert wat, hoe vaak, en wat gebeurt er bij een fout?]</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 7 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 8 ================= -->
+<section class="dia" aria-labelledby="titel-8">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V2 Transformeren</p>
+      <h2 id="titel-8">Randvoorwaarden</h2>
+    </header>
+    <div class="inhoud twee">
+      <div class="kolom">
+        <h3 class="kolomkop">Wat er moet zijn</h3>
+        <dl class="rijen naast">
+          <div><dt>Mensen</dt><dd><span class="invul">[Wie heb je nodig, en hoeveel tijd per week?]</span></dd></div>
+          <div><dt>Data</dt><dd><span class="invul">[Welke data, van wie, en is die goed genoeg?]</span></dd></div>
+          <div><dt>Budget</dt><dd><span class="invul">[Hoeveel geld, voor welke periode, en wie betaalt?]</span></dd></div>
+          <div><dt>Systemen en software</dt><dd><span class="invul">[Welke systemen en software? Wat moet erop aansluiten?]</span></dd></div>
+          <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen kunnen dat ze nu nog niet kunnen?]</span></dd></div>
+        </dl>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Wat moet blijven werken</h3>
+        <div class="stapel">
+          <div class="vak">
+            <h3>De huidige business</h3>
+            <p><span class="invul">[Welke processen, klanten of afspraken mogen niet haperen terwijl je verandert?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Zo bewaak je dat</h3>
+            <p><span class="invul">[Wie let erop, en waaraan zie je op tijd dat het misgaat?]</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 8 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 9 ================= -->
+<section class="dia" aria-labelledby="titel-9">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">V3 Investeren</p>
+      <h2 id="titel-9">Risicoanalyse</h2>
+    </header>
+    <div class="inhoud risico">
+      <div class="kolom">
+        <h3 class="kolomkop">Grootste risico's <span class="notitie">kans en impact van 1 tot 5, het grootste risico bovenaan</span></h3>
+        <div class="tabel-wrap">
+          <table class="risicotabel">
+            <thead>
+              <tr><th class="nr">#</th><th>Risico</th><th class="getal">Kans</th><th class="getal">Impact</th><th class="getal">Kans × impact</th><th>Maatregel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="nr">1</td><td><span class="invul">[Wat kan er misgaan?]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[getal]</span></td><td><span class="invul">[Hoe voorkom je het, of hoe vang je het op?]</span></td></tr>
+              <tr><td class="nr">2</td><td><span class="invul">[Wat kan er misgaan?]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[getal]</span></td><td><span class="invul">[Hoe voorkom je het, of hoe vang je het op?]</span></td></tr>
+              <tr><td class="nr">3</td><td><span class="invul">[Wat kan er misgaan?]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[getal]</span></td><td><span class="invul">[Hoe voorkom je het, of hoe vang je het op?]</span></td></tr>
+              <tr><td class="nr">4</td><td><span class="invul">[Wat kan er misgaan?]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[getal]</span></td><td><span class="invul">[Hoe voorkom je het, of hoe vang je het op?]</span></td></tr>
+              <tr><td class="nr">5</td><td><span class="invul">[Wat kan er misgaan?]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[1–5]</span></td><td><span class="invul">[getal]</span></td><td><span class="invul">[Hoe voorkom je het, of hoe vang je het op?]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="kolom">
+        <h3 class="kolomkop">Besluiten die niet terug kunnen <span class="notitie">one-way doors</span></h3>
+        <div class="stapel">
+          <p class="toelichting">Andere besluiten kunnen terug (two-way door). Die neem je snel en klein.</p>
+          <div class="vak deur">
+            <h3>Besluit 1</h3>
+            <p><span class="invul">[Welk besluit kun je niet terugdraaien?]</span></p>
+            <p><b>Zo houd je de deur open:</b> <span class="invul">[Welke optie of welk experiment komt eerst?]</span></p>
+          </div>
+          <div class="vak deur">
+            <h3>Besluit 2</h3>
+            <p><span class="invul">[Welk besluit kun je niet terugdraaien?]</span></p>
+            <p><b>Zo houd je de deur open:</b> <span class="invul">[Welke optie of welk experiment komt eerst?]</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 9 van 10</span></footer>
+  </div>
+</section>
+
+<!-- ================= DIA 10 ================= -->
+<section class="dia" aria-labelledby="titel-10">
+  <div class="vel">
+    <header class="kop">
+      <p class="label">Alle vragen V1–V4</p>
+      <h2 id="titel-10">Conclusie</h2>
+    </header>
+    <div class="inhoud conclusie">
+      <div class="vak breed">
+        <h3>Missie in één zin <small>(hoort bij je eindantwoord op V1)</small></h3>
+        <p><span class="invul">[Welke plek en rol wil de organisatie straks innemen? In één zin.]</span></p>
+      </div>
+      <div class="vragen">
+        <article class="vraag kort">
+          <h3><span class="vnr">V1</span>Richting</h3>
+          <p class="vraagtekst">Hoe bepaal ik een strategie als elk plan door de realiteit wordt ingehaald voordat het op papier staat?</p>
+          <div class="vak">
+            <h4>Eindantwoord <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord aan het eind van de training]</span></p>
+          </div>
+          <div class="vak">
+            <h4>Tegenover de nulmeting</h4>
+            <p><span class="invul">[Wat is anders dan op dag 1, en waarom?]</span></p>
+          </div>
+        </article>
+        <article class="vraag kort">
+          <h3><span class="vnr">V2</span>Transformeren</h3>
+          <p class="vraagtekst">Hoe transformeer ik de organisatie onder snel veranderende omstandigheden en houd ik de huidige business robuust?</p>
+          <div class="vak">
+            <h4>Eindantwoord <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord aan het eind van de training]</span></p>
+          </div>
+          <div class="vak">
+            <h4>Tegenover de nulmeting</h4>
+            <p><span class="invul">[Wat is anders dan op dag 1, en waarom?]</span></p>
+          </div>
+        </article>
+        <article class="vraag kort">
+          <h3><span class="vnr">V3</span>Investeren</h3>
+          <p class="vraagtekst">Hoe zorg ik dat mijn investeringen veilig zijn terwijl de toekomst onzeker is?</p>
+          <div class="vak">
+            <h4>Eindantwoord <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord aan het eind van de training]</span></p>
+          </div>
+          <div class="vak">
+            <h4>Tegenover de nulmeting</h4>
+            <p><span class="invul">[Wat is anders dan op dag 1, en waarom?]</span></p>
+          </div>
+        </article>
+        <article class="vraag kort">
+          <h3><span class="vnr">V4</span>Roadmap</h3>
+          <p class="vraagtekst">Hoe bouw ik een roadmap met mijlpalen als na stap 1 onduidelijk is of stap 2 de beste volgende is?</p>
+          <div class="vak">
+            <h4>Eindantwoord <small>(hooguit drie zinnen)</small></h4>
+            <p><span class="invul">[Je antwoord aan het eind van de training]</span></p>
+          </div>
+          <div class="vak">
+            <h4>Tegenover de nulmeting</h4>
+            <p><span class="invul">[Wat is anders dan op dag 1, en waarom?]</span></p>
+          </div>
+        </article>
+      </div>
+      <div class="vak breed">
+        <h3>Volgende stap</h3>
+        <p><span class="invul">[Wat doe je als eerste na de training? Wie doet mee, en wanneer?]</span></p>
+      </div>
+    </div>
+    <footer class="voet"><span>Casusdeck</span><span>Dia 10 van 10</span></footer>
+  </div>
+</section>
+
+</main>
+
+<p id="einde" class="einde scherm">— einde casusdeck —</p>
+
+</body>
+</html>
+<!-- EINDE CASUSDECK -->

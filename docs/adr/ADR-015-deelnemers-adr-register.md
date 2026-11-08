@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Vervangen door [ADR-034](ADR-034-bouwstraat-vervalt.md) en [ADR-033](ADR-033-vier-vragen-als-ruggengraat.md): de vragenkaart neemt de plaats in van het ADR-register |
 | **Datum** | 2026-11-05 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

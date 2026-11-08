@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Vervangen door [ADR-034](ADR-034-bouwstraat-vervalt.md) |
 | **Datum** | 2026-11-04 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

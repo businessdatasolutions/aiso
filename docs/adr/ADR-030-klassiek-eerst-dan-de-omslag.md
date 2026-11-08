@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-037](ADR-037-kiss-opschoning-vier-vragen.md): het stakeholderblok op dag 1 vervalt, de top 3 komt uit de online omgeving |
 | **Datum** | 2026-11-07 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

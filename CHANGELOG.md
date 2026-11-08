@@ -2,6 +2,35 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.22 — 2026-11-08
+
+**Toegevoegd**
+- De vier vragen als ruggengraat (`DATA.vragen`, V1–V4): richting, transformeren, investeren en roadmap. Elke vraag heeft een methode, een vaardigheid en tools. Programmablokken en deckonderdelen verwijzen ernaar met `v`. Deel 6.1 toont ze als kaarten (ADR-033).
+- Deel 2: wicked problems (Rittel & Webber, 1973) en verkennen en benutten (March, 1991). Daarbij de portfoliokaart, de bandiet, Bayesiaans optimaliseren, reële opties en de two-way door (ADR-033).
+- Het ritueel met de vragenkaart: elke dag openen en sluiten met de vier vragen. Op dag 1 om 9:30 is er een nulmeting (FR-33, AC-21, AC-22; ADR-033).
+- Twee nieuwe blokken: "Waarom geen plan volstaat" op dag 1 (FR-34) en "Klein inzetten: de deur die terug kan" op dag 2 (FR-35; ADR-033, ADR-037).
+- Het casusdeck als lokaal HTML-bestand met een PDF-knop: `materiaal/casusdeck.html`, met tien dia's en een openbare downloadpagina (FR-02, NFR-10; ADR-035). Een tweede knop bewaart het HTML-bestand met de datum in de naam, een derde toont de instructie voor de AI.
+- `materiaal/vier-vragen.html` en `materiaal/bo-demo/`: de lespagina voor 11:00 en een kopie van de simulator, met een reparatie zodat de schuif β werkt (ADR-033). De simulator is in de huisstijl: paneel, legenda en 3D-scène, met nieuwe schermafbeeldingen. De tekst is Engels gebleven.
+- Deel 1 krijgt "Waarvoor de deelnemer komt": de definitie van een strategische AI-vraag, de waardepropositie en de klus waarvoor de deelnemer komt. Ook pijnpunten en winst (`DATA.value`) en twee gebruikersverhalen. Daarbij een nieuwe lead (ADR-039).
+- De vraagtoets om 11:40 op dag 1 en de ijking ervan, met `materiaal/vraagtoets.html` en `materiaal/vraagtoets-ijkset.md` (FR-36, FR-37, AC-23; ADR-039).
+- Startpagina: een band met de vier vragen, waarin de vragen van het blok van nu oplichten (NFR-09; ADR-033).
+- Vier risico's erbij: een ritueel zonder inhoud, een afgekapt casusdeck, een AI die anders oordeelt over de strategische vraag, en een vraagtoets die uitloopt. De KISS-lijst is opnieuw geschreven en telt 14 paren (ADR-033 tot en met ADR-039).
+
+**Gewijzigd**
+- Het programma: elke dag opent en sluit met de vier vragen. Dag 1 verdiept vraag 1, dag 2 vraag 3, en dag 3 vraag 2 en 4. Het deckblok duurt elke dag 45 minuten (ADR-033, ADR-036).
+- Het deck telt tien dia's: de vragenkaart en de negen onderdelen van de integrale opdracht. Randvoorwaarden en risicoanalyse zijn weer apart, en de Conclusie is op dag 3 een concept (ADR-034).
+- Het board toetst in de afsluiting het antwoord dat het meest veranderde. `boards.html` vraagt geen ADR meer (FR-18; ADR-036).
+- Het nabespreken heeft twee vragen (FR-05). Het comité verdeelt tien fiches over de pitches (FR-09). Het buildplan heet roadmap voor jaar 1 en heeft uitwijkroutes (FR-15). Het experiment komt op een dia (FR-21). FR-01 spreekt van een voorlopige strategische vraag (ADR-033, ADR-034, ADR-037, ADR-039).
+- Herschreven: FR-02, 03, 06, 14, 17, 20, 24, 26, 28, 30, 31 en 32, en NFR-09. Ook AC-01, 02, 04, 05, 06, 12, 14 en 20. Verder de werkplaatsopdrachten, de trainerslijst, de risico's en fase 0 tot en met 2.
+
+**Verwijderd**
+- De bouwstraat: deel 6.4, `DATA.pipeline`, `DATA.examples`, FR-22, FR-23, FR-25 en AC-17, en de bronnen bij de AI-bedrijven, Nygard en Lacan (ADR-034).
+- De boardmomenten: het bloktype `board`, `DATA.boardMoments` en FR-19 (ADR-036).
+- Werkregels 2 tot en met 4 (FR-29, AC-19), de rondgang (FR-13, AC-08), het stakeholderblok op dag 1 en "Zo bouwen AI-bedrijven" (ADR-037).
+- Kolb en COM-B als ontwerpkader in deel 2, het werkplaatslog en `kennisvormen.html` uit het programma (ADR-033, ADR-034).
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7. Het lege casusdeck staat openbaar op https://businessdatasolutions.github.io/aiso-casusdeck/ (repo `businessdatasolutions/aiso-casusdeck`, alleen het lege template; ADR-035).
+
 ## 0.21 — 2026-11-08
 
 **Toegevoegd** (ADR-032)

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-033](ADR-033-vier-vragen-als-ruggengraat.md): de drie vaste vragen en het werkplaatslog worden twee vragen en de vragenkaart |
 | **Datum** | 2026-11-04 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

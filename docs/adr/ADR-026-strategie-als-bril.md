@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Deels vervangen door [ADR-030](ADR-030-klassiek-eerst-dan-de-omslag.md): de definities en het eerste filmpje gaan naar de opening, de omslag blijft om 11:00 |
+| **Status** | Deels vervangen door [ADR-030](ADR-030-klassiek-eerst-dan-de-omslag.md): de definities en het eerste filmpje gaan naar de opening, de omslag blijft om 11:00; deels vervangen door [ADR-033](ADR-033-vier-vragen-als-ruggengraat.md): de missie in één zin hoort bij het eindantwoord op vraag 1 |
 | **Datum** | 2026-11-07 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

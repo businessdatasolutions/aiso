@@ -80,6 +80,13 @@ h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.
   .band-vlak { box-shadow: 0 6px 16px rgba(0,0,0,.08); }
 }
 .band-binnen { max-width: var(--breed); margin: 0 auto; padding: 14px var(--rand) 8px; }
+/* De vier vragen (NFR-09): altijd in beeld, de vragen van het blok van nu lichten op */
+.vragen { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 0 0 10px; padding: 0; list-style: none; }
+.vraag-chip { display: inline-flex; align-items: baseline; gap: 6px; font-size: clamp(.8rem, .95vw, 1.05rem); border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 3px 12px; color: var(--text-muted); background: var(--bg-page); transition: background .2s, color .2s, border-color .2s; }
+.vraag-chip b { font-family: var(--mono); color: var(--text-secondary); }
+.vraag-chip.is-actief { background: var(--primary); border-color: var(--supporting); color: var(--supporting); font-weight: 700; }
+.vraag-chip.is-actief b { color: var(--supporting); }
+.nu-vraag { font-size: clamp(1rem, 1.35vw, 1.5rem); color: var(--primary); margin: 10px 0 0; max-width: 70ch; }
 .spoor { position: relative; height: clamp(16px, 2vw, 30px); }
 .balk { position: absolute; top: 0; bottom: 0; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-page); color: var(--text-primary); cursor: pointer; container-type: inline-size; overflow: hidden; transition: opacity .3s; }
 .balk span { display: block; padding: 0 8px; font-size: .75rem; font-weight: 600; line-height: calc(clamp(16px, 2vw, 30px) - 2px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -91,7 +98,6 @@ h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.
 .t-deck { background: var(--bg-cream-2); color: var(--supporting); }
 .t-inhoud { background: var(--bg-page); }
 .t-samen { background: var(--supporting); border-color: var(--supporting); color: #fff; }
-.t-board { background: var(--text-muted); border-color: var(--text-muted); color: #fff; }
 .t-pauze { background: repeating-linear-gradient(135deg, var(--bg-section) 0 6px, var(--bg-page) 6px 12px); border-style: dashed; color: var(--text-muted); }
 .balk.t-pauze span { font-weight: 400; }
 .pin { position: absolute; top: -6px; bottom: -6px; width: 4px; margin-left: -2px; border-radius: 2px; background: var(--supporting); box-shadow: 0 0 0 2px var(--bg-page); z-index: 2; pointer-events: none; }
@@ -178,6 +184,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
     <div class="nu" id="nu" hidden>
       <p class="nu-label" id="nu-label"></p>
       <p class="nu-titel" id="nu-titel"></p>
+      <p class="nu-vraag" id="nu-vraag" hidden></p>
       <p class="nu-maakt" id="nu-maakt" hidden></p>
       <p class="nu-daarna" id="nu-daarna" hidden></p>
     </div>
@@ -186,6 +193,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
 <div class="band" id="band" hidden>
   <div class="band-vlak">
     <div class="band-binnen">
+      <ul class="vragen" id="vragen" aria-label="De vier vragen" hidden></ul>
       <div class="spoor" id="spoor" aria-hidden="true"></div>
       <div class="ticks" id="ticks" aria-hidden="true"></div>
       <p class="regel" id="regel" hidden></p>
@@ -217,7 +225,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
 const LRD_URL = new URL('../LRD-AISO26009-lesdagen.html', location.href);
 const TZ = 'Europe/Amsterdam';
 const VIJF_MIN = 300;
-const TYPES = ['inhoud', 'werkplaats', 'deck', 'samen', 'board', 'pauze'];
+const TYPES = ['inhoud', 'werkplaats', 'deck', 'samen', 'pauze'];
 const RUSTIG = matchMedia('(prefers-reduced-motion: reduce)');
 const params = new URLSearchParams(location.search);
 
@@ -312,6 +320,7 @@ function kiesDag(n, metUrl = true) {
   $('dagtitel').textContent = `Dag ${dag.n} · ${dag.date} · ${dag.title}`;
   $('dagen').innerHTML = DATA.days.map(d =>
     `<a class="pil" href="?dag=${esc(d.n)}" data-dag="${esc(d.n)}"${d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
+  tekenVragen();
   tekenTijdlijn();
   tekenLijst();
   // Een andere dag begint bovenaan, met de kop in beeld.
@@ -355,6 +364,22 @@ function tekenLijst() {
   }).join('');
   $('laden').hidden = true;
   lijst.hidden = false;
+}
+
+/* De vier vragen uit DATA.vragen. Zonder vragen blijft de band zoals hij was. */
+function tekenVragen() {
+  const el = $('vragen'), vr = Array.isArray(DATA.vragen) ? DATA.vragen : [];
+  el.hidden = !vr.length;
+  el.innerHTML = vr.map(q => `<li class="vraag-chip" data-v="${esc(q.id)}" title="${esc(q.vraag)}"><b>${esc(q.id)}</b>${esc(q.kort)}</li>`).join('');
+}
+function kleurVragen(b) {
+  const actief = new Set(b && Array.isArray(b.v) ? b.v : []);
+  document.querySelectorAll('.vraag-chip').forEach(c => c.classList.toggle('is-actief', actief.has(c.dataset.v)));
+  const vr = Array.isArray(DATA.vragen) ? DATA.vragen : [];
+  const een = actief.size === 1 ? vr.find(q => actief.has(q.id)) : null;
+  const el = $('nu-vraag');
+  el.hidden = !een;
+  el.textContent = een ? `${een.id} · ${een.vraag}` : '';
 }
 
 const pos = sec => ((sec - beginDag) / (eindDag - beginDag)) * 100;
@@ -425,6 +450,9 @@ function ververs() {
 
   if (sleutel === vorigeSleutel) return;
   vorigeSleutel = sleutel;
+
+  kleurVragen(nu.soort === 'na' ? null : nu.b);
+  meetBand();
 
   // Tekst bij "nu"
   const zet = (id, html) => { const el = $(id); el.hidden = !html; el.innerHTML = html || ''; };

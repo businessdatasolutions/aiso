@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Vier vragen</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Lespagina voor dag 1, 11:00: de vier vragen, waarom ze weerbarstig zijn, verkennen en benutten, de meerarmige bandiet met de BO-simulator, en reële opties bij vraag 3.">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+/* Lespagina "Waarom geen plan volstaat" (dag 1, 11:00–11:40, FR-34).
+   Bron van alles over Voorbeeld BV: materiaal/voorbeeldcasus.md, "De vier vragen bij Voorbeeld BV".
+   Verander het daar en hier samen (ADR-021).
+   Huisstijl Business Data Solutions (brand-project/stylebook/shared.css), alleen licht.
+   Geel (--accent) is het enige accent: markering, voortgang, de optie. Nooit als tekstkleur op licht.
+   AI = warm zwart met geel plus het Bot-icoon. Rood (--warn) alleen voor de deur die niet terug kan en voor verval.
+   Zonder JavaScript staan alle stappen onder elkaar; bij afdrukken ook. */
+:root{
+  color-scheme:light;
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --warn:#B23A2E;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  --rand:2.2rem;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- Kop en voortgang ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:1rem var(--rand) .7rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:1.5rem;margin:.2rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.teller{margin-left:auto;font-family:var(--mono);color:var(--mutedSoft);font-size:.9rem;white-space:nowrap}
+.voortgang{background:var(--line)}
+.voortgang i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s ease}
+
+/* ---------- Stappen ---------- */
+main{min-height:0;overflow-y:auto;padding:1.2rem var(--rand) 2rem}
+.stap{max-width:110rem;margin:0 auto}
+.stap + .stap{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+.js .stap{display:none}
+.js .stap.actief{display:block}
+.js .stap + .stap{margin-top:0;padding-top:0;border-top:0}
+.wat{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+.stap h2{font-size:2.1rem;margin:.15rem 0 .7rem;letter-spacing:-.02em;line-height:1.12}
+.stap h3{font-size:1.2rem;margin:0 0 .35rem;line-height:1.25}
+p{margin:0 0 .6rem}
+.lead{font-size:1.25rem;line-height:1.45;color:var(--muted);max-width:66rem}
+.lead b{color:var(--ink)}
+.nadruk{font-size:1.2rem;font-weight:700;line-height:1.4;border-left:5px solid var(--accent);background:#fff;
+  padding:.55rem 1rem;border-radius:0 .5rem .5rem 0;margin:1rem 0 0;max-width:72rem}
+.kaart{background:var(--card);border:1.5px solid var(--line);border-radius:.9rem;padding:1rem 1.2rem}
+.kaart p:last-child{margin-bottom:0}
+.v{display:inline-block;font-family:var(--mono);font-size:.8rem;font-weight:700;background:var(--cream);border:1.5px solid var(--ink);
+  border-radius:.35rem;padding:.02rem .4rem;letter-spacing:0;line-height:1.5;white-space:nowrap}
+.label-klein{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mutedSoft);font-weight:700;margin-bottom:.2rem}
+a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+ol.lijst,ul.lijst{margin:.3rem 0 .6rem;padding-left:1.4rem;font-size:1.05rem;line-height:1.45}
+.lijst li{margin:.3rem 0}
+
+/* Iconen als masker: kleur volgt currentColor. lucide "bot", "door-open", "door-closed". */
+.icoon{display:inline-block;width:1.1em;height:1.1em;flex-shrink:0;background:currentColor;vertical-align:-.15em;
+  -webkit-mask:var(--icoon) center/contain no-repeat;mask:var(--icoon) center/contain no-repeat}
+.bot-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E")}
+.deur-open-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 4h3a2 2 0 0 1 2 2v14'/%3E%3Cpath d='M2 20h3'/%3E%3Cpath d='M13 20h9'/%3E%3Cpath d='M10 12v.01'/%3E%3Cpath d='M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z'/%3E%3C/svg%3E")}
+.deur-dicht-i{--icoon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14'/%3E%3Cpath d='M2 20h20'/%3E%3Cpath d='M14 12v.01'/%3E%3C/svg%3E")}
+
+/* ---------- Stap 1: de vier vragen ---------- */
+.vragen{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.vraag-kaart{background:var(--card);border:1.5px solid var(--ink);border-radius:.9rem;padding:1.2rem 1.4rem 1.3rem;display:flex;flex-direction:column;gap:.7rem}
+.vraag-kop{display:flex;align-items:center;gap:.6rem;font-size:1.25rem;font-weight:700;margin:0}
+.vraag-kop .v{font-size:1rem;background:var(--accent);border-color:var(--accent)}
+.vraagtekst{font-size:1.75rem;font-weight:600;line-height:1.28;margin:0}
+.taak{margin:auto 0 0;font-size:1.15rem;color:var(--muted)}
+.taak b{color:var(--ink)}
+
+/* ---------- Stap 2: weerbarstige vraagstukken ---------- */
+.kenmerken{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.55rem}
+.kenmerk{display:grid;grid-template-columns:minmax(0,1fr) 9.5rem minmax(0,1.25fr);gap:1.2rem;align-items:start;
+  background:#fff;border:1.5px solid var(--line);border-radius:.8rem;padding:.7rem 1.1rem}
+.kenmerk h3{font-size:1.15rem;margin:0 0 .15rem}
+.kenmerk p{margin:0;font-size:1.02rem;line-height:1.4;color:var(--muted)}
+.kenmerk .bij{color:var(--ink)}
+.kenmerk .welke{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;font-size:.9rem;font-weight:600}
+
+/* ---------- Stap 3: verkennen en benutten, portfoliokaart ---------- */
+.twee{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.twee .kaart h3{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.twee .kaart h3 small{font-weight:400;font-size:.85rem;color:var(--mutedSoft)}
+.twee .kaart p{font-size:1.05rem;line-height:1.4;color:var(--muted)}
+.drift{font-size:1.1rem;line-height:1.45;margin:.9rem 0 0;max-width:80rem}
+.portfolio{margin:1rem 0 0}
+.panelen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem;justify-items:center}
+.panelen svg{width:100%;height:auto;max-height:46vh;display:block}
+figcaption{font-size:.85rem;color:var(--mutedSoft);margin-top:.5rem;line-height:1.4}
+.pf-titel{font-size:24px;font-weight:700;fill:var(--ink)}
+.pf-sub{font-size:16px;fill:var(--muted)}
+.pf-vlak{fill:var(--cream2)}
+.pf-as{stroke:var(--ink);stroke-width:1.6}
+.pf-asnaam{font-size:15px;font-weight:700;fill:var(--muted)}
+.pf-eind{font-size:15px;fill:var(--muted)}
+.initiatief circle{fill:var(--ink);stroke:#fff;stroke-width:3}
+.initiatief.ai circle{stroke:var(--accent);stroke-width:4}
+.initiatief text{font-size:19px;font-weight:600;fill:var(--ink)}
+.verschuiving line,.instroom line{stroke:var(--ink);stroke-width:2}
+.verschuiving text,.instroom text{font-size:16px;font-weight:600;fill:var(--muted)}
+.verval line{stroke:var(--warn);stroke-width:2;stroke-dasharray:5 5}
+.verval text{font-size:16px;font-weight:600;fill:var(--warn)}
+
+/* ---------- Stap 4: bandiet en simulator ---------- */
+.kolommen{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.4rem;align-items:start}
+.kolom{display:grid;gap:.9rem}
+.kolom .kaart p,.kolom .kaart li{font-size:1.05rem;line-height:1.45}
+.ai-regel{display:flex;gap:.7rem;align-items:flex-start;background:var(--ink);color:#fff;border-radius:.8rem;padding:.8rem 1rem;font-size:1.02rem;line-height:1.45}
+.ai-regel .icoon{color:var(--accent);margin-top:.2rem}
+.ai-regel b{color:var(--accent)}
+.ai-regel p{margin:0}
+.knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin:.4rem 0 .6rem}
+.knop-link{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--ink);font-weight:700;border-radius:.5rem;
+  padding:.5rem 1rem;text-decoration:none;font-size:1.1rem;border:1.5px solid var(--accent)}
+.knop-link:hover{border-color:var(--ink)}
+.knop-uitleg{font-size:.9rem;color:var(--muted)}
+.opdracht{border-color:var(--ink)}
+.opdracht h3{display:flex;align-items:center;gap:.5rem}
+.tijd{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:.05rem .5rem}
+.uitklap-knop{font:inherit;font-weight:700;font-size:1rem;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-radius:.45rem;
+  padding:.4rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.6rem;width:100%;text-align:left;min-height:2.4rem}
+.uitklap-knop::before{content:"+";font-family:var(--mono);font-size:1.1rem;width:1rem;text-align:center}
+.uitklap-knop[aria-expanded="true"]::before{content:"−"}
+.uitklap{margin:.6rem 0 0}
+table.tabel{border-collapse:collapse;width:100%;background:#fff;font-size:.95rem;line-height:1.4}
+.tabel th,.tabel td{border:1px solid var(--line);padding:.4rem .6rem;vertical-align:top;text-align:left}
+.tabel thead th{background:var(--ink);color:#fff}
+.tabel tbody th{background:var(--cream);font-weight:700;white-space:nowrap}
+.bol{display:inline-block;width:.85em;height:.85em;border-radius:50%;vertical-align:-.05em;margin-right:.3rem;border:1px solid rgba(0,0,0,.25)}
+.staaf{display:inline-block;width:.45em;height:1em;border-radius:.1em;vertical-align:-.12em;margin-right:.3rem;background:#8a8478}
+.reserve{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.reserve figure{margin:0}
+.reserve img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:.4rem;background:#fff}
+
+/* ---------- Stap 5: reële opties en deuren ---------- */
+.deuren{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:.9rem}
+.deur{border-left:6px solid var(--ink)}
+.deur.dicht{border-left-color:var(--warn)}
+.deur h3{display:flex;align-items:center;gap:.5rem}
+.deur p{font-size:1.05rem;line-height:1.45;color:var(--muted)}
+.deur p b{color:var(--ink)}
+.bvb{margin-top:1.1rem}
+.bvb h3{font-size:1.15rem}
+.besluiten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.besluit{background:#fff;border:1.5px solid var(--line);border-top:5px solid var(--ink);border-radius:.6rem;padding:.7rem .95rem}
+.besluit.dicht{border-top-color:var(--warn)}
+.besluit.optie{border-top-color:var(--accent);border-color:var(--ink);border-top-color:var(--accent)}
+.besluit p{font-size:1rem;line-height:1.45;margin:0 0 .45rem}
+.besluit .hoe{color:var(--muted)}
+.vervolg{font-size:1rem;color:var(--muted);margin:1rem 0 0;max-width:72rem}
+
+/* ---------- Stap 6: per vraag ---------- */
+.per-vraag{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.5rem}
+.rij{display:grid;grid-template-columns:11rem minmax(0,1fr) minmax(0,1fr);gap:1.2rem;background:#fff;border:1.5px solid var(--line);
+  border-radius:.8rem;padding:.65rem 1.1rem;align-items:start}
+.rij .wie{font-weight:700;font-size:1.05rem;display:flex;flex-direction:column;align-items:flex-start;gap:.2rem}
+.rij p{margin:0;font-size:1.02rem;line-height:1.4}
+.jouw{margin-top:1rem;border:1.5px solid var(--ink);border-left:6px solid var(--accent)}
+.jouw ol{font-size:1.1rem}
+.voorbeeld-antwoorden{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.antwoord{background:#fff;border:1.5px solid var(--line);border-radius:.6rem;padding:.7rem .95rem}
+.antwoord p{font-size:.98rem;line-height:1.45;margin:0 0 .4rem}
+.antwoord .was{color:var(--muted)}
+.antwoord .omdat{border-left:4px solid var(--accent);padding-left:.55rem;margin-bottom:0}
+.bronnen{margin-top:1.6rem;font-size:.88rem;color:var(--muted);line-height:1.45}
+.bronnen h3{font-size:1rem;color:var(--ink)}
+.bronnen ul{list-style:none;margin:0;padding:0}
+.bronnen li{padding-left:1.6rem;text-indent:-1.6rem;margin:.25rem 0}
+
+/* ---------- Bediening en merk ---------- */
+nav.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem var(--rand);border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft);background:var(--paper)}
+nav.bediening button{font:inherit;font-size:1rem;font-weight:700;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  border-radius:.4rem;padding:.2rem .9rem;cursor:pointer;min-width:2.6rem;min-height:2rem}
+nav.bediening button.volgende{background:var(--accent);border-color:var(--accent)}
+nav.bediening button:disabled{opacity:.35;cursor:default}
+nav.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+html:not(.js) nav.bediening button{display:none}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* ---------- Smal scherm: de pagina scrolt, de bediening blijft onderaan ---------- */
+@media (max-width:760px){
+  :root{--rand:16px}
+  html{font-size:15px}
+  body{display:flex;flex-direction:column;height:auto;min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+  header.top{gap:1rem;padding-top:.9rem}
+  h1{font-size:1.3rem}
+  .voortgang{height:4px;flex-shrink:0}
+  main{flex:1 0 auto;overflow:visible;padding-bottom:1.4rem}
+  .stap h2{font-size:1.55rem}
+  .lead{font-size:1.1rem}
+  .vragen,.twee,.panelen,.kolommen,.deuren,.besluiten,.reserve,.voorbeeld-antwoorden{grid-template-columns:1fr}
+  .vraagtekst{font-size:1.25rem}
+  .kenmerk{grid-template-columns:1fr;gap:.35rem}
+  .kenmerk .welke{flex-direction:row;flex-wrap:wrap;align-items:center}
+  .rij{grid-template-columns:1fr;gap:.45rem}
+  .panelen svg{max-height:none}
+  .tabel tbody th{white-space:normal}
+  nav.bediening{position:sticky;bottom:0;flex-wrap:wrap;padding:.6rem 16px}
+}
+@media (max-width:480px){
+  .merk-tekst{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+/* ---------- Afdrukken: alle stappen onder elkaar, alles uitgeklapt ---------- */
+@media print{
+  html{font-size:11pt;background:#fff}
+  body{display:block;height:auto;overflow:visible;background:#fff}
+  main{overflow:visible;padding:0}
+  .js .stap,.stap{display:block !important}
+  .stap + .stap,.js .stap + .stap{break-before:page;margin-top:0;padding-top:0;border-top:0}
+  .stap > *{opacity:1 !important;transform:none !important}
+  .portfolio .initiatief,.portfolio .verschuiving,.portfolio .instroom,.portfolio .verval{opacity:1 !important}
+  .uitklap[hidden]{display:block !important}
+  .uitklap-knop,nav.bediening,.voortgang,.teller{display:none !important}
+  header.top{padding:0 0 .6rem}
+  .panelen svg{max-height:none}
+  .kaart,.kenmerk,.rij,.besluit,.antwoord,.vraag-kaart,figure{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <div class="eyebrow">Dag 1 · 11:00–11:40 · De vier vragen</div>
+    <h1>Waarom geen plan volstaat</h1>
+  </div>
+  <div class="teller" id="teller" aria-hidden="true">1 / 6</div>
+</header>
+<div class="voortgang" aria-hidden="true"><i id="balk"></i></div>
+<p class="sr" id="melding" aria-live="polite"></p>
+
+<main id="stappen">
+
+<!-- ============ Stap 1 ============ -->
+<section class="stap actief" aria-labelledby="kop-1">
+  <div class="wat">De vier vragen</div>
+  <h2 id="kop-1">Vier taken van leiderschap, elk met een eigen vraag</h2>
+  <p class="lead">Elke dag begint en eindigt met deze vier vragen. Om 9:30 schreef je op de vragenkaart je eerste antwoorden: de nulmeting. Die laat je staan. Aan het eind van de dag schrijf je eronder wat er veranderde.</p>
+  <ol class="vragen">
+    <li class="vraag-kaart">
+      <h3 class="vraag-kop"><span class="v">V1</span>Richting</h3>
+      <p class="vraagtekst">Hoe bepaal ik een strategie als elk plan door de realiteit wordt ingehaald voordat het op papier staat?</p>
+      <p class="taak"><b>Taak:</b> richting geven.</p>
+    </li>
+    <li class="vraag-kaart">
+      <h3 class="vraag-kop"><span class="v">V2</span>Transformeren</h3>
+      <p class="vraagtekst">Hoe transformeer ik de organisatie onder snel veranderende omstandigheden en houd ik de huidige business robuust?</p>
+      <p class="taak"><b>Taak:</b> voorwaarden scheppen voor verandering.</p>
+    </li>
+    <li class="vraag-kaart">
+      <h3 class="vraag-kop"><span class="v">V3</span>Investeren</h3>
+      <p class="vraagtekst">Hoe zorg ik dat mijn investeringen veilig zijn terwijl de toekomst onzeker is?</p>
+      <p class="taak"><b>Taak:</b> middelen toewijzen.</p>
+    </li>
+    <li class="vraag-kaart">
+      <h3 class="vraag-kop"><span class="v">V4</span>Roadmap</h3>
+      <p class="vraagtekst">Hoe bouw ik een roadmap met mijlpalen als na stap 1 onduidelijk is of stap 2 de beste volgende is?</p>
+      <p class="taak"><b>Taak:</b> een roadmap met prioriteiten, mijlpalen en uitwijkroutes.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ Stap 2 ============ -->
+<section class="stap" aria-labelledby="kop-2">
+  <div class="wat">Waarom ze lastig zijn</div>
+  <h2 id="kop-2">Het zijn weerbarstige vraagstukken</h2>
+  <p class="lead">Rittel en Webber (1973) noemen zulke vragen <i lang="en">wicked problems</i>: weerbarstige vraagstukken. Ze geven tien kenmerken. Vijf daarvan zie je terug in de vier vragen.</p>
+  <ul class="kenmerken">
+    <li class="kenmerk">
+      <div><h3>Geen vaste formulering</h3><p>Hoe je het probleem opschrijft, bepaalt al welke oplossing je ziet.</p></div>
+      <div class="welke"><span class="v">V1</span>Richting</div>
+      <div><span class="label-klein">Voorbeeld BV</span><p class="bij">Gaat het om klachten sneller afhandelen, of om het aanspreekpunt van de klant blijven? Elke formulering geeft een andere strategie.</p></div>
+    </li>
+    <li class="kenmerk">
+      <div><h3>Elke poging telt</h3><p>Je kunt niet oefenen op de echte organisatie. Elke ingreep laat sporen na en verandert het probleem.</p></div>
+      <div class="welke"><span class="v">V2</span>Transformeren</div>
+      <div><span class="label-klein">Voorbeeld BV</span><p class="bij">Een nieuwe werkwijze bij Klantcontact merken klanten en medewerkers meteen. Ook als je stopt, is de situatie anders dan ervoor.</p></div>
+    </li>
+    <li class="kenmerk">
+      <div><h3>Beter of slechter, niet goed of fout</h3><p>Er is geen toets die zegt dat een oplossing juist is.</p></div>
+      <div class="welke"><span class="v">V3</span>Investeren</div>
+      <div><span class="label-klein">Voorbeeld BV</span><p class="bij">Een investering is nooit gewoon veilig. Je kunt hooguit zeggen dat de ene inzet veiliger is dan de andere.</p></div>
+    </li>
+    <li class="kenmerk">
+      <div><h3>Elk probleem is uniek</h3><p>Wat elders werkte, is een idee. Het bewijst niets over jouw organisatie.</p></div>
+      <div class="welke"><span class="v">V3</span>Investeren</div>
+      <div><span class="label-klein">Voorbeeld BV</span><p class="bij">Het rendement dat een leverancier noemt, komt uit een andere organisatie. Het zegt weinig over Voorbeeld BV.</p></div>
+    </li>
+    <li class="kenmerk">
+      <div><h3>Geen stopregel</h3><p>Je weet nooit wanneer je klaar bent. Je stopt omdat tijd, geld of geduld op is.</p></div>
+      <div class="welke"><span class="v">V4</span>Roadmap</div>
+      <div><span class="label-klein">Voorbeeld BV</span><p class="bij">De roadmap van Voorbeeld BV is nooit af. Na elke stap komt een nieuwe keuze.</p></div>
+    </li>
+  </ul>
+  <p class="nadruk">Het gevolg: je lost ze niet één keer op. Je blijft eraan werken. Daarom komen de vier vragen elke dag terug, en vergelijk je elk antwoord met je vorige.</p>
+</section>
+
+<!-- ============ Stap 3 ============ -->
+<section class="stap" aria-labelledby="kop-3">
+  <div class="wat">Hoe je ermee werkt</div>
+  <h2 id="kop-3">Verkennen en benutten</h2>
+  <div class="twee">
+    <div class="kaart">
+      <h3>Benutten <small lang="en">exploitation</small></h3>
+      <p>Beter worden in wat je al doet: verfijnen, efficiënter werken, uitvoeren. Het rendement is zeker en komt snel.</p>
+    </div>
+    <div class="kaart">
+      <h3>Verkennen <small lang="en">exploration</small></h3>
+      <p>Zoeken naar wat nieuw is: proberen, variëren, experimenteren. Het rendement is onzeker en komt later.</p>
+    </div>
+  </div>
+  <p class="drift">Organisaties schuiven vanzelf naar benutten, want dat betaalt sneller en zekerder uit (March, 1991). Zolang de wereld hetzelfde blijft, gaat dat goed. Verandert de wereld, dan word je steeds beter in iets wat minder waard wordt.</p>
+
+  <figure class="portfolio" aria-labelledby="portfolio-bijschrift">
+    <div class="panelen">
+      <svg viewBox="0 0 500 400" role="img" aria-labelledby="kv-titel kv-uitleg">
+        <title id="kv-titel">Portfolio verkennen van Voorbeeld BV</title>
+        <desc id="kv-uitleg">Verticaal het verwachte rendement. Horizontaal het innovatierisico: links groot risico en weinig bewijs, rechts klein risico en bewezen. Installateur voor een fabrikant in Zuid staat linksboven: hoog verwacht rendement, weinig bewijs. AI sorteert mee in één team staat rechts van het midden, halverwege de hoogte: er is al wat bewijs, want de proef loopt. Een pijl wijst vanaf dat initiatief naar rechts: haalt het de norm, dan schuift het naar benutten.</desc>
+        <defs><marker id="pv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1a1a1a"/></marker></defs>
+        <text class="pf-titel" x="60" y="30">Verkennen</text>
+        <text class="pf-sub" x="60" y="54">nieuwe ideeën en proeven</text>
+        <rect class="pf-vlak" x="60" y="70" width="420" height="260" rx="8"/>
+        <line class="pf-as" x1="60" y1="330" x2="60" y2="74" marker-end="url(#pv)"/>
+        <line class="pf-as" x1="60" y1="330" x2="476" y2="330" marker-end="url(#pv)"/>
+        <text class="pf-asnaam" transform="translate(42 200) rotate(-90)" text-anchor="middle">verwacht rendement</text>
+        <text class="pf-eind" x="62" y="352">groot risico, weinig bewijs</text>
+        <text class="pf-eind" x="480" y="352" text-anchor="end">klein risico, bewezen</text>
+        <text class="pf-asnaam" x="270" y="384" text-anchor="middle">innovatierisico</text>
+        <g class="initiatief" transform="translate(144 122)"><circle r="10"/><text x="16" y="-3">Installateur voor een</text><text x="16" y="19">fabrikant in Zuid</text></g>
+        <g class="initiatief ai" transform="translate(337 205)"><circle r="10"/><text x="-16" y="-3" text-anchor="end">AI sorteert mee</text><text x="-16" y="19" text-anchor="end">in één team</text></g>
+        <g class="verschuiving"><line x1="351" y1="205" x2="470" y2="205" marker-end="url(#pv)"/><text x="470" y="262" text-anchor="end">haalt het de norm:</text><text x="470" y="282" text-anchor="end">naar benutten</text></g>
+      </svg>
+      <svg viewBox="0 0 500 400" role="img" aria-labelledby="kb-titel kb-uitleg">
+        <title id="kb-titel">Portfolio benutten van Voorbeeld BV</title>
+        <desc id="kb-uitleg">Verticaal het rendement. Horizontaal het risico op verval en disruptie, van klein naar groot. Onderhoud en installatie bij klanten thuis staat bovenaan: hoog rendement, middelgroot risico. Een rode pijl wijst naar rechts: het risico groeit, nu installaties hun storingen zelf aan de fabrikant melden. Klachtafhandeling zoals nu staat rechtsonder: laag rendement, groot risico op verval. Links komt een pijl binnen uit verkennen.</desc>
+        <defs>
+          <marker id="pb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1a1a1a"/></marker>
+          <marker id="pr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#B23A2E"/></marker>
+        </defs>
+        <text class="pf-titel" x="60" y="30">Benutten</text>
+        <text class="pf-sub" x="60" y="54">de huidige business</text>
+        <rect class="pf-vlak" x="60" y="70" width="420" height="260" rx="8"/>
+        <line class="pf-as" x1="60" y1="330" x2="60" y2="74" marker-end="url(#pb)"/>
+        <line class="pf-as" x1="60" y1="330" x2="476" y2="330" marker-end="url(#pb)"/>
+        <text class="pf-asnaam" transform="translate(42 200) rotate(-90)" text-anchor="middle">rendement</text>
+        <text class="pf-eind" x="62" y="352">klein</text>
+        <text class="pf-eind" x="480" y="352" text-anchor="end">groot</text>
+        <text class="pf-asnaam" x="270" y="384" text-anchor="middle">risico op verval en disruptie</text>
+        <g class="instroom"><line x1="70" y1="205" x2="130" y2="205" marker-end="url(#pb)"/><text x="72" y="192">uit verkennen</text></g>
+        <g class="initiatief" transform="translate(240 120)"><circle r="10"/><text x="0" y="-20" text-anchor="middle">Onderhoud en installatie</text></g>
+        <g class="verval"><line x1="256" y1="120" x2="336" y2="120" marker-end="url(#pr)"/><text x="344" y="126">risico groeit</text></g>
+        <g class="initiatief" transform="translate(417 278)"><circle r="10"/><text x="-16" y="-3" text-anchor="end">Klachtafhandeling</text><text x="-16" y="19" text-anchor="end">zoals nu</text></g>
+      </svg>
+    </div>
+    <figcaption id="portfolio-bijschrift">Twee portfolio's naast elkaar: links wat Voorbeeld BV verkent, rechts wat ze benut. Eigen tekening naar de portfoliokaart van Osterwalder e.a. (2020). De plekken zijn verzonnen. De stip met de gele rand is het AI-initiatief.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ Stap 4 ============ -->
+<section class="stap" aria-labelledby="kop-4">
+  <div class="wat">Hetzelfde patroon in de wiskunde</div>
+  <h2 id="kop-4">De meerarmige bandiet en Bayesiaans optimaliseren</h2>
+  <div class="kolommen">
+    <div class="kolom">
+      <div class="kaart">
+        <h3>De meerarmige bandiet</h3>
+        <p>Voor je staan tien gokautomaten, elk met een eigen arm. Elke automaat betaalt anders uit, maar hoeveel weet je niet.</p>
+        <p>Trek je aan de arm die tot nu toe het meest gaf? Dat is benutten. Probeer je een andere? Dat is verkennen.</p>
+        <p>Wie alleen benut, mist misschien de beste automaat. Wie alleen verkent, verspeelt zijn geld aan slechte.</p>
+      </div>
+      <div class="kaart">
+        <h3>Bayesiaans optimaliseren</h3>
+        <p>Hetzelfde patroon, met heel veel armen: elke plek op een kaart is een keuze (Shahriari e.a., 2016). Het werkt met twee onderdelen:</p>
+        <ol class="lijst">
+          <li>een model van wat je denkt, met je onzekerheid erbij;</li>
+          <li>een regel die op grond daarvan de volgende test kiest.</li>
+        </ol>
+        <p>De schuif β (bèta) bepaalt hoeveel die regel verkent. Bij een lage β test je waar het al goed lijkt. Bij een hoge β test je waar je het minst weet.</p>
+      </div>
+      <div class="ai-regel">
+        <span class="icoon bot-i" aria-hidden="true"></span>
+        <p><b>En AI zelf?</b> In een strategiesimulatie verdedigden de nieuwste taalmodellen de oude technologie en investeerden ze nauwelijks in de nieuwe. Ze scoorden lager dan MBA-studenten (Allen &amp; McDonald, 2026). Vraag je een AI om strategisch advies, verken dan zelf.</p>
+      </div>
+    </div>
+
+    <div class="kolom">
+      <div class="kaart opdracht">
+        <h3>Zelf proberen <span class="tijd">5 minuten</span></h3>
+        <p>De simulator zoekt de beste plek voor een distributiecentrum: de laagste transportkosten naar dertig klanten. Elke test is een dure haalbaarheidsstudie. De knoppen zijn Engels.</p>
+        <div class="knoppen">
+          <a class="knop-link" href="./bo-demo/bo-simulator-fast.html" target="_blank" rel="noopener">Open de simulator<span class="sr"> (opent in een nieuw tabblad)</span></a>
+          <span class="knop-uitleg">Nieuw tabblad, internet nodig. Werkt hij niet? Kijk dan naar de schermafbeeldingen hieronder.</span>
+        </div>
+        <ol class="lijst">
+          <li>Zet <b>Exploration (Beta)</b> op 0,5 en klik op <b>Initialize / Reset</b>.</li>
+          <li>Voorspel: komt de volgende test (de rode bol) dicht bij de beste plek (geel), of ver weg waar het model het minst weet?</li>
+          <li>Klik vijf keer op <b>Run One Step</b>. Kijk waar de zwarte bollen liggen.</li>
+          <li>Zet β op 10, klik op <b>Initialize / Reset</b> en weer vijf keer op <b>Run One Step</b>.</li>
+          <li>Wat zie je? Wat verschilt er, en klopte je voorspelling?</li>
+        </ol>
+      </div>
+
+      <div>
+        <button type="button" class="uitklap-knop" aria-expanded="true" aria-controls="uitleg-bediening" hidden>Wat betekent wat in de simulator?</button>
+        <div class="uitklap" id="uitleg-bediening">
+          <table class="tabel">
+            <caption class="sr">De bediening en de kleuren van de simulator</caption>
+            <thead><tr><th scope="col">In de simulator</th><th scope="col">Wat het betekent</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Initialize / Reset</th><td>Begin opnieuw met twee tests op een willekeurige plek.</td></tr>
+              <tr><th scope="row">Run One Step</th><td>Eén stap: het model werkt zijn beeld bij, kiest de volgende plek en test die.</td></tr>
+              <tr><th scope="row">Run Automatically</th><td>Stappen achter elkaar. Klik op "Stop" om te stoppen.</td></tr>
+              <tr><th scope="row">Observation Noise</th><td>De meetfout: hoe onbetrouwbaar één test is.</td></tr>
+              <tr><th scope="row">Exploration (Beta)</th><td>β: hoeveel de regel verkent.</td></tr>
+              <tr><th scope="row">Toggle True Cost</th><td>De echte kosten, als zwarte draadjes. In het echt ken je die niet.</td></tr>
+              <tr><th scope="row">Toggle Belief</th><td>Wat het model denkt. Bleek is onzeker, grijs is zekerder.</td></tr>
+              <tr><th scope="row">Toggle Decision</th><td>De regel, als rood vlak. De volgende test komt waar dit vlak het laagst is.</td></tr>
+              <tr><th scope="row">Best Cost Found</th><td>De laagste kosten tot nu toe.</td></tr>
+              <tr><th scope="row">Kleuren</th><td><span class="staaf"></span>klant · <span class="bol" style="background:var(--ink)"></span>al getest · <span class="bol" style="background:var(--accent);border-color:var(--ink)"></span>beste plek tot nu toe · <span class="bol" style="background:var(--warn)"></span>volgende test</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" class="uitklap-knop" aria-expanded="true" aria-controls="nabespreking" hidden>Nabespreking: wat zag je?</button>
+        <div class="uitklap kaart" id="nabespreking">
+          <!-- Geldt voor de aangepaste kopie in bo-demo/ (zie bo-demo/LEESMIJ.md). De online versie gedraagt zich anders. -->
+          <p><b>Lage β.</b> De tests bleven bij de beste plek. De regel benut wat hij al weet. Dat gaat snel, maar een betere plek verderop vindt hij zo niet.</p>
+          <p><b>Hoge β.</b> De tests lagen verspreid over het veld. De regel verkent waar hij het minst weet. Dat kost meer tests, en soms vindt hij zo een betere plek.</p>
+          <p>Wat je over het onbekende aanneemt, bepaalt hoeveel je verkent.</p>
+          <p><b>En jij?</b> Bij welke van je vier vragen zit jij nu op een lage β?</p>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" class="uitklap-knop" aria-expanded="true" aria-controls="reserve" hidden>Geen internet? De schermafbeeldingen</button>
+        <div class="uitklap" id="reserve">
+          <div class="reserve">
+            <figure>
+              <a href="./bo-demo/start.png" target="_blank" rel="noopener"><img src="./bo-demo/start.png" width="1280" height="760" loading="lazy" alt="De simulator na Initialize / Reset. Twee tests: een zwarte bol achteraan en een gele bol, de beste plek. Het vlak is bijna overal bleek, dus onzeker; alleen rond de tests is het grijs. De rode bol van de volgende test ligt vlak naast de gele."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
+              <figcaption>Na Initialize / Reset. Het model weet nog bijna niets.</figcaption>
+            </figure>
+            <figure>
+              <a href="./bo-demo/stap-laag-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-laag-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 0,5. De zwarte bollen liggen dicht bij elkaar in één kuil rond de gele bol, de beste plek. De rode bol ligt er weer naast. De rest van het vlak is bleek: daar is niet getest."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
+              <figcaption>Vijf stappen met β = 0,5. De tests blijven bij de beste plek.</figcaption>
+            </figure>
+            <figure>
+              <a href="./bo-demo/stap-hoog-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-hoog-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 10, in dezelfde wereld. De zwarte bollen liggen verspreid over het veld, elk met een grijze vlek: daar is het model nu zekerder. De rode bol ligt ver van de gele."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
+              <figcaption>Vijf stappen met β = 10. De tests waaieren uit over onbekend terrein.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stap 5 ============ -->
+<section class="stap" aria-labelledby="kop-5">
+  <div class="wat">Bij vraag 3 · investeren</div>
+  <h2 id="kop-5">Reële opties en de deur die terug kan</h2>
+  <p class="lead">Een kleine inzet koopt het recht, niet de plicht, om door te gaan. Dat heet een <b>reële optie</b> (Myers, 1977; McGrath, 1999). Verkennen is een optie kopen. Benutten is haar uitoefenen.</p>
+  <div class="deuren">
+    <div class="kaart deur">
+      <h3><span class="icoon deur-open-i" aria-hidden="true"></span>De deur die terug kan <small lang="en">(two-way door)</small></h3>
+      <p><b>De meeste besluiten.</b> Bevalt het niet, dan loop je terug door dezelfde deur. Besluit snel en klein.</p>
+    </div>
+    <div class="kaart deur dicht">
+      <h3><span class="icoon deur-dicht-i" aria-hidden="true"></span>De deur die niet terug kan <small lang="en">(one-way door)</small></h3>
+      <p><b>Een paar besluiten.</b> Wat je doet, is niet of nauwelijks terug te draaien. Besluit langzaam en met bewijs. Koop eerst een optie die de deur openhoudt.</p>
+    </div>
+  </div>
+  <p class="vervolg">Naar Jeff Bezos, in zijn brief aan de aandeelhouders over 2015 (Bezos, 2016).</p>
+
+  <div class="bvb">
+    <h3>Voorbeeld BV: twee besluiten</h3>
+    <div class="besluiten">
+      <div class="besluit">
+        <span class="label-klein">Deur die terug kan</span>
+        <p>Eén team van Klantcontact laat de AI zes weken meesorteren. De AI stelt een categorie en een urgentie voor, de medewerker beslist.</p>
+        <p>Norm vooraf: de AI kiest bij minstens 8 van de 10 klachten dezelfde urgentie als de medewerker, en mist geen ernstige klacht.</p>
+        <p class="hoe">Snel en klein. Haalt de AI de norm niet, dan stopt het team en werkt het weer zoals nu.</p>
+      </div>
+      <div class="besluit dicht">
+        <span class="label-klein">Deur die niet terug kan</span>
+        <p>Vaste installateur worden van één fabrikant, met een contract van vijf jaar, en Klantcontact afbouwen omdat de fabrikant het klantcontact overneemt.</p>
+        <p class="hoe">Langzaam en met bewijs. Klanten die je aan de fabrikant geeft, krijg je niet terug.</p>
+      </div>
+      <div class="besluit optie">
+        <span class="label-klein">De optie die de deur openhoudt</span>
+        <p>Service Zuid werkt een jaar voor één fabrikant, naast het eigen klantcontact, met een contract per opdracht.</p>
+        <p class="hoe">De optie moet laten zien wat een opdracht van de fabrikant oplevert, en hoeveel klanten in Zuid daarna nog Voorbeeld BV bellen. Pas dan gaat de deur dicht of blijft hij open.</p>
+      </div>
+    </div>
+  </div>
+  <p class="nadruk">Dag 2 bouwt hierop verder. Dan zet je je eigen kansen op de portfoliokaart en noem je bij elke kans het besluit dat eraan vastzit: kan die deur terug?</p>
+</section>
+
+<!-- ============ Stap 6 ============ -->
+<section class="stap" aria-labelledby="kop-6">
+  <div class="wat">Per vraag</div>
+  <h2 id="kop-6">Wat is hier verkennen, wat benutten?</h2>
+  <ul class="per-vraag" aria-label="Voorbeeld BV: benutten en verkennen per vraag">
+    <li class="rij">
+      <div class="wie"><span class="v">V1</span>Richting</div>
+      <div><span class="label-klein">Benutten</span><p>De koers "vast aanspreekpunt" vasthouden en meten hoeveel klanten een abonnement kiezen.</p></div>
+      <div><span class="label-klein">Verkennen</span><p>De rol van vaste installateur verkennen, als tweede richting met een eigen signaal.</p></div>
+    </li>
+    <li class="rij">
+      <div class="wie"><span class="v">V2</span>Transformeren</div>
+      <div><span class="label-klein">Benutten</span><p>Klantcontact, Planning en Service werken door en verbeteren wat werkt. Ernstige klachten blijven mensenwerk.</p></div>
+      <div><span class="label-klein">Verkennen</span><p>Eén team werkt zes weken met een AI die meesorteert.</p></div>
+    </li>
+    <li class="rij">
+      <div class="wie"><span class="v">V3</span>Investeren</div>
+      <div><span class="label-klein">Benutten</span><p>Geld naar wat al werkt: het onderhoud en de kennisbank.</p></div>
+      <div><span class="label-klein">Verkennen</span><p>Kleine inzetten met een norm vooraf. Bij een deur die niet terug kan, eerst een optie.</p></div>
+    </li>
+    <li class="rij">
+      <div class="wie"><span class="v">V4</span>Roadmap</div>
+      <div><span class="label-klein">Benutten</span><p>Opschalen wat de norm haalt.</p></div>
+      <div><span class="label-klein">Verkennen</span><p>Na elke stap kijken of een andere plek op de kansenkaart meer belooft: de uitwijkroute.</p></div>
+    </li>
+  </ul>
+
+  <div class="kaart jouw">
+    <h3>Jouw casus</h3>
+    <ol class="lijst">
+      <li>Schrijf per vraag één zin: wat is hier verkennen, en wat benutten? Bij V3 hoort de vraag: kan deze deur terug?</li>
+      <li>Pak je vragenkaart. Laat je nulmeting staan, en zet je zin in de kantlijn. In de afsluiting om 16:00 herschrijf je je antwoorden.</li>
+      <li>Zet er één regel bij: wat veranderde er, en waarom?</li>
+    </ol>
+  </div>
+
+  <div style="margin-top:1rem">
+    <button type="button" class="uitklap-knop" aria-expanded="true" aria-controls="antwoorden-bvb" hidden>Voorbeeld: de antwoorden van Voorbeeld BV, bij de nulmeting en na dag 1</button>
+    <div class="uitklap" id="antwoorden-bvb">
+      <div class="voorbeeld-antwoorden">
+        <div class="antwoord">
+          <span class="label-klein"><span class="v">V1</span> Richting</span>
+          <p class="was"><b>Nulmeting:</b> we schrijven in het eerste kwartaal een AI-strategie voor vijf jaar, met als doel dat wij het eerste aanspreekpunt van de klant blijven. Het MT stelt het plan vast, en daarna voeren we het uit.</p>
+          <p><b>Na dag 1:</b> onze koers is het vaste aanspreekpunt van de klant blijven, met een onderhoudsabonnement. Elk doel heeft een signaal om het los te laten. Gaan de meeste storingen in 2027 rechtstreeks naar de fabrikant, dan kiezen we opnieuw tussen aanspreekpunt en vaste installateur.</p>
+          <p class="omdat">Van een plan voor vijf jaar naar een koers met loslaatsignalen. Fabrikanten en AI-assistenten veranderen de vraag sneller dan een plan meegaat.</p>
+        </div>
+        <div class="antwoord">
+          <span class="label-klein"><span class="v">V2</span> Transformeren</span>
+          <p class="was"><b>Nulmeting:</b> we voeren in 2027 een nieuw klantsysteem met AI in, voor alle afdelingen tegelijk. Klantcontact krijgt een training en werkt daarna op de nieuwe manier.</p>
+          <p><b>Na dag 1:</b> twee sporen naast elkaar. Klantcontact, Planning en Service werken door en verbeteren wat werkt, en ernstige klachten blijven mensenwerk. Eén team van Klantcontact werkt zes weken met een AI die meesorteert, en pas wat daar werkt, gaat naar de andere teams.</p>
+          <p class="omdat">Van één grote omschakeling naar twee sporen. Een omschakeling in het hele bedrijf kun je niet terugdraaien, en de klanten van nu moeten geholpen blijven.</p>
+        </div>
+        <div class="antwoord">
+          <span class="label-klein"><span class="v">V3</span> Investeren</span>
+          <p class="was"><b>Nulmeting:</b> we maken een businesscase voor het hele AI-project, met een terugverdientijd van twee jaar. Na een aanbesteding kiezen we één leverancier voor vijf jaar.</p>
+          <p><b>Na dag 1:</b> we zetten eerst klein in: zes weken AI-sorteren in één team, met vooraf een norm. Bij elk besluit vragen we: kan deze deur terug? Een besluit dat niet terug kan, nemen we pas na een optie die de deur openhoudt.</p>
+          <p class="omdat">Van één grote, veilige investering naar kleine inzetten die het recht kopen om door te gaan. Niemand kent vooraf het rendement van iets nieuws.</p>
+        </div>
+        <div class="antwoord">
+          <span class="label-klein"><span class="v">V4</span> Roadmap</span>
+          <p class="was"><b>Nulmeting:</b> in 2027 elk kwartaal een mijlpaal: de aanbesteding, de bouw, de invoering bij alle afdelingen en de evaluatie. Elke mijlpaal heeft een datum en een eigenaar.</p>
+          <p><b>Na dag 1:</b> een roadmap als reeks beslispunten, van experiment via pilot naar opschaling, met bij elke mijlpaal een gate (beslismoment) en een uitwijkroute. Haalt het meesorteren de norm niet, dan gaan we naar patronen over de afdelingen heen (plek 4). Wat stap 2 wordt, besluiten we na stap 1.</p>
+          <p class="omdat">Van een planning met datums naar beslispunten. Pas na elke stap weet je wat de beste volgende is (de meerarmige bandiet).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bronnen">
+    <h3>Bronnen</h3>
+    <ul>
+      <li>Allen, R. T., &amp; McDonald, R. M. (2026). How well can AI do strategy? Empirical benchmarking using strategy simulations. <i>Strategy Science, 11</i>(1), 93–117. https://doi.org/10.1287/stsc.2025.0444</li>
+      <li>Bezos, J. P. (2016). <i>2015 letter to shareholders</i>. Amazon.com.</li>
+      <li>March, J. G. (1991). Exploration and exploitation in organizational learning. <i>Organization Science, 2</i>(1), 71–87. https://doi.org/10.1287/orsc.2.1.71</li>
+      <li>McGrath, R. G. (1999). Falling forward: Real options reasoning and entrepreneurial failure. <i>Academy of Management Review, 24</i>(1), 13–30. https://doi.org/10.5465/amr.1999.1580438</li>
+      <li>Myers, S. C. (1977). Determinants of corporate borrowing. <i>Journal of Financial Economics, 5</i>(2), 147–175. https://doi.org/10.1016/0304-405X(77)90015-0</li>
+      <li>Osterwalder, A., Pigneur, Y., Etiemble, F., &amp; Smith, A. (2020). <i>The invincible company</i>. Wiley.</li>
+      <li>Rittel, H. W. J., &amp; Webber, M. M. (1973). Dilemmas in a general theory of planning. <i>Policy Sciences, 4</i>(2), 155–169. https://doi.org/10.1007/BF01405730</li>
+      <li>Shahriari, B., Swersky, K., Wang, Z., Adams, R. P., &amp; de Freitas, N. (2016). Taking the human out of the loop: A review of Bayesian optimization. <i>Proceedings of the IEEE, 104</i>(1), 148–175. https://doi.org/10.1109/JPROC.2015.2494218</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<nav class="bediening" aria-label="Stappen">
+  <button type="button" id="terug" aria-label="Vorige stap">←</button>
+  <button type="button" id="verder" class="volgende" aria-label="Volgende stap">→</button>
+  <a href="./index.html?dag=1">Startpagina</a>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" role="img" aria-label="Logo Business Data Solutions"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    <span class="merk-tekst">Business Data Solutions</span>
+  </span>
+</nav>
+
+<script>
+/* Stappen: precies één section.stap heeft de klasse actief. Pijltjes links en rechts, PageUp en PageDown,
+   spatie en Enter, Home en End. Pijltjes omhoog en omlaag blijven scrollen.
+   #stap-N in de adresbalk springt naar stap N. Na elke wissel volgt het event "stap" (zie de module hieronder).
+   Uitklappers: zonder JavaScript en bij afdrukken staat alles open. Geen bibliotheken nodig. */
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const STAPPEN = [...document.querySelectorAll(".stap")];
+  const main = $("stappen");
+  let stap = -1;
+
+  function ga(n) {
+    n = Math.max(0, Math.min(STAPPEN.length - 1, n));
+    if (n === stap) return;
+    stap = n;
+    STAPPEN.forEach((s, i) => s.classList.toggle("actief", i === n));
+    const titel = STAPPEN[n].querySelector("h2").textContent;
+    $("teller").textContent = `${n + 1} / ${STAPPEN.length}`;
+    $("melding").textContent = `Stap ${n + 1} van ${STAPPEN.length}: ${titel}`;
+    $("balk").style.width = `${((n + 1) / STAPPEN.length) * 100}%`;
+    $("terug").disabled = n === 0;
+    $("verder").disabled = n === STAPPEN.length - 1;
+    main.scrollTop = 0;
+    if (matchMedia("(max-width: 760px)").matches) window.scrollTo(0, 0);
+    if (location.hash !== `#stap-${n + 1}`) history.replaceState(null, "", `#stap-${n + 1}`);
+    document.dispatchEvent(new CustomEvent("stap", { detail: { n, sectie: STAPPEN[n] } }));
+  }
+
+  addEventListener("keydown", (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    // Enter of spatie op een knop of link: die doet zelf het werk, anders telt de stap dubbel.
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest?.("a, button")) return;
+    const volgende = ["ArrowRight", "PageDown", " ", "Enter"];
+    const vorige = ["ArrowLeft", "PageUp", "Backspace"];
+    if (volgende.includes(e.key)) { e.preventDefault(); ga(stap + 1); }
+    else if (vorige.includes(e.key)) { e.preventDefault(); ga(stap - 1); }
+    else if (e.key === "Home") { e.preventDefault(); ga(0); }
+    else if (e.key === "End") { e.preventDefault(); ga(STAPPEN.length - 1); }
+  });
+  $("verder").addEventListener("click", () => ga(stap + 1));
+  $("terug").addEventListener("click", () => ga(stap - 1));
+
+  for (const knop of document.querySelectorAll(".uitklap-knop")) {
+    const doel = $(knop.getAttribute("aria-controls"));
+    knop.hidden = false;
+    knop.setAttribute("aria-expanded", "false");
+    doel.hidden = true;
+    knop.addEventListener("click", () => {
+      const open = knop.getAttribute("aria-expanded") === "true";
+      knop.setAttribute("aria-expanded", String(!open));
+      doel.hidden = open;
+    });
+  }
+
+  const stapUitHash = () => {
+    const n = parseInt((location.hash.match(/stap-(\d+)/) || [])[1], 10);
+    return Number.isFinite(n) ? n - 1 : 0;
+  };
+  addEventListener("hashchange", () => ga(stapUitHash()));
+  ga(stapUitHash());
+})();
+</script>
+
+<script type="module">
+/* Beweging, los geladen. Elke bibliotheek komt via een eigen import(); lukt die niet, dan blijft de pagina werken.
+   motion  laat de onderdelen van een nieuwe stap een voor een verschijnen.
+   d3      zet in stap 3 de initiatieven een voor een op de portfoliokaart, daarna de pijlen.
+   Bij minder beweging (prefers-reduced-motion) gebeurt geen van beide. */
+const CDN = {
+  d3: "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm",
+  motion: "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm",
+};
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+async function laad(naam) {
+  try { return await import(CDN[naam]); }
+  catch (e) { console.warn(`Vier vragen: ${naam} niet geladen.`, e); return null; }
+}
+
+if (!reduce) {
+  laad("motion").then((M) => {
+    if (!M) return;
+    document.addEventListener("stap", (e) => {
+      M.animate([...e.detail.sectie.children], { opacity: [0, 1], y: [14, 0] },
+        { duration: 0.4, delay: M.stagger(0.06) });
+    });
+  });
+
+  laad("d3").then((d3) => {
+    if (!d3) return;
+    const zet = () => {
+      const stippen = d3.selectAll(".portfolio .initiatief");
+      const pijlen = d3.selectAll(".portfolio .verschuiving, .portfolio .instroom, .portfolio .verval");
+      const na = 350 + stippen.size() * 220;
+      for (const [sel, start, stap] of [[stippen, 350, 220], [pijlen, na + 150, 200]]) {
+        sel.interrupt().style("opacity", 0)
+          .transition().delay((_, i) => start + i * stap).duration(450).style("opacity", 1)
+          .on("interrupt", function () { d3.select(this).style("opacity", 1); });
+      }
+    };
+    document.addEventListener("stap", (e) => { if (e.detail.sectie.querySelector(".portfolio")) zet(); });
+  });
+}
+</script>
+</body>
+</html>

@@ -1,14 +1,34 @@
 # Voorbeeldcasus: Voorbeeld BV
 
 - **Status:** concept (ADR-021). Alles op deze pagina is verzonnen. Een gelijkenis met een echte organisatie is toeval.
-- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de kansenkaart (FR-27), de kennisvormen en het groeimodel.
-- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html` en `materiaal/groeimodel.html`. Verander je hier iets, verander het daar ook.
+- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de kansenkaart (FR-27), de kennisvormen en het groeimodel.
+- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
 
 ## De organisatie
 
 Voorbeeld BV is een dienstverlener met ongeveer 400 medewerkers. Het bedrijf installeert en onderhoudt verwarming, ventilatie en zonnepanelen bij klanten thuis. Er zijn vijf afdelingen: Klantcontact, Planning, Service (de monteurs, in de regio's Noord en Zuid), Kwaliteit en het MT.
 
-**Strategische AI-vraag:** hoe zetten we AI in om klantvragen en klachten sneller en beter af te handelen, en om van klachten te leren?
+**Strategische AI-vraag:** blijven we het eerste aanspreekpunt van de klant, nu installaties hun storingen zelf aan de fabrikant melden? Of worden we de vaste installateur van de fabrikanten?
+
+**Aanleiding (verzonnen):** steeds meer warmtepompen en omvormers van zonnepanelen hangen aan internet. Ze melden een storing zelf aan de fabrikant, en die kiest de monteur. Klanten stellen hun vraag ook eerst aan een AI-assistent. Zo kan Voorbeeld BV de klant kwijtraken aan de fabrikant.
+
+**Strategische doelen:**
+
+1. Klanten kiezen Voorbeeld BV als vast aanspreekpunt voor hun installatie, met een onderhoudsabonnement.
+2. Storingen voorkomen in plaats van verhelpen.
+3. Van elke klacht leren, over de afdelingen heen.
+
+**Eerste prioriteit:** de klachtafhandeling op deze pagina. De AI stelt bij elke klacht een categorie en een urgentie voor, met een citaat als bewijs, en ziet patronen over de afdelingen heen. Een medewerker beslist. Deze stap volgt uit de doelen. In de klachten hoort Voorbeeld BV nu al wat er misgaat bij installaties, en de gegevens liggen er. Het patroon achter K-0418, een pakking uit één levering, is wat doel 2 nodig heeft.
+
+**Drie vragen voor de vraagtoets (FR-36):**
+
+| | Vraag | Omgeving | Positie | Keuze | Uitkomst |
+|---|---|---|---|---|---|
+| A | Hoe handelen we klachten sneller en beter af, en leren we ervan? | 0 | 0 | 0 | Operationeel. Dit is de eerste prioriteit. |
+| B | Hoe handelen we klachten sneller af dan de concurrent? | 1 | 0 | 0 | Operationeel, hooguit tactisch. Het twijfelgeval. |
+| C | De strategische AI-vraag hierboven. | 2 | 2 | 2 | Strategisch. |
+
+Bij B geven deelnemers op Positie vaak een 1, omdat de concurrent erin staat. De trainer geeft een 0: wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk, en snelheid kan een concurrent nadoen (Porter, 1996). Zonder de tweede zin scoort C op Keuze een 1: er is een ambitie, maar niets valt af.
 
 **Het knelpunt (verzonnen cijfers):**
 
@@ -110,4 +130,74 @@ Bij elke plek geldt: de AI doet een voorstel, een mens beslist. Ernstige klachte
 
 **De harde grens:** op elk niveau gaan ernstige klachten en twijfelgevallen naar een mens. Leg vast wie beslist en wie verantwoordelijk is.
 
-**In het buildplan (FR-15):** het experiment draait op Ask. De pilot draait op Ask met een steekproef, of op Assist. Opschaling draait op Assist. Automate komt alleen in beeld voor duidelijke gevallen met een laag risico, en altijd met de harde grens. Het aandeel AI is een beeld van wie het werk doet, geen meting.
+**In de roadmap (FR-15):** het experiment draait op Ask. De pilot draait op Ask met een steekproef, of op Assist. Opschaling draait op Assist. Automate komt alleen in beeld voor duidelijke gevallen met een laag risico, en altijd met de harde grens. Het aandeel AI is een beeld van wie het werk doet, geen meting.
+
+## De vier vragen bij Voorbeeld BV
+
+- **Gebruik:** de lespagina `vier-vragen.html` (FR-34, dag 1 om 11:00) en het voorbeeld bij de vragenkaart (FR-33).
+- **Nulmeting:** wat een manager van Voorbeeld BV om 9:30 op dag 1 opschrijft, vóór alle inhoud. Dat is klassiek plannen: een vast doel, een plan en daarna uitvoeren.
+- **Na dag 1:** het antwoord na wicked problems (weerbarstige vraagstukken) en verkennen en benutten.
+
+### V1 Richting
+
+*Hoe bepaal ik een strategie als elk plan door de realiteit wordt ingehaald voordat het op papier staat?*
+
+- **Nulmeting:** we schrijven in het eerste kwartaal een AI-strategie voor vijf jaar, met als doel dat wij het eerste aanspreekpunt van de klant blijven. Het MT stelt het plan vast, en daarna voeren we het uit.
+- **Na dag 1:** onze koers is het vaste aanspreekpunt van de klant blijven, met een onderhoudsabonnement. Elk doel heeft een signaal om het los te laten. Gaan de meeste storingen in 2027 rechtstreeks naar de fabrikant, dan kiezen we opnieuw tussen aanspreekpunt en vaste installateur.
+- **Wat veranderde en waarom:** van een plan voor vijf jaar naar een koers met loslaatsignalen. Fabrikanten en AI-assistenten veranderen de vraag sneller dan een plan meegaat.
+
+### V2 Transformeren
+
+*Hoe transformeer ik de organisatie onder snel veranderende omstandigheden en houd ik de huidige business robuust?*
+
+- **Nulmeting:** we voeren in 2027 een nieuw klantsysteem met AI in, voor alle afdelingen tegelijk. Klantcontact krijgt een training en werkt daarna op de nieuwe manier.
+- **Na dag 1:** twee sporen naast elkaar. Klantcontact, Planning en Service werken door en verbeteren wat werkt, en ernstige klachten blijven mensenwerk. Eén team van Klantcontact werkt zes weken met een AI die meesorteert, en pas wat daar werkt, gaat naar de andere teams.
+- **Wat veranderde en waarom:** van één grote omschakeling naar twee sporen. Een omschakeling in het hele bedrijf kun je niet terugdraaien, en de klanten van nu moeten geholpen blijven.
+
+### V3 Investeren
+
+*Hoe zorg ik dat mijn investeringen veilig zijn terwijl de toekomst onzeker is?*
+
+- **Nulmeting:** we maken een businesscase voor het hele AI-project, met een terugverdientijd van twee jaar. Na een aanbesteding kiezen we één leverancier voor vijf jaar.
+- **Na dag 1:** we zetten eerst klein in: zes weken AI-sorteren in één team, met vooraf een norm. Bij elk besluit vragen we: kan deze deur terug? Een besluit dat niet terug kan, nemen we pas na een optie die de deur openhoudt.
+- **Wat veranderde en waarom:** van één grote, veilige investering naar kleine inzetten die het recht kopen om door te gaan. Niemand kent vooraf het rendement van iets nieuws.
+
+**Twee besluiten: kan deze deur terug?**
+
+| | Besluit | Hoe je beslist |
+|---|---|---|
+| Deur die terug kan (two-way door) | Eén team van Klantcontact laat de AI zes weken meesorteren (plek 2). De AI stelt een categorie en een urgentie voor, de medewerker beslist. Norm vooraf: de AI kiest bij minstens 8 van de 10 klachten dezelfde urgentie als de medewerker, en mist geen ernstige klacht. | Snel en klein. Haalt de AI de norm niet, dan stopt het team en werkt het weer zoals nu. |
+| Deur die niet terug kan (one-way door) | Vaste installateur worden van één fabrikant, met een contract van vijf jaar, en Klantcontact afbouwen omdat de fabrikant het klantcontact overneemt. | Langzaam en met bewijs. Klanten die je aan de fabrikant geeft, krijg je niet terug. |
+| De optie die de deur openhoudt | Service Zuid werkt een jaar voor één fabrikant, naast het eigen klantcontact, met een contract per opdracht. | De optie moet laten zien wat een opdracht van de fabrikant oplevert, en hoeveel klanten in Zuid daarna nog Voorbeeld BV bellen. Pas dan gaat de deur dicht of blijft hij open. |
+
+### V4 Roadmap
+
+*Hoe bouw ik een roadmap met mijlpalen als na stap 1 onduidelijk is of stap 2 de beste volgende is?*
+
+- **Nulmeting:** in 2027 elk kwartaal een mijlpaal: de aanbesteding, de bouw, de invoering bij alle afdelingen en de evaluatie. Elke mijlpaal heeft een datum en een eigenaar.
+- **Na dag 1:** een roadmap als reeks beslispunten, van experiment via pilot naar opschaling, met bij elke mijlpaal een gate (beslismoment) en een uitwijkroute. Haalt het meesorteren de norm niet, dan gaan we naar patronen over de afdelingen heen (plek 4). Wat stap 2 wordt, besluiten we na stap 1.
+- **Wat veranderde en waarom:** van een planning met datums naar beslispunten. Pas na elke stap weet je wat de beste volgende is (de meerarmige bandiet).
+
+### Op de portfoliokaart
+
+Een eigen tekening naar Osterwalder e.a. (2020). De plekken zijn verzonnen.
+
+| Portfolio | Initiatief | Plek |
+|---|---|---|
+| Verkennen | AI sorteert mee in één team (plek 2) | Middelmatig verwacht rendement. Er is al wat bewijs, want de proef loopt. |
+| Verkennen | Installateur voor één fabrikant in Zuid | Hoog verwacht rendement, maar nog weinig bewijs. |
+| Benutten | Onderhoud en installatie bij klanten thuis | Hoog rendement. Het risico op verval groeit, nu installaties hun storingen zelf aan de fabrikant melden. |
+| Benutten | Klachtafhandeling zoals nu (met de hand, 9 werkdagen, een 6,1) | Laag rendement en een groot risico op verval. |
+
+Haalt het meesorteren de norm, dan schuift het naar benutten.
+
+### Verkennen en benutten per vraag
+
+| Vraag | Benutten | Verkennen |
+|---|---|---|
+| V1 Richting | De koers "vast aanspreekpunt" vasthouden en meten hoeveel klanten een abonnement kiezen. | De rol van vaste installateur verkennen, als tweede richting met een eigen signaal. |
+| V2 Transformeren | Klantcontact, Planning en Service werken door en verbeteren wat werkt. Ernstige klachten blijven mensenwerk. | Eén team werkt zes weken met een AI die meesorteert. |
+| V3 Investeren | Geld naar wat al werkt: het onderhoud en de kennisbank. | Kleine inzetten met een norm vooraf. Bij een deur die niet terug kan, eerst een optie. |
+| V4 Roadmap | Opschalen wat de norm haalt. | Na elke stap kijken of een andere plek op de kansenkaart meer belooft: de uitwijkroute. |
+
+**Alleen in `vier-vragen.html`:** de precieze plek van de vier initiatieven op de tekening. Wijzig je hierboven iets, kijk dan ook daar.

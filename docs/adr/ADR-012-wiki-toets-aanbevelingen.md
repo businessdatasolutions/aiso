@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-034](ADR-034-bouwstraat-vervalt.md): de PRD vervalt; het herontwerp van het werkproces blijft in kansenkaart, businesscase en gates |
 | **Datum** | 2026-11-04 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

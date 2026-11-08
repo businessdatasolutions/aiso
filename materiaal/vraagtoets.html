@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vraagtoets</title>
+<meta name="description" content="Dag 1 van AISO26009: toets of je AI-vraag strategisch is. Een definitie die de groep vaststelt, drie criteria, oefenen op Voorbeeld BV, en daarna de AI als tweede beoordelaar.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Eén los bestand, net als boards.html: geen bibliotheek, geen server.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --bg-yellow: #fafbf0;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.definitie { border-left: 4px solid var(--primary); background: var(--bg-yellow); border-radius: var(--radius-md); padding: 16px 18px; margin: 0 0 16px; }
+.definitie p { margin: 0; font-size: 1.1rem; font-weight: 600; max-width: 70ch; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 16px; }
+.let-op p:last-child { margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .925rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 2px solid var(--supporting); }
+td.crit strong { display: block; }
+td.crit span { font-size: .85rem; color: var(--text-muted); }
+.score-nr { display: inline-flex; width: 1.6em; height: 1.6em; border-radius: var(--radius-full); align-items: center; justify-content: center; font-weight: 700; font-size: .8rem; background: var(--bg-cream-2); margin-right: 6px; flex-shrink: 0; }
+.regels { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; max-width: 72ch; }
+.regels li { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; background: var(--bg-off-white); }
+
+.velden { display: grid; gap: 14px; }
+.veld label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); min-height: 4.6em; resize: vertical; }
+textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.licht { background: var(--bg-page); color: var(--supporting); border-color: var(--border-strong); }
+.knop.licht:hover { border-color: var(--supporting); }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+
+/* Scoren */
+.oefenen { display: grid; gap: 14px; }
+.vraagkaart { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; background: var(--bg-off-white); }
+.vraagkaart .letter { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-secondary); margin: 0 0 4px; }
+.vraagkaart .vraag { font-weight: 600; font-size: 1.05rem; margin: 0 0 12px; max-width: 72ch; }
+.scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px; }
+fieldset.score { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px 10px; margin: 0; background: var(--bg-page); }
+fieldset.score legend { font-weight: 700; font-size: .9rem; padding: 0 4px; }
+.keuzes { display: flex; gap: 6px; }
+.keuzes label { position: relative; }
+.keuzes input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.keuzes span { display: inline-flex; width: 2.4em; height: 2.2em; align-items: center; justify-content: center; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font-weight: 700; background: var(--bg-page); cursor: pointer; }
+.keuzes input:checked + span { background: var(--supporting); color: var(--bg-off-white); border-color: var(--supporting); }
+.keuzes input:focus-visible + span { outline: 2px solid var(--supporting); outline-offset: 2px; }
+.uitkomst { margin: 12px 0 0; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--bg-section); border: 1px solid var(--border); font-size: .95rem; max-width: 72ch; }
+.uitkomst[data-niveau="Strategisch"] { background: var(--bg-yellow); border-color: var(--primary); }
+.uitkomst strong { display: block; }
+details.trainer { margin-top: 12px; }
+details.trainer summary { cursor: pointer; font-weight: 600; color: var(--text-secondary); width: fit-content; }
+details.trainer p { margin: 8px 0 0; max-width: 72ch; font-size: .95rem; }
+.twee { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; margin-top: 14px; }
+.kolom { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; background: var(--bg-off-white); }
+.kolom h3 { margin: 0 0 10px; }
+.kolom .scores { grid-template-columns: 1fr; }
+.vink { display: inline-flex; align-items: flex-start; gap: 8px; font-weight: 600; cursor: pointer; margin-top: 14px; max-width: 72ch; }
+.vink input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--supporting); flex-shrink: 0; }
+.melding { margin-top: 12px; border-left: 4px solid var(--supporting); padding: 8px 14px; background: var(--bg-section); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 72ch; }
+
+pre.prompt { margin: 0; max-height: 28rem; overflow: auto; background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-md); padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+ol.stappenlijst { margin: 0 0 14px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
+
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .status { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  details.trainer > * { display: block; }
+  pre.prompt { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <p class="eyebrow">AISO26009 · Dag 1 · 11:40 · vraagtoets</p>
+    <h1>Is je AI-vraag strategisch?</h1>
+    <p class="lead">Je werkt drie dagen aan één AI-vraag uit je organisatie. Toets eerst of het een strategische vraag is, of een vraag voor je eerste prioriteit. Eerst jij, dan je duo, dan de AI. Jij beslist.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#definitie"><b>1</b> Definitie</a>
+    <a href="#oefenen"><b>2</b> Oefenen</a>
+    <a href="#jouw-vraag"><b>3</b> Jouw vraag</a>
+    <a href="#met-ai"><b>4</b> Met AI</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="definitie" aria-labelledby="definitie-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="definitie-kop">De definitie die we afspreken</h2></div>
+    <p class="uitleg">Dit is het voorstel van de trainer. De groep mag het scherper maken. Wat jullie afspreken, geldt alle drie de dagen.</p>
+    <div class="definitie"><p id="definitie-tekst"></p></div>
+    <p class="uitleg">De definitie bouwt op de drie definities van de opening. De visie beschrijft de veranderende wereld, de missie de plek die je wilt innemen, en de strategie het pad erheen. Porter (1996) trekt de grens met een operationele vraag: hetzelfde werk beter doen dan anderen. Dat is nodig, maar een concurrent kan het nadoen. Strategie is een eigen positie kiezen, en daarvoor iets anders laten.</p>
+
+    <h3>Drie criteria, elk 0, 1 of 2</h3>
+    <div class="table-wrap"><table id="criteria">
+      <thead><tr><th>Criterium</th><th>0</th><th>1</th><th>2</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+
+    <h3>De uitkomst</h3>
+    <ul class="regels">
+      <li><strong>Positie 0: operationeel.</strong> Bewaar de vraag als kandidaat voor je eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil je organisatie daarmee bereiken?</li>
+      <li><strong>Positie 1 of 2, Keuze 0: nog geen keuze.</strong> Herschrijf de vraag zo dat er iets afvalt.</li>
+      <li><strong>Positie 1 of 2, Keuze 1 of 2: strategisch.</strong> Positie 1 is strategisch op het niveau van een afdeling of keten. Kijk naar het laagste criterium: daar wint je vraag het meest bij herschrijven.</li>
+      <li><strong>Geen totaalscore.</strong> Een totaal verbergt waar de vraag zwak is.</li>
+    </ul>
+
+    <h3>De afspraak van de groep</h3>
+    <div class="velden">
+      <div class="veld"><label for="definitie-veld">Definitie <span class="hint">Pas hem alleen aan als de groep dat afspreekt.</span></label>
+        <textarea id="definitie-veld" data-veld="definitie" rows="3"></textarea></div>
+      <div class="veld"><label for="aanscherping">Wat de groep scherper maakte <span class="hint">Bijvoorbeeld bij een criterium. Leeg laten mag.</span></label>
+        <textarea id="aanscherping" data-veld="aanscherping" rows="2"></textarea></div>
+    </div>
+    <div class="knoppen"><button type="button" class="knop licht" id="terug">Terug naar het voorstel van de trainer</button></div>
+  </section>
+
+  <section class="stap" id="oefenen" aria-labelledby="oefenen-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="oefenen-kop">Oefen op Voorbeeld BV</h2></div>
+    <p class="uitleg">Voorbeeld BV is verzonnen: een installateur van verwarming, ventilatie en zonnepanelen, met 400 medewerkers. Scoor de drie vragen eerst alleen. Vergelijk dan in de groep. Waar jullie verschillen, is de definitie nog niet scherp genoeg.</p>
+    <div class="oefenen" id="oefen"></div>
+  </section>
+
+  <section class="stap" id="jouw-vraag" aria-labelledby="jouw-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="jouw-kop">Jouw vraag</h2></div>
+    <p class="uitleg">Schrijf je vraag op. Scoor hem eerst zelf. Daarna scoort je duo, zonder jouw scores te zien.</p>
+    <div class="velden">
+      <div class="veld"><label for="vraag">Mijn strategische AI-vraag <span class="hint">Eén of twee zinnen. Alleen wat openbaar mag.</span></label>
+        <textarea id="vraag" data-veld="vraag" rows="2"></textarea></div>
+    </div>
+    <div class="twee">
+      <div class="kolom"><h3>Ik</h3><div class="scores" id="scores-jij"></div><p class="uitkomst" id="uitkomst-jij" aria-live="polite"></p></div>
+      <div class="kolom"><h3>Mijn duo</h3><div class="scores" id="scores-duo"></div><p class="uitkomst" id="uitkomst-duo" aria-live="polite"></p></div>
+    </div>
+    <p class="melding" id="verschil" hidden aria-live="polite">Jij en je duo komen op een andere uitkomst uit. Praat erover voordat je de AI vraagt.</p>
+    <label class="vink"><input type="checkbox" id="eerste-stap" data-vink="eersteStap"> Onder deze vraag past een eerste prioriteit die ik tussen dag 2 en 3 kan testen.</label>
+    <p class="melding" id="te-groot" hidden>Zonder zo'n eerste stap is de vraag te groot voor deze training. Kies dan een deel, zoals één markt of één klantgroep.</p>
+  </section>
+
+  <section class="stap" id="met-ai" aria-labelledby="ai-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="ai-kop">Daarna de AI</h2></div>
+    <p class="uitleg">De AI is de tweede beoordelaar. Hij ziet jouw scores niet, zodat hij er niet op leunt. Dat geldt andersom ook: wie eerst het oordeel van de AI ziet, neemt het makkelijk over.</p>
+    <ol class="stappenlijst">
+      <li>Kopieer de prompt en plak hem in je AI: Claude, ChatGPT of Gemini.</li>
+      <li>Leg het oordeel van de AI naast jouw scores en die van je duo. Controleer of de woorden die de AI aanhaalt echt in je vraag staan.</li>
+      <li>Verschillen jullie? Praat erover. Jij beslist welke vraag je drie dagen gebruikt.</li>
+      <li>Zet de vraag die je kiest in stap 1 van het <a href="boards.html#jij">startsjabloon voor je boards</a>. Je supervisory board toetst hem dan opnieuw als hij verandert.</li>
+    </ol>
+    <pre class="prompt" id="prompt" tabindex="0" aria-label="De prompt voor je AI"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" id="kopieer">Kopieer de prompt</button>
+      <span class="status" id="status" aria-live="polite"></span>
+    </div>
+    <div class="let-op">
+      <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De prompt komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
+      <p class="klein">De trainer heeft deze prompt vóór dag 1 getest op negen vragen, in Claude, ChatGPT en Gemini (FR-37 in de LRD). Haalde een AI de norm niet, dan hoor je dat bij de start.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <span>Porter, M. E. (1996). What is strategy? <em>Harvard Business Review, 74</em>(6), 61–78.</span>
+    <a href="./index.html">Startpagina</a>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* De definitie en de criteria staan hier één keer. De tabel, de scores en de prompt komen eruit.
+   De skill van het supervisory board in boards.html heeft een kopie: verander je hier iets, verander het daar ook. */
+const VOORSTEL = 'Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat.';
+const CRITERIA = [
+  { id: 'omgeving', naam: 'Omgeving', bij: 'visie', vraag: 'Welke verandering maakt de vraag nu dringend?',
+    s: ['Geen, of alleen een knelpunt binnen de organisatie', 'Algemeen, zoals "AI verandert alles"', 'Concreet: bij klanten, concurrenten, regels of techniek'] },
+  { id: 'positie', naam: 'Positie', bij: 'missie', vraag: 'Gaat het antwoord over de plek van de organisatie?',
+    s: ['Alleen over hoe een bestaand proces loopt', 'Over wat een afdeling of keten levert, en aan wie', 'Over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt'] },
+  { id: 'keuze', naam: 'Keuze', bij: 'strategie', vraag: 'Dwingt het antwoord een keuze af?',
+    s: ['Elk antwoord is "doen" of "versterken"', 'Er zijn opties, maar niets valt af', 'Elk antwoord betekent dat de organisatie iets laat'] },
+];
+/* Bron: materiaal/voorbeeldcasus.md, "Drie vragen voor de vraagtoets". */
+const OEFEN = [
+  { id: 'A', vraag: 'Hoe handelen we klachten sneller en beter af, en leren we ervan?', trainer: [0, 0, 0],
+    uitleg: 'Het gaat over hoe een bestaand proces loopt. Wat Voorbeeld BV aanbiedt, en aan wie, blijft gelijk. Dit is een goede eerste prioriteit, en geen strategische vraag.' },
+  { id: 'B', vraag: 'Hoe handelen we klachten sneller af dan de concurrent?', trainer: [1, 0, 0],
+    uitleg: 'Het twijfelgeval. De concurrent staat erin, maar wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk. Snelheid kan een concurrent nadoen. Strategisch wordt het pas als snelheid de keuze is waarmee Voorbeeld BV zich onderscheidt, en het bedrijf daar iets anders voor laat. Dus operationeel, hooguit tactisch.' },
+  { id: 'C', vraag: 'Blijven we het eerste aanspreekpunt van de klant, nu installaties hun storingen zelf aan de fabrikant melden? Of worden we de vaste installateur van de fabrikanten?', trainer: [2, 2, 2],
+    uitleg: 'Een concrete verandering: installaties melden zelf hun storing. De plek bij de klant staat op het spel, en elk antwoord laat iets: de klantrelatie, of de rol van onderaannemer. Zonder de tweede zin scoort Keuze een 1: er is een ambitie, maar niets valt af.' },
+];
+
+const $ = id => document.getElementById(id);
+const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
+const OPSLAG = 'aiso-vraagtoets-v1';
+const opslag = {
+  lees() { try { return JSON.parse(localStorage.getItem(OPSLAG)); } catch { return null; } },
+  schrijf(v) { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); } catch { /* geen opslag */ } },
+};
+const leeg = () => ({ definitie: VOORSTEL, aanscherping: '', vraag: '', eersteStap: false, scores: {} });
+function schoon(v) {
+  const s = leeg();
+  if (!v || typeof v !== 'object') return s;
+  for (const k of ['definitie', 'aanscherping', 'vraag']) if (typeof v[k] === 'string') s[k] = v[k];
+  if (!s.definitie.trim()) s.definitie = VOORSTEL;
+  s.eersteStap = v.eersteStap === true;
+  if (v.scores && typeof v.scores === 'object') {
+    for (const [k, w] of Object.entries(v.scores)) if ([0, 1, 2].includes(w)) s.scores[k] = w;
+  }
+  return s;
+}
+let s = schoon(opslag.lees());
+const bewaar = () => opslag.schrijf(s);
+
+/* ---------- De uitkomst volgt uit Positie en Keuze ---------- */
+function uitkomst(groep) {
+  const p = s.scores[`${groep}-positie`], k = s.scores[`${groep}-keuze`];
+  if (p === undefined || k === undefined) return null;
+  if (p === 0) return { niveau: 'Operationeel', tekst: 'Bewaar de vraag als kandidaat voor de eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil de organisatie daarmee bereiken?' };
+  if (k === 0) return { niveau: 'Nog geen keuze', tekst: 'Herschrijf de vraag zo dat er iets afvalt, bijvoorbeeld met een tweede zin die begint met "Of …".' };
+  const voor = p === 1 ? 'Op het niveau van een afdeling of keten. ' : '';
+  if (s.scores[`${groep}-omgeving`] === undefined) return { niveau: 'Strategisch', tekst: `${voor}Scoor ook Omgeving: dan zie je waar de vraag het meest wint.` };
+  const laagste = CRITERIA.reduce((a, c) => s.scores[`${groep}-${c.id}`] < s.scores[`${groep}-${a.id}`] ? c : a);
+  const tekst = s.scores[`${groep}-${laagste.id}`] < 2 ? `Het laagste criterium is ${laagste.naam}: daar wint de vraag het meest.` : 'Alle drie de criteria scoren een 2.';
+  return { niveau: 'Strategisch', tekst: voor + tekst };
+}
+function toonUitkomst(el, u, leegTekst) {
+  if (!u) { el.removeAttribute('data-niveau'); el.textContent = leegTekst; return; }
+  el.dataset.niveau = u.niveau;
+  el.innerHTML = `<strong>${esc(u.niveau)}</strong>${esc(u.tekst)}`;
+}
+
+/* ---------- Opbouw ---------- */
+function scoreGroep(groep) {
+  return CRITERIA.map(c => `<fieldset class="score"><legend>${c.naam} <span class="klein">(${c.bij})</span></legend>
+    <div class="keuzes">${[0, 1, 2].map(w => `<label title="${esc(c.s[w])}"><input type="radio" name="${groep}-${c.id}" value="${w}" data-score="${groep}-${c.id}" aria-label="${esc(`${c.naam} ${w}: ${c.s[w]}`)}"${s.scores[`${groep}-${c.id}`] === w ? ' checked' : ''}><span aria-hidden="true">${w}</span></label>`).join('')}</div>
+  </fieldset>`).join('');
+}
+function bouw() {
+  $('criteria').querySelector('tbody').innerHTML = CRITERIA.map(c => `<tr><td class="crit"><strong>${c.naam} (${c.bij})</strong><span>${esc(c.vraag)}</span></td>${c.s.map(t => `<td>${esc(t)}</td>`).join('')}</tr>`).join('');
+  $('oefen').innerHTML = OEFEN.map(q => `<div class="vraagkaart">
+    <p class="letter">Vraag ${q.id}</p><p class="vraag">${esc(q.vraag)}</p>
+    <div class="scores">${scoreGroep(`oefen${q.id}`)}</div>
+    <p class="uitkomst" id="uitkomst-oefen${q.id}" aria-live="polite"></p>
+    <details class="trainer"><summary>Score van de trainer</summary>
+      <p>${CRITERIA.map((c, i) => `${c.naam} ${q.trainer[i]}`).join(' · ')}</p><p>${esc(q.uitleg)}</p></details>
+  </div>`).join('');
+  $('scores-jij').innerHTML = scoreGroep('jij');
+  $('scores-duo').innerHTML = scoreGroep('duo');
+  for (const el of document.querySelectorAll('[data-veld]')) el.value = s[el.dataset.veld] || '';
+  $('eerste-stap').checked = s.eersteStap;
+}
+function promptTekst() {
+  const def = (s.definitie || VOORSTEL).trim();
+  const scherp = s.aanscherping.trim();
+  const vraag = s.vraag.trim() || '[schrijf je vraag in stap 3]';
+  return `Je toetst of mijn AI-vraag strategisch is. Je bent de tweede beoordelaar: ik en mijn duo hebben al gescoord. Je kiest geen vraag voor mij. Het besluit blijft bij mij.
+
+## De definitie
+
+${def}${scherp ? `\n\nMijn groep heeft dit scherper gemaakt: ${scherp}` : ''}
+
+## De criteria
+
+Geef per criterium een score van 0, 1 of 2.
+
+${CRITERIA.map(c => `- **${c.naam}:** ${c.vraag} ${c.s.map((t, i) => `${i} = ${t}.`).join(' ')}`).join('\n')}
+
+## De uitkomst
+
+- Positie 0: operationeel.
+- Positie 1 of 2, en Keuze 0: nog geen keuze.
+- Positie 1 of 2, en Keuze 1 of 2: strategisch. Positie 1 is strategisch op het niveau van een afdeling of keten.
+- Geef geen totaalscore.
+
+## Mijn vraag
+
+${vraag}
+
+## Zo antwoord je
+
+1. Per criterium: de score, de woorden uit mijn vraag die de score dragen (letterlijk), en één zin uitleg. Staat er niets in mijn vraag voor een criterium, zeg dat dan.
+2. De uitkomst, volgens de regels hierboven.
+3. Bij operationeel: twee vragen erboven. Waarom moet dit beter, en wat wil de organisatie daarmee bereiken?
+4. Bij nog geen keuze: één herschreven versie waarin iets afvalt, en wat er dan afvalt.
+5. Bij strategisch: het laagste criterium, en één manier om de vraag daarop sterker te maken.
+
+Houd het kort. Schrijf in het Nederlands. Weet je iets niet zeker, zeg dat dan.`;
+}
+function teken() {
+  $('definitie-tekst').textContent = (s.definitie || VOORSTEL).trim();
+  for (const q of OEFEN) toonUitkomst($(`uitkomst-oefen${q.id}`), uitkomst(`oefen${q.id}`), 'Scoor Positie en Keuze om de uitkomst te zien.');
+  const uj = uitkomst('jij'), ud = uitkomst('duo');
+  toonUitkomst($('uitkomst-jij'), uj, 'Scoor Positie en Keuze om de uitkomst te zien.');
+  toonUitkomst($('uitkomst-duo'), ud, 'Je duo scoort hier, zonder jouw scores te zien.');
+  $('verschil').hidden = !(uj && ud && uj.niveau !== ud.niveau);
+  $('te-groot').hidden = s.eersteStap || !(uj && uj.niveau === 'Strategisch');
+  $('prompt').textContent = promptTekst();
+}
+
+/* ---------- Gebeurtenissen ---------- */
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (el.matches('[data-veld]')) { s[el.dataset.veld] = el.value; }
+  else if (el.matches('[data-score]')) { s.scores[el.dataset.score] = Number(el.value); }
+  else if (el.matches('[data-vink]')) { s[el.dataset.vink] = el.checked; }
+  else return;
+  bewaar(); teken();
+});
+$('terug').addEventListener('click', () => {
+  s.definitie = VOORSTEL; s.aanscherping = '';
+  $('definitie-veld').value = VOORSTEL; $('aanscherping').value = '';
+  bewaar(); teken();
+});
+$('kopieer').addEventListener('click', async () => {
+  const tekst = promptTekst();
+  let gelukt = false;
+  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
+  catch {
+    const t = document.createElement('textarea');
+    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select();
+    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+    t.remove();
+  }
+  $('status').textContent = gelukt ? 'De prompt staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hierboven en kopieer hem zelf.';
+});
+
+window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => { d.open = true; }));
+
+bouw();
+teken();
+</script>
+</body>
+</html>

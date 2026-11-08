@@ -197,14 +197,14 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <a href="#advisory"><b>3</b> Advisory</a>
     <a href="#downloaden"><b>4</b> Downloaden</a>
     <a href="#installeren"><b>5</b> Installeren</a>
-    <a href="#gebruiken"><b>6</b> Boardmoment</a>
+    <a href="#gebruiken"><b>6</b> Gebruiken</a>
   </div>
 </nav>
 
 <main>
   <section class="stap" id="wat" aria-labelledby="wat-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">0</span><h2 id="wat-kop">Wat is een skill?</h2></div>
-    <p class="uitleg">Een skill is een map met één tekstbestand: <code>SKILL.md</code>. Bovenin staan een naam en een korte beschrijving. Daaronder staat hoe de AI het werk doet. Claude, ChatGPT en Gemini lezen hetzelfde formaat. Je maakt hier twee skills, één per board, en gebruikt ze bij elk boardmoment van de training. Je supervisory board stel je samen vóór de lunch op dag 1, je advisory board in werkplaats 1.</p>
+    <p class="uitleg">Een skill is een map met één tekstbestand: <code>SKILL.md</code>. Bovenin staan een naam en een korte beschrijving. Daaronder staat hoe de AI het werk doet. Claude, ChatGPT en Gemini lezen hetzelfde formaat. Je maakt hier twee skills, één per board, en gebruikt ze in werkplaats 1 en aan het eind van elke lesdag. Je supervisory board stel je samen vóór de lunch op dag 1, je advisory board in werkplaats 1.</p>
     <div class="kaarten">
       <div class="kaart is-tier-1"><p class="kaart-eyebrow">Supervisory board · denkt strategisch</p><p>Drie tot vijf strategen die jij kiest omdat ze je inspireren: je eigen helden, zoals Churchill, Michelle Obama of Dolly Parton. Ze bespreken visie, missie en strategie, helpen je verhaal voor je stakeholders scherp te krijgen en komen tot een gezamenlijk advies.</p></div>
       <div class="kaart is-tier-2"><p class="kaart-eyebrow">Advisory board · vakkennis</p><p>Vijf tot zeven experts, elk met veel kennis van één vakgebied, zoals sales, HR, productmanagement of AI. Ze toetsen je plan vanuit hun vak, debatteren en sluiten af met een oordeel, voorwaarden en stopcriteria.</p></div>
@@ -225,6 +225,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
         <div class="veld"><label for="ambitie">Waar wil je met AI naartoe? <span class="hint">Je AI-visie in één of twee zinnen</span></label>
           <textarea id="ambitie" data-veld="ambitie" rows="2"></textarea></div>
       </div>
+      <div class="veld"><label for="svraag">Je strategische AI-vraag <span class="hint">Zoals je die om 11:40 toetste met de <a href="vraagtoets.html">vraagtoets</a></span></label>
+        <textarea id="svraag" data-veld="svraag" rows="2"></textarea></div>
     </div>
     <div class="knoppen">
       <button type="button" class="knop licht" id="voorbeeld">Vul in met Voorbeeld BV</button>
@@ -258,6 +260,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       </ol>
       <span class="prompt">Leg deze stukken van ons bestuur voor aan mijn supervisory board. Wat zeggen ze over visie, missie en strategie? Bespreek het met elkaar en kom tot een gezamenlijke conclusie en advies.</span>
       <p>Na de lunch begin je werkplaats 1 met dat advies. Vind je niets openbaars, of werk je met Voorbeeld BV? Neem dan het jaarverslag van een organisatie uit dezelfde sector.</p>
+      <p>Laat het board daarna ook je strategische vraag scoren: dat is de tweede beoordeling van de vraagtoets, na jou en je duo. Vul de vraag in bij stap 1, en vraag:</p>
+      <span class="prompt">Toets mijn strategische vraag. Geef per criterium een score met de woorden uit mijn vraag als bewijs.</span>
     </div>
   </section>
 
@@ -360,13 +364,13 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   </section>
 
   <section class="stap" id="gebruiken" aria-labelledby="gebruiken-kop">
-    <div class="stap-kop"><span class="nr" aria-hidden="true">6</span><h2 id="gebruiken-kop">Een boardmoment</h2></div>
-    <p class="uitleg">Elke lesdag eindigt met een boardmoment van 15 minuten. Het beslispunt van die dag staat op de startpagina.</p>
+    <div class="stap-kop"><span class="nr" aria-hidden="true">6</span><h2 id="gebruiken-kop">Je boards gebruiken</h2></div>
+    <p class="uitleg">Elke lesdag eindigt met de vier vragen. Je kiest het antwoord op je vragenkaart dat die dag het meest veranderde, en legt het voor aan het board dat erbij past: het supervisory board bij richting en transformatie (vraag 1 en 2), het advisory board bij investeren en de roadmap (vraag 3 en 4).</p>
     <ol class="stappenlijst">
-      <li><strong>Zet het beslispunt in drie zinnen.</strong> Wat wil je besluiten, welke opties heb je, en wat staat er op het spel? Voeg het deckonderdeel van vandaag toe.</li>
-      <li><strong>Leg het voor aan je advisory board.</strong> Elk lid toetst vanuit het eigen vak. Lees vooral de zwakke plekken en de stopcriteria. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
-      <li><strong>Leg het daarna voor aan je supervisory board.</strong> Het board bespreekt of de koers klopt en hoe je het vertelt aan je stakeholders, en komt tot een gezamenlijke conclusie en advies.</li>
-      <li><strong>Neem zelf het besluit en leg het vast als ADR:</strong> context, besluit, overwogen alternatieven met het advies van de boards, en gevolgen met de eerste volgende stap. Beide boards sluiten af met drie regels voor je ADR. Wijk je af van een board, schrijf dan op waarom.</li>
+      <li><strong>Zet het antwoord in drie zinnen.</strong> Wat was je antwoord, wat is het nu, en waarom veranderde het? Voeg de dia van vandaag toe.</li>
+      <li><strong>Gaat het om vraag 3 of 4, leg het dan voor aan je advisory board.</strong> Elk lid toetst vanuit het eigen vak. Lees vooral de zwakke plekken en de stopcriteria. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
+      <li><strong>Gaat het om vraag 1 of 2, leg het dan voor aan je supervisory board.</strong> Het board bespreekt of de koers klopt en hoe je het vertelt aan je stakeholders, en komt tot een gezamenlijke conclusie en advies.</li>
+      <li><strong>Beslis zelf, en zet het op je vragenkaart.</strong> In de regel "wat veranderde en waarom" staat wat het board zei, wat jij ermee doet en de eerste volgende stap. Beide boards sluiten af met twee regels voor je vragenkaart. Wijk je af van het board, schrijf dan op waarom.</li>
     </ol>
     <div class="blok gebruik">
       <h4>Test je boards meteen na het installeren</h4>
@@ -518,7 +522,8 @@ const BOARD = {
 const VOORBEELD = {
   org: 'Voorbeeld BV (verzonnen) is een dienstverlener met ongeveer 400 medewerkers. We installeren en onderhouden verwarming, ventilatie en zonnepanelen bij klanten thuis. We krijgen ongeveer 1.200 klantvragen en klachten per maand; een klacht duurt gemiddeld 9 werkdagen.',
   rol: 'Manager Klantcontact',
-  ambitie: 'Met AI klantvragen en klachten sneller en beter afhandelen, en van klachten leren. De AI doet een voorstel en een mens beslist. Ernstige klachten blijven mensenwerk.',
+  ambitie: 'Het eerste aanspreekpunt van de klant blijven, ook als installaties hun storingen zelf aan de fabrikant melden. AI helpt ons van elke klacht te leren en storingen te voorkomen. De AI doet een voorstel en een mens beslist; ernstige klachten blijven mensenwerk.',
+  svraag: 'Blijven we het eerste aanspreekpunt van de klant, nu installaties hun storingen zelf aan de fabrikant melden? Of worden we de vaste installateur van de fabrikanten?',
   helden: ['churchill', 'michelleobama', 'springsteen', 'merkel'],
   eigenHelden: [],
   leden: ['kahneman', 'cuban', 'feifeili', 'jobs', 'edmondson', 'oneil'],
@@ -526,12 +531,12 @@ const VOORBEELD = {
 };
 
 /* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
-const leeg = () => ({ org: '', rol: '', ambitie: '', helden: [], eigenHelden: [], leden: [], eigen: [] });
+const leeg = () => ({ org: '', rol: '', ambitie: '', svraag: '', helden: [], eigenHelden: [], leden: [], eigen: [] });
 const schoonLid = x => ({ id: x.id, naam: String(x.naam || ''), blik: String(x.blik || ''), vraag: String(x.vraag || ''), vlag: !!x.vlag });
 function schoon(v) {
   const s = leeg();
   if (!v || typeof v !== 'object') return s;
-  for (const k of ['org', 'rol', 'ambitie']) if (typeof v[k] === 'string') s[k] = v[k];
+  for (const k of ['org', 'rol', 'ambitie', 'svraag']) if (typeof v[k] === 'string') s[k] = v[k];
   for (const k of ['helden', 'leden']) if (Array.isArray(v[k])) s[k] = v[k].filter(x => typeof x === 'string');
   for (const k of ['eigenHelden', 'eigen']) if (Array.isArray(v[k])) s[k] = v[k].filter(x => x && typeof x.id === 'string').map(schoonLid);
   return s;
@@ -567,6 +572,7 @@ function overMij() {
 - **Organisatie:** ${veld(s.org, 'een korte beschrijving van je organisatie')}
 - **Mijn rol:** ${veld(s.rol, 'je functie of rol')}
 - **Waar ik met AI naartoe wil:** ${veld(s.ambitie, 'je AI-visie in één of twee zinnen')}
+- **Mijn strategische AI-vraag:** ${veld(s.svraag, 'je strategische AI-vraag uit de vraagtoets')}
 
 Gebruik dit als achtergrond bij elke vraag. Mis je iets wat nodig is voor een goed oordeel, vraag het dan.`;
 }
@@ -609,6 +615,18 @@ Gebruik deze vaste definities:
 
 Bij AI is de omgeving complex: één vaste stip met een vooraf getekende route loopt snel vast. Kijk daarom ook of een strategie ruimte laat om te leren en bij te sturen.
 
+## Als ik mijn strategische vraag voorleg
+
+Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat. Heeft mijn groep die definitie aangescherpt, dan stuur ik de nieuwe versie mee. Die gaat dan voor.
+
+Geef per criterium een score van 0, 1 of 2, met de woorden uit mijn vraag als bewijs:
+
+- **Omgeving:** welke verandering maakt de vraag nu dringend? 0 = geen, of alleen een knelpunt binnen de organisatie. 1 = algemeen, zoals "AI verandert alles". 2 = concreet: bij klanten, concurrenten, regels of techniek.
+- **Positie:** gaat het antwoord over de plek van de organisatie? 0 = alleen over hoe een bestaand proces loopt. 1 = over wat een afdeling of keten levert, en aan wie. 2 = over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt.
+- **Keuze:** dwingt het antwoord een keuze af? 0 = elk antwoord is "doen" of "versterken". 1 = er zijn opties, maar niets valt af. 2 = elk antwoord betekent dat de organisatie iets laat.
+
+Geef geen totaalscore. Scoort Positie 0, dan is de vraag operationeel: noem twee vragen erboven. Waarom moet dit beter, en wat wil de organisatie daarmee bereiken? Is mijn vraag in de drie dagen veranderd, toets dan de nieuwe versie. Kies nooit een vraag voor mij.
+
 ## Werkwijze
 
 1. **Intake.** Lees alles wat ik meestuur, zoals een plan, een besluit of stukken van ons bestuur. Vat in twee of drie zinnen samen wat er voorligt en wat ik wil weten. Is mijn vraag onduidelijk, stel dan eerst één vraag.
@@ -618,7 +636,7 @@ Bij AI is de omgeving complex: één vaste stip met een vooraf getekende route l
    - **Conclusie:** waar het board het over eens is, en waar niet.
    - **Advies:** wat ik nu moet doen, in hooguit drie punten.
    - **Mijn verhaal:** de kern in drie zinnen. Noem ik stakeholders, zeg dan per stakeholder wat die moet horen om mee te gaan.
-5. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem de conclusie, het sterkste bezwaar en het advies.
+5. **Voor mijn vragenkaart.** Sluit af met twee regels die ik op mijn vragenkaart kan zetten: de conclusie met het advies, en het sterkste bezwaar.
 
 ## Als ik stukken van ons bestuur stuur
 
@@ -640,7 +658,7 @@ ${REGEL_VERTROUWELIJK}
 
 ## Vorm
 
-Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met de conclusie, het advies, mijn verhaal en de drie regels voor mijn ADR. Schrijf in het Nederlands en houd de namen als v_Naam.
+Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met de conclusie, het advies, mijn verhaal en de twee regels voor mijn vragenkaart. Schrijf in het Nederlands en houd de namen als v_Naam.
 `;
 }
 
@@ -683,7 +701,7 @@ ${scepticusZin}
    - **Oordeel:** doorgaan, doorgaan onder voorwaarden, nog niet, of niet doen. Noem de voorwaarden.
    - Drie volgende stappen, de kleinste eerst.
    - **Stopcriteria:** welk resultaat in de komende 30 tot 90 dagen betekent stoppen of bijsturen.
-8. **Voor mijn ADR.** Sluit af met drie regels voor de overwogen alternatieven in mijn ADR. Noem het oordeel, het sterkste bezwaar en de belangrijkste voorwaarde.
+8. **Voor mijn vragenkaart.** Sluit af met twee regels die ik op mijn vragenkaart kan zetten: het oordeel met de belangrijkste voorwaarde, en het sterkste bezwaar.
 
 ## Eerlijkheidsregels
 
@@ -698,7 +716,7 @@ ${REGEL_VERTROUWELIJK}
 
 ## Vorm
 
-Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met het oordeel, de volgende stappen, de stopcriteria en de drie regels voor mijn ADR. Schrijf in het Nederlands en houd de namen als v_Naam.
+Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met het oordeel, de volgende stappen, de stopcriteria en de twee regels voor mijn vragenkaart. Schrijf in het Nederlands en houd de namen als v_Naam.
 `;
 }
 const tekstVan = b => b === 'sup' ? supervisoryTekst() : advisoryTekst();
