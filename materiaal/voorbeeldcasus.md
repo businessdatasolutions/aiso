@@ -1,8 +1,8 @@
 # Voorbeeldcasus: Voorbeeld BV
 
 - **Status:** concept (ADR-021). Alles op deze pagina is verzonnen. Een gelijkenis met een echte organisatie is toeval.
-- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de kansenkaart (FR-27), de kennisvormen, het groeimodel en het experimentpaper (FR-38).
-- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html`, `materiaal/experimentpaper.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
+- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de probleemformulering (FR-39), de kansenkaart (FR-27), de kennisvormen, het groeimodel en het experimentpaper (FR-38).
+- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html`, `materiaal/probleemformulering.html`, `materiaal/experimentpaper.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
 
 ## De organisatie
 
@@ -201,6 +201,44 @@ Haalt het meesorteren de norm, dan schuift het naar benutten.
 | V4 Roadmap | Opschalen wat de norm haalt. | Na elke stap kijken of een andere plek op de kansenkaart meer belooft: de uitwijkroute. |
 
 **Alleen in `vier-vragen.html`:** de precieze plek van de vier initiatieven op de tekening. Wijzig je hierboven iets, kijk dan ook daar.
+
+## De probleemformulering (dag 2)
+
+- **Gebruik:** het voorbeeld in stap 3 van `probleemformulering.html` (FR-39), aan het begin van het blok om 11:30 op dag 2. Het kader volgt de play "Problem framing" uit het Team Playbook van Atlassian: vier vakken en één probleemstelling.
+- **Verzonnen:** alles, net als de rest van Voorbeeld BV. De gegevens komen uit "Het knelpunt" en de klachten hierboven.
+
+**Wie heeft last van het probleem? Hoe weten we dat?**
+
+- Klanten met een klacht: ze geven daarna gemiddeld een 6,1.
+- Klanten die twee keer bellen voordat er iemand komt (K-0501).
+- Klantcontact: 1.200 vragen en klachten per maand, alles met de hand gesorteerd.
+- Kwaliteit: ziet een patroon pas in het overzicht van de maand.
+
+**Wat zijn de signalen dat er een probleem is?**
+
+- Een klacht duurt gemiddeld 9 werkdagen.
+- Na een klacht geven klanten gemiddeld een 6,1.
+- Dezelfde lekkage in Noord en Zuid (K-0418 en K-0470), en niemand legde het verband.
+
+**Waar en wanneer speelt het? En wanneer niet?**
+
+- Als een klacht meer dan één afdeling raakt.
+- Als een klacht onvolledig is: zonder ordernummer of datum.
+- Als het woord ontbreekt waarop je zoekt, zoals "lek" (K-0470).
+- Niet bij een eenvoudige vraag: die beantwoordt Klantcontact meteen met de kennisbank (route 1).
+
+**Waarom gebeurt het, denken we? En wat als er niets verandert?**
+
+- Een klacht gaat met de hand van afdeling naar afdeling.
+- Elke afdeling ziet alleen de eigen klachten.
+- Kwaliteit kijkt één keer per maand.
+- Als er niets verandert, kiezen klanten de fabrikant als aanspreekpunt.
+
+**De probleemstelling:** Klanten van Voorbeeld BV *(wie)* wachten gemiddeld 9 werkdagen op het antwoord op een klacht *(wat)*, vooral als de klacht meer dan één afdeling raakt *(waar en wanneer)*, omdat een klacht met de hand van afdeling naar afdeling gaat *(waarom)*. Als er niets verandert, kiezen klanten de fabrikant als aanspreekpunt *(gevolg)*.
+
+**De eerste versie, en wat er mis mee was:** "Klantcontact heeft geen AI die klachten sorteert." Dat is een oplossing in vermomming. Het probleem is dan dat er geen AI is, en alleen AI kan het oplossen. Je ziet niet meer dat een vaste eigenaar per klacht het wachten misschien ook korter maakt, zonder AI.
+
+**Wat de businesscase ermee doet:** de probleemstelling staat bovenaan. Het "omdat" is een aanname en staat bij de twee aannames. Het gevolg sluit aan op doel 1, en de 6,1 wordt de uitkomstmaat.
 
 ## Het experiment als paper (dag 2)
 

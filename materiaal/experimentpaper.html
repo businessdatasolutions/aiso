@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Experimentpaper</title>
-<meta name="description" content="Dag 2 van AISO26009: je AI schrijft je experiment als wetenschappelijk paper. Eerst een voorstel met onderzoeksvraag, hypotheses, bronnen en drie ontwerpen, na het experiment de uitwerking.">
+<meta name="description" content="Dag 2 van AISO26009: je AI schrijft je experiment als wetenschappelijk paper, in één HTML-pagina met schema's, grafieken en een demo. Eerst een voorstel met onderzoeksvraag, hypotheses, bronnen en drie ontwerpen, na het experiment de uitwerking.">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
 <style>
@@ -124,7 +124,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   <div class="kop-binnen">
     <p class="eyebrow">AISO26009 · Dag 2 · 12:30 · experimentpaper</p>
     <h1>Je experiment als paper</h1>
-    <p class="lead">Je AI schrijft je experiment op zoals een onderzoeker dat doet: eerst een voorstel, na het experiment de uitwerking. Alles komt in één paper, met bronnen in APA 7. Jij kiest het ontwerp, controleert de bronnen en beslist.</p>
+    <p class="lead">Je AI schrijft je experiment op zoals een onderzoeker dat doet: eerst een voorstel, na het experiment de uitwerking. Alles komt in één paper: een HTML-pagina met schema's, grafieken en een demo, en met bronnen in APA 7. Jij kiest het ontwerp, controleert de bronnen en beslist.</p>
   </div>
 </header>
 <nav class="stappen" aria-label="Stappen">
@@ -141,17 +141,19 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   <section class="stap" id="opbouw" aria-labelledby="opbouw-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="opbouw-kop">Zo is het paper opgebouwd</h2></div>
     <p class="uitleg">Een paper houdt de goede volgorde vast. Eerst de vraag, dan wat anderen al weten, en pas dan het ontwerp. De normen liggen vast voordat er resultaten zijn. De trainer werkt in eigen projecten ook zo, en laat in werkplaats 2 zo'n paper zien.</p>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Deel</th><th>Wat erin staat</th><th>Wanneer</th></tr></thead>
+    <p class="uitleg">Je paper is één HTML-pagina die je in de browser opent. Ze heeft de tekst van een artikel, met visualisaties die iets uitleggen wat tekst alleen slecht laat zien. De AI bouwt ze met D3, Three.js of Motion, en Remotion als een korte video echt iets toevoegt. Jij bouwt niets: jij leest, controleert en kiest.</p>
+    <p class="uitleg">De AI schrijft in zakelijk Nederlands, volgens de schrijfregels van ASD-STE100 (Simplified Technical English): korte zinnen, één onderwerp per zin, de bedrijvende vorm en één term voor één begrip. Zo is de tekst snel te lezen, en kan hij maar op één manier begrepen worden.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Opbouw van het paper"><table class="breed">
+      <thead><tr><th>Deel</th><th>Wat erin staat</th><th>Visualisatie, bijvoorbeeld</th><th>Wanneer</th></tr></thead>
       <tbody>
-        <tr><th scope="row">1 Aanleiding</th><td>Het strategische vraagstuk en je eerste prioriteit. De onderzoeksvraag, met hooguit drie deelvragen. Toetsbare hypotheses.</td><td class="wanneer">Dag 2, lunch</td></tr>
-        <tr><th scope="row">2 Wat we al weten</th><td>Wetenschappelijk onderzoek. Koplopers (champions): directe concurrenten, en organisaties uit een heel andere sector. Standpunten van experts, ook een kritisch standpunt.</td><td class="wanneer">Dag 2, lunch</td></tr>
-        <tr><th scope="row">3 Ontwerpen</th><td>Minstens drie ontwerpen voor het experiment, elk geïnspireerd door een bron uit deel 2, en een tabel die ze vergelijkt.</td><td class="wanneer">Lunch; je kiest in werkplaats 2</td></tr>
-        <tr class="thuis"><th scope="row">4 Methode</th><td>Wat je deed, met welke gegevens of deelnemers, en wat anders liep dan gepland.</td><td class="wanneer">Thuis, vóór dag 3</td></tr>
-        <tr class="thuis"><th scope="row">5 Resultaten</th><td>Per criterium de norm, de referentiewaarde zonder AI en het resultaat.</td><td class="wanneer">Thuis</td></tr>
-        <tr class="thuis"><th scope="row">6 Discussie</th><td>Per hypothese: bevestigd, verworpen of niet te zeggen. Vergeleken met deel 2, met de beperkingen.</td><td class="wanneer">Thuis</td></tr>
-        <tr class="thuis"><th scope="row">7 Conclusie en besluit</th><td>Doorgaan, aanpassen of stoppen. Het besluit volgt uit resultaat en norm.</td><td class="wanneer">Thuis; samenvatting op de dia Eerste prioriteit</td></tr>
-        <tr><th scope="row">Bronnen</th><td>Verwijzingen in de tekst en een bronnenlijst volgens APA 7, met een DOI of URL bij elke bron.</td><td class="wanneer">Steeds</td></tr>
+        <tr><th scope="row">1 Aanleiding</th><td>Het strategische vraagstuk en je eerste prioriteit. De onderzoeksvraag, met hooguit drie deelvragen. Toetsbare hypotheses.</td><td>Een schema van de strategische vraag via je doelen en eerste prioriteit naar de hypotheses</td><td class="wanneer">Dag 2, lunch</td></tr>
+        <tr><th scope="row">2 Wat we al weten</th><td>Wetenschappelijk onderzoek. Koplopers (champions): directe concurrenten, en organisaties uit een heel andere sector. Standpunten van experts, ook een kritisch standpunt.</td><td>Een kaart van de bronnen: wat vaststaat, wat omstreden is en wat niemand nog weet</td><td class="wanneer">Dag 2, lunch</td></tr>
+        <tr><th scope="row">3 Ontwerpen</th><td>Minstens drie ontwerpen voor het experiment, elk geïnspireerd door een bron uit deel 2, en een tabel die ze vergelijkt.</td><td>Een vergelijking op tijd, kosten en bewijs, en een demo: welk resultaat betekent doorgaan, aanpassen of stoppen?</td><td class="wanneer">Lunch; je kiest in werkplaats 2</td></tr>
+        <tr class="thuis"><th scope="row">4 Methode</th><td>Wat je deed, met welke gegevens of deelnemers, en wat anders liep dan gepland.</td><td>Een schema van de opzet, stap voor stap</td><td class="wanneer">Thuis, vóór dag 3</td></tr>
+        <tr class="thuis"><th scope="row">5 Resultaten</th><td>Per criterium de norm, de referentiewaarde zonder AI en het resultaat.</td><td>Een grafiek met per criterium het resultaat, de norm als lijn en de referentiewaarde</td><td class="wanneer">Thuis</td></tr>
+        <tr class="thuis"><th scope="row">6 Discussie</th><td>Per hypothese: bevestigd, verworpen of niet te zeggen. Vergeleken met deel 2, met de beperkingen.</td><td>De kaart van deel 2, met je eigen uitkomst erbij</td><td class="wanneer">Thuis</td></tr>
+        <tr class="thuis"><th scope="row">7 Conclusie en besluit</th><td>Doorgaan, aanpassen of stoppen. Het besluit volgt uit resultaat en norm.</td><td>De demo van deel 3, nu met het echte resultaat</td><td class="wanneer">Thuis; samenvatting op de dia Eerste prioriteit</td></tr>
+        <tr><th scope="row">Bronnen</th><td>Verwijzingen in de tekst en een bronnenlijst volgens APA 7, met een DOI of URL bij elke bron.</td><td>—</td><td class="wanneer">Steeds</td></tr>
       </tbody>
     </table></div>
     <div class="definitie">
@@ -167,7 +169,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <li>Open de chat waarin je om 11:30 je businesscase maakte. Of open een nieuwe chat en voeg je businesscase toe.</li>
       <li>Zet de onderzoeksfunctie aan: Deep Research in Gemini en ChatGPT, Research in Claude. Heb je die niet, dan werkt de prompt ook in een gewone chat, met minder bronnen.</li>
       <li>Vul hieronder je vraag en je eerste prioriteit in. Kopieer de prompt, plak hem in je AI en ga lunchen.</li>
-      <li>Bewaar het voorstel daarna als één document, bijvoorbeeld in Google Docs, in Word of als artifact. Je vult het thuis aan.</li>
+      <li>Je krijgt een HTML-pagina terug, als artifact (Claude) of in canvas (ChatGPT, Gemini). Krijg je een gewoon rapport? Vraag dan: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht."</li>
+      <li>Download de pagina als HTML-bestand, met de datum in de naam, net als je casusdeck. Je opent het in je browser, en met Afdrukken maak je er een PDF van. Thuis vul je het aan.</li>
     </ol>
     <div class="velden">
       <div class="veld"><label for="vraag">Mijn strategische AI-vraag <span class="hint">Uit de vraagtoets van dag 1, of zoals hij nu op je vragenkaart staat.</span></label>
@@ -235,6 +238,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <li><strong>Eén bron in het origineel.</strong> Zoek met je duo één bron op. Bestaat hij, en staat erin wat het paper zegt? Wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet.</li>
       <li><strong>De hypotheses.</strong> Noemt elke hypothese een maat, een norm en een referentiewaarde zonder AI? Zo niet, herschrijf haar.</li>
       <li><strong>De experts.</strong> Heeft elke uitspraak van een expert een bron? Wat je board zegt, is een mening en geen bron.</li>
+      <li><strong>Eén getal in een visualisatie.</strong> Staat het ook in de tekst, met een bron? Verzonnen getallen in een demo moeten "illustratie" heten. Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal.</li>
       <li><strong>Kies.</strong> Eén ontwerp, of twee samen. Past het niet vóór dag 3, kies dan een kleiner ontwerp en zet het grote in je roadmap.</li>
       <li><strong>Leg vast.</strong> Met de prompt hieronder zet je AI de normen in het paper, met de datum van vandaag. Daarna doe je de eerste snelle proef.</li>
     </ol>
@@ -254,9 +258,9 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <p class="uitleg">Tussen dag 2 en dag 3 voer je het experiment uit. Daarna schrijft je AI de uitwerking in hetzelfde paper. Jij levert de getallen en controleert ze.</p>
     <ol class="stappenlijst">
       <li>Voer het experiment uit. Noteer per criterium het resultaat, en wat anders liep dan gepland.</li>
-      <li>Open het gesprek met je voorstel, of voeg het paper toe in een nieuwe chat.</li>
+      <li>Open het gesprek met je voorstel, of voeg het HTML-bestand toe in een nieuwe chat.</li>
       <li>Vul hieronder in wat je deed en wat je mat. Kopieer de prompt en plak hem in je AI.</li>
-      <li>Lees de uitwerking na. Kloppen de getallen? Staan de normen er nog zoals op dag 2?</li>
+      <li>Download de nieuwe versie en open haar in je browser. Kloppen de getallen in de tekst en in de grafiek? Staan de normen er nog zoals op dag 2? Staat onderaan "Einde paper"? Zo niet, dan is het bestand afgekapt: vraag het hele bestand opnieuw.</li>
       <li>Zet de tekst voor de dia Eerste prioriteit in je casusdeck. Dag 3 opent met je besluit.</li>
     </ol>
     <div class="velden">
@@ -280,7 +284,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
       Business Data Solutions
     </span>
-    <span>American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.). https://doi.org/10.1037/0000165-000</span>
+    <span>American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.). https://doi.org/10.1037/0000165-000<br>AeroSpace, Security and Defence Industries Association of Europe. (2025). <em>ASD-STE100: Simplified Technical English</em> (Issue 9).</span>
     <a href="./index.html?dag=2">Startpagina</a>
   </div>
 </footer>
@@ -308,6 +312,24 @@ function schoon(v) {
 const s = schoon(opslag.lees());
 const of = (tekst, leeg) => tekst.trim() || leeg;
 
+/* ---------- De schrijfstijl: de regels van ASD-STE100 (Issue 9), vertaald naar zakelijk Nederlands.
+   Het Engelse woordenboek van STE geldt niet; de regels voor zinnen, alinea's, werkwoorden en termen wel. ---------- */
+const STIJL = `Schrijf in zakelijk Nederlands, voor een lezer uit de board. Volg de schrijfregels van ASD-STE100 (Simplified Technical English, Issue 9), vertaald naar het Nederlands. Het Engelse woordenboek van STE geldt hier niet, de regels wel:
+- Hooguit 25 woorden per zin in beschrijvende tekst, en hooguit 20 in een instructie of een stap van het experiment.
+- Eén onderwerp per zin. Eén onderwerp per alinea, en hooguit zes zinnen per alinea.
+- Geef informatie stap voor stap: eerst het algemene, dan het specifieke. Eerst het bekende, dan het nieuwe.
+- Schrijf in de bedrijvende vorm. Gebruik de lijdende vorm alleen als niemand weet wie het deed.
+- Gebruik eenvoudige werkwoordsvormen: de tegenwoordige of de verleden tijd, en "kan" of "moet". Geen "zou kunnen worden" of "zal moeten hebben".
+- Gebruik een werkwoord voor een handeling: "analyseren", en niet "een analyse uitvoeren".
+- Gebruik gewone woorden met één betekenis, en voor één begrip steeds dezelfde term. Geen jargon. Een Engelse vakterm krijgt bij het eerste gebruik een Nederlandse uitleg.
+- Geen lange samenstellingen: hooguit drie delen. Schrijf "de doorlooptijd van een klacht", en niet "klachtafhandelingsdoorlooptijd".
+- Laat geen woorden weg om een zin korter te maken, zoals een lidwoord of "dat".
+- Zet ingewikkelde informatie in een lijst onder elkaar. Verbind zinnen met woorden als "daarna", "maar", "omdat" en "daardoor".
+- Gebruik "dit" alleen als duidelijk is waarnaar het verwijst. Herhaal anders het zelfstandig naamwoord.
+- Een instructie staat in de gebiedende wijs, met één handeling per zin. Een voorwaarde komt eerst: "Als ..., doe dan ...".
+- Geen puntkomma. Geen afkortingen als "bijv.", "o.a." of "enz.": schrijf ze voluit.`;
+const STIJL_KORT = 'Schrijf in dezelfde stijl als het voorstel: zakelijk Nederlands volgens de schrijfregels van ASD-STE100. Dus hooguit 25 woorden per zin, één onderwerp per zin, hooguit zes zinnen per alinea, de bedrijvende vorm, een werkwoord voor een handeling, één term voor één begrip, geen puntkomma en geen afkortingen als "bijv.".';
+
 /* ---------- De drie prompts ---------- */
 const PROMPTS = {
   voorstel: () => `Schrijf met mij een onderzoeksvoorstel voor een experiment, in de vorm van een wetenschappelijk paper. Het experiment is de eerste stap bij mijn eerste prioriteit: klein, goedkoop, en met normen die vastliggen vóór de uitvoering. Na het experiment vullen we hetzelfde paper aan met de uitwerking. Jij zoekt en schrijft. Ik kies het ontwerp en ik beslis.
@@ -332,6 +354,7 @@ Kijk in al deze bronnen ook hoe anderen hun experimenten opzetten, uitvoerden en
 Een titel, de datum, de auteur ([mijn naam]) en een samenvatting van hooguit 150 woorden. Dan drie hoofdstukken en een bronnenlijst.
 
 ### 1. Aanleiding
+- Begin bij de probleemstelling uit mijn businesscase.
 - Het strategische vraagstuk, en waarom het nu speelt.
 - Hoe de eerste prioriteit daaruit volgt, met de cijfers uit mijn businesscase.
 - De onderzoeksvraag, met hooguit drie deelvragen.
@@ -360,21 +383,46 @@ Sluit af met een tabel die de ontwerpen vergelijkt. Kies niet voor mij.
 - Neem alleen bronnen op die je zelf geopend hebt. Kon je een bron niet openen, zet hem dan onder een apart kopje "Niet gecontroleerd".
 - Citeer alleen wat er echt staat. Verzin geen citaten, cijfers, organisaties of uitspraken van experts.
 
-## Regels
-- Schrijf in het Nederlands, in gewone zinnen, voor een lezer uit de board. Hooguit vier pagina's, zonder de bronnenlijst.
+## Regels voor de inhoud
+- Het voorstel telt hooguit 2.000 woorden, zonder de bronnenlijst.
 - Gebruik alleen openbare informatie. Ontbreekt een cijfer over mijn organisatie, vul het dan niet zelf in, maar zet er [ik vul in] bij.
 - Weet je iets niet zeker, zeg dat dan.
-- Maak het paper als één document dat ik later kan aanvullen.`,
 
-  keuze: () => `Ik heb de ontwerpen in hoofdstuk 3 van mijn paper gelezen, met mijn duo. Mijn keuze: ${of(s.keuze, '[vul in op de lespagina, stap 4]')}
+## Schrijfstijl: zakelijk Nederlands volgens ASD-STE100
+
+${STIJL}
+
+## De vorm: één HTML-pagina die de lezer wil verkennen
+
+Lever het paper als één zelfstandig HTML-bestand, als artifact of in canvas. Maak er een pagina van die een lezer uit de board graag doorloopt: rustig, helder en interactief. Doe eerst het onderzoek en schrijf de tekst. Bouw daarna de pagina.
+
+- Visualisaties: drie tot vijf, die elk iets uitleggen wat tekst alleen slecht laat zien. Bijvoorbeeld:
+  - een schema van mijn strategische vraag via mijn doelen en eerste prioriteit naar de onderzoeksvraag en de hypotheses;
+  - een kaart of grafiek van wat onderzoek, koplopers en experts zeggen: wat vaststaat, wat omstreden is en wat niemand nog weet;
+  - een vergelijking van de ontwerpen op tijd, kosten en sterkte van het bewijs;
+  - een demo of simulatie: bij welk resultaat ga ik door, pas ik aan of stop ik, tegen de norm en de referentiewaarde?
+  Een visualisatie die niets uitlegt, laat je weg.
+- Bibliotheken: D3 voor grafieken en diagrammen, Three.js voor 3D, Motion (motion.dev) voor beweging. Laad ze als ES-module van jsDelivr, met een vaste versie en nooit @latest: https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm, https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js en https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm. Laad elke bibliotheek met een eigen import(), zodat één storing de rest niet raakt. Gebruik Remotion alleen als je omgeving React draait en een korte video echt iets uitlegt, ook dan met een vaste versie.
+- Eerlijke visualisaties: elk getal in een visualisatie staat ook in de tekst, met een verwijzing naar de bron of naar mijn meting. Verzonnen getallen in een demo krijgen zichtbaar het label "illustratie". Een simulatie is een model en geen bewijs: zet dat erbij.
+- Altijd leesbaar: tekst, tabellen en bronnen staan in gewone HTML en werken ook als een bibliotheek niet laadt. Bij elke visualisatie staat in één of twee zinnen wat ze laat zien.
+- Rustig: beweging alleen als die iets uitlegt. Bij de instelling voor minder beweging (prefers-reduced-motion) staat alles meteen stil.
+- Werkt overal: lokaal geopend in de browser, op een telefoon, en afgedrukt als PDF. In print staat alle tekst en geen knop.
+- Zet onderaan de pagina zichtbaar "Einde paper", en als allerlaatste regel van het bestand <!-- einde paper -->. Zo zie ik of het bestand afgekapt is.`,
+
+  keuze: () => `Mijn paper is het HTML-bestand in de bijlage, of eerder in dit gesprek. Ik heb de ontwerpen in hoofdstuk 3 gelezen, met mijn duo. Mijn keuze: ${of(s.keuze, '[vul in op de lespagina, stap 4]')}
 
 Werk het paper bij:
 1. Zet bovenaan hoofdstuk 3 een paragraaf "Gekozen ontwerp": welk ontwerp, waarom, en wat ik van de andere ontwerpen overneem.
 2. Schrijf de evaluatiecriteria van dat ontwerp uit, elk met een norm en een referentiewaarde zonder AI, met de datum van vandaag. Vanaf nu liggen ze vast.
 3. Noem welke gegevens of deelnemers het experiment nodig heeft, en wie daarover beslist.
-4. Verander verder niets aan hoofdstuk 1 en 2.`,
+4. Laat in de vergelijking van de ontwerpen zien welk ontwerp ik koos, en zet de normen in de demo.
+5. Verander verder niets aan hoofdstuk 1 en 2.
 
-  uitwerking: () => `Ik heb het experiment uitgevoerd. Schrijf de uitwerking in hetzelfde paper. Het voorstel staat eerder in dit gesprek of in de bijlage. Zie je het niet, vraag er dan om.
+${STIJL_KORT}
+
+Houd de vorm van het bestand aan: dezelfde opmaak en bibliotheken. Geef altijd het hele bestand terug, met <!-- einde paper --> als laatste regel.`,
+
+  uitwerking: () => `Ik heb het experiment uitgevoerd. Schrijf de uitwerking in hetzelfde paper: het HTML-bestand in de bijlage, of eerder in dit gesprek. Zie je het niet, vraag er dan om.
 
 ## Wat ik deed en wat ik mat
 
@@ -388,7 +436,7 @@ Laat hoofdstuk 1 tot en met 3 staan zoals ze zijn. Voeg vóór de bronnenlijst v
 Het gekozen ontwerp zoals ik het uitvoerde: wat ik deed, met welke gegevens of deelnemers, en wanneer. Noem elke afwijking van het ontwerp, met de reden.
 
 ### 5. Resultaten
-Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Hooguit één grafiek. Beschrijf alleen wat gemeten is.
+Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Daarbij één grafiek met D3: per criterium het resultaat, de norm als lijn en de referentiewaarde ernaast. Beschrijf alleen wat gemeten is.
 
 ### 6. Discussie
 - Per hypothese: bevestigd, verworpen of niet te zeggen, en waarom.
@@ -396,13 +444,25 @@ Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één 
 - De beperkingen: het aantal gevallen, verzonnen gegevens, en wie meedeed.
 
 ### 7. Conclusie en besluit
-Het antwoord op de onderzoeksvraag, en het besluit: doorgaan, aanpassen of stoppen. Het besluit volgt uit de vergelijking van resultaat en norm. Zeg ook wat het betekent voor de eerste fase van mijn roadmap.
+Het antwoord op de onderzoeksvraag, en het besluit: doorgaan, aanpassen of stoppen. Het besluit volgt uit de vergelijking van resultaat en norm. Zeg ook wat het betekent voor de eerste fase van mijn roadmap. Zet het echte resultaat in de demo uit hoofdstuk 3, en zet het besluit in de kaart uit hoofdstuk 2.
 
 ## Regels
 - Verander de normen en de referentiewaarden niet: ze lagen vast vóór het experiment. Vind je een norm achteraf slecht gekozen, schrijf dat dan in de discussie.
 - Verzin geen resultaten. Ontbreekt een getal, vraag er dan om.
+- De vier nieuwe hoofdstukken tellen samen hooguit 1.500 woorden.
 - Werk de samenvatting bij. Een nieuwe bron krijgt een verwijzing in de tekst en een plek in de bronnenlijst, volgens APA 7.
-- Schrijf tot slot, los van het paper, de tekst voor de dia Eerste prioriteit in mijn casusdeck: de vraag, de norm, de uitkomst en het besluit, in hooguit 60 woorden, met een voorstel voor één grafiek.`,
+- Houd de vorm van het bestand aan: dezelfde opmaak, bibliotheken met een vaste versie, tekst en tabellen leesbaar zonder bibliotheek, en elk getal in een grafiek ook in de tekst. Een getal dat verzonnen is voor een demo, krijgt het label "illustratie".
+- Geef altijd het hele bestand terug, met <!-- einde paper --> als laatste regel.
+
+## Schrijfstijl
+
+Schrijf in dezelfde stijl als het voorstel.
+
+${STIJL}
+
+## Tot slot
+
+- Schrijf, los van het paper, de tekst voor de dia Eerste prioriteit in mijn casusdeck: de vraag, de norm, de uitkomst en het besluit, in hooguit 60 woorden, met een voorstel voor één grafiek.`,
 };
 
 function teken() {

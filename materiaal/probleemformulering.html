@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probleemformulering</title>
+<meta name="description" content="Dag 2 van AISO26009: eerst het probleem, dan de businesscase. Vier vakken en één probleemstelling, naar de play Problem framing van Atlassian, met de prompts voor het onderzoek en de businesscase.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Eén los bestand, net als experimentpaper.html: geen bibliotheek, geen server.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --bg-yellow: #fafbf0;
+  --bg-cream: #f5f0e6;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); min-width: 0; }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.definitie { border-left: 4px solid var(--primary); background: var(--bg-yellow); border-radius: var(--radius-md); padding: 16px 18px; margin: 16px 0 0; }
+.definitie p { margin: 0 0 8px; max-width: 72ch; }
+.definitie p:last-child { margin: 0; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 16px; }
+.let-op p { max-width: 72ch; }
+.let-op p:last-child { margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .925rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 2px solid var(--supporting); }
+tbody th { font-weight: 700; white-space: nowrap; }
+.wanneer { white-space: nowrap; font-size: .85rem; color: var(--text-secondary); }
+
+/* ---------- Het kader: vier vakken en een probleemstelling, zoals op het whiteboard ---------- */
+.kader { border: 1px solid var(--border-strong); border-radius: var(--radius-md); background: var(--bg-page); margin: 8px 0 0; }
+.kader-titel { margin: 0; padding: 14px 18px 10px; font-size: 1rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.vakken { display: grid; grid-template-columns: 1fr 1fr; }
+.vak { padding: 16px 18px 20px; min-width: 0; }
+.vak:nth-child(odd) { border-right: 2px solid var(--supporting); }
+.vak:nth-child(-n+2) { border-bottom: 2px solid var(--supporting); }
+.vak h3 { margin: 0; font-size: 1.05rem; }
+.vak .sub { margin: 2px 0 12px; font-size: .875rem; color: var(--text-secondary); }
+.kw { font-size: 1.25rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; margin-right: 6px; padding-bottom: 1px; }
+
+/* Elk deel van de probleemstelling heeft een eigen streep. Het woord ernaast zegt welk deel het is:
+   de streep is nooit de enige drager van de betekenis. */
+.wie { border-bottom: 3px solid var(--primary); }
+.wat { border-bottom: 3px solid var(--supporting); }
+.waar { border-bottom: 3px dashed var(--supporting); }
+.waarom { border-bottom: 3px dotted var(--supporting); }
+.gevolg { border-bottom: 4px double var(--text-muted); }
+
+ul.briefjes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+ul.briefjes li { background: var(--bg-yellow); border: 1px solid #e6e9b4; padding: 10px 12px; font-size: .9rem; line-height: 1.4; width: min(100%, 14.5rem); box-shadow: 0 1px 2px rgba(0,0,0,.08); transform: rotate(-1deg); }
+ul.briefjes li:nth-child(2n) { background: var(--bg-cream-2); border-color: #e2dbcb; transform: rotate(.8deg); }
+ul.briefjes li:nth-child(3n) { background: var(--bg-cream); border-color: #e6dfcf; transform: rotate(-.4deg); }
+ul.briefjes li.niet { background: var(--bg-page); border-style: dashed; }
+
+.stelling { padding: 16px 18px 18px; border-top: 1px solid var(--border); margin: 0; font-size: 1.05rem; line-height: 2.1; }
+.stelling-kop { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
+.deel { padding-bottom: 1px; }
+.deel small { font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-left: 3px; vertical-align: super; line-height: 0; }
+.leeg { color: var(--text-muted); font-style: italic; }
+
+.vak textarea { min-height: 7.5em; background: var(--bg-yellow); }
+
+.velden { display: grid; gap: 14px; margin: 0 0 16px; }
+.velden.twee { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.veld label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); min-height: 4.6em; resize: vertical; }
+textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+
+pre.prompt { margin: 0; max-height: 28rem; overflow: auto; background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-md); padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+ol.stappenlijst { margin: 0 0 16px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
+
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (max-width: 720px) {
+  .vakken { grid-template-columns: 1fr; }
+  .vak:nth-child(odd) { border-right: 0; }
+  .vak { border-bottom: 2px solid var(--supporting); }
+  .vak:last-child { border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .status { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  pre.prompt { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
+  .table-wrap { overflow: visible; }
+  ul.briefjes li { transform: none; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <p class="eyebrow">AISO26009 · Dag 2 · 11:30 · probleemformulering</p>
+    <h1>Eerst het probleem</h1>
+    <p class="lead">Voordat je een businesscase schrijft, leg je vast wat het probleem is: wie er last van heeft, wat er misgaat, waar en wanneer, en waarom. Je lost nog niets op. Het kader komt uit de play Problem framing van Atlassian.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#waarom"><b>1</b> Waarom</a>
+    <a href="#onderzoek"><b>2</b> Onderzoek</a>
+    <a href="#voorbeeld"><b>3</b> Voorbeeld</a>
+    <a href="#kader"><b>4</b> Jouw probleem</a>
+    <a href="#businesscase"><b>5</b> Businesscase</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="waarom" aria-labelledby="waarom-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="waarom-kop">Waarom eerst het probleem</h2></div>
+    <p class="uitleg">Wie met AI begint, begint vaak bij de oplossing: "we willen een chatbot". Dan toetst de businesscase de oplossing, en niet het probleem. Ook een team dat het niet eens wordt over een oplossing, werkt vaak vanuit een ander beeld van het probleem. Daarom leg je eerst het probleem vast, vanuit wie er last van heeft.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Stap</th><th>Wat je doet</th><th>Wanneer</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Onderzoek</th><td>Je AI zoekt materiaal langs de vier vragen, terwijl jij pauze hebt (stap 2).</td><td class="wanneer">AI-taak van 10:30</td></tr>
+        <tr><th scope="row">Vier vakken</th><td>Per vak schrijf je korte briefjes: één signaal of vermoeden per briefje. Het onderzoek van je AI ligt ernaast.</td><td class="wanneer">11:30, 8 minuten</td></tr>
+        <tr><th scope="row">Eén zin</th><td>Uit de briefjes schrijf je één probleemstelling. Je duo toetst haar.</td><td class="wanneer">5 minuten</td></tr>
+        <tr><th scope="row">Businesscase</th><td>Na de kansenkaart schrijft je AI de businesscase. De probleemstelling staat bovenaan (stap 5).</td><td class="wanneer">12:05</td></tr>
+      </tbody>
+    </table></div>
+    <div class="definitie">
+      <p><strong>Een goede probleemstelling</strong> zegt in één zin wie er last van heeft, wat er misgaat, waar en wanneer, en waarom, denken we. Ze noemt geen oplossing, en dus ook geen AI.</p>
+      <p>Het "omdat" is een aanname, geen feit. In je businesscase staat het bij de twee aannames.</p>
+      <p>Je probleemstelling is voorlopig. Bij een weerbarstig vraagstuk verandert elke poging het probleem. Op dag 3 kijk je na je experiment of ze nog klopt.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="onderzoek" aria-labelledby="onderzoek-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="onderzoek-kop">Vooraf: de AI-taak van 10:30</h2></div>
+    <p class="uitleg">Werkregel 1: voordat je pauze neemt, zet je altijd AI aan het werk. In de pauze van 10:30 zoekt je AI materiaal voor de vier vakken, met de vragen van het comité erbij. Om 11:30 heb je het nodig.</p>
+    <ol class="stappenlijst">
+      <li>Open een nieuwe chat en zet de onderzoeksfunctie aan: Deep Research in Gemini en ChatGPT, Research in Claude. Heb je die niet, dan werkt de prompt ook in een gewone chat, met minder bronnen.</li>
+      <li>Vul hieronder je knelpunt in, en de vragen die het comité je stelde. Kopieer de prompt, plak hem in je AI en neem pauze.</li>
+      <li>Gebruik dezelfde chat om 11:30 en om 12:05. Dan kent je AI het onderzoek al.</li>
+    </ol>
+    <div class="velden">
+      <div class="veld"><label for="knelpunt">Mijn knelpunt <span class="hint">Uit je pitch. Eén of twee zinnen, zonder oplossing.</span></label>
+        <textarea id="knelpunt" data-veld="knelpunt" rows="2"></textarea></div>
+      <div class="veld"><label for="comite">De vragen van het comité <span class="hint">Wat de financieel directeur, de privacyfunctionaris, het OR-lid en de klant je vroegen.</span></label>
+        <textarea id="comite" data-veld="comite" rows="3"></textarea></div>
+    </div>
+    <pre class="prompt" id="prompt-onderzoek" tabindex="0" aria-label="De prompt voor het onderzoek"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" data-kopieer="onderzoek">Kopieer de prompt</button>
+      <span class="status" id="status-onderzoek" aria-live="polite"></span>
+    </div>
+    <div class="let-op">
+      <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De prompt komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="voorbeeld" aria-labelledby="voorbeeld-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="voorbeeld-kop">Zo ziet het eruit bij Voorbeeld BV</h2></div>
+    <p class="uitleg">Voorbeeld BV is verzonnen, net als de cijfers. Elk briefje is één signaal of één vermoeden. Onderaan staat de probleemstelling. De streep onder elk deel laat zien uit welk vak het komt.</p>
+
+    <div class="kader" role="group" aria-labelledby="vb-titel">
+      <p class="kader-titel" id="vb-titel">Probleemformulering: klachten bij Voorbeeld BV</p>
+      <div class="vakken">
+        <div class="vak">
+          <h3><span class="kw wie">Wie</span> heeft last van het probleem?</h3>
+          <p class="sub">Hoe weten we dat?</p>
+          <ul class="briefjes">
+            <li>Klanten met een klacht: ze geven daarna gemiddeld een 6,1.</li>
+            <li>Klanten die twee keer bellen voordat er iemand komt (K-0501).</li>
+            <li>Klantcontact: 1.200 vragen en klachten per maand, alles met de hand gesorteerd.</li>
+            <li>Kwaliteit: ziet een patroon pas in het overzicht van de maand.</li>
+          </ul>
+        </div>
+        <div class="vak">
+          <h3><span class="kw wat">Wat</span> zijn de signalen?</h3>
+          <p class="sub">Waaruit blijkt dat er een probleem is?</p>
+          <ul class="briefjes">
+            <li>Een klacht duurt gemiddeld 9 werkdagen.</li>
+            <li>Na een klacht geven klanten gemiddeld een 6,1.</li>
+            <li>Dezelfde lekkage in Noord en Zuid (K-0418 en K-0470), en niemand legde het verband.</li>
+          </ul>
+        </div>
+        <div class="vak">
+          <h3><span class="kw waar">Waar en wanneer</span> speelt het?</h3>
+          <p class="sub">En wanneer niet?</p>
+          <ul class="briefjes">
+            <li>Als een klacht meer dan één afdeling raakt.</li>
+            <li>Als een klacht onvolledig is: zonder ordernummer of datum.</li>
+            <li>Als het woord ontbreekt waarop je zoekt, zoals "lek" (K-0470).</li>
+            <li class="niet"><strong>Niet</strong> bij een eenvoudige vraag: die beantwoordt Klantcontact meteen met de kennisbank.</li>
+          </ul>
+        </div>
+        <div class="vak">
+          <h3><span class="kw waarom">Waarom</span> gebeurt het, denken we?</h3>
+          <p class="sub">En wat als er niets verandert?</p>
+          <ul class="briefjes">
+            <li>Een klacht gaat met de hand van afdeling naar afdeling.</li>
+            <li>Elke afdeling ziet alleen de eigen klachten.</li>
+            <li>Kwaliteit kijkt één keer per maand.</li>
+            <li>Als er niets verandert, kiezen klanten de fabrikant als aanspreekpunt.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="stelling"><span class="stelling-kop">Probleemstelling:</span>
+        <span class="deel wie">Klanten van Voorbeeld BV<small aria-hidden="true">wie</small></span>
+        <span class="deel wat">wachten gemiddeld 9 werkdagen op het antwoord op een klacht<small aria-hidden="true">wat</small></span>,
+        <span class="deel waar">vooral als de klacht meer dan één afdeling raakt<small aria-hidden="true">waar en wanneer</small></span>,
+        omdat <span class="deel waarom">een klacht met de hand van afdeling naar afdeling gaat<small aria-hidden="true">waarom</small></span>.
+        Als er niets verandert, <span class="deel gevolg">kiezen klanten de fabrikant als aanspreekpunt<small aria-hidden="true">gevolg</small></span>.
+      </p>
+    </div>
+
+    <div class="let-op">
+      <p><strong>De eerste versie was: "Klantcontact heeft geen AI die klachten sorteert."</strong> Dat is een oplossing in vermomming. Het probleem is dan dat er geen AI is, en alleen AI kan het oplossen. Je ziet niet meer dat een vaste eigenaar per klacht het wachten misschien ook korter maakt, zonder AI.</p>
+      <p><strong>In de businesscase</strong> staat de probleemstelling bovenaan. Het "omdat" staat bij de twee aannames. Het gevolg sluit aan op doel 1 van Voorbeeld BV, het vaste aanspreekpunt van de klant blijven. De 6,1 wordt de uitkomstmaat.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="kader" aria-labelledby="kader-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="kader-kop">Jouw probleem</h2></div>
+    <p class="uitleg">Acht minuten voor de vier vakken, vijf voor de zin en je duo. Schrijf één briefje per regel, met het onderzoek van je AI ernaast. Zet bij elk signaal hoe je het weet. Een vermoeden mag, als het een vermoeden heet.</p>
+
+    <div class="kader" role="group" aria-labelledby="eigen-titel">
+      <p class="kader-titel" id="eigen-titel">Probleemformulering: mijn knelpunt</p>
+      <div class="vakken">
+        <div class="vak">
+          <h3><label for="wie"><span class="kw wie">Wie</span> heeft last van het probleem?</label></h3>
+          <p class="sub">Hoe weten we dat?</p>
+          <textarea id="wie" data-veld="wie" rows="5" placeholder="Eén briefje per regel"></textarea>
+        </div>
+        <div class="vak">
+          <h3><label for="wat"><span class="kw wat">Wat</span> zijn de signalen?</label></h3>
+          <p class="sub">Waaruit blijkt dat er een probleem is?</p>
+          <textarea id="wat" data-veld="wat" rows="5" placeholder="Eén briefje per regel"></textarea>
+        </div>
+        <div class="vak">
+          <h3><label for="waar"><span class="kw waar">Waar en wanneer</span> speelt het?</label></h3>
+          <p class="sub">En wanneer niet?</p>
+          <textarea id="waar" data-veld="waar" rows="5" placeholder="Eén briefje per regel"></textarea>
+        </div>
+        <div class="vak">
+          <h3><label for="waarom"><span class="kw waarom">Waarom</span> gebeurt het, denken we?</label></h3>
+          <p class="sub">En wat als er niets verandert?</p>
+          <textarea id="waarom" data-veld="waarom" rows="5" placeholder="Eén briefje per regel"></textarea>
+        </div>
+      </div>
+      <p class="stelling" id="zin-eigen" aria-live="polite"></p>
+    </div>
+
+    <h3>Je probleemstelling, in vijf delen</h3>
+    <p class="klein" style="max-width:72ch">Kies per deel het briefje dat het zwaarst weegt. De zin hierboven bouwt zich vanzelf op. Lees hem hardop: loopt hij?</p>
+    <div class="velden twee">
+      <div class="veld"><label for="z_wie">Wie <span class="hint">Bijvoorbeeld: "Klanten van Voorbeeld BV"</span></label>
+        <textarea id="z_wie" data-veld="z_wie" rows="2"></textarea></div>
+      <div class="veld"><label for="z_wat">Wat gaat er mis <span class="hint">Bijvoorbeeld: "wachten gemiddeld 9 werkdagen op het antwoord op een klacht"</span></label>
+        <textarea id="z_wat" data-veld="z_wat" rows="2"></textarea></div>
+      <div class="veld"><label for="z_waar">Waar en wanneer <span class="hint">Bijvoorbeeld: "vooral als de klacht meer dan één afdeling raakt"</span></label>
+        <textarea id="z_waar" data-veld="z_waar" rows="2"></textarea></div>
+      <div class="veld"><label for="z_waarom">Waarom, denken we <span class="hint">Na "omdat". Bijvoorbeeld: "een klacht met de hand van afdeling naar afdeling gaat"</span></label>
+        <textarea id="z_waarom" data-veld="z_waarom" rows="2"></textarea></div>
+      <div class="veld"><label for="z_gevolg">Als er niets verandert <span class="hint">Bijvoorbeeld: "kiezen klanten de fabrikant als aanspreekpunt"</span></label>
+        <textarea id="z_gevolg" data-veld="z_gevolg" rows="2"></textarea></div>
+    </div>
+    <div class="knoppen">
+      <button type="button" class="knop" data-kopieer="zin">Kopieer je probleemstelling</button>
+      <span class="status" id="status-zin" aria-live="polite"></span>
+    </div>
+
+    <h3>De toets van je duo</h3>
+    <ol class="stappenlijst">
+      <li><strong>Staat er een oplossing in?</strong> "Geen AI", "geen systeem" of "we missen een tool" is een oplossing in vermomming. Haal haar eruit.</li>
+      <li><strong>Is de zin geschreven vanuit wie er last van heeft?</strong> Niet vanuit wat jij wilt bouwen.</li>
+      <li><strong>Heeft elke bewering een signaal?</strong> Vraag bij elk deel: hoe weten we dat? Weet niemand het, dan is het een vermoeden. Zet het bij de aannames.</li>
+    </ol>
+    <p class="klein" style="max-width:72ch">Daarna de kansenkaart: waar in je procesketen zit dit probleem? Het vak Wie geeft je de banen, het vak Waar en wanneer de fasen.</p>
+  </section>
+
+  <section class="stap" id="businesscase" aria-labelledby="businesscase-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="businesscase-kop">Na de kansenkaart: je businesscase</h2></div>
+    <p class="uitleg">Om 12:05 schrijft je AI de businesscase, in de chat met het onderzoek van 10:30. Jij levert het probleem, de kansenkaart en je eerste kleine inzet. Daarna zoekt je duo één bron op in het origineel: wat is er gemeten, bij wie en wanneer?</p>
+    <div class="velden">
+      <div class="veld"><label for="kansenkaart">Mijn kansenkaart in woorden <span class="hint">Waar in de procesketen zit het probleem? Op welke plekken kan AI helpen, en wie beslist daar? Of maak een foto van je tekening en voeg die toe in de chat.</span></label>
+        <textarea id="kansenkaart" data-veld="kansenkaart" rows="3"></textarea></div>
+      <div class="veld"><label for="inzet">Mijn eerste kleine inzet of optie <span class="hint">Uit het blok van 10:45. Eén of twee zinnen.</span></label>
+        <textarea id="inzet" data-veld="inzet" rows="2"></textarea></div>
+    </div>
+    <pre class="prompt" id="prompt-businesscase" tabindex="0" aria-label="De prompt voor de businesscase"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" data-kopieer="businesscase">Kopieer de prompt</button>
+      <span class="status" id="status-businesscase" aria-live="polite"></span>
+    </div>
+    <div class="let-op">
+      <p><strong>Je AI verandert de probleemstelling niet.</strong> Ziet het toch een oplossing in vermomming of een zwakke plek, dan zegt het dat apart, onder de businesscase. Jij beslist of je de zin aanpast.</p>
+      <p class="klein">In de lunch schrijft je AI in dezelfde chat het voorstel voor je experiment, op de lespagina <a href="./experimentpaper.html#voorstel">Experimentpaper</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <span>Naar Atlassian. (z.d.). <em>Problem framing</em>. Team Playbook. <a href="https://www.atlassian.com/team-playbook/plays/problem-framing" target="_blank" rel="noopener noreferrer">atlassian.com/team-playbook/plays/problem-framing</a></span>
+    <a href="./index.html?dag=2">Startpagina</a>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* De prompts staan hier één keer. Het voorbeeld in stap 3 komt uit materiaal/voorbeeldcasus.md,
+   "De probleemformulering (dag 2)": verander je daar iets, verander het hier ook. */
+const $ = id => document.getElementById(id);
+
+/* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
+const OPSLAG = 'aiso-probleemformulering-v1';
+const VAKKEN = ['wie', 'wat', 'waar', 'waarom'];
+const DELEN = ['z_wie', 'z_wat', 'z_waar', 'z_waarom', 'z_gevolg'];
+const VELDEN = ['knelpunt', 'comite', ...VAKKEN, ...DELEN, 'kansenkaart', 'inzet'];
+const opslag = {
+  lees() { try { return JSON.parse(localStorage.getItem(OPSLAG)); } catch { return null; } },
+  schrijf(v) { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); } catch { /* geen opslag */ } },
+};
+function schoon(v) {
+  const s = Object.fromEntries(VELDEN.map(k => [k, '']));
+  if (v && typeof v === 'object') for (const k of VELDEN) if (typeof v[k] === 'string') s[k] = v[k];
+  return s;
+}
+const s = schoon(opslag.lees());
+const of = (tekst, leeg) => tekst.trim() || leeg;
+
+/* ---------- De probleemstelling: vijf delen, één zin ---------- */
+const DEEL = {
+  z_wie:    { label: 'wie',              leeg: '[wie]' },
+  z_wat:    { label: 'wat',              leeg: '[wat gaat er mis]' },
+  z_waar:   { label: 'waar en wanneer',  leeg: '[waar en wanneer]' },
+  z_waarom: { label: 'waarom',           leeg: '[waarom, denken we]' },
+  z_gevolg: { label: 'gevolg',           leeg: '[wat als er niets verandert]' },
+};
+/* Wie zelf "omdat" of "als er niets verandert" typt, krijgt het niet twee keer. */
+function deel(k) {
+  let t = s[k].trim().replace(/\s+/g, ' ').replace(/[.,;:\s]+$/, '');
+  if (k === 'z_waarom') t = t.replace(/^omdat\s+/i, '');
+  if (k === 'z_gevolg') t = t.replace(/^als er niets verandert,?\s*/i, '');
+  if (k === 'z_wie' && t) t = t.charAt(0).toUpperCase() + t.slice(1);
+  return t;
+}
+const heeftZin = () => DELEN.some(k => deel(k));
+function zinTekst() {
+  const d = k => deel(k) || DEEL[k].leeg;
+  return `${d('z_wie')} ${d('z_wat')}, ${d('z_waar')}, omdat ${d('z_waarom')}. Als er niets verandert, ${d('z_gevolg')}.`;
+}
+const esc = t => t.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+function zinHtml() {
+  const d = k => {
+    const t = deel(k);
+    const klas = k.slice(2);
+    return t
+      ? `<span class="deel ${klas}">${esc(t)}<small aria-hidden="true">${DEEL[k].label}</small></span>`
+      : `<span class="leeg">${esc(DEEL[k].leeg)}</span>`;
+  };
+  return `<span class="stelling-kop">Probleemstelling:</span> ${d('z_wie')} ${d('z_wat')}, ${d('z_waar')}, omdat ${d('z_waarom')}. Als er niets verandert, ${d('z_gevolg')}.`;
+}
+/* Briefjes: één per regel, als opsomming in de prompt. */
+function briefjes(k) {
+  const regels = s[k].split('\n').map(r => r.trim().replace(/^[-•*]\s*/, '')).filter(Boolean);
+  return regels.length ? regels.map(r => `  - ${r}`).join('\n') : '  - [vul in op de lespagina, stap 4]';
+}
+
+/* ---------- De prompts ---------- */
+const PROMPTS = {
+  onderzoek: () => `Onderzoek met mij een knelpunt in mijn organisatie. Het doel is het probleem begrijpen, niet oplossen. Stel dus nog geen oplossing voor, en ook geen AI-toepassing. Straks schrijf ik zelf een probleemstelling, en daarna een businesscase. Jouw onderzoek is daarvoor het materiaal.
+
+## Mijn knelpunt
+
+${of(s.knelpunt, '[vul in op de lespagina, stap 2]')}
+
+## De vragen van het investeringscomité
+
+${of(s.comite, '[vul in op de lespagina, stap 2]')}
+
+## Wat je zoekt, langs vier vragen
+
+1. Wie heeft last van dit probleem? Denk aan klanten, medewerkers, afdelingen en partners. Hoe weten we dat: welk onderzoek, welke cijfers of welke klachten laten het zien?
+2. Wat zijn de signalen? Welke cijfers, trends of voorvallen wijzen op een probleem? Wat is in mijn sector gewoon, zodat ik mijn cijfers kan vergelijken?
+3. Waar en wanneer speelt het? In welke omstandigheden komt het voor, en in welke juist niet?
+4. Waarom gebeurt het? Welke oorzaken noemen onderzoek en vakmensen? En wat kost het als niemand iets doet: aan geld, klanten, mensen of risico?
+
+Beantwoord ook de vragen van het comité, voor zover openbare bronnen dat kunnen.
+
+## Wat je schrijft
+
+- Per vraag een korte paragraaf: wat staat vast, wat is omstreden, en wat weet niemand?
+- Daarna een lijst met korte zinnen die ik als briefje kan overnemen: één signaal of vermoeden per zin, met de bron erbij.
+- Sluit af met de vragen die alleen ik kan beantwoorden, omdat ze over mijn eigen organisatie gaan.
+
+## Regels
+
+- Schrijf in het Nederlands, in gewone zinnen. Hooguit twee pagina's, zonder de bronnenlijst.
+- Elke bewering over onderzoek, cijfers of de markt krijgt een verwijzing in de tekst volgens APA 7, zoals (Achternaam, 2025), en een plek in een bronnenlijst volgens APA 7, met een DOI of URL.
+- Neem alleen bronnen op die je zelf geopend hebt. Kon je een bron niet openen, zet hem dan onder een apart kopje "Niet gecontroleerd".
+- Gebruik alleen openbare informatie. Verzin niets over mijn organisatie: zet er [ik vul in] bij.
+- Weet je iets niet zeker, zeg dat dan.`,
+
+  zin: () => zinTekst(),
+
+  businesscase: () => `Schrijf met mij een businesscase van hooguit twee pagina's voor mijn eerste prioriteit. Jij schrijft. Ik controleer en beslis.
+
+## Mijn probleemstelling
+
+${zinTekst()}
+
+## Mijn probleemkader
+
+- Wie heeft last, en hoe weten we dat:
+${briefjes('wie')}
+- De signalen:
+${briefjes('wat')}
+- Waar en wanneer het speelt, en wanneer niet:
+${briefjes('waar')}
+- Waarom het gebeurt, denken we, en wat als er niets verandert:
+${briefjes('waarom')}
+
+## Mijn kansenkaart
+
+${of(s.kansenkaart, '[vul in op de lespagina, stap 5, of voeg een foto van je kansenkaart toe]')}
+
+## Mijn eerste kleine inzet of optie
+
+${of(s.inzet, '[vul in op de lespagina, stap 5]')}
+
+Het onderzoek naar mijn knelpunt staat eerder in dit gesprek. Zie je het niet, vraag er dan om, of zoek zelf met de onderzoeksfunctie.
+
+## Wat in de businesscase staat, in deze volgorde
+
+1. De probleemstelling, letterlijk zoals hierboven.
+2. Het knelpunt op de kansenkaart: waar het in de procesketen zit, en wat er in het werk eromheen moet veranderen.
+3. De waarde: minstens één uitkomstmaat, zoals omzet, kwaliteit of klanttevredenheid, naast tijd of fte. Gebruik de signalen als nulmeting.
+4. De kosten, en het verloop van kosten en baten over de tijd, met het dal vóór de winst.
+5. Twee aannames. De eerste is de oorzaak achter "omdat" in de probleemstelling.
+6. Het grootste risico.
+7. Het besluit dat niet terug kan, met de optie die het openhoudt.
+8. De eerste kleine inzet, met een norm die vooraf vastligt.
+9. Een bronnenlijst volgens APA 7.
+
+## Regels
+
+- Schrijf in het Nederlands, in gewone zinnen, voor een lezer uit de board. Hooguit twee pagina's, zonder de bronnenlijst.
+- Elke claim over waarde, kosten of markt krijgt een verwijzing in de tekst volgens APA 7 en een plek in de bronnenlijst, met een DOI of URL. Neem alleen bronnen op die je zelf geopend hebt. Kon je een bron niet openen, zet hem dan onder "Niet gecontroleerd".
+- Verander de probleemstelling niet. Zie je een oplossing in vermomming, of een bewering zonder signaal, zeg dat dan apart, onder de businesscase.
+- Gebruik alleen openbare informatie. Ontbreekt een cijfer over mijn organisatie, vul het dan niet zelf in, maar zet er [ik vul in] bij. Zeg bij elke kostenpost of het een schatting is.
+- Maak de businesscase als één document dat ik later kan aanvullen.`,
+};
+
+function teken() {
+  $('prompt-onderzoek').textContent = PROMPTS.onderzoek();
+  $('prompt-businesscase').textContent = PROMPTS.businesscase();
+  $('zin-eigen').innerHTML = zinHtml();
+}
+
+/* ---------- Gebeurtenissen ---------- */
+for (const el of document.querySelectorAll('[data-veld]')) el.value = s[el.dataset.veld] || '';
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (!el.matches('[data-veld]')) return;
+  s[el.dataset.veld] = el.value;
+  opslag.schrijf(s);
+  teken();
+});
+document.addEventListener('click', async e => {
+  const knop = e.target.closest('[data-kopieer]');
+  if (!knop) return;
+  const naam = knop.dataset.kopieer;
+  if (naam === 'zin' && !heeftZin()) {
+    $('status-zin').textContent = 'Vul eerst de vijf delen in.';
+    return;
+  }
+  const tekst = PROMPTS[naam]();
+  let gelukt = false;
+  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
+  catch {
+    const t = document.createElement('textarea');
+    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select();
+    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+    t.remove();
+  }
+  const klaar = naam === 'zin' ? 'Je probleemstelling staat op je klembord.' : 'De prompt staat op je klembord.';
+  $(`status-${naam}`).textContent = gelukt ? klaar : 'Kopiëren lukt hier niet. Selecteer de tekst en kopieer hem zelf.';
+});
+
+teken();
+</script>
+</body>
+</html>

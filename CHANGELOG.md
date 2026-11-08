@@ -2,6 +2,35 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.28 — 2026-11-08
+
+**Toegevoegd**
+- FR-39: het blok om 11:30 op dag 2 begint met de probleemformulering, naar de play Problem framing van Atlassian. De deelnemer vult vier vakken: wie, wat, waar en wanneer, en waarom. Daaruit schrijft de deelnemer één probleemstelling zonder oplossing en zonder AI, en het duo toetst haar (ADR-043).
+- `materiaal/probleemformulering.html`: de lespagina met het kader van Voorbeeld BV, het lege kader en twee prompts, voor het onderzoek van 10:30 en voor de businesscase. De tekst van het voorbeeld staat in `materiaal/voorbeeldcasus.md` (ADR-043).
+- Een kaart "Eerst het probleem" in deel 6.5, en de play van Atlassian bij de bronnen. De lespagina staat in de lijst met lesmateriaal en op de opleverlijst voor de trainer (ADR-043).
+- Twee risico's: de probleemstelling is een oplossing in vermomming, en het blok van 11:30 loopt uit (ADR-043).
+
+**Gewijzigd**
+- Het blok om 11:30 op dag 2 heet "Eerst het probleem, dan de businesscase". De verdeling is 15 minuten probleemformulering, 20 minuten kansenkaart en 25 minuten businesscase (ADR-043).
+- De AI-taak van 10:30 op dag 2 is onderzoek naar het knelpunt langs de vier vragen, nog zonder oplossing, met de prompt als materiaal (ADR-043).
+- FR-14: de businesscase opent met de probleemstelling, en een van de twee aannames is de oorzaak achter "omdat". FR-27 en AC-04 noemen de probleemformulering (ADR-043).
+- De opening van dag 3 vraagt ook of de probleemstelling na het experiment nog klopt. De pijn over de businesscase en fase 2 noemen de probleemformulering (ADR-043).
+- Het draaiboek van dag 2 heeft een tijdschema voor het blok van 11:30, en een punt bij de pauze van 10:30 (ADR-043).
+
+**Gepubliceerd** op dezelfde link, samen met 0.27: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
+## 0.27 — 2026-11-08
+
+**Toegevoegd**
+- Het experimentpaper is één interactieve HTML-pagina met drie tot vijf visualisaties: schema's, grafieken, een demo of een simulatie. De AI bouwt ze met D3, Three.js of Motion, in een vaste versie (FR-38, ADR-042).
+- De AI schrijft het paper in zakelijk Nederlands volgens de schrijfregels van ASD-STE100, zonder het Engelse woordenboek. ASD-STE100 staat in de bronnen (ADR-042).
+- Een risico: de visualisaties worden een doel op zich, of maken een fout getal overtuigend (ADR-042).
+
+**Gewijzigd**
+- `materiaal/experimentpaper.html`: de opbouw noemt per deel een visualisatie. De drie prompts vragen de HTML-pagina en de schrijfregels. De stappen zeggen wat je doet als je AI een rapport geeft, en hoe je het bestand bewaart. In werkplaats 2 controleert het duo ook één getal uit een visualisatie (ADR-042).
+- De voorstel-prompt begint de aanleiding bij de probleemstelling uit de businesscase. Daarom vroeg de sessie die de probleemformulering bouwt (0.28).
+- De HTML-pagina staat ook in de AI-taak van de lunch op dag 2 en in het product bij AC-14. Ook de kaart in deel 6.5, fase 2 en het draaiboek noemen haar (ADR-042).
+
 ## 0.26 — 2026-11-08
 
 **Toegevoegd**

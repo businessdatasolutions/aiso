@@ -564,22 +564,59 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 
 - **De productiviteitsparadox.** Op taakniveau meten studies +14 tot +73%, op bedrijfsniveau ongeveer 0%. 90% van de bedrijven investeert, minder dan 40% ziet meetbare winst [D5]. Dit sluit aan op de J-curve: eerst een dal, dan de winst (Brynjolfsson e.a., 2021).
 
-## Dag 2 · Businesscase met AI-onderzoek (FR-14, FR-27)
+## Dag 2 · 10:30–10:45 · Pauze: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
 
-1. **Voordoen met de kansenkaart (10 minuten).** Toon `materiaal/kansenkaart.html`, stap 1 tot en met 8: het proces van Voorbeeld BV, de vier routes, en de vijf plekken waar AI kan helpen.
+- **Om 10:25: werkregel 1.** Toon stap 2 van `materiaal/probleemformulering.html`; de startpagina linkt ernaar. Zeg: "Vul je knelpunt en de vragen van het comité in, en plak de prompt in een nieuwe chat met de onderzoeksfunctie aan. Je AI zoekt materiaal, nog geen oplossing. Om 11:30 heb je het nodig."
+- **Dezelfde chat.** Zeg erbij: "Gebruik deze chat ook om 11:30 en om 12:05. Dan kent je AI het onderzoek al."
+
+## Dag 2 · 11:30–12:30 · Eerst het probleem, dan de businesscase (FR-39, FR-27, FR-14, ADR-043)
+
+### 11:30–11:32 · Het doel (2 minuten)
+
+Zeg: "Een kwartier lossen we niets op. We leggen vast wat het probleem is, vanuit wie er last van heeft." Toon stap 3 van `materiaal/probleemformulering.html`, het kader van Voorbeeld BV. Wijs de strepen aan: elk deel van de zin komt uit een vak. Lees dan de eerste versie voor: "Klantcontact heeft geen AI die klachten sorteert." Vraag: wat is hier mis? Het is een oplossing in vermomming. Een vaste eigenaar per klacht zou het wachten misschien ook korter maken, zonder AI.
+
+### 11:32–11:40 · Vier vakken (8 minuten)
+
+Toon stap 4. Elke deelnemer vult de vier vakken op de lespagina, met het onderzoek van 10:30 ernaast: één signaal of vermoeden per regel. Loop rond en vraag bij een briefje: "Hoe weet je dat?" Weet de deelnemer het niet, dan is het een vermoeden. Dat mag, als het zo heet.
+
+### 11:40–11:45 · Eén zin en het duo (5 minuten)
+
+Elke deelnemer kiest per deel het briefje dat het zwaarst weegt. De zin bouwt zich op in het kader. Het duo leest de zin hardop en stelt de drie vragen uit stap 4: staat er een oplossing in, is de zin geschreven vanuit wie er last van heeft, en heeft elke bewering een signaal?
+
+### 11:45–12:05 · De kansenkaart (20 minuten, FR-27)
+
+1. **Voordoen (10 minuten).** Toon `materiaal/kansenkaart.html`, stap 1 tot en met 8: het proces van Voorbeeld BV, de vier routes, en de vijf plekken waar AI kan helpen. Leg de brug: "Het vak Wie geeft de banen, het vak Waar en wanneer de fasen. Waar zit het probleem van Voorbeeld BV in de keten?"
 2. **Zelf doen (10 minuten).** Toon stap 9, "Jouw proces". Elke deelnemer tekent de eigen procesketen op papier: rollen als banen, fasen als kolommen, een cijfer waar AI kan helpen, en bij elk cijfer wie beslist. Daarna de vraag uit FR-14: waar schuift het knelpunt heen als AI het oplost?
-3. **Bronkritiek, met een echt voorbeeld.** Het vaak geciteerde "95% van de organisaties haalt geen rendement uit AI" komt van MIT NANDA (2025). Het rust op ruim 300 openbare initiatieven, 52 interviews en een enquête onder 153 bezoekers van vier conferenties. Het rapport noemt de eigen cijfers "directionally accurate". Vraag: wat is er gemeten, bij wie en wanneer? Dezelfde vraag stelt het duo bij de bron die het in het origineel opzoekt (AC-04).
 
-## Dag 2 · Lunch: het voorstel als paper (FR-28, FR-38, ADR-041)
+### 12:05–12:30 · De businesscase (25 minuten, FR-14)
+
+1. **De prompt.** Toon stap 5 van `materiaal/probleemformulering.html`. Elke deelnemer beschrijft de kansenkaart in een paar zinnen (of voegt een foto toe), vult de eerste kleine inzet van 10:45 in, en plakt de prompt in de chat van 10:30. De AI schrijft; de probleemstelling staat bovenaan, en het "omdat" bij de aannames.
+2. **Bronkritiek, met een echt voorbeeld.** Het vaak geciteerde "95% van de organisaties haalt geen rendement uit AI" komt van MIT NANDA (2025). Het rust op ruim 300 openbare initiatieven, 52 interviews en een enquête onder 153 bezoekers van vier conferenties. Het rapport noemt de eigen cijfers "directionally accurate". Vraag: wat is er gemeten, bij wie en wanneer? Dezelfde vraag stelt het duo bij de bron die het in het origineel opzoekt (AC-04).
+3. **Niet af om 12:30?** Dan maakt de AI de businesscase in dezelfde chat af, vóór het voorstel van de lunch. Het duo zoekt de bron dan na de lunch op.
+
+### Lastige vragen
+
+**"Mag de oplossing er echt niet in? Ik weet al wat we gaan doen."**
+Schrijf die oplossing apart op, als kandidaat. Een probleemstelling met de oplossing erin kan alleen die oplossing goedkeuren. Zonder de oplossing kan de businesscase laten zien dat jouw oplossing de beste is, ook naast een route zonder AI.
+
+**"Mijn probleem heeft meer dan één oorzaak."**
+Kies voor de zin de oorzaak die je het eerst kunt toetsen. De andere blijven in het vak Waarom, en kunnen bij de aannames.
+
+**"Wat is het verschil met de kansenkaart?"**
+De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar het in de keten zit, en waar AI kan helpen. Eerst het probleem, dan de plek.
+
+## Dag 2 · Lunch: het voorstel als paper (FR-28, FR-38, ADR-041, ADR-042)
 
 - **Om 12:25: werkregel 1.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Open de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Na de lunch kies je een ontwerp."
 - **Geen onderzoeksfunctie?** Dan werkt de prompt ook in een gewone chat. Het voorstel heeft dan minder bronnen, en de controle in werkplaats 2 weegt zwaarder.
 - **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan na de lunch zelf in.
+- **Een HTML-pagina, geen rapport.** Het paper is één HTML-pagina met schema's, grafieken en een demo, in zakelijk Nederlands volgens de schrijfregels van ASD-STE100 (ADR-042). Een onderzoeksfunctie geeft soms eerst een gewoon rapport. Dan vraagt de deelnemer: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht." Na de lunch downloadt de deelnemer het bestand, met de datum in de naam.
 
 ## Dag 2 · Werkplaats 2: ontwerp je experiment (FR-20)
 
 - **Voordoen met een eigen paper (FR-38).** Laat een paper uit een eigen project zien, zoals de test of een AI-model uit foto's van ruimtes plattegronden kan bouwen. Volg de opbouw: de vraag, de hypotheses, het verwante werk, de ontwerpen, en daarna de uitwerking. Wijs aan waar een hypothese een norm en een referentiewaarde kreeg.
 - **Eerst één bron.** Het duo zoekt één bron uit het voorstel op in het origineel, met de vraag van 11:30: wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
+- **Eén getal uit een visualisatie.** Staat het ook in de tekst, met een bron? Heet een verzonnen getal "illustratie"? Zeg: "Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal."
 - **Dan kiezen.** Eén ontwerp, of twee samen. Past het niet vóór dag 3, dan kiest de deelnemer een kleiner ontwerp en zet het grote in de roadmap. Stap 4 van de lespagina geeft de prompt die de normen in het paper vastlegt, met de datum. Het voorbeeld van Voorbeeld BV staat in stap 3.
 - **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
 - **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
