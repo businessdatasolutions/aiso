@@ -55,6 +55,8 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-049](ADR-049-een-tegel-per-stuk.md) | Eén tegel per stuk, met de naam van wat erachter staat | Aanvaard | 2026-11-08 |
 | [ADR-050](ADR-050-wat-we-daarvoor-laten-op-dia-3.md) | Dia 3 krijgt een vak voor wat de organisatie daarvoor laat | Aanvaard | 2026-11-08 |
 | [ADR-051](ADR-051-duo-kiest-het-antwoord-voor-de-board.md) | Het duo kiest samen welk antwoord naar de board gaat (dag 1) | Aanvaard | 2026-11-08 |
+| [ADR-052](ADR-052-vraagtoets-voor-publieke-organisaties.md) | De vraagtoets krijgt een lezing voor publieke organisaties en een oefenvraag van een gemeente | Aanvaard | 2026-11-08 |
+| [ADR-053](ADR-053-het-meest-veranderd.md) | "Het meest veranderd" is wat je nu anders kiest of laat; het duo krijgt drie minuten | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

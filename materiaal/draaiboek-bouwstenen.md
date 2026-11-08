@@ -267,7 +267,7 @@ Dat staat in het artikel (bron hierboven). Noem geen modelnamen uit je hoofd.
 **"Waarom scoren nieuwere modellen slechter?"**
 Het artikel meet dat het zo is. Waarom, weten we nog niet zeker. Voor jou telt de les: een AI die strategisch adviseert, houdt vast aan wat al werkt. Verken dus zelf.
 
-## Dag 1 · 11:40–12:15 · Vraag 1: van visie naar doelen (FR-36, FR-01, FR-30, FR-08, FR-10, ADR-039)
+## Dag 1 · 11:40–12:15 · Vraag 1: van visie naar doelen (FR-36, FR-01, FR-30, FR-08, FR-10, ADR-039, ADR-052)
 
 **Materiaal:** `materiaal/vraagtoets.html` op het scherm en bij elke deelnemer; de stukken van het bestuur uit de pauze van 10:45; de vragenkaart.
 **Uitkomst:** een getoetste strategische vraag, en een concept van 2–4 strategische doelen, elk met een signaal om het los te laten.
@@ -282,11 +282,14 @@ Het artikel meet dat het zo is. Waarom, weten we nog niet zeker. Voor jou telt d
    - **Positie** (hoort bij de missie): gaat het antwoord over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt?
    - **Keuze** (hoort bij de strategie): betekent elk antwoord dat de organisatie iets laat?
 
+   Zitten er deelnemers uit de publieke sector in de groep, noem dan ook de lezing die onder niveau 2 staat. Positie: welke rol de organisatie inneemt tegenover inwoners, ketenpartners en andere overheden. Keuze: een taak, kanaal of rol die ze aan anderen overlaat. Een gemeente heeft geen concurrent; haar plek is de rol tegenover inwoners.
+
    Zeg: "Dit is mijn voorstel. Jullie mogen het scherper maken. Wat we afspreken, geldt drie dagen." Verandert de groep iets? Vul het dan in op het scherm. Iedereen neemt het over op de eigen pagina.
 2. **Oefenen op Voorbeeld BV (3 minuten, stap 2).** Iedereen scoort vraag A, B en C eerst alleen. Vergelijk dan met handen: "Wie gaf B op Positie een 1?" Waar de groep verschilt, is de definitie nog niet scherp genoeg.
    - **A:** "Hoe handelen we klachten sneller en beter af, en leren we ervan?" Scores 0-0-0: operationeel. Dit is een goede eerste prioriteit.
    - **B:** "Hoe handelen we klachten sneller af dan de concurrent?" Scores 1-0-0. Het twijfelgeval. Deelnemers geven op Positie vaak een 1, omdat de concurrent erin staat. Jij geeft een 0: wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk, en snelheid kan een concurrent nadoen (Porter, 1996).
    - **C:** de strategische vraag van Voorbeeld BV, over het aanspreekpunt of de vaste installateur. Scores 2-2-2. Zonder de tweede zin scoort Keuze een 1: er is een ambitie, maar niets valt af.
+   - **D:** alleen voor wie bij een publieke organisatie werkt; bespreek hem niet plenair. De verzonnen gemeente Voorbeeldstad: blijft ze het eerste loket voor inwoners, of laat ze eenvoudige vragen over aan een landelijke voorziening? Scores 2-2-2. Vraagt iemand ernaar, zeg dan: de plek is hier de rol tegenover inwoners, en laten is een taak of kanaal aan een ander overlaten.
 3. **Je eigen vraag (3 minuten, stap 3).** Elke deelnemer scoort de eigen vraag, alleen.
 4. **Het duo (2 minuten).** Het duo scoort de vraag zonder de scores van de ander te zien. Verschillen ze, dan praten ze erover. De deelnemer beslist.
 

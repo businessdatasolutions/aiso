@@ -81,6 +81,7 @@ th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-botto
 thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 2px solid var(--supporting); }
 td.crit strong { display: block; }
 td.crit span { font-size: .85rem; color: var(--text-muted); }
+td .publiek { display: block; margin-top: 6px; font-size: .85rem; color: var(--text-muted); }
 .score-nr { display: inline-flex; width: 1.6em; height: 1.6em; border-radius: var(--radius-full); align-items: center; justify-content: center; font-weight: 700; font-size: .8rem; background: var(--bg-cream-2); margin-right: 6px; flex-shrink: 0; }
 .regels { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; max-width: 72ch; }
 .regels li { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; background: var(--bg-off-white); }
@@ -178,7 +179,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="definitie-kop">De definitie die we afspreken</h2></div>
     <p class="uitleg">Dit is het voorstel van de trainer. De groep mag het scherper maken. Wat jullie afspreken, geldt alle drie de dagen.</p>
     <div class="definitie"><p id="definitie-tekst"></p></div>
-    <p class="uitleg">De definitie bouwt op de drie definities van de opening. De visie beschrijft de veranderende wereld, de missie de plek die je wilt innemen, en de strategie het pad erheen. Porter (1996) trekt de grens met een operationele vraag: hetzelfde werk beter doen dan anderen. Dat is nodig, maar een concurrent kan het nadoen. Strategie is een eigen positie kiezen, en daarvoor iets anders laten.</p>
+    <p class="uitleg">De definitie bouwt op de drie definities van de opening. De visie beschrijft de veranderende wereld, de missie de plek die je wilt innemen, en de strategie het pad erheen. Porter (1996) trekt de grens met een operationele vraag: hetzelfde werk beter doen dan anderen. Dat is nodig, maar een concurrent kan het nadoen. Strategie is een eigen positie kiezen, en daarvoor iets anders laten. Een publieke organisatie heeft vaak geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners en ketenpartners, en iets laten is dan een taak, kanaal of rol aan anderen overlaten.</p>
 
     <h3>Drie criteria, elk 0, 1 of 2</h3>
     <div class="table-wrap"><table id="criteria">
@@ -206,7 +207,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
   <section class="stap" id="oefenen" aria-labelledby="oefenen-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="oefenen-kop">Oefen op Voorbeeld BV</h2></div>
-    <p class="uitleg">Voorbeeld BV is verzonnen: een installateur van verwarming, ventilatie en zonnepanelen, met 400 medewerkers. Scoor de drie vragen eerst alleen. Vergelijk dan in de groep. Waar jullie verschillen, is de definitie nog niet scherp genoeg.</p>
+    <p class="uitleg">Voorbeeld BV is verzonnen: een installateur van verwarming, ventilatie en zonnepanelen, met 400 medewerkers. Scoor vraag A, B en C eerst alleen. Vergelijk dan in de groep. Waar jullie verschillen, is de definitie nog niet scherp genoeg. Werk je bij een publieke organisatie, scoor dan ook vraag D, van een verzonnen gemeente.</p>
     <div class="oefenen" id="oefen"></div>
   </section>
 
@@ -246,7 +247,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     </div>
     <div class="let-op">
       <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De prompt komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
-      <p class="klein">De trainer heeft deze prompt vóór dag 1 getest op negen vragen, in Claude, ChatGPT en Gemini. Haalde een AI de norm niet, dan hoor je dat bij de start.</p>
+      <p class="klein">De trainer heeft deze prompt vóór dag 1 getest op elf vragen, in Claude, ChatGPT en Gemini. Haalde een AI de norm niet, dan hoor je dat bij de start.</p>
     </div>
   </section>
 </main>
@@ -265,17 +266,21 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 <script>
 'use strict';
 /* De definitie en de criteria staan hier één keer. De tabel, de scores en de prompt komen eruit.
-   De skill van de supervisory board in boards.html heeft een kopie: verander je hier iets, verander het daar ook. */
+   De skill van de supervisory board in boards.html heeft een kopie: verander je hier iets, verander het daar ook.
+   publiek: zo lees je niveau 2 bij een publieke organisatie (ADR-052). De schaal blijft gelijk. */
 const VOORSTEL = 'Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat.';
 const CRITERIA = [
   { id: 'omgeving', naam: 'Omgeving', bij: 'visie', vraag: 'Welke verandering maakt de vraag nu dringend?',
-    s: ['Geen, of alleen een knelpunt binnen de organisatie', 'Algemeen, zoals "AI verandert alles"', 'Concreet: bij klanten, concurrenten, regels of techniek'] },
+    s: ['Geen, of alleen een knelpunt binnen de organisatie', 'Algemeen, zoals "AI verandert alles"', 'Concreet: bij klanten of inwoners, concurrenten, regels of techniek'] },
   { id: 'positie', naam: 'Positie', bij: 'missie', vraag: 'Gaat het antwoord over de plek van de organisatie?',
-    s: ['Alleen over hoe een bestaand proces loopt', 'Over wat een afdeling of keten levert, en aan wie', 'Over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt'] },
+    s: ['Alleen over hoe een bestaand proces loopt', 'Over wat een afdeling of keten levert, en aan wie', 'Over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt'],
+    publiek: 'welke rol ze inneemt tegenover inwoners, ketenpartners en andere overheden' },
   { id: 'keuze', naam: 'Keuze', bij: 'strategie', vraag: 'Dwingt het antwoord een keuze af?',
-    s: ['Elk antwoord is "doen" of "versterken"', 'Er zijn opties, maar niets valt af', 'Elk antwoord betekent dat de organisatie iets laat'] },
+    s: ['Elk antwoord is "doen" of "versterken"', 'Er zijn opties, maar niets valt af', 'Elk antwoord betekent dat de organisatie iets laat'],
+    publiek: 'een taak, een kanaal of een rol die ze aan anderen overlaat' },
 ];
-/* Bron: materiaal/voorbeeldcasus.md, "Drie vragen voor de vraagtoets". */
+/* Bron van A, B en C: materiaal/voorbeeldcasus.md, "Drie vragen voor de vraagtoets".
+   Vraag D is geen Voorbeeld BV: een verzonnen gemeente, gelijk aan vraag 11 van de ijkset (ADR-052). */
 const OEFEN = [
   { id: 'A', vraag: 'Hoe handelen we klachten sneller en beter af, en leren we ervan?', trainer: [0, 0, 0],
     uitleg: 'Het gaat over hoe een bestaand proces loopt. Wat Voorbeeld BV aanbiedt, en aan wie, blijft gelijk. Dit is een goede eerste prioriteit, en geen strategische vraag.' },
@@ -283,6 +288,8 @@ const OEFEN = [
     uitleg: 'Het twijfelgeval. De concurrent staat erin, maar wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk. Snelheid kan een concurrent nadoen. Strategisch wordt het pas als snelheid de keuze is waarmee Voorbeeld BV zich onderscheidt, en het bedrijf daar iets anders voor laat. Dus operationeel, hooguit tactisch.' },
   { id: 'C', vraag: 'Blijven we het eerste aanspreekpunt van de klant, nu installaties hun storingen zelf aan de fabrikant melden? Of worden we de vaste installateur van de fabrikanten?', trainer: [2, 2, 2],
     uitleg: 'Een concrete verandering: installaties melden zelf hun storing. De plek bij de klant staat op het spel, en elk antwoord laat iets: de klantrelatie, of de rol van onderaannemer. Zonder de tweede zin scoort Keuze een 1: er is een ambitie, maar niets valt af.' },
+  { id: 'D', kop: 'Gemeente Voorbeeldstad (verzonnen), voor wie bij een publieke organisatie werkt', vraag: 'Blijft de gemeente het eerste loket voor inwoners, nu die hun vragen eerst aan een AI-assistent stellen? Of laten we eenvoudige vragen over aan een landelijke voorziening, en houden we zelf het loket voor zorg, schulden en inkomen?', trainer: [2, 2, 2],
+    uitleg: 'Een concrete verandering: inwoners vragen eerst een AI-assistent. De gemeente heeft geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners, en die staat op het spel. Elk antwoord laat iets: het eigen loket voor eenvoudige vragen, of de mensen die een landelijke voorziening vrijspeelt voor zorg, schulden en inkomen. Zonder de tweede zin scoort Keuze een 1.' },
 ];
 
 const $ = id => document.getElementById(id);
@@ -336,9 +343,9 @@ function scoreGroep(groep) {
   </fieldset>`).join('');
 }
 function bouw() {
-  $('criteria').querySelector('tbody').innerHTML = CRITERIA.map(c => `<tr><td class="crit"><strong>${c.naam} (${c.bij})</strong><span>${esc(c.vraag)}</span></td>${c.s.map(t => `<td>${esc(t)}</td>`).join('')}</tr>`).join('');
+  $('criteria').querySelector('tbody').innerHTML = CRITERIA.map(c => `<tr><td class="crit"><strong>${c.naam} (${c.bij})</strong><span>${esc(c.vraag)}</span></td>${c.s.map((t, i) => `<td>${esc(t)}${i === 2 && c.publiek ? `<span class="publiek">Bij een publieke organisatie: ${esc(c.publiek)}</span>` : ''}</td>`).join('')}</tr>`).join('');
   $('oefen').innerHTML = OEFEN.map(q => `<div class="vraagkaart">
-    <p class="letter">Vraag ${q.id}</p><p class="vraag">${esc(q.vraag)}</p>
+    <p class="letter">Vraag ${q.id}</p>${q.kop ? `<p class="klein">${esc(q.kop)}</p>` : ''}<p class="vraag">${esc(q.vraag)}</p>
     <div class="scores">${scoreGroep(`oefen${q.id}`)}</div>
     <p class="uitkomst" id="uitkomst-oefen${q.id}" aria-live="polite"></p>
     <details class="trainer"><summary>Score van de trainer</summary>
@@ -363,7 +370,7 @@ ${def}${scherp ? `\n\nMijn groep heeft dit scherper gemaakt: ${scherp}` : ''}
 
 Geef per criterium een score van 0, 1 of 2.
 
-${CRITERIA.map(c => `- **${c.naam}:** ${c.vraag} ${c.s.map((t, i) => `${i} = ${t}.`).join(' ')}`).join('\n')}
+${CRITERIA.map(c => `- **${c.naam}:** ${c.vraag} ${c.s.map((t, i) => `${i} = ${t}.${i === 2 && c.publiek ? ` Bij een publieke organisatie: ${c.publiek}.` : ''}`).join(' ')}`).join('\n')}
 
 ## De uitkomst
 

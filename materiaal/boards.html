@@ -467,6 +467,7 @@ const EXPERTS = [
   { id: 'schneier', naam: 'v_Schneier', blik: 'Informatiebeveiliging en privacy', vraag: 'Wat lekt er, wie misbruikt het, en wat valt uit?', vlag: true },
   { id: 'oneil', naam: "v_O'Neil", blik: 'Algoritmen en de schade die ze doen', vraag: 'Wie wordt hier onterecht door benadeeld, en wie merkt het?', vlag: true },
   { id: 'schaake', naam: 'v_Schaake', blik: 'Techbeleid en regels, zoals de AI-verordening', vraag: 'Mag dit, en wie is aanspreekbaar als het misgaat?', vlag: true },
+  { id: 'prins', naam: 'v_Prins', blik: 'AI bij de overheid: publieke waarden, de rechtsstaat en de inwoner (Corien Prins, WRR-rapport Opgave AI)', vraag: 'Kan een inwoner dit besluit volgen en aanvechten, en wie legt er verantwoording over af?' },
   { id: 'ury', naam: 'v_Ury', blik: 'Onderhandelen op belangen', vraag: 'Wat zijn de echte belangen van elke partij?' },
   { id: 'kotler', naam: 'v_Kotler', blik: 'Marketing en de klant', vraag: 'Voor wie is dit, en waarom zou die het willen?' },
 ];
@@ -627,9 +628,9 @@ Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie i
 
 Geef per criterium een score van 0, 1 of 2, met de woorden uit mijn vraag als bewijs:
 
-- **Omgeving:** welke verandering maakt de vraag nu dringend? 0 = geen, of alleen een knelpunt binnen de organisatie. 1 = algemeen, zoals "AI verandert alles". 2 = concreet: bij klanten, concurrenten, regels of techniek.
-- **Positie:** gaat het antwoord over de plek van de organisatie? 0 = alleen over hoe een bestaand proces loopt. 1 = over wat een afdeling of keten levert, en aan wie. 2 = over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt.
-- **Keuze:** dwingt het antwoord een keuze af? 0 = elk antwoord is "doen" of "versterken". 1 = er zijn opties, maar niets valt af. 2 = elk antwoord betekent dat de organisatie iets laat.
+- **Omgeving:** welke verandering maakt de vraag nu dringend? 0 = geen, of alleen een knelpunt binnen de organisatie. 1 = algemeen, zoals "AI verandert alles". 2 = concreet: bij klanten of inwoners, concurrenten, regels of techniek.
+- **Positie:** gaat het antwoord over de plek van de organisatie? 0 = alleen over hoe een bestaand proces loopt. 1 = over wat een afdeling of keten levert, en aan wie. 2 = over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt. Bij een publieke organisatie: welke rol ze inneemt tegenover inwoners, ketenpartners en andere overheden.
+- **Keuze:** dwingt het antwoord een keuze af? 0 = elk antwoord is "doen" of "versterken". 1 = er zijn opties, maar niets valt af. 2 = elk antwoord betekent dat de organisatie iets laat. Bij een publieke organisatie: een taak, een kanaal of een rol die ze aan anderen overlaat.
 
 Geef geen totaalscore. Scoort Positie 0, dan is de vraag operationeel: noem twee vragen erboven. Waarom moet dit beter, en wat wil de organisatie daarmee bereiken? Is mijn vraag in de drie dagen veranderd, toets dan de nieuwe versie. Kies nooit een vraag voor mij.
 

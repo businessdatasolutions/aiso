@@ -2,6 +2,24 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.37 — 2026-11-08
+
+Na de tweede proefrun van dag 1, met een fictieve deelnemer uit een gemeente (issues #3 tot en met #7). Eerder die
+dag, buiten een versie om: beide boards hebben een woordgrens van 1200 woorden, in plaats van 600 en 800.
+
+**Nieuw**
+- Vraagtoets: onder niveau 2 van Positie en Keuze staat hoe je dat leest bij een publieke organisatie. Oefenvraag D
+  komt van de verzonnen gemeente Voorbeeldstad en is voor wie bij een publieke organisatie werkt. De ijkset heeft
+  elf vragen, met de norm tien van de elf. De skilltekst van de supervisory board volgt (ADR-052).
+- Advisory board: een kaart voor v_Prins, over AI bij de overheid: publieke waarden, de rechtsstaat en de inwoner.
+
+**Gewijzigd**
+- Afsluiting van elke lesdag: "het meest veranderd" is het antwoord waarin je nu iets anders kiest of laat. Op dag 1
+  krijgt het duo drie minuten om te kiezen, en de board begint om 16:14 (ADR-053).
+- AI-taken met de onderzoeksfunctie (dag 1 om 10:45, dag 2 om 10:30): vraag om een samenvatting van hooguit één A4.
+- Volwassenheidsscan: weet je later iets nieuws, pas je antwoord dan aan. Dat staat bij het profiel, in de AI-taak
+  van 10:45 en in het verloop van de trainer om 11:53.
+
 ## 0.36 — 2026-11-08
 
 Na een proefrun van dag 1 met een gesimuleerde deelnemer. Eerder die dag, buiten een versie om: de advisory
