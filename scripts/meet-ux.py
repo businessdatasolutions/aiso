@@ -7,6 +7,12 @@ De deelnemer ziet de startpagina zonder parameter; de trainer opent haar met
 ?rol=trainer (ADR-047). Het script meet beide weergaven, en meet ook dat de
 deelnemersweergave niets van de trainer bevat.
 
+Na de KPI's volgen twee werkingscontroles, die ook meetellen bij --toets: elk
+tabblad op een lespagina toont zijn paneel (W1), en beide boards downloaden als
+zip met een geldige SKILL.md (W2). De KPI's meten waar iets staat; deze controles
+meten of het werkt. Ze kwamen erbij na de proefrun van dag 1 op 8 november 2026,
+waarin de advisory board niet te downloaden was terwijl alle KPI's groen waren.
+
 Het script bouwt de site met bouw-pages.py in een tijdelijke map, serveert die lokaal
 en meet met Playwright in de Chrome van deze computer. Het verandert niets in de repo.
 
@@ -27,6 +33,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -651,6 +658,46 @@ def meet(site, base):
         M.zet('D4-B', pct(zegt, n), '%', zegt == n, f'link zegt waarheen: {zegt} van {n}')
         M.zet('D4-R', pct(juiste_dag, n), '%', juiste_dag == n, f'landt op een dag waarop de pagina gebruikt wordt: {juiste_dag} van {n}')
 
+        # ---------------- Werking van de lespagina's ----------------
+        # Geen UX-maat, maar: doet de pagina wat de deelnemer nodig heeft? Een paneel binnen een
+        # verborgen paneel geeft geen consolefout en geen dode link; je ziet het pas als je klikt.
+        tabs_tot = tabs_ok = 0
+        leeg = []
+        for pad in sorted(p_ for p_ in paginas if p_.parent.name == 'materiaal'):
+            pg.goto(base + str(pad.relative_to(site)))
+            pg.wait_for_timeout(150)
+            for tab in pg.query_selector_all('[role=tab][aria-controls]'):
+                if not tab.is_visible():
+                    continue
+                tabs_tot += 1
+                tab.click()
+                pg.wait_for_timeout(80)
+                paneel = pg.query_selector('#' + tab.get_attribute('aria-controls'))
+                if paneel and paneel.is_visible():
+                    tabs_ok += 1
+                else:
+                    leeg.append(f'{pad.name} › {tab.inner_text().strip()}')
+        M.zet('W1', pct(tabs_ok, tabs_tot), '%', tabs_ok == tabs_tot,
+              f'tabbladen die hun paneel tonen: {tabs_ok} van {tabs_tot}' + (f"; leeg: {', '.join(leeg)}" if leeg else ''))
+
+        zips_ok, zip_fout = 0, []
+        pg.goto(base + 'materiaal/boards.html#downloaden')
+        pg.wait_for_timeout(200)
+        for wat, naam in (('sup', 'supervisory-board'), ('adv', 'advisory-board')):
+            try:
+                pg.click(f'#tab-{wat}')
+                with pg.expect_download(timeout=4000) as dl:
+                    pg.click(f'[data-zip="{wat}"]', timeout=2000)
+                with zipfile.ZipFile(dl.value.path()) as z:
+                    skill = z.read(f'{naam}/SKILL.md').decode('utf-8')
+                if not re.match(rf'^---\nname: {naam}\n', skill):
+                    raise ValueError('naam in SKILL.md klopt niet')
+                zips_ok += 1
+            except Exception as e:  # noqa: BLE001 — elke fout is hier een gemiste download
+                zip_fout.append(f'{naam}: {type(e).__name__}')
+        M.zet('W2', f'{zips_ok} van 2', '', zips_ok == 2,
+              'beide boards downloaden als zip met een geldige SKILL.md' + (f"; mislukt: {', '.join(zip_fout)}" if zip_fout else ''))
+
         browser.close()
     return M
 
@@ -673,6 +720,10 @@ NAMEN = {
     'D4-A': 'Lespagina met link terug', 'D4-V': 'Terug-link zonder scrollen',
     'D4-B': 'Terug-link zegt waarheen', 'D4-R': 'Terug-link landt op de goede dag',
 }
+WERKING = {
+    'W1': 'Elk tabblad op een lespagina toont zijn paneel',
+    'W2': 'Downloads van de boards (supervisory en advisory)',
+}
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--toets', action='store_true', help='stop met code 1 als een KPI de norm mist')
@@ -694,6 +745,14 @@ def main():
         print(f"| {k} | {NAMEN[k]} | {w} | {'excellent' if r['ok'] else 'onder de norm'} | {r['toelichting']} |")
     mis = [k for k in NAMEN if not M.kpi[k]['ok']]
     print(f"\n{len(NAMEN) - len(mis)} van {len(NAMEN)} KPI's halen de norm." + (f" Onder de norm: {', '.join(mis)}." if mis else ''))
+    print(f"\n| Controle | Naam | Waarde | Oordeel | Toelichting |\n|---|---|---|---|---|")
+    for k in WERKING:
+        r = M.kpi[k]
+        w = f"{r['waarde']} {r['eenheid']}".strip()
+        print(f"| {k} | {WERKING[k]} | {w} | {'werkt' if r['ok'] else 'WERKT NIET'} | {r['toelichting']} |")
+    stuk = [k for k in WERKING if not M.kpi[k]['ok']]
+    print(f"\nWerking: {len(WERKING) - len(stuk)} van {len(WERKING)} controles in orde." + (f" Stuk: {', '.join(stuk)}." if stuk else ''))
+    mis += stuk
     if a.json:
         Path(a.json).write_text(json.dumps(M.kpi, ensure_ascii=False, indent=2), encoding='utf-8')
     if a.toets and mis:

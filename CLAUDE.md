@@ -70,8 +70,9 @@ python3 scripts/controleer-publicatie.py --alleen-privacy LRD-AISO26009-lesdagen
 python3 scripts/excalidraw-huisstijl.py IN.excalidraw UIT.svg
 
 # UX test of the site for trainer and participant (32 KPIs, ADR-046): builds the site, serves it
-# locally and measures with Playwright in the local Chrome. --toets exits 1 if a KPI misses its norm;
-# --bron HEAD measures the last commit. Run it after every change to the start page, a lesson page or DATA.days.
+# locally and measures with Playwright in the local Chrome. Two checks follow that the lesson pages
+# work: every tab shows its panel (W1) and both board zips download (W2). --toets exits 1 if a KPI
+# misses its norm or a check fails; --bron HEAD measures the last commit. Run it after every change to the start page, a lesson page or DATA.days.
 python3 scripts/meet-ux.py --toets
 
 # Tests for the AI-language checker (45 parametrised cases); a single test via -k
