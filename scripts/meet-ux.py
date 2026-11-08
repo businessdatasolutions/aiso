@@ -7,11 +7,13 @@ De deelnemer ziet de startpagina zonder parameter; de trainer opent haar met
 ?rol=trainer (ADR-047). Het script meet beide weergaven, en meet ook dat de
 deelnemersweergave niets van de trainer bevat.
 
-Na de KPI's volgen twee werkingscontroles, die ook meetellen bij --toets: elk
-tabblad op een lespagina toont zijn paneel (W1), en beide boards downloaden als
-zip met een geldige SKILL.md (W2). De KPI's meten waar iets staat; deze controles
-meten of het werkt. Ze kwamen erbij na de proefrun van dag 1 op 8 november 2026,
-waarin de advisory board niet te downloaden was terwijl alle KPI's groen waren.
+Na de KPI's volgen drie werkingscontroles, die ook meetellen bij --toets: elk
+tabblad op een lespagina toont zijn paneel (W1), beide boards downloaden als
+zip met een geldige SKILL.md (W2), en het overzicht van de vier vragen
+(?weergave=overzicht, ADR-057) is compleet en brengt je naar het blok (W3). De
+KPI's meten waar iets staat; deze controles meten of het werkt. W1 en W2 kwamen
+erbij na de proefrun van dag 1 op 8 november 2026, waarin de advisory board niet
+te downloaden was terwijl alle KPI's groen waren.
 
 Het script bouwt de site met bouw-pages.py in een tijdelijke map, serveert die lokaal
 en meet met Playwright in de Chrome van deze computer. Het verandert niets in de repo.
@@ -711,6 +713,51 @@ def meet(site, base):
         M.zet('W2', f'{zips_ok} van 2', '', zips_ok == 2,
               'beide boards downloaden als zip met een geldige SKILL.md' + (f"; mislukt: {', '.join(zip_fout)}" if zip_fout else ''))
 
+        # W3: het overzicht van de vier vragen (ADR-057), dat de trainer in de opening van elke dag toont.
+        ov = []
+        for d in dagen:
+            eerste = min(d['blocks'], key=lambda b: hm(b['s']))
+            ov.append((any('weergave=overzicht' in (m.get('href') or '') and f"dag={d['n']}" in m['href']
+                           for m in eerste.get('materials') or []), f"tegel bij de opening van dag {d['n']}"))
+        # Een blok voor alle vier de vragen staat één keer (onderste rij), een ander blok bij elk van zijn vragen.
+        verwacht = sum(1 if set(vragen) <= set(b['v']) else len(b['v'])
+                       for d in dagen for b in d['blocks'] if b['t'] != 'pauze' and b.get('v'))
+        dag2 = min(dagen[1]['blocks'], key=lambda b: hm(b['s'])) if len(dagen) > 1 else None
+
+        def overzicht(q):
+            pg.goto(base + 'materiaal/' + q)
+            pg.wait_for_selector('#overzicht:not([hidden]) table')
+            pg.wait_for_timeout(120)
+        pg.set_viewport_size(BEAMER)
+        overzicht(f"?dag=2&weergave=overzicht&tijd={tijd(hm(dag2['s']) + 1)}" if dag2 else '?weergave=overzicht')
+        ov.append((pg.locator('#overzicht tbody th[scope=row]').count() == len(vragen)
+                   and pg.locator('#overzicht thead th').count() == len(dagen) + 1, 'een rij per vraag, een kolom per dag'))
+        n_blok = pg.locator('#overzicht a.ov-blok').count()
+        ov.append((n_blok == verwacht, f'{n_blok} van {verwacht} blokken'))
+        if dag2:
+            ov.append((pg.locator('#overzicht a.ov-blok.is-nu').count() >= 1
+                       and all(dag2['title'] in t for t in pg.locator('#overzicht a.ov-blok.is-nu').all_inner_texts()),
+                       'het blok van nu licht op'))
+        ov.append((pg.evaluate(JS_IN_BEELD, pg.query_selector('#overzicht table')), 'past zonder scrollen op 1920×1080'))
+        tekst = pg.evaluate("() => document.getElementById('overzicht').innerText")
+        ov.append((all(tekst[m.end():m.end() + 30].lstrip(' ·:–-\n\t').startswith(vragen[f'V{m.group(1)}']['kort'])
+                       for m in re.finditer(r'\bV([1-4])(?!\d)', tekst)), 'elke vraagcode met haar naam'))
+        doel = pg.locator(f"#overzicht a.ov-blok[data-naar-dag=\"{dagen[-1]['n']}\"]").first
+        titel = doel.locator('.ov-naam').inner_text()
+        doel.click()
+        pg.wait_for_timeout(900)
+        ov.append((pg.evaluate("""([t, n]) => { const l = document.getElementById('lijst');
+            if (l.hidden || !document.getElementById('dagtitel').textContent.startsWith('Dag ' + n)) return false;
+            const r = [...document.querySelectorAll('.rij')].find(x => x.querySelector('.rij-titel')?.textContent === t);
+            const b = r?.getBoundingClientRect(); return !!b && b.top >= 0 && b.top < innerHeight; }""", [titel, dagen[-1]['n']]),
+                   'een klik opent het blok in het programma'))
+        pg.set_viewport_size(TELEFOON)
+        overzicht('?dag=1&weergave=overzicht')
+        ov.append((not pg.evaluate('() => document.documentElement.scrollWidth > innerWidth + 1'), 'telefoon zonder opzij scrollen'))
+        ov_ok = sum(ok for ok, _ in ov)
+        M.zet('W3', f'{ov_ok} van {len(ov)}', '', ov_ok == len(ov),
+              'overzicht van de vier vragen' + (f"; mis: {'; '.join(w for ok, w in ov if not ok)}" if ov_ok < len(ov) else ''))
+
         browser.close()
     return M
 
@@ -736,6 +783,7 @@ NAMEN = {
 WERKING = {
     'W1': 'Elk tabblad op een lespagina toont zijn paneel',
     'W2': 'Downloads van de boards (supervisory en advisory)',
+    'W3': 'Overzicht van de vier vragen (?weergave=overzicht)',
 }
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)

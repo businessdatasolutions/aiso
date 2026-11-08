@@ -2,6 +2,27 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.41 — 2026-11-08
+
+**Nieuw**
+- Het overzicht van de vier vragen over de drie dagen, als weergave van de startpagina
+  (`materiaal/index.html?weergave=overzicht`). Per vraag en per lesdag staan de blokken die eraan werken, met de
+  hoofdvraag van elke dag en het blok van nu. Het komt uit `DATA`. Een klik op een blok opent dat blok, met het
+  materiaal. In de navigatie staat de pil Overzicht voor de dagen (ADR-057).
+- NFR-13 voor het overzicht. De UX-test krijgt de werkingscontrole W3: een tegel bij elke opening, alle blokken, het
+  blok van nu, past op de beamer, de klik naar het blok, en niet opzij scrollen op een telefoon.
+
+**Gewijzigd**
+- De opening van dag 1, 2 en 3 begint met het overzicht. Het is de eerste tegel van die blokken en de eerste stap van
+  het verloop van de trainer. FR-33 noemt het ook (ADR-057).
+- De opening van dag 2 dient alle vier de vragen, net als de andere openingen: ze begint met de vragenkaart. In het
+  overzicht staat ze in de rij "Alle vier", en om 9:30 lichten op de startpagina alle vier de vragen op (ADR-057).
+- Deel 5 (KISS · Begeleider) en deel 10 (wat de trainer oplevert) noemen het overzicht.
+- Draaiboek, dag 1 om 9:30: het overzicht staat op de beamer bij het welkom.
+- Het punt van de overdracht op de portfoliokaart heet T, van transfer, en niet meer 5. Het nummer kwam uit de
+  oorspronkelijke kaart en zei hier niets. Dat geldt voor de figuren in "Waarom geen plan volstaat" (stap 3) en "Wat je
+  organisatie moet kunnen", het draaiboek en `voorbeeldcasus.md`. ADR-055 en ADR-056 noemen nog punt 5.
+
 ## 0.40 — 2026-11-08
 
 **Nieuw**

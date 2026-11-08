@@ -214,6 +214,56 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; pad
 .melding-kaart .fout { font-size: .875rem; color: var(--text-muted); }
 .laden { color: var(--text-muted); }
 
+/* ---------------- Overzicht: vier vragen, drie dagen (ADR-057) ----------------
+   Met ?weergave=overzicht vervangt een tabel van vraag × lesdag het blok van nu, de band en
+   de lijst. De trainer toont haar in de opening van elke lesdag. Ze past op de beamer zonder
+   scrollen; op een telefoon staat elke vraag als kaart onder de vorige. */
+.overzicht { background: var(--bg-cream); border-radius: var(--radius-md); padding: clamp(16px, 1.6vw, 32px) clamp(16px, 2vw, 36px); }
+main:has(> .overzicht:not([hidden])) { padding-top: clamp(12px, 1.2vw, 20px); }
+.ov-kop { display: grid; gap: 8px 32px; align-items: end; margin-bottom: clamp(10px, 1vw, 18px); }
+@media (min-width: 900px) { .ov-kop { grid-template-columns: minmax(0, 1fr) minmax(0, 64ch); } }
+.ov-titel { font-size: clamp(1.75rem, 2.6vw, 3rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.ov-lead { margin: 0; color: var(--text-secondary); font-size: clamp(.95rem, 1vw, 1.15rem); line-height: 1.45; }
+.ov-tabel { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.ov-tabel th, .ov-tabel td { text-align: left; vertical-align: top; }
+.ov-tabel thead th { border-top: 2px solid var(--supporting); padding: 8px 14px; font-size: clamp(.7rem, .7vw, .85rem); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+.ov-tabel thead th:first-child { width: clamp(13rem, 17vw, 21rem); padding-left: 0; }
+.ov-tabel thead th + th { border-left: 1px solid var(--border-strong); }
+/* De dag van de pagina: dezelfde dag als in de kop */
+.ov-tabel thead th[aria-current] { color: var(--supporting); box-shadow: inset 0 -4px 0 var(--primary); }
+.ov-tabel tbody th, .ov-tabel tbody td { border-top: 1px solid var(--border-strong); }
+.ov-tabel tbody th { padding: 10px 16px 10px 0; font-weight: 400; }
+.ov-tabel td { padding: 8px 14px; border-left: 1px solid var(--border-strong); }
+.ov-tabel tfoot th, .ov-tabel tfoot td { border-top: 2px solid var(--supporting); }
+.ov-tabel tfoot th { padding: 10px 16px 10px 0; font-weight: 700; }
+.ov-vraag { display: flex; gap: 12px; }
+.ov-id { font-family: var(--mono); font-size: clamp(1.4rem, 1.9vw, 2.25rem); font-weight: 700; line-height: 1; }
+.ov-tekst { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ov-kort { font-weight: 700; font-size: clamp(1rem, 1vw, 1.2rem); }
+.ov-zin { font-size: clamp(.78rem, .74vw, .92rem); line-height: 1.4; color: var(--text-secondary); }
+.ov-tabel td.is-hoofd { background: var(--bg-page); }
+.ov-hoofd { margin: 0 0 2px; font-size: clamp(.65rem, .65vw, .8rem); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+.ov-blokken { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.ov-blok { display: flex; align-items: baseline; gap: 10px; margin: 0 -8px; padding: 2px 8px; border-radius: var(--radius-sm); color: var(--text-primary); text-decoration: none; font-size: clamp(.85rem, .82vw, 1rem); line-height: 1.3; }
+.ov-blok:hover { background: var(--bg-yellow); }
+.ov-blok:hover .ov-naam { text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.ov-blok:focus-visible { outline: 2px solid var(--supporting); outline-offset: 1px; }
+.ov-tijd { flex-shrink: 0; min-width: 2.7rem; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: .78em; color: var(--text-muted); }
+.ov-tabel tfoot .ov-blok { color: var(--text-secondary); }
+/* Het blok van nu: geel, vet en met het woord Nu, zodat de kleur niet het enige teken is */
+.ov-blok.is-nu { background: var(--bg-yellow); outline: 2px solid var(--primary); font-weight: 700; color: var(--text-primary); }
+.ov-blok.is-nu::after { content: "Nu"; margin-left: auto; flex-shrink: 0; align-self: center; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; background: var(--primary); color: var(--supporting); border-radius: var(--radius-full); padding: 1px 8px; }
+@media (max-width: 720px) {
+  .ov-tabel, .ov-tabel tbody, .ov-tabel tfoot, .ov-tabel tr, .ov-tabel th, .ov-tabel td { display: block; width: auto; }
+  .ov-tabel thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ov-tabel tr { border-top: 2px solid var(--supporting); padding: 12px 0 4px; }
+  .ov-tabel tbody th, .ov-tabel tfoot th { border: 0; padding: 0 0 8px; }
+  .ov-tabel tbody td, .ov-tabel tfoot td { border: 0; border-top: 1px solid var(--border-strong); padding: 8px 0; }
+  .ov-tabel td.is-hoofd { padding: 8px 10px; border-radius: var(--radius-sm); }
+  .ov-tabel td.is-leeg { display: none; }
+  .ov-tabel td::before { content: attr(data-kolom); display: block; margin-bottom: 4px; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+}
+
 /* ---------------- Voet ---------------- */
 footer { width: 100%; max-width: var(--breed); margin: 0 auto; padding: 16px var(--rand) 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: .8rem; color: var(--text-muted); }
 footer .voet-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
@@ -243,7 +293,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
         <p class="eyebrow">AISO26009 · AI Strategie en Organisatietransformatie</p>
         <h1 id="dagtitel">Lesdag</h1>
       </div>
-      <nav class="pillen" id="dagen" aria-label="Lesdag"></nav>
+      <nav class="pillen" id="dagen" aria-label="Overzicht en lesdagen"></nav>
     </div>
     <div class="nu" id="nu" hidden>
       <div class="nu-hoofd">
@@ -277,6 +327,7 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
 <main id="inhoud">
   <p class="laden" id="laden">Programma laden…</p>
   <ol class="lijst" id="lijst" aria-label="Programma van de dag" hidden></ol>
+  <section class="overzicht" id="overzicht" aria-labelledby="ov-titel" hidden></section>
 </main>
 
 <footer>
@@ -302,6 +353,10 @@ const params = new URLSearchParams(location.search);
 // De trainer opent de pagina met ?rol=trainer. Zonder die parameter maakt het script niets
 // voor de trainer aan: geen instructie, geen draaiboek, geen ontwerp (ADR-047).
 const TRAINER = params.get('rol') === 'trainer';
+// ?weergave=overzicht toont de vier vragen over de drie dagen in plaats van het programma van de dag (ADR-057).
+let OVERZICHT = params.get('weergave') === 'overzicht';
+// Een link naar een blok (?dag=3#blok-5), bijvoorbeeld uit het overzicht in een nieuw tabblad.
+const START_BLOK = /^#blok-(\d+)$/.exec(location.hash);
 const DRAAIBOEK = 'https://github.com/businessdatasolutions/aiso/blob/main/materiaal/draaiboek-bouwstenen.md';
 
 const $ = id => document.getElementById(id);
@@ -438,25 +493,33 @@ function standaardDag() {
 }
 
 /* ---------- Opbouw van een dag ---------- */
-function kiesDag(n, metUrl = true) {
+/* De dag van de kop, als programma of als overzicht. Het overzicht hoort ook bij een dag: die
+   dag staat in de kop en is gemarkeerd in de tabel, met het blok van nu. */
+function kiesDag(n, metUrl = true, overzicht = false) {
+  OVERZICHT = overzicht;
   dag = DATA.days.find(d => d.n === n) || DATA.days[0];
   blokken = (dag.blocks || []).map((b, i) => ({ ...b, i, t: typeVan(b.t), sec: hm(b.s), eSec: hm(b.e) }))
     .filter(b => Number.isFinite(b.sec) && Number.isFinite(b.eSec) && b.eSec > b.sec);
   beginDag = Math.min(...blokken.map(b => b.sec));
   eindDag = Math.max(...blokken.map(b => b.eSec));
   if (metUrl) {
-    const u = new URL(location.href); u.searchParams.set('dag', dag.n);
+    const u = new URL(location.href); u.searchParams.set('dag', dag.n); u.hash = '';
+    if (OVERZICHT) u.searchParams.set('weergave', 'overzicht'); else u.searchParams.delete('weergave');
     try { history.replaceState(null, '', u); } catch { /* geen geschiedenis */ }
   }
   $('dagtitel').textContent = `Dag ${dag.n} · ${dag.date} · ${dag.title}`;
-  $('dagen').innerHTML = DATA.days.map(d =>
-    `<a class="pil" href="?dag=${esc(d.n)}${TRAINER ? '&amp;rol=trainer' : ''}" data-dag="${esc(d.n)}"${d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
+  const rol = TRAINER ? '&amp;rol=trainer' : '';
+  $('dagen').innerHTML = `<a class="pil" href="?dag=${esc(dag.n)}&amp;weergave=overzicht${rol}"${OVERZICHT ? ' aria-current="page"' : ''}>Overzicht</a>`
+    + DATA.days.map(d =>
+      `<a class="pil" href="?dag=${esc(d.n)}${rol}" data-dag="${esc(d.n)}"${!OVERZICHT && d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
   // De link naar de weergave voor de deelnemers volgt de dag (en een proeftijd).
   const zaal = $('naar-zaal');
   if (zaal) { const u = new URL(location.href); u.searchParams.delete('rol'); u.searchParams.set('dag', dag.n); zaal.href = u.href; }
   tekenVragen();
   tekenTijdlijn();
   tekenLijst();
+  tekenOverzicht();
+  zetWeergave();
   // Een andere dag begint bovenaan, met de kop in beeld.
   if (!eersteKeer) window.scrollTo({ top: 0, behavior: 'instant' });
   vorigeSleutel = null;
@@ -517,7 +580,69 @@ function tekenLijst() {
       </div></li>`;
   }).join('');
   $('laden').hidden = true;
-  lijst.hidden = false;
+}
+
+/* Programma of overzicht: het overzicht vervangt het blok van nu, de band en de lijst. */
+function zetWeergave() {
+  $('nu').hidden = OVERZICHT;
+  band.hidden = OVERZICHT;
+  $('lijst').hidden = OVERZICHT;
+  $('overzicht').hidden = !OVERZICHT;
+  meetBand();
+}
+
+/* ---------- Overzicht: vier vragen, drie dagen (ADR-057) ----------
+   Per vraag (rij) en per lesdag (kolom) de blokken die aan die vraag werken, uit de v van elk
+   blok. Een blok voor alle vier de vragen, zoals een opening of afsluiting, staat in de onderste
+   rij en niet vier keer. De hoofdvraag van een dag komt uit DATA.vragen[].dag. Een klik op een
+   blok opent dat blok in het programma, met het materiaal. */
+function tekenOverzicht() {
+  const el = $('overzicht');
+  const vr = Array.isArray(DATA.vragen) ? DATA.vragen : [];
+  if (!OVERZICHT || !vr.length) { el.innerHTML = ''; return; }
+  const rol = TRAINER ? '&amp;rol=trainer' : '';
+  const alleVier = b => vr.every(q => b.v.includes(q.id));
+  // De index i is die in dag.blocks: dezelfde als blok-i in de lijst.
+  const dagen = DATA.days.map(d => ({ d, kolom: `Dag ${d.n} · ${d.date}`,
+    blokken: (d.blocks || []).map((b, i) => ({ ...b, i })).filter(b => typeVan(b.t) !== 'pauze' && Array.isArray(b.v) && b.v.length) }));
+  const lijst = (d, bs) => (bs.length ? `<ul class="ov-blokken">${bs.map(b =>
+    `<li><a class="ov-blok" href="?dag=${esc(d.n)}${rol}#blok-${b.i}" data-naar-dag="${esc(d.n)}" data-naar-blok="${b.i}">`
+    + `<span class="ov-tijd">${esc(b.s)}</span><span class="ov-naam">${esc(b.title)}</span></a></li>`).join('')}</ul>` : '');
+  const rijen = vr.map(q => `<tr><th scope="row"><span class="ov-vraag"><span class="ov-id">${esc(q.id)}</span>`
+    + `<span class="ov-tekst"><span class="ov-kort">${esc(q.kort)}</span><span class="ov-zin">${esc(q.vraag)}</span></span></span></th>`
+    + dagen.map(({ d, kolom, blokken: bs }) => {
+      const hier = bs.filter(b => !alleVier(b) && b.v.includes(q.id));
+      const hoofd = q.dag === d.n;
+      const cls = hoofd ? 'is-hoofd' : hier.length ? '' : 'is-leeg';
+      // data-kolom en niet data-dag: een klik op [data-dag] wisselt van dag.
+      return `<td data-kolom="${esc(kolom)}"${cls ? ` class="${cls}"` : ''}>${hoofd ? '<p class="ov-hoofd">Hoofdvraag van de dag</p>' : ''}${lijst(d, hier)}</td>`;
+    }).join('') + '</tr>').join('');
+  const voet = `<tr><th scope="row">Alle vier</th>${dagen.map(({ d, kolom, blokken: bs }) =>
+    `<td data-kolom="${esc(kolom)}">${lijst(d, bs.filter(alleVier))}</td>`).join('')}</tr>`;
+  el.innerHTML = `<div class="ov-kop"><h2 class="ov-titel" id="ov-titel">Vier vragen. Drie dagen.</h2>`
+    + `<p class="ov-lead">Elke dag begint en eindigt bij alle vier de vragen, met je antwoorden op de vragenkaart. Daartussen werk je aan één of twee. Een klik op een blok brengt je naar dat blok, met het materiaal.</p></div>`
+    + `<table class="ov-tabel"><caption class="sr">Per vraag en per lesdag de blokken die eraan werken</caption>`
+    + `<thead><tr><th scope="col">Vraag</th>${dagen.map(({ d, kolom }) => `<th scope="col"${d.n === dag.n ? ' aria-current="date"' : ''}>${esc(kolom)}</th>`).join('')}</tr></thead>`
+    + `<tbody>${rijen}</tbody><tfoot>${voet}</tfoot></table>`;
+}
+/* Het blok van nu licht op in het overzicht, op de dag van de kop. Een pauze heeft geen vraag. */
+function kleurOverzicht(nu) {
+  const huidig = nu.soort === 'blok' && nu.b.t !== 'pauze' ? nu.b.i : null;
+  document.querySelectorAll('.ov-blok').forEach(a => {
+    const isNu = huidig !== null && +a.dataset.naarDag === dag.n && +a.dataset.naarBlok === huidig;
+    a.classList.toggle('is-nu', isNu);
+    if (isNu) a.setAttribute('aria-current', 'step'); else a.removeAttribute('aria-current');
+  });
+}
+/* Een link naar het overzicht op deze pagina (de pil, of de tegel bij een opening): de dag uit
+   de link, of null als het geen link naar het overzicht is. */
+function overzichtVan(a) {
+  let u;
+  try { u = new URL(a.href); } catch { return null; }
+  const pad = p => p.replace(/index\.html$/, '');
+  if (u.origin !== location.origin || pad(u.pathname) !== pad(location.pathname) || u.searchParams.get('weergave') !== 'overzicht') return null;
+  const n = +u.searchParams.get('dag');
+  return dagNummers().includes(n) ? n : dag.n;
 }
 
 /* De vier vragen uit DATA.vragen. Zonder vragen blijft de band zoals hij was. */
@@ -620,7 +745,7 @@ function toonDaarna(nu) {
 function ververs() {
   if (!dag) return;
   const nu = bepaal();
-  const sleutel = `${dag.n}|${nu.soort}|${nu.b?.i ?? ''}`;
+  const sleutel = `${OVERZICHT ? 'o' : 'p'}|${dag.n}|${nu.soort}|${nu.b?.i ?? ''}`;
 
   // Pin op de tijdlijn
   const pin = $('pin');
@@ -637,6 +762,7 @@ function ververs() {
   vorigeSleutel = sleutel;
 
   kleurVragen(nu.soort === 'na' ? null : nu.b);
+  kleurOverzicht(nu);
   meetBand();
 
   // Tekst bij "nu"
@@ -692,18 +818,34 @@ function ververs() {
   if (!eersteKeer) {
     $('melding').textContent = huidig ? `Nu: ${huidig.title}.` : nu.soort === 'na' ? 'De lesdag is afgelopen.' : nuTitel;
     const doel = huidig || (nu.soort === 'voor' || nu.soort === 'tussen' ? nu.b : null);
-    if (doel && kop.getBoundingClientRect().bottom <= 0) { meetBand(); naarBlok(doel.i); }
+    if (doel && !OVERZICHT && kop.getBoundingClientRect().bottom <= 0) { meetBand(); naarBlok(doel.i); }
   }
   eersteKeer = false;
 }
 
 /* ---------- Bediening ---------- */
+/* Opent een blok in het programma van zijn dag, met de titel als focus voor het toetsenbord. */
+function openBlok(n, i) {
+  kiesDag(n);
+  naarBlok(i);
+  const titel = $(`blok-${i}`)?.querySelector('.rij-titel, .pauze-titel');
+  if (titel) { titel.tabIndex = -1; titel.focus({ preventScroll: true }); }
+}
 document.addEventListener('click', e => {
   const dagLink = e.target.closest('[data-dag]');
   if (dagLink) { e.preventDefault(); kiesDag(+dagLink.dataset.dag); return; }
   // Een blok in de tijdlijn brengt dat blok in de lijst in beeld.
   const balk = e.target.closest('.balk');
-  if (balk) naarBlok(balk.dataset.blok);
+  if (balk) { naarBlok(balk.dataset.blok); return; }
+  // De pil en de tegel naar het overzicht, en de blokken in het overzicht, blijven op deze pagina:
+  // zo blijven ?tijd en ?rol staan. Met een toets erbij, of met de middelste knop, opent de
+  // browser de link zelf, in een nieuw tabblad.
+  const gewoon = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+  const link = gewoon && e.target.closest('a[href]');
+  if (!link) return;
+  const naarOverzicht = overzichtVan(link);
+  if (naarOverzicht) { e.preventDefault(); kiesDag(naarOverzicht, true, true); return; }
+  if (link.dataset.naarBlok) { e.preventDefault(); openBlok(+link.dataset.naarDag, +link.dataset.naarBlok); }
 });
 document.addEventListener('keydown', e => {
   if (!DATA || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
@@ -759,9 +901,8 @@ function fout(soort, err) {
   } catch (err) { return fout('server', err); }
   try { DATA = leesData(html); } catch (err) { return fout('lezen', err); }
   if (TRAINER) maakTrainerweergave();
-  $('nu').hidden = false;
-  band.hidden = false;
-  kiesDag(standaardDag(), params.has('dag'));
+  kiesDag(standaardDag(), params.has('dag'), OVERZICHT);
+  if (START_BLOK && !OVERZICHT) naarBlok(+START_BLOK[1]);
 })();
 </script>
 </body>

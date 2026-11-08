@@ -182,7 +182,7 @@ Bij elke plek geldt: de AI doet een voorstel, een mens beslist. Ernstige klachte
 
 ### De overdracht op de portfoliokaart
 
-Een eigen tekening naar Osterwalder e.a. (2020). Op de kaart staan geen initiatieven. Punt 5, de overdracht van
+Een eigen tekening naar Osterwalder e.a. (2020). Op de kaart staan geen initiatieven. Punt T, de overdracht (transfer) van
 verkennen naar benutten, staat uitvergroot ernaast, met twee banen (ADR-055).
 
 - **Over de muur:** een innovatie gaat aan het eind in één keer naar het huidige businessmodel. Niemand is

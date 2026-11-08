@@ -95,8 +95,8 @@ ol.lijst,ul.lijst{margin:.3rem 0 .6rem;padding-left:1.4rem;font-size:1.05rem;lin
 .twee .kaart h3 small{font-weight:400;font-size:.85rem;color:var(--mutedSoft)}
 .twee .kaart p{font-size:1.05rem;line-height:1.4;color:var(--muted)}
 .drift{font-size:1.1rem;line-height:1.45;margin:.9rem 0 0;max-width:80rem}
-/* De portfoliokaart volgt Strategyzer: verkennen linksonder, benutten rechtsboven, ze raken elkaar op 5.
-   Punt 5, de overdracht, is uitvergroot in de kaart rechtsonder (ADR-055). */
+/* De portfoliokaart volgt Strategyzer: verkennen linksonder, benutten rechtsboven, ze raken elkaar op T.
+   Punt T, de overdracht (transfer), is uitvergroot in de kaart rechtsonder (ADR-055). */
 .portfolio{margin:.8rem 0 0;position:relative}
 .portfolio svg{width:100%;height:auto;max-height:46vh;display:block;margin:0 auto}
 .vergroot{position:absolute;top:0;right:0;font:inherit;font-size:.85rem;font-weight:700;background:#fff;color:var(--ink);
@@ -114,8 +114,8 @@ figcaption{font-size:.85rem;color:var(--mutedSoft);margin-top:.5rem;line-height:
 .pf-actie{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;font-weight:700;fill:var(--mutedSoft)}
 .pf-krabbel{fill:none;stroke:#8a8f98;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
 .pf-cyclus{fill:none;stroke:var(--mutedSoft);stroke-width:2}
-.pf-vijf circle{fill:var(--accent);stroke:var(--ink);stroke-width:2.5}
-.pf-vijf text{font-size:22px;font-weight:800;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.pf-punt circle{fill:var(--accent);stroke:var(--ink);stroke-width:2.5}
+.pf-punt text{font-size:22px;font-weight:800;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
 .pf-ring{fill:none;stroke:var(--ink);stroke-width:1.4}
 .pf-kop{font-size:28px;font-weight:700;fill:var(--ink)}
 .pf-kop-sub{font-size:18px;fill:var(--muted)}
@@ -355,7 +355,7 @@ html:not(.js) nav.bediening button{display:none}
     <button type="button" class="vergroot" hidden>Toon groot</button>
     <svg viewBox="0 0 1600 600" role="img" aria-labelledby="pf-titel pf-uitleg">
       <title id="pf-titel">De portfoliokaart, met de overdracht uitvergroot</title>
-      <desc id="pf-uitleg">Links de portfoliokaart. Linksonder het portfolio verkennen: verticaal het verwachte rendement, dat hoger wordt door te ontwerpen; horizontaal het innovatierisico, van veel naar weinig, dat kleiner wordt door te testen. Een kronkelpad loopt van linksonder naar rechtsboven. Rechtsboven het portfolio benutten: verticaal het werkelijke rendement, dat hoger wordt door te versterken; horizontaal het risico op verval en disruptie, van veel naar weinig, dat kleiner wordt door te beschermen. Daarin draait een kringloop. De twee portfolio's raken elkaar op punt 5, de overdracht. Rechts is punt 5 uitvergroot: de overdracht is de flessenhals. Daar wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen. Twee banen. Over de muur: een innovatie gaat aan het eind in één keer over een muur naar het huidige businessmodel. Niemand is eigenaar, en de innovatie blijft hangen. Pijplijn: een experiment met één team voor zes weken, een pilot bij heel Klantcontact, opschalen naar Planning en Service, en dan het huidige businessmodel. Voor elke stap staat een poort met een norm vooraf en een deur die terug kan. De softwarewereld vond hiervoor CI/CD en DevOps uit.</desc>
+      <desc id="pf-uitleg">Links de portfoliokaart. Linksonder het portfolio verkennen: verticaal het verwachte rendement, dat hoger wordt door te ontwerpen; horizontaal het innovatierisico, van veel naar weinig, dat kleiner wordt door te testen. Een kronkelpad loopt van linksonder naar rechtsboven. Rechtsboven het portfolio benutten: verticaal het werkelijke rendement, dat hoger wordt door te versterken; horizontaal het risico op verval en disruptie, van veel naar weinig, dat kleiner wordt door te beschermen. Daarin draait een kringloop. De twee portfolio's raken elkaar op punt T, de overdracht (transfer). Rechts is punt T uitvergroot: de overdracht is de flessenhals. Daar wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen. Twee banen. Over de muur: een innovatie gaat aan het eind in één keer over een muur naar het huidige businessmodel. Niemand is eigenaar, en de innovatie blijft hangen. Pijplijn: een experiment met één team voor zes weken, een pilot bij heel Klantcontact, opschalen naar Planning en Service, en dan het huidige businessmodel. Voor elke stap staat een poort met een norm vooraf en een deur die terug kan. De softwarewereld vond hiervoor CI/CD en DevOps uit.</desc>
       <defs>
         <marker id="pf-pm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#6b7280"/></marker>
         <marker id="pf-pi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1a1a1a"/></marker>
@@ -363,7 +363,7 @@ html:not(.js) nav.bediening button{display:none}
         <symbol id="pf-deur" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></g></symbol>
       </defs>
 
-      <!-- De portfoliokaart. Beide risico-assen lopen van veel naar weinig, zodat de portfolio's elkaar op 5 raken. -->
+      <!-- De portfoliokaart. Beide risico-assen lopen van veel naar weinig, zodat de portfolio's elkaar op T raken. -->
       <g class="pf-deel">
         <rect class="pf-vlak-b" x="390" y="50" width="280" height="230"/>
         <rect class="pf-vlak-v" x="110" y="280" width="280" height="230"/>
@@ -388,13 +388,13 @@ html:not(.js) nav.bediening button{display:none}
         <text class="pf-eind" x="670" y="302" text-anchor="end">weinig risico</text>
         <text x="585" y="328" text-anchor="middle"><tspan class="pf-asnaam">risico op verval en disruptie</tspan><tspan class="pf-actie" dx="12">BESCHERMEN →</tspan></text>
 
-        <g class="pf-vijf" transform="translate(390 280)"><circle r="24"/><text>5</text></g>
+        <g class="pf-punt" transform="translate(390 280)"><circle r="24"/><text>T</text></g>
       </g>
 
-      <!-- Punt 5 uitvergroot: de bewering, en baan 1, over de muur -->
+      <!-- Punt T uitvergroot: de bewering, en baan 1, over de muur -->
       <g class="pf-deel">
         <rect class="pf-kaart" x="800" y="20" width="790" height="570" rx="14"/>
-        <g class="pf-vijf" transform="translate(800 20)"><circle r="18"/><text style="font-size:17px">5</text></g>
+        <g class="pf-punt" transform="translate(800 20)"><circle r="18"/><text style="font-size:17px">T</text></g>
         <text class="pf-kop" x="830" y="76">De overdracht is de flessenhals.</text>
         <text class="pf-kop-sub" x="830" y="106">Hier wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen.</text>
         <text x="830" y="160"><tspan class="pf-baan-kop">Over de muur</tspan><tspan class="pf-baan-sub" dx="12">één grote overdracht aan het eind</tspan></text>

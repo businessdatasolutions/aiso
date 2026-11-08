@@ -38,14 +38,14 @@
 
 ## Dag 1 · 9:30–10:00 · Opening: je casus en de vier vragen (FR-01, FR-11, FR-28, FR-30, FR-32, FR-33)
 
-**Materiaal:** de geprinte vragenkaart en pennen, filmpje 1 (10 seconden), de startpagina. Die toont de vier vragen voluit, wijst de vragenkaart aan en zet de werkkaart van het blok in beeld. Het verloop met tijden staat in de trainersweergave (`&rol=trainer`).
+**Materiaal:** de geprinte vragenkaart en pennen, filmpje 1 (10 seconden), de startpagina met het overzicht van de vier vragen over de drie dagen (ADR-057). Die toont de vier vragen voluit, wijst de vragenkaart aan en zet de werkkaart van het blok in beeld. Het verloop met tijden staat in de trainersweergave (`&rol=trainer`).
 **Uitkomst:** een casus met een voorlopige strategische AI-vraag, de duo's en de nulmeting op de vragenkaart. En de opdracht om de stukken van het bestuur te zoeken.
 
 **De volgorde ligt vast.** Eerst de casus, dan de nulmeting, en pas daarna uitleg. Wie eerst uitleg krijgt, schrijft die uitleg op. Dan meet de nulmeting niets meer.
 
 ### 9:30–9:35 · Welkom en duo's (5 minuten)
 
-1. Zeg in twee zinnen wat de training oplevert: "Je werkt drie dagen aan één casus uit je eigen organisatie. Vandaag gaat het om richting: waar gaat je organisatie heen nu AI de omgeving verandert?"
+1. Zet het overzicht van de vier vragen op de beamer: de eerste tegel bij dit blok, of de pil Overzicht bovenaan de startpagina. Zeg in twee zinnen wat de training oplevert: "Je werkt drie dagen aan één casus uit je eigen organisatie. Vandaag gaat het om richting: waar gaat je organisatie heen nu AI de omgeving verandert?" Wijs de vier rijen en de drie dagen aan, maar leg de vragen nog niet uit: dat komt om 9:40. Klik daarna op Dag 1.
 2. Kennismaking: iedereen noemt naam, rol en organisatie, in één zin.
 3. Noem de duo's. Die blijven drie dagen hetzelfde (FR-08).
 4. Deel de geprinte vragenkaart uit. Zeg: "Deze kaart blijft drie dagen op tafel liggen. Gooi hem niet weg."
@@ -195,7 +195,7 @@ Geen bestaand model. De zes dimensies komen terug in de modellen van MIT CISR, C
 
 1. **Twee manieren van werken** (March, 1991). Benutten is beter worden in wat je al doet: het rendement is zeker en komt snel. Verkennen is zoeken naar wat nieuw is: het rendement is onzeker en komt later. Organisaties schuiven vanzelf naar benutten, want dat betaalt sneller uit. Verandert de wereld, dan word je steeds beter in iets wat minder waard wordt.
 2. Noem de meting uit stap 4 van de lespagina: "In een strategiesimulatie hielden taalmodellen vast aan de oude technologie. Ze benutten te veel" (Allen & McDonald, 2026).
-3. **De portfoliokaart** (Osterwalder e.a., 2020). Wijs links de twee portfolio's aan: verkennen linksonder, benutten rechtsboven. Ze raken elkaar op één punt: 5, de overdracht. Zeg: "Dit is de flessenhals. Hier wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen." Wijs rechts de twee banen aan. Over de muur is één grote overdracht aan het eind, en niemand is eigenaar. De pijplijn van Voorbeeld BV gaat van experiment via pilot naar opschalen, met voor elke stap een norm vooraf en een deur die terug kan. "De softwarewereld vond hiervoor CI/CD en DevOps uit: kleine stappen, vaak, getest en terug te draaien. Wie zo oplevert, heeft ook minder mislukte wijzigingen" (Forsgren e.a., 2018). De deur die terug kan, leg je hier niet uit: die komt in stap 5. Op een laptop of een kleine beamer klik je op **Toon groot**; een pijltje gaat verder.
+3. **De portfoliokaart** (Osterwalder e.a., 2020). Wijs links de twee portfolio's aan: verkennen linksonder, benutten rechtsboven. Ze raken elkaar op één punt: T, de overdracht (T van transfer). Zeg: "Dit is de flessenhals. Hier wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen." Wijs rechts de twee banen aan. Over de muur is één grote overdracht aan het eind, en niemand is eigenaar. De pijplijn van Voorbeeld BV gaat van experiment via pilot naar opschalen, met voor elke stap een norm vooraf en een deur die terug kan. "De softwarewereld vond hiervoor CI/CD en DevOps uit: kleine stappen, vaak, getest en terug te draaien. Wie zo oplevert, heeft ook minder mislukte wijzigingen" (Forsgren e.a., 2018). De deur die terug kan, leg je hier niet uit: die komt in stap 5. Op een laptop of een kleine beamer klik je op **Toon groot**; een pijltje gaat verder.
 4. **De meerarmige bandiet.** "Voor je staan tien gokautomaten. Elke automaat betaalt anders uit, maar hoeveel weet je niet. Trek je aan de arm die tot nu toe het meest gaf? Dat is benutten. Probeer je een andere? Dat is verkennen. Wie alleen benut, mist misschien de beste automaat."
 
 ### 11:20–11:30 · De simulator (10 minuten)
@@ -631,7 +631,7 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 Na de twee portfolio's, vóór 7S. Toon `materiaal/transformeren.html`; de startpagina linkt ernaar.
 
 1. **De vraag.** "Op dag 2 zagen we: AI levert winst op taakniveau, voor de organisatie nog nauwelijks. Waar blijft die winst hangen?" Laat één of twee antwoorden toe.
-2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, dag 2 kansen benutten, vandaag transformeren. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt 5 aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
+2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, dag 2 kansen benutten, vandaag transformeren. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt T aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
 3. **Voorbeeld BV** (stap 2). De sterkste rem is starre planning: zie de eerste antwoorden. De zwakste aanjager is teams over afdelingen heen: elke afdeling ziet alleen de eigen klachten.
 4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem en bij de laagste dimensie uit de scan van dag 1. In het deckblok van 15:15 komen de rem en de aanjager op de dia Randvoorwaarden; de keuze blijft tot dan in de browser.
 
