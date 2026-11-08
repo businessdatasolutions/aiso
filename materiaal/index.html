@@ -194,6 +194,8 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; pad
 .tegel:hover { border-color: var(--primary); transform: translateY(-2px); }
 .tegel-pijl { flex-shrink: 0; width: 30px; height: 30px; border-radius: var(--radius-full); display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; font-weight: 700; background: var(--bg-cream); color: var(--supporting); }
 .tegel.is-extern .tegel-pijl { background: var(--primary); color: var(--supporting); }
+/* Een lang woord, zoals een webadres, breekt af in plaats van buiten de tegel te lopen. */
+.tegel > span:first-child { min-width: 0; overflow-wrap: anywhere; }
 
 .rij.is-pauze { padding-top: 8px; padding-bottom: 8px; align-items: center; color: var(--text-muted); }
 .rij.is-pauze .van-tot { font-size: .875rem; font-weight: 400; color: var(--text-muted); }

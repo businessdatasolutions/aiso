@@ -52,6 +52,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-046](ADR-046-startpagina-wijst-vragen-en-vindplaats-aan.md) | De startpagina toont de vragen voluit en wijst elk stuk aan | Deels vervangen door ADR-047 | 2026-11-08 |
 | [ADR-047](ADR-047-werkkaart-en-trainersweergave.md) | Een werkkaart voor de deelnemer, een eigen weergave voor de trainer | Aanvaard | 2026-11-08 |
 | [ADR-048](ADR-048-volwassenheidsscan.md) | Het blok van 10:00 wordt de volwassenheidsscan | Aanvaard | 2026-11-08 |
+| [ADR-049](ADR-049-een-tegel-per-stuk.md) | Eén tegel per stuk, met de naam van wat erachter staat | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

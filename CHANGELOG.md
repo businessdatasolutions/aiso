@@ -2,6 +2,14 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.35 — 2026-11-08
+
+**Gewijzigd**
+- Het deckblok van dag 1 (15:15) heeft nu één tegel voor het lege casusdeck, naar de downloadpagina. Er stonden er twee, naar de downloadpagina en naar de kopie in deze repo, met hetzelfde bestand. De deelnemer moest kiezen terwijl er niets te kiezen viel. De tegel noemt de vragenkaart, want het blok werkt ermee (ADR-049).
+- De lespagina `vier-vragen.html` heet nu "Waarom geen plan volstaat": op de tegel, de werkkaart, in de instructie voor de trainer, in de LRD en in de titel van de pagina. Naast de tegel "Vragenkaart" leek "Vier vragen" hetzelfde stuk, maar alleen stap 1 van de pagina staat ook op de kaart (ADR-049).
+- Op dag 2 om 10:45 heet de tegel "De deur die terug kan" en opent hij stap 5 van die pagina. Eerst opende hij stap 1. De stappen kregen een id, zodat de link ook zonder JavaScript op stap 5 landt (ADR-049).
+- Een lang woord in een tegel op de startpagina breekt nu af. De tegel met het webadres liep buiten zijn vak, en de pijl viel weg.
+
 ## 0.34 — 2026-11-08
 
 **Nieuw**
