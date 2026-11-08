@@ -2,6 +2,30 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.33 — 2026-11-08
+
+**Nieuw**
+- Elk blok heeft een werkkaart voor de deelnemer, met zeven vaste vragen: van wat je nodig hebt tot waarvoor je de trainer vraagt. De startpagina toont de werkkaart van het blok van nu in de kop, en per blok uit te klappen in de lijst. De tekst staat in `DATA.days`, veld `deelnemer`, en volgt NFR-11 (ADR-047).
+- Elk blok heeft een instructie voor de trainer: klaarzetten, het verloop met tijden, en let op. De startpagina toont haar alleen met `?rol=trainer`, met de stap van nu gemarkeerd. Zonder die parameter staat er niets voor de trainer in de pagina, ook niet verborgen. De tekst staat in `DATA.days`, veld `trainer`, en volgt NFR-12 (ADR-047).
+- Een KISS-keuze in deel 5.1: alle cognitieve energie van de deelnemer hoort naar het leren te gaan. De pagina en het materiaal mogen daar niet van afleiden. Ook de skill `aiso-beoordeel-onderwijsontwerp` toetst dit nu.
+
+**Gewijzigd**
+- "Zo loopt dit blok" staat niet meer op de startpagina. De looptekst was geschreven voor de ontwerper. Ze blijft in deel 8, waar het detailpaneel nu ook de werkkaart en de instructie toont. De links naar het draaiboek en de LRD staan alleen nog in de trainersweergave. NFR-09 verwijst naar NFR-11 en NFR-12. ADR-046 is daarmee deels vervangen.
+- In deel 5.2 noemen KISS · Deelnemer en KISS · Begeleider de werkkaart en de trainersweergave. Als zwak punt staat erbij dat de instructies voor dag 2 en 3 een eerste versie zijn.
+- `scripts/meet-ux.py` meet de werkkaart, de instructie voor de trainer en de scheiding tussen beide weergaven. Acht KPI's zijn aangepast. De nieuwe nulmeting: 25 van de 32. Na de wijzigingen: 32 van de 32.
+- De simulator in `materiaal/bo-demo/` heeft een icoon. Zonder icoon gaf hij een 404 voor `/favicon.ico` in de console.
+
+## 0.32 — 2026-11-08
+
+**Gewijzigd**
+- De startpagina toont bij het blok van nu de vragen van dat blok voluit, en zegt dat ze op de geprinte vragenkaart staan. Tot nu toe stond de vraag alleen voluit als een blok precies één vraag had. In de opening van dag 1 zag je dus alleen vier korte woorden (ADR-046).
+- Het materiaal van het blok van nu staat ook bovenaan. Per blok is uit te klappen hoe het loopt; bij het blok van nu staat dat open. De voet linkt naar het draaiboek voor de trainer. NFR-09 beschrijft dit.
+- De vragenkaart staat als materiaal bij elk blok dat de vragenkaart, de nulmeting of de vier vragen noemt: acht blokken over de drie dagen. Het deckblok van dag 2 krijgt de prompt voor de businesscase en het experimentpaper. De labels "Probleemformulering" en "Kansenkaart" zeggen nu wat er achter zit.
+- Vier lespagina's hebben bovenaan een link terug naar de startpagina. Uit de vraagtoets is de code FR-37 weg. `boards.html` past nu ook op een telefoon.
+
+**Nieuw**
+- `scripts/meet-ux.py` meet de site met 32 KPI's, voor een trainer die de lesdagen voor het eerst geeft en voor een deelnemer. De nulmeting: 18 van de 32 haalden de norm. Na de wijzigingen: 32 van de 32. Het verslag staat in `onderzoek/2026-11-08-ux-startpagina.md`.
+
 ## 0.31 — 2026-11-08
 
 **Gewijzigd**

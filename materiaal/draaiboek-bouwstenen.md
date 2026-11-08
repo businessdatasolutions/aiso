@@ -24,7 +24,10 @@
 
 - **Print de vragenkaart.** Dat is dia 1 van `materiaal/casusdeck.html`. Open het bestand, klik op **Download als PDF** en kies in het printvenster alleen pagina 1, liggend. Eén per deelnemer en twee reserve. De lege vakken hebben schrijflijnen.
 - **Download de twee filmpjes**, zodat ze ook zonder internet werken. De links staan in de LRD, bij 9:30 en 11:00. De tutorial waar ze uit komen: https://businessdatasolutions.github.io/emergent-strategy-tutorial/ (ten Hove, 2026).
-- **Zet de startpagina klaar:** https://businessdatasolutions.github.io/aiso/materiaal/?dag=1. Zonder internet werkt ze via een lokale server, zoals `python3 -m http.server`, met `materiaal/index.html?dag=1`. Om te oefenen zet `?tijd=HH:MM` de klok op een tijdstip.
+- **Zet de startpagina klaar, in twee vensters** (ADR-047).
+  - Op de beamer de weergave voor de deelnemers: https://businessdatasolutions.github.io/aiso/materiaal/?dag=1. Per blok staat daar de werkkaart: wat de deelnemer nodig heeft, waar die op let, wat die moet weten en doet, waaraan die ziet dat het goed gaat, wanneer het klaar is, en waarvoor die jou vraagt.
+  - Op je eigen scherm de trainersweergave: https://businessdatasolutions.github.io/aiso/materiaal/?dag=1&rol=trainer. Per blok staan daar wat je klaarzet, het verloop met tijden (de stap van nu licht op) en waar je op let. De gele band bovenaan linkt naar de weergave voor de deelnemers. Zet de trainersweergave nooit op de beamer: ze verraadt de werkvorm.
+  - Zonder internet werkt de pagina via een lokale server, zoals `python3 -m http.server`, met `materiaal/index.html?dag=1` (en `&rol=trainer`). Om te oefenen zet `?tijd=HH:MM` de klok op een tijdstip.
 - **Geef de deelnemers de lespagina's** vóór 11:00: `vier-vragen.html` met de map `bo-demo/`, `vraagtoets.html` en `boards.html`. Via de site (https://businessdatasolutions.github.io/aiso/), als bestanden of in de leeromgeving. Ze werken zonder server.
 - **Gebruik de simulator uit `bo-demo/`.** In de online versie doet de schuif β bijna niets (`materiaal/bo-demo/LEESMIJ.md`). De simulator heeft wel internet nodig. De reserve zijn de drie schermafbeeldingen op de lespagina.
 - **Zet het lege casusdeck op de openbare downloadpagina** (FR-02). Doorloop het één keer zelf met je AI: invullen, lokaal openen, PDF maken.
@@ -35,7 +38,7 @@
 
 ## Dag 1 · 9:30–10:00 · Opening: je casus en de vier vragen (FR-01, FR-11, FR-28, FR-30, FR-32, FR-33)
 
-**Materiaal:** de geprinte vragenkaart en pennen, filmpje 1 (10 seconden), de startpagina.
+**Materiaal:** de geprinte vragenkaart en pennen, filmpje 1 (10 seconden), de startpagina. Die toont de vier vragen voluit, wijst de vragenkaart aan en zet de werkkaart van het blok in beeld. Het verloop met tijden staat in de trainersweergave (`&rol=trainer`).
 **Uitkomst:** een casus met een voorlopige strategische AI-vraag, de duo's en de nulmeting op de vragenkaart. En de opdracht om de stukken van het bestuur te zoeken.
 
 **De volgorde ligt vast.** Eerst de casus, dan de nulmeting, en pas daarna uitleg. Wie eerst uitleg krijgt, schrijft die uitleg op. Dan meet de nulmeting niets meer.

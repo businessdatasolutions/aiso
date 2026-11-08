@@ -24,6 +24,8 @@ en elke zwakte een concrete verbetering. De ontwerper beslist.
    niet gekoppeld is, is zelf een KISS-bevinding voor de begeleider. **Het team** is de
    eenheid die het langst samenwerkt en samen oplevert, zoals het projectteam of het
    tweetal. Wisselende groepen (viertallen, plenair) weeg je daarbij mee.
+   Bekijk het product ook zoals de deelnemer het in de sessie ziet, en zoals een begeleider
+   die het voor het eerst draait en het niet ontwierp (KISS in [criteria.md](criteria.md)).
 2. **Scoor elke cel** van de matrix (Purpose, Autonomy, Mastery en Social × team/individu;
    KISS × deelnemer/begeleider) op 0–3. De subcriteria van Autonomy (echte keuze, veilig proberen
    en faciliteren, ruimte voor verschillen) zijn geen eigen cellen: ze zijn de kijkpunten
@@ -93,6 +95,8 @@ ook het besluitenregister bij, als het project er een heeft.
 | „Deelnemers reflecteren" als een 3 scoren | Genoemd is 1; ontworpen (een mechanisme en een zichtbaar resultaat) is 3 |
 | Alleen kritiek geven | Deel 6 hoort erbij: wat werkt, moet een herziening overleven |
 | Tien losse verbeterpunten zonder volgorde | Drie, gerangschikt naar opbrengst tegen moeite |
+| Ontwerptekst als uitleg voor de deelnemer laten staan | Een tekst voor de ontwerper is ruis voor de deelnemer. Kijk of elk blok de zeven vragen van de deelnemer beantwoordt, in diens taal |
+| Een instructie voor de begeleider in het materiaal van de deelnemer goedkeuren omdat ze dichtgeklapt of verborgen is | Strikte scheiding: een eigen document of weergave voor de begeleider |
 
 ## Toon
 

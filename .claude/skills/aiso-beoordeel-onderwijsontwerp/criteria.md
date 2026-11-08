@@ -46,7 +46,7 @@ casus) is een 2.
 
 **KISS** krijgt eigen ankers, omdat eenvoud geen mechanisme is:
 
-- **3** — geen ruis, alles op één plek, en een collega kan het zonder uitleg van de ontwerper draaien.
+- **3** — geen ruis, alles op één plek, en een collega kan het zonder uitleg van de ontwerper draaien. Voor de deelnemer: elk blok beantwoordt de zeven vragen hieronder, op een vaste plek, en wat voor de begeleider is, ziet de deelnemer niet.
 - **2** — de opzet is eenvoudig, maar er zit ruis in: een verwijzing die niet klopt, een tweede plek voor de opdracht.
 - **1** — de deelnemer of begeleider moet merkbaar moeite doen om het programma te volgen.
 - **0** — het programma trekt meer aandacht dan de stof.
@@ -132,6 +132,28 @@ De deelnemer besteedt de aandacht aan het leren en niet aan het begrijpen van he
 De begeleider richt zich op de deelnemers en de dynamiek in de sessie, en hoeft niet steeds over
 het programma na te denken.
 
+**Ontwerpregel: alle cognitieve energie naar het leren.** Idealiter gaat alle cognitieve energie
+van de deelnemer naar het leren. De UX van het materiaal en de leeromgeving moet dat bevorderen.
+Ze mag de deelnemer niet afleiden, en niet bezighouden met uitzoeken waar iets staat, waar je op
+moet klikken of wat een woord uit het ontwerp betekent. Elke keer dat een deelnemer zoekt in
+plaats van leert, is werk dat het ontwerp niet heeft gedaan. Kijk daarom ook naar het product
+zoals de deelnemer het in de sessie ziet: op het scherm in de zaal, op de eigen laptop en op een
+telefoon.
+
+**De zeven vragen van de deelnemer.** Per blok of werkvorm wil de deelnemer weten:
+
+1. Wat heb ik nodig?
+2. Waar let ik vooral op?
+3. Wat moet ik weten?
+4. Wat doe ik?
+5. Waaraan zie ik dat ik goed zit?
+6. Wanneer ben ik klaar?
+7. Waarvoor vraag ik de begeleider?
+
+Staan de antwoorden per blok op een vaste plek, kort en in de taal van de deelnemer, dan leert de
+deelnemer de vorm één keer. Ontbreekt er een, dan gaat de vraag naar de begeleider of naar een
+andere deelnemer, en dat kost beiden aandacht.
+
 **Ontwerpregel: het werk zit in het ontwerp.** De taak van de begeleider is een onderwijsprogramma
 te ontwerpen waarin het meeste werk van de begeleider in het ontwerp zit. Tijdens de contactmomenten
 gaan de deelnemers zelfstandig met het programma aan de slag. De begeleider is er dan alleen nog om te
@@ -144,13 +166,17 @@ moet uitleggen, sturen of repareren, is werk dat het ontwerp niet heeft gedaan.
 - Het schema van rondes en rollen in één oogopslag te zien.
 - Administratie op papier of in de leeromgeving, hooguit vijf minuten praten.
 - Geen ruis die vertrouwen kost: oud materiaal, verwijzingen naar iets wat er niet is, nummering die niet loopt, typefouten, lege placeholders.
+- Per blok de zeven vragen beantwoord (zie hierboven), op een vaste plek en kort: een onderdeel leest op het scherm in twee of drie regels, wat je doet staat in een paar stappen.
+- Geen zoekwerk: het materiaal van het blok van nu is met één klik te openen, zonder te scrollen. Elk stuk dat de instructie noemt, heeft een vindplaats, en van elke pagina is de weg terug te zien.
+- Geen ontwerptaal in wat de deelnemer ziet: geen codes van eisen of besluiten, en geen tekst die voor de ontwerper of de begeleider is geschreven.
 - Weinig leerdoelen (vier is al veel), weinig modellen, één doorlopende casus.
 
 **Begeleider** — kijk naar:
 - Kunnen de deelnemers zonder mondelinge uitleg beginnen en doorwerken? Staat de instructie in het materiaal en niet alleen in het hoofd van de begeleider?
 - Waar gaat de tijd van de begeleider in de sessie naartoe: naar faciliteren en observeren, of naar uitleggen, sturen en repareren?
 - Meet de begeleider het ontwerp? Staat er waar de begeleider op let (waar lopen deelnemers vast, welke vraag komt steeds terug) en hoe dat in de volgende versie terechtkomt?
-- Kan een collega het product draaien zonder de ontwerper? Staat er per blok wat de begeleider doet en wat de deelnemers doen?
+- Kan een collega het product draaien zonder de ontwerper? Staat er per blok wat de begeleider doet en wat de deelnemers doen? Is er per blok een korte instructie die de begeleider tijdens het blok kan lezen: wat klaarligt, het verloop met tijden, en waar de begeleider op let?
+- Is de informatie voor deelnemer en begeleider strikt gescheiden? Instructies voor de begeleider staan in een eigen document of een eigen weergave, niet in wat de deelnemers zien, ook niet verborgen of dichtgeklapt. Een zin als „geef nog geen voorbeeld" op het scherm in de zaal verraadt de werkvorm.
 - Tijdblokken die makkelijk te onthouden zijn (veelvouden van 5), een timer in plaats van zelf de tijd bijhouden.
 - Wordt alles vooraf klaargelegd (enveloppen per team, geprinte bladen), zodat er in de sessie niets verdeeld of aangepast hoeft te worden?
 - Minder dan een minuut beslissen per team; geen afhankelijkheid van techniek die nog niet werkt, en anders een terugvaloptie.

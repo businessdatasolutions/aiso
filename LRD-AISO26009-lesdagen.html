@@ -210,6 +210,10 @@ tr.flash td { animation: flash 1.6s ease-out; }
 .vraag dt { font-size: var(--text-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-top: var(--space-2); }
 .vraag dd { margin: 2px 0 0; }
 .prog-detail dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); font-size: var(--text-sm); margin: var(--space-4) 0 0; }
+/* Werkkaart en trainersinstructie in het paneel: één kolom, kop boven de tekst (ADR-047) */
+.prog-detail dl dl { display: block; margin: var(--space-2) 0 0; }
+.prog-detail dl dl dt { font-weight: 600; margin-top: var(--space-2); }
+.prog-detail dl dl dd { margin: 0; }
 .prog-detail dt { color: var(--text-muted); font-weight: 600; }
 .prog-detail dd { margin: 0; }
 .mix { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; margin: var(--space-2) 0 var(--space-1); border: 1px solid var(--border); }
@@ -292,7 +296,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
   <header class="bds-page-header">
     <div class="hero">
       <div>
-        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.31 (concept)</div>
+        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.33 (concept)</div>
         <h1 class="bds-h1">AI Strategie en Organisatietransformatie: <span class="bds-highlight">de drie lesdagen</span></h1>
         <p class="bds-lead">Elke deelnemer neemt één strategische AI-vraag uit de eigen organisatie mee. Bijvoorbeeld: blijven we het eerste aanspreekpunt van de klant, of worden we de vaste installateur van de fabrikanten? In drie lesdagen werkt de deelnemer die vraag uit tot een AI-strategie in tien dia's: de integrale opdracht, de eindopdracht van S&amp;N. Vier vragen komen daarbij elke dag terug: welke richting, hoe verander je zonder de huidige business te breken, hoe investeer je veilig, en hoe bouw je een roadmap als stap 2 nog onzeker is? Na de online afronding ligt er een voorstel waarover het bestuur kan besluiten.</p>
         <blockquote class="lead-quote">“Van AI-experiment naar organisatiebrede transformatie.”<cite>Ondertitel op de webpagina van de training bij Schouten &amp; Nelissen</cite></blockquote>
@@ -325,7 +329,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
       <div class="stat"><b>4</b><span>vragen</span></div>
       <div class="stat"><b data-count="sn">7</b><span>resultaten van S&amp;N</span></div>
       <div class="stat"><b data-count="fr">32</b><span>functionele eisen</span></div>
-      <div class="stat"><b data-count="nfr">9</b><span>niet-functionele eisen</span></div>
+      <div class="stat"><b data-count="nfr">11</b><span>niet-functionele eisen</span></div>
       <div class="stat"><b data-count="ac">17</b><span>acceptatiecriteria</span></div>
       <div class="stat"><b data-count="risks">24</b><span>risico's</span></div>
     </div>
@@ -524,8 +528,8 @@ tr.flash td { animation: flash 1.6s ease-out; }
         <tr><td><strong>Autonomy</strong></td><td>Deelnemer kiest casus, use case, het eigen AI-account en de leden van de eigen boards, en schrijft de eigen antwoorden; de groep stelt zelf vast wat een strategische vraag is; werkplaats en deck tellen niet mee voor een oordeel (veilig proberen)</td><td>Weinig ruimte voor verschil in tempo binnen het vaste werkplaatsblok; verdieping voor wie snel klaar is moet per werkplaats nog uitgewerkt worden</td></tr>
         <tr><td><strong>Mastery</strong></td><td>De vragenkaart laat zien hoe elk antwoord verandert, van de nulmeting tot de Conclusie; feedback binnen het blok (werkplaats, comité, duo, board); een experiment met normen vooraf</td><td>De nulmeting gaat over de antwoorden; van wat deelnemers met AI kunnen, is er geen nulmeting</td></tr>
         <tr><td><strong>Social</strong></td><td>Duo's, een comité dat samen een budget verdeelt, en elke dag een antwoord van toen en van nu voor de groep</td><td>Zonder rondgang en regelboek werkt de hele groep minder samen; bij zes deelnemers kan een duo uitvallen, dan wordt het een trio</td></tr>
-        <tr><td><strong>KISS · Deelnemer</strong></td><td>Eén product, één logboek, vier vragen die elke dag terugkomen, één vast ritme, alle materialen op één plek; iedereen werkt in een AI-omgeving die al bekend is of klaarstaat</td><td>Vijf modellen uit de online omgeving plus het gereedschap uit 5.1 is nog veel; het experiment tussen dag 2 en 3 komt bovenop de 20 uur zelfstudie; een deck als HTML-bestand is voor de meeste deelnemers nieuw</td></tr>
-        <tr><td><strong>KISS · Begeleider</strong></td><td>Draaiboek per blok (<a class="chip" href="#nfr-07" data-ref="NFR-07">NFR-07</a>); vaste tijden; elke dag hetzelfde begin en einde; een startpagina per lesdag met de vier vragen en een tijdlijn, zonder afteller (<a class="chip" href="#nfr-09" data-ref="NFR-09">NFR-09</a>); één voorbeeldcasus voor de terugvaloptie en de lespagina's, op de maquette uit de zorg na</td><td>De voorbereiding is nog niet af. Wat er nog gemaakt en getest moet worden, staat in fase 0 en 2 van de <a href="#roadmap">roadmap</a>.</td></tr>
+        <tr><td><strong>KISS · Deelnemer</strong></td><td>Eén product, één logboek, vier vragen die elke dag terugkomen, één vast ritme, alle materialen op één plek; per blok een werkkaart met zeven vaste vragen, in de kop van de startpagina (<a class="chip" href="#nfr-11" data-ref="NFR-11">NFR-11</a>); iedereen werkt in een AI-omgeving die al bekend is of klaarstaat</td><td>Vijf modellen uit de online omgeving plus het gereedschap uit 5.1 is nog veel; het experiment tussen dag 2 en 3 komt bovenop de 20 uur zelfstudie; een deck als HTML-bestand is voor de meeste deelnemers nieuw</td></tr>
+        <tr><td><strong>KISS · Begeleider</strong></td><td>Draaiboek per blok (<a class="chip" href="#nfr-07" data-ref="NFR-07">NFR-07</a>); vaste tijden; elke dag hetzelfde begin en einde; een startpagina per lesdag met de vier vragen en een tijdlijn, zonder afteller (<a class="chip" href="#nfr-09" data-ref="NFR-09">NFR-09</a>); per blok een instructie met klaarzetten, verloop en let op, in een eigen weergave die de deelnemers niet zien (<a class="chip" href="#nfr-12" data-ref="NFR-12">NFR-12</a>); één voorbeeldcasus voor de terugvaloptie en de lespagina's, op de maquette uit de zorg na</td><td>De voorbereiding is nog niet af. Wat er nog gemaakt en getest moet worden, staat in fase 0 en 2 van de <a href="#roadmap">roadmap</a>. De instructies voor dag 2 en 3 zijn een eerste versie: het draaiboek van die dagen is nog niet bijgewerkt, en de tijden binnen een blok zijn nog niet in een proefronde getest.</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -767,7 +771,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
 </main>
 
 <footer class="bds-footer">
-  <p>LRD AISO26009 · versie 0.31 · 8 november 2026 · Witek ten Hove · Business Data Solutions</p>
+  <p>LRD AISO26009 · versie 0.33 · 8 november 2026 · Witek ten Hove · Business Data Solutions</p>
 </footer>
 
 <script type="module">
@@ -836,8 +840,10 @@ const DATA = {
     { id: 'NFR-06', sn: [], text: 'Tijdblokken zijn veelvouden van 5 minuten. De groep ziet op de tijdlijn van de startpagina waar de dag staat (NFR-09); een afteller is er niet.' },
     { id: 'NFR-07', sn: [], text: 'Een andere trainer kan een lesdag geven met alleen het draaiboek. Per blok staat wat de trainer doet en wat de deelnemers doen.' },
     { id: 'NFR-08', sn: [], text: 'Engelse vaktermen krijgen bij het eerste gebruik een Nederlandse uitleg.' },
-    { id: 'NFR-09', sn: [], text: 'Elke lesdag heeft een startpagina voor het scherm, gebouwd uit het programma in deze LRD: een band met de vier vragen, waarin de vragen van het blok van nu oplichten, het blok van nu bovenaan, een tijdlijn met een streep op de tijd van nu, en per blok het materiaal. Scrolt de trainer naar beneden, dan blijven de band en de tijdlijn boven de inhoud staan. Alle lesmateriaal staat op één plek, in de map materiaal: het casusdeck, werkplaatsopdrachten, voorbeeldcasus, rolkaarten en lespagina\'s. Elke lespagina toont de inhoud ook als een bibliotheek niet laadt. Vijf minuten vóór elke pauze, en tijdens de pauze, toont de startpagina werkregel 1 met de AI-taak voor die pauze, onder de tijdlijn (FR-28).' },
+    { id: 'NFR-09', sn: [], text: 'Elke lesdag heeft een startpagina voor het scherm, gebouwd uit het programma in deze LRD: een band met de vier vragen, waarin de vragen van het blok van nu oplichten, het blok van nu bovenaan, een tijdlijn met een streep op de tijd van nu, en per blok het materiaal. Bovenaan staan bij het blok van nu ook de vragen van dat blok voluit, met de plek waar de deelnemer ze op papier heeft (de vragenkaart), en het materiaal van dat blok. Daaronder staat de werkkaart van dat blok (NFR-11). Elk stuk dat een blok noemt, zoals de vragenkaart of het casusdeck, staat als materiaal bij dat blok (ADR-046). Wat voor de trainer is, staat alleen in de trainersweergave (NFR-12). Scrolt de trainer naar beneden, dan blijven de band en de tijdlijn boven de inhoud staan. Alle lesmateriaal staat op één plek, in de map materiaal: het casusdeck, werkplaatsopdrachten, voorbeeldcasus, rolkaarten en lespagina\'s. Elke lespagina toont de inhoud ook als een bibliotheek niet laadt. Vijf minuten vóór elke pauze, en tijdens de pauze, toont de startpagina werkregel 1 met de AI-taak voor die pauze, onder de tijdlijn (FR-28).' },
     { id: 'NFR-10', sn: [], text: 'Het casusdeck werkt lokaal als bestand, zonder hosting en zonder bibliotheken. De PDF komt uit de printfunctie van de browser: tien dia\'s in 16:9, één per pagina. De openbare downloadpagina bevat alleen het lege template, zonder gegevens van deelnemers.' },
+    { id: 'NFR-11', sn: [], text: 'Elk blok heeft een werkkaart voor de deelnemer, met zeven vaste vragen: wat je nodig hebt, waar je vooral op let, wat je moet weten, wat je doet, waaraan je ziet dat je goed zit, wanneer je klaar bent, en waarvoor je de trainer vraagt. De werkkaart is in de taal van de deelnemer: hooguit dertig woorden per onderdeel, wat je doet in hooguit vijf stappen van twintig woorden, en geen codes uit het ontwerp. De startpagina toont de werkkaart van het blok van nu in de kop, op de beamer helemaal zonder te scrollen. Bij elk blok in de lijst is de werkkaart uit te klappen; bij het blok van nu staat ze open (ADR-047).' },
+    { id: 'NFR-12', sn: [], text: 'Per blok staat in het programma een instructie voor de trainer: wat de trainer klaarzet, het verloop met tijden, en waar de trainer op let. De startpagina toont haar alleen met ?rol=trainer, op het eigen scherm van de trainer: in de kop de instructie van het blok van nu, met de stap van nu gemarkeerd, en bij elk blok in de lijst. De voet linkt dan naar het draaiboek en de LRD. Zonder die parameter staat er niets voor de trainer in de pagina, ook niet verborgen: geen instructie, geen ontwerptekst en geen link naar draaiboek of LRD. Op de beamer staat de weergave voor de deelnemers (ADR-047).' },
   ],
   ac: [
     { id: 'AC-01', measuredBy: ['FR-02','FR-03'], text: 'Aan het eind van dag 3 heeft elke deelnemer een casusdeck waarin alle tien de dia\'s een concept bevatten, ook de Conclusie.', deliverable: 'Een casusdeck als HTML-bestand en als PDF, met alle tien de dia\'s in concept.' },
@@ -931,84 +937,647 @@ const DATA = {
     { chosen: 'De board toetst in de afsluiting van elke dag het antwoord dat het meest veranderde', rejected: 'Een apart boardmoment van 15 minuten na elk deckblok, met een ADR', why: 'Het boardmoment en de afsluiting deden hetzelfde: terugkijken en een volgende stap kiezen. Samen zijn ze één blok, en de ADR gaat op in de regel "wat veranderde en waarom" op de vragenkaart.' },
     { chosen: 'Eén werkregel: voordat je pauze neemt, zet je altijd AI aan het werk', rejected: 'Een regelboek dat de groep in de werkplaatsen aanvult tot vier werkregels', why: 'Werkregel 1 werkt vanaf de eerste pauze en komt negen keer terug. De andere werkregels kostten elke werkplaats vijf minuten en waren een tweede spoor naast de vier vragen. Werkregels voor het eigen team blijven in het transformatieplan.' },
     { chosen: 'Het deck als één HTML-bestand dat de deelnemer lokaal opent, met een knop voor een PDF', rejected: 'Dia\'s in PowerPoint of Google Slides, of een eigen website met hosting', why: 'De AI van de deelnemer kan een HTML-bestand in één keer lezen en volledig teruggeven. Lokaal werken vraagt geen account en geen hosting, en de PDF is wat de deelnemer bij S&N inlevert. De trainer leert de werkwijze één keer, in het deckblok van dag 1.' },
+    { chosen: 'Per blok een werkkaart voor de deelnemer met zeven vaste vragen, en de instructie voor de trainer in een eigen weergave (?rol=trainer)', rejected: 'Eén pagina voor deelnemer en trainer, met de ontwerptekst uit de LRD als uitleg per blok', why: 'Idealiter gaat alle cognitieve energie van de deelnemer naar het leren. De pagina en het materiaal moeten dat helpen en mogen niet afleiden: de deelnemer hoort niet te zoeken waar iets staat of waar hij moet klikken. De ontwerptekst is geschreven voor de ontwerper, en een deelnemer of een nieuwe trainer leest er niet in wat hij moet doen. Zeven vaste vragen leer je één keer, en ze staan elk blok op dezelfde plek. Een instructie voor de trainer op de beamer verraadt de werkvorm, zoals bij de nulmeting. Daarom ziet de deelnemer haar niet (ADR-047).' },
   ],
 
   days: [
     { n: 1, date: '12 november', title: 'De vier vragen, en de eerste: richting', blocks: [
       { s: '9:30', e: '10:00', t: 'inhoud', title: 'Opening: je casus en de vier vragen', v: ['V1','V2','V3','V4'], detail: 'Eerst legt elke deelnemer de casus vast: organisatie of organisatiedeel, met een strategische AI-vraag. Dan de vier vragen, en vóór alle uitleg een eerste antwoord op elke vraag, op de geprinte vragenkaart: de nulmeting. Daarna legt de trainer met het eerste filmpje uit wat visie, missie en strategie zijn, volgens het klassieke model. Dan werkregel 1: voordat je pauze neemt, zet je altijd AI aan het werk. De opdracht voor de eerste pauze: zoek op wat het bestuur van je organisatie over visie, missie en strategie zegt.', input: 'Ontwikkeldoelen, kennismaking', output: 'Casus met een voorlopige strategische vraag, duo\'s, de nulmeting op de vragenkaart, de opdracht om de stukken van het bestuur te zoeken', sn: ['SN1','SN2'], fr: ['FR-01','FR-11','FR-28','FR-30','FR-32','FR-33'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'Filmpje 1: visie, missie en strategie (10 seconden)', href: 'https://businessdatasolutions.github.io/emergent-strategy-tutorial/vision-mission-nl.mp4' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je geprinte vragenkaart en een pen. Je laptop mag dicht blijven.',
+          aandacht: 'Schrijf op wat jij nu denkt. Er komt nog geen uitleg, en dat is de bedoeling.',
+          weten: 'De nulmeting is je startpunt. Er is geen goed of fout antwoord, en niemand beoordeelt het. Om 16:00 lees je het terug.',
+          doen: [
+            'Vul bovenaan de kaart je casus in: je organisatie, of het deel waar je werkt.',
+            'Schrijf je strategische AI-vraag erbij, in één zin. Hij is nog voorlopig.',
+            'Schrijf bij elke vraag in het vak Nulmeting wat je nu zou doen. Hooguit drie zinnen.',
+            'Laat de vakken Mijn antwoord nu en Na dag 1 leeg.',
+          ],
+          koers: 'Je schrijft in je eigen woorden over je eigen organisatie. Weet je het nog niet, schrijf dan wat je morgen zou doen.',
+          af: 'Je casus, je voorlopige vraag en vier nulmetingen staan op de kaart, en je weet wie je duo is.',
+          hulp: 'Als je geen vraag kunt bedenken, of twijfelt of je casus mag. Een afdeling als casus mag ook.',
+        },
+        trainer: {
+          klaarzetten: 'Geprinte vragenkaarten (één per deelnemer, twee reserve), pennen, filmpje 1 en de lijst met duo\'s.',
+          verloop: [
+            '9:30 Welkom: zeg wat de training oplevert, kennismaking in één zin per persoon, noem de duo\'s en deel de kaarten uit.',
+            '9:35 Casus en voorlopige vraag bovenaan de kaart. Zeg: schrijf alleen op wat openbaar mag.',
+            '9:40 Lees de vier vragen voor, zonder uitleg. Acht minuten schrijven, alleen. Het duo praat nog niet.',
+            '9:50 Filmpje 1 en de definities van visie, missie en strategie.',
+            '9:55 Werkregel 1 en de opdracht voor de pauze: de stukken van het bestuur.',
+          ],
+          letop: 'Geef vóór de nulmeting geen voorbeeld en geen hint. Noem het model van 9:50 niet klassiek en wijs niet vooruit naar 11:00.',
+        },
+      },
       { s: '10:00', e: '10:45', t: 'inhoud', title: 'Breed gebruikt, zelden volwassen', v: ['V1','V2','V3','V4'], detail: 'Begint met "Mens tegen agent": eerst zelf een urgentie geven aan een tegenstrijdige klacht, dan zien wat de agent doet. Daarna: de grillige grens van wat AI goed kan; breed gebruik tegenover zeldzame volwassen inzet (5–13% bij een strenge lat), met als voorbeeld een maquette van een ziekenhuis; gevoel is geen meting; vier faalwijzen van een agent en wat ze opvangt. Generatieve AI, agents, voorspellende modellen en data. Het blok sluit af met een meting uit strategiesimulaties: taalmodellen houden te lang vast aan wat al werkt.', input: '—', output: 'Begrippenkader voor de werkplaatsen', sn: ['SN1'], fr: ['FR-26','NFR-08'], materials: [
         { label: 'Voorbeeld uit de zorg: AI in het ziekenhuis', href: 'materiaal/ziekenhuis.html' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Pen en papier. Om 10:40 je laptop met je AI, voor de taak van de pauze.',
+          aandacht: 'Je eigen oordeel eerst. Bij de klacht geef je zelf een urgentie, voordat je ziet wat de agent doet.',
+          weten: 'Bijna elke organisatie gebruikt AI, maar weinig organisaties zetten het volwassen in. Wat AI goed kan, verschilt per taak, en je gevoel is geen meting.',
+          doen: [
+            'Geef de klacht op het scherm een urgentie van 1 tot 4: steek je vingers op.',
+            'Kijk wat de agent met dezelfde klacht doet, en waarom.',
+            'Schrijf de vier faalwijzen van een agent op. In werkplaats 2 heb je ze nodig.',
+            'Start om 10:40 de AI-taak voor de pauze.',
+          ],
+          koers: 'Je ziet het verschil tussen je eigen score en wat de agent deed, en je kunt zeggen waarom de agent escaleert.',
+          af: 'Je kent de vier faalwijzen van een agent en wat ze opvangt, en je AI werkt aan de taak voor de pauze.',
+          hulp: 'Als je een begrip niet kent, zoals agent of grillige grens, of als je wilt weten waar een cijfer vandaan komt.',
+        },
+        trainer: {
+          klaarzetten: 'Klacht K-0505 uit de voorbeeldcasus op een dia, de maquette van het ziekenhuis en je eigen AI voor de taak van 10:40.',
+          verloop: [
+            '10:00 Mens tegen agent: iedereen geeft K-0505 tegelijk een urgentie met de vingers. Toon dan dat de agent escaleert.',
+            '10:05 De cijfers: breed gebruik tegenover 5–13 % volwassen inzet. Toon in elk geval stap 3 van de maquette.',
+            '10:20 De grillige grens, gevoel is geen meting, en de vier faalwijzen van een agent.',
+            '10:30 Soorten AI: generatieve AI, agents, voorspellende modellen, en de data eronder.',
+            '10:35 De brug: taalmodellen houden in strategiesimulaties te lang vast aan wat werkt.',
+            '10:40 Werkregel 1: doe de AI-taak voor en kijk of bij iedereen de AI loopt.',
+          ],
+          letop: 'Zeg bij de maquette dat het voorbeeld uit de zorg komt. Noem bij elk cijfer wat er gemeten is en in welk jaar. Leg nog geen verband met het model van 9:50.',
+        },
+      },
       { s: '10:45', e: '11:00', t: 'pauze', title: 'Pauze', aiTask: 'Laat de onderzoeksfunctie van je AI openbare stukken zoeken waarin het bestuur van je organisatie iets zegt over visie, missie en strategie, en over AI: een jaarverslag, artikelen, interviews. Vraag om de links en per stuk een korte samenvatting. Om 11:40 gebruik je ze bij je doelen, en in de lunch bespreekt je supervisory board ze.' },
       { s: '11:00', e: '11:40', t: 'inhoud', title: 'Waarom geen plan volstaat', v: ['V1','V2','V3','V4'], detail: 'Eerst de omslag: het tweede filmpje toont het organische pad. Dan de vier vragen als wicked problems, weerbarstige vraagstukken: geen vaste formulering, geen stopregel, een antwoord kan alleen beter of slechter, en elke poging verandert het probleem. Het patroon om ermee te werken is verkennen en benutten: de portfoliokaart, de meerarmige bandiet en de simulator voor Bayesiaans optimaliseren. De trainer doet de simulator voor, daarna probeert iedereen vijf minuten zelf. Per vraag schrijft elke deelnemer één zin: wat is hier verkennen en wat benutten?', input: 'Eerste blik (Reid Hoffman: de AI-strategie elke week herzien)', uses: 'Nulmeting (9:30)', output: 'Per vraag één zin over verkennen en benutten', sn: ['SN1','SN2','SN3','SN4'], fr: ['FR-34','FR-30'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'Filmpje 2 (25 seconden)', href: 'https://businessdatasolutions.github.io/emergent-strategy-tutorial/adaptive-strategy-nl.mp4' },
         { label: 'Vier vragen', href: 'materiaal/vier-vragen.html' },
         { label: 'Simulator: Bayesiaans optimaliseren', href: 'materiaal/bo-demo/bo-simulator-fast.html' },
         { label: 'Tutorial over strategie (naslag)', href: 'https://businessdatasolutions.github.io/emergent-strategy-tutorial/' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met de lespagina Vier vragen en de simulator, en je vragenkaart om op de achterkant te schrijven.',
+          aandacht: 'Het verschil tussen verkennen en benutten, en bij welke van je vier vragen jij vooral benut.',
+          weten: 'De vier vragen zijn weerbarstige vraagstukken: ze zijn nooit af, en elk antwoord kan alleen beter of slechter. Je werkt eraan door te verkennen en te benutten.',
+          doen: [
+            'Kijk naar filmpje 2 en naar de vier vragen als weerbarstige vraagstukken.',
+            'Probeer de simulator vijf minuten: eerst β op 0,5, dan op 10. Wat verschilt?',
+            'Schrijf per vraag één zin: wat is in jouw casus verkennen, en wat benutten?',
+            'Zet de vier zinnen op de achterkant van je vragenkaart.',
+          ],
+          koers: 'Elke zin noemt iets uit je eigen casus. Bij vraag 3 weet je of de deur terug kan.',
+          af: 'Op de achterkant van je kaart staan vier zinnen, één per vraag.',
+          hulp: 'Als de simulator niet laadt, of als je bij een vraag niet weet wat verkennen is in jouw organisatie.',
+        },
+        trainer: {
+          klaarzetten: 'Filmpje 2, de lespagina Vier vragen, en de simulator op het scherm met de drie schermafbeeldingen als reserve.',
+          verloop: [
+            '11:00 Wat vond je AI? Eén voorbeeld. Laat twee deelnemers een stip uit de stukken van hun bestuur voorlezen.',
+            '11:03 De omslag: filmpje 2, het organische pad en de lus.',
+            '11:08 Weerbarstige vraagstukken: noem minstens vier kenmerken, elk met het voorbeeld van Voorbeeld BV.',
+            '11:15 Verkennen en benutten, de portfoliokaart en de bandiet.',
+            '11:20 Simulator: drie minuten voordoen, vijf minuten zelf doen, twee minuten nabespreken.',
+            '11:30 De deur die terug kan, in twee minuten.',
+            '11:32 Eén zin per vraag. Twee deelnemers lezen er een voor, één bij vraag 3.',
+          ],
+          letop: 'Laat bij het voordoen niet zien wat een hoge β doet: dat ontdekken ze zelf. Laadt de simulator niet, toon dan de schermafbeeldingen.',
+        },
+      },
       { s: '11:40', e: '12:15', t: 'inhoud', title: 'Vraag 1: van visie naar doelen', v: ['V1'], detail: 'Eerst de vraagtoets (tien minuten): is je AI-vraag strategisch? De groep oefent op drie vragen van Voorbeeld BV en spreekt de definitie af. Daarna scoor je je eigen vraag, en dan je duo. Een operationele vraag wordt een kandidaat voor de eerste prioriteit, en je zoekt de vraag erboven. Koppel daarna je eigen visie aan 2–4 organisatiedoelen, met de stukken van het bestuur uit de pauze, en geef elkaar in duo\'s feedback. Schrijf bij elk doel wat er zou moeten gebeuren om het los te laten. Maak de risicobereidheid expliciet: hoeveel risico wil de directie nemen met AI, en wie heeft dat hardop gezegd? Een eigen missie schrijft vandaag niemand: die wordt pas na drie dagen zichtbaar.', input: 'AI-visie ontwikkelen en aanscherpen, AI koppelen aan doelen', uses: 'Voorlopige strategische vraag (9:30), stukken van het bestuur (AI-taak van 10:45), je zin bij vraag 1 (11:00)', output: 'Getoetste strategische vraag, concept van de strategische doelen, elk met een signaal om het los te laten', sn: ['SN1','SN2'], fr: ['FR-01','FR-36','FR-30','FR-08','FR-10'], materials: [
         { label: 'Vraagtoets: is je vraag strategisch?', href: 'materiaal/vraagtoets.html' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'De lespagina Vraagtoets, je vragenkaart en je AI-visie uit de online voorbereiding.',
+          aandacht: 'Of je vraag gaat over de plek van je organisatie, en over wat ze daarvoor laat. Een vraag over sneller of beter werken is operationeel.',
+          weten: 'Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat.',
+          doen: [
+            'Scoor de drie oefenvragen van Voorbeeld BV, eerst alleen.',
+            'Scoor je eigen vraag op Omgeving, Positie en Keuze. Daarna scoort je duo hem.',
+            'Koppel je visie aan twee tot vier doelen van je organisatie.',
+            'Schrijf bij elk doel wat er moet gebeuren om het los te laten.',
+          ],
+          koers: 'Jij en je duo scoren je vraag ongeveer gelijk. Elk loslaatsignaal is te zien of te meten, met een grens of een datum.',
+          af: 'Je vraag staat met jouw scores en die van je duo op de kaart, en je hebt twee tot vier doelen met een loslaatsignaal.',
+          hulp: 'Als jij en je duo ver uit elkaar scoren, of als je vraag operationeel blijkt. Dan zoek je samen de vraag erboven.',
+        },
+        trainer: {
+          klaarzetten: 'De vraagtoets op het scherm, de uitkomst van de ijking van de prompt en de drie doelen van Voorbeeld BV.',
+          verloop: [
+            '11:40 Zeg de uitkomst van de ijking. Lees de definitie en de drie criteria voor; de groep mag ze scherper maken.',
+            '11:42 Oefenvragen A, B en C: eerst alleen, dan vergelijken met handen. Bespreek vooral B.',
+            '11:45 Eigen vraag scoren, daarna het duo zonder de scores te zien. Lees de uitkomst voor van de pagina.',
+            '11:50 Voordoen met de doelen van Voorbeeld BV en het loslaatsignaal bij doel 1.',
+            '11:53 Zelf doen: visie aan doelen koppelen, met een loslaatsignaal per doel.',
+            '12:05 Duo\'s geven feedback. Daarna de vraag over risicobereidheid: wie heeft die hardop gezegd?',
+            '12:12 Afronden: een eigen missie schrijft vandaag niemand.',
+          ],
+          letop: 'De AI scoort de vraag pas in de lunch, als tweede beoordelaar. Loopt het uit, bespreek bij het oefenen dan alleen vraag B.',
+        },
+      },
       { s: '12:15', e: '12:30', t: 'inhoud', title: 'Je supervisory board', v: ['V1'], detail: 'Elke deelnemer kiest drie tot vijf strategen die inspireren, met minstens één tegenspreker, en zet de supervisory board als skill in de eigen AI-omgeving. De trainer laat de eigen board zien. De stukken van het bestuur liggen er al, uit de AI-taak van 10:45.', input: '—', uses: 'Stukken van het bestuur (AI-taak van 10:45)', output: 'Supervisory board als skill', sn: ['SN1','SN2'], fr: ['FR-17','FR-32'], materials: [
         { label: 'Startsjabloon: je supervisory board', href: 'materiaal/boards.html#supervisory' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met je AI en de lespagina Je boards als skill.',
+          aandacht: 'Kies minstens één lid dat tegen je koers in zou gaan. Een board van alleen helden geeft je snel gelijk.',
+          weten: 'Je supervisory board is een groep strategen die je inspireren en je helpen je koers scherp te krijgen. Wat ze in je AI zeggen, is nooit een citaat.',
+          doen: [
+            'Kies drie tot vijf strategen, met minstens één tegenspreker.',
+            'Download het pakket voor je supervisory board van de lespagina.',
+            'Zet de board als skill in je eigen AI-omgeving.',
+            'Start om 12:25 de AI-taak voor de lunch.',
+          ],
+          koers: 'De controles op de lespagina zijn groen, en je board antwoordt in je AI als groep.',
+          af: 'Je supervisory board staat als skill in je AI, en je AI werkt aan de taak voor de lunch.',
+          hulp: 'Als je AI-omgeving geen skills kent, of als het installeren niet lukt vóór 12:30. Er is een terugvaloptie.',
+        },
+        trainer: {
+          klaarzetten: 'Je eigen supervisory board, klaar om te laten zien, en de lespagina Je boards als skill op het scherm, bij stap 2.',
+          verloop: [
+            '12:15 Laat je eigen board zien: wie erin zitten, waarom, en wie de tegenspreker is.',
+            '12:18 Zelf doen: strategen kiezen, het pakket downloaden en de board installeren.',
+            '12:25 Werkregel 1: de AI-taak voor de lunch. Zeg: geef je eigen scores niet mee.',
+          ],
+          letop: 'Alleen openbare stukken gaan de AI in. Lukt installeren niet, dan installeert de deelnemer de board in werkplaats 1 en doet de vraagtoets met de prompt van de lespagina.',
+        },
+      },
       { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Leg de stukken van je bestuur voor aan je supervisory board: wat zeggen ze over visie, missie en strategie? Laat de board erover discussiëren en met een gezamenlijke conclusie en advies komen. Laat de board daarna ook je strategische vraag scoren met de vraagtoets; de prompt staat in het startsjabloon. Waar de board anders scoort dan jij en je duo, beslis jij. Na de lunch begin je werkplaats 1 met het advies.' },
       { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 1: bouw je boards', v: ['V1'], detail: 'Eerst het advies van de supervisory board over de stukken van het bestuur. Daarna bouwt elke deelnemer de advisory board, en legt het antwoord op vraag 1 en de doelen aan beide boards voor. De trainer laat in het voordoen een eigen board zien.', input: 'AI-visie', uses: 'Advies van de supervisory board (AI-taak van de lunch), concept van de doelen (11:40)', output: 'Advisory board, aangescherpte visie en doelen', sn: ['SN1','SN2'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-17','FR-32'], materials: [
         { label: 'Startsjabloon: je boards als skill', href: 'materiaal/boards.html' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met je AI en de lespagina Je boards als skill.',
+          aandacht: 'Wat de AI goed doet voor je casus, en waar je moet corrigeren. Daar vraagt het nabespreken naar.',
+          weten: 'Je advisory board bestaat uit experts uit de vakgebieden van je casus, met een harde scepticus. De werkplaats heeft drie delen: voordoen, zelf doen, nabespreken.',
+          doen: [
+            'Lees het advies van je supervisory board uit de lunch.',
+            'Vul stap 3 van de lespagina in en download je advisory board.',
+            'Zet de board in je AI en test hem met de testvraag uit stap 6.',
+            'Leg je antwoord op vraag 1 en je doelen aan beide boards voor.',
+            'Controleer minstens één bron die de advisory board noemt.',
+          ],
+          koers: 'Je advisory board noemt zwakke punten en bronnen die je tegenspreken. Een board die alles goed vindt, toetst niet.',
+          af: 'Beide boards staan in je AI, je visie en doelen zijn aangescherpt, en je hebt één concreet punt voor het nabespreken.',
+          hulp: 'Als je board het overal mee eens is, als je een bron niet kunt vinden, of als je AI geen skills kent.',
+        },
+        trainer: {
+          klaarzetten: 'Je eigen advisory board, de lespagina op het scherm bij stap 3, en de reserve-accounts op Gemini.',
+          verloop: [
+            '13:30 Zeg: geen vertrouwelijke gegevens, ook niet in een eigen account. Twee deelnemers vertellen wat hun supervisory board adviseerde.',
+            '13:35 Voordoen: vul in met Voorbeeld BV, download, installeer en stel de testvraag.',
+            '13:45 Zelf doen: de advisory board bouwen en testen.',
+            '14:10 Vraag 1 en de doelen aan beide boards voorleggen.',
+            '14:25 Kijk bij iedereen: heeft de advisory board een harde scepticus, en de supervisory board een tegenspreker?',
+            '14:35 Nabespreken: wat deed de AI goed, en waar ging het mis? Elke deelnemer noemt één concreet punt.',
+            '14:50 Wat verandert dit aan een van de vier vragen? Op de achterkant van de kaart.',
+            '14:55 Werkregel 1: start de AI-taak voor de pauze.',
+          ],
+          letop: 'Wie een Gem wil maken: niet doen, want die worden vóór dag 2 alleen-lezen. Wie geen eigen casus heeft, werkt met Voorbeeld BV.',
+        },
+      },
       { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je aangescherpte visie en je doelen een eerste tekst maken voor de dia\'s Aanleiding en Strategische doelen. Na de pauze zet je die in je casusdeck.' },
       { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: je casusdeck als HTML-bestand', v: ['V1'], detail: 'De trainer doet voor hoe het werkt: het lege casusdeck downloaden, het bestand met je tekst aan je AI geven, het hele bestand terugkrijgen, lokaal openen en er een PDF van maken. Daarna zet elke deelnemer de nulmeting, Aanleiding en Strategische doelen in het eigen deck. Het duo geeft feedback.', input: '—', uses: 'Nulmeting (9:30), eerste tekst voor Aanleiding en Strategische doelen (AI-taak van 15:00)', output: 'Casusdeck met de vragenkaart, Aanleiding en Strategische doelen', sn: ['SN1','SN2'], fr: ['FR-02','FR-03','FR-08'], materials: [
         { label: 'Leeg casusdeck: businessdatasolutions.github.io/aiso-casusdeck', href: 'https://businessdatasolutions.github.io/aiso-casusdeck/' },
-        { label: 'Leeg casusdeck (lokale kopie)', href: 'materiaal/casusdeck.html' },
-      ] },
+        { label: 'Leeg casusdeck (lokale kopie, dia 1 is de vragenkaart)', href: 'materiaal/casusdeck.html' },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met je AI en je geprinte vragenkaart.',
+          aandacht: 'Neem je nulmeting letterlijk over van de kaart. Verbeter niets: een meting verandert niet.',
+          weten: 'Je casusdeck is één HTML-bestand. Je AI vult het in en geeft het hele bestand terug. Jij opent het op je laptop en maakt er een PDF van.',
+          doen: [
+            'Download het lege casusdeck.',
+            'Geef het bestand met je aantekeningen aan je AI, met de zin die bovenaan het deck staat.',
+            'Sla het hele bestand op en open het in je browser.',
+            'Controleer dia 1 tot en met 3 en maak een PDF.',
+            'Geef je duo feedback: "Toen je … / Ik zou …".',
+          ],
+          koers: 'Onderaan het bestand staat "— einde casusdeck —", en geen dia heeft een rode rand.',
+          af: 'Je deck heeft de vragenkaart, Aanleiding en Strategische doelen, als HTML-bestand en als PDF, en je duo heeft het bekeken.',
+          hulp: 'Als je AI het bestand niet aanneemt of afkapt, of als je AI je nulmeting heeft verbeterd.',
+        },
+        trainer: {
+          klaarzetten: 'Het lege casusdeck op de downloadpagina, dat je één keer zelf hebt doorlopen, en je eigen AI met een voorbeeldtekst.',
+          verloop: [
+            '15:15 Voordoen: downloaden, aan de AI geven, het hele bestand terug, de laatste regel controleren, PDF maken.',
+            '15:30 Zelf doen: dia 1 tot en met 3. Loop rond bij wie het bestand niet heel terugkrijgt.',
+            '15:50 Duo\'s geven feedback: nulmeting letterlijk, loslaatsignaal meetbaar, bronnen met een werkende link.',
+          ],
+          letop: 'De deelnemer is eigenaar van het deck: jij geeft feedback, maar schrijft niet mee. Laat zien dat een afgekapt bestand makkelijk te herstellen is.',
+        },
+      },
       { s: '16:00', e: '16:30', t: 'inhoud', title: 'Afsluiting: de vier vragen opnieuw', v: ['V1','V2','V3','V4'], detail: 'Elke deelnemer leest de nulmeting terug en herschrijft elk antwoord dat veranderde, met één regel over wat er veranderde en waarom. Het antwoord dat het meest veranderde, gaat naar een board. Eén deelnemer leest een antwoord van 9:30 en van nu voor. De volgende stap gaat naar het actieplan in de leeromgeving.', input: '—', uses: 'Nulmeting (9:30), casusdeck (15:15), je boards (werkplaats 1)', output: 'Vragenkaart na dag 1, actie in het actieplan', sn: ['SN1','SN2'], fr: ['FR-18','FR-33'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'Zo gebruik je je boards', href: 'materiaal/boards.html#gebruiken' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je geprinte vragenkaart met de zinnen op de achterkant, en je laptop met je AI.',
+          aandacht: 'Wat er sinds 9:30 veranderde in je denken, en waarom. Een antwoord dat bleef staan, mag ook.',
+          weten: 'Je antwoorden zijn niet goed of fout, alleen beter of slechter dan het vorige. Dit ritueel komt aan het eind van elke lesdag terug.',
+          doen: [
+            'Lees je nulmeting van vanochtend, in stilte.',
+            'Herschrijf elk antwoord dat veranderde in Mijn antwoord nu, hooguit drie zinnen.',
+            'Schrijf bij Na dag 1 één regel: wat veranderde er, en waarom?',
+            'Leg het antwoord dat het meest veranderde voor aan een board.',
+            'Zet je eerste volgende stap in het actieplan in de leeromgeving.',
+          ],
+          koers: 'Bij elk antwoord staat wat er veranderde, of "niet veranderd". Wat de board zei en wat jij ermee doet, staat erbij.',
+          af: 'Je kaart is bijgewerkt, de board heeft één antwoord getoetst, en je volgende stap staat in het actieplan.',
+          hulp: 'Als je niet weet welk antwoord het meest veranderde, of als je het oneens bent met je board. Jij beslist.',
+        },
+        trainer: {
+          klaarzetten: 'De lespagina Zo gebruik je je boards, en het voorbeeld van Voorbeeld BV bij vraag 1 in stap 6 van Vier vragen.',
+          verloop: [
+            '16:00 Teruglezen, in stilte.',
+            '16:03 Herschrijven, met één regel per antwoord bij Na dag 1. De laatste twee minuten: de kaart naast die van het duo.',
+            '16:13 De board toetst het antwoord dat het meest veranderde: vraag 1 of 2 naar de supervisory board, 3 of 4 naar de advisory board.',
+            '16:23 Toen en nu: één deelnemer leest een antwoord van 9:30 en van nu voor. Vraag alleen: wat zag je om 9:30 nog niet?',
+            '16:28 De volgende stap in het actieplan. Zeg: neem de kaart mee naar dag 2.',
+          ],
+          letop: 'Geef geen cijfer en geen oordeel over een antwoord. Vraag een vrijwilliger eerst zachtjes, aan tafel.',
+        },
+      },
     ]},
     { n: 2, date: '26 november', title: 'Vraag 3: veilig investeren', blocks: [
-      { s: '9:30', e: '10:30', t: 'samen', title: 'Opening en investeringscomité', v: ['V3'], detail: 'Eerst vijf minuten de vragenkaart: lees je vier antwoorden en noem wat er sinds dag 1 gebeurde. Dan de pitches. Elke rolkaart heeft twee kritiekpunten op AI-inzet, met bewijs en tegenbewijs. Na alle pitches verdeelt het comité tien fiches over de pitches: veel op één, of weinig op meerdere. Zo moet het comité zelf kiezen tussen verkennen en benutten, en de voorzitter geeft per pitch één reden.', input: 'Pitch, knelpunten en prioritering', uses: 'Vragenkaart (dag 1)', output: 'Verdeling van het budget, met één reden per pitch', sn: ['SN3','SN4'], fr: ['FR-33','FR-09'] },
+      { s: '9:30', e: '10:30', t: 'samen', title: 'Opening en investeringscomité', v: ['V3'], detail: 'Eerst vijf minuten de vragenkaart: lees je vier antwoorden en noem wat er sinds dag 1 gebeurde. Dan de pitches. Elke rolkaart heeft twee kritiekpunten op AI-inzet, met bewijs en tegenbewijs. Na alle pitches verdeelt het comité tien fiches over de pitches: veel op één, of weinig op meerdere. Zo moet het comité zelf kiezen tussen verkennen en benutten, en de voorzitter geeft per pitch één reden.', input: 'Pitch, knelpunten en prioritering', uses: 'Vragenkaart (dag 1)', output: 'Verdeling van het budget, met één reden per pitch', sn: ['SN3','SN4'], fr: ['FR-33','FR-09'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
+      ],
+        deelnemer: {
+          nodig: 'Je vragenkaart, je pitch uit de online voorbereiding en de rolkaart die je krijgt.',
+          aandacht: 'Of het comité veel op één pitch zet of weinig op meerdere. Dat is de keuze tussen benutten en verkennen.',
+          weten: 'Elke pitch duurt drie minuten. Daarna stelt het comité vragen vanuit de rolkaarten. Na alle pitches verdeelt het comité tien fiches.',
+          doen: [
+            'Lees je vier antwoorden terug en noem wat er sinds dag 1 gebeurde.',
+            'Pitch je knelpunt in drie minuten.',
+            'Stel vragen vanuit je rolkaart, met de kritiekpunten erop.',
+            'Verdeel met het comité tien fiches over de pitches.',
+          ],
+          koers: 'Je vragen gaan over bewijs: wat is er gemeten, bij wie en wanneer?',
+          af: 'Het budget is verdeeld, met één reden per pitch, en je hebt de vragen van het comité bij je eigen pitch genoteerd.',
+          hulp: 'Als je pitch niet klaar is of je video niet speelt, of als je niet weet hoe je rolkaart werkt.',
+        },
+        trainer: {
+          klaarzetten: 'De rolkaarten met kritiekpunten, tien fiches per comité en een timer. Bij meer dan acht deelnemers twee comités.',
+          verloop: [
+            '9:30 Vijf minuten de vragenkaart: lees je antwoorden en noem wat er sinds dag 1 gebeurde.',
+            '9:35 Deel de rolkaarten uit. Zeg: de cijfers op de kaart zijn vaak zelfrapportage, dus vraag wat er gemeten is.',
+            '9:40 Pitches van drie minuten, elk met vijf minuten vragen; vier minuten bij zeven of meer pitches.',
+            'Na de laatste pitch: het comité verdeelt tien fiches, en de voorzitter geeft per pitch één reden.',
+            '10:25 Werkregel 1: de prompt voor het onderzoek naar je knelpunt. Zeg: gebruik deze chat ook om 11:30.',
+          ],
+          letop: 'Houd de tijd per pitch strak, anders past het niet. Een rolkaart heeft bewijs én tegenbewijs: laat het comité beide gebruiken.',
+        },
+      },
       { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze', aiTask: 'Start met de onderzoeksfunctie van je AI een onderzoek naar je knelpunt, met de vragen van het comité erbij: wie heeft er last van, welke signalen zijn er, waar en wanneer speelt het, en waarom? Nog geen oplossing. Vraag om bronnen in APA 7. Om 11:30 gebruik je het voor je probleemstelling en je businesscase.', materials: [
         { label: 'De prompt voor je onderzoek', href: 'materiaal/probleemformulering.html#onderzoek' },
       ] },
       { s: '10:45', e: '11:30', t: 'inhoud', title: 'Klein inzetten: de deur die terug kan', v: ['V3','V2'], detail: 'Reële opties: een kleine inzet koopt het recht om later door te gaan, zonder de plicht. Bezos noemt de meeste besluiten een deur die terug kan: neem ze snel en klein. Een paar besluiten kunnen niet terug: neem ze langzaam, met bewijs, en koop eerst een optie die de deur openhoudt. Elke deelnemer zet de eigen kansen op de portfoliokaart en noemt per kans het besluit dat eraan vastzit. Daarbij het verloop van kosten en baten over de tijd: eerst een dal, dan de winst (Brynjolfsson et al., 2021). En de productiviteitsparadox: winst op taakniveau, nauwelijks op het niveau van de organisatie.', input: 'Prioritering en haalbaarheid, Kotter', uses: 'Verdeling van het comité (9:30), je zin bij vraag 3 (dag 1, 11:00)', output: 'Per kans: een deur die terug kan of niet, met een eerste kleine inzet of een optie', sn: ['SN3','SN4'], fr: ['FR-35'], materials: [
         { label: 'Vier vragen', href: 'materiaal/vier-vragen.html' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met de lespagina Vier vragen, stap 5, en pen en papier.',
+          aandacht: 'Welk besluit aan elke kans vastzit, en of je dat besluit kunt terugdraaien.',
+          weten: 'Een kleine inzet koopt het recht om door te gaan, zonder de plicht. Kan een besluit terug, neem het dan snel. Kan het niet terug, neem het met bewijs.',
+          doen: [
+            'Zet je eigen kansen op de portfoliokaart: verkennen of benutten.',
+            'Noem per kans het besluit dat eraan vastzit: kan die deur terug?',
+            'Kan hij terug, kies dan een kleine eerste inzet met een norm vooraf.',
+            'Kan hij niet terug, kies dan eerst een optie die de deur openhoudt.',
+          ],
+          koers: 'Bij elke kans staat een besluit, en bij elke eerste inzet een norm die je vooraf vastlegt.',
+          af: 'Per kans weet je of de deur terug kan, met een eerste kleine inzet of een optie. Die heb je om 11:30 nodig.',
+          hulp: 'Als je twijfelt of een besluit terug kan, of als je geen kleine eerste stap ziet.',
+        },
+        trainer: {
+          klaarzetten: 'De lespagina Vier vragen op het scherm, bij stap 5, met de twee portfolio\'s van Voorbeeld BV.',
+          verloop: [
+            '10:45 Wat vond je AI over je knelpunt? Eén voorbeeld is genoeg.',
+            '10:50 Reële opties en de deur die terug kan, met het voorbeeld van Voorbeeld BV.',
+            '11:00 Het verloop van kosten en baten: eerst een dal, dan de winst. En de productiviteitsparadox.',
+            '11:10 Zelf doen: kansen op de portfoliokaart, per kans het besluit en een eerste inzet of optie.',
+            '11:25 Twee deelnemers lezen een kans voor, met de deur en de eerste inzet.',
+          ],
+          letop: 'De portfoliokaart en de bandiet kennen ze van dag 1: leg ze niet opnieuw uit. Elke eerste inzet heeft een norm vooraf.',
+        },
+      },
       { s: '11:30', e: '12:30', t: 'inhoud', title: 'Eerst het probleem, dan de businesscase', v: ['V3'], detail: 'Eerst de probleemformulering (15 minuten): het doel is het probleem begrijpen, niet oplossen. De trainer toont het kader van Voorbeeld BV, met een eerste versie die een oplossing in vermomming was. Elke deelnemer vult de vier vakken (wie, wat, waar en wanneer, waarom) met het onderzoek van 10:30 ernaast, en schrijft één probleemstelling zonder oplossing en zonder AI. Het duo toetst haar. Dan de procesketen als kansenkaart (20 minuten): de trainer doet het voor met de voorbeeldcasus, daarna tekent elke deelnemer de eigen keten. Waar zit het probleem, en waar schuift het knelpunt heen? Waarde zit vooral in het herontwerp van het werkproces (Dutt et al., 2026). Tot slot schrijft de AI de businesscase, met de probleemstelling bovenaan (25 minuten). Het duo zoekt één bron op in het origineel, met de vraag: wat is er gemeten, bij wie en wanneer?', input: '—', uses: 'Vragen van het comité (9:30), onderzoek naar je knelpunt (AI-taak van 10:30), je eerste kleine inzet (10:45)', output: 'Probleemstelling, kansenkaart en een businesscase van hooguit twee pagina\'s, met bronnen in APA 7', sn: ['SN3','SN4'], fr: ['FR-39','FR-27','FR-14','FR-08'], materials: [
-        { label: 'Probleemformulering', href: 'materiaal/probleemformulering.html#kader' },
-        { label: 'Kansenkaart', href: 'materiaal/kansenkaart.html' },
+        { label: 'Eerst het probleem: de probleemformulering', href: 'materiaal/probleemformulering.html#kader' },
+        { label: 'Kansenkaart van Voorbeeld BV', href: 'materiaal/kansenkaart.html' },
         { label: 'De prompt voor je businesscase', href: 'materiaal/probleemformulering.html#businesscase' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met de chat van je onderzoek, de lespagina\'s Probleemformulering en Kansenkaart, en pen en papier.',
+          aandacht: 'Het probleem begrijpen, niet oplossen. Je probleemstelling noemt geen oplossing, en dus ook geen AI.',
+          weten: 'Een goede probleemstelling is geschreven vanuit wie er last van heeft: wie, wat, waar en wanneer, omdat …, en wat er gebeurt als er niets verandert.',
+          doen: [
+            'Vul de vier vakken van het kader, met één signaal of vermoeden per regel.',
+            'Schrijf één probleemstelling, zonder oplossing en zonder AI. Je duo toetst haar.',
+            'Teken je eigen procesketen als kansenkaart: waar zit het probleem?',
+            'Laat je AI de businesscase schrijven, met de probleemstelling bovenaan.',
+            'Zoek met je duo één bron op in het origineel.',
+          ],
+          koers: 'Bij elke bewering staat een signaal, en je duo vindt geen oplossing in je probleemstelling.',
+          af: 'Je hebt een probleemstelling, een kansenkaart en een businesscase van hooguit twee pagina\'s, met bronnen in APA 7.',
+          hulp: 'Als je oplossing steeds in je probleemstelling sluipt, of als je AI de businesscase niet afkrijgt vóór 12:30.',
+        },
+        trainer: {
+          klaarzetten: 'De lespagina\'s Probleemformulering en Kansenkaart op het scherm, met het kader van Voorbeeld BV.',
+          verloop: [
+            '11:30 Het doel: begrijpen, niet oplossen. Toon het kader van Voorbeeld BV en de eerste versie, een oplossing in vermomming.',
+            '11:32 Vier vakken invullen, met het onderzoek ernaast. Vraag bij een briefje: hoe weet je dat?',
+            '11:40 Eén zin. Het duo stelt de drie vragen van de lespagina.',
+            '11:45 Kansenkaart: tien minuten voordoen met Voorbeeld BV, tien minuten zelf tekenen.',
+            '12:05 De businesscase: de prompt in de chat van 10:30. Bronkritiek met het voorbeeld van MIT NANDA.',
+            '12:25 Werkregel 1: de prompt voor het paper, in de chat met de businesscase.',
+          ],
+          letop: 'Niet af om 12:30? Dan maakt de AI de businesscase in dezelfde chat af, vóór de taak van de lunch. Het duo zoekt de bron dan na de lunch op.',
+        },
+      },
       { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Laat je AI met de onderzoeksfunctie een voorstel voor je experiment schrijven: een wetenschappelijk paper als HTML-pagina, met schema\'s, grafieken en een demo. Daarin staan de aanleiding met onderzoeksvraag en toetsbare hypotheses, wat onderzoek, koplopers en experts zeggen (ook in de AI-wiki van de trainer), minstens drie ontwerpen, en bronnen in APA 7. Na de lunch kies je een ontwerp.', materials: [
         { label: 'De prompt voor je paper', href: 'materiaal/experimentpaper.html#voorstel' },
       ] },
       { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 2: ontwerp je experiment', v: ['V3','V4'], detail: 'De trainer doet het voor met een paper uit een eigen project: de test of een AI-model uit foto\'s van ruimtes plattegronden kan bouwen. Daarna leest elke deelnemer het voorstel van de lunch: de hypotheses, de tabel met ontwerpen en één bron. Het duo zoekt die bron op in het origineel. Kies een ontwerp, of twee samen, en leg de normen vast in het paper. Doen mensen de taak nu al, dan beoordeelt de deelnemer eerst zelf een paar gevallen: dat is de referentiewaarde. Na de werkplaats gaat het experiment thuis verder (FR-21).', input: '—', uses: 'Businesscase (11:30), voorstel voor het experiment als paper (AI-taak van de lunch)', output: 'Gekozen ontwerp met criteria en normen in het paper, eerste proef', sn: ['SN1','SN3','SN4'], fr: ['FR-04','FR-05','FR-06','FR-07','FR-20','FR-38'], materials: [
         { label: 'Je experiment als paper', href: 'materiaal/experimentpaper.html#kiezen' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met je AI en de lespagina Je experiment als paper.',
+          aandacht: 'Leg je normen vast voordat je iets uitvoert. Een norm die je achteraf kiest, meet niets.',
+          weten: 'Je AI schrijft het paper; jij kiest, controleert en beslist. Elke norm noemt een referentiewaarde: hoe het nu gaat, zonder AI.',
+          doen: [
+            'Lees in het voorstel de hypotheses, de tabel met ontwerpen en één bron.',
+            'Zoek met je duo die bron op in het origineel.',
+            'Kies een ontwerp, of combineer er twee.',
+            'Leg de normen vast in het paper, met de prompt van de lespagina.',
+            'Doen mensen de taak nu al? Beoordeel dan eerst zelf vijf tot tien gevallen.',
+          ],
+          koers: 'Elke hypothese heeft een maat, een norm en een referentiewaarde, en je experiment past in de tijd tot dag 3.',
+          af: 'Je gekozen ontwerp staat met criteria en normen in het paper, en je hebt een eerste proef gedaan.',
+          hulp: 'Als je een bron niet kunt vinden, als je ontwerp te groot is voor de tijd tot dag 3, of als je twijfelt over een norm.',
+        },
+        trainer: {
+          klaarzetten: 'Een paper uit een eigen project om voor te doen, en de lespagina\'s Je experiment als paper en Kennisvormen.',
+          verloop: [
+            '13:30 Zeg: geen vertrouwelijke gegevens. Voordoen met je eigen paper: vraag, hypotheses, ontwerpen, en waar een norm een referentiewaarde kreeg.',
+            '13:45 Zelf doen: hypotheses, ontwerpen en één bron lezen. Het duo zoekt de bron op.',
+            '14:05 Een ontwerp kiezen en de normen vastleggen in het paper.',
+            '14:20 Wie mensen de taak laat doen, scoort eerst zelf vijf tot tien gevallen. Daarna een eerste proef.',
+            '14:35 Nabespreken: wat deed de AI goed of fout, en wat verandert dit aan een van de vier vragen?',
+            '14:55 Werkregel 1: start de AI-taak voor de pauze.',
+          ],
+          letop: 'Laat niet het hele paper lezen. Vraag bij één figuur of het getal ook in de tekst staat, met een bron. Past het ontwerp niet vóór dag 3, kies dan een kleiner ontwerp.',
+        },
+      },
       { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je businesscase en je experimentpaper een eerste versie maken van de dia Eerste prioriteit, in je casusdeck.' },
-      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: eerste prioriteit met businesscase en experiment', v: ['V3'], input: '—', uses: 'Eerste versie van Eerste prioriteit (AI-taak van 15:00)', output: 'De dia Eerste prioriteit', sn: ['SN3','SN4'], fr: ['FR-03','FR-08'] },
+      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: eerste prioriteit met businesscase en experiment', v: ['V3'], input: '—', uses: 'Eerste versie van Eerste prioriteit (AI-taak van 15:00)', output: 'De dia Eerste prioriteit', sn: ['SN3','SN4'], fr: ['FR-03','FR-08'], materials: [
+        { label: 'De prompt voor je businesscase', href: 'materiaal/probleemformulering.html#businesscase' },
+        { label: 'Je experiment als paper', href: 'materiaal/experimentpaper.html#kiezen' },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met je AI, je casusdeck, je businesscase en je experimentpaper.',
+          aandacht: 'De dia vat samen; de businesscase en het paper dragen het bewijs. Zet niet alles op de dia.',
+          weten: 'De dia Eerste prioriteit noemt je eerste prioriteit, de vraag van het experiment en de norm. Na het experiment komen de uitkomst en je besluit erbij.',
+          doen: [
+            'Neem de eerste versie uit de pauze over in je casusdeck.',
+            'Controleer de dia tegen je businesscase en je paper.',
+            'Controleer de laatste regel van het bestand en maak een PDF.',
+            'Geef je duo feedback: "Toen je … / Ik zou …".',
+          ],
+          koers: 'Elk getal op de dia staat ook in je businesscase of je paper, met een bron, en de dia heeft geen rode rand.',
+          af: 'De dia Eerste prioriteit staat in je casusdeck, als HTML-bestand en als PDF, en je duo heeft hem bekeken.',
+          hulp: 'Als je AI het deck afkapt, of als de dia te vol is en je niet weet wat eraf kan.',
+        },
+        trainer: {
+          klaarzetten: 'Je eigen casusdeck met een voorbeeld van de dia Eerste prioriteit.',
+          verloop: [
+            '15:15 Toon een voorbeeld van de dia: wat erop staat, en wat in de businesscase en het paper blijft.',
+            '15:20 Zelf doen: de dia in het casusdeck, gecontroleerd tegen de businesscase en het paper.',
+            '15:45 Duo\'s geven feedback: klopt elk getal met de bron?',
+          ],
+          letop: 'Het werken met het deck kennen ze van dag 1. Help vooral wie het bestand niet heel terugkrijgt.',
+        },
+      },
       { s: '16:00', e: '16:30', t: 'inhoud', title: 'Afsluiting: de vier vragen opnieuw', v: ['V1','V2','V3','V4'], detail: 'Herschrijf elk antwoord dat veranderde, met één regel over wat er veranderde en waarom. Het antwoord dat het meest veranderde, gaat naar een board. Eén deelnemer leest een antwoord van dag 1 en van nu voor. Thuis voer je het experiment uit. Je AI schrijft de uitwerking in je paper, en de uitkomst komt op de dia Eerste prioriteit.', input: '—', uses: 'Vragenkaart (dag 1), businesscase (11:30), experimentpaper (werkplaats 2)', output: 'Vragenkaart na dag 2, actie in het actieplan', sn: ['SN3','SN4'], fr: ['FR-18','FR-21','FR-33'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'Zo gebruik je je boards', href: 'materiaal/boards.html#gebruiken' },
         { label: 'Thuis: de prompt voor de uitwerking', href: 'materiaal/experimentpaper.html#uitwerking' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je vragenkaart en je laptop met je AI en je boards.',
+          aandacht: 'Wat er vandaag veranderde in je antwoorden, vooral bij vraag 3. Een antwoord dat bleef staan, mag ook.',
+          weten: 'Dit is hetzelfde ritueel als op dag 1. Thuis voer je je experiment uit, en dag 3 begint met de uitkomst.',
+          doen: [
+            'Herschrijf elk antwoord dat veranderde, met één regel over wat er veranderde en waarom.',
+            'Leg het antwoord dat het meest veranderde voor aan een board.',
+            'Zet je volgende stap in het actieplan.',
+            'Plan je experiment thuis. Je AI schrijft de uitwerking in je paper.',
+          ],
+          koers: 'Bij elk antwoord staat wat er veranderde, of "niet veranderd", en je weet wanneer je je experiment uitvoert.',
+          af: 'Je kaart is bijgewerkt, je volgende stap staat in het actieplan, en je weet wat je thuis doet.',
+          hulp: 'Als je niet weet hoe je je experiment thuis uitvoert, of welke gegevens je mag gebruiken.',
+        },
+        trainer: {
+          klaarzetten: 'De lespagina Je experiment als paper, bij het deel over de uitwerking thuis.',
+          verloop: [
+            '16:00 Teruglezen in stilte, dan herschrijven met één regel per antwoord.',
+            '16:10 De board toetst het antwoord dat het meest veranderde.',
+            '16:20 Toen en nu: één deelnemer leest een antwoord van dag 1 en van nu voor.',
+            '16:25 De volgende stap in het actieplan. Leg uit wat ze thuis doen met het experiment.',
+          ],
+          letop: 'Thuis alleen openbare of verzonnen gegevens, of mensen die toestemming gaven. Zeg: neem de kaart mee naar dag 3.',
+        },
+      },
     ]},
     { n: 3, date: '10 december', title: 'Vraag 2 en 4: transformeren en de route', blocks: [
-      { s: '9:30', e: '9:45', t: 'inhoud', title: 'Opening: wat leerde je experiment?', v: ['V1','V2','V3','V4'], detail: 'Lees je vier antwoorden terug. Elke deelnemer vertelt het duo in één minuut de norm, de uitkomst en het besluit van het experiment: doorgaan, aanpassen of stoppen. Wat verandert dat aan je antwoord op vraag 3 en 4, en klopt je probleemstelling nog?', input: '—', uses: 'Vragenkaart (dag 2), experimentpaper met de uitkomst (thuis, vóór dag 3), probleemstelling (dag 2)', output: 'Besluit over het experiment', sn: ['SN3','SN4'], fr: ['FR-21','FR-33','FR-39'] },
-      { s: '9:45', e: '10:30', t: 'inhoud', title: 'Vraag 2: transformeren en de huidige business robuust houden', v: ['V2'], detail: 'Twee portfolio\'s naast elkaar: wat moet blijven werken, en wat is nieuw? Dan met McKinsey 7S een plan voor processen, structuren, cultuur en vaardigheden, met per onderdeel één actie. Per stakeholder uit de top 3 één actie van weerstand naar draagvlak. Bij weerstand vier vragen: zie het als signaal, vraag door, zoek de oorzaak (verlies, onzekerheid, verlies van controle of een terechte zwakke plek), en los het niet meteen op. Bij cultuur één of twee werkregels voor het eigen team, met werkregel 1 als voorbeeld. Bij vaardigheden: wie leert het vak nog als AI het eerste werk doet?', input: 'COM-B, verandermodellen (ADKAR, 7S), weerstand naar draagvlak, top 3 stakeholders (Mendelow)', uses: 'Je zin bij vraag 2 (dag 1, 11:00)', output: 'Transformatieplan op één pagina met werkregels voor het eigen team, één actie per stakeholder', sn: ['SN5','SN6','SN7'], fr: ['FR-10','FR-24'] },
+      { s: '9:30', e: '9:45', t: 'inhoud', title: 'Opening: wat leerde je experiment?', v: ['V1','V2','V3','V4'], detail: 'Lees je vier antwoorden terug. Elke deelnemer vertelt het duo in één minuut de norm, de uitkomst en het besluit van het experiment: doorgaan, aanpassen of stoppen. Wat verandert dat aan je antwoord op vraag 3 en 4, en klopt je probleemstelling nog?', input: '—', uses: 'Vragenkaart (dag 2), experimentpaper met de uitkomst (thuis, vóór dag 3), probleemstelling (dag 2)', output: 'Besluit over het experiment', sn: ['SN3','SN4'], fr: ['FR-21','FR-33','FR-39'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
+      ],
+        deelnemer: {
+          nodig: 'Je vragenkaart en je experimentpaper met de uitkomst.',
+          aandacht: 'De uitkomst tegen de norm die je vooraf vastlegde. Verschuif de norm niet achteraf.',
+          weten: 'Een experiment eindigt met een besluit: doorgaan, aanpassen of stoppen. Ook stoppen is een uitkomst.',
+          doen: [
+            'Lees je vier antwoorden terug.',
+            'Vertel je duo in één minuut de norm, de uitkomst en je besluit.',
+            'Kijk wat dat verandert aan je antwoord op vraag 3 en 4.',
+            'Controleer of je probleemstelling nog klopt.',
+          ],
+          koers: 'Je besluit volgt uit de norm en de uitkomst, niet uit je gevoel.',
+          af: 'Je hebt een besluit over je experiment, en je weet wat het verandert aan vraag 3 en 4.',
+          hulp: 'Als je experiment niet af is of niets opleverde. Dan bespreek je wat je wel weet.',
+        },
+        trainer: {
+          klaarzetten: 'Niets extra. Zorg dat iedereen de vragenkaart en het paper bij de hand heeft.',
+          verloop: [
+            '9:30 Lees je vier antwoorden terug.',
+            '9:33 In duo\'s: norm, uitkomst en besluit, één minuut per persoon.',
+            '9:38 Twee deelnemers vertellen wat het verandert aan vraag 3 of 4.',
+          ],
+          letop: 'Niet uitgevoerd? Vraag wat de deelnemer wel weet, en maak het experiment de volgende stap.',
+        },
+      },
+      { s: '9:45', e: '10:30', t: 'inhoud', title: 'Vraag 2: transformeren en de huidige business robuust houden', v: ['V2'], detail: 'Twee portfolio\'s naast elkaar: wat moet blijven werken, en wat is nieuw? Dan met McKinsey 7S een plan voor processen, structuren, cultuur en vaardigheden, met per onderdeel één actie. Per stakeholder uit de top 3 één actie van weerstand naar draagvlak. Bij weerstand vier vragen: zie het als signaal, vraag door, zoek de oorzaak (verlies, onzekerheid, verlies van controle of een terechte zwakke plek), en los het niet meteen op. Bij cultuur één of twee werkregels voor het eigen team, met werkregel 1 als voorbeeld. Bij vaardigheden: wie leert het vak nog als AI het eerste werk doet?', input: 'COM-B, verandermodellen (ADKAR, 7S), weerstand naar draagvlak, top 3 stakeholders (Mendelow)', uses: 'Je zin bij vraag 2 (dag 1, 11:00)', output: 'Transformatieplan op één pagina met werkregels voor het eigen team, één actie per stakeholder', sn: ['SN5','SN6','SN7'], fr: ['FR-10','FR-24'],
+        deelnemer: {
+          nodig: 'Pen en papier of je laptop, en je top 3 stakeholders uit de online voorbereiding.',
+          aandacht: 'Wat moet blijven werken terwijl je iets nieuws bouwt? Beide horen in je plan.',
+          weten: 'Met McKinsey 7S kijk je naar processen, structuur, cultuur en vaardigheden. Weerstand is een signaal: vraag door en zoek de oorzaak, voordat je iets oplost.',
+          doen: [
+            'Zet twee portfolio\'s naast elkaar: wat blijft werken, en wat is nieuw?',
+            'Schrijf per 7S-onderdeel één actie.',
+            'Schrijf bij cultuur één of twee werkregels voor je eigen team.',
+            'Schrijf per stakeholder uit je top 3 één actie van weerstand naar draagvlak.',
+          ],
+          koers: 'Elke actie zegt wie wat doet. Bij vaardigheden staat wie het vak nog leert als AI het eerste werk doet.',
+          af: 'Je transformatieplan past op één pagina, met werkregels voor je team en één actie per stakeholder.',
+          hulp: 'Als je niet weet waar de weerstand vandaan komt, of als je je top 3 stakeholders niet bij de hand hebt.',
+        },
+        trainer: {
+          klaarzetten: 'De vier vragen bij weerstand, en werkregel 1 als voorbeeld van een werkregel.',
+          verloop: [
+            '9:45 Twee portfolio\'s: wat blijft werken, wat is nieuw? Iedereen schrijft beide.',
+            '9:55 7S: per onderdeel één actie. Bij vaardigheden: wie leert het vak nog?',
+            '10:10 Weerstand: de vier vragen, en per stakeholder één actie.',
+            '10:20 Werkregels voor het eigen team, met werkregel 1 als voorbeeld.',
+            '10:25 Werkregel 1: start de AI-taak voor de pauze.',
+          ],
+          letop: 'Breng weerstand als vier vragen, niet als nieuw model. Drie valkuilen: weerstand persoonlijk maken, erover moraliseren en te snel oplossen.',
+        },
+      },
       { s: '10:30', e: '10:45', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit de conclusie van je experimentpaper een eerste roadmap voor jaar 1 maken: experiment, pilot en opschaling, elk met een eigenaar, een gate, een uitwijkroute en Ask, Assist of Automate.' },
       { s: '10:45', e: '11:35', t: 'inhoud', title: 'Vraag 4: de roadmap als reeks beslispunten', v: ['V4'], detail: 'Eerst de simulator nog eens: elke stap is een meting die bepaalt wat de volgende stap wordt. Dan de roadmap: experiment, pilot en opschaling, elk met eigenaar, gate en uitwijkroute. Bij elke gate oefen je de optie uit of laat je haar verlopen. Per fase het niveau van zelfstandigheid: Ask, Assist of Automate, met wie beslist en een harde grens. Wie is de senior sponsor uit de business? Bij de fase opschaling: verspreiden of opleggen? Een werkwijze die werkt, nemen andere teams zelf over en passen ze aan; een opdracht van bovenaf haalt het eigenaarschap weg (Werner & Le-Brun, 2025).', input: 'Actieplan', uses: 'Eerste roadmap (AI-taak van 10:30), uitkomst van het experiment (9:30)', output: 'Roadmap voor jaar 1', sn: ['SN1','SN3'], fr: ['FR-15'], materials: [
         { label: 'Ask, Assist, Automate', href: 'materiaal/groeimodel.html' },
         { label: 'Simulator: Bayesiaans optimaliseren', href: 'materiaal/bo-demo/bo-simulator-fast.html' },
-      ] },
-      { s: '11:35', e: '12:30', t: 'inhoud', title: 'Governance', v: ['V3'], detail: 'Veilig voor wie? Vijf vragen per use case: de risicoklasse in de AI-verordening, persoonsgegevens, eigenaarschap, waar een mens beslist, en of de AI naar het werk of naar personen kijkt. Eerst per vraag: weet je het, weet je wie het weet, of niet? De vraag met de meeste "weet niet wie" gaat naar het duo. Vuistregel voor toezicht: kans × impact × hoe moeilijk de fout te zien is.', input: '—', output: 'Vijf antwoorden per use case, en één functie die je morgen een vraag stelt', sn: ['SN1'], fr: ['FR-16'] },
+      ],
+        deelnemer: {
+          nodig: 'Je laptop met de lespagina Ask, Assist, Automate en de simulator.',
+          aandacht: 'Wat je doet als een gate niet gehaald wordt. Een roadmap zonder uitwijkroute is een plan.',
+          weten: 'Elke stap is een meting die bepaalt wat de volgende stap wordt. Elke fase heeft een eigenaar, een gate, een uitwijkroute en een niveau: Ask, Assist of Automate.',
+          doen: [
+            'Kijk nog eens naar de simulator: elke stap is een meting.',
+            'Werk je roadmap uit: experiment, pilot en opschaling.',
+            'Geef elke fase een eigenaar, een gate, een uitwijkroute en Ask, Assist of Automate.',
+            'Noem je senior sponsor uit de business, en wie het werk verspreidt.',
+          ],
+          koers: 'Bij elke gate weet je wat je meet en wat je doet als het niet lukt. Het experiment draait op Ask.',
+          af: 'Je roadmap voor jaar 1 heeft drie fasen, elk met een eigenaar, een gate, een uitwijkroute en een niveau.',
+          hulp: 'Als je niet weet welk niveau bij een fase past, of wie je senior sponsor kan zijn.',
+        },
+        trainer: {
+          klaarzetten: 'De simulator en de lespagina Ask, Assist, Automate op het scherm.',
+          verloop: [
+            '10:45 Wat maakte je AI van je roadmap? Eén voorbeeld.',
+            '10:50 De simulator: elke stap is een meting die de volgende bepaalt.',
+            '10:55 De roadmap: drie fasen, elk met eigenaar, gate en uitwijkroute. Bij de gate oefen je de optie uit of laat je haar verlopen.',
+            '11:05 Ask, Assist, Automate per fase, met wie beslist en een harde grens.',
+            '11:15 Zelf doen: de roadmap aanscherpen. Vraag bij opschaling: welk team neemt het als eerste over?',
+          ],
+          letop: 'Automate alleen voor duidelijke gevallen met een laag risico, altijd met een harde grens. Zonder eigenaar blijft het een demo.',
+        },
+      },
+      { s: '11:35', e: '12:30', t: 'inhoud', title: 'Governance', v: ['V3'], detail: 'Veilig voor wie? Vijf vragen per use case: de risicoklasse in de AI-verordening, persoonsgegevens, eigenaarschap, waar een mens beslist, en of de AI naar het werk of naar personen kijkt. Eerst per vraag: weet je het, weet je wie het weet, of niet? De vraag met de meeste "weet niet wie" gaat naar het duo. Vuistregel voor toezicht: kans × impact × hoe moeilijk de fout te zien is.', input: '—', output: 'Vijf antwoorden per use case, en één functie die je morgen een vraag stelt', sn: ['SN1'], fr: ['FR-16'],
+        deelnemer: {
+          nodig: 'Pen en papier of je laptop. Je use case is je eerste prioriteit.',
+          aandacht: 'Weet je het antwoord, weet je wie het weet, of niet? Dat verschil is het werk van dit blok.',
+          weten: 'Veilig is een wedervraag: veilig voor wie, en waarvoor? Per use case stel je vijf vragen, van de risicoklasse in de AI-verordening tot of de AI naar personen kijkt.',
+          doen: [
+            'Kies bij elke vraag: ik weet het, ik weet wie het weet, of ik weet niet wie het weet.',
+            'Bespreek met je duo de vraag met de meeste "weet niet wie".',
+            'Beantwoord de vijf vragen voor je eigen use case.',
+            'Schrijf de functie op die je morgen een vraag stelt.',
+          ],
+          koers: 'Je noemt een functie, nooit een naam. Bij vraag 4 gebruik je de vuistregel: kans × impact × hoe moeilijk de fout te zien is.',
+          af: 'Je hebt vijf antwoorden voor je use case, en de functie die je morgen een vraag stelt.',
+          hulp: 'Als je niet weet in welke risicoklasse je use case valt, of wanneer de OR erbij hoort.',
+        },
+        trainer: {
+          klaarzetten: 'De vijf governancevragen op een dia, en de vuistregel voor toezicht.',
+          verloop: [
+            '11:35 Vraag: is jullie use case veilig? Het eerlijke antwoord is een wedervraag: veilig voor wie, en waarvoor?',
+            '11:40 De vijf vragen als "Weet je …?". Per vraag stemmen met de hand.',
+            '11:50 De vraag met de meeste "weet niet wie" naar de duo\'s: wie weet het wel?',
+            '12:00 Elke deelnemer beantwoordt de vijf vragen voor de eigen use case. De vuistregel helpt bij vraag 4.',
+            '12:20 Wie vraag je morgen? Een functie, geen naam.',
+            '12:25 Werkregel 1: de AI deelt je use case in een risicoklasse in.',
+          ],
+          letop: 'Toon nooit een verzonnen uitslag van de stemming. Kijkt de AI naar personen, dan hoort de OR erbij.',
+        },
+      },
       { s: '12:30', e: '13:30', t: 'pauze', title: 'Lunch', aiTask: 'Laat je AI je use case indelen in een risicoklasse van de AI-verordening, met de artikelen erbij. Na de lunch controleer je die indeling in de tekst van de verordening.' },
-      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 3: AI als scepticus', v: ['V2','V4'], detail: 'De AI speelt de scepticus, met bewijs en tegenbewijs uit de kritiektrace. Daarna valt de AI je roadmap aan: wat doe je als gate 1 niet gehaald wordt? Nabespreken: welke soort weerstand speelde de AI, en houdt je uitwijkroute stand?', input: 'Weerstand naar draagvlak, top 3 stakeholders', uses: 'Roadmap (10:45), risicoklasse (AI-taak van de lunch)', output: 'Geoefend gesprek, geteste uitwijkroutes, risicoklasse', sn: ['SN1','SN3','SN5','SN6','SN7'], fr: ['FR-04','FR-05','FR-06','FR-07'] },
+      { s: '13:30', e: '15:00', t: 'werkplaats', title: 'AI-werkplaats 3: AI als scepticus', v: ['V2','V4'], detail: 'De AI speelt de scepticus, met bewijs en tegenbewijs uit de kritiektrace. Daarna valt de AI je roadmap aan: wat doe je als gate 1 niet gehaald wordt? Nabespreken: welke soort weerstand speelde de AI, en houdt je uitwijkroute stand?', input: 'Weerstand naar draagvlak, top 3 stakeholders', uses: 'Roadmap (10:45), risicoklasse (AI-taak van de lunch)', output: 'Geoefend gesprek, geteste uitwijkroutes, risicoklasse', sn: ['SN1','SN3','SN5','SN6','SN7'], fr: ['FR-04','FR-05','FR-06','FR-07'],
+        deelnemer: {
+          nodig: 'Je laptop met je AI, je top 3 stakeholders en de tekst van de AI-verordening.',
+          aandacht: 'Welke soort weerstand de AI speelt: verlies, onzekerheid, verlies van controle of een terechte zwakke plek.',
+          weten: 'De AI speelt de stakeholder met de meeste weerstand, met bewijs en tegenbewijs. Een scepticus zonder tegenbewijs is een tegenstander, geen toets.',
+          doen: [
+            'Controleer de risicoklasse van de lunch in de tekst van de verordening.',
+            'Laat je AI de scepticus spelen en voer het gesprek.',
+            'Laat de AI je roadmap aanvallen: wat doe je als gate 1 niet gehaald wordt?',
+            'Pas je uitwijkroutes aan waar ze niet standhouden.',
+          ],
+          koers: 'Je antwoordt op de oorzaak van de weerstand, niet op de vorm, en je uitwijkroute houdt stand bij een gemiste gate.',
+          af: 'Je hebt het gesprek geoefend, je uitwijkroutes getest en je risicoklasse gecontroleerd.',
+          hulp: 'Als de AI geen tegenbewijs geeft, of als je twijfelt over de risicoklasse.',
+        },
+        trainer: {
+          klaarzetten: 'De kritiektrace als bron voor de scepticus, en je eigen AI om voor te doen.',
+          verloop: [
+            '13:30 Zeg: geen vertrouwelijke gegevens. Voordoen: de AI speelt een scepticus, met bewijs en tegenbewijs.',
+            '13:45 Zelf doen: risicoklasse controleren, het gesprek met de scepticus, en de AI valt de roadmap aan.',
+            '14:35 Nabespreken: welke soort weerstand speelde de AI, en houdt je uitwijkroute stand?',
+            '14:55 Werkregel 1: start de AI-taak voor de pauze.',
+          ],
+          letop: 'Vraag de scepticus om bewijs én tegenbewijs. Een indeling in een risicoklasse laat de deelnemer later per use case door een jurist toetsen.',
+        },
+      },
       { s: '15:00', e: '15:15', t: 'pauze', title: 'Pauze', aiTask: 'Laat je AI uit je transformatieplan, je roadmap en je governance-antwoorden een eerste versie maken van de dia\'s Adoptie, Roadmap jaar 1, Governance, Randvoorwaarden en Risicoanalyse.' },
-      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: het volledige concept', v: ['V2','V3','V4'], input: '—', uses: 'Eerste versie van vijf dia\'s (AI-taak van 15:00)', output: 'Volledig concept van het deck', sn: ['SN1','SN3','SN5','SN6','SN7'], fr: ['FR-03','FR-08'] },
+      { s: '15:15', e: '16:00', t: 'deck', title: 'Deckblok: het volledige concept', v: ['V2','V3','V4'], input: '—', uses: 'Eerste versie van vijf dia\'s (AI-taak van 15:00)', output: 'Volledig concept van het deck', sn: ['SN1','SN3','SN5','SN6','SN7'], fr: ['FR-03','FR-08'],
+        deelnemer: {
+          nodig: 'Je laptop met je AI en je casusdeck.',
+          aandacht: 'Samenhang: past elke dia bij je strategische vraag en je eerste prioriteit?',
+          weten: 'Vandaag komen Adoptie, Roadmap jaar 1, Governance, Randvoorwaarden en Risicoanalyse erbij. Daarmee is je deck een volledig concept, op de Conclusie na.',
+          doen: [
+            'Neem de vijf dia\'s uit de pauze over in je casusdeck.',
+            'Controleer elke dia tegen je plan, je roadmap en je antwoorden over governance.',
+            'Controleer de laatste regel van het bestand en maak een PDF.',
+            'Geef je duo feedback: "Toen je … / Ik zou …".',
+          ],
+          koers: 'Geen dia heeft een rode rand, en elke dia volgt uit je eigen werk van vandaag.',
+          af: 'Je casusdeck is een volledig concept, als HTML-bestand en als PDF, en je duo heeft het bekeken.',
+          hulp: 'Als je AI het deck afkapt, of als een dia te vol is.',
+        },
+        trainer: {
+          klaarzetten: 'Niets extra: het werken met het deck kennen ze.',
+          verloop: [
+            '15:15 Zelf doen: de vijf dia\'s in het casusdeck, gecontroleerd tegen het eigen werk.',
+            '15:45 Duo\'s geven feedback: past elke dia bij de strategische vraag?',
+          ],
+          letop: 'Zeg dat het deck het concept is van de integrale opdracht, die ze online afmaken en inleveren.',
+        },
+      },
       { s: '16:00', e: '16:30', t: 'inhoud', title: 'Afsluiting: je vier antwoorden, toen en nu', v: ['V1','V2','V3','V4'], detail: 'Elke deelnemer leest de vragenkaart terug, van de nulmeting tot nu, en schrijft het concept van de Conclusie: de vier eindantwoorden en wat er veranderde. Bij vraag 1 hoort de missie in één zin: welke plek zie je nu voor je organisatie? Het antwoord dat het meest veranderde, gaat naar een board. Twee deelnemers lezen een antwoord van dag 1 en van nu voor. De volgende stap gaat naar het actieplan.', input: '—', uses: 'Vragenkaart (dag 1, 2 en 3), casusdeck (15:15)', output: 'Concept van de Conclusie, missie in één zin, actie in het actieplan', sn: ['SN2'], fr: ['FR-18','FR-31','FR-33'], materials: [
+        { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'Zo gebruik je je boards', href: 'materiaal/boards.html#gebruiken' },
-      ] },
+      ],
+        deelnemer: {
+          nodig: 'Je vragenkaart, en je laptop met je AI, je boards en je casusdeck.',
+          aandacht: 'Hoe je denken in drie dagen veranderde, van de nulmeting tot nu.',
+          weten: 'De Conclusie geeft je vier eindantwoorden en wat er sinds de nulmeting veranderde. Bij vraag 1 hoort je missie in één zin.',
+          doen: [
+            'Lees je vragenkaart terug, van de nulmeting tot nu.',
+            'Schrijf het concept van de Conclusie: vier eindantwoorden en wat er veranderde.',
+            'Schrijf je missie in één zin: welke plek zie je nu voor je organisatie?',
+            'Leg het antwoord dat het meest veranderde voor aan een board.',
+            'Zet je volgende stap in het actieplan.',
+          ],
+          koers: 'Elk eindantwoord laat zien wat er sinds de nulmeting veranderde, en waarom.',
+          af: 'Je hebt een concept van de Conclusie, je missie in één zin en een volgende stap in het actieplan.',
+          hulp: 'Als je missie niet in één zin past, of als je niet weet wat je na vandaag doet.',
+        },
+        trainer: {
+          klaarzetten: 'Filmpje 2, om nog één keer te tonen.',
+          verloop: [
+            '16:00 Toon filmpje 2: dit is het pad dat je in drie dagen liep.',
+            '16:02 Teruglezen van de nulmeting tot nu, dan het concept van de Conclusie en de missie.',
+            '16:15 De board toetst het antwoord dat het meest veranderde.',
+            '16:22 Toen en nu: twee deelnemers lezen een antwoord van dag 1 en van nu voor.',
+            '16:28 De volgende stap in het actieplan.',
+          ],
+          letop: 'Zeg erbij: deze missie is de stand van nu. De volgende rondes kunnen hem nog veranderen.',
+        },
+      },
     ]},
   ],
   typeLabel: { inhoud: 'Inhoud', werkplaats: 'AI-werkplaats', deck: 'Deckblok', samen: 'Samenwerken', pauze: 'Pauze' },
@@ -1029,7 +1598,7 @@ const DATA = {
       ['De vraagtoets (materiaal/vraagtoets.html) en een ijkset van negen vragen, met het resultaat van de ijking', ['FR-36','FR-37']],
       ['De lespagina Experimentpaper (materiaal/experimentpaper.html), met de prompts voor het voorstel, de keuze en de uitwerking en een voorbeeld van Voorbeeld BV, getest in drie AI-omgevingen', ['FR-38']],
       ['De lespagina Probleemformulering (materiaal/probleemformulering.html), met het kader van Voorbeeld BV en de prompts voor het onderzoek van 10:30 en de businesscase, getest in drie AI-omgevingen', ['FR-39','FR-14']],
-      ['Een startpagina per lesdag en de lespagina\'s kansenkaart, groeimodel en de maquette van een ziekenhuis in de map materiaal', ['NFR-09','FR-15','FR-27','FR-26']],
+      ['Een startpagina per lesdag, met een werkkaart per blok en een eigen weergave voor de trainer, en de lespagina\'s kansenkaart, groeimodel en de maquette van een ziekenhuis in de map materiaal', ['NFR-09','NFR-11','NFR-12','FR-15','FR-27','FR-26']],
       ['Rolkaarten voor het investeringscomité, met twee kritiekpunten per rol, en tien fiches per comitélid', ['FR-09']],
       ['Het startsjabloon voor de twee boards als skill (materiaal/boards.html), met een instructie per aanbieder', ['FR-17']],
       ['Reserve-accounts op Gemini voor wie geen eigen account op een frontiermodel heeft, met de instelling voor modelverbetering uit', ['NFR-03']],
@@ -1201,6 +1770,11 @@ function initChips() {
 /* ================================================================
    PROGRAMMA-TIJDLIJN
    ================================================================ */
+/* Werkkaart en trainersinstructie van een blok, voor het detailpaneel (ADR-047). */
+const WERK_KOPPEN = [['nodig', 'Je hebt nodig'], ['aandacht', 'Let vooral op'], ['weten', 'Je moet weten'], ['doen', 'Wat je doet'], ['koers', 'Je zit goed als'], ['af', 'Je bent klaar als'], ['hulp', 'Vraag de trainer']];
+const werkkaartTekst = w => `<dl class="small">${WERK_KOPPEN.filter(([k]) => w[k]).map(([k, kop]) => `<dt>${kop}</dt><dd>${Array.isArray(w[k]) ? `<ol style="margin:0;padding-left:1.2em">${w[k].map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : esc(w[k])}</dd>`).join('')}</dl>`;
+const trainerTekst = t => `<dl class="small"><dt>Klaarzetten</dt><dd>${esc(t.klaarzetten || '—')}</dd><dt>Verloop</dt><dd><ol style="margin:0;padding-left:1.2em">${(t.verloop || []).map(x => `<li>${esc(x)}</li>`).join('')}</ol></dd><dt>Let op</dt><dd>${esc(t.letop || '—')}</dd></dl>`;
+
 function initProgramme() {
   const tabs = $('#day-tabs'), tl = $('#timeline'), det = $('#block-detail'), mix = $('#day-mix');
   const start = toMin('9:30'), end = toMin('16:30'), px = 1.35;
@@ -1213,6 +1787,8 @@ function initProgramme() {
       ${b.aiTask ? `<p class="small" style="margin:var(--space-2) 0 0"><strong>Werkregel 1 · AI aan het werk vóór de pauze:</strong> ${esc(b.aiTask)} ${chip('FR-28')}</p>` : ''}
       ${b.t === 'pauze' ? '' : `<dl><dt>Vragen</dt><dd>${(b.v || []).map(v => `<a href="#${anchor(v)}">${v}</a>`).join(', ') || '—'}</dd><dt>Invoer uit de online omgeving</dt><dd>${esc(b.input || '—')}</dd><dt>Eigen werk als invoer</dt><dd>${esc(b.uses || '—')}</dd><dt>Uitkomst</dt><dd>${esc(b.output || '—')}</dd>
       <dt>Resultaten van S&amp;N</dt><dd>${chips(b.sn) || '—'}</dd><dt>Eisen</dt><dd>${chips(b.fr) || '—'}</dd>
+      ${b.deelnemer ? `<dt>Werkkaart</dt><dd><details><summary>Wat de deelnemer ziet ${chip('NFR-11')}</summary>${werkkaartTekst(b.deelnemer)}</details></dd>` : ''}
+      ${b.trainer ? `<dt>Voor de trainer</dt><dd><details><summary>Klaarzetten, verloop en let op ${chip('NFR-12')}</summary>${trainerTekst(b.trainer)}</details></dd>` : ''}
       ${(b.materials || []).length ? `<dt>Materiaal</dt><dd>${b.materials.map(m => /^https?:/.test(m.href)
         ? `<a href="${esc(m.href)}" target="_blank" rel="noopener">${esc(m.label)} ↗</a>`
         : `<a href="${esc(m.href)}">${esc(m.label)}</a>`).join('<br>')}</dd>` : ''}</dl>`}`;

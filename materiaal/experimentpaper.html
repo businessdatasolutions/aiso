@@ -46,6 +46,8 @@ button, input, textarea { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
 
 header.kop { background: var(--supporting); color: var(--bg-off-white); }
+/* Terug naar de startpagina, bovenaan: zonder scrollen in beeld */
+.naar-start { display: inline-block; margin: 0 0 14px; font-size: .875rem; font-weight: 600; color: var(--bg-off-white); }
 .kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
 .eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
 h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
@@ -122,6 +124,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 <body>
 <header class="kop">
   <div class="kop-binnen">
+    <a class="naar-start" href="./index.html?dag=2">← Startpagina</a>
     <p class="eyebrow">AISO26009 · Dag 2 · 12:30 · experimentpaper</p>
     <h1>Je experiment als paper</h1>
     <p class="lead">Je AI schrijft je experiment op zoals een onderzoeker dat doet: eerst een voorstel, na het experiment de uitwerking. Alles komt in één paper: een HTML-pagina met schema's, grafieken en een demo, en met bronnen in APA 7. Jij kiest het ontwerp, controleert de bronnen en beslist.</p>

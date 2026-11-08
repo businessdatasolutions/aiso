@@ -53,6 +53,8 @@ button, input, textarea { font: inherit; color: inherit; }
 
 /* ---------------- Kop ---------------- */
 header.kop { background: var(--supporting); color: var(--bg-off-white); }
+/* Terug naar de startpagina, bovenaan: zonder scrollen in beeld */
+.naar-start { display: inline-block; margin: 0 0 14px; font-size: .875rem; font-weight: 600; color: var(--bg-off-white); }
 .kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
 .eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
 h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
@@ -156,6 +158,8 @@ pre.voorbeeld { margin: 0; max-height: 26rem; overflow: auto; background: var(--
 /* Instructies per aanbieder */
 ol.stappenlijst { margin: 0 0 14px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
 .menu { font-family: var(--mono); font-size: .85em; background: var(--bg-section); border: 1px solid var(--border); border-radius: 4px; padding: .05em .4em; white-space: nowrap; }
+/* Op een telefoon mag een lang menupad afbreken; anders schuift de pagina opzij */
+@media (max-width: 480px) { .menu { white-space: normal; } }
 .blok { border-radius: var(--radius-md); padding: 14px 18px; margin-top: 12px; max-width: 72ch; }
 .blok.gebruik { background: var(--bg-yellow); border: 1px solid var(--primary); }
 .blok.terugval { background: var(--bg-section); border: 1px solid var(--border); }
@@ -184,6 +188,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 <body>
 <header class="kop">
   <div class="kop-binnen">
+    <a class="naar-start" href="./index.html">← Startpagina</a>
     <p class="eyebrow">AISO26009 · Dag 1 · startsjabloon</p>
     <h1>Je boards als skill</h1>
     <p class="lead">Vul het sjabloon aan, download je twee boards en zet ze in je eigen AI-omgeving. Het werkt in Claude, ChatGPT en Gemini. Daarna roep je je board in elke chat op met één naam.</p>

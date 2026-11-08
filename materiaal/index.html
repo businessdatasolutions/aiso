@@ -64,12 +64,73 @@ h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.
 .pil[aria-current="page"] { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
 .kop :focus-visible { outline: 2px solid var(--bg-off-white); outline-offset: 2px; }
 
-.nu { min-width: 0; display: flex; flex-direction: column; }
+.nu { min-width: 0; display: grid; gap: clamp(16px, 2vw, 32px); align-items: start; }
+.nu-hoofd { min-width: 0; display: flex; flex-direction: column; }
+/* De vragen van het blok staan voluit naast het blok: wie de kaart kwijt is of achterin zit, leest ze hier (ADR-046) */
+@media (min-width: 1100px) { .nu.met-vragen { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.nu-vragen { min-width: 0; border: 1px solid var(--text-secondary); border-radius: var(--radius-md); padding: clamp(12px, 1.2vw, 20px) clamp(14px, 1.4vw, 24px); }
+.nu-vragen-kop { font-size: clamp(.75rem, .9vw, 1rem); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 10px; }
+.nu-vragen ol { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(8px, .8vw, 14px); }
+.nu-vragen li { font-size: clamp(.95rem, 1.05vw, 1.25rem); line-height: 1.35; color: var(--border); }
+.nv-kop { display: block; font-weight: 700; color: var(--bg-off-white); }
+.nv-kop b { font-family: var(--mono); color: var(--primary); margin-right: 8px; }
+.nu-vragen-waar { margin: 12px 0 0; font-size: clamp(.8rem, .9vw, 1rem); color: var(--border-strong); }
+.nu-vragen-waar b { color: var(--bg-off-white); }
+.nu-tegels { margin-top: 16px; }
 .nu-label { font-size: clamp(.75rem, .9vw, 1rem); letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0; min-height: 1.4em; }
 .nu-titel { font-size: clamp(1.5rem, 2.9vw, 3.25rem); font-weight: 700; line-height: 1.1; margin: 6px 0 0; text-wrap: balance; overflow-wrap: break-word; }
 .nu-maakt { font-size: clamp(1rem, 1.35vw, 1.5rem); color: var(--border); margin: 12px 0 0; max-width: 60ch; }
 .nu-maakt b { color: var(--bg-off-white); }
 .nu-daarna { font-size: clamp(.875rem, 1.05vw, 1.2rem); color: var(--border-strong); margin: 8px 0 0; }
+
+/* ---------------- Werkkaart: zeven vaste vragen per blok (ADR-047) ----------------
+   Drie kolommen in de volgorde waarin de deelnemer ze nodig heeft: voor je begint,
+   wat je doet, en of je goed zit. In de kop donker, in de lijst licht. */
+.nu-werk, .nu-trainer { grid-column: 1 / -1; min-width: 0; }
+/* Op een smal scherm staat alles onder elkaar: eerst wat je doet, dan de vragen voluit
+   (die staan ook als chips in de band). */
+@media (max-width: 1099px) { .nu-vragen { order: 1; } }
+.werkkaart { display: grid; gap: clamp(10px, 1vw, 18px); }
+@media (min-width: 900px) { .werkkaart { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.wk-groep { margin: 0; display: grid; align-content: start; gap: clamp(8px, .8vw, 14px); border-radius: var(--radius-md); padding: clamp(12px, 1.1vw, 18px) clamp(14px, 1.3vw, 22px); }
+.wk-groep dt { font-size: clamp(.7rem, .75vw, .9rem); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin: 0 0 2px; }
+.wk-groep dd { margin: 0; font-size: clamp(.9rem, .95vw, 1.15rem); line-height: 1.4; }
+.wk-groep dd p { margin: 0; }
+.wk-groep dd p + p { margin-top: 4px; }
+.wk-groep ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
+.nu-werk .wk-groep { border: 1px solid var(--text-secondary); color: var(--border); }
+.nu-werk .wk-groep dt { color: var(--primary); }
+.nu-werk .wk-groep.is-doen { border-color: var(--primary); color: var(--bg-off-white); }
+.nu-werk .wk-uit { color: var(--border-strong); }
+.werk .wk-groep { background: var(--bg-page); border: 1px solid var(--border); color: var(--text-secondary); }
+.werk .wk-groep dt { color: var(--text-primary); }
+.werk .wk-groep.is-doen { border-color: var(--supporting); color: var(--text-primary); }
+.werk .wk-uit { color: var(--text-muted); }
+.werk { margin-top: 12px; }
+.werk > summary, .trainer > summary { cursor: pointer; font-size: .875rem; font-weight: 700; color: var(--text-secondary); width: fit-content; }
+.werk > summary:focus-visible, .trainer > summary:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+.werk[open] > summary { margin-bottom: 10px; }
+
+/* ---------------- Weergave met ?rol=trainer (ADR-047) ----------------
+   Zonder de parameter maakt het script deze blokken niet aan: ze staan dan ook niet
+   verborgen in de pagina. */
+.rol-band { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; font-size: clamp(.8rem, .9vw, 1rem); color: var(--supporting); background: var(--primary); border-radius: var(--radius-sm); padding: 8px 14px; }
+.rol-band a { color: var(--supporting); text-decoration-color: var(--supporting); font-weight: 700; }
+.trainer { border: 2px dashed var(--primary); border-radius: var(--radius-md); padding: clamp(12px, 1.1vw, 18px) clamp(14px, 1.3vw, 22px); }
+.tr-kop { margin: 0 0 8px; font-size: clamp(.7rem, .8vw, .95rem); letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--primary); }
+.trainer dl { margin: 0; display: grid; gap: 8px 20px; }
+@media (min-width: 900px) { .trainer dl { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr); } }
+.trainer dt { font-weight: 700; font-size: .85rem; margin-bottom: 2px; }
+.trainer dd { margin: 0; font-size: clamp(.9rem, .95vw, 1.1rem); line-height: 1.4; }
+.trainer ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.trainer li { padding: 2px 6px; border-radius: 4px; }
+.tr-tijd { font-family: var(--mono); font-variant-numeric: tabular-nums; margin-right: 4px; }
+.nu-trainer { color: var(--border); }
+.nu-trainer dt { color: var(--bg-off-white); }
+.nu-trainer li.is-nu { background: var(--primary); color: var(--supporting); }
+.rij .trainer { margin-top: 12px; background: var(--bg-page); color: var(--text-secondary); border-color: var(--supporting); }
+.rij .trainer .tr-kop { color: var(--supporting); }
+.rij .trainer dt { color: var(--text-primary); }
 
 /* ---------------- Tijdlijn: lichte band die blijft staan ----------------
    De band is een broer van de kop, geen kind: alleen dan blijft hij plakken
@@ -86,7 +147,6 @@ h1 { font-size: clamp(1.25rem, 2vw, 2.125rem); font-weight: 700; line-height: 1.
 .vraag-chip b { font-family: var(--mono); color: var(--text-secondary); }
 .vraag-chip.is-actief { background: var(--primary); border-color: var(--supporting); color: var(--supporting); font-weight: 700; }
 .vraag-chip.is-actief b { color: var(--supporting); }
-.nu-vraag { font-size: clamp(1rem, 1.35vw, 1.5rem); color: var(--primary); margin: 10px 0 0; max-width: 70ch; }
 .spoor { position: relative; height: clamp(16px, 2vw, 30px); }
 .balk { position: absolute; top: 0; bottom: 0; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-page); color: var(--text-primary); cursor: pointer; container-type: inline-size; overflow: hidden; transition: opacity .3s; }
 .balk span { display: block; padding: 0 8px; font-size: .75rem; font-weight: 600; line-height: calc(clamp(16px, 2vw, 30px) - 2px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -154,6 +214,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; pad
 
 /* ---------------- Voet ---------------- */
 footer { width: 100%; max-width: var(--breed); margin: 0 auto; padding: 16px var(--rand) 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: .8rem; color: var(--text-muted); }
+footer .voet-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; }
 .merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
 .merk svg { width: 22px; height: 22px; flex-shrink: 0; }
@@ -183,11 +244,19 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
       <nav class="pillen" id="dagen" aria-label="Lesdag"></nav>
     </div>
     <div class="nu" id="nu" hidden>
-      <p class="nu-label" id="nu-label"></p>
-      <p class="nu-titel" id="nu-titel"></p>
-      <p class="nu-vraag" id="nu-vraag" hidden></p>
-      <p class="nu-maakt" id="nu-maakt" hidden></p>
-      <p class="nu-daarna" id="nu-daarna" hidden></p>
+      <div class="nu-hoofd">
+        <p class="nu-label" id="nu-label"></p>
+        <p class="nu-titel" id="nu-titel"></p>
+        <p class="nu-maakt" id="nu-maakt" hidden></p>
+        <div class="tegels nu-tegels" id="nu-tegels" hidden></div>
+        <p class="nu-daarna" id="nu-daarna" hidden></p>
+      </div>
+      <section class="nu-vragen" id="nu-vragen" aria-labelledby="nu-vragen-kop" hidden>
+        <h2 class="nu-vragen-kop" id="nu-vragen-kop"></h2>
+        <ol id="nu-vragen-lijst"></ol>
+        <p class="nu-vragen-waar">De vier vragen staan ook op je <b>geprinte vragenkaart</b>, dia 1 van het casusdeck. Daar schrijf je je antwoorden.</p>
+      </section>
+      <section class="nu-werk" id="nu-werk" aria-label="Zo werk je in dit blok" hidden></section>
     </div>
   </div>
 </header>
@@ -214,7 +283,6 @@ footer .binnen { width: 100%; display: flex; flex-wrap: wrap; justify-content: s
       <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
       Business Data Solutions
     </span>
-    <a href="../LRD-AISO26009-lesdagen.html">Ontwerp (LRD)</a>
   </div>
 </footer>
 
@@ -229,6 +297,10 @@ const VIJF_MIN = 300;
 const TYPES = ['inhoud', 'werkplaats', 'deck', 'samen', 'pauze'];
 const RUSTIG = matchMedia('(prefers-reduced-motion: reduce)');
 const params = new URLSearchParams(location.search);
+// De trainer opent de pagina met ?rol=trainer. Zonder die parameter maakt het script niets
+// voor de trainer aan: geen instructie, geen draaiboek, geen ontwerp (ADR-047).
+const TRAINER = params.get('rol') === 'trainer';
+const DRAAIBOEK = 'https://github.com/businessdatasolutions/aiso/blob/main/materiaal/draaiboek-bouwstenen.md';
 
 const $ = id => document.getElementById(id);
 const kop = $('kop'), band = $('band');
@@ -297,6 +369,62 @@ const heeftUitkomst = b => gevuld(b.output);
 // Eigen werk uit eerdere blokken, pauzes of thuis (DATA.days[].blocks[].uses), los van de online invoer.
 const gebruikt = b => (gevuld(b.uses) ? `<b>Je gebruikt:</b> ${esc(b.uses)}` : '');
 
+/* De werkkaart (DATA.days[].blocks[].deelnemer): zeven vaste vragen, in drie groepen.
+   Eerst wat je nodig hebt, waar je op let en wat je moet weten; dan wat je doet; dan of je
+   goed zit, wanneer je klaar bent en waarvoor je de trainer vraagt. */
+const WERK = [
+  [['nodig', 'Je hebt nodig'], ['aandacht', 'Let vooral op'], ['weten', 'Je moet weten']],
+  [['doen', 'Wat je doet']],
+  [['koers', 'Je zit goed als'], ['af', 'Je bent klaar als'], ['hulp', 'Vraag de trainer']],
+];
+const lijstOf = v => (Array.isArray(v) ? v : gevuld(v) ? [v] : []).filter(gevuld);
+function werkkaart(b) {
+  const w = b.deelnemer;
+  if (!w) return '';
+  const groepen = WERK.map(groep => {
+    const delen = groep.map(([k, kop]) => {
+      let dd = '';
+      if (k === 'doen') {
+        const stappen = lijstOf(w.doen);
+        if (stappen.length) dd = `<ol>${stappen.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`;
+      } else if (gevuld(w[k])) dd = `<p>${esc(w[k])}</p>`;
+      // Wat de deelnemer eerder maakte, staat bij wat je nodig hebt, met de bron erbij.
+      if (k === 'nodig' && gevuld(b.uses)) dd += `<p class="wk-uit">Uit eerder werk: ${esc(b.uses)}</p>`;
+      return dd ? `<div><dt>${kop}</dt><dd>${dd}</dd></div>` : '';
+    }).join('');
+    return delen ? `<dl class="wk-groep${groep[0][0] === 'doen' ? ' is-doen' : ''}">${delen}</dl>` : '';
+  }).join('');
+  return groepen ? `<div class="werkkaart">${groepen}</div>` : '';
+}
+
+/* Alleen voor de trainer (DATA.days[].blocks[].trainer): klaarzetten, verloop met tijden,
+   en waar de trainer op let. Wordt alleen aangeroepen als TRAINER waar is. */
+const STAP_TIJD = /^(\d{1,2}:\d{2})\s+/;
+function trainerBlok(b) {
+  const t = b.trainer;
+  if (!t) return '';
+  const stappen = lijstOf(t.verloop).map(s => {
+    const m = STAP_TIJD.exec(s);
+    return m ? `<li data-tijd="${esc(m[1])}"><b class="tr-tijd">${esc(m[1])}</b> ${esc(s.slice(m[0].length))}</li>` : `<li>${esc(s)}</li>`;
+  }).join('');
+  const deel = (kop, dd) => (dd ? `<div><dt>${kop}</dt><dd>${dd}</dd></div>` : '');
+  return `<p class="tr-kop">Alleen voor de trainer</p><dl>`
+    + deel('Klaarzetten', gevuld(t.klaarzetten) ? esc(t.klaarzetten) : '')
+    + deel('Verloop', stappen ? `<ol>${stappen}</ol>` : '')
+    + deel('Let op', gevuld(t.letop) ? esc(t.letop) : '')
+    + '</dl>';
+}
+/* De stap van het verloop die nu loopt, licht op in de kop van de trainer. */
+function kleurStap(nu) {
+  const el = $('nu-trainer');
+  if (!el) return;
+  const t = nuSec();
+  const items = [...el.querySelectorAll('li[data-tijd]')];
+  let actief = null;
+  if (nu.soort === 'blok') for (const li of items) if (hm(li.dataset.tijd) <= t) actief = li;
+  items.forEach(li => li.classList.toggle('is-nu', li === actief));
+}
+
 function dagNummers() { return DATA.days.map(d => d.n); }
 function standaardDag() {
   const gevraagd = +params.get('dag');
@@ -320,7 +448,10 @@ function kiesDag(n, metUrl = true) {
   }
   $('dagtitel').textContent = `Dag ${dag.n} · ${dag.date} · ${dag.title}`;
   $('dagen').innerHTML = DATA.days.map(d =>
-    `<a class="pil" href="?dag=${esc(d.n)}" data-dag="${esc(d.n)}"${d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
+    `<a class="pil" href="?dag=${esc(d.n)}${TRAINER ? '&amp;rol=trainer' : ''}" data-dag="${esc(d.n)}"${d.n === dag.n ? ' aria-current="page"' : ''}>Dag ${esc(d.n)}</a>`).join('');
+  // De link naar de weergave voor de deelnemers volgt de dag (en een proeftijd).
+  const zaal = $('naar-zaal');
+  if (zaal) { const u = new URL(location.href); u.searchParams.delete('rol'); u.searchParams.set('dag', dag.n); zaal.href = u.href; }
   tekenVragen();
   tekenTijdlijn();
   tekenLijst();
@@ -379,6 +510,8 @@ function tekenLijst() {
         ${gebruikt(b) ? `<p class="maakt">${gebruikt(b)}</p>` : ''}
         ${heeftUitkomst(b) ? `<p class="maakt"><b>Je maakt:</b> ${esc(b.output)}</p>` : ''}
         ${mat.length ? `<div class="tegels">${mat.join('')}</div>` : ''}
+        ${werkkaart(b) ? `<details class="werk"><summary>Zo werk je in dit blok</summary>${werkkaart(b)}</details>` : ''}
+        ${TRAINER && trainerBlok(b) ? `<section class="trainer" aria-label="Voor de trainer">${trainerBlok(b)}</section>` : ''}
       </div></li>`;
   }).join('');
   $('laden').hidden = true;
@@ -391,14 +524,20 @@ function tekenVragen() {
   el.hidden = !vr.length;
   el.innerHTML = vr.map(q => `<li class="vraag-chip" data-v="${esc(q.id)}" title="${esc(q.vraag)}"><b>${esc(q.id)}</b>${esc(q.kort)}</li>`).join('');
 }
+/* De vragen van het blok lichten op in de band en staan voluit in de kop, met de plek
+   waar de deelnemer ze op papier heeft: de vragenkaart (ADR-046). */
 function kleurVragen(b) {
   const actief = new Set(b && Array.isArray(b.v) ? b.v : []);
   document.querySelectorAll('.vraag-chip').forEach(c => c.classList.toggle('is-actief', actief.has(c.dataset.v)));
-  const vr = Array.isArray(DATA.vragen) ? DATA.vragen : [];
-  const een = actief.size === 1 ? vr.find(q => actief.has(q.id)) : null;
-  const el = $('nu-vraag');
-  el.hidden = !een;
-  el.textContent = een ? `${een.id} · ${een.vraag}` : '';
+  const vr = (Array.isArray(DATA.vragen) ? DATA.vragen : []).filter(q => actief.has(q.id));
+  $('nu-vragen').hidden = !vr.length;
+  $('nu').classList.toggle('met-vragen', vr.length > 0);
+  const telwoord = ['', 'een', 'twee', 'drie', 'vier'][vr.length] ?? String(vr.length);
+  $('nu-vragen-kop').textContent = !vr.length ? ''
+    : vr.length === DATA.vragen.length ? `De ${telwoord} vragen`
+    : vr.length === 1 ? 'De vraag van dit blok' : `De ${telwoord} vragen van dit blok`;
+  $('nu-vragen-lijst').innerHTML = vr.map(q =>
+    `<li><span class="nv-kop"><b>${esc(q.id)}</b>${esc(q.kort)}</span>${esc(q.vraag)}</li>`).join('');
 }
 
 const pos = sec => ((sec - beginDag) / (eindDag - beginDag)) * 100;
@@ -466,6 +605,7 @@ function ververs() {
     if (zichtbaar) pin.style.left = `${pos(nu.pin)}%`;
   }
   toonRegel(nu);
+  if (TRAINER) kleurStap(nu);
 
   if (sleutel === vorigeSleutel) return;
   vorigeSleutel = sleutel;
@@ -475,17 +615,18 @@ function ververs() {
 
   // Tekst bij "nu"
   const zet = (id, html) => { const el = $(id); el.hidden = !html; el.innerHTML = html || ''; };
+  // Wat je eerder maakte ("Je gebruikt") staat in de kop op de werkkaart, bij wat je nodig hebt.
   let nuLabel = '', nuTitel = '', maakt = '', daarna = '';
   if (nu.soort === 'blok') {
     nuLabel = `Nu · ${label(nu.b.t)} · ${nu.b.s}–${nu.b.e}`; nuTitel = nu.b.title;
     if (nu.b.t !== 'pauze' && heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
-    if (nu.b.t !== 'pauze' && gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
+    if (nu.b.t !== 'pauze' && !nu.b.deelnemer && gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
     const v = naBlok(nu.b);
     daarna = v ? `Daarna: ${esc(v.title)}` : '';
   } else if (nu.soort === 'voor' || nu.soort === 'tussen') {
     nuLabel = `Straks · ${label(nu.b.t)} · om ${nu.b.s}`; nuTitel = nu.b.title;
     if (heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
-    if (gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
+    if (!nu.b.deelnemer && gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
   } else {
     const volgende = DATA.days.filter(d => d.n > dag.n).sort((p, q) => p.n - q.n)[0];
     nuLabel = volgende ? 'Volgende lesdag' : 'Afgelopen';
@@ -495,6 +636,12 @@ function ververs() {
   $('nu-titel').textContent = nuTitel;
   zet('nu-maakt', maakt);
   zet('nu-daarna', daarna);
+  // Het materiaal van dit blok staat ook in de kop: één klik, zonder te scrollen.
+  const kopBlok = nu.soort === 'na' || nu.b?.t === 'pauze' ? null : nu.b;
+  zet('nu-tegels', kopBlok && Array.isArray(kopBlok.materials) ? kopBlok.materials.map(tegel).join('') : '');
+  // De werkkaart van dit blok, en voor de trainer de instructie erboven.
+  zet('nu-werk', kopBlok ? werkkaart(kopBlok) : '');
+  if (TRAINER) { zet('nu-trainer', kopBlok ? trainerBlok(kopBlok) : ''); kleurStap(nu); }
 
   // Markering in tijdlijn en lijst
   const huidig = nu.soort === 'blok' ? nu.b : null;
@@ -510,6 +657,11 @@ function ververs() {
     const nuHier = huidig && +el.dataset.blokRij === huidig.i;
     el.classList.toggle('is-nu', !!nuHier);
     if (nuHier) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current');
+    // De werkkaart van het blok van nu gaat open; die van het vorige blok gaat weer dicht.
+    // Een werkkaart die iemand zelf opende, blijft open. Latere blokken blijven dicht.
+    const werk = el.querySelector('.werk');
+    if (werk && nuHier) { werk.open = true; werk.dataset.auto = '1'; }
+    else if (werk && werk.dataset.auto) { werk.open = false; delete werk.dataset.auto; }
   });
 
   // Melden, en het nieuwe blok in beeld brengen. Alleen als de kop al is weggerold:
@@ -542,6 +694,22 @@ document.addEventListener('keydown', e => {
 new ResizeObserver(meetBand).observe(band);
 setInterval(ververs, 1000);
 
+/* ---------- Trainersweergave ----------
+   Alleen met ?rol=trainer: een band die zegt dat dit niet op de beamer hoort, met een link
+   naar de weergave voor de deelnemers; de instructie van het blok van nu in de kop; en in de
+   voet het draaiboek en het ontwerp. Niets hiervan staat in de HTML van de pagina zelf. */
+function maakTrainerweergave() {
+  document.title = 'Trainer · Lesdag AISO26009';
+  $('kop').querySelector('.kop-binnen').insertAdjacentHTML('afterbegin',
+    `<p class="rol-band"><span><b>Trainersweergave.</b> Alleen op je eigen scherm, niet op de beamer.</span>`
+    + `<a id="naar-zaal" href="./" target="_blank" rel="noopener">Weergave voor de deelnemers&nbsp;↗<span class="sr"> (opent in een nieuw tabblad)</span></a></p>`);
+  $('nu-werk').insertAdjacentHTML('beforebegin',
+    '<section class="nu-trainer trainer" id="nu-trainer" aria-label="Voor de trainer" hidden></section>');
+  document.querySelector('footer .binnen').insertAdjacentHTML('beforeend',
+    `<span class="voet-links"><a href="${DRAAIBOEK}" target="_blank" rel="noopener noreferrer">Draaiboek voor de trainer&nbsp;↗<span class="sr"> (opent in een nieuw tabblad)</span></a>`
+    + `<a href="../LRD-AISO26009-lesdagen.html">Ontwerp (LRD)</a></span>`);
+}
+
 /* ---------- Start ---------- */
 function fout(soort, err) {
   $('laden').hidden = true;
@@ -567,6 +735,7 @@ function fout(soort, err) {
     html = await r.text();
   } catch (err) { return fout('server', err); }
   try { DATA = leesData(html); } catch (err) { return fout('lezen', err); }
+  if (TRAINER) maakTrainerweergave();
   $('nu').hidden = false;
   band.hidden = false;
   kiesDag(standaardDag(), params.has('dag'));

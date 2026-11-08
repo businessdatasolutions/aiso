@@ -83,11 +83,12 @@ Met de aanpassing blijft een lage β bij de beste plek, en waaiert een hoge β u
 - De beste plek is iets groter (straal 1,1 in plaats van 1) en heeft een zwarte rand. Hij staat altijd vooraan, net als de volgende test, en de volgende test staat weer vóór de beste plek. Zo blijft hij heel zichtbaar, ook als hij half in het vlak ligt.
 - De weergaveknoppen tonen of hun laag aan staat (`aria-pressed`). Bij een andere Graphics Quality blijft een laag aan of uit. In het origineel sprong hij dan terug naar de beginstand.
 - De legenda noemt ook de drie vlakken.
+- De pagina heeft het icoon van de lespagina's. Zonder icoon vraagt de browser `/favicon.ico` op, en dat geeft een 404 in de console.
 - In de Tutorial volgen de kleurwoorden de nieuwe kleuren. Twee zinnen zijn ook inhoudelijk hersteld. De kleur van het vlak toont de onzekerheid, niet de kosten. En de volgende test komt op het laagste punt van het keuzevlak, niet op een piek.
 
 **Waarom:** de simulator hoort bij de lespagina's, en die zijn in de huisstijl. De huisstijl heeft maar twee echte kleuren, geel en warm zwart. Daarom heeft elke kleur één betekenis, en helpen vorm, grootte en de zwarte rand mee. De vier kleuren van de bollen zijn ook bij kleurenblindheid uit elkaar te houden. Het kleinste verschil is ΔE 10,8 (OKLab, deuteranopie), boven de grens van 8.
 
-**Controle (8 november 2026):** de rekensom is niet veranderd. In de drie nieuwe schermafbeeldingen blijft een lage β bij de beste plek, en waaiert een hoge β uit. De console toont geen fouten, op een 404 voor de ontbrekende favicon na.
+**Controle (8 november 2026):** de rekensom is niet veranderd. In de drie nieuwe schermafbeeldingen blijft een lage β bij de beste plek, en waaiert een hoge β uit. De console toont geen fouten. De 404 voor de ontbrekende favicon is sinds 8 november 2026 weg: de pagina heeft nu een icoon.
 
 ### 3. Eerst testen, dan het model bijwerken
 

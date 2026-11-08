@@ -49,6 +49,8 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-043](ADR-043-probleemformulering-voor-de-businesscase.md) | Eerst het probleem: probleemformulering vóór de businesscase | Aanvaard | 2026-11-08 |
 | [ADR-044](ADR-044-bloktitel-breed-gebruikt-zelden-volwassen.md) | Het blok van 10:00 op dag 1 heet "Breed gebruikt, zelden volwassen" | Aanvaard | 2026-11-08 |
 | [ADR-045](ADR-045-site-op-github-pages.md) | De LRD en de lespagina's als site op GitHub Pages | Aanvaard | 2026-11-08 |
+| [ADR-046](ADR-046-startpagina-wijst-vragen-en-vindplaats-aan.md) | De startpagina toont de vragen voluit en wijst elk stuk aan | Deels vervangen door ADR-047 | 2026-11-08 |
+| [ADR-047](ADR-047-werkkaart-en-trainersweergave.md) | Een werkkaart voor de deelnemer, een eigen weergave voor de trainer | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 
