@@ -2,6 +2,41 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.36 — 2026-11-08
+
+Na een proefrun van dag 1 met een gesimuleerde deelnemer. Eerder die dag, buiten een versie om: de advisory
+board op de boardspagina was niet te downloaden, en `meet-ux.py` controleert nu ook of de lespagina's werken
+(tabbladen en de zips van de boards).
+
+**Nieuw**
+- Dia 3 van het casusdeck heeft een vak "Wat we daarvoor laten". De definitie van een strategische vraag draait
+  erom, maar het deck had er geen plek voor. De pauzetaak van 15:00 vraagt erom, en Voorbeeld BV heeft een
+  voorbeeld (ADR-050).
+- In de afsluiting van dag 1 kiest het duo per persoon het antwoord dat het meest veranderde. Dat gaat naar de
+  board (ADR-051).
+
+**Gewijzigd**
+- Werkkaarten van dag 1:
+  - 9:30: "Je maakt" noemt alleen wat de deelnemer maakt.
+  - 11:40: de doelen komen in een notitie, waar de AI om 15:00 de dia van maakt. Er is een stap voor de
+    risicobereidheid, die de trainer om 12:05 bespreekt.
+  - 12:15: de hulp noemt de terugvaloptie: de tekst uit stap 4 in een nieuw gesprek plakken.
+  - 13:30: "je visie en je doelen" zijn samen het antwoord op vraag 1, ook in de opdracht van de werkplaats.
+  - 16:00: wat de board zei, gaat op de achterkant van de kaart, en de geprinte kaart is leidend.
+- AI-taken van dag 1: 10:45 noemt een terugvaloptie als er niets openbaars is; de lunch verwijst naar de
+  lespagina Je boards als skill; 15:00 vraagt ook de stukken van het bestuur mee te geven.
+- Deckblok van dag 2: een eerste stap om dia 1 bij te werken met de geprinte kaart.
+- Startpagina: vijf minuten vóór een pauze staat de AI-taak in de kop bij "Daarna". Op een laptop viel de
+  band met de taak onder de vouw. `meet-ux.py` meet dat nu (T4-A).
+- Boardspagina: beide boards beginnen met de twee regels voor de vragenkaart en hebben een woordgrens (600
+  woorden voor de supervisory board, 800 voor de advisory board). De naam van de schakelaar in de nieuwe
+  instellingen van Claude staat erbij.
+- Vraagtoets: de deelnemer kan de eigen scores verbergen, zodat het duo los scoort. Een operationele vraag
+  bewaar je op de achterkant van de kaart.
+- Lespagina Waarom geen plan volstaat: de vier zinnen gaan op de achterkant van de kaart, niet in de kantlijn.
+- Volwassenheidsscan: de pagina bewaart het profiel als `.txt`-bestand, dat ook op Windows met een dubbelklik opent.
+- Casusdeck: de strategische vraag mag één of twee zinnen zijn, net als in de vraagtoets.
+
 ## 0.35 — 2026-11-08
 
 **Gewijzigd**

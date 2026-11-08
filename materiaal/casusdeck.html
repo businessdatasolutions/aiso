@@ -23,7 +23,8 @@ Zo vul je in
    - Bij "Na dag 1", "Na dag 2" en "Na dag 3" komt één regel: wat
      veranderde en waarom. Oudere regels laat je staan.
 7. Dia 3: heeft de deelnemer twee of drie doelen, haal dan de lege
-   doelkaarten weg. Dia 9: zet het grootste risico bovenaan. Lege rijen
+   doelkaarten weg. Het vak "Wat we daarvoor laten" blijft altijd
+   staan. Dia 9: zet het grootste risico bovenaan. Lege rijen
    mag je weghalen.
 8. Dia 4: je mag één eenvoudige grafiek maken, als inline <svg> in het
    vak met class "grafiek". Geen afbeeldingen, geen externe bibliotheken
@@ -214,7 +215,9 @@ table { border-collapse: collapse; width: 100%; }
 .twee .vak p, .doel p { font-size: .92em; }
 
 /* ---------- Dia 3: doelen ---------- */
-.doelen { display: grid; grid-template-rows: auto 1fr; gap: .5em; }
+.doelen { display: grid; grid-template-rows: auto 1fr auto; gap: .5em; }
+.laten h3 { font-size: .95em; color: var(--kleur-accent); }
+.laten p { font-size: .92em; }
 .doel { display: grid; grid-template-rows: auto 1fr auto 1fr; gap: .25em; padding-top: .55em; }
 .doel h3 { font-size: .95em; color: var(--kleur-accent); }
 .doel h4 { padding-top: .45em; border-top: 1px solid var(--kleur-lijn); }
@@ -451,7 +454,7 @@ table { border-collapse: collapse; width: 100%; }
         </div>
         <div class="vak schrijf">
           <h3>Strategische AI-vraag</h3>
-          <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één zin]</span></p>
+          <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één of twee zinnen]</span></p>
         </div>
       </div>
       <div class="vragen">
@@ -546,7 +549,7 @@ table { border-collapse: collapse; width: 100%; }
           </div>
           <div class="vak">
             <h3>Strategische AI-vraag</h3>
-            <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één zin]</span></p>
+            <p><span class="invul">[Schrijf hier je strategische AI-vraag, in één of twee zinnen]</span></p>
           </div>
         </div>
       </div>
@@ -580,7 +583,7 @@ table { border-collapse: collapse; width: 100%; }
       <h2 id="titel-3">Strategische doelen</h2>
     </header>
     <div class="inhoud doelen">
-      <p class="toelichting">Twee tot vier doelen. Bij elk doel staat wat er moet gebeuren om het los te laten.</p>
+      <p class="toelichting">Twee tot vier doelen. Bij elk doel staat wat er moet gebeuren om het los te laten. Onderaan staat wat de organisatie daarvoor laat.</p>
       <div class="k4">
         <article class="vak doel">
           <h3>Doel 1</h3>
@@ -607,6 +610,10 @@ table { border-collapse: collapse; width: 100%; }
           <p><span class="invul">[Wat moet er gebeuren om dit doel los te laten?]</span></p>
         </article>
       </div>
+      <article class="vak laten">
+        <h3>Wat we daarvoor laten</h3>
+        <p><span class="invul">[Wat doet de organisatie niet meer, of niet, om deze doelen te halen? Hooguit twee zinnen.]</span></p>
+      </article>
     </div>
     <footer class="voet"><span>Casusdeck</span><span>Dia 3 van 10</span></footer>
   </div>

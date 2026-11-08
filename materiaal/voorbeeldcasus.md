@@ -18,6 +18,8 @@ Voorbeeld BV is een dienstverlener met ongeveer 400 medewerkers. Het bedrijf ins
 2. Storingen voorkomen in plaats van verhelpen.
 3. Van elke klacht leren, over de afdelingen heen.
 
+**Wat we daarvoor laten:** Voorbeeld BV wordt geen vaste installateur van één fabrikant. Voor een fabrikant werkt het alleen per opdracht, zodat de klant van Voorbeeld BV blijft.
+
 **Eerste prioriteit:** de klachtafhandeling op deze pagina. De AI stelt bij elke klacht een categorie en een urgentie voor, met een citaat als bewijs, en ziet patronen over de afdelingen heen. Een medewerker beslist. Deze stap volgt uit de doelen. In de klachten hoort Voorbeeld BV nu al wat er misgaat bij installaties, en de gegevens liggen er. Het patroon achter K-0418, een pakking uit één levering, is wat doel 2 nodig heeft.
 
 **Drie vragen voor de vraagtoets (FR-36):**

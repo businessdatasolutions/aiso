@@ -53,6 +53,8 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-047](ADR-047-werkkaart-en-trainersweergave.md) | Een werkkaart voor de deelnemer, een eigen weergave voor de trainer | Aanvaard | 2026-11-08 |
 | [ADR-048](ADR-048-volwassenheidsscan.md) | Het blok van 10:00 wordt de volwassenheidsscan | Aanvaard | 2026-11-08 |
 | [ADR-049](ADR-049-een-tegel-per-stuk.md) | Eén tegel per stuk, met de naam van wat erachter staat | Aanvaard | 2026-11-08 |
+| [ADR-050](ADR-050-wat-we-daarvoor-laten-op-dia-3.md) | Dia 3 krijgt een vak voor wat de organisatie daarvoor laat | Aanvaard | 2026-11-08 |
+| [ADR-051](ADR-051-duo-kiest-het-antwoord-voor-de-board.md) | Het duo kiest samen welk antwoord naar de board gaat (dag 1) | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 
