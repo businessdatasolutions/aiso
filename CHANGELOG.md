@@ -23,6 +23,8 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
   oorspronkelijke kaart en zei hier niets. Dat geldt voor de figuren in "Waarom geen plan volstaat" (stap 3) en "Wat je
   organisatie moet kunnen", het draaiboek en `voorbeeldcasus.md`. ADR-055 en ADR-056 noemen nog punt 5.
 
+**Gepubliceerd** op dezelfde link, samen met 0.32 tot en met 0.40: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.40 — 2026-11-08
 
 **Nieuw**
