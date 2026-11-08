@@ -2,6 +2,14 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.29 — 2026-11-08
+
+**Gewijzigd**
+- Elke visualisatie in het experimentpaper is een genummerde figuur, met een verwijzing in de tekst. Het bijschrift heeft drie delen: het nummer en een titel, een korte uitleg, en een zin met "Let op:". Die zin zegt waar de lezer op moet letten. Dat staat in FR-38 en in de drie prompts op `materiaal/experimentpaper.html`. De uitwerking nummert de figuren door. Dit vult het besluit over de vorm uit ADR-042 aan.
+- In werkplaats 2 kijkt het duo ook naar de figuren: nummer, verwijzing en bijschrift. Dat staat op de lespagina en in het draaiboek.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.28 — 2026-11-08
 
 **Toegevoegd**

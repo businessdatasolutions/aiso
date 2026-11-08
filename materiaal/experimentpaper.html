@@ -142,6 +142,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="opbouw-kop">Zo is het paper opgebouwd</h2></div>
     <p class="uitleg">Een paper houdt de goede volgorde vast. Eerst de vraag, dan wat anderen al weten, en pas dan het ontwerp. De normen liggen vast voordat er resultaten zijn. De trainer werkt in eigen projecten ook zo, en laat in werkplaats 2 zo'n paper zien.</p>
     <p class="uitleg">Je paper is één HTML-pagina die je in de browser opent. Ze heeft de tekst van een artikel, met visualisaties die iets uitleggen wat tekst alleen slecht laat zien. De AI bouwt ze met D3, Three.js of Motion, en Remotion als een korte video echt iets toevoegt. Jij bouwt niets: jij leest, controleert en kiest.</p>
+    <p class="uitleg">Elke visualisatie is een genummerde figuur, en de tekst verwijst ernaar: "(zie figuur 2)". Onder elke figuur staat een bijschrift met een titel, een korte uitleg en een zin die begint met "Let op:". Die zin zegt waar je naar moet kijken.</p>
     <p class="uitleg">De AI schrijft in zakelijk Nederlands, volgens de schrijfregels van ASD-STE100 (Simplified Technical English): korte zinnen, één onderwerp per zin, de bedrijvende vorm en één term voor één begrip. Zo is de tekst snel te lezen, en kan hij maar op één manier begrepen worden.</p>
     <div class="table-wrap" tabindex="0" role="region" aria-label="Opbouw van het paper"><table class="breed">
       <thead><tr><th>Deel</th><th>Wat erin staat</th><th>Visualisatie, bijvoorbeeld</th><th>Wanneer</th></tr></thead>
@@ -238,7 +239,8 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <li><strong>Eén bron in het origineel.</strong> Zoek met je duo één bron op. Bestaat hij, en staat erin wat het paper zegt? Wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet.</li>
       <li><strong>De hypotheses.</strong> Noemt elke hypothese een maat, een norm en een referentiewaarde zonder AI? Zo niet, herschrijf haar.</li>
       <li><strong>De experts.</strong> Heeft elke uitspraak van een expert een bron? Wat je board zegt, is een mening en geen bron.</li>
-      <li><strong>Eén getal in een visualisatie.</strong> Staat het ook in de tekst, met een bron? Verzonnen getallen in een demo moeten "illustratie" heten. Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal.</li>
+      <li><strong>De figuren.</strong> Heeft elke figuur een nummer, een verwijzing in de tekst en een bijschrift met titel, uitleg en "Let op:"?</li>
+      <li><strong>Eén getal in een figuur.</strong> Staat het ook in de tekst, met een bron? Verzonnen getallen in een demo moeten "illustratie" heten. Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal.</li>
       <li><strong>Kies.</strong> Eén ontwerp, of twee samen. Past het niet vóór dag 3, kies dan een kleiner ontwerp en zet het grote in je roadmap.</li>
       <li><strong>Leg vast.</strong> Met de prompt hieronder zet je AI de normen in het paper, met de datum van vandaag. Daarna doe je de eerste snelle proef.</li>
     </ol>
@@ -402,9 +404,11 @@ Lever het paper als één zelfstandig HTML-bestand, als artifact of in canvas. M
   - een vergelijking van de ontwerpen op tijd, kosten en sterkte van het bewijs;
   - een demo of simulatie: bij welk resultaat ga ik door, pas ik aan of stop ik, tegen de norm en de referentiewaarde?
   Een visualisatie die niets uitlegt, laat je weg.
+- Figuren: elke visualisatie is een figuur met een nummer, op volgorde: Figuur 1, Figuur 2, en zo verder. Verwijs in de tekst naar elke figuur, op de plek waar die iets toevoegt, zoals "(zie figuur 2)". Een figuur zonder verwijzing in de tekst laat je weg.
+- Bijschrift: elke figuur heeft een bijschrift met drie delen. Eerst het nummer en een titel. Dan één of twee zinnen over wat de figuur laat zien. Tot slot een zin die begint met "Let op:" en zegt waar de lezer op moet letten. Komen de getallen uit een bron, dan staat de verwijzing in het bijschrift. Gebruik <figure> en <figcaption>.
 - Bibliotheken: D3 voor grafieken en diagrammen, Three.js voor 3D, Motion (motion.dev) voor beweging. Laad ze als ES-module van jsDelivr, met een vaste versie en nooit @latest: https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm, https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js en https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm. Laad elke bibliotheek met een eigen import(), zodat één storing de rest niet raakt. Gebruik Remotion alleen als je omgeving React draait en een korte video echt iets uitlegt, ook dan met een vaste versie.
 - Eerlijke visualisaties: elk getal in een visualisatie staat ook in de tekst, met een verwijzing naar de bron of naar mijn meting. Verzonnen getallen in een demo krijgen zichtbaar het label "illustratie". Een simulatie is een model en geen bewijs: zet dat erbij.
-- Altijd leesbaar: tekst, tabellen en bronnen staan in gewone HTML en werken ook als een bibliotheek niet laadt. Bij elke visualisatie staat in één of twee zinnen wat ze laat zien.
+- Altijd leesbaar: tekst, tabellen, bijschriften en bronnen staan in gewone HTML en werken ook als een bibliotheek niet laadt.
 - Rustig: beweging alleen als die iets uitlegt. Bij de instelling voor minder beweging (prefers-reduced-motion) staat alles meteen stil.
 - Werkt overal: lokaal geopend in de browser, op een telefoon, en afgedrukt als PDF. In print staat alle tekst en geen knop.
 - Zet onderaan de pagina zichtbaar "Einde paper", en als allerlaatste regel van het bestand <!-- einde paper -->. Zo zie ik of het bestand afgekapt is.`,
@@ -420,7 +424,7 @@ Werk het paper bij:
 
 ${STIJL_KORT}
 
-Houd de vorm van het bestand aan: dezelfde opmaak en bibliotheken. Geef altijd het hele bestand terug, met <!-- einde paper --> als laatste regel.`,
+Houd de vorm van het bestand aan: dezelfde opmaak en bibliotheken. Elke figuur houdt haar nummer, de verwijzing in de tekst en het bijschrift met titel, uitleg en "Let op:". Geef altijd het hele bestand terug, met <!-- einde paper --> als laatste regel.`,
 
   uitwerking: () => `Ik heb het experiment uitgevoerd. Schrijf de uitwerking in hetzelfde paper: het HTML-bestand in de bijlage, of eerder in dit gesprek. Zie je het niet, vraag er dan om.
 
@@ -436,7 +440,7 @@ Laat hoofdstuk 1 tot en met 3 staan zoals ze zijn. Voeg vóór de bronnenlijst v
 Het gekozen ontwerp zoals ik het uitvoerde: wat ik deed, met welke gegevens of deelnemers, en wanneer. Noem elke afwijking van het ontwerp, met de reden.
 
 ### 5. Resultaten
-Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Daarbij één grafiek met D3: per criterium het resultaat, de norm als lijn en de referentiewaarde ernaast. Beschrijf alleen wat gemeten is.
+Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Daarbij één grafiek met D3, als volgende figuur: per criterium het resultaat, de norm als lijn en de referentiewaarde ernaast. Beschrijf alleen wat gemeten is.
 
 ### 6. Discussie
 - Per hypothese: bevestigd, verworpen of niet te zeggen, en waarom.
@@ -451,7 +455,8 @@ Het antwoord op de onderzoeksvraag, en het besluit: doorgaan, aanpassen of stopp
 - Verzin geen resultaten. Ontbreekt een getal, vraag er dan om.
 - De vier nieuwe hoofdstukken tellen samen hooguit 1.500 woorden.
 - Werk de samenvatting bij. Een nieuwe bron krijgt een verwijzing in de tekst en een plek in de bronnenlijst, volgens APA 7.
-- Houd de vorm van het bestand aan: dezelfde opmaak, bibliotheken met een vaste versie, tekst en tabellen leesbaar zonder bibliotheek, en elk getal in een grafiek ook in de tekst. Een getal dat verzonnen is voor een demo, krijgt het label "illustratie".
+- Houd de vorm van het bestand aan: dezelfde opmaak, bibliotheken met een vaste versie, tekst en tabellen leesbaar zonder bibliotheek, en elk getal in een grafiek ook in de tekst.
+- Elke visualisatie is een figuur. Nummer nieuwe figuren door na de laatste figuur van het voorstel, en verwijs in de tekst naar elke figuur, zoals "(zie figuur 6)". Elke figuur heeft een bijschrift met drie delen: het nummer en een titel, één of twee zinnen over wat de figuur laat zien, en een zin die begint met "Let op:" en zegt waar de lezer op moet letten. Gebruik <figure> en <figcaption>. Een getal dat verzonnen is voor een demo, krijgt het label "illustratie".
 - Geef altijd het hele bestand terug, met <!-- einde paper --> als laatste regel.
 
 ## Schrijfstijl
