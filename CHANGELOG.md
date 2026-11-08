@@ -2,6 +2,21 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.20 — 2026-11-08
+
+**Gewijzigd** (ADR-031)
+- NFR-06: geen timer meer. Tijdblokken blijven veelvouden van 5 minuten, en de tijdlijn op de startpagina laat zien waar de dag staat.
+- NFR-09: de startpagina toont het blok van nu bovenaan, een tijdlijn met een streep op de tijd van nu, en per blok het materiaal. Scrolt de trainer naar beneden, dan blijft alleen de tijdlijn staan. Werkregel 1 staat onder de tijdlijn.
+- Deel 5, KISS · Begeleider: een startpagina met een tijdlijn en zonder afteller.
+- Risico "Een boardmoment loopt uit": de maatregel steunt op één beslispunt per moment en de tijdlijn. Verwijst nu naar NFR-09 in plaats van NFR-06.
+- Startpagina `materiaal/index.html`: de kop rolt mee met de pagina, de tijdlijn blijft boven in beeld staan. Een klik op een blok in de tijdlijn brengt dat blok in de lijst in beeld. Bij een nieuw blok scrolt de pagina alleen mee als de kop al uit beeld is.
+- ADR-021 is deels vervangen door ADR-031.
+
+**Verwijderd**
+- Startpagina: de afteller, de standen "Volg de klok" en "Handmatig", de knoppen Pauze en Opnieuw, de klok rechtsboven en de opslag in de browser.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.19 — 2026-11-07
 
 **Gewijzigd** (ADR-030)

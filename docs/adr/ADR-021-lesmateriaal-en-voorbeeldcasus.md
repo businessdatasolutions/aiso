@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard; de voorbeeldcasus zelf is een concept |
+| **Status** | Deels vervangen door [ADR-031](ADR-031-startpagina-zonder-afteller.md): de startpagina heeft geen afteller meer. De voorbeeldcasus zelf is een concept |
 | **Datum** | 2026-11-07 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

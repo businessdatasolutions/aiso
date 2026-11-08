@@ -24,7 +24,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-018](ADR-018-bronnen-en-werkvormen-uit-de-santeon-sessie.md) | Bronnen en werkvormen uit de sessie over AI in de zorg | Deels vervangen door ADR-025 | 2026-11-07 |
 | [ADR-019](ADR-019-ask-assist-automate-in-het-buildplan.md) | Ask → Assist → Automate in het buildplan, als derde nieuw model | Aanvaard | 2026-11-07 |
 | [ADR-020](ADR-020-vijfde-governancevraag.md) | Vijfde governancevraag: kijkt de AI naar het werk of naar personen? | Aanvaard | 2026-11-07 |
-| [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Aanvaard | 2026-11-07 |
+| [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Deels vervangen door ADR-031 | 2026-11-07 |
 | [ADR-022](ADR-022-gereedschap-lekcheck-schemas-en-skills.md) | Gereedschap: lekcheck vóór publicatie, schemascript en drie projectskills | Aanvaard | 2026-11-07 |
 | [ADR-023](ADR-023-regelboek-met-werkregels.md) | Een regelboek met werkregels dat de groep zelf schrijft | Aanvaard | 2026-11-07 |
 | [ADR-024](ADR-024-resultaten-sn-als-enige-doelen.md) | De resultaten van S&N als enige doelen; geen leeruitkomsten en geen Bloom | Aanvaard | 2026-11-07 |
@@ -34,6 +34,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-028](ADR-028-experts-en-strategen-in-de-boards.md) | Experts in het advisory board, zelfgekozen strategen in het supervisory board | Deels vervangen door ADR-030 | 2026-11-07 |
 | [ADR-029](ADR-029-echte-citaten-op-de-kaarten.md) | Echte citaten en een Wikipedia-link op de kaarten van het startsjabloon | Aanvaard | 2026-11-07 |
 | [ADR-030](ADR-030-klassiek-eerst-dan-de-omslag.md) | Klassiek eerst, dan de omslag: het strategieverhaal in twee delen op dag 1 | Aanvaard | 2026-11-07 |
+| [ADR-031](ADR-031-startpagina-zonder-afteller.md) | Een startpagina zonder afteller, met een tijdlijn die in beeld blijft | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 
