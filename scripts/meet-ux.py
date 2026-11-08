@@ -433,6 +433,7 @@ def meet(site, base):
 
         # ---------------- T4 Overgang en afsluiten ----------------
         pz_tot = pz_ok = pzm_tot = pzm_ok = 0
+        onder_vouw = []
         for d in dagen:
             for b in d['blocks']:
                 if b['t'] != 'pauze':
@@ -443,12 +444,24 @@ def meet(site, base):
                     start(d['n'], t, BEAMER)
                     tekst = pg.evaluate("() => { const e = document.getElementById('regel'); return e && !e.hidden ? e.innerText : ''; }")
                     ok &= 'Werkregel 1' in tekst and (not b.get('aiTask') or b['aiTask'][:40] in tekst)
+                # Vier minuten vóór de pauze zegt de werkkaart "start de AI-taak": dan moet die
+                # taak ook op een laptop zonder scrollen in beeld staan, in de kop of in de band.
+                if b.get('aiTask'):
+                    start(d['n'], tijd(hm(b['s']) - 4), LAPTOP)
+                    zien = pg.evaluate("""(k) => [...document.querySelectorAll('#nu-daarna, #regel')].some(e => {
+                        if (e.hidden || !e.innerText.includes(k)) return false;
+                        const r = e.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; })""", b['aiTask'][:40])
+                    ok &= zien
+                    if not zien:
+                        onder_vouw.append(f"dag {d['n']} {b['s']}")
                 pz_ok += ok
                 mats = [mat_url(m) for m in b.get('materials') or [] if mat_url(m)]
                 if mats:
                     pzm_tot += 1
                     pzm_ok += all(pg.locator(f'#regel a[href="{h}"]').count() > 0 for h in mats)
-        M.zet('T4-A', pct(pz_ok, pz_tot), '%', pz_ok == pz_tot, f'{pz_ok} van {pz_tot} pauzes, 4 min vóór en tijdens')
+        M.zet('T4-A', pct(pz_ok, pz_tot), '%', pz_ok == pz_tot,
+              f'{pz_ok} van {pz_tot} pauzes, 4 min vóór en tijdens; de AI-taak 4 min vóór ook in beeld op 1366×768'
+              + (f"; onder de vouw: {', '.join(onder_vouw)}" if onder_vouw else ''))
         M.zet('T4-V', pct(pzm_ok, pzm_tot), '%', pzm_ok == pzm_tot, f'{pzm_ok} van {pzm_tot} pauzes met materiaal')
         niet_laatste = [r for r in bm if not r['laatste']]
         ok = sum(r['daarna'].startswith('Daarna') for r in niet_laatste)
@@ -709,7 +722,7 @@ NAMEN = {
     'T2-B': 'Kop, vragen en tijdlijn boven de vouw (beamer)', 'T2-R': 'Consolefouten',
     'T3-A': 'Instructie van het nu-blok in de kop (?rol=trainer, laptop)', 'T3-V': 'Materiaal van het nu-blok zonder scrollen (beamer)',
     'T3-B': 'Vragen van het blok voluit, zonder hover', 'T3-R': 'Materiaallinks openen',
-    'T4-A': 'Werkregel 1 en AI-taak vóór en tijdens de pauze', 'T4-V': 'Materiaal van de AI-taak in de band',
+    'T4-A': 'Werkregel 1 en AI-taak vóór en tijdens de pauze, ook in beeld op een laptop','T4-V': 'Materiaal van de AI-taak in de band',
     'T4-B': 'Kop noemt het volgende blok', 'T4-R': 'Kop na de lesdag',
     'D1-A': '"Je maakt" in de kop', 'D1-V': 'Nu-titel en materiaal zonder scrollen (laptop)',
     'D1-B': 'Ontwerp- en trainersinhoud in de deelnemersweergave', 'D1-R': 'Horizontaal scrollen op een telefoon',

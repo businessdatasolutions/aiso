@@ -594,6 +594,29 @@ function toonRegel(nu) {
   if (verschijnt && !eersteKeer) $('melding').textContent = `Werkregel 1: ${regel.text}`;
 }
 
+/* "Daarna" in de kop. In de laatste vijf minuten vóór een pauze met een AI-taak staat de taak
+   erbij: op een laptop valt de band met werkregel 1 dan nog onder de vouw, en de werkkaart zegt
+   "start de AI-taak". Net als de regel buiten de sleutel van ververs(). */
+let vorigeDaarna = null;
+function daarnaHtml(nu) {
+  if (nu.soort !== 'blok') return '';
+  const v = naBlok(nu.b);
+  if (!v) return '';
+  const tekst = `Daarna: ${esc(v.title)}`;
+  if (nu.b.t !== 'pauze' && v.t === 'pauze' && v.aiTask && nu.rest <= VIJF_MIN) {
+    return `${tekst}. <b>Start eerst de AI-taak:</b> ${esc(v.aiTask)}${pauzeLinks(v)}`;
+  }
+  return tekst;
+}
+function toonDaarna(nu) {
+  const html = daarnaHtml(nu);
+  if (html === vorigeDaarna) return;
+  vorigeDaarna = html;
+  const el = $('nu-daarna');
+  el.hidden = !html;
+  el.innerHTML = html;
+}
+
 function ververs() {
   if (!dag) return;
   const nu = bepaal();
@@ -607,6 +630,7 @@ function ververs() {
     if (zichtbaar) pin.style.left = `${pos(nu.pin)}%`;
   }
   toonRegel(nu);
+  toonDaarna(nu);
   if (TRAINER) kleurStap(nu);
 
   if (sleutel === vorigeSleutel) return;
@@ -618,13 +642,11 @@ function ververs() {
   // Tekst bij "nu"
   const zet = (id, html) => { const el = $(id); el.hidden = !html; el.innerHTML = html || ''; };
   // Wat je eerder maakte ("Je gebruikt") staat in de kop op de werkkaart, bij wat je nodig hebt.
-  let nuLabel = '', nuTitel = '', maakt = '', daarna = '';
+  let nuLabel = '', nuTitel = '', maakt = '';
   if (nu.soort === 'blok') {
     nuLabel = `Nu · ${label(nu.b.t)} · ${nu.b.s}–${nu.b.e}`; nuTitel = nu.b.title;
     if (nu.b.t !== 'pauze' && heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
     if (nu.b.t !== 'pauze' && !nu.b.deelnemer && gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
-    const v = naBlok(nu.b);
-    daarna = v ? `Daarna: ${esc(v.title)}` : '';
   } else if (nu.soort === 'voor' || nu.soort === 'tussen') {
     nuLabel = `Straks · ${label(nu.b.t)} · om ${nu.b.s}`; nuTitel = nu.b.title;
     if (heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
@@ -637,7 +659,6 @@ function ververs() {
   $('nu-label').textContent = nuLabel;
   $('nu-titel').textContent = nuTitel;
   zet('nu-maakt', maakt);
-  zet('nu-daarna', daarna);
   // Het materiaal van dit blok staat ook in de kop: één klik, zonder te scrollen.
   const kopBlok = nu.soort === 'na' || nu.b?.t === 'pauze' ? null : nu.b;
   zet('nu-tegels', kopBlok && Array.isArray(kopBlok.materials) ? kopBlok.materials.map(tegel).join('') : '');

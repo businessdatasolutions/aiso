@@ -332,7 +332,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div role="tabpanel" id="paneel-claude" aria-labelledby="tab-claude">
       <p><strong>Wat je nodig hebt:</strong> een account op claude.ai, ook gratis. Uploaden kan in de browser en in de desktop-app.</p>
       <ol class="stappenlijst">
-        <li>Zet code-uitvoering aan: <span class="menu">Settings › Capabilities</span>, schakelaar <span class="menu">Code execution and file creation</span>. Zonder die schakelaar werkt een skill niet.</li>
+        <li>Zet code-uitvoering aan: <span class="menu">Settings › Capabilities</span>, schakelaar <span class="menu">Code execution and file creation</span> (in de nieuwe indeling heet hij <span class="menu">Create and edit files</span>). Zonder die schakelaar werkt een skill niet.</li>
         <li>Ga naar <span class="menu">Customize › Skills</span>. Klik op <span class="menu">+</span>, dan op <span class="menu">Create skill</span> en kies <span class="menu">Upload a skill</span>.</li>
         <li>Kies <code>supervisory-board.zip</code>. Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
         <li>Kijk of beide skills aan staan.</li>
@@ -375,15 +375,16 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <li><strong>Zet het antwoord in drie zinnen.</strong> Wat was je antwoord, wat is het nu, en waarom veranderde het? Voeg de dia van vandaag toe.</li>
       <li><strong>Gaat het om vraag 3 of 4, leg het dan voor aan je advisory board.</strong> Elk lid toetst vanuit het eigen vak. Lees vooral de zwakke plekken en de stopcriteria. Wil je bronnen die je tegenspreken, vraag er dan om, en zoek er zelf minstens één op.</li>
       <li><strong>Gaat het om vraag 1 of 2, leg het dan voor aan je supervisory board.</strong> De board bespreekt of de koers klopt en hoe je het vertelt aan je stakeholders, en komt tot een gezamenlijke conclusie en advies.</li>
-      <li><strong>Beslis zelf, en zet het op je vragenkaart.</strong> In de regel "wat veranderde en waarom" staat wat de board zei, wat jij ermee doet en de eerste volgende stap. Beide boards sluiten af met twee regels voor je vragenkaart. Wijk je af van de board, schrijf dan op waarom.</li>
+      <li><strong>Beslis zelf, en zet het op je vragenkaart.</strong> In de regel "wat veranderde en waarom" staat alleen dat: wat er veranderde, en waarom. Wat de board zei en wat jij ermee doet, zet je op de achterkant van je kaart. Beide boards beginnen met twee regels die je daarvoor kunt gebruiken. Wijk je af van de board, schrijf dan op waarom.</li>
     </ol>
     <div class="blok gebruik">
       <h4>Test je boards meteen na het installeren</h4>
       <span class="prompt">Leg dit voor aan mijn advisory board: we willen volgend kwartaal een AI-assistent voor klantvragen invoeren.</span>
       <p>Doen al je leden mee? Spreekt elk lid vanuit het eigen vak, en noemt elk lid een zwakke plek? Eindigt het met een oordeel en stopcriteria? Zo niet: kijk of de skill aan staat, en noem hem bij zijn naam.</p>
       <h4>De opdracht van werkplaats 1</h4>
-      <span class="prompt">Leg mijn AI-visie voor aan mijn advisory board: wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?</span>
-      <span class="prompt">Leg mijn AI-visie voor aan mijn supervisory board: past ze bij wat ons bestuur zegt over visie, missie en strategie?</span>
+      <p>Je visie en je doelen samen zijn je antwoord op vraag 1. Plak ze onder de vraag.</p>
+      <span class="prompt">Leg mijn AI-visie en mijn doelen voor aan mijn advisory board: wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?</span>
+      <span class="prompt">Leg mijn AI-visie en mijn doelen voor aan mijn supervisory board: passen ze bij wat ons bestuur zegt over visie, missie en strategie?</span>
       <p>Controleer minstens één genoemde bron zelf.</p>
     </div>
     <div class="let-op">
@@ -641,7 +642,7 @@ Geef geen totaalscore. Scoort Positie 0, dan is de vraag operationeel: noem twee
    - **Conclusie:** waar de board het over eens is, en waar niet.
    - **Advies:** wat ik nu moet doen, in hooguit drie punten.
    - **Mijn verhaal:** de kern in drie zinnen. Noem ik stakeholders, zeg dan per stakeholder wat die moet horen om mee te gaan.
-5. **Voor mijn vragenkaart.** Sluit af met twee regels die ik op mijn vragenkaart kan zetten: de conclusie met het advies, en het sterkste bezwaar.
+5. **Voor mijn vragenkaart.** Vat alles samen in twee regels die ik op mijn vragenkaart kan zetten: de conclusie met het advies, en het sterkste bezwaar. Die twee regels staan bovenaan je antwoord.
 
 ## Als ik stukken van ons bestuur stuur
 
@@ -663,7 +664,7 @@ ${REGEL_VERTROUWELIJK}
 
 ## Vorm
 
-Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met de conclusie, het advies, mijn verhaal en de twee regels voor mijn vragenkaart. Schrijf in het Nederlands en houd de namen als v_Naam.
+Begin met de twee regels voor mijn vragenkaart. Daarna een kop met mijn vraag en de leden aan tafel. Houd het hele antwoord onder de 600 woorden: elk lid zegt per ronde hooguit twee zinnen. Eindig met de conclusie, het advies en mijn verhaal. Vraag ik om meer uitleg, dan mag het langer. Schrijf in het Nederlands en houd de namen als v_Naam.
 `;
 }
 
@@ -693,9 +694,9 @@ ${scepticusZin}
 2. **Aan tafel.** Alle leden hierboven doen mee. Noem vooraf het lid dat het meest tegen mijn huidige richting in zal gaan.
 3. **Standpunt per lid.** Elk lid spreekt vanuit het eigen vakgebied. Wat buiten dat vak valt, laat het lid aan de anderen over. Geef per lid een kort blok:
    - **Standpunt:** voor, tegen of onder voorwaarden.
-   - **Argument:** twee tot vier zinnen over de feiten, cijfers en aannames in mijn stuk, gezien vanuit het vak. Algemene uitspraken tellen niet.
-   - **Zwakke plek:** verplicht, ook als het lid voor is.
-   - **Wat mijn mening verandert:** welk bewijs of welke voorwaarde.
+   - **Argument:** één of twee zinnen over de feiten, cijfers en aannames in mijn stuk, gezien vanuit het vak. Algemene uitspraken tellen niet.
+   - **Zwakke plek:** verplicht, ook als het lid voor is. Eén zin.
+   - **Wat mijn mening verandert:** welk bewijs of welke voorwaarde, in één zin.
 4. **Debat.** Laat twee of drie echte spanningen tussen vakgebieden zien, bijvoorbeeld snelheid tegenover kwaliteit, of omzet tegenover privacy. Elk lid reageert één keer. Los de spanningen niet kunstmatig op.
 5. **Feiten en cijfers.** Controleer vóór het oordeel zelf mijn stuk. Kloppen de getallen? Is wat ik bewezen noem echt bewezen? Noem elke fout zonder omweg.
 6. **Bronnen.** Vraag ik om bronnen die mij tegenspreken, noem dan per bron de auteur, het jaar, de titel en wat erin staat. Zeg erbij als je niet zeker weet dat een bron bestaat. Verzin nooit een bron.
@@ -706,7 +707,7 @@ ${scepticusZin}
    - **Oordeel:** doorgaan, doorgaan onder voorwaarden, nog niet, of niet doen. Noem de voorwaarden.
    - Drie volgende stappen, de kleinste eerst.
    - **Stopcriteria:** welk resultaat in de komende 30 tot 90 dagen betekent stoppen of bijsturen.
-8. **Voor mijn vragenkaart.** Sluit af met twee regels die ik op mijn vragenkaart kan zetten: het oordeel met de belangrijkste voorwaarde, en het sterkste bezwaar.
+8. **Voor mijn vragenkaart.** Vat alles samen in twee regels die ik op mijn vragenkaart kan zetten: het oordeel met de belangrijkste voorwaarde, en het sterkste bezwaar. Die twee regels staan bovenaan je antwoord.
 
 ## Eerlijkheidsregels
 
@@ -721,7 +722,7 @@ ${REGEL_VERTROUWELIJK}
 
 ## Vorm
 
-Begin met een kop met mijn vraag en de leden aan tafel. Houd elk lid kort. Eindig met het oordeel, de volgende stappen, de stopcriteria en de twee regels voor mijn vragenkaart. Schrijf in het Nederlands en houd de namen als v_Naam.
+Begin met de twee regels voor mijn vragenkaart. Daarna een kop met mijn vraag en de leden aan tafel. Houd het hele antwoord onder de 800 woorden: houd elk blok van een lid bij de lengte hierboven. Eindig met het oordeel, de volgende stappen en de stopcriteria. Vraag ik om meer uitleg, dan mag het langer. Schrijf in het Nederlands en houd de namen als v_Naam.
 `;
 }
 const tekstVan = b => b === 'sup' ? supervisoryTekst() : advisoryTekst();

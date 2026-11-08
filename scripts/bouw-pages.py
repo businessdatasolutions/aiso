@@ -43,6 +43,7 @@ DOORSTUREN = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AISO26009 Lesdagen</title>
+<link rel="icon" href="data:,">
 <meta http-equiv="refresh" content="0; url=materiaal/">
 </head>
 <body style="font-family: system-ui, sans-serif; background: #faf7f0; color: #1a1a1a; margin: 2rem 1rem;">

@@ -123,6 +123,13 @@ details.trainer p { margin: 8px 0 0; max-width: 72ch; font-size: .95rem; }
 .kolom { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; background: var(--bg-off-white); }
 .kolom h3 { margin: 0 0 10px; }
 .kolom .scores { grid-template-columns: 1fr; }
+/* Het duo scoort los: de eigen scores klappen dicht tot het duo klaar is. */
+.kolom-kop { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.kolom-kop h3 { margin: 0; }
+.knop.klein-knop { padding: 6px 12px; font-size: .875rem; }
+.kolom .verborgen-tekst { display: none; margin: 0; }
+.kolom.is-verborgen .scores, .kolom.is-verborgen .uitkomst { display: none; }
+.kolom.is-verborgen .verborgen-tekst { display: block; }
 .vink { display: inline-flex; align-items: flex-start; gap: 8px; font-weight: 600; cursor: pointer; margin-top: 14px; max-width: 72ch; }
 .vink input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--supporting); flex-shrink: 0; }
 .melding { margin-top: 12px; border-left: 4px solid var(--supporting); padding: 8px 14px; background: var(--bg-section); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 72ch; }
@@ -181,7 +188,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
     <h3>De uitkomst</h3>
     <ul class="regels">
-      <li><strong>Positie 0: operationeel.</strong> Bewaar de vraag als kandidaat voor je eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil je organisatie daarmee bereiken?</li>
+      <li><strong>Positie 0: operationeel.</strong> Bewaar de vraag op de achterkant van je vragenkaart, als kandidaat voor je eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil je organisatie daarmee bereiken?</li>
       <li><strong>Positie 1 of 2, Keuze 0: nog geen keuze.</strong> Herschrijf de vraag zo dat er iets afvalt.</li>
       <li><strong>Positie 1 of 2, Keuze 1 of 2: strategisch.</strong> Positie 1 is strategisch op het niveau van een afdeling of keten. Kijk naar het laagste criterium: daar wint je vraag het meest bij herschrijven.</li>
       <li><strong>Geen totaalscore.</strong> Een totaal verbergt waar de vraag zwak is.</li>
@@ -205,13 +212,17 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
   <section class="stap" id="jouw-vraag" aria-labelledby="jouw-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="jouw-kop">Jouw vraag</h2></div>
-    <p class="uitleg">Schrijf je vraag op. Scoor hem eerst zelf. Daarna scoort je duo, zonder jouw scores te zien.</p>
+    <p class="uitleg">Schrijf je vraag op. Scoor hem eerst zelf en klik op <em>Verberg mijn scores</em>. Daarna scoort je duo, zonder jouw scores te zien.</p>
     <div class="velden">
       <div class="veld"><label for="vraag">Mijn strategische AI-vraag <span class="hint">Eén of twee zinnen. Alleen wat openbaar mag.</span></label>
         <textarea id="vraag" data-veld="vraag" rows="2"></textarea></div>
     </div>
     <div class="twee">
-      <div class="kolom"><h3>Ik</h3><div class="scores" id="scores-jij"></div><p class="uitkomst" id="uitkomst-jij" aria-live="polite"></p></div>
+      <div class="kolom" id="kolom-jij">
+        <div class="kolom-kop"><h3>Ik</h3><button type="button" class="knop licht klein-knop" id="verberg-jij" aria-pressed="false" aria-controls="scores-jij uitkomst-jij">Verberg mijn scores</button></div>
+        <p class="verborgen-tekst klein">Je scores zijn verborgen. Je duo scoort nu in de kolom ernaast.</p>
+        <div class="scores" id="scores-jij"></div><p class="uitkomst" id="uitkomst-jij" aria-live="polite"></p>
+      </div>
       <div class="kolom"><h3>Mijn duo</h3><div class="scores" id="scores-duo"></div><p class="uitkomst" id="uitkomst-duo" aria-live="polite"></p></div>
     </div>
     <p class="melding" id="verschil" hidden aria-live="polite">Jij en je duo komen op een andere uitkomst uit. Praat erover voordat je de AI vraagt.</p>
@@ -302,7 +313,9 @@ const bewaar = () => opslag.schrijf(s);
 function uitkomst(groep) {
   const p = s.scores[`${groep}-positie`], k = s.scores[`${groep}-keuze`];
   if (p === undefined || k === undefined) return null;
-  if (p === 0) return { niveau: 'Operationeel', tekst: 'Bewaar de vraag als kandidaat voor de eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil de organisatie daarmee bereiken?' };
+  if (p === 0) return { niveau: 'Operationeel', tekst: groep.startsWith('oefen')
+    ? 'Bewaar de vraag als kandidaat voor de eerste prioriteit, en zoek de vraag erboven: waarom moet dit beter, en wat wil de organisatie daarmee bereiken?'
+    : 'Bewaar de vraag op de achterkant van je vragenkaart, als kandidaat voor je eerste prioriteit. Zoek dan de vraag erboven: waarom moet dit beter, en wat wil je organisatie daarmee bereiken?' };
   if (k === 0) return { niveau: 'Nog geen keuze', tekst: 'Herschrijf de vraag zo dat er iets afvalt, bijvoorbeeld met een tweede zin die begint met "Of …".' };
   const voor = p === 1 ? 'Op het niveau van een afdeling of keten. ' : '';
   if (s.scores[`${groep}-omgeving`] === undefined) return { niveau: 'Strategisch', tekst: `${voor}Scoor ook Omgeving: dan zie je waar de vraag het meest wint.` };
@@ -392,6 +405,12 @@ document.addEventListener('input', e => {
   else if (el.matches('[data-vink]')) { s[el.dataset.vink] = el.checked; }
   else return;
   bewaar(); teken();
+});
+$('verberg-jij').addEventListener('click', () => {
+  const dicht = !$('kolom-jij').classList.contains('is-verborgen');
+  $('kolom-jij').classList.toggle('is-verborgen', dicht);
+  $('verberg-jij').setAttribute('aria-pressed', String(dicht));
+  $('verberg-jij').textContent = dicht ? 'Toon mijn scores' : 'Verberg mijn scores';
 });
 $('terug').addEventListener('click', () => {
   s.definitie = VOORSTEL; s.aanscherping = '';
