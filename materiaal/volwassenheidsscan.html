@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volwassenheidsscan</title>
+<meta name="description" content="Dag 1 van AISO26009: hoe volwassen is AI in je eigen organisatie? Zes dimensies met elk vier niveaus. Je profiel gebruik je later bij je doelen, je transformatieplan en je roadmap.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Eén los bestand, net als vraagtoets.html: geen bibliotheek, geen server.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --bg-yellow: #fafbf0;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+/* Terug naar de startpagina, bovenaan: zonder scrollen in beeld */
+.naar-start { display: inline-block; margin: 0 0 14px; font-size: .875rem; font-weight: 600; color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.regels { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; max-width: 74ch; }
+.regels li { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; background: var(--bg-off-white); }
+.veld label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint, .toel .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+textarea, input[type="text"] { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); }
+textarea { min-height: 3.2em; resize: vertical; }
+textarea:focus, input[type="text"]:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+
+/* Eén dimensie: vraag, vier niveaus en "weet ik niet", en waaraan je het ziet */
+.dimensies { display: grid; gap: 18px; margin-top: 18px; }
+fieldset.dim { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px 18px; margin: 0; background: var(--bg-off-white); min-width: 0; }
+fieldset.dim legend { font-weight: 700; font-size: 1.1rem; padding: 0 6px; }
+.dim-vraag { margin: 2px 0 12px; color: var(--text-secondary); max-width: 72ch; }
+.dim-hint { margin: -6px 0 12px; font-size: .875rem; color: var(--text-muted); max-width: 72ch; }
+.niveaus { display: grid; gap: 8px; }
+@media (min-width: 860px) { .niveaus { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.niveau { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--bg-page); cursor: pointer; font-size: .925rem; line-height: 1.4; }
+.niveau input { margin: 3px 0 0; accent-color: var(--supporting); flex-shrink: 0; }
+.niveau b { display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 2px; }
+.niveau:has(input:checked) { border-color: var(--supporting); background: var(--bg-yellow); box-shadow: inset 0 0 0 1px var(--supporting); }
+.weet-niet { margin-top: 8px; display: inline-flex; width: auto; }
+.toel { display: block; margin-top: 12px; font-weight: 600; font-size: .925rem; }
+.toel textarea { margin-top: 4px; font-weight: 400; }
+
+/* Het profiel: per dimensie een balk van vier vakjes */
+.profiel { display: grid; gap: 10px; margin: 8px 0 18px; max-width: 760px; }
+.prof-rij { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 4px 16px; align-items: center; }
+.prof-naam { font-weight: 600; }
+.prof-balk { display: flex; align-items: center; gap: 4px; }
+.prof-balk i { width: clamp(28px, 6vw, 56px); height: 18px; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg-page); }
+.prof-balk i.aan { background: var(--supporting); border-color: var(--supporting); }
+.prof-balk span { margin-left: 8px; font-size: .875rem; color: var(--text-secondary); }
+.prof-rij.is-laagst .prof-naam::after { content: " · laagste"; color: var(--text-muted); font-weight: 400; }
+.prof-rij.is-onbekend .prof-balk i { background: repeating-linear-gradient(135deg, var(--bg-section) 0 4px, var(--bg-page) 4px 8px); }
+@media (max-width: 560px) { .prof-rij { grid-template-columns: 1fr; } }
+.melding { border-left: 4px solid var(--supporting); padding: 8px 14px; background: var(--bg-section); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 74ch; margin: 0 0 12px; }
+.gebruik { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; margin-top: 8px; }
+.gebruik div { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; background: var(--bg-off-white); }
+.gebruik h4 { margin: 0 0 4px; font-size: 1rem; }
+.gebruik .wanneer { margin: 0 0 8px; font-size: .875rem; color: var(--text-muted); }
+.gebruik ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; font-size: .925rem; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 18px; }
+.let-op p:last-child { margin: 0; }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.licht { background: var(--bg-page); color: var(--supporting); border-color: var(--border-strong); }
+.knop.licht:hover { border-color: var(--supporting); }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+
+.bronnen { margin: 0; padding-left: 1.2rem; display: grid; gap: 6px; font-size: .875rem; color: var(--text-secondary); max-width: 80ch; }
+.bronnen li { padding-left: 4px; }
+
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .status, .naar-start { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  fieldset.dim { break-inside: avoid; }
+  .prof-balk i.aan { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="naar-start" href="./index.html">← Startpagina</a>
+    <p class="eyebrow">AISO26009 · Dag 1 · 10:00 · volwassenheidsscan</p>
+    <h1>Hoe volwassen is AI in je eigen organisatie?</h1>
+    <p class="lead">Bijna elke organisatie gebruikt AI, maar weinig organisaties schalen het op. Met deze scan zie je waar jouw organisatie staat, op zes punten. Je vult hem alleen in, zonder AI, in ongeveer tien minuten.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#zo"><b>1</b> Zo vul je hem in</a>
+    <a href="#scan"><b>2</b> Zes dimensies</a>
+    <a href="#profiel"><b>3</b> Je profiel</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="zo" aria-labelledby="zo-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="zo-kop">Zo vul je hem in</h2></div>
+    <ul class="regels">
+      <li><strong>Vul hem in voor je casus:</strong> je organisatie, of het deel waar je werkt.</li>
+      <li><strong>Kies per dimensie het hoogste niveau waarvan alles klopt.</strong> Klopt een deel van niveau 3 niet, dan is het niveau 2.</li>
+      <li><strong>Schrijf erbij waaraan je het ziet:</strong> één voorbeeld uit de laatste drie maanden. Een gevoel is geen voorbeeld.</li>
+      <li><strong>Weet je het niet?</strong> Kies "Weet ik niet" en schrijf op wie het wel weet. Dat is ook een uitkomst.</li>
+      <li><strong>Niveau 1 of 2 is normaal.</strong> Er is geen totaalscore: het profiel laat zien waar het blijft steken.</li>
+    </ul>
+    <div class="veld" style="margin-top:16px">
+      <label for="casus">Mijn casus <span class="hint">Organisatie of organisatiedeel. Leeg laten mag.</span></label>
+      <input type="text" id="casus" autocomplete="off">
+    </div>
+  </section>
+
+  <section class="stap" id="scan" aria-labelledby="scan-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="scan-kop">Zes dimensies</h2></div>
+    <p class="uitleg">Elke dimensie heeft vier niveaus. Lees ze alle vier voordat je kiest.</p>
+    <div class="dimensies" id="dimensies"></div>
+  </section>
+
+  <section class="stap" id="profiel" aria-labelledby="profiel-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="profiel-kop">Je profiel</h2></div>
+    <p class="uitleg">Vergelijk je profiel met dat van je duo. Welke dimensie is bij jullie het laagst, en wat weten jullie niet?</p>
+    <div class="profiel" id="profiel-balken" aria-live="polite"></div>
+    <p class="melding" id="profiel-tekst" aria-live="polite"></p>
+
+    <h3>Hier gebruik je je profiel later</h3>
+    <div class="gebruik" id="gebruik"></div>
+
+    <div class="knoppen">
+      <button type="button" class="knop geel" id="download">Download als tekstbestand</button>
+      <button type="button" class="knop licht" id="print">Print of maak een PDF</button>
+      <button type="button" class="knop licht" id="wis">Begin opnieuw</button>
+      <span class="status" id="status" aria-live="polite"></span>
+    </div>
+
+    <div class="let-op">
+      <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. Op dag 3 open je haar weer op dezelfde laptop, of je gebruikt het tekstbestand. Geef het profiel alleen aan je AI als er niets vertrouwelijks in staat.</p>
+      <p class="klein">Je ziet je organisatie vanuit één plek. Vraag een collega uit een ander deel van de organisatie om de scan ook in te vullen: waar jullie verschillen, weet je het nog niet zeker.</p>
+    </div>
+
+    <h3>Waar deze scan op steunt</h3>
+    <p class="uitleg">De zes dimensies komen terug in de modellen voor AI-volwassenheid van MIT CISR, Cisco, BCG en McKinsey. Gebruik en schaal volgt de trechter uit de AI Monitor Ziekenhuizen 2026: van idee of verkenning tot opgeschaald en in beheer. Bijna elk cijfer in die onderzoeken komt van één bestuurder die over de eigen organisatie oordeelt. Daarom vraagt deze scan om een voorbeeld bij elk niveau.</p>
+    <ol class="bronnen">
+      <li>Apotheker, J., Beauchene, V., de Bellefonds, N., Forth, P., Franke, M. R., Grebe, M., Kataeva, N., Kirvelä, S., Kleine, D., de Laubier, R., Lukic, V., Luther, A., Martin, M., Walters, J., &amp; Schweizer, C. (2025). <em>The widening AI value gap: Build for the future 2025</em>. Boston Consulting Group. <a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank" rel="noopener noreferrer">bcg.com</a></li>
+      <li>Cisco. (2025). <em>Cisco AI Readiness Index 2025: Realizing the value of AI</em>. Cisco Systems. <a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m10/cisco-ai-research-the-most-ai-ready-companies-outpace-peers-in-the-race-to-value.html" target="_blank" rel="noopener noreferrer">newsroom.cisco.com</a></li>
+      <li>M&amp;I/Partners. (2026). <em>AI Monitor Ziekenhuizen 2026: Wat is de stand van zaken van AI bij Nederlandse ziekenhuizen?</em> <a href="https://mxi.nl/uploads/files/publication/ai-monitor-ziekenhuizen-2026.pdf" target="_blank" rel="noopener noreferrer">mxi.nl</a></li>
+      <li>Singla, A., Sukharevsky, A., Hall, B., Yee, L., Chui, M., &amp; Balakrishnan, T. (2025). <em>The state of AI in 2025: Agents, innovation, and transformation</em>. McKinsey &amp; Company. <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">mckinsey.com</a></li>
+      <li>Woerner, S. L., Sebastian, I. M., Weill, P., &amp; Káganer, E. (2025). <em>Grow enterprise AI maturity for bottom-line impact</em> (Research Briefing XXV-8). MIT Center for Information Systems Research. <a href="https://cisr.mit.edu/publication/2025_0801_EnterpriseAIMaturityUpdate_WoernerSebastianWeillKaganer" target="_blank" rel="noopener noreferrer">cisr.mit.edu</a></li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <a href="./index.html">Startpagina</a>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* De zes dimensies staan hier één keer. Het formulier, het profiel en het tekstbestand komen eruit.
+   Bron: het onderzoekslog in de AI-wiki, inspiration/2026-11-08-ai-volwassenheid-meten-scan-research-log.md. */
+const DIMENSIES = [
+  { id: 'richting', naam: 'Richting en eigenaarschap', vraag: 'Weet je organisatie waarom ze AI inzet, en wie is er eigenaar van?', niveaus: [
+    'Er is geen vastgelegde richting voor AI. Initiatieven ontstaan los van elkaar.',
+    'Er is een notitie of beleid over AI, maar zonder bedrijfsdoelen, budget of eigenaar in de lijn.',
+    'Een directielid is eigenaar. De richting hangt aan twee of drie bedrijfsdoelen, met budget.',
+    'Elk AI-initiatief hoort bij een bedrijfsdoel en heeft een eigenaar uit de business. AI zit in de gewone cyclus van strategie en budget.'] },
+  { id: 'schaal', naam: 'Gebruik en schaal', vraag: 'Hoe ver komen toepassingen: van idee tot dagelijks werk?',
+    hint: 'Het ziekenhuis uit de maquette heeft gemiddeld 18 AI-toepassingen, en één is opgeschaald.', niveaus: [
+    'Mensen gebruiken losse AI-tools. Geen toepassing komt verder dan een idee of verkenning.',
+    'Er lopen pilots, maar niets zit in het dagelijkse werk van een hele afdeling.',
+    'Minstens één toepassing is ingevoerd, wordt elke dag gebruikt en heeft een beheerder.',
+    'Meerdere toepassingen zijn opgeschaald en in beheer. Je weet welk deel van de beoogde gebruikers ze echt gebruikt.'] },
+  { id: 'mensen', naam: 'Mensen en werk', vraag: 'Verandert het werk mee, of alleen de tools?', niveaus: [
+    'Iedereen zoekt het zelf uit. Niemand weet wie AI waarvoor gebruikt.',
+    'Er is een algemene training, maar taken en rollen zijn niet veranderd.',
+    'In minstens één team is het werk opnieuw ingericht: taken, rollen en wie controleert, met training in het eigen werk.',
+    'Bij elke opschaling hoort een nieuwe inrichting van het werk. Mensen delen openlijk hoe ze AI gebruiken, en er is afgesproken wat er met vrijgekomen tijd gebeurt.'] },
+  { id: 'data', naam: 'Data en technologie', vraag: 'Kan AI veilig bij de gegevens die ertoe doen?', niveaus: [
+    'Mensen gebruiken losse, vaak gratis tools. Bedrijfsgegevens blijven erbuiten, of gaan er ongecontroleerd in.',
+    'Er is een goedgekeurde AI-omgeving, maar die is niet gekoppeld aan de kernsystemen.',
+    'Voor minstens één proces zijn de gegevens op orde en via een gecontroleerde koppeling beschikbaar.',
+    'Nieuwe toepassingen hergebruiken koppelingen en bouwstenen. Elke volgende gaat daardoor sneller live.'] },
+  { id: 'governance', naam: 'Governance en risico', vraag: 'Weet je welke AI er draait, en wie wanneer ingrijpt?', niveaus: [
+    'Er zijn geen afspraken over wat mag, en er is geen overzicht van toepassingen.',
+    'Er is een AI-beleid, maar geen register en geen risicobeoordeling per toepassing.',
+    'Er is een register van toepassingen. Elke toepassing heeft een risicobeoordeling, ook de klasse in de AI-verordening, en een vast moment waarop een mens controleert.',
+    'Per fase gelden vaste regels om door te gaan, en ook om te stoppen of uit te zetten.'] },
+  { id: 'waarde', naam: 'Waarde meten en leren', vraag: 'Weet je wat AI oplevert?', niveaus: [
+    'Niemand meet wat AI oplevert. Succes is enthousiasme, of het aantal gebruikers.',
+    'Pilots meten iets, maar zonder nulmeting en zonder vergelijking met werken zonder AI.',
+    'Per toepassing liggen vooraf een bedrijfsmaat en een nulmeting vast. De uitkomst gaat naar de eigenaar.',
+    'De opbrengst staat in de gewone managementinformatie. Lessen uit geslaagde en mislukte projecten worden vastgelegd en gedeeld.'] },
+];
+/* Waar het profiel later terugkomt: strategie, transformatie en roadmap. */
+const GEBRUIK = [
+  { kop: 'Strategie', wanneer: 'Dag 1, 11:40: van visie naar doelen', dims: ['richting', 'waarde'],
+    tip: 'Een doel dat je organisatie niet kan meten, kun je ook niet loslaten.' },
+  { kop: 'Transformatie', wanneer: 'Dag 3, 9:45: je plan met 7S', dims: ['mensen', 'data', 'richting'],
+    tip: 'Begin bij de laagste van deze drie: daar zit je eerste actie.' },
+  { kop: 'Roadmap', wanneer: 'Dag 3, 10:45: fasen en gates', dims: ['schaal', 'governance', 'waarde'],
+    tip: 'Gebruik en schaal zegt waar je begint. Governance en waarde bepalen je gates.' },
+];
+
+const OPSLAG = 'aiso-volwassenheidsscan-v1';
+const opslag = {
+  lees() { try { return JSON.parse(localStorage.getItem(OPSLAG)) || {}; } catch { return {}; } },
+  schrijf(v) { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); } catch { /* geen opslag */ } },
+  wis() { try { localStorage.removeItem(OPSLAG); } catch { /* geen opslag */ } },
+};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let staat = opslag.lees();
+staat.dims = staat.dims || {};
+
+function tekenFormulier() {
+  $('dimensies').innerHTML = DIMENSIES.map((d, i) => `
+    <fieldset class="dim" id="dim-${d.id}">
+      <legend>${i + 1}. ${esc(d.naam)}</legend>
+      <p class="dim-vraag">${esc(d.vraag)}</p>
+      ${d.hint ? `<p class="dim-hint">${esc(d.hint)}</p>` : ''}
+      <div class="niveaus">${d.niveaus.map((t, k) => `
+        <label class="niveau"><input type="radio" name="n-${d.id}" value="${k + 1}"><span><b>Niveau ${k + 1}</b>${esc(t)}</span></label>`).join('')}
+      </div>
+      <label class="niveau weet-niet"><input type="radio" name="n-${d.id}" value="?"><span>Weet ik niet</span></label>
+      <label class="toel" for="t-${d.id}">Waaraan zie je het?<span class="hint">Eén voorbeeld uit de laatste drie maanden. Weet je het niet: wie weet het wel?</span>
+        <textarea id="t-${d.id}" data-dim="${d.id}" rows="2"></textarea></label>
+    </fieldset>`).join('');
+  // Opgeslagen antwoorden terugzetten
+  $('casus').value = staat.casus || '';
+  for (const d of DIMENSIES) {
+    const a = staat.dims[d.id] || {};
+    const r = document.querySelector(`input[name="n-${d.id}"][value="${a.niveau}"]`);
+    if (r) r.checked = true;
+    $(`t-${d.id}`).value = a.toelichting || '';
+  }
+}
+
+const niveauVan = id => (staat.dims[id] || {}).niveau;
+function tekenProfiel() {
+  const gekozen = DIMENSIES.filter(d => /^[1-4]$/.test(niveauVan(d.id)));
+  const laagste = gekozen.length ? Math.min(...gekozen.map(d => +niveauVan(d.id))) : null;
+  $('profiel-balken').innerHTML = DIMENSIES.map(d => {
+    const n = niveauVan(d.id);
+    const getal = /^[1-4]$/.test(n) ? +n : 0;
+    const label = n === '?' ? 'weet ik niet' : getal ? `niveau ${getal}` : 'nog niet ingevuld';
+    const klasse = n === '?' ? ' is-onbekend' : getal && getal === laagste ? ' is-laagst' : '';
+    return `<div class="prof-rij${klasse}"><span class="prof-naam">${esc(d.naam)}</span>`
+      + `<span class="prof-balk" role="img" aria-label="${esc(d.naam)}: ${label}">${[1, 2, 3, 4].map(k => `<i class="${k <= getal ? 'aan' : ''}"></i>`).join('')}<span>${label}</span></span></div>`;
+  }).join('');
+  const onbekend = DIMENSIES.filter(d => niveauVan(d.id) === '?');
+  const open = DIMENSIES.filter(d => !niveauVan(d.id));
+  const zinnen = [];
+  if (gekozen.length) zinnen.push(`Je laagste dimensie: ${DIMENSIES.filter(d => +niveauVan(d.id) === laagste).map(d => d.naam.toLowerCase()).join(' en ')} (niveau ${laagste}). Daar blijft het waarschijnlijk steken.`);
+  if (onbekend.length) zinnen.push(`Je weet het niet bij: ${onbekend.map(d => d.naam.toLowerCase()).join(', ')}. Schrijf op wie het wel weet.`);
+  if (open.length) zinnen.push(`Nog open: ${open.length} van de ${DIMENSIES.length} dimensies.`);
+  $('profiel-tekst').textContent = zinnen.join(' ') || 'Kies per dimensie een niveau. Dan verschijnt hier je profiel.';
+  $('gebruik').innerHTML = GEBRUIK.map(g => `<div><h4>${esc(g.kop)}</h4><p class="wanneer">${esc(g.wanneer)}</p><ul>${g.dims.map(id => {
+    const d = DIMENSIES.find(x => x.id === id), n = niveauVan(id);
+    return `<li>${esc(d.naam)}: ${n === '?' ? 'weet ik niet' : n ? 'niveau ' + esc(n) : 'nog open'}</li>`;
+  }).join('')}</ul><p class="klein" style="margin:8px 0 0">${esc(g.tip)}</p></div>`).join('');
+}
+
+function bewaar() { opslag.schrijf(staat); tekenProfiel(); }
+document.addEventListener('change', e => {
+  const r = e.target;
+  if (r.type === 'radio' && r.name.startsWith('n-')) {
+    const id = r.name.slice(2);
+    staat.dims[id] = { ...(staat.dims[id] || {}), niveau: r.value };
+    bewaar();
+  }
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.id === 'casus') { staat.casus = t.value; opslag.schrijf(staat); }
+  else if (t.dataset.dim) { staat.dims[t.dataset.dim] = { ...(staat.dims[t.dataset.dim] || {}), toelichting: t.value }; opslag.schrijf(staat); }
+});
+
+function alsTekst() {
+  const datum = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  const r = [`# Volwassenheidsscan AI`, '', `Casus: ${staat.casus || '(niet ingevuld)'}`, `Datum: ${datum}`, '', '## Profiel', ''];
+  for (const d of DIMENSIES) {
+    const a = staat.dims[d.id] || {};
+    const n = a.niveau;
+    r.push(`### ${d.naam}: ${n === '?' ? 'weet ik niet' : n ? 'niveau ' + n : 'niet ingevuld'}`);
+    if (/^[1-4]$/.test(n)) r.push(d.niveaus[+n - 1]);
+    if (a.toelichting) r.push(`Waaraan ik het zie: ${a.toelichting}`);
+    r.push('');
+  }
+  r.push('## Hier gebruik ik het later', '');
+  for (const g of GEBRUIK) r.push(`- ${g.kop} (${g.wanneer}): ${g.dims.map(id => DIMENSIES.find(x => x.id === id).naam.toLowerCase()).join(', ')}. ${g.tip}`);
+  return r.join('\n') + '\n';
+}
+$('download').addEventListener('click', () => {
+  const datum = new Date().toISOString().slice(0, 10);
+  const url = URL.createObjectURL(new Blob([alsTekst()], { type: 'text/markdown;charset=utf-8' }));
+  const a = Object.assign(document.createElement('a'), { href: url, download: `volwassenheidsscan-${datum}.md` });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  $('status').textContent = 'Het tekstbestand staat in je downloads.';
+});
+$('print').addEventListener('click', () => window.print());
+$('wis').addEventListener('click', () => {
+  if (!confirm('Alles wat je in de scan invulde, wordt gewist. Doorgaan?')) return;
+  opslag.wis(); staat = { dims: {} };
+  tekenFormulier(); tekenProfiel();
+  $('status').textContent = 'De scan is leeg.';
+});
+
+tekenFormulier();
+tekenProfiel();
+</script>
+</body>
+</html>

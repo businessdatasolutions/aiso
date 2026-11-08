@@ -60,11 +60,13 @@ STUKKEN = [
     ('experimentpaper', re.compile(r'experimentpaper|experiment als paper', re.I), 'experimentpaper', None),
     ('businesscase', re.compile(r'businesscase|probleemstelling|probleemformulering', re.I), 'probleemformulering', None),
     ('kansenkaart', re.compile(r'kansenkaart', re.I), 'kansenkaart', None),
+    ('volwassenheidsscan', re.compile(r'volwassenheidsscan', re.I), 'volwassenheidsscan', None),
 ]
 # De vragenkaart en het casusdeck liggen drie dagen op tafel: elk blok dat ze noemt, wijst ze aan.
+# De volwassenheidsscan staat in de browser van de deelnemer: wie hem later gebruikt, opent de pagina.
 # Een ander stuk in "Je gebruikt" is eigen werk met een bron tussen haakjes; dat telt alleen
 # in de titel of in "Je maakt", waar het blok over dat stuk gaat.
-OVERAL = {'vragenkaart', 'casusdeck'}
+OVERAL = {'vragenkaart', 'casusdeck', 'volwassenheidsscan'}
 
 JS_DATA = r"""async () => {
   const src = await (await fetch('../LRD-AISO26009-lesdagen.html')).text();

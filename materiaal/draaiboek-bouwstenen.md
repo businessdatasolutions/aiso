@@ -106,49 +106,28 @@ De kaart blijft drie dagen liggen, en je ziet je eerste antwoord terug zoals je 
 **"Mag ik de naam van mijn organisatie opschrijven?"**
 Ja, op je eigen kaart. Zet er niets vertrouwelijks op: de tekst gaat vanmiddag je AI in (NFR-01).
 
-## Dag 1 · 10:00–10:45 · Breed gebruikt, zelden volwassen (FR-26, NFR-08)
+## Dag 1 · 10:00–10:45 · Breed gebruikt, zelden volwassen (FR-26, FR-40, ADR-048)
 
-**Materiaal:** klacht K-0505 uit `materiaal/voorbeeldcasus.md`, op een dia of het scherm; het voorbeeld uit de zorg, de maquette van een ziekenhuis (`materiaal/ziekenhuis.html`); de startpagina voor werkregel 1 om 10:40.
-**Uitkomst:** een begrippenkader voor de werkplaatsen.
+**Materiaal:** het voorbeeld uit de zorg, de maquette van een ziekenhuis (`materiaal/ziekenhuis.html`); de lespagina Volwassenheidsscan (`materiaal/volwassenheidsscan.html`); de startpagina voor werkregel 1 om 10:40.
+**Uitkomst:** het profiel van de eigen organisatie uit de volwassenheidsscan.
 
-### 10:00–10:05 · Werkvorm "Mens tegen agent" (5 minuten)
-
-1. Toon klacht K-0505 uit de voorbeeldcasus. Lees de twee feiten voor: wat de klant schrijft en wat het planningssysteem zegt.
-2. Vraag: "Welke urgentie geef jij deze klacht, 1 tot en met 4?" Laat iedereen tegelijk 1 tot 4 vingers opsteken.
-3. Benoem wat je ziet. De groep is het meestal oneens.
-4. Toon wat de agent doet. De agent escaleert de klacht en geeft geen urgentie. De reden: de klant en het systeem spreken elkaar tegen, en er woont een kwetsbare bewoner.
-5. Zeg: "Bij twijfel is escaleren het goede antwoord, ook voor AI."
-6. Zeg wat dit oplevert voor werkplaats 2: "Je eigen score is de referentiewaarde. Eerst scoor jij, daarna de AI" (FR-20).
-
-**Live variant:** geef je eigen AI-model de klacht en de urgentieregels uit de voorbeeldcasus. Kijkt het model of het escaleert? Gokt het model een score, dan is dat zelf een les.
-
-**Waarom eerst zelf:** wie eerst het AI-antwoord ziet, neemt het over. Wie eerst zelf scoort, ziet het verschil.
-
-### 10:05–10:35 · Punten voor het blok (30 minuten)
-
-Een volgorde die werkt. Van 10:05 tot 10:20 de cijfers en de maquette. Van 10:20 tot 10:30 de grillige grens en de faalwijzen. Van 10:30 tot 10:35 de soorten AI. Kies per stuk één punt om echt te zeggen. Hoe een agent technisch is opgebouwd, komt later (zie "Achtergrond en reserve voor de trainer").
+### 10:00–10:15 · Breed gebruikt, zelden volwassen (15 minuten)
 
 - **Gebruik is breed, volwassen inzet is zeldzaam.** In enquêtes onder bestuurders gebruikt 78–88% AI. Volgens het CBS gebruikt 33% van de Nederlandse bedrijven met tien of meer werkzame personen AI (2025, voorlopig). Metingen met een strenge lat komen uit op 5 tot 13%: BCG 7,5% (2026), McKinsey 6% (2025 en 2026), Gartner 13% (2026). Noem bij elk cijfer wat er gemeten is en in welk jaar. Het getal beweegt mee met de lat. (Volwassenheidsrapport.)
-- **Een voorbeeld: de maquette van een ziekenhuis** (`materiaal/ziekenhuis.html`, twaalf stappen). Zeg erbij dat het voorbeeld uit de zorg komt. De cijfers komen uit de AI Monitor Ziekenhuizen 2026 van M&I/Partners, met 52 ziekenhuizen. Laat in elk geval stap 3 zien: een ziekenhuis heeft gemiddeld 18 AI-toepassingen, en één daarvan is opgeschaald. Dat is breed gebruik en zeldzame volwassen inzet in één beeld. Stap 9 en 10 tonen een patroon: 's avonds maakt AI een eerste selectie, de volgende dag beslist de radioloog. Weinig tijd? Toon stap 1, 3, 9 en 10. Een klik op een ruimte springt naar de stap van die ruimte. Zoek elk cijfer dat je noemt eerst op in het origineel: `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-03-ai-monitor-ziekenhuizen-2026-mxi.pdf`. Bij elke stap staat het paginanummer.
-- **Gevoel is geen meting.** Ervaren ontwikkelaars werkten in een gerandomiseerde studie met AI 19% trager. Zelf dachten ze dat ze 20% sneller waren (Becker e.a., 2025). Daarom meet je in het experiment, en vertrouw je niet op indruk.
-- **De grillige grens (jagged frontier).** Binnen de grens van wat AI goed kan, maakten consultants 12% meer taken af, werkten ze 25% sneller en was de kwaliteit 34% hoger. Buiten die grens scoorden ze 19 procentpunt slechter, en hun foute adviezen klonken juist overtuigender (Dell'Acqua e.a., 2026; [B2]).
-- **Vier faalwijzen van een agent, en wat ze opvangt.**
-  1. Een antwoord zonder grond → verankering: elke uitspraak heeft een citaat uit de bron.
-  2. Een ontbrekend feit → doorvragen in plaats van invullen (K-0501).
-  3. Tegenstrijdige feiten → escaleren naar een mens (K-0505).
-  4. Het eigen huiswerk nakijken → een tweede, aparte controle.
-- **Generatieve AI, agents, voorspellende modellen en data.** Generatieve AI maakt tekst, beeld of code. Een voorspellend model rekent uit wat er waarschijnlijk gebeurt, zoals welke installatie binnenkort een storing krijgt (doel 2 van Voorbeeld BV). Een agent voert met een taalmodel een taak in stappen uit, binnen vaste grenzen. Alle drie hangen af van data. Een voorspellend model heeft eigen gegevens nodig om van te leren.
+- **Een voorbeeld: de maquette van een ziekenhuis** (`materiaal/ziekenhuis.html`, twaalf stappen). Zeg erbij dat het voorbeeld uit de zorg komt. De cijfers komen uit de AI Monitor Ziekenhuizen 2026 van M&I/Partners, met 52 ziekenhuizen. Laat in elk geval stap 3 zien: een ziekenhuis heeft gemiddeld 18 AI-toepassingen, en één daarvan is opgeschaald. Dat is breed gebruik en zeldzame volwassen inzet in één beeld. Stap 9 en 10 tonen een patroon: 's avonds maakt AI een eerste selectie, de volgende dag beslist de radioloog. Weinig tijd? Toon stap 1, 3, 9 en 10. Een klik op een ruimte springt naar de stap van die ruimte. Zoek elk cijfer dat je noemt eerst op in het origineel: `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-03-ai-monitor-ziekenhuizen-2026-mxi.pdf`. Bij elke stap staat het paginanummer. Om 10:05 is er tijd voor stap 1, 3, 6, 9 en 10. Stap 6 laat zien dat begonnen nog niet gebruikt is: dat komt terug in de scan, bij gebruik en schaal.
 
-### 10:35–10:40 · De brug naar 11:00: AI houdt vast aan wat werkt (5 minuten)
+### 10:15–10:30 · De volwassenheidsscan (15 minuten)
 
-1. Zeg: "Nog één meting. Allen en McDonald (2026) lieten taalmodellen een strategiesimulatie spelen, over acht jaar. Het bedrijf in de simulatie kon blijven verdienen aan de oude technologie, of investeren in een nieuwe."
-2. Zeg: "De nieuwste modellen, van medio en eind 2025, scoorden lager dan eerdere modellen. Ze scoorden ook lager dan 249 MBA-studenten."
-3. Zeg: "De oorzaak was een vaste neiging om te benutten: vasthouden aan wat al werkt. De modellen maakten hoge winst, en haalden bijna geen omzet uit de nieuwe technologie."
-4. Zeg: "Vraag je een AI om strategisch advies, dan krijg je dus vaak meer van hetzelfde. Om 11:00 komen we hierop terug."
+1. Zeg: "Bijna elke organisatie gebruikt AI, weinig organisaties schalen het op. Waar staat jouw organisatie? Open de lespagina Volwassenheidsscan."
+2. Lees de regels van stap 1 voor. Kies per dimensie het hoogste niveau waarvan alles klopt. Schrijf er een voorbeeld uit de laatste drie maanden bij. Weet je het niet, schrijf dan op wie het wel weet.
+3. Zeg: "Niveau 1 of 2 is normaal. Er is geen totaalscore."
+4. De deelnemers vullen de scan alleen in, zonder AI, in ongeveer tien minuten. Loop rond. Vraag bij een niveau: "Waaraan zie je dat?" Is het antwoord een gevoel, dan is het niveau waarschijnlijk lager.
 
-**Wijs niet verder vooruit.** Leg nog geen verband met het model van vanochtend. Dat doet het blok van 11:00.
+### 10:30–10:40 · Profielen vergelijken (10 minuten)
 
-**Bron:** Allen, R. T., & McDonald, R. M. (2026). How well can AI do strategy? Empirical benchmarking using strategy simulations. *Strategy Science, 11*(1), 93–117. https://doi.org/10.1287/stsc.2025.0444
+1. Het duo legt de twee profielen naast elkaar: welke dimensie is het laagst, en wat weten jullie niet?
+2. Twee deelnemers noemen hun laagste dimensie, met het voorbeeld erbij. Geef geen oordeel over een profiel.
+3. Zeg: "Je profiel komt terug. Om 11:40 bij je doelen, en op dag 3 bij je transformatieplan en je roadmap. Het staat in je browser. Download het ook, voor de zekerheid."
 
 ### 10:40–10:45 · Werkregel 1: de AI aan het werk (5 minuten)
 
@@ -161,26 +140,21 @@ Een volgorde die werkt. Van 10:05 tot 10:20 de cijfers en de maquette. Van 10:20
 
 | Term | Uitleg |
 |---|---|
-| Agent | Een systeem dat een taalmodel gebruikt om een taak in stappen uit te voeren, binnen vaste grenzen. |
-| Jagged frontier | De grillige grens tussen taken die AI goed kan en taken waarbij AI fouten maakt. |
 | Frontiermodel | Een van de sterkste taalmodellen van dit moment, zoals de betaalde versies van Claude, ChatGPT of Gemini. |
 
 ### Lastige vragen
 
-**"AI wordt toch elke maand beter?"**
-De grens schuift, dat klopt. Daarom vertrouw je niet op wat vorig jaar gold, en meet je in je eigen experiment (dag 2). De meting van Allen en McDonald laat ook zien dat nieuwer niet altijd beter is. De modellen van eind 2025 scoorden in de simulatie lager dan eerdere modellen.
-
-**"Lag dat niet aan de prompt?"**
-Dat kan meespelen. De onderzoekers zagen een vast patroon, over meerdere modellen. En in je eigen werk geef je je AI ook geen perfecte prompt. Vraag de AI daarom expliciet om andere opties, en verken zelf.
-
-**"Welke modellen waren het precies?"**
-Dat staat in het artikel (bron hierboven). Noem geen modelnamen uit je hoofd.
-
-**"Waarom scoren nieuwere modellen slechter?"**
-Het artikel meet dat het zo is. Waarom, weten we nog niet zeker. Voor jou telt de les: een AI die strategisch adviseert, houdt vast aan wat al werkt. Verken dus zelf.
-
 **"Wat telt als volwassen inzet?"**
 Dat verschilt per bron, en daarom verschilt het getal. Noem bij elk cijfer wat er gemeten is en in welk jaar.
+
+**"Ik weet het bij de meeste dimensies niet."**
+Dan is dat je uitkomst. Kies "Weet ik niet" en schrijf op wie het wel weet. Wie AI wil opschalen, moet eerst weten wat er al draait. Op dag 3 komt die vraag terug bij governance: weet je het, of weet je wie het weet?
+
+**"Mijn organisatie verschilt per afdeling."**
+Vul de scan in voor je casus: het deel van de organisatie waar je strategische vraag over gaat. Verschilt het daarbinnen nog, kies dan het niveau dat voor het grootste deel geldt, en schrijf het verschil erbij.
+
+**"Welk model is dit?"**
+Geen bestaand model. De zes dimensies komen terug in de modellen van MIT CISR, Cisco, BCG en McKinsey; gebruik en schaal volgt de trechter van de AI Monitor Ziekenhuizen. De bronnen staan onderaan de lespagina, en het onderzoekslog staat in de AI-wiki (`inspiration/2026-11-08-ai-volwassenheid-meten-scan-research-log.md`). Bijna elk cijfer in die onderzoeken komt van één bestuurder die over de eigen organisatie oordeelt. Daarom vraagt de scan om een voorbeeld bij elk niveau.
 
 ## Dag 1 · 10:45–11:00 · Pauze
 
@@ -191,7 +165,7 @@ Dat verschilt per bron, en daarom verschilt het getal. Noem bij elk cijfer wat e
 
 **Materiaal:** filmpje 2 (25 seconden); `materiaal/vier-vragen.html`, stap 1 tot en met 6; de simulator `materiaal/bo-demo/bo-simulator-fast.html`, met de schermafbeeldingen als reserve.
 **Uitkomst:** per vraag één zin over verkennen en benutten.
-**Bouwt op:** de nulmeting (9:30) en de meting van 10:35.
+**Bouwt op:** de nulmeting (9:30).
 
 ### 11:00–11:03 · Na de pauze (3 minuten)
 
@@ -200,7 +174,7 @@ Dat verschilt per bron, en daarom verschilt het getal. Noem bij elk cijfer wat e
 
 ### 11:03–11:08 · De omslag (5 minuten)
 
-1. **Waarom dat bij AI vastloopt.** Een straalmotor is gecompliceerd: duizenden onderdelen, maar voorspelbaar. De oceaan is complex: een kleine verandering heeft onvoorspelbare gevolgen. AI hoort bij de oceaan; dat zagen de deelnemers om 10:00 aan de grillige grens. Wie één stip kiest en ernaartoe blijft lopen, loopt een groot risico dat het de verkeerde stip is.
+1. **Waarom dat bij AI vastloopt.** Een straalmotor is gecompliceerd: duizenden onderdelen, maar voorspelbaar. De oceaan is complex: een kleine verandering heeft onvoorspelbare gevolgen. AI hoort bij de oceaan. Wie één stip kiest en ernaartoe blijft lopen, loopt een groot risico dat het de verkeerde stip is.
 2. **Het organische pad.** Toon het tweede filmpje (25 seconden): korte stappen naar de "ware toekomst". De missie verschijnt pas onderweg. Mintzberg noemt dit emergente strategie: strategie die ontstaat uit wat je doet (Mintzberg & Waters, 1985).
 3. **De lus.** Keuzes → dynamiek → opties → inzichten. Zeg: "Elke afsluiting is één ronde van de lus. Vanmiddag om 16:00 doe je de eerste. Een eigen missie schrijven we vandaag niet; die zie je op dag 3. De missie van je bestuur is het startpunt."
 4. **Aanhaken.** In de Eerste blik online lazen ze het advies van Reid Hoffman: herzie de AI-strategie elke week. Vraag wat ze daar toen van vonden.
@@ -220,7 +194,7 @@ Dat verschilt per bron, en daarom verschilt het getal. Noem bij elk cijfer wat e
 ### 11:15–11:20 · Verkennen en benutten (5 minuten, stap 3 en het begin van stap 4)
 
 1. **Twee manieren van werken** (March, 1991). Benutten is beter worden in wat je al doet: het rendement is zeker en komt snel. Verkennen is zoeken naar wat nieuw is: het rendement is onzeker en komt later. Organisaties schuiven vanzelf naar benutten, want dat betaalt sneller uit. Verandert de wereld, dan word je steeds beter in iets wat minder waard wordt.
-2. Wijs terug naar 10:35: "De taalmodellen in de simulatie deden precies dit."
+2. Noem de meting uit stap 4 van de lespagina: "In een strategiesimulatie hielden taalmodellen vast aan de oude technologie. Ze benutten te veel" (Allen & McDonald, 2026).
 3. **De portfoliokaart** (Osterwalder e.a., 2020). Toon de twee portfolio's van Voorbeeld BV naast elkaar: links wat het bedrijf verkent, rechts wat het benut. Wijs "AI sorteert mee in één team" aan, met de pijl: haalt het de norm, dan schuift het naar benutten.
 4. **De meerarmige bandiet.** "Voor je staan tien gokautomaten. Elke automaat betaalt anders uit, maar hoeveel weet je niet. Trek je aan de arm die tot nu toe het meest gaf? Dat is benutten. Probeer je een andere? Dat is verkennen. Wie alleen benut, mist misschien de beste automaat."
 
@@ -256,6 +230,8 @@ Zeg: "Bezos (2016) deelt besluiten in twee soorten in. De meeste besluiten zijn 
 3. Zeg: "Schrijf de vier zinnen op de achterkant van je vragenkaart. De kaart zelf herschrijf je om 16:00."
 4. In de laatste twee minuten lezen twee deelnemers één zin voor. Kies er één bij V3.
 
+**Bron:** Allen, R. T., & McDonald, R. M. (2026). How well can AI do strategy? Empirical benchmarking using strategy simulations. *Strategy Science, 11*(1), 93–117. https://doi.org/10.1287/stsc.2025.0444
+
 ### Lastige vragen
 
 **"Dus plannen heeft geen zin?"**
@@ -275,6 +251,21 @@ Daar is geen vaste waarde voor. Hoe sneller je omgeving verandert en hoe minder 
 
 **"Verkennen kost geld. Dat geeft ons bestuur niet."**
 Verkennen kan klein: zes weken in één team, met een norm vooraf, zoals bij Voorbeeld BV. Dag 2 gaat hierover: een kleine inzet koopt het recht om door te gaan, zonder de plicht.
+
+**"AI wordt toch elke maand beter?"**
+De grens schuift, dat klopt. Daarom vertrouw je niet op wat vorig jaar gold, en meet je in je eigen experiment (dag 2). De meting van Allen en McDonald laat ook zien dat nieuwer niet altijd beter is. De modellen van eind 2025 scoorden in de simulatie lager dan eerdere modellen.
+
+
+**"Lag dat niet aan de prompt?"**
+Dat kan meespelen. De onderzoekers zagen een vast patroon, over meerdere modellen. En in je eigen werk geef je je AI ook geen perfecte prompt. Vraag de AI daarom expliciet om andere opties, en verken zelf.
+
+
+**"Welke modellen waren het precies?"**
+Dat staat in het artikel (bron hierboven). Noem geen modelnamen uit je hoofd.
+
+
+**"Waarom scoren nieuwere modellen slechter?"**
+Het artikel meet dat het zo is. Waarom, weten we nog niet zeker. Voor jou telt de les: een AI die strategisch adviseert, houdt vast aan wat al werkt. Verken dus zelf.
 
 ## Dag 1 · 11:40–12:15 · Vraag 1: van visie naar doelen (FR-36, FR-01, FR-30, FR-08, FR-10, ADR-039)
 
@@ -624,7 +615,7 @@ De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar h
 - **Dan kiezen.** Eén ontwerp, of twee samen. Past het niet vóór dag 3, dan kiest de deelnemer een kleiner ontwerp en zet het grote in de roadmap. Stap 4 van de lespagina geeft de prompt die de normen in het paper vastlegt, met de datum. Het voorbeeld van Voorbeeld BV staat in stap 3.
 - **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
 - **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
-- **Experiment met een agent.** De vier faalwijzen van dag 1 zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
+- **Experiment met een agent.** De vier faalwijzen van een agent (zie "Achtergrond en reserve voor de trainer") zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
 
 ## Dag 3 · Eerst lezen
 
@@ -705,6 +696,37 @@ Gebruik ze bij "per stakeholder één actie van weerstand naar draagvlak", met d
   |---|---|
   | Harness | Alles rond het model: welke informatie het krijgt, welke hulpmiddelen het mag gebruiken, en wat er gebeurt bij een fout. |
   | Contextvenster | Wat het model op dit moment leest. |
+
+- **Werkvorm "Mens tegen agent": geparkeerd met de opbouw van een agent, mogelijk voor dag 2.** Tot versie 0.33 opende hij het blok van 10:00 op dag 1 (ADR-048). Hij hoort bij de uitleg hoe een agent werkt, niet bij breed gebruik en zeldzame opschaling. Een kandidaat is werkplaats 2, waar de eigen score de referentiewaarde is (FR-20). Materiaal: klacht K-0505 uit `materiaal/voorbeeldcasus.md`, op een dia of het scherm. Het verloop, vijf minuten:
+
+  1. Toon klacht K-0505 uit de voorbeeldcasus. Lees de twee feiten voor: wat de klant schrijft en wat het planningssysteem zegt.
+  2. Vraag: "Welke urgentie geef jij deze klacht, 1 tot en met 4?" Laat iedereen tegelijk 1 tot 4 vingers opsteken.
+  3. Benoem wat je ziet. De groep is het meestal oneens.
+  4. Toon wat de agent doet. De agent escaleert de klacht en geeft geen urgentie. De reden: de klant en het systeem spreken elkaar tegen, en er woont een kwetsbare bewoner.
+  5. Zeg: "Bij twijfel is escaleren het goede antwoord, ook voor AI."
+  6. Zeg wat dit oplevert voor werkplaats 2: "Je eigen score is de referentiewaarde. Eerst scoor jij, daarna de AI" (FR-20).
+
+  **Live variant:** geef je eigen AI-model de klacht en de urgentieregels uit de voorbeeldcasus. Kijkt het model of het escaleert? Gokt het model een score, dan is dat zelf een les.
+
+  **Waarom eerst zelf:** wie eerst het AI-antwoord ziet, neemt het over. Wie eerst zelf scoort, ziet het verschil.
+
+- **Uit het blok van 10:00 op dag 1 gehaald, voor later (ADR-048).** Deze punten hoorden bij het blok toen het nog "Wat AI nu kan en niet kan" heette. Ze komen in het blok niet meer aan bod. Een plek is nog niet gekozen; de faalwijzen passen bij een experiment met een agent in werkplaats 2 (FR-20).
+
+  - **Gevoel is geen meting.** Ervaren ontwikkelaars werkten in een gerandomiseerde studie met AI 19% trager. Zelf dachten ze dat ze 20% sneller waren (Becker e.a., 2025). Daarom meet je in het experiment, en vertrouw je niet op indruk.
+  - **De grillige grens (jagged frontier).** Binnen de grens van wat AI goed kan, maakten consultants 12% meer taken af, werkten ze 25% sneller en was de kwaliteit 34% hoger. Buiten die grens scoorden ze 19 procentpunt slechter, en hun foute adviezen klonken juist overtuigender (Dell'Acqua e.a., 2026; [B2]).
+  - **Vier faalwijzen van een agent, en wat ze opvangt.**
+    1. Een antwoord zonder grond → verankering: elke uitspraak heeft een citaat uit de bron.
+    2. Een ontbrekend feit → doorvragen in plaats van invullen (K-0501).
+    3. Tegenstrijdige feiten → escaleren naar een mens (K-0505).
+    4. Het eigen huiswerk nakijken → een tweede, aparte controle.
+  - **Generatieve AI, agents, voorspellende modellen en data.** Generatieve AI maakt tekst, beeld of code. Een voorspellend model rekent uit wat er waarschijnlijk gebeurt, zoals welke installatie binnenkort een storing krijgt (doel 2 van Voorbeeld BV). Een agent voert met een taalmodel een taak in stappen uit, binnen vaste grenzen. Alle drie hangen af van data. Een voorspellend model heeft eigen gegevens nodig om van te leren.
+
+  Nederlandse uitleg bij de termen (NFR-08):
+
+  | Term | Uitleg |
+  |---|---|
+  | Agent | Een systeem dat een taalmodel gebruikt om een taak in stappen uit te voeren, binnen vaste grenzen. |
+  | Jagged frontier | De grillige grens tussen taken die AI goed kan en taken waarbij AI fouten maakt. |
 
 ## Voorbereide antwoorden
 

@@ -1,7 +1,7 @@
 # Voorbeeldcasus: Voorbeeld BV
 
 - **Status:** concept (ADR-021). Alles op deze pagina is verzonnen. Een gelijkenis met een echte organisatie is toeval.
-- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de probleemformulering (FR-39), de kansenkaart (FR-27), de kennisvormen, het groeimodel en het experimentpaper (FR-38).
+- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (geparkeerd, mogelijk voor dag 2; ADR-048), de vraagtoets (FR-36), de probleemformulering (FR-39), de kansenkaart (FR-27), de kennisvormen, het groeimodel en het experimentpaper (FR-38).
 - **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html`, `materiaal/probleemformulering.html`, `materiaal/experimentpaper.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
 
 ## De organisatie

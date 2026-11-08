@@ -2,6 +2,29 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.34 — 2026-11-08
+
+**Nieuw**
+- De volwassenheidsscan (`materiaal/volwassenheidsscan.html`, FR-40). De deelnemer meet de eigen organisatie op zes dimensies, elk met vier niveaus:
+  - richting en eigenaarschap;
+  - gebruik en schaal;
+  - mensen en werk;
+  - data en technologie;
+  - governance en risico;
+  - waarde meten en leren.
+- Bij elk niveau hoort een voorbeeld uit de laatste drie maanden, of "weet ik niet" met wie het wel weet. De uitkomst is een profiel, geen totaalscore.
+- De dimensies komen uit een onderzoek in de AI-wiki naar het meten van AI-volwassenheid (ADR-048).
+
+**Gewijzigd**
+- Het blok "Breed gebruikt, zelden volwassen" (dag 1, 10:00) bestaat nu uit drie delen: de cijfers, de maquette van een ziekenhuis en de volwassenheidsscan. Daarna vergelijkt het duo de profielen. FR-26, de werkkaart, de instructie voor de trainer en het draaiboek volgen (ADR-048).
+- Het profiel komt terug bij de doelen (dag 1, 11:40), het transformatieplan (dag 3, 9:45) en de roadmap (dag 3, 10:45). Die blokken noemen het in "Je gebruikt", hebben een tegel naar de scan en verwijzen ernaar op de werkkaart.
+- Uit het blok gingen "Mens tegen agent", de vier faalwijzen van een agent, de grillige grens, gevoel is geen meting en de soorten AI. Ze hoorden bij de oude titel "Wat AI nu kan en niet kan" en kwamen niet meer aan bod. Ze staan in de reserve van het draaiboek. De meting van Allen en McDonald staat al op de lespagina Vier vragen: de trainer noemt haar nu om 11:15.
+- Ook deze plekken in de LRD volgen:
+  - de terugvaloptie in deel 6 en een verlichting bij de pijnpunten;
+  - twee KISS-keuzes;
+  - de opleveringen van de trainer en fase 0 van de roadmap;
+  - het risico over een voorbeeld uit een andere sector.
+
 ## 0.33 — 2026-11-08
 
 **Nieuw**

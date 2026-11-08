@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Deels vervangen door [ADR-025](ADR-025-kiss-opschoning-na-de-scan.md): de vier kennisvormen gaan van dag 1 naar werkplaats 2. Deels vervangen door [ADR-040](ADR-040-ziekenhuismaquette-op-dag-1.md): de ziekenhuismaquette komt alsnog op dag 1 |
+| **Status** | Deels vervangen door [ADR-025](ADR-025-kiss-opschoning-na-de-scan.md): de vier kennisvormen gaan van dag 1 naar werkplaats 2. Deels vervangen door [ADR-040](ADR-040-ziekenhuismaquette-op-dag-1.md): de ziekenhuismaquette komt alsnog op dag 1. Deels vervangen door [ADR-048](ADR-048-volwassenheidsscan.md): "Mens tegen agent" gaat naar de reserve voor dag 2, en het blok wordt de volwassenheidsscan |
 | **Datum** | 2026-11-07 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |
