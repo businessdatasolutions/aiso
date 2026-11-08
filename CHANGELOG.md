@@ -2,6 +2,16 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.38 — 2026-11-08
+
+**Gewijzigd**
+- De definitie van een strategische AI-vraag eindigt met "en welk aantrekkelijk alternatief ze daarvoor bewust
+  afwijst", in plaats van "en wat ze daarvoor laat". Dat geldt ook voor het criterium Keuze, de lezing voor publieke
+  organisaties, "het meest veranderd" in de afsluitingen, de AI-taak van 15:00 en de prompt van de supervisory board.
+  "Aantrekkelijk" sluit een schijnalternatief uit (ADR-054).
+- Dia 3 van het casusdeck: het vak heet "Wat we bewust afwijzen". Het lege deck op de downloadpagina is bijgewerkt.
+- Vraagtoets: wie het eerdere voorstel van de trainer bewaard had, krijgt vanzelf het nieuwe.
+
 ## 0.37 — 2026-11-08
 
 Na de tweede proefrun van dag 1, met een fictieve deelnemer uit een gemeente (issues #3 tot en met #7). Eerder die

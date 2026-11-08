@@ -179,7 +179,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="definitie-kop">De definitie die we afspreken</h2></div>
     <p class="uitleg">Dit is het voorstel van de trainer. De groep mag het scherper maken. Wat jullie afspreken, geldt alle drie de dagen.</p>
     <div class="definitie"><p id="definitie-tekst"></p></div>
-    <p class="uitleg">De definitie bouwt op de drie definities van de opening. De visie beschrijft de veranderende wereld, de missie de plek die je wilt innemen, en de strategie het pad erheen. Porter (1996) trekt de grens met een operationele vraag: hetzelfde werk beter doen dan anderen. Dat is nodig, maar een concurrent kan het nadoen. Strategie is een eigen positie kiezen, en daarvoor iets anders laten. Een publieke organisatie heeft vaak geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners en ketenpartners, en iets laten is dan een taak, kanaal of rol aan anderen overlaten.</p>
+    <p class="uitleg">De definitie bouwt op de drie definities van de opening. De visie beschrijft de veranderende wereld, de missie de plek die je wilt innemen, en de strategie het pad erheen. Porter (1996) trekt de grens met een operationele vraag: hetzelfde werk beter doen dan anderen. Dat is nodig, maar een concurrent kan het nadoen. Strategie is een eigen positie kiezen, en daarvoor een aantrekkelijk alternatief bewust afwijzen. Aantrekkelijk, want een optie afwijzen die toch niemand wilde, kost niets. Een publieke organisatie heeft vaak geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners en ketenpartners. Het alternatief dat ze afwijst, gaat dan vaak over wie een taak, kanaal of rol uitvoert: zij zelf of een ander.</p>
 
     <h3>Drie criteria, elk 0, 1 of 2</h3>
     <div class="table-wrap"><table id="criteria">
@@ -268,7 +268,9 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 /* De definitie en de criteria staan hier één keer. De tabel, de scores en de prompt komen eruit.
    De skill van de supervisory board in boards.html heeft een kopie: verander je hier iets, verander het daar ook.
    publiek: zo lees je niveau 2 bij een publieke organisatie (ADR-052). De schaal blijft gelijk. */
-const VOORSTEL = 'Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat.';
+const VOORSTEL = 'Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en welk aantrekkelijk alternatief ze daarvoor bewust afwijst.';
+/* Wie de pagina eerder opende, heeft misschien een eerder voorstel bewaard. Dat wordt het nieuwe (ADR-054). */
+const EERDERE_VOORSTELLEN = ['Een AI-vraag is strategisch als het antwoord bepaalt welke plek de organisatie inneemt nu AI haar omgeving verandert, en wat ze daarvoor laat.'];
 const CRITERIA = [
   { id: 'omgeving', naam: 'Omgeving', bij: 'visie', vraag: 'Welke verandering maakt de vraag nu dringend?',
     s: ['Geen, of alleen een knelpunt binnen de organisatie', 'Algemeen, zoals "AI verandert alles"', 'Concreet: bij klanten of inwoners, concurrenten, regels of techniek'] },
@@ -276,8 +278,8 @@ const CRITERIA = [
     s: ['Alleen over hoe een bestaand proces loopt', 'Over wat een afdeling of keten levert, en aan wie', 'Over wat de organisatie aanbiedt, aan wie, of waarmee ze zich onderscheidt'],
     publiek: 'welke rol ze inneemt tegenover inwoners, ketenpartners en andere overheden' },
   { id: 'keuze', naam: 'Keuze', bij: 'strategie', vraag: 'Dwingt het antwoord een keuze af?',
-    s: ['Elk antwoord is "doen" of "versterken"', 'Er zijn opties, maar niets valt af', 'Elk antwoord betekent dat de organisatie iets laat'],
-    publiek: 'een taak, een kanaal of een rol die ze aan anderen overlaat' },
+    s: ['Elk antwoord is "doen" of "versterken"', 'Er zijn opties, maar niets valt af', 'Elk antwoord wijst een aantrekkelijk alternatief bewust af'],
+    publiek: 'het afgewezen alternatief gaat vaak over wie een taak, kanaal of rol uitvoert, zij zelf of een ander' },
 ];
 /* Bron van A, B en C: materiaal/voorbeeldcasus.md, "Drie vragen voor de vraagtoets".
    Vraag D is geen Voorbeeld BV: een verzonnen gemeente, gelijk aan vraag 11 van de ijkset (ADR-052). */
@@ -285,11 +287,11 @@ const OEFEN = [
   { id: 'A', vraag: 'Hoe handelen we klachten sneller en beter af, en leren we ervan?', trainer: [0, 0, 0],
     uitleg: 'Het gaat over hoe een bestaand proces loopt. Wat Voorbeeld BV aanbiedt, en aan wie, blijft gelijk. Dit is een goede eerste prioriteit, en geen strategische vraag.' },
   { id: 'B', vraag: 'Hoe handelen we klachten sneller af dan de concurrent?', trainer: [1, 0, 0],
-    uitleg: 'Het twijfelgeval. De concurrent staat erin, maar wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk. Snelheid kan een concurrent nadoen. Strategisch wordt het pas als snelheid de keuze is waarmee Voorbeeld BV zich onderscheidt, en het bedrijf daar iets anders voor laat. Dus operationeel, hooguit tactisch.' },
+    uitleg: 'Het twijfelgeval. De concurrent staat erin, maar wat Voorbeeld BV aanbiedt en aan wie, blijft gelijk. Snelheid kan een concurrent nadoen. Strategisch wordt het pas als snelheid de keuze is waarmee Voorbeeld BV zich onderscheidt, en het bedrijf daarvoor een aantrekkelijk alternatief bewust afwijst. Dus operationeel, hooguit tactisch.' },
   { id: 'C', vraag: 'Blijven we het eerste aanspreekpunt van de klant, nu installaties hun storingen zelf aan de fabrikant melden? Of worden we de vaste installateur van de fabrikanten?', trainer: [2, 2, 2],
-    uitleg: 'Een concrete verandering: installaties melden zelf hun storing. De plek bij de klant staat op het spel, en elk antwoord laat iets: de klantrelatie, of de rol van onderaannemer. Zonder de tweede zin scoort Keuze een 1: er is een ambitie, maar niets valt af.' },
+    uitleg: 'Een concrete verandering: installaties melden zelf hun storing. De plek bij de klant staat op het spel, en elk antwoord wijst een aantrekkelijk alternatief af: de vaste rol bij de fabrikanten, of de eigen klantrelatie. Zonder de tweede zin scoort Keuze een 1: er is een ambitie, maar niets valt af.' },
   { id: 'D', kop: 'Gemeente Voorbeeldstad (verzonnen), voor wie bij een publieke organisatie werkt', vraag: 'Blijft de gemeente het eerste loket voor inwoners, nu die hun vragen eerst aan een AI-assistent stellen? Of laten we eenvoudige vragen over aan een landelijke voorziening, en houden we zelf het loket voor zorg, schulden en inkomen?', trainer: [2, 2, 2],
-    uitleg: 'Een concrete verandering: inwoners vragen eerst een AI-assistent. De gemeente heeft geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners, en die staat op het spel. Elk antwoord laat iets: het eigen loket voor eenvoudige vragen, of de mensen die een landelijke voorziening vrijspeelt voor zorg, schulden en inkomen. Zonder de tweede zin scoort Keuze een 1.' },
+    uitleg: 'Een concrete verandering: inwoners vragen eerst een AI-assistent. De gemeente heeft geen concurrent. Haar plek is de rol die ze inneemt tegenover inwoners, en die staat op het spel. Elk antwoord wijst een aantrekkelijk alternatief af: het eigen loket voor eenvoudige vragen, of de mensen die een landelijke voorziening vrijspeelt voor zorg, schulden en inkomen. Zonder de tweede zin scoort Keuze een 1.' },
 ];
 
 const $ = id => document.getElementById(id);
@@ -306,7 +308,7 @@ function schoon(v) {
   const s = leeg();
   if (!v || typeof v !== 'object') return s;
   for (const k of ['definitie', 'aanscherping', 'vraag']) if (typeof v[k] === 'string') s[k] = v[k];
-  if (!s.definitie.trim()) s.definitie = VOORSTEL;
+  if (!s.definitie.trim() || EERDERE_VOORSTELLEN.includes(s.definitie.trim())) s.definitie = VOORSTEL;
   s.eersteStap = v.eersteStap === true;
   if (v.scores && typeof v.scores === 'object') {
     for (const [k, w] of Object.entries(v.scores)) if ([0, 1, 2].includes(w)) s.scores[k] = w;

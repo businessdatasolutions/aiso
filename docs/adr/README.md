@@ -57,6 +57,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-051](ADR-051-duo-kiest-het-antwoord-voor-de-board.md) | Het duo kiest samen welk antwoord naar de board gaat (dag 1) | Aanvaard | 2026-11-08 |
 | [ADR-052](ADR-052-vraagtoets-voor-publieke-organisaties.md) | De vraagtoets krijgt een lezing voor publieke organisaties en een oefenvraag van een gemeente | Aanvaard | 2026-11-08 |
 | [ADR-053](ADR-053-het-meest-veranderd.md) | "Het meest veranderd" is wat je nu anders kiest of laat; het duo krijgt drie minuten | Aanvaard | 2026-11-08 |
+| [ADR-054](ADR-054-aantrekkelijk-alternatief-bewust-afwijzen.md) | "Wat je laat" wordt "welk aantrekkelijk alternatief je bewust afwijst" | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 
