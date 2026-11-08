@@ -283,7 +283,10 @@ let vorigeSleutel = null, eersteKeer = true;
 
 const typeVan = t => (TYPES.includes(t) ? t : 'inhoud');
 const label = t => DATA?.typeLabel?.[t] ?? t;
-const heeftUitkomst = b => b.output && !/^[—–-]\s*$/.test(String(b.output).trim());
+const gevuld = v => v && !/^[—–-]\s*$/.test(String(v).trim());
+const heeftUitkomst = b => gevuld(b.output);
+// Eigen werk uit eerdere blokken, pauzes of thuis (DATA.days[].blocks[].uses), los van de online invoer.
+const gebruikt = b => (gevuld(b.uses) ? `<b>Je gebruikt:</b> ${esc(b.uses)}` : '');
 
 function dagNummers() { return DATA.days.map(d => d.n); }
 function standaardDag() {
@@ -345,6 +348,7 @@ function tekenLijst() {
       <div class="rij-inhoud">
         <div class="rij-meta"><span class="type"><span class="staal t-${b.t}"></span>${esc(label(b.t))}</span><span class="nu-badge">Nu</span></div>
         <h2 class="rij-titel">${esc(b.title)}</h2>
+        ${gebruikt(b) ? `<p class="maakt">${gebruikt(b)}</p>` : ''}
         ${heeftUitkomst(b) ? `<p class="maakt"><b>Je maakt:</b> ${esc(b.output)}</p>` : ''}
         ${mat.length ? `<div class="tegels">${mat.join('')}</div>` : ''}
       </div></li>`;
@@ -428,11 +432,13 @@ function ververs() {
   if (nu.soort === 'blok') {
     nuLabel = `Nu · ${label(nu.b.t)} · ${nu.b.s}–${nu.b.e}`; nuTitel = nu.b.title;
     if (nu.b.t !== 'pauze' && heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
+    if (nu.b.t !== 'pauze' && gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
     const v = naBlok(nu.b);
     daarna = v ? `Daarna: ${esc(v.title)}` : '';
   } else if (nu.soort === 'voor' || nu.soort === 'tussen') {
     nuLabel = `Straks · ${label(nu.b.t)} · om ${nu.b.s}`; nuTitel = nu.b.title;
     if (heeftUitkomst(nu.b)) maakt = `<b>Je maakt:</b> ${esc(nu.b.output)}`;
+    if (gebruikt(nu.b)) maakt = gebruikt(nu.b) + (maakt ? '<br>' + maakt : '');
   } else {
     const volgende = DATA.days.filter(d => d.n > dag.n).sort((p, q) => p.n - q.n)[0];
     nuLabel = volgende ? 'Volgende lesdag' : 'Afgelopen';

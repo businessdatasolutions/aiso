@@ -35,6 +35,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-029](ADR-029-echte-citaten-op-de-kaarten.md) | Echte citaten en een Wikipedia-link op de kaarten van het startsjabloon | Aanvaard | 2026-11-07 |
 | [ADR-030](ADR-030-klassiek-eerst-dan-de-omslag.md) | Klassiek eerst, dan de omslag: het strategieverhaal in twee delen op dag 1 | Aanvaard | 2026-11-07 |
 | [ADR-031](ADR-031-startpagina-zonder-afteller.md) | Een startpagina zonder afteller, met een tijdlijn die in beeld blijft | Aanvaard | 2026-11-08 |
+| [ADR-032](ADR-032-eigen-werk-als-invoer.md) | Eigen werk als invoer, apart van de online omgeving, en "Je gebruikt" op de startpagina | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

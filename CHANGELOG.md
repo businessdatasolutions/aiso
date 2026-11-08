@@ -2,6 +2,18 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.21 — 2026-11-08
+
+**Toegevoegd** (ADR-032)
+- Een nieuw veld `uses` per programmablok: het eigen werk dat een blok gebruikt, uit een eerder blok, uit de AI-taak van een pauze of van thuis. Bij elk stuk staat waar het vandaan komt. Negentien blokken hebben het.
+- Startpagina: de regel "Je gebruikt:" boven "Je maakt:", in de lijst en bij het blok van nu.
+- Deel 8: het detailpaneel en de printtabel hebben een regel en een kolom "Eigen werk als invoer".
+
+**Gewijzigd** (ADR-032)
+- `input` bevat alleen nog werk uit de online omgeving, zoals de kolomnaam in deel 8 zegt. Het eigen werk uit dertien blokken staat nu in `uses`, waaronder de top 3 stakeholders uit ADR-030.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.20 — 2026-11-08
 
 **Gewijzigd** (ADR-031)
