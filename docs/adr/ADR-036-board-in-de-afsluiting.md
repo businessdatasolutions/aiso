@@ -1,4 +1,4 @@
-# ADR-036: Het board toetst in de afsluiting, zonder boardmoment en zonder ADR
+# ADR-036: De board toetst in de afsluiting, zonder boardmoment en zonder ADR
 
 | | |
 |---|---|
@@ -9,14 +9,14 @@
 
 ## Context
 
-In versie 0.21 eindigde elk deckblok met een boardmoment van 15 minuten, met een ADR. Tussen dag 1 en dag 2 legde de deelnemer de pitch thuis voor aan het supervisory board (FR-19).
+In versie 0.21 eindigde elk deckblok met een boardmoment van 15 minuten, met een ADR. Tussen dag 1 en dag 2 legde de deelnemer de pitch thuis voor aan de supervisory board (FR-19).
 
-De gebruiker koos op 8 november om de twee boards te houden. Het aparte boardmoment en de ADR vervallen. Het board toetst in de afsluiting het antwoord dat die dag het meest veranderde.
+De gebruiker koos op 8 november om de twee boards te houden. Het aparte boardmoment en de ADR vervallen. De board toetst in de afsluiting het antwoord dat die dag het meest veranderde.
 
 ## Besluit
 
 - **Geen boardblokken meer.** Het bloktype `board` vervalt.
-- **FR-18 herschreven.** In de afsluiting gaat het antwoord dat het meest veranderde naar het board dat erbij past. Bij vraag 1 en 2 is dat het supervisory board, bij vraag 3 en 4 het advisory board. Wat het board zegt en wat de deelnemer ermee doet, komt op de vragenkaart.
+- **FR-18 herschreven.** In de afsluiting gaat het antwoord dat het meest veranderde naar de board die erbij past. Bij vraag 1 en 2 is dat de supervisory board, bij vraag 3 en 4 de advisory board. Wat de board zegt en wat de deelnemer ermee doet, komt op de vragenkaart.
 - **FR-19 en `DATA.boardMoments` vervallen.**
 - **`materiaal/boards.html`:**
   - stap 6 heet "Je boards gebruiken";
@@ -31,7 +31,7 @@ De gebruiker koos op 8 november om de twee boards te houden. Het aparte boardmom
 ## Gevolgen
 
 - **Elke dag 15 minuten vrij.** De afsluiting duurt 30 minuten, en het deckblok op dag 3 duurt 45 minuten.
-- **De vergelijking van het AI-board met het comité op dag 2 vervalt** (FR-19).
+- **De vergelijking van de AI-board met het comité op dag 2 vervalt** (FR-19).
 - **Nog niets uitgedeeld.** Deelnemers hebben de skills nog niet gedownload, dus er is geen oude versie in omloop.
 
 ## Raakt

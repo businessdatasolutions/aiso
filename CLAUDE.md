@@ -90,5 +90,5 @@ From a new session, publish to the existing URL with the `url` parameter after r
 
 ## Related outside this repo
 
-- `~/Projects/brand-project/stylebook/` holds the brand source: tokens, logo and voice. Voice is plain Dutch with no anglicisms where a Dutch word exists.
+- `~/Projects/brand-project/stylebook/` holds the brand source: tokens, logo and voice. Voice is plain Dutch with no anglicisms where a Dutch word exists. Write "de board" (not "het board"), with "elke board" and "de board die …": the participants come from business, where "de board" is the usual form (version 0.23).
 - `~/Projects/ai-wiki/` is the user's LLM wiki. Research questions about the LRD go through its `iterative-wiki-query` skill, and its research logs are written in that repo's `inspiration/` folder.

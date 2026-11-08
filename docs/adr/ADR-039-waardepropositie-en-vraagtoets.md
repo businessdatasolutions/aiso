@@ -32,7 +32,7 @@ Beide sessies schreven tegelijk in de LRD. De gebruiker besloot dat de sessie va
 
   De strategische vraag is vraag 1 in de taal van de eigen casus.
 - **Een nieuwe lead.**
-- **De vraagtoets (FR-36).** Drie criteria: Omgeving, Positie en Keuze, elk met een score van 0, 1 of 2. Er is geen totaalscore, wel een beslisregel. De groep oefent op drie vragen van Voorbeeld BV en scherpt de definitie aan. Dan scoren de deelnemer en het duo. In de lunch scoort de AI, via het supervisory board.
+- **De vraagtoets (FR-36).** Drie criteria: Omgeving, Positie en Keuze, elk met een score van 0, 1 of 2. Er is geen totaalscore, wel een beslisregel. De groep oefent op drie vragen van Voorbeeld BV en scherpt de definitie aan. Dan scoren de deelnemer en het duo. In de lunch scoort de AI, via de supervisory board.
 - **De ijking (FR-37).** Negen vragen, met de norm dat de AI er minstens acht goed beoordeelt, in Claude, ChatGPT en Gemini.
 - **AC-23.**
 - **FR-01** spreekt van een voorlopige vraag, die na de toets vastligt.

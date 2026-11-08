@@ -2,6 +2,13 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.23 — 2026-11-08
+
+**Gewijzigd**
+- Overal "de board" in plaats van "het board", met "elke board" en "de board die …". De deelnemers komen uit het bedrijfsleven, en daar is "de board" gangbaar. Het geldt voor de LRD, `boards.html` (ook de skillteksten), het draaiboek, `vraagtoets.html`, ADR-036 en ADR-039. Oudere ADR's en changelogregels blijven zoals ze waren.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.22 — 2026-11-08
 
 **Toegevoegd**
@@ -19,7 +26,7 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 **Gewijzigd**
 - Het programma: elke dag opent en sluit met de vier vragen. Dag 1 verdiept vraag 1, dag 2 vraag 3, en dag 3 vraag 2 en 4. Het deckblok duurt elke dag 45 minuten (ADR-033, ADR-036).
 - Het deck telt tien dia's: de vragenkaart en de negen onderdelen van de integrale opdracht. Randvoorwaarden en risicoanalyse zijn weer apart, en de Conclusie is op dag 3 een concept (ADR-034).
-- Het board toetst in de afsluiting het antwoord dat het meest veranderde. `boards.html` vraagt geen ADR meer (FR-18; ADR-036).
+- De board toetst in de afsluiting het antwoord dat het meest veranderde. `boards.html` vraagt geen ADR meer (FR-18; ADR-036).
 - Het nabespreken heeft twee vragen (FR-05). Het comité verdeelt tien fiches over de pitches (FR-09). Het buildplan heet roadmap voor jaar 1 en heeft uitwijkroutes (FR-15). Het experiment komt op een dia (FR-21). FR-01 spreekt van een voorlopige strategische vraag (ADR-033, ADR-034, ADR-037, ADR-039).
 - Herschreven: FR-02, 03, 06, 14, 17, 20, 24, 26, 28, 30, 31 en 32, en NFR-09. Ook AC-01, 02, 04, 05, 06, 12, 14 en 20. Verder de werkplaatsopdrachten, de trainerslijst, de risico's en fase 0 tot en met 2.
 

@@ -348,7 +348,7 @@ Dan kies je opnieuw. Dat is de lus van 11:00: kiezen, kijken wat er gebeurt, nie
 ## Dag 1 · 12:15–12:30 · Je supervisory board (FR-17, FR-32, ADR-028, ADR-030)
 
 **Materiaal:** `materiaal/boards.html`, stap 1, 2, 4 en 5.
-**Uitkomst:** het supervisory board als skill in de eigen AI-omgeving.
+**Uitkomst:** de supervisory board als skill in de eigen AI-omgeving.
 
 **Voordoen (3 minuten).** Open `materiaal/boards.html` op het scherm, bij stap 2.
 
@@ -360,9 +360,9 @@ Dan kies je opnieuw. Dat is de lus van 11:00: kiezen, kijken wat er gebeurt, nie
 
 - **Alleen openbare stukken** (NFR-01). Een intern strategiestuk gaat geen AI-tool in.
 - Vond de AI niets, of werkt iemand met Voorbeeld BV? Dan neemt die het jaarverslag van een organisatie uit dezelfde sector.
-- Lukt het installeren niet vóór 12:30? Laat het stuk dan door de AI samenvatten met de vraag uit de AI-taak, en installeer het board in werkplaats 1. De vraagtoets doet die deelnemer dan met de prompt uit stap 4 van `vraagtoets.html`.
+- Lukt het installeren niet vóór 12:30? Laat het stuk dan door de AI samenvatten met de vraag uit de AI-taak, en installeer de board in werkplaats 1. De vraagtoets doet die deelnemer dan met de prompt uit stap 4 van `vraagtoets.html`.
 
-**Om 12:25: werkregel 1.** De AI-taak voor de lunch staat op de startpagina en onder stap 2 van `boards.html`. Het board bespreekt de stukken van het bestuur en komt tot een gezamenlijke conclusie en advies. Daarna scoort het board de strategische vraag met de vraagtoets. Zeg: "Geef je eigen scores niet mee. Dan leunt het board er niet op."
+**Om 12:25: werkregel 1.** De AI-taak voor de lunch staat op de startpagina en onder stap 2 van `boards.html`. De board bespreekt de stukken van het bestuur en komt tot een gezamenlijke conclusie en advies. Daarna scoort de board de strategische vraag met de vraagtoets. Zeg: "Geef je eigen scores niet mee. Dan leunt de board er niet op."
 
 ### Lastige vragen
 
@@ -373,24 +373,24 @@ Ja, als het een publiek persoon is. Het lid heet v_Naam: een denkperspectief, ge
 Gebruik de terugvaloptie uit stap 5: een project met de tekst als instructie. Het werkt hetzelfde.
 
 **"Waarom een tegenspreker? Ik wil juist inspiratie."**
-Een board dat je alleen gelijk geeft, leert je niets. Eén lid dat tegen je koers in gaat, laat zien waar je verhaal zwak is.
+Een board die je alleen gelijk geeft, leert je niets. Eén lid dat tegen je koers in gaat, laat zien waar je verhaal zwak is.
 
 ## Dag 1 · 12:30–13:30 · Lunch
 
-- **AI-taak:** leg de stukken van het bestuur voor aan je supervisory board. Het board bespreekt wat ze zeggen over visie, missie en strategie, en komt tot een gezamenlijke conclusie en advies. Daarna scoort het board je strategische vraag met de vraagtoets. Waar het board anders scoort dan jij en je duo, beslis jij. De volledige tekst staat op de startpagina en in de LRD.
+- **AI-taak:** leg de stukken van het bestuur voor aan je supervisory board. De board bespreekt wat ze zeggen over visie, missie en strategie, en komt tot een gezamenlijke conclusie en advies. Daarna scoort de board je strategische vraag met de vraagtoets. Waar de board anders scoort dan jij en je duo, beslis jij. De volledige tekst staat op de startpagina en in de LRD.
 - Gebruik de lunch voor een gesprek over een leerdoel dat niet past (FR-11), als dat nog open staat.
 
 ## Dag 1 · 13:30–15:00 · AI-werkplaats 1: bouw je boards (FR-04, FR-05, FR-06, FR-07, FR-17, FR-32, ADR-027, ADR-028)
 
 **Ritme:** voordoen (15 minuten), zelf doen (50), nabespreken (25) (FR-04).
 **Materiaal:** `materiaal/boards.html`, stap 3 tot en met 6.
-**Uitkomst:** het advisory board als skill, en een aangescherpte visie met doelen.
+**Uitkomst:** de advisory board als skill, en een aangescherpte visie met doelen.
 
 ### 13:30–13:45 · Voordoen (15 minuten)
 
 **Zeg eerst (NFR-01):** "Voer geen vertrouwelijke gegevens van je organisatie in, ook niet in een eigen account. Werk met openbare informatie of verzonnen gegevens."
 
-**Begin (5 minuten).** Elke deelnemer leest het advies van het supervisory board uit de lunch. Vraag twee deelnemers: "Wat zei je board over hoe jullie bestuur visie, missie en strategie beschrijft? Een vaste stip, of ruimte om te leren?" Vraag daarna: "Scoorde iemands board de strategische vraag anders dan de deelnemer en het duo? Wat deed je ermee?"
+**Begin (5 minuten).** Elke deelnemer leest het advies van de supervisory board uit de lunch. Vraag twee deelnemers: "Wat zei je board over hoe jullie bestuur visie, missie en strategie beschrijft? Een vaste stip, of ruimte om te leren?" Vraag daarna: "Scoorde iemands board de strategische vraag anders dan de deelnemer en het duo? Wat deed je ermee?"
 
 **Voordoen (10 minuten).** Open `materiaal/boards.html` op het scherm, bij stap 3.
 
@@ -402,41 +402,41 @@ Een board dat je alleen gelijk geeft, leert je niets. Eén lid dat tegen je koer
 
 ### 13:45–14:35 · Zelf doen (50 minuten)
 
-1. **Het advisory board bouwen (13:45–14:10).** Elke deelnemer vult stap 3 in en downloadt `advisory-board.zip`. Daarna zet de deelnemer hem in de eigen AI (stap 5) en test hem met de testvraag uit stap 6.
+1. **De advisory board bouwen (13:45–14:10).** Elke deelnemer vult stap 3 in en downloadt `advisory-board.zip`. Daarna zet de deelnemer hem in de eigen AI (stap 5) en test hem met de testvraag uit stap 6.
 2. **Vraag 1 voorleggen (14:10–14:35).** Elke deelnemer legt het antwoord op vraag 1 en de doelen voor aan beide boards. De zinnen staan in stap 6 van de pagina:
-   - aan het advisory board: "Wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?" Controleer minstens één genoemde bron zelf.
-   - aan het supervisory board: "Past mijn koers bij wat ons bestuur zegt over visie, missie en strategie?"
+   - aan de advisory board: "Wat zijn de drie zwakste punten, en welke bronnen spreken mij tegen?" Controleer minstens één genoemde bron zelf.
+   - aan de supervisory board: "Past mijn koers bij wat ons bestuur zegt over visie, missie en strategie?"
 
 **Tijdens het bouwen.**
 
 - Geef de pagina als bestand mee, of zet hem in de leeromgeving. Hij werkt zonder server en zonder internet.
-- Geen skills in de eigen omgeving (vaak ChatGPT zonder werkruimteplan)? Dan geldt de terugvaloptie: een project met de tekst als instructie. Het werkt hetzelfde, alleen roep je het board dan op door in dat project te werken.
+- Geen skills in de eigen omgeving (vaak ChatGPT zonder werkruimteplan)? Dan geldt de terugvaloptie: een project met de tekst als instructie. Het werkt hetzelfde, alleen roep je de board dan op door in dat project te werken.
 - Wie een Gem wil maken: niet doen. Bij persoonlijke accounts zijn Gems vanaf 17 november alleen-lezen, vóór dag 2.
 - **Terugvaloptie (FR-07).** Wie geen bruikbare eigen casus heeft, werkt met Voorbeeld BV, via de knop "Vul in met Voorbeeld BV".
 - **Verdieping.** Wie klaar is, doet dezelfde opdracht met een tweede model, bijvoorbeeld een reserve-account op Gemini, en brengt de verschillen in bij het nabespreken.
 
-**In de laatste tien minuten van het zelf doen** kijk je bij iedereen naar de samenstelling (FR-17). Heeft het advisory board een harde scepticus, en het supervisory board een tegenspreker? De controles op de pagina laten het zien, maar wie de tekst daarna aanpast, kan ze er weer uit halen.
+**In de laatste tien minuten van het zelf doen** kijk je bij iedereen naar de samenstelling (FR-17). Heeft de advisory board een harde scepticus, en de supervisory board een tegenspreker? De controles op de pagina laten het zien, maar wie de tekst daarna aanpast, kan ze er weer uit halen.
 
 ### 14:35–15:00 · Nabespreken (25 minuten, FR-05)
 
 Twee vragen, in deze volgorde.
 
-1. **"Wat deed de AI goed voor je casus, en waar ging het mis of moest je corrigeren?"** (15 minuten) Elke deelnemer noemt één concreet punt (AC-02). Een concreet punt zegt wat de AI zei of deed, zoals: "Het advisory board noemde een bron die niet bestaat." Te vaag is: "Het was best goed." Vraag door: "Wat deed je toen?"
+1. **"Wat deed de AI goed voor je casus, en waar ging het mis of moest je corrigeren?"** (15 minuten) Elke deelnemer noemt één concreet punt (AC-02). Een concreet punt zegt wat de AI zei of deed, zoals: "De advisory board noemde een bron die niet bestaat." Te vaag is: "Het was best goed." Vraag door: "Wat deed je toen?"
 2. **"Wat verandert dit aan je antwoord op een van de vier vragen?"** (8 minuten) Eerst in het duo. Daarna zeggen twee deelnemers het in de groep. Zeg: "Schrijf het op de achterkant van je vragenkaart. Om 16:00 heb je het nodig."
 3. **Werkregel 1 (2 minuten, om 14:55).** Start de AI-taak voor de pauze. De AI maakt uit de visie en de doelen een eerste tekst voor de dia's Aanleiding en Strategische doelen.
 
 ### Lastige vragen
 
 **"Mijn advisory board is het overal mee eens."**
-Kijk of de harde scepticus in het board zit (stap 3) en of de skill aan staat. Noem het board bij zijn naam, en vraag om de drie zwakste punten. Een board dat alles goed vindt, toetst niet.
+Kijk of de harde scepticus in de board zit (stap 3) en of de skill aan staat. Noem de board bij zijn naam, en vraag om de drie zwakste punten. Een board die alles goed vindt, toetst niet.
 
 **"De AI noemt een bron die ik niet kan vinden."**
 Dat is een concreet punt voor het nabespreken. Een bron die je niet kunt vinden, gebruik je niet. Vraag de AI om de link, en zoek zelf.
 
 **"Mijn twee boards spreken elkaar tegen."**
-Dat mag. Het supervisory board kijkt naar de koers, het advisory board naar het vak. Jij beslist, en schrijft op waarom.
+Dat mag. De supervisory board kijkt naar de koers, de advisory board naar het vak. Jij beslist, en schrijft op waarom.
 
-**"Is wat het board zegt een citaat van die persoon?"**
+**"Is wat de board zegt een citaat van die persoon?"**
 Nee. De leden heten v_Naam: het zijn denkperspectieven. Wat ze zeggen, is nooit een citaat en hoort niet in materiaal voor buiten. Echte citaten staan alleen op de kaarten van het startsjabloon, met bron.
 
 ## Dag 1 · 15:00–15:15 · Pauze
@@ -504,7 +504,7 @@ Nee. In de lesdagen telt het deck nergens voor mee. Het is het concept van je in
 **Materiaal:** de geprinte vragenkaart met op de achterkant de zinnen van 11:32 en het nabespreken; `materiaal/boards.html#gebruiken`.
 **Uitkomst:** de vragenkaart na dag 1, en een volgende stap in het actieplan.
 
-**Dit is het ritueel.** Het komt aan het eind van elke lesdag terug, in dezelfde volgorde. Zeg dat erbij. Er is geen boardmoment en geen ADR meer: het board toetst hier, en de uitkomst komt op de vragenkaart (ADR-036).
+**Dit is het ritueel.** Het komt aan het eind van elke lesdag terug, in dezelfde volgorde. Zeg dat erbij. Er is geen boardmoment en geen ADR meer: de board toetst hier, en de uitkomst komt op de vragenkaart (ADR-036).
 
 ### 16:00–16:03 · Teruglezen (3 minuten)
 
@@ -518,12 +518,12 @@ Zeg: "Pak je vragenkaart. Lees je nulmeting van vanochtend, in stilte." Niemand 
 4. Loopt iemand vast, toon dan het voorbeeld van Voorbeeld BV bij V1 (stap 6 van `vier-vragen.html`): "Van een plan voor vijf jaar naar een koers met loslaatsignalen. Fabrikanten en AI-assistenten veranderen de vraag sneller dan een plan meegaat."
 5. **Duo (de laatste 2 minuten).** "Leg je kaart naast die van je duo. Wat veranderde bij jou, en wat bij de ander?" (FR-33)
 
-### 16:13–16:23 · Het board toetst (10 minuten, FR-18)
+### 16:13–16:23 · De board toetst (10 minuten, FR-18)
 
 1. Zeg: "Kies het antwoord dat vandaag het meest veranderde."
 2. Zeg: "Gaat het om vraag 1 of 2, leg het dan voor aan je supervisory board. Gaat het om vraag 3 of 4, dan aan je advisory board."
 3. Zeg: "Zet het in drie zinnen: wat was je antwoord, wat is het nu, en waarom veranderde het? Voeg je casusdeck van vandaag toe."
-4. Beide boards sluiten af met twee regels voor de vragenkaart. Zeg: "Lees wat het board zegt, en beslis zelf. Zet in de regel Na dag 1 wat het board zei, wat jij ermee doet en je eerste volgende stap. Wijk je af van het board, schrijf dan op waarom."
+4. Beide boards sluiten af met twee regels voor de vragenkaart. Zeg: "Lees wat de board zegt, en beslis zelf. Zet in de regel Na dag 1 wat de board zei, wat jij ermee doet en je eerste volgende stap. Wijk je af van de board, schrijf dan op waarom."
 
 Een oordeel van een board is een mening. Het besluit blijft bij de deelnemer.
 
@@ -544,8 +544,8 @@ Een oordeel van een board is een mening. Het besluit blijft bij de deelnemer.
 **"Bij mij is niets veranderd."**
 Dat mag. Schrijf "niet veranderd" en, als je wilt, waarom het standhield. Een antwoord dat een dag tegenspraak overleeft, zegt ook iets. Vraag wel: "Bij welke vraag zit je misschien op een lage β?"
 
-**"Het board is het niet met me eens."**
-Het board geeft een mening. Jij beslist. Wijk je af, schrijf dan op waarom. Dat vraagt de regel op de kaart.
+**"De board is het niet met me eens."**
+De board geeft een mening. Jij beslist. Wijk je af, schrijf dan op waarom. Dat vraagt de regel op de kaart.
 
 **"Alles veranderde. Welke kies ik?"**
 Kies het antwoord waar je het minst zeker over bent. Daar heb je het meest aan een tweede blik.
