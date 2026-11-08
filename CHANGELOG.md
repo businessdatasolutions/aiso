@@ -15,6 +15,10 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 
 ## 0.38 — 2026-11-08
 
+**Nieuw**
+- Advisory board: een kaart voor v_Ilves, over het bouwen van een digitale overheid: digitale identiteit, gegevens
+  één keer uitvragen, en vertrouwen (Toomas Hendrik Ilves, oud-president van Estland).
+
 **Gewijzigd**
 - De definitie van een strategische AI-vraag eindigt met "en welk aantrekkelijk alternatief ze daarvoor bewust
   afwijst", in plaats van "en wat ze daarvoor laat". Dat geldt ook voor het criterium Keuze, de lezing voor publieke
