@@ -37,13 +37,14 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-031](ADR-031-startpagina-zonder-afteller.md) | Een startpagina zonder afteller, met een tijdlijn die in beeld blijft | Aanvaard | 2026-11-08 |
 | [ADR-032](ADR-032-eigen-werk-als-invoer.md) | Eigen werk als invoer, apart van de online omgeving, en "Je gebruikt" op de startpagina | Aanvaard | 2026-11-08 |
 | [ADR-033](ADR-033-vier-vragen-als-ruggengraat.md) | De vier vragen als ruggengraat: wicked problems, verkennen en benutten, de vragenkaart | Aanvaard | 2026-11-08 |
-| [ADR-034](ADR-034-bouwstraat-vervalt.md) | De bouwstraat vervalt; de onderdelen van het deck zijn de producten | Aanvaard | 2026-11-08 |
+| [ADR-034](ADR-034-bouwstraat-vervalt.md) | De bouwstraat vervalt; de onderdelen van het deck zijn de producten | Deels vervangen door ADR-041 | 2026-11-08 |
 | [ADR-035](ADR-035-casusdeck-als-lokaal-html.md) | Het casusdeck als lokaal HTML-bestand met een PDF-knop | Aanvaard | 2026-11-08 |
 | [ADR-036](ADR-036-board-in-de-afsluiting.md) | Het board toetst in de afsluiting, zonder boardmoment en zonder ADR | Aanvaard | 2026-11-08 |
 | [ADR-037](ADR-037-kiss-opschoning-vier-vragen.md) | KISS-opschoning bij de vier vragen | Aanvaard | 2026-11-08 |
 | [ADR-038](ADR-038-skills-per-vraag.md) | Per vraag een vaardigheid, en een AI-skill waar die iets toevoegt | Aanvaard | 2026-11-08 |
 | [ADR-039](ADR-039-waardepropositie-en-vraagtoets.md) | Waardepropositie en vraagtoets voor de strategische AI-vraag | Aanvaard | 2026-11-08 |
 | [ADR-040](ADR-040-ziekenhuismaquette-op-dag-1.md) | De maquette van een ziekenhuis op dag 1; de opbouw van een agent geparkeerd | Aanvaard | 2026-11-08 |
+| [ADR-041](ADR-041-experiment-als-paper.md) | Het experiment als wetenschappelijk paper, geschreven door de AI | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

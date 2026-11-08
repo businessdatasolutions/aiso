@@ -142,6 +142,7 @@ main { flex: 1 0 auto; width: 100%; max-width: var(--breed); margin: 0 auto; pad
 .rij.is-pauze.is-nu .pauze-titel { color: var(--text-primary); font-weight: 600; }
 .pauze-ai { flex: 1 1 28ch; min-width: 0; font-size: clamp(.875rem, .95vw, 1.05rem); color: var(--text-muted); }
 .pauze-ai b { color: var(--text-secondary); font-weight: 600; }
+.pauze-link { font-weight: 600; }
 
 .melding-kaart { background: var(--bg-page); border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: clamp(20px, 2.4vw, 32px); max-width: 70ch; }
 .melding-kaart h2 { font-size: clamp(1.25rem, 1.8vw, 1.75rem); margin: 0 0 12px; line-height: 1.25; }
@@ -329,17 +330,35 @@ function kiesDag(n, metUrl = true) {
   ververs();
 }
 
-function tegel(m) {
-  if (!m || !m.href) return '';
+/* Een href uit DATA wordt een adres naast de LRD; alleen http(s) mag. */
+function materiaalUrl(m) {
+  if (!m || !m.href) return null;
   let url;
-  try { url = new URL(m.href, LRD_URL); } catch { return ''; }
-  if (!/^https?:$/.test(url.protocol)) return '';
-  const extern = url.origin !== location.origin;
+  try { url = new URL(m.href, LRD_URL); } catch { return null; }
+  if (!/^https?:$/.test(url.protocol)) return null;
+  return { url, extern: url.origin !== location.origin };
+}
+
+function tegel(m) {
+  const doel = materiaalUrl(m);
+  if (!doel) return '';
+  const { url, extern } = doel;
   return `<a class="tegel${extern ? ' is-extern' : ''}" href="${esc(url.href)}"${extern ? ' target="_blank" rel="noopener noreferrer"' : ''}>`
     + `<span>${esc(m.label || url.pathname.split('/').pop())}</span>`
     + `<span class="tegel-pijl" aria-hidden="true">${extern ? '↗' : '→'}</span>`
     + (extern ? '<span class="sr"> (opent in een nieuw tabblad)</span>' : '')
     + '</a>';
+}
+
+/* Een pauze is een smalle rij: haar materiaal staat als gewone link achter de AI-taak,
+   in de rij en in de band van werkregel 1. */
+function pauzeLinks(b) {
+  return (Array.isArray(b.materials) ? b.materials : []).map(m => {
+    const doel = materiaalUrl(m);
+    if (!doel) return '';
+    const { url, extern } = doel;
+    return ` <a class="pauze-link" href="${esc(url.href)}"${extern ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(m.label || url.pathname.split('/').pop())}&nbsp;${extern ? '↗' : '→'}</a>`;
+  }).join('');
 }
 
 function tekenLijst() {
@@ -349,7 +368,7 @@ function tekenLijst() {
     if (b.t === 'pauze') {
       return `<li class="rij is-pauze" id="blok-${b.i}" data-blok-rij="${b.i}">
         <div class="rij-tijd"><span class="van-tot">${esc(b.s)}–${esc(b.e)}</span></div>
-        <div class="rij-inhoud"><span class="pauze-titel">${esc(b.title)}</span><span class="nu-badge">Nu</span>${b.aiTask ? `<span class="pauze-ai"><b>AI aan het werk:</b> ${esc(b.aiTask)}</span>` : ''}</div></li>`;
+        <div class="rij-inhoud"><span class="pauze-titel">${esc(b.title)}</span><span class="nu-badge">Nu</span>${b.aiTask ? `<span class="pauze-ai"><b>AI aan het werk:</b> ${esc(b.aiTask)}${pauzeLinks(b)}</span>` : ''}</div></li>`;
     }
     const mat = Array.isArray(b.materials) ? b.materials.map(tegel).filter(Boolean) : [];
     return `<li class="rij" id="blok-${b.i}" data-blok-rij="${b.i}">
@@ -422,7 +441,7 @@ function toonRegel(nu) {
     else if (nu.rest <= VIJF_MIN) { const v = naBlok(nu.b); if (v?.t === 'pauze') pauze = v; }
   }
   const html = pauze
-    ? `<b>Werkregel 1</b> · ${esc(regel.text)}${pauze.aiTask ? `<br><b>Idee:</b> ${esc(pauze.aiTask)}` : ''}`
+    ? `<b>Werkregel 1</b> · ${esc(regel.text)}${pauze.aiTask ? `<br><b>Idee:</b> ${esc(pauze.aiTask)}${pauzeLinks(pauze)}` : ''}`
     : '';
   if (html === vorigeRegel) return;
   const verschijnt = !vorigeRegel && !!html;

@@ -1,8 +1,8 @@
 # Voorbeeldcasus: Voorbeeld BV
 
 - **Status:** concept (ADR-021). Alles op deze pagina is verzonnen. Een gelijkenis met een echte organisatie is toeval.
-- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de kansenkaart (FR-27), de kennisvormen en het groeimodel.
-- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
+- **Gebruik:** de terugvaloptie in de werkplaatsen (FR-07, FR-10), het voordoen, "Mens tegen agent" (FR-26), de vraagtoets (FR-36), de kansenkaart (FR-27), de kennisvormen, het groeimodel en het experimentpaper (FR-38).
+- **Bron van:** `materiaal/kansenkaart.html`, `materiaal/kennisvormen.html`, `materiaal/groeimodel.html`, `materiaal/vraagtoets.html`, `materiaal/vier-vragen.html`, `materiaal/experimentpaper.html` en de knop "Vul in met Voorbeeld BV" in `materiaal/boards.html`. Verander je hier iets, verander het daar ook.
 
 ## De organisatie
 
@@ -201,3 +201,42 @@ Haalt het meesorteren de norm, dan schuift het naar benutten.
 | V4 Roadmap | Opschalen wat de norm haalt. | Na elke stap kijken of een andere plek op de kansenkaart meer belooft: de uitwijkroute. |
 
 **Alleen in `vier-vragen.html`:** de precieze plek van de vier initiatieven op de tekening. Wijzig je hierboven iets, kijk dan ook daar.
+
+## Het experiment als paper (dag 2)
+
+- **Gebruik:** het voorbeeld in stap 3 van `experimentpaper.html` (FR-38). Het laat zien hoe een onderzoeksvraag, toetsbare hypotheses en drie ontwerpen eruitzien. Het paper zelf schrijft de AI van de deelnemer.
+- **Echt en verzonnen:** de drie bronnen zijn echt en staan in de AI-wiki van de trainer (nagekeken op 8-11-2026). De cijfers en de normen van Voorbeeld BV zijn verzonnen.
+
+**Aanleiding.** Voorbeeld BV wil het vaste aanspreekpunt van de klant blijven (doel 1). Dan moet een klacht beter gaan dan nu: hij duurt 9 werkdagen, en de klant geeft daarna een 6,1. De eerste prioriteit: de AI stelt bij elke klacht een categorie en een urgentie voor, en een medewerker beslist.
+
+**Onderzoeksvraag:** kan een AI de urgentie van een klacht zo goed voorstellen dat Klantcontact sneller sorteert, zonder dat een ernstige klacht te laag uitkomt?
+
+**Deelvragen:**
+
+1. Hoe vaak kiest de AI dezelfde urgentie als een ervaren medewerker?
+2. Geeft de AI een ernstige klacht (urgentie 1) ooit een lagere urgentie?
+3. Sorteert een medewerker sneller met het voorstel van de AI, en even goed?
+
+**Hypotheses:**
+
+| | Hypothese | Norm | Referentiewaarde zonder AI |
+|---|---|---|---|
+| H1 | De AI kiest meestal dezelfde urgentie als de medewerker. | Bij minstens 8 van de 10 klachten dezelfde urgentie. | Hoe vaak twee medewerkers het nu met elkaar eens zijn, op dezelfde klachten. |
+| H2 | De AI mist geen ernstige klacht. | Geen enkele klacht met urgentie 1 krijgt een lagere urgentie. | Hoe vaak een medewerker een ernstige klacht op dezelfde set te laag inschat. |
+| H3 | Met het voorstel van de AI sorteert een medewerker sneller, zonder meer fouten. | Minstens 30% minder tijd per klacht, en minstens even vaak de juiste urgentie. | De tijd per klacht en het aantal juiste urgenties zonder voorstel. |
+
+**Drie ontwerpen:**
+
+| | Ontwerp | Toetst | Geïnspireerd door | Past vóór dag 3? |
+|---|---|---|---|---|
+| A | Technische test. Drie medewerkers en de AI kiezen elk de urgentie van dezelfde 50 verzonnen klachten, zonder elkaars oordeel te zien. Tien klachten zijn ernstig, en een paar daarvan noemen geen "lek" of "schade" (zoals K-0470). | H1, H2 | In de radiotherapie van een universitair ziekenhuis beoordeelden modellen en 26 medewerkers dezelfde incidentmeldingen. Op de eigen meldingen deden de modellen het ongeveer even goed als de medewerkers. Op meldingen uit andere ziekenhuizen scoorde het eenvoudigste model slechter dan toeval (Beidler et al., 2025). Dus: test met klachten in de taal van Voorbeeld BV. | Ja, in een middag. |
+| B | Meesorteren in één team, zes weken. De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist (Ask). | H1, H3 | In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025). | Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap. |
+| C | Proef met en zonder AI. Vijf medewerkers sorteren elk twintig verzonnen klachten: tien met het voorstel van de AI en tien zonder, in wisselende volgorde. | H3 | Consultants deden dezelfde taken met en zonder AI, en het onderzoek mat ook de kwaliteit. Bij taken buiten de grens van wat AI goed kan, kwamen consultants met AI vaker tot een fout antwoord (Dell'Acqua et al., 2026). | Ja, een uur per medewerker. |
+
+**De keuze na de lunch:** Voorbeeld BV kiest A. Het past vóór dag 3 en toetst de twee hypotheses waar het om draait. Haalt A beide normen, dan wordt B de eerste fase van de roadmap.
+
+**Bronnen (APA 7):**
+
+- Beidler, P., Nguyen, M., Lybarger, K., Holmberg, O., Ford, E., & Kang, J. (2025). *Automated triaging and transfer learning of incident learning safety reports using large language representational models* (arXiv:2509.13706). arXiv. https://arxiv.org/abs/2509.13706
+- Brynjolfsson, E., Li, D., & Raymond, L. (2025). Generative AI at work. *The Quarterly Journal of Economics, 140*(2), 889–942. https://doi.org/10.1093/qje/qjae044
+- Dell'Acqua, F., McFowland, E., III, Mollick, E., Lifshitz, H., Kellogg, K. C., Rajendran, S., Krayer, L., Candelon, F., & Lakhani, K. R. (2026). Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality. *Organization Science*. https://doi.org/10.1287/orsc.2025.21838

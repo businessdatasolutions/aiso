@@ -15,7 +15,7 @@
 
 ### Vóór en na elke pauze
 
-- De startpagina toont werkregel 1 vijf minuten vóór elke pauze, en tijdens de pauze, met een idee voor een AI-taak die het blok erna voorbereidt. De taken staan in de LRD, bij de pauzes in het programma (veld `aiTask`). Zo staan ze op één plek.
+- De startpagina toont werkregel 1 vijf minuten vóór elke pauze, en tijdens de pauze, met een idee voor een AI-taak die het blok erna voorbereidt. De taken staan in de LRD, bij de pauzes in het programma (veld `aiTask`). Zo staan ze op één plek. Hoort er een lespagina bij, zoals de prompt voor het paper in de lunch van dag 2, dan staat die in het veld `materials`, en toont de startpagina de link achter de taak.
 - Zeg de werkregel hardop bij de eerste twee pauzes. Daarna doet de startpagina het.
 - Na de pauze: "Wat heeft je AI gemaakt?" Eén voorbeeld is genoeg. Een taak die mislukte, is stof voor de eerste vraag van het nabespreken: waar ging het mis?
 - Ook in de pauze werkt de AI alleen met openbare of verzonnen gegevens (NFR-01).
@@ -570,8 +570,17 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 2. **Zelf doen (10 minuten).** Toon stap 9, "Jouw proces". Elke deelnemer tekent de eigen procesketen op papier: rollen als banen, fasen als kolommen, een cijfer waar AI kan helpen, en bij elk cijfer wie beslist. Daarna de vraag uit FR-14: waar schuift het knelpunt heen als AI het oplost?
 3. **Bronkritiek, met een echt voorbeeld.** Het vaak geciteerde "95% van de organisaties haalt geen rendement uit AI" komt van MIT NANDA (2025). Het rust op ruim 300 openbare initiatieven, 52 interviews en een enquête onder 153 bezoekers van vier conferenties. Het rapport noemt de eigen cijfers "directionally accurate". Vraag: wat is er gemeten, bij wie en wanneer? Dezelfde vraag stelt het duo bij de bron die het in het origineel opzoekt (AC-04).
 
+## Dag 2 · Lunch: het voorstel als paper (FR-28, FR-38, ADR-041)
+
+- **Om 12:25: werkregel 1.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Open de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Na de lunch kies je een ontwerp."
+- **Geen onderzoeksfunctie?** Dan werkt de prompt ook in een gewone chat. Het voorstel heeft dan minder bronnen, en de controle in werkplaats 2 weegt zwaarder.
+- **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan na de lunch zelf in.
+
 ## Dag 2 · Werkplaats 2: ontwerp je experiment (FR-20)
 
+- **Voordoen met een eigen paper (FR-38).** Laat een paper uit een eigen project zien, zoals de test of een AI-model uit foto's van ruimtes plattegronden kan bouwen. Volg de opbouw: de vraag, de hypotheses, het verwante werk, de ontwerpen, en daarna de uitwerking. Wijs aan waar een hypothese een norm en een referentiewaarde kreeg.
+- **Eerst één bron.** Het duo zoekt één bron uit het voorstel op in het origineel, met de vraag van 11:30: wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
+- **Dan kiezen.** Eén ontwerp, of twee samen. Past het niet vóór dag 3, dan kiest de deelnemer een kleiner ontwerp en zet het grote in de roadmap. Stap 4 van de lespagina geeft de prompt die de normen in het paper vastlegt, met de datum. Het voorbeeld van Voorbeeld BV staat in stap 3.
 - **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
 - **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
 - **Experiment met een agent.** De vier faalwijzen van dag 1 zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.

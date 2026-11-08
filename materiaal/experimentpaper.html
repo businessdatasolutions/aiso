@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experimentpaper</title>
+<meta name="description" content="Dag 2 van AISO26009: je AI schrijft je experiment als wetenschappelijk paper. Eerst een voorstel met onderzoeksvraag, hypotheses, bronnen en drie ontwerpen, na het experiment de uitwerking.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Eén los bestand, net als vraagtoets.html: geen bibliotheek, geen server.
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --bg-yellow: #fafbf0;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); min-width: 0; }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.definitie { border-left: 4px solid var(--primary); background: var(--bg-yellow); border-radius: var(--radius-md); padding: 16px 18px; margin: 16px 0 0; }
+.definitie p { margin: 0 0 8px; max-width: 72ch; }
+.definitie p:last-child { margin: 0; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 16px; }
+.let-op p:last-child { margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .925rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 2px solid var(--supporting); }
+tbody th { font-weight: 700; white-space: nowrap; }
+tr.thuis td, tr.thuis th { background: var(--bg-section); }
+.wanneer { white-space: nowrap; font-size: .85rem; color: var(--text-secondary); }
+table.breed { min-width: 760px; }
+
+.velden { display: grid; gap: 14px; margin: 0 0 16px; }
+.veld label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); min-height: 4.6em; resize: vertical; }
+textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+
+pre.prompt { margin: 0; max-height: 28rem; overflow: auto; background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-md); padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+ol.stappenlijst { margin: 0 0 16px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
+ul.bronnen { margin: 0; padding-left: 1.2rem; display: grid; gap: 8px; font-size: .9rem; max-width: 80ch; overflow-wrap: anywhere; }
+.vraag { font-weight: 600; font-size: 1.05rem; max-width: 72ch; }
+
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .status { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  pre.prompt { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
+  .table-wrap { overflow: visible; }
+  table.breed { min-width: 0; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <p class="eyebrow">AISO26009 · Dag 2 · 12:30 · experimentpaper</p>
+    <h1>Je experiment als paper</h1>
+    <p class="lead">Je AI schrijft je experiment op zoals een onderzoeker dat doet: eerst een voorstel, na het experiment de uitwerking. Alles komt in één paper, met bronnen in APA 7. Jij kiest het ontwerp, controleert de bronnen en beslist.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#opbouw"><b>1</b> Opbouw</a>
+    <a href="#voorstel"><b>2</b> Voorstel</a>
+    <a href="#voorbeeld"><b>3</b> Voorbeeld</a>
+    <a href="#kiezen"><b>4</b> Kiezen</a>
+    <a href="#uitwerking"><b>5</b> Uitwerking</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="opbouw" aria-labelledby="opbouw-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="opbouw-kop">Zo is het paper opgebouwd</h2></div>
+    <p class="uitleg">Een paper houdt de goede volgorde vast. Eerst de vraag, dan wat anderen al weten, en pas dan het ontwerp. De normen liggen vast voordat er resultaten zijn. De trainer werkt in eigen projecten ook zo, en laat in werkplaats 2 zo'n paper zien.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Deel</th><th>Wat erin staat</th><th>Wanneer</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 Aanleiding</th><td>Het strategische vraagstuk en je eerste prioriteit. De onderzoeksvraag, met hooguit drie deelvragen. Toetsbare hypotheses.</td><td class="wanneer">Dag 2, lunch</td></tr>
+        <tr><th scope="row">2 Wat we al weten</th><td>Wetenschappelijk onderzoek. Koplopers (champions): directe concurrenten, en organisaties uit een heel andere sector. Standpunten van experts, ook een kritisch standpunt.</td><td class="wanneer">Dag 2, lunch</td></tr>
+        <tr><th scope="row">3 Ontwerpen</th><td>Minstens drie ontwerpen voor het experiment, elk geïnspireerd door een bron uit deel 2, en een tabel die ze vergelijkt.</td><td class="wanneer">Lunch; je kiest in werkplaats 2</td></tr>
+        <tr class="thuis"><th scope="row">4 Methode</th><td>Wat je deed, met welke gegevens of deelnemers, en wat anders liep dan gepland.</td><td class="wanneer">Thuis, vóór dag 3</td></tr>
+        <tr class="thuis"><th scope="row">5 Resultaten</th><td>Per criterium de norm, de referentiewaarde zonder AI en het resultaat.</td><td class="wanneer">Thuis</td></tr>
+        <tr class="thuis"><th scope="row">6 Discussie</th><td>Per hypothese: bevestigd, verworpen of niet te zeggen. Vergeleken met deel 2, met de beperkingen.</td><td class="wanneer">Thuis</td></tr>
+        <tr class="thuis"><th scope="row">7 Conclusie en besluit</th><td>Doorgaan, aanpassen of stoppen. Het besluit volgt uit resultaat en norm.</td><td class="wanneer">Thuis; samenvatting op de dia Eerste prioriteit</td></tr>
+        <tr><th scope="row">Bronnen</th><td>Verwijzingen in de tekst en een bronnenlijst volgens APA 7, met een DOI of URL bij elke bron.</td><td class="wanneer">Steeds</td></tr>
+      </tbody>
+    </table></div>
+    <div class="definitie">
+      <p><strong>Wanneer is een hypothese toetsbaar?</strong> Als ze een maat, een norm en een referentiewaarde noemt: hoe het nu gaat, zonder AI.</p>
+      <p>"De AI maakt het sorteren beter" kun je niet toetsen. "De AI kiest bij minstens 8 van de 10 klachten dezelfde urgentie als de medewerker" wel. Die norm zegt pas iets als je weet hoe vaak twee medewerkers het nu met elkaar eens zijn.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="voorstel" aria-labelledby="voorstel-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="voorstel-kop">Het voorstel: de AI-taak van de lunch</h2></div>
+    <p class="uitleg">Werkregel 1: voordat je pauze neemt, zet je altijd AI aan het werk. In de lunch zoekt je AI de bronnen en schrijft het voorstel. Na de lunch kies je een ontwerp.</p>
+    <ol class="stappenlijst">
+      <li>Open de chat waarin je om 11:30 je businesscase maakte. Of open een nieuwe chat en voeg je businesscase toe.</li>
+      <li>Zet de onderzoeksfunctie aan: Deep Research in Gemini en ChatGPT, Research in Claude. Heb je die niet, dan werkt de prompt ook in een gewone chat, met minder bronnen.</li>
+      <li>Vul hieronder je vraag en je eerste prioriteit in. Kopieer de prompt, plak hem in je AI en ga lunchen.</li>
+      <li>Bewaar het voorstel daarna als één document, bijvoorbeeld in Google Docs, in Word of als artifact. Je vult het thuis aan.</li>
+    </ol>
+    <div class="velden">
+      <div class="veld"><label for="vraag">Mijn strategische AI-vraag <span class="hint">Uit de vraagtoets van dag 1, of zoals hij nu op je vragenkaart staat.</span></label>
+        <textarea id="vraag" data-veld="vraag" rows="2"></textarea></div>
+      <div class="veld"><label for="prioriteit">Mijn eerste prioriteit <span class="hint">De kleine inzet of de optie uit het blok van 10:45. Eén of twee zinnen.</span></label>
+        <textarea id="prioriteit" data-veld="prioriteit" rows="2"></textarea></div>
+    </div>
+    <pre class="prompt" id="prompt-voorstel" tabindex="0" aria-label="De prompt voor het voorstel"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" data-kopieer="voorstel">Kopieer de prompt</button>
+      <span class="status" id="status-voorstel" aria-live="polite"></span>
+    </div>
+    <div class="let-op">
+      <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De prompt komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
+      <p class="klein">De AI zoekt ook in de AI-wiki van de trainer: <a href="https://businessdatasolutions.github.io/ai-wiki/" target="_blank" rel="noopener noreferrer">businessdatasolutions.github.io/ai-wiki</a>. Die is openbaar, en de index bovenaan noemt elke bron. Kan je AI de wiki niet openen, dan zegt het dat. Zoek er dan na de lunch zelf in.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="voorbeeld" aria-labelledby="voorbeeld-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="voorbeeld-kop">Zo ziet het eruit bij Voorbeeld BV</h2></div>
+    <p class="uitleg">Voorbeeld BV is verzonnen, net als de cijfers en de normen. De drie bronnen zijn echt. Dit is de kern van een voorstel: de vraag, de hypotheses en de ontwerpen. In een echt voorstel staat deel 2 ook uitgeschreven.</p>
+
+    <h3>Aanleiding</h3>
+    <p style="max-width:72ch">Voorbeeld BV wil het vaste aanspreekpunt van de klant blijven. Dan moet een klacht beter gaan dan nu: hij duurt 9 werkdagen, en de klant geeft daarna een 6,1. De eerste prioriteit: de AI stelt bij elke klacht een categorie en een urgentie voor, en een medewerker beslist.</p>
+    <p class="vraag">Onderzoeksvraag: kan een AI de urgentie van een klacht zo goed voorstellen dat Klantcontact sneller sorteert, zonder dat een ernstige klacht te laag uitkomt?</p>
+    <ol class="stappenlijst">
+      <li>Hoe vaak kiest de AI dezelfde urgentie als een ervaren medewerker?</li>
+      <li>Geeft de AI een ernstige klacht (urgentie 1) ooit een lagere urgentie?</li>
+      <li>Sorteert een medewerker sneller met het voorstel van de AI, en even goed?</li>
+    </ol>
+
+    <h3>Hypotheses</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th></th><th>Hypothese</th><th>Norm</th><th>Referentiewaarde zonder AI</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">H1</th><td>De AI kiest meestal dezelfde urgentie als de medewerker.</td><td>Bij minstens 8 van de 10 klachten dezelfde urgentie.</td><td>Hoe vaak twee medewerkers het nu met elkaar eens zijn, op dezelfde klachten.</td></tr>
+        <tr><th scope="row">H2</th><td>De AI mist geen ernstige klacht.</td><td>Geen enkele klacht met urgentie 1 krijgt een lagere urgentie.</td><td>Hoe vaak een medewerker een ernstige klacht op dezelfde set te laag inschat.</td></tr>
+        <tr><th scope="row">H3</th><td>Met het voorstel van de AI sorteert een medewerker sneller, zonder meer fouten.</td><td>Minstens 30% minder tijd per klacht, en minstens even vaak de juiste urgentie.</td><td>De tijd per klacht en het aantal juiste urgenties zonder voorstel.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Drie ontwerpen</h3>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Drie ontwerpen voor het experiment van Voorbeeld BV"><table class="breed">
+      <thead><tr><th></th><th>Ontwerp</th><th>Toetst</th><th>Geïnspireerd door</th><th>Past vóór dag 3?</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">A</th><td><strong>Technische test.</strong> Drie medewerkers en de AI kiezen elk de urgentie van dezelfde 50 verzonnen klachten, zonder elkaars oordeel te zien. Tien klachten zijn ernstig, en een paar daarvan noemen geen "lek" of "schade".</td><td>H1, H2</td><td>In de radiotherapie van een universitair ziekenhuis beoordeelden modellen en 26 medewerkers dezelfde incidentmeldingen. Op de eigen meldingen deden de modellen het ongeveer even goed als de medewerkers. Op meldingen uit andere ziekenhuizen scoorde het eenvoudigste model slechter dan toeval (Beidler et al., 2025). Dus: test met klachten in de taal van Voorbeeld BV.</td><td>Ja, in een middag.</td></tr>
+        <tr><th scope="row">B</th><td><strong>Meesorteren in één team, zes weken.</strong> De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist (Ask).</td><td>H1, H3</td><td>In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025).</td><td>Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap.</td></tr>
+        <tr><th scope="row">C</th><td><strong>Proef met en zonder AI.</strong> Vijf medewerkers sorteren elk twintig verzonnen klachten: tien met het voorstel van de AI en tien zonder, in wisselende volgorde.</td><td>H3</td><td>Consultants deden dezelfde taken met en zonder AI, en het onderzoek mat ook de kwaliteit. Bij taken buiten de grens van wat AI goed kan, kwamen consultants met AI vaker tot een fout antwoord (Dell'Acqua et al., 2026).</td><td>Ja, een uur per medewerker.</td></tr>
+      </tbody>
+    </table></div>
+    <p style="max-width:72ch;margin-top:14px"><strong>De keuze na de lunch:</strong> Voorbeeld BV kiest A. Het past vóór dag 3 en toetst de twee hypotheses waar het om draait. Haalt A beide normen, dan wordt B de eerste fase van de roadmap.</p>
+
+    <h3>Bronnen</h3>
+    <ul class="bronnen">
+      <li>Beidler, P., Nguyen, M., Lybarger, K., Holmberg, O., Ford, E., &amp; Kang, J. (2025). <em>Automated triaging and transfer learning of incident learning safety reports using large language representational models</em> (arXiv:2509.13706). arXiv. <a href="https://arxiv.org/abs/2509.13706" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2509.13706</a></li>
+      <li>Brynjolfsson, E., Li, D., &amp; Raymond, L. (2025). Generative AI at work. <em>The Quarterly Journal of Economics, 140</em>(2), 889–942. <a href="https://doi.org/10.1093/qje/qjae044" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/qje/qjae044</a></li>
+      <li>Dell'Acqua, F., McFowland, E., III, Mollick, E., Lifshitz, H., Kellogg, K. C., Rajendran, S., Krayer, L., Candelon, F., &amp; Lakhani, K. R. (2026). Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality. <em>Organization Science</em>. <a href="https://doi.org/10.1287/orsc.2025.21838" target="_blank" rel="noopener noreferrer">https://doi.org/10.1287/orsc.2025.21838</a></li>
+    </ul>
+  </section>
+
+  <section class="stap" id="kiezen" aria-labelledby="kiezen-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="kiezen-kop">Na de lunch: kiezen en vastleggen</h2></div>
+    <p class="uitleg">In werkplaats 2 lees je het voorstel met je duo. Je leest niet alles: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.</p>
+    <ol class="stappenlijst">
+      <li><strong>Eén bron in het origineel.</strong> Zoek met je duo één bron op. Bestaat hij, en staat erin wat het paper zegt? Wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet.</li>
+      <li><strong>De hypotheses.</strong> Noemt elke hypothese een maat, een norm en een referentiewaarde zonder AI? Zo niet, herschrijf haar.</li>
+      <li><strong>De experts.</strong> Heeft elke uitspraak van een expert een bron? Wat je board zegt, is een mening en geen bron.</li>
+      <li><strong>Kies.</strong> Eén ontwerp, of twee samen. Past het niet vóór dag 3, kies dan een kleiner ontwerp en zet het grote in je roadmap.</li>
+      <li><strong>Leg vast.</strong> Met de prompt hieronder zet je AI de normen in het paper, met de datum van vandaag. Daarna doe je de eerste snelle proef.</li>
+    </ol>
+    <div class="velden">
+      <div class="veld"><label for="keuze">Mijn keuze en waarom <span class="hint">Bijvoorbeeld: "Ontwerp A, omdat het vóór dag 3 past. Uit C neem ik de volgorde met en zonder AI over."</span></label>
+        <textarea id="keuze" data-veld="keuze" rows="2"></textarea></div>
+    </div>
+    <pre class="prompt" id="prompt-keuze" tabindex="0" aria-label="De prompt om je keuze vast te leggen"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" data-kopieer="keuze">Kopieer de prompt</button>
+      <span class="status" id="status-keuze" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="stap" id="uitwerking" aria-labelledby="uitwerking-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="uitwerking-kop">Thuis: de uitwerking</h2></div>
+    <p class="uitleg">Tussen dag 2 en dag 3 voer je het experiment uit. Daarna schrijft je AI de uitwerking in hetzelfde paper. Jij levert de getallen en controleert ze.</p>
+    <ol class="stappenlijst">
+      <li>Voer het experiment uit. Noteer per criterium het resultaat, en wat anders liep dan gepland.</li>
+      <li>Open het gesprek met je voorstel, of voeg het paper toe in een nieuwe chat.</li>
+      <li>Vul hieronder in wat je deed en wat je mat. Kopieer de prompt en plak hem in je AI.</li>
+      <li>Lees de uitwerking na. Kloppen de getallen? Staan de normen er nog zoals op dag 2?</li>
+      <li>Zet de tekst voor de dia Eerste prioriteit in je casusdeck. Dag 3 opent met je besluit.</li>
+    </ol>
+    <div class="velden">
+      <div class="veld"><label for="resultaten">Wat ik deed en wat ik mat <span class="hint">Per criterium de uitkomst, de referentiewaarde zonder AI, het aantal gevallen, en wat anders liep. Alleen wat openbaar mag.</span></label>
+        <textarea id="resultaten" data-veld="resultaten" rows="5"></textarea></div>
+    </div>
+    <pre class="prompt" id="prompt-uitwerking" tabindex="0" aria-label="De prompt voor de uitwerking"></pre>
+    <div class="knoppen">
+      <button type="button" class="knop geel" data-kopieer="uitwerking">Kopieer de prompt</button>
+      <span class="status" id="status-uitwerking" aria-live="polite"></span>
+    </div>
+    <div class="let-op">
+      <p><strong>De normen liggen vast.</strong> Je AI verandert ze niet, ook niet als het resultaat tegenvalt. Vind je een norm achteraf slecht gekozen, dan staat dat in de discussie. Zo volgt het besluit uit resultaat en norm.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <span>American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.). https://doi.org/10.1037/0000165-000</span>
+    <a href="./index.html?dag=2">Startpagina</a>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* De prompts staan hier één keer. Het voorbeeld in stap 3 komt uit materiaal/voorbeeldcasus.md,
+   "Het experiment als paper (dag 2)": verander je daar iets, verander het hier ook. */
+const WIKI = 'https://businessdatasolutions.github.io/ai-wiki/';
+
+const $ = id => document.getElementById(id);
+
+/* ---------- Opslag: alleen in deze browser, en de pagina werkt ook zonder ---------- */
+const OPSLAG = 'aiso-experimentpaper-v1';
+const VELDEN = ['vraag', 'prioriteit', 'keuze', 'resultaten'];
+const opslag = {
+  lees() { try { return JSON.parse(localStorage.getItem(OPSLAG)); } catch { return null; } },
+  schrijf(v) { try { localStorage.setItem(OPSLAG, JSON.stringify(v)); } catch { /* geen opslag */ } },
+};
+function schoon(v) {
+  const s = Object.fromEntries(VELDEN.map(k => [k, '']));
+  if (v && typeof v === 'object') for (const k of VELDEN) if (typeof v[k] === 'string') s[k] = v[k];
+  return s;
+}
+const s = schoon(opslag.lees());
+const of = (tekst, leeg) => tekst.trim() || leeg;
+
+/* ---------- De drie prompts ---------- */
+const PROMPTS = {
+  voorstel: () => `Schrijf met mij een onderzoeksvoorstel voor een experiment, in de vorm van een wetenschappelijk paper. Het experiment is de eerste stap bij mijn eerste prioriteit: klein, goedkoop, en met normen die vastliggen vóór de uitvoering. Na het experiment vullen we hetzelfde paper aan met de uitwerking. Jij zoekt en schrijft. Ik kies het ontwerp en ik beslis.
+
+## Mijn casus
+
+- Strategische AI-vraag: ${of(s.vraag, '[vul in op de lespagina, stap 2]')}
+- Eerste prioriteit (de kleine inzet of de optie): ${of(s.prioriteit, '[vul in op de lespagina, stap 2]')}
+- Mijn businesscase staat eerder in dit gesprek of in de bijlage. Zie je hem niet, vraag er dan om voordat je begint.
+
+## Waar je zoekt
+
+1. Wetenschappelijk onderzoek: artikelen met peer review, working papers (zoals die van NBER) en overzichtsstudies. Noteer bij elk onderzoek wat er gemeten is, bij wie en wanneer.
+2. Koplopers (champions): organisaties die dit al doen. Zoek directe concurrenten, en organisaties uit een heel andere sector die hetzelfde probleem hebben opgelost.
+3. Experts: wat onderzoekers en vakmensen erover publiceerden of zeiden, in artikelen, boeken, interviews of lezingen. Zoek ook een kritisch standpunt.
+4. De AI-wiki van mijn trainer: ${WIKI}. Begin bij de index op die pagina: die noemt elke bron en elk begrip in de wiki. Een wikipagina vat een bron samen. Citeer de oorspronkelijke bron die de pagina noemt, en open die als dat kan.
+
+Kijk in al deze bronnen ook hoe anderen hun experimenten opzetten, uitvoerden en verwerkten. Daar haal je de ontwerpen uit.
+
+## Wat je schrijft
+
+Een titel, de datum, de auteur ([mijn naam]) en een samenvatting van hooguit 150 woorden. Dan drie hoofdstukken en een bronnenlijst.
+
+### 1. Aanleiding
+- Het strategische vraagstuk, en waarom het nu speelt.
+- Hoe de eerste prioriteit daaruit volgt, met de cijfers uit mijn businesscase.
+- De onderzoeksvraag, met hooguit drie deelvragen.
+- Toetsbare hypotheses (H1, H2 …). Elke hypothese noemt een maat, een norm en een referentiewaarde: hoe het nu gaat, zonder AI. Weet je de referentiewaarde niet, schrijf dan hoe ik hem meet.
+
+### 2. Wat we al weten
+- 2.1 Onderzoek: wat studies laten zien.
+- 2.2 Koplopers: twee tot vier voorbeelden, minstens één uit een andere sector. Per voorbeeld: wat ze deden, wat het opleverde, en wat ik ervan kan leren.
+- 2.3 Experts: twee tot vier standpunten, waaronder een kritisch standpunt.
+- 2.4 Wat dit betekent voor mijn experiment: wat staat vast, wat is omstreden, en wat weet nog niemand?
+
+### 3. Ontwerpen voor het experiment
+Minstens drie ontwerpen die echt van elkaar verschillen, bijvoorbeeld een gebruikersworkshop, een simulatie, een technische test of een vergelijking met en zonder AI. Elk ontwerp volgt uit een bron in hoofdstuk 2: noem die bron. Per ontwerp:
+- welke hypotheses het toetst;
+- de opzet, in stappen;
+- de gegevens of deelnemers: openbare of verzonnen gegevens, of mensen die vooraf toestemming geven;
+- de evaluatiecriteria, elk met een norm en een referentiewaarde zonder AI;
+- wat het kost aan tijd en geld, en of het in twee weken past naast mijn werk;
+- welk besluit de uitkomst mogelijk maakt: doorgaan, aanpassen of stoppen;
+- de grootste zwakte.
+Sluit af met een tabel die de ontwerpen vergelijkt. Kies niet voor mij.
+
+### Bronnen
+- Elke bewering over onderzoek, cijfers, koplopers of experts krijgt een verwijzing in de tekst volgens APA 7, zoals (Achternaam, 2025) of (Achternaam et al., 2026).
+- Daarna een bronnenlijst volgens APA 7, met een DOI of URL bij elke bron.
+- Neem alleen bronnen op die je zelf geopend hebt. Kon je een bron niet openen, zet hem dan onder een apart kopje "Niet gecontroleerd".
+- Citeer alleen wat er echt staat. Verzin geen citaten, cijfers, organisaties of uitspraken van experts.
+
+## Regels
+- Schrijf in het Nederlands, in gewone zinnen, voor een lezer uit de board. Hooguit vier pagina's, zonder de bronnenlijst.
+- Gebruik alleen openbare informatie. Ontbreekt een cijfer over mijn organisatie, vul het dan niet zelf in, maar zet er [ik vul in] bij.
+- Weet je iets niet zeker, zeg dat dan.
+- Maak het paper als één document dat ik later kan aanvullen.`,
+
+  keuze: () => `Ik heb de ontwerpen in hoofdstuk 3 van mijn paper gelezen, met mijn duo. Mijn keuze: ${of(s.keuze, '[vul in op de lespagina, stap 4]')}
+
+Werk het paper bij:
+1. Zet bovenaan hoofdstuk 3 een paragraaf "Gekozen ontwerp": welk ontwerp, waarom, en wat ik van de andere ontwerpen overneem.
+2. Schrijf de evaluatiecriteria van dat ontwerp uit, elk met een norm en een referentiewaarde zonder AI, met de datum van vandaag. Vanaf nu liggen ze vast.
+3. Noem welke gegevens of deelnemers het experiment nodig heeft, en wie daarover beslist.
+4. Verander verder niets aan hoofdstuk 1 en 2.`,
+
+  uitwerking: () => `Ik heb het experiment uitgevoerd. Schrijf de uitwerking in hetzelfde paper. Het voorstel staat eerder in dit gesprek of in de bijlage. Zie je het niet, vraag er dan om.
+
+## Wat ik deed en wat ik mat
+
+${of(s.resultaten, '[vul in op de lespagina, stap 5]')}
+
+## Wat je schrijft
+
+Laat hoofdstuk 1 tot en met 3 staan zoals ze zijn. Voeg vóór de bronnenlijst vier hoofdstukken toe.
+
+### 4. Methode
+Het gekozen ontwerp zoals ik het uitvoerde: wat ik deed, met welke gegevens of deelnemers, en wanneer. Noem elke afwijking van het ontwerp, met de reden.
+
+### 5. Resultaten
+Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Hooguit één grafiek. Beschrijf alleen wat gemeten is.
+
+### 6. Discussie
+- Per hypothese: bevestigd, verworpen of niet te zeggen, en waarom.
+- Vergelijk de uitkomst met het onderzoek, de koplopers en de experts uit hoofdstuk 2.
+- De beperkingen: het aantal gevallen, verzonnen gegevens, en wie meedeed.
+
+### 7. Conclusie en besluit
+Het antwoord op de onderzoeksvraag, en het besluit: doorgaan, aanpassen of stoppen. Het besluit volgt uit de vergelijking van resultaat en norm. Zeg ook wat het betekent voor de eerste fase van mijn roadmap.
+
+## Regels
+- Verander de normen en de referentiewaarden niet: ze lagen vast vóór het experiment. Vind je een norm achteraf slecht gekozen, schrijf dat dan in de discussie.
+- Verzin geen resultaten. Ontbreekt een getal, vraag er dan om.
+- Werk de samenvatting bij. Een nieuwe bron krijgt een verwijzing in de tekst en een plek in de bronnenlijst, volgens APA 7.
+- Schrijf tot slot, los van het paper, de tekst voor de dia Eerste prioriteit in mijn casusdeck: de vraag, de norm, de uitkomst en het besluit, in hooguit 60 woorden, met een voorstel voor één grafiek.`,
+};
+
+function teken() {
+  for (const [naam, maak] of Object.entries(PROMPTS)) $(`prompt-${naam}`).textContent = maak();
+}
+
+/* ---------- Gebeurtenissen ---------- */
+for (const el of document.querySelectorAll('[data-veld]')) el.value = s[el.dataset.veld] || '';
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (!el.matches('[data-veld]')) return;
+  s[el.dataset.veld] = el.value;
+  opslag.schrijf(s);
+  teken();
+});
+document.addEventListener('click', async e => {
+  const knop = e.target.closest('[data-kopieer]');
+  if (!knop) return;
+  const naam = knop.dataset.kopieer;
+  const tekst = PROMPTS[naam]();
+  let gelukt = false;
+  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
+  catch {
+    const t = document.createElement('textarea');
+    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select();
+    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+    t.remove();
+  }
+  $(`status-${naam}`).textContent = gelukt ? 'De prompt staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hierboven en kopieer hem zelf.';
+});
+
+teken();
+</script>
+</body>
+</html>

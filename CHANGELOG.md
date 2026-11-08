@@ -2,6 +2,28 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.26 — 2026-11-08
+
+**Toegevoegd**
+- FR-38: het experiment staat in een paper met de opbouw van een wetenschappelijk artikel, en dat schrijft de AI. In de lunch van dag 2 schrijft de AI het voorstel. Het heeft vier delen:
+  - de aanleiding, met onderzoeksvraag en toetsbare hypotheses;
+  - wat onderzoek, koplopers en experts zeggen, ook in de AI-wiki van de trainer;
+  - minstens drie ontwerpen;
+  - bronnen in APA 7.
+
+  Na het experiment komt de uitwerking erbij (ADR-041).
+- `materiaal/experimentpaper.html`: de lespagina met drie prompts (voorstel, keuze, uitwerking) en een voorbeeld van Voorbeeld BV met drie echte bronnen. De tekst van het voorbeeld staat in `materiaal/voorbeeldcasus.md` (ADR-041).
+- Een kaart "Het experiment als paper" in deel 6.5, en de lespagina in de lijst met lesmateriaal en op de opleverlijst voor de trainer (ADR-041).
+
+**Gewijzigd**
+- De AI-taak van de lunch op dag 2 is het voorstel als paper, met de prompt als materiaal. Werkplaats 2 begint met dat voorstel: één bron in het origineel, een ontwerp kiezen en de normen vastleggen. De afsluiting van dag 2, de opening van dag 3 en de AI-taak van 10:30 op dag 3 noemen het paper (ADR-041).
+- FR-06, FR-20, FR-21, AC-14 en AC-15 noemen het paper. AC-14 vraagt ook dat het duo één bron uit het paper opzocht (ADR-041).
+- De KISS-keuze "één product" noemt de businesscase en het experimentpaper als de stukken achter de dia Eerste prioriteit. In het risico over een vastgelopen experiment staat niet meer "één dia, geen verslag". Het risico over verzonnen bronnen geldt ook voor het paper. Fase 2 test de prompts in drie AI-omgevingen (ADR-041).
+- De startpagina toont het materiaal van een pauze als link achter de AI-taak, ook in de band van werkregel 1.
+- ADR-034 is deels vervangen door ADR-041.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.25 — 2026-11-08
 
 **Gewijzigd**

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Deels vervangen door [ADR-041](ADR-041-experiment-als-paper.md): het experiment krijgt weer een paper, en dat schrijft de AI |
 | **Datum** | 2026-11-08 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |
