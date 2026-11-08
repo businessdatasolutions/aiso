@@ -2,10 +2,26 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.24 — 2026-11-08
+
+**Toegevoegd**
+- `materiaal/ziekenhuis.html`: de maquette van een ziekenhuis uit de presentatie over AI in de zorg. Twaalf stappen tonen de cijfers van de AI Monitor Ziekenhuizen 2026. Het is één bestand met de bibliotheken van jsDelivr, en zonder de verwijzingen naar het programma van die sessie (ADR-040).
+- De AI Monitor Ziekenhuizen 2026 (M&I/Partners) in de bronnen. Een punt over de maquette in het draaiboek, bij het blok van 10:00 (ADR-040).
+
+**Gewijzigd**
+- Dag 1, "Wat AI nu kan en niet kan": het materiaal is de maquette, niet meer de pagina over de harness. De opleverlijst, het risico over een voorbeeld uit een andere sector en fase 0 noemen de maquette (ADR-040).
+- ADR-018 is deels vervangen door ADR-040.
+
+**Verwijderd**
+- Hoe een agent technisch is opgebouwd, met de termen harness en contextvenster, staat niet meer op dag 1. Het is geparkeerd in het draaiboek onder "Achtergrond en reserve", mogelijk voor dag 2 (ADR-040).
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.23 — 2026-11-08
 
 **Gewijzigd**
 - Overal "de board" in plaats van "het board", met "elke board" en "de board die …". De deelnemers komen uit het bedrijfsleven, en daar is "de board" gangbaar. Het geldt voor de LRD, `boards.html` (ook de skillteksten), het draaiboek, `vraagtoets.html`, ADR-036 en ADR-039. Oudere ADR's en changelogregels blijven zoals ze waren.
+- De BO-simulator in `materiaal/bo-demo/` test bij Run One Step eerst de plek van de rode bol en werkt daarna het model bij. In het origineel liep het vlak een test achter. Een nieuwe beste plek lag dan onder het vlak, en de rode bol stond op de plek die net getest was. Twee schermafbeeldingen zijn opnieuw gemaakt, en `vier-vragen.html` volgt. De LRD verandert niet.
 
 **Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
 

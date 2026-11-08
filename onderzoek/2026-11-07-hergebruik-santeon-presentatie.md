@@ -5,7 +5,7 @@
 - **Vraag:** welke onderdelen kunnen we hergebruiken in de drie lesdagen van AISO26009, en waar passen ze?
 - **Getoetst aan:** de LRD, versie 0.9 (leeruitkomsten, programma, eisen, KISS-keuzes en risico's).
 - **Niet geopend:** de offerte, de pitchmail, de notities van 22 juni en `.env` in de Santeon-repo. Die zijn vertrouwelijk en horen niet in ons materiaal.
-- **Stand:** het voorstel is overgenomen in versie 0.11 van de LRD (ADR-018 t/m ADR-022). Onderdeel 14 (prototype) blijft reserve en onderdeel 15 (atlas) achtergrond, zoals hieronder voorgesteld.
+- **Stand:** het voorstel is overgenomen in versie 0.11 van de LRD (ADR-018 t/m ADR-022). Onderdeel 14 (prototype) blijft reserve en onderdeel 15 (atlas) achtergrond, zoals hieronder voorgesteld. In versie 0.24 is de ziekenhuismaquette uit onderdeel 21 alsnog overgenomen op dag 1, en is onderdeel 10 (de harness) geparkeerd (ADR-040).
 
 ## Conclusie
 

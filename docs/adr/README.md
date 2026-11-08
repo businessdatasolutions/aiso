@@ -21,7 +21,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-015](ADR-015-deelnemers-adr-register.md) | Deelnemers houden ADR's en een wijzigingslog bij; het boardlog wordt het ADR-register | Vervangen door ADR-034 en ADR-033 | 2026-11-05 |
 | [ADR-016](ADR-016-geen-organisaties-van-deelnemers.md) | Geen organisaties van deelnemers in documenten | Aanvaard | 2026-11-07 |
 | [ADR-017](ADR-017-pseudoniemen-voor-deelnemers.md) | Pseudoniemen voor deelnemers | Aanvaard | 2026-11-07 |
-| [ADR-018](ADR-018-bronnen-en-werkvormen-uit-de-santeon-sessie.md) | Bronnen en werkvormen uit de sessie over AI in de zorg | Deels vervangen door ADR-025 | 2026-11-07 |
+| [ADR-018](ADR-018-bronnen-en-werkvormen-uit-de-santeon-sessie.md) | Bronnen en werkvormen uit de sessie over AI in de zorg | Deels vervangen door ADR-025 en ADR-040 | 2026-11-07 |
 | [ADR-019](ADR-019-ask-assist-automate-in-het-buildplan.md) | Ask → Assist → Automate in het buildplan, als derde nieuw model | Aanvaard | 2026-11-07 |
 | [ADR-020](ADR-020-vijfde-governancevraag.md) | Vijfde governancevraag: kijkt de AI naar het werk of naar personen? | Aanvaard | 2026-11-07 |
 | [ADR-021](ADR-021-lesmateriaal-en-voorbeeldcasus.md) | Lesmateriaal in één map, met de voorbeeldcasus en een startpagina per lesdag | Deels vervangen door ADR-031 | 2026-11-07 |
@@ -43,6 +43,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-037](ADR-037-kiss-opschoning-vier-vragen.md) | KISS-opschoning bij de vier vragen | Aanvaard | 2026-11-08 |
 | [ADR-038](ADR-038-skills-per-vraag.md) | Per vraag een vaardigheid, en een AI-skill waar die iets toevoegt | Aanvaard | 2026-11-08 |
 | [ADR-039](ADR-039-waardepropositie-en-vraagtoets.md) | Waardepropositie en vraagtoets voor de strategische AI-vraag | Aanvaard | 2026-11-08 |
+| [ADR-040](ADR-040-ziekenhuismaquette-op-dag-1.md) | De maquette van een ziekenhuis op dag 1; de opbouw van een agent geparkeerd | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

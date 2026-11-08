@@ -105,7 +105,7 @@ Ja, op je eigen kaart. Zet er niets vertrouwelijks op: de tekst gaat vanmiddag j
 
 ## Dag 1 · 10:00–10:45 · Wat AI nu kan en niet kan (FR-26, NFR-08)
 
-**Materiaal:** klacht K-0505 uit `materiaal/voorbeeldcasus.md`, op een dia of het scherm; het voorbeeld uit de zorg (https://businessdatasolutions.github.io/santeon-presentatie/harness.html); de startpagina voor werkregel 1 om 10:40.
+**Materiaal:** klacht K-0505 uit `materiaal/voorbeeldcasus.md`, op een dia of het scherm; het voorbeeld uit de zorg, de maquette van een ziekenhuis (`materiaal/ziekenhuis.html`); de startpagina voor werkregel 1 om 10:40.
 **Uitkomst:** een begrippenkader voor de werkplaatsen.
 
 ### 10:00–10:05 · Werkvorm "Mens tegen agent" (5 minuten)
@@ -123,9 +123,10 @@ Ja, op je eigen kaart. Zet er niets vertrouwelijks op: de tekst gaat vanmiddag j
 
 ### 10:05–10:35 · Punten voor het blok (30 minuten)
 
-Een volgorde die werkt. Van 10:05 tot 10:15 de cijfers. Van 10:15 tot 10:25 de grillige grens en de faalwijzen. Van 10:25 tot 10:35 de soorten AI en de opbouw van een agent. Kies per stuk één punt om echt te zeggen.
+Een volgorde die werkt. Van 10:05 tot 10:20 de cijfers en de maquette. Van 10:20 tot 10:30 de grillige grens en de faalwijzen. Van 10:30 tot 10:35 de soorten AI. Kies per stuk één punt om echt te zeggen. Hoe een agent technisch is opgebouwd, komt later (zie "Achtergrond en reserve voor de trainer").
 
 - **Gebruik is breed, volwassen inzet is zeldzaam.** In enquêtes onder bestuurders gebruikt 78–88% AI. Volgens het CBS gebruikt 33% van de Nederlandse bedrijven met tien of meer werkzame personen AI (2025, voorlopig). Metingen met een strenge lat komen uit op 5 tot 13%: BCG 7,5% (2026), McKinsey 6% (2025 en 2026), Gartner 13% (2026). Noem bij elk cijfer wat er gemeten is en in welk jaar. Het getal beweegt mee met de lat. (Volwassenheidsrapport.)
+- **Een voorbeeld: de maquette van een ziekenhuis** (`materiaal/ziekenhuis.html`, twaalf stappen). Zeg erbij dat het voorbeeld uit de zorg komt. De cijfers komen uit de AI Monitor Ziekenhuizen 2026 van M&I/Partners, met 52 ziekenhuizen. Laat in elk geval stap 3 zien: een ziekenhuis heeft gemiddeld 18 AI-toepassingen, en één daarvan is opgeschaald. Dat is breed gebruik en zeldzame volwassen inzet in één beeld. Stap 9 en 10 tonen een patroon: 's avonds maakt AI een eerste selectie, de volgende dag beslist de radioloog. Weinig tijd? Toon stap 1, 3, 9 en 10. Een klik op een ruimte springt naar de stap van die ruimte. Zoek elk cijfer dat je noemt eerst op in het origineel: `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-03-ai-monitor-ziekenhuizen-2026-mxi.pdf`. Bij elke stap staat het paginanummer.
 - **Gevoel is geen meting.** Ervaren ontwikkelaars werkten in een gerandomiseerde studie met AI 19% trager. Zelf dachten ze dat ze 20% sneller waren (Becker e.a., 2025). Daarom meet je in het experiment, en vertrouw je niet op indruk.
 - **De grillige grens (jagged frontier).** Binnen de grens van wat AI goed kan, maakten consultants 12% meer taken af, werkten ze 25% sneller en was de kwaliteit 34% hoger. Buiten die grens scoorden ze 19 procentpunt slechter, en hun foute adviezen klonken juist overtuigender (Dell'Acqua e.a., 2026; [B2]).
 - **Vier faalwijzen van een agent, en wat ze opvangt.**
@@ -134,7 +135,6 @@ Een volgorde die werkt. Van 10:05 tot 10:15 de cijfers. Van 10:15 tot 10:25 de g
   3. Tegenstrijdige feiten → escaleren naar een mens (K-0505).
   4. Het eigen huiswerk nakijken → een tweede, aparte controle.
 - **Generatieve AI, agents, voorspellende modellen en data.** Generatieve AI maakt tekst, beeld of code. Een voorspellend model rekent uit wat er waarschijnlijk gebeurt, zoals welke installatie binnenkort een storing krijgt (doel 2 van Voorbeeld BV). Een agent voert met een taalmodel een taak in stappen uit, binnen vaste grenzen. Alle drie hangen af van data. Een voorspellend model heeft eigen gegevens nodig om van te leren.
-- **Een agent is opgebouwd als een organisatie.** Toon als voorbeeld uit een andere sector de publieke pagina over de harness. Zeg erbij dat het voorbeeld uit een ziekenhuis komt. De kern: het taalmodel is de professional, de harness (de besturing rond het model) is het kwaliteitssysteem, het contextvenster is het dossier op tafel. Het model huur je, de harness bouw je zelf.
 
 ### 10:35–10:40 · De brug naar 11:00: AI houdt vast aan wat werkt (5 minuten)
 
@@ -159,8 +159,6 @@ Een volgorde die werkt. Van 10:05 tot 10:15 de cijfers. Van 10:15 tot 10:25 de g
 | Term | Uitleg |
 |---|---|
 | Agent | Een systeem dat een taalmodel gebruikt om een taak in stappen uit te voeren, binnen vaste grenzen. |
-| Harness | Alles rond het model: welke informatie het krijgt, welke hulpmiddelen het mag gebruiken, en wat er gebeurt bij een fout. |
-| Contextvenster | Wat het model op dit moment leest. |
 | Jagged frontier | De grillige grens tussen taken die AI goed kan en taken waarbij AI fouten maakt. |
 | Frontiermodel | Een van de sterkste taalmodellen van dit moment, zoals de betaalde versies van Claude, ChatGPT of Gemini. |
 
@@ -651,6 +649,12 @@ Gebruik ze bij "per stakeholder één actie van weerstand naar draagvlak", met d
 
 - **De atlas met raamwerken** (Engelstalig): `~/Projects/presentatie-santeon-10-11-2026/background-material/2026-07-01-ai-maturity-frameworks-visuals.html`. Lokaal openen; de pagina laadt zijn bibliotheken uit een eigen map. Gebruik hem bij vragen, niet als lesstof (KISS-keuze in 5.1). De cijfers in sectie 0 zijn verouderd; gebruik het volwassenheidsrapport. De hergebruiknotitie (`onderzoek/2026-11-07-hergebruik-santeon-presentatie.md`, onderdeel 15) zegt per raamwerk bij welk blok het past. Twee kandidaten voor later: de 2×2 van Anand en Wu ("op welke taak richt je AI eerst?") bij de prioriteiten van de roadmap (SN3), en de ladder L0–L5 voor de eigen rol bij de afsluiting (FR-18).
 - **Het prototype van een agent, uit de zorg.** Een demo met doorvragen, controle, een tweede AI als beoordelaar en een terugval op trefwoorden. De publieke versie draait zonder live AI: https://businessdatasolutions.github.io/santeon-presentatie/demo.html. Een animatie zonder netwerk: https://businessdatasolutions.github.io/santeon-presentatie/vim-agent-animatie.html. Alleen als reserve bij vragen over FR-15 ("een artefact dat een tester kan proberen") of over een technische test (FR-21). Zeg erbij dat het voorbeeld uit een ziekenhuis komt.
+- **Hoe een agent technisch is opgebouwd: geparkeerd, mogelijk voor dag 2.** Tot versie 0.23 stond dit op dag 1 om 10:25 (ADR-040). Het voorbeeld uit de zorg is de publieke pagina over de harness: https://businessdatasolutions.github.io/santeon-presentatie/harness.html. Zeg erbij dat het voorbeeld uit een ziekenhuis komt. De kern: een agent is opgebouwd als een organisatie. Het taalmodel is de professional, de harness (de besturing rond het model) is het kwaliteitssysteem, het contextvenster is het dossier op tafel. Het model huur je, de harness bouw je zelf. De plek is nog niet gekozen. Een kandidaat is werkplaats 2, als een experiment een agent test (FR-20). Neem dan deze twee termen mee (NFR-08):
+
+  | Term | Uitleg |
+  |---|---|
+  | Harness | Alles rond het model: welke informatie het krijgt, welke hulpmiddelen het mag gebruiken, en wat er gebeurt bij een fout. |
+  | Contextvenster | Wat het model op dit moment leest. |
 
 ## Voorbereide antwoorden
 
