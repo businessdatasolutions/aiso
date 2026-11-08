@@ -2,6 +2,13 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.25 — 2026-11-08
+
+**Gewijzigd**
+- De KISS-keuze voor één voorbeeldcasus noemt de maquette van een ziekenhuis als uitzondering, met de reden. Deel 5.2 zegt niet meer "alle lespagina's" (ADR-040).
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.24 — 2026-11-08
 
 **Toegevoegd**
