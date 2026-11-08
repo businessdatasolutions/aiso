@@ -180,18 +180,22 @@ Bij elke plek geldt: de AI doet een voorstel, een mens beslist. Ernstige klachte
 - **Na dag 1:** een roadmap als reeks beslispunten, van experiment via pilot naar opschaling, met bij elke mijlpaal een gate (beslismoment) en een uitwijkroute. Haalt het meesorteren de norm niet, dan gaan we naar patronen over de afdelingen heen (plek 4). Wat stap 2 wordt, besluiten we na stap 1.
 - **Wat veranderde en waarom:** van een planning met datums naar beslispunten. Pas na elke stap weet je wat de beste volgende is (de meerarmige bandiet).
 
-### Op de portfoliokaart
+### De overdracht op de portfoliokaart
 
-Een eigen tekening naar Osterwalder e.a. (2020). De plekken zijn verzonnen.
+Een eigen tekening naar Osterwalder e.a. (2020). Op de kaart staan geen initiatieven. Punt 5, de overdracht van
+verkennen naar benutten, staat uitvergroot ernaast, met twee banen (ADR-055).
 
-| Portfolio | Initiatief | Plek |
+- **Over de muur:** een innovatie gaat aan het eind in één keer naar het huidige businessmodel. Niemand is
+  eigenaar, en de innovatie blijft hangen.
+- **Pijplijn:** het meesorteren van de AI (plek 2) gaat in drie stappen naar het huidige businessmodel. Voor elke
+  stap staat een poort met een norm vooraf en een deur die terug kan. Haalt een stap de norm niet, dan gaat
+  Voorbeeld BV terug naar de vorige.
+
+| Stap | Wie | De norm om verder te gaan |
 |---|---|---|
-| Verkennen | AI sorteert mee in één team (plek 2) | Middelmatig verwacht rendement. Er is al wat bewijs, want de proef loopt. |
-| Verkennen | Installateur voor één fabrikant in Zuid | Hoog verwacht rendement, maar nog weinig bewijs. |
-| Benutten | Onderhoud en installatie bij klanten thuis | Hoog rendement. Het risico op verval groeit, nu installaties hun storingen zelf aan de fabrikant melden. |
-| Benutten | Klachtafhandeling zoals nu (met de hand, 9 werkdagen, een 6,1) | Laag rendement en een groot risico op verval. |
-
-Haalt het meesorteren de norm, dan schuift het naar benutten.
+| Experiment | Eén team van Klantcontact, zes weken | De norm van V3: de AI kiest bij minstens 8 van de 10 klachten dezelfde urgentie als de medewerker, en mist geen ernstige klacht. |
+| Pilot | Heel Klantcontact | Ligt vast na het experiment. Wat stap 2 wordt, besluiten we na stap 1 (V4). |
+| Opschalen | Ook Planning en Service | Ligt vast na de pilot. |
 
 ### Verkennen en benutten per vraag
 
@@ -202,7 +206,7 @@ Haalt het meesorteren de norm, dan schuift het naar benutten.
 | V3 Investeren | Geld naar wat al werkt: het onderhoud en de kennisbank. | Kleine inzetten met een norm vooraf. Bij een deur die niet terug kan, eerst een optie. |
 | V4 Roadmap | Opschalen wat de norm haalt. | Na elke stap kijken of een andere plek op de kansenkaart meer belooft: de uitwijkroute. |
 
-**Alleen in `vier-vragen.html`:** de precieze plek van de vier initiatieven op de tekening. Wijzig je hierboven iets, kijk dan ook daar.
+**Alleen in `vier-vragen.html`:** de tekening van de portfoliokaart en de korte woorden in de twee banen. Wijzig je hierboven iets, kijk dan ook daar.
 
 ## De probleemformulering (dag 2)
 

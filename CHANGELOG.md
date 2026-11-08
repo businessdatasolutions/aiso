@@ -2,6 +2,17 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.39 — 2026-11-08
+
+**Gewijzigd**
+- Stap 3 van "Waarom geen plan volstaat": de portfoliokaart volgt de bron. Verkennen staat linksonder, benutten
+  rechtsboven, en ze raken elkaar op 5, de overdracht. In beide loopt de risico-as van veel naar weinig risico, en
+  alle assen hebben hun labels. Punt 5 is uitvergroot: over de muur, of als pijplijn met een norm en een deur die
+  terug kan voor elke stap. Met een knop toont de figuur zich schermvullend (ADR-055).
+- Deel 2 en FR-34 noemen de overdracht, met CI/CD en DevOps als voorbeeld. Bij de bronnen staat Forsgren e.a. (2018).
+- `voorbeeldcasus.md`: de pijplijn van het meesorteren vervangt de vier plekken op de portfoliokaart. Het draaiboek
+  volgt.
+
 ## 0.38 — 2026-11-08
 
 **Gewijzigd**
