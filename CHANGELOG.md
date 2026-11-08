@@ -9,6 +9,8 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 
 **Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
 
+**Gepubliceerd** ook op GitHub Pages, met de lespagina's: https://businessdatasolutions.github.io/aiso/. De startpagina werkt daar zonder lokale server. Elke push naar `main` publiceert opnieuw, na de lekcheck (ADR-045). De inhoud van de LRD verandert niet.
+
 ## 0.30 — 2026-11-08
 
 **Gewijzigd**

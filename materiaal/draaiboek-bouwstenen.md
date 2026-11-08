@@ -24,8 +24,8 @@
 
 - **Print de vragenkaart.** Dat is dia 1 van `materiaal/casusdeck.html`. Open het bestand, klik op **Download als PDF** en kies in het printvenster alleen pagina 1, liggend. Eén per deelnemer en twee reserve. De lege vakken hebben schrijflijnen.
 - **Download de twee filmpjes**, zodat ze ook zonder internet werken. De links staan in de LRD, bij 9:30 en 11:00. De tutorial waar ze uit komen: https://businessdatasolutions.github.io/emergent-strategy-tutorial/ (ten Hove, 2026).
-- **Zet de startpagina klaar:** `materiaal/index.html?dag=1`. Die werkt alleen via een lokale server, zoals `python3 -m http.server`. Om te oefenen zet `?tijd=HH:MM` de klok op een tijdstip.
-- **Geef de deelnemers de lespagina's** vóór 11:00: `vier-vragen.html` met de map `bo-demo/`, `vraagtoets.html` en `boards.html`. Als bestanden, of in de leeromgeving. Ze werken zonder server.
+- **Zet de startpagina klaar:** https://businessdatasolutions.github.io/aiso/materiaal/?dag=1. Zonder internet werkt ze via een lokale server, zoals `python3 -m http.server`, met `materiaal/index.html?dag=1`. Om te oefenen zet `?tijd=HH:MM` de klok op een tijdstip.
+- **Geef de deelnemers de lespagina's** vóór 11:00: `vier-vragen.html` met de map `bo-demo/`, `vraagtoets.html` en `boards.html`. Via de site (https://businessdatasolutions.github.io/aiso/), als bestanden of in de leeromgeving. Ze werken zonder server.
 - **Gebruik de simulator uit `bo-demo/`.** In de online versie doet de schuif β bijna niets (`materiaal/bo-demo/LEESMIJ.md`). De simulator heeft wel internet nodig. De reserve zijn de drie schermafbeeldingen op de lespagina.
 - **Zet het lege casusdeck op de openbare downloadpagina** (FR-02). Doorloop het één keer zelf met je AI: invullen, lokaal openen, PDF maken.
 - **Ken de uitkomst van de ijking** van de vraagtoets (FR-37, `materiaal/vraagtoets-ijkset.md`). In welke AI-omgeving haalde de prompt de norm? Dat zeg je om 11:40.

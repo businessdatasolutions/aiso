@@ -48,6 +48,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-042](ADR-042-experimentpaper-als-html-pagina.md) | Het experimentpaper als interactieve HTML-pagina, in zakelijk Nederlands volgens ASD-STE100 | Aanvaard | 2026-11-08 |
 | [ADR-043](ADR-043-probleemformulering-voor-de-businesscase.md) | Eerst het probleem: probleemformulering vóór de businesscase | Aanvaard | 2026-11-08 |
 | [ADR-044](ADR-044-bloktitel-breed-gebruikt-zelden-volwassen.md) | Het blok van 10:00 op dag 1 heet "Breed gebruikt, zelden volwassen" | Aanvaard | 2026-11-08 |
+| [ADR-045](ADR-045-site-op-github-pages.md) | De LRD en de lespagina's als site op GitHub Pages | Aanvaard | 2026-11-08 |
 
 ## Opbouw van een ADR
 

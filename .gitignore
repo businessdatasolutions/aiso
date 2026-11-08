@@ -12,3 +12,6 @@ Overeenkomst*
 
 # Testbrowser
 .playwright-mcp/
+
+# Gebouwde site voor GitHub Pages (scripts/bouw-pages.py)
+_site/

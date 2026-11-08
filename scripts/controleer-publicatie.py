@@ -26,12 +26,22 @@ Met --alleen-privacy slaat het script de controle op links en lokale paden
 over. Dan kun je ook de LRD in de repo, ADR's en het wijzigingslog
 controleren; die mogen wel naar lokale bestanden linken.
 
+Met --site MAP controleert het script de site voor GitHub Pages (ADR-045),
+gebouwd met scripts/bouw-pages.py. Links naar materiaal/ mogen dan, maar elke
+relatieve link moet naar een bestand in MAP wijzen:
+
+    python3 scripts/controleer-publicatie.py --site _site $(find _site -name '*.html')
+
+In de GitHub Action ontbreekt temp/. Daar doet de namencontrole niets; draai
+de controle daarom ook lokaal vóór de push.
+
 Exitcode 0: niets gevonden. Exitcode 1: er is iets gevonden.
 """
 import argparse
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 REPO = Path(__file__).resolve().parent.parent
 TEMP = REPO / "temp"
@@ -44,6 +54,10 @@ VERBODEN_MAPPEN = ("background-docs/", "temp/", "onderzoek/", "docs/", "materiaa
 LINK = re.compile(r"""\b(?:href|src)\s*[=:]\s*["'`]([^"'`]*)["'`]""", re.IGNORECASE)
 BEDRAG = re.compile(r"€\s?\d|\b\d[\d.]*,\d{2}\s?(?:euro|EUR)\b|\bEUR\s?\d", re.IGNORECASE)
 LOKAAL = re.compile(r"file://|/Users/[A-Za-z]")
+# Voor --site: href= en src= in HTML, href: in JavaScript. Niet src: in DATA, dat is een bronvermelding.
+SITELINK = re.compile(r"""\bhref\s*[=:]\s*["'`]([^"'`]*)["'`]|\bsrc\s*=\s*["'`]([^"'`]*)["'`]""",
+                      re.IGNORECASE)
+GEEN_BESTAND = re.compile(r"(?:[a-z][a-z0-9+.-]*:|#|\?|//)|.*\$\{", re.IGNORECASE)
 
 
 def voornamen_uit_temp() -> list[str]:
@@ -75,11 +89,11 @@ def patroon(woord: str) -> re.Pattern:
     return re.compile(r"(?<![\w-])" + re.escape(woord) + r"(?![\w-])", re.IGNORECASE)
 
 
-def verboden_link(doel: str) -> str | None:
+def verboden_link(doel: str, mappen=VERBODEN_MAPPEN) -> str | None:
     pad = doel.strip()
     while pad.startswith(("./", "../")):
         pad = pad.split("/", 1)[1]
-    if pad.startswith(VERBODEN_MAPPEN) or pad in VERBODEN_MAPPEN:
+    if pad.startswith(mappen) or pad in mappen:
         return f"een link naar {pad.split('/')[0]}/"
     if pad.split("#")[0] == "CHANGELOG.md":
         return "een link naar CHANGELOG.md"
@@ -88,16 +102,36 @@ def verboden_link(doel: str) -> str | None:
     return None
 
 
-def controleer(bestand: Path, alleen_privacy: bool, namen, woorden) -> list[str]:
+def buiten_site(bestand: Path, doel: str, site: Path) -> bool:
+    """Waar als een relatieve link niet naar een bestand in de site wijst."""
+    doel = doel.strip()
+    if not doel or GEEN_BESTAND.match(doel):
+        return False
+    pad = unquote(re.split(r"[#?]", doel, maxsplit=1)[0])
+    if not pad:
+        return False
+    # Een href in DATA geldt vanaf de LRD; de LRD staat in de hoofdmap van de site.
+    doelpad = (bestand.parent / pad).resolve()
+    if doelpad.is_dir():
+        doelpad = doelpad / "index.html"
+    return not (doelpad.is_relative_to(site) and doelpad.is_file())
+
+
+def controleer(bestand: Path, alleen_privacy: bool, namen, woorden, site: Path | None = None) -> list[str]:
     meldingen = []
     naam_patronen = [patroon(n) for n in namen]
     woord_patronen = [patroon(w) for w in woorden]
+    mappen = tuple(m for m in VERBODEN_MAPPEN if m != "materiaal/") if site else VERBODEN_MAPPEN
     for nr, regel in enumerate(bestand.read_text(encoding="utf-8").splitlines(), start=1):
         if not alleen_privacy:
             for doel in LINK.findall(regel):
-                wat = verboden_link(doel)
+                wat = verboden_link(doel, mappen)
                 if wat:
                     meldingen.append(f"{bestand}:{nr}: {wat}")
+            if site:
+                for treffer in SITELINK.findall(regel):
+                    if buiten_site(bestand.resolve(), treffer[0] or treffer[1], site):
+                        meldingen.append(f"{bestand}:{nr}: een link naar iets dat niet op de site staat")
             if LOKAAL.search(regel):
                 meldingen.append(f"{bestand}:{nr}: een lokaal pad")
         if BEDRAG.search(regel):
@@ -114,7 +148,13 @@ def main() -> int:
     parser.add_argument("bestanden", nargs="+", type=Path)
     parser.add_argument("--alleen-privacy", action="store_true",
                         help="sla de linkcontrole over (voor bestanden die in de repo blijven)")
+    parser.add_argument("--site", type=Path, metavar="MAP",
+                        help="controleer de site voor GitHub Pages: elke relatieve link wijst naar een bestand in MAP")
     args = parser.parse_args()
+    site = args.site.resolve() if args.site else None
+    if site and not site.is_dir():
+        print(f"Niet gevonden: {args.site}", file=sys.stderr)
+        return 2
 
     namen, woorden = voornamen_uit_temp(), verboden_woorden()
     if not namen:
@@ -128,7 +168,7 @@ def main() -> int:
         if not bestand.is_file():
             print(f"Niet gevonden: {bestand}", file=sys.stderr)
             return 2
-        meldingen += controleer(bestand, args.alleen_privacy, namen, woorden)
+        meldingen += controleer(bestand, args.alleen_privacy, namen, woorden, site)
 
     for m in meldingen:
         print(m)

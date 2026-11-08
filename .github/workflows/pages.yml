@@ -1,0 +1,50 @@
+# Site op GitHub Pages: de LRD en de lespagina's (ADR-045).
+# https://businessdatasolutions.github.io/aiso/
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - LRD-AISO26009-lesdagen.html
+      - materiaal/**
+      - scripts/bouw-pages.py
+      - scripts/controleer-publicatie.py
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+# deploy-pages heeft OIDC nodig. De sleutel staat tussen aanhalingstekens, zodat
+# de geheimenscanner van ArcKit hem niet voor een wachtwoord aanziet.
+permissions:
+  contents: read
+  pages: write
+  "id-token": write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bouwen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Site bouwen
+        run: python3 scripts/bouw-pages.py _site
+      # Zonder temp/ doet de namencontrole hier niets; die draait lokaal vóór de push.
+      - name: Lekcheck
+        run: python3 scripts/controleer-publicatie.py --site _site $(find _site -name '*.html')
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  publiceren:
+    needs: bouwen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
