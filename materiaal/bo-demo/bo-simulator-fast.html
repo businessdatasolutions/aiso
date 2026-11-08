@@ -408,6 +408,7 @@
             bestCostFound: Infinity,
             bestLocationFound: null,
             maxIterations: 50,
+            nextPoint: null, // AISO-reparatie: de plek van de rode bol, die bij de volgende stap getest wordt
         };
 
         // --- UI Elements ---
@@ -791,7 +792,7 @@
                 if (bestMarker) scene.remove(bestMarker);
                 const bestGeom = new THREE.SphereGeometry(1.1, 16, 16); // AISO-huisstijl: iets groter (origineel 1)
                 // AISO-huisstijl: de beste plek is het enige signaal en staat altijd bovenop (depthTest uit, na de doorzichtige vlakken).
-                // Zonder dit ligt hij vaak een stap lang onder het vlak: step() werkt het vlak bij vóór de nieuwe test erbij komt.
+                // Zo blijft hij heel zichtbaar, ook als hij half in het vlak ligt of in de 500 ms na een test nog even eronder.
                 const bestMat = new THREE.MeshStandardMaterial({ color: SCENE_COLORS.best, emissive: SCENE_COLORS.best, emissiveIntensity: 0.2, transparent: true, depthTest: false });
                 bestMarker = new THREE.Mesh(bestGeom, bestMat);
                 bestMarker.renderOrder = 11;
@@ -878,15 +879,24 @@
             scene.add(nextMarker);
             
             render();
+            boState.nextPoint = nextPointToSample; // AISO-reparatie: onthoud de keuze; step() test hem
             return nextPointToSample;
         }
 
+        // AISO-reparatie: eerst testen, dan het model bijwerken (het origineel deed het andersom).
+        // In het origineel was het vlak tussen twee klikken het beeld van vóór de laatste test: een nieuwe
+        // beste plek lag dan onder het vlak, en de rode bol stond op de plek die net getest was.
+        // Nu: test de rode plek, en werk na 500 ms het vlak bij en kies de volgende. Tussen twee klikken
+        // gaat het vlak door alle tests en staat de rode bol op de volgende test. De keuzeregel is gelijk.
         function step() {
-            if (!boState.isRunning) return;
-            const nextPoint = runBOIteration();
-            if(!nextPoint) return;
+            if (!boState.isRunning || !boState.nextPoint) return;
+            const nextPoint = boState.nextPoint;
+            boState.nextPoint = null; // een tweede klik binnen 500 ms test niet twee keer dezelfde plek
+            if (nextMarker) { scene.remove(nextMarker); nextMarker = null; }
+            addSample(nextPoint);
+            updateUI();
             setTimeout(() => {
-                 addSample(nextPoint);
+                 runBOIteration();
                  updateUI();
             }, 500);
         }

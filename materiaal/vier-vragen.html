@@ -423,7 +423,7 @@ html:not(.js) nav.bediening button{display:none}
             <thead><tr><th scope="col">In de simulator</th><th scope="col">Wat het betekent</th></tr></thead>
             <tbody>
               <tr><th scope="row">Initialize / Reset</th><td>Begin opnieuw met twee tests op een willekeurige plek.</td></tr>
-              <tr><th scope="row">Run One Step</th><td>Eén stap: het model werkt zijn beeld bij, kiest de volgende plek en test die.</td></tr>
+              <tr><th scope="row">Run One Step</th><td>Eén stap: test de plek van de rode bol. Daarna werkt het model zijn beeld bij en kiest het de volgende.</td></tr>
               <tr><th scope="row">Run Automatically</th><td>Stappen achter elkaar. Klik op "Stop" om te stoppen.</td></tr>
               <tr><th scope="row">Observation Noise</th><td>De meetfout: hoe onbetrouwbaar één test is.</td></tr>
               <tr><th scope="row">Exploration (Beta)</th><td>β: hoeveel de regel verkent.</td></tr>
@@ -457,11 +457,11 @@ html:not(.js) nav.bediening button{display:none}
               <figcaption>Na Initialize / Reset. Het model weet nog bijna niets.</figcaption>
             </figure>
             <figure>
-              <a href="./bo-demo/stap-laag-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-laag-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 0,5. De zwarte bollen liggen dicht bij elkaar in één kuil rond de gele bol, de beste plek. De rode bol ligt er weer naast. De rest van het vlak is bleek: daar is niet getest."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
+              <a href="./bo-demo/stap-laag-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-laag-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 0,5. De zwarte bollen liggen dicht bij elkaar in één dal, met de gele bol, de beste plek, onderaan. De rode bol van de volgende test ligt er vlak naast. De rest van het vlak is bleek: daar is niet getest."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
               <figcaption>Vijf stappen met β = 0,5. De tests blijven bij de beste plek.</figcaption>
             </figure>
             <figure>
-              <a href="./bo-demo/stap-hoog-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-hoog-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 10, in dezelfde wereld. De zwarte bollen liggen verspreid over het veld, elk met een grijze vlek: daar is het model nu zekerder. De rode bol ligt ver van de gele."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
+              <a href="./bo-demo/stap-hoog-beta.png" target="_blank" rel="noopener"><img src="./bo-demo/stap-hoog-beta.png" width="1280" height="760" loading="lazy" alt="De simulator na vijf stappen met β 10, in dezelfde wereld. De zwarte bollen liggen verspreid over het veld, elk met een grijze vlek: daar is het model nu zekerder. De rode bol van de volgende test ligt ver van de gele, waar nog niet getest is."><span class="sr"> (groot, in een nieuw tabblad)</span></a>
               <figcaption>Vijf stappen met β = 10. De tests waaieren uit over onbekend terrein.</figcaption>
             </figure>
           </div>
