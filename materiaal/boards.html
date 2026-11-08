@@ -332,14 +332,14 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div role="tabpanel" id="paneel-claude" aria-labelledby="tab-claude">
       <p><strong>Wat je nodig hebt:</strong> een account op claude.ai, ook gratis. Uploaden kan in de browser en in de desktop-app.</p>
       <ol class="stappenlijst">
-        <li>Zet code-uitvoering aan: <span class="menu">Settings › Capabilities</span>, schakelaar <span class="menu">Code execution and file creation</span> (in de nieuwe indeling heet hij <span class="menu">Create and edit files</span>). Zonder die schakelaar werkt een skill niet.</li>
-        <li>Ga naar <span class="menu">Customize › Skills</span>. Klik op <span class="menu">+</span>, dan op <span class="menu">Create skill</span> en kies <span class="menu">Upload a skill</span>.</li>
-        <li>Kies <code>supervisory-board.zip</code>. Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
-        <li>Kijk of beide skills aan staan.</li>
+        <li>Zet in <span class="menu">Settings › Capabilities</span> de schakelaars <span class="menu">Artifacts</span> en <span class="menu">Create and edit files</span> aan. Zonder die twee werkt een skill niet. In een oudere indeling heet de tweede <span class="menu">Code execution and file creation</span>.</li>
+        <li>Ga naar <span class="menu">Customize › Skills</span>. Klik op <span class="menu">+ Add</span> en kies <span class="menu">Upload skill</span>.</li>
+        <li>Kies <code>supervisory-board.zip</code> en klik op <span class="menu">Upload</span>. Een veiligheidsscan controleert de skill; dat duurt een paar seconden. Doe in werkplaats 1 hetzelfde met <code>advisory-board.zip</code>.</li>
+        <li>Kijk of beide skills aan staan: de schakelaar rechtsboven bij de skill.</li>
       </ol>
       <div class="blok gebruik"><h4>Gebruiken</h4><p>Noem de board in je vraag:</p><span class="prompt">Leg dit voor aan mijn advisory board: …</span><p>Claude kiest de skill ook zelf als je vraag bij de beschrijving past.</p></div>
       <div class="blok terugval"><h4>Werk je met een account van je werkgever?</h4><p>Bij Team staan skills standaard aan. Bij Enterprise moet de beheerder ze eerst aanzetten, in <span class="menu">Organization settings › Plugins &amp; skills</span>.</p></div>
-      <div class="blok terugval"><h4>Lukt het niet?</h4><p>Maak een project per board. Plak bij de instructies van het project de tekst uit stap 4 (<em>Kopieer de tekst</em>). Stel je vraag in een chat binnen dat project.</p></div>
+      <div class="blok terugval"><h4>Lukt het niet?</h4><p>Kopieer de tekst uit stap 4 (<em>Kopieer de tekst</em>) en plak hem in een nieuw gesprek, met je vraag eronder. Gebruik je de board vaker, maak dan een project per board: plak de tekst bij de instructies van het project en stel je vraag in een chat binnen dat project.</p></div>
     </div>
 
     <div role="tabpanel" id="paneel-chatgpt" aria-labelledby="tab-chatgpt" hidden>
@@ -365,7 +365,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <div class="blok terugval"><h4>Maak geen Gem meer</h4><p>Google vervangt Gems door skills. Bij een persoonlijk account kun je een Gem vanaf 17 november 2026 niet meer gebruiken, en op 17 december 2026 verdwijnt hij. Bij een Workspace-account van je werkgever blijven Gems tot ten minste maart 2027.</p></div>
       <div class="blok terugval"><h4>Lukt het niet?</h4><p>Plak de tekst uit stap 4 in een chat, met deze vraag ervoor:</p><span class="prompt">Maak een skill op basis van deze instructies:</span><p>Gemini zet de skill op je pagina <span class="menu">Skills</span>. Daar zet je hem aan.</p></div>
     </div>
-    <p class="klein">Gecontroleerd op 7 november 2026 op de helppagina's van Anthropic, OpenAI en Google. Menu's veranderen vaak. Klopt een stap niet meer, zeg het dan tegen de trainer.</p>
+    <p class="klein">Gecontroleerd op 7 november 2026 op de helppagina's van Anthropic, OpenAI en Google. De stappen voor Claude zijn op 8 november 2026 in claude.ai zelf uitgeprobeerd. Menu's veranderen vaak. Klopt een stap niet meer, zeg het dan tegen de trainer.</p>
   </section>
 
   <section class="stap" id="gebruiken" aria-labelledby="gebruiken-kop">
