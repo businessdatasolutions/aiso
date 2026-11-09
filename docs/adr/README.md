@@ -61,6 +61,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-055](ADR-055-portfoliokaart-met-de-overdracht-uitvergroot.md) | De portfoliokaart volgt de bron en vergroot de overdracht uit | Aanvaard | 2026-11-08 |
 | [ADR-056](ADR-056-wat-de-organisatie-moet-kunnen.md) | Het model van Warner en Wäger hoort bij vraag 2 op dag 3 | Aanvaard | 2026-11-08 |
 | [ADR-057](ADR-057-overzicht-van-de-vier-vragen.md) | Elke lesdag opent met het overzicht van de vier vragen over de drie dagen | Aanvaard | 2026-11-08 |
+| [ADR-058](ADR-058-even-voorstellen.md) | De trainer stelt zich voor met zijn eigen werk | Aanvaard | 2026-11-09 |
 
 ## Opbouw van een ADR
 

@@ -43,21 +43,22 @@
 
 **De volgorde ligt vast.** Eerst de casus, dan de nulmeting, en pas daarna uitleg. Wie eerst uitleg krijgt, schrijft die uitleg op. Dan meet de nulmeting niets meer.
 
-### 9:30–9:35 · Welkom en duo's (5 minuten)
+### 9:30–9:37 · Welkom, voorstellen en duo's (7 minuten)
 
-1. Zet het overzicht van de vier vragen op de beamer: de eerste tegel bij dit blok, of de pil Overzicht bovenaan de startpagina. Zeg in twee zinnen wat de training oplevert: "Je werkt drie dagen aan één casus uit je eigen organisatie. Vandaag gaat het om richting: waar gaat je organisatie heen nu AI de omgeving verandert?" Wijs de vier rijen en de drie dagen aan, maar leg de vragen nog niet uit: dat komt om 9:40. Klik daarna op Dag 1.
-2. Kennismaking: iedereen noemt naam, rol en organisatie, in één zin.
-3. Noem de duo's. Die blijven drie dagen hetzelfde (FR-08).
-4. Deel de geprinte vragenkaart uit. Zeg: "Deze kaart blijft drie dagen op tafel liggen. Gooi hem niet weg."
+1. Zet het overzicht van de vier vragen op de beamer: de eerste tegel bij dit blok, of de pil Overzicht bovenaan de startpagina. Zeg in twee zinnen wat de training oplevert: "Je werkt drie dagen aan één casus uit je eigen organisatie. Vandaag gaat het om richting: waar gaat je organisatie heen nu AI de omgeving verandert?" Wijs de vier rijen en de drie dagen aan, maar leg de vragen nog niet uit: dat komt om 9:42. Klik daarna op Dag 1.
+2. Stel jezelf voor (twee minuten) met `materiaal/voorstellen.html`, de tweede tegel bij dit blok. Stap 1: "Vier lijnen, één station: handel, onderwijs, onderzoek en ondernemen komen samen in deze training." Stap 2: wijs de kolommen van 2025 en 2026 aan: "Zo veel bouw ik sinds AI meebouwt." Stap 3 sla je over: die toont je portfoliokaart, en die hoort bij 11:15 (ADR-058).
+3. Kennismaking: iedereen noemt naam, rol en organisatie, in één zin. Stap 2 eindigt met die vraag.
+4. Noem de duo's. Die blijven drie dagen hetzelfde (FR-08).
+5. Deel de geprinte vragenkaart uit. Zeg: "Deze kaart blijft drie dagen op tafel liggen. Gooi hem niet weg."
 
-### 9:35–9:40 · De casus vastleggen (5 minuten)
+### 9:37–9:42 · De casus vastleggen (5 minuten)
 
 1. Zeg: "Vul bovenaan de kaart twee vakken in. Bij Casus je organisatie, of het deel waar je werkt. Bij Strategische AI-vraag de vraag over AI waar je organisatie mee worstelt, in één zin."
 2. Zeg erbij: "Het is een voorlopige vraag. Om 11:40 toetsen we hem. Daarna ligt hij vast."
 3. Zeg: "Schrijf alleen op wat openbaar mag. Wat op deze kaart staat, gaat vanmiddag je AI in" (NFR-01).
 4. De deelnemers schrijven. Loop rond. Help alleen wie niets opschrijft: "Waar maakt je directie zich zorgen over, als het om AI gaat?"
 
-### 9:40–9:50 · De vier vragen en de nulmeting (10 minuten)
+### 9:42–9:52 · De vier vragen en de nulmeting (10 minuten)
 
 1. Lees de vier vragen voor, van de kaart. Leg ze niet uit.
    - **V1 Richting:** Hoe bepaal ik een strategie als elk plan door de realiteit wordt ingehaald voordat het op papier staat?
@@ -70,7 +71,7 @@
 
 **Zeg niets over het onderwerp.** Geef geen voorbeeld, geen hint, en geen woord als "wendbaar" of "experimenteren". De nulmeting laat zien hoe de deelnemer nu denkt. Bij Voorbeeld BV lijkt een nulmeting op klassiek plannen: een vast doel, een plan, en daarna uitvoeren (`materiaal/voorbeeldcasus.md`). Dat voorbeeld zien de deelnemers pas om 11:32.
 
-### 9:50–9:55 · Visie, missie en strategie (5 minuten, FR-30, ADR-030)
+### 9:52–9:56 · Visie, missie en strategie (4 minuten, FR-30, ADR-030)
 
 1. Toon het eerste filmpje (10 seconden): vandaag → een boog → de visie over vijf jaar, met de missie als stip.
 2. Geef de drie definities:
@@ -80,7 +81,7 @@
 
 **Zeg niets over wat er komt.** Noem het niet "klassiek" of "de oude theorie", en wijs niet vooruit naar 11:00. De deelnemers passen het model eerst toe op hun eigen organisatie. De omslag werkt pas als ze er zelf in zijn gestapt. Daarom heeft het materiaal op de startpagina neutrale namen.
 
-### 9:55–10:00 · Werkregel 1 en de opdracht voor de pauze (5 minuten)
+### 9:56–10:00 · Werkregel 1 en de opdracht voor de pauze (4 minuten)
 
 1. Toon werkregel 1 op een dia of de startpagina. Lees voor: "Voordat je pauze neemt, zet je **altijd** AI aan het werk."
 2. Zeg waarom: een onderzoek met de onderzoeksfunctie van je AI duurt tien tot twintig minuten. Dat is precies een pauze. Wie de AI vóór de pauze een taak geeft, heeft na de pauze iets om mee verder te werken. De regel geldt vóór elke pauze, negen keer in drie dagen.
@@ -195,7 +196,7 @@ Geen bestaand model. De zes dimensies komen terug in de modellen van MIT CISR, C
 
 1. **Twee manieren van werken** (March, 1991). Benutten is beter worden in wat je al doet: het rendement is zeker en komt snel. Verkennen is zoeken naar wat nieuw is: het rendement is onzeker en komt later. Organisaties schuiven vanzelf naar benutten, want dat betaalt sneller uit. Verandert de wereld, dan word je steeds beter in iets wat minder waard wordt.
 2. Noem de meting uit stap 4 van de lespagina: "In een strategiesimulatie hielden taalmodellen vast aan de oude technologie. Ze benutten te veel" (Allen & McDonald, 2026).
-3. **De portfoliokaart** (Osterwalder e.a., 2020). Wijs links de twee portfolio's aan: verkennen linksonder, benutten rechtsboven. Ze raken elkaar op één punt: T, de overdracht (T van transfer). Zeg: "Dit is de flessenhals. Hier wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen." Wijs rechts de twee banen aan. Over de muur is één grote overdracht aan het eind, en niemand is eigenaar. De pijplijn van Voorbeeld BV gaat van experiment via pilot naar opschalen, met voor elke stap een norm vooraf en een deur die terug kan. "De softwarewereld vond hiervoor CI/CD en DevOps uit: kleine stappen, vaak, getest en terug te draaien. Wie zo oplevert, heeft ook minder mislukte wijzigingen" (Forsgren e.a., 2018). De deur die terug kan, leg je hier niet uit: die komt in stap 5. Op een laptop of een kleine beamer klik je op **Toon groot**; een pijltje gaat verder.
+3. **De portfoliokaart** (Osterwalder e.a., 2020). Wijs links de twee portfolio's aan: verkennen linksonder, benutten rechtsboven. Ze raken elkaar op één punt: T, de overdracht (T van transfer). Zeg: "Dit is de flessenhals. Hier wordt een innovatie deel van het huidige businessmodel, of blijft ze hangen." Wijs rechts de twee banen aan. Over de muur is één grote overdracht aan het eind, en niemand is eigenaar. De pijplijn van Voorbeeld BV gaat van experiment via pilot naar opschalen, met voor elke stap een norm vooraf en een deur die terug kan. "De softwarewereld vond hiervoor CI/CD en DevOps uit: kleine stappen, vaak, getest en terug te draaien. Wie zo oplevert, heeft ook minder mislukte wijzigingen" (Forsgren e.a., 2018). De deur die terug kan, leg je hier niet uit: die komt in stap 5. Als tweede voorbeeld je eigen portfolio: stap 3 van `materiaal/voorstellen.html` (de tegel "Voorbeeld: de portfoliokaart van je trainer"). Twee apps verken je nog, twee benut je al, en Plinkie is net over T. Op een laptop of een kleine beamer klik je op **Toon groot**; een pijltje gaat verder.
 4. **De meerarmige bandiet.** "Voor je staan tien gokautomaten. Elke automaat betaalt anders uit, maar hoeveel weet je niet. Trek je aan de arm die tot nu toe het meest gaf? Dat is benutten. Probeer je een andere? Dat is verkennen. Wie alleen benut, mist misschien de beste automaat."
 
 ### 11:20–11:30 · De simulator (10 minuten)

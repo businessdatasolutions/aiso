@@ -2,6 +2,20 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.42 — 2026-11-09
+
+**Nieuw**
+- Lespagina "Even voorstellen" (`materiaal/voorstellen.html`): de trainer stelt zich voor in drie stappen. Een
+  metrokaart van de loopbaan (D3), één blokje per repo op GitHub met de echte aanmaakdatums (Three.js), en de vier eigen
+  apps op de portfoliokaart met T (D3), met het logo van Plinkie (ADR-058).
+
+**Gewijzigd**
+- Dag 1 om 9:30: na het overzicht stelt de trainer zich voor met stap 1 en 2, en dan volgt de kennismaking. Stap 3, de
+  portfoliokaart, hoort niet vóór de nulmeting en komt om 11:15, als tweede voorbeeld na Voorbeeld BV. Het draaiboek
+  volgt.
+- Dag 1, de rest van het blok van 9:30 schuift op: casus om 9:37, nulmeting om 9:42 (nog steeds tien minuten),
+  filmpje 1 om 9:52 en werkregel 1 om 9:56.
+
 ## 0.41 — 2026-11-08
 
 **Nieuw**
