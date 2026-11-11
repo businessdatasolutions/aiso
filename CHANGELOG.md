@@ -2,6 +2,12 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.45 — 2026-11-11
+
+**Gewijzigd**
+- Deel 4: de ontwikkeldoelen van Deelnemer A zijn bekend en staan op de deelnemerskaart. Van vijf van de zes deelnemers
+  is het profiel nu bekend.
+
 ## 0.44 — 2026-11-11
 
 **Nieuw**
