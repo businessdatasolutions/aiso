@@ -32,7 +32,7 @@
 - **Gebruik de simulator uit `bo-demo/`.** In de online versie doet de schuif β bijna niets (`materiaal/bo-demo/LEESMIJ.md`). De simulator heeft wel internet nodig. De reserve zijn de drie schermafbeeldingen op de lespagina.
 - **Zet het lege casusdeck op de openbare downloadpagina** (FR-02). Doorloop het één keer zelf met je AI: invullen, lokaal openen, PDF maken.
 - **Ken de uitkomst van de ijking** van de vraagtoets (FR-37, `materiaal/vraagtoets-ijkset.md`). In welke AI-omgeving haalde de prompt de norm? Dat zeg je om 11:40.
-- **Maak de duo's** (FR-08). Waar het kan, zijn dat de buddy's uit de leeromgeving.
+- **Maak de duo's** (FR-08). Waar het kan, zijn dat de buddy's uit de leeromgeving. Anders koppel je twee deelnemers met een verschillende rol of sector (ADR-059).
 - **Lees de ontwikkeldoelen** (FR-11). Noteer welke leerdoelen niet in het programma passen. Die bespreek je op dag 1 apart met de deelnemer, in een pauze.
 - **Zet je eigen boards klaar** (stap 2 en 3 van `boards.html`). Je laat ze om 12:15 en 13:30 zien.
 

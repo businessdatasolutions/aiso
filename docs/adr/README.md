@@ -62,6 +62,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-056](ADR-056-wat-de-organisatie-moet-kunnen.md) | Het model van Warner en Wäger hoort bij vraag 2 op dag 3 | Aanvaard | 2026-11-08 |
 | [ADR-057](ADR-057-overzicht-van-de-vier-vragen.md) | Elke lesdag opent met het overzicht van de vier vragen over de drie dagen | Aanvaard | 2026-11-08 |
 | [ADR-058](ADR-058-even-voorstellen.md) | De trainer stelt zich voor met zijn eigen werk | Aanvaard | 2026-11-09 |
+| [ADR-059](ADR-059-de-duos.md) | De duo's: functie, samenstelling en momenten op één plek | Aanvaard | 2026-11-11 |
 
 ## Opbouw van een ADR
 

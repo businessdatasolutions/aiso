@@ -2,6 +2,17 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.44 — 2026-11-11
+
+**Nieuw**
+- Deel 4 heeft een paragraaf over de duo's: waarvoor het duo dient, hoe de trainer de duo's samenstelt en in welke elf
+  blokken het duo samenwerkt, met per blok wat het daar doet. De tabel komt uit het nieuwe veld `duo` in `DATA.days`
+  (ADR-059).
+
+**Gewijzigd**
+- Zijn er geen buddy's uit de leeromgeving, dan koppelt de trainer twee deelnemers met een verschillende rol of sector.
+  Het draaiboek volgt.
+
 ## 0.43 — 2026-11-11
 
 **Gewijzigd**
