@@ -299,6 +299,7 @@ Het artikel meet dat het zo is. Waarom, weten we nog niet zeker. Voor jou telt d
 - **Positie 0: operationeel.** Bewaar de vraag als kandidaat voor je eerste prioriteit (dag 2). Zoek de vraag erboven: waarom moet dit beter, en wat wil je organisatie daarmee bereiken?
 - **Positie 1 of 2, Keuze 0: nog geen keuze.** Herschrijf de vraag zo dat er iets afvalt.
 - **Positie 1 of 2, Keuze 1 of 2: strategisch.** Positie 1 is strategisch op het niveau van een afdeling of keten.
+- **Omgeving bepaalt de uitkomst niet.** Er is altijd iets van buiten dat een organisatie tot handelen dwingt: nieuwe regels, vergrijzing, prijzen in de markt, druk uit de samenleving, nieuwe techniek of duurzaamheid (DESTEP). Omgeving zegt welke verandering dat bij deze vraag is, en waarom nu.
 - **Altijd:** onder de vraag moet een eerste prioriteit passen die je tussen dag 2 en 3 kunt testen. Past die er niet onder, kies dan een deel, zoals één markt of één klantgroep.
 
 **Vastleggen.** De deelnemer schrijft de gekozen vraag op de vragenkaart. Daarbij komen de eigen scores en die van het duo, bijvoorbeeld "O2 P1 K2 · duo O2 P1 K1" (AC-23). De vraag gaat ook in stap 1 van `boards.html`. Daarna ligt hij vast (FR-01).
