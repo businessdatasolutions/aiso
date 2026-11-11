@@ -2,6 +2,16 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.43 — 2026-11-11
+
+**Gewijzigd**
+- Deel 4: het profiel van Deelnemer D is bekend en staat op de deelnemerskaart. Van vier van de zes deelnemers is het
+  profiel nu bekend. De omschrijving van de AI-transformatieregisseur noemt ook de toezichthouder.
+- Dag 1 om 9:30, instructie voor de trainer: wie uit meer dan één organisatie kan kiezen, kiest één casus en houdt die
+  drie dagen vast.
+- Dag 1 om 11:40, instructie voor de trainer: "minder fte" of "lagere kosten" is een middel. Het doel erboven komt op
+  de kaart.
+
 ## 0.42 — 2026-11-09
 
 **Nieuw**
