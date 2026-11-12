@@ -2,6 +2,17 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.46 — 2026-11-12
+
+**Gewijzigd**
+- Casusdeck, dia 5 (Adoptie): drie delen in plaats van vier modellen naast elkaar. Eerst de sterkste rem en de zwakste
+  aanjager, dan één actie voor processen, structuur, cultuur en vaardigheden, dan de top 3 stakeholders. De modellen
+  staan alleen in een voetregel. De dia gaat van 22 naar 12 vakken (ADR-060).
+- Casusdeck, dia 8 (Randvoorwaarden): de rem en de aanjager staan nu op dia 5, en het vak Vaardigheden vervalt.
+- Casusdeck, dia 4 (Eerste prioriteit): het vak voor de kosten vraagt ook naar de baten.
+- Dag 3 om 15:00 en 15:15, de lespagina Transformeren, de voorbeeldcasus en het draaiboek noemen de dia Adoptie als
+  plek voor de rem en de aanjager.
+
 ## 0.45 — 2026-11-11
 
 **Gewijzigd**

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Aanvaard |
+| **Status** | Aanvaard; de plek in het casusdeck (dia 8) is vervangen door [ADR-060](ADR-060-dia-adoptie-vereenvoudigd.md) |
 | **Datum** | 2026-11-08 |
 | **Besloten door** | Witek ten Hove (trainer en ontwerper) |
 | **Document** | [LRD AISO26009 Lesdagen](../../LRD-AISO26009-lesdagen.html) |

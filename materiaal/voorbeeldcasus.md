@@ -228,7 +228,7 @@ het MT vaststelt (V1), één leverancier voor vijf jaar (V3) en elk kwartaal een
 de hand van afdeling naar afdeling.
 
 Het transformatieplan van Voorbeeld BV begint bij die rem en die aanjager. In het casusdeck staan ze op de dia
-Randvoorwaarden.
+Adoptie.
 
 **Alleen in `transformeren.html`:** de tekening van het model, met de Nederlandse namen van de negen vermogens.
 

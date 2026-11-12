@@ -209,10 +209,10 @@ table { border-collapse: collapse; width: 100%; }
 .regels li { min-height: 2.3em; padding: .35em 0 .25em; border-bottom: 1px solid var(--kleur-lijn); line-height: 1.3; }
 .regels b { font-weight: 650; margin-right: .3em; }
 
-/* ---------- Dia 2 en 8: twee kolommen, dia 8 met een derde voor rem en aanjager ---------- */
+/* ---------- Dia 2 en 8: twee kolommen ---------- */
 .twee { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1em; }
-.randvoorwaarden { grid-template-columns: 1.2fr 1fr 1fr; }
 .twee .stapel > .vak { min-height: 5.5em; }
+.randvoorwaarden .rijen { grid-auto-rows: 1fr; align-content: stretch; }
 .twee .vak p, .doel p { font-size: .92em; }
 
 /* ---------- Dia 3: doelen ---------- */
@@ -235,7 +235,13 @@ table { border-collapse: collapse; width: 100%; }
 .grafiek svg { display: block; width: 100%; height: 100%; max-height: 100%; }
 
 /* ---------- Dia 5: adoptie ---------- */
-.adoptie { grid-template-columns: 1fr 1fr 1.15fr 1fr; }
+.adoptie { display: grid; grid-template-columns: 1fr 1.3fr 1fr; grid-template-rows: 1fr auto; gap: .7em 1em; }
+.adoptie .rijen { grid-auto-rows: 1fr; align-content: stretch; flex: 1; }
+.adoptie .rijen dt { font-size: .82em; }
+.adoptie .rijen dd { font-size: .92em; }
+.adoptie .stapel > .vak { min-height: 5.5em; }
+.adoptie .vak p { font-size: .92em; }
+.modellen { grid-column: 1 / -1; }
 .stakeholder p + p { margin-top: .15em; }
 
 /* ---------- Dia 6: roadmap ---------- */
@@ -640,8 +646,8 @@ table { border-collapse: collapse; width: 100%; }
             <p><span class="invul">[Waaraan zie je dat het werkt? Een getal met een eenheid.]</span></p>
           </div>
           <div class="vak">
-            <h3>Kosten in de tijd, met de dip</h3>
-            <p><span class="invul">[Wat kost het per kwartaal? Wanneer zit je in de dip, en wanneer kom je eruit?]</span></p>
+            <h3>Kosten en baten in de tijd, met de dip</h3>
+            <p><span class="invul">[Wat kost het en wat levert het op, per kwartaal? Wanneer kom je uit de dip?]</span></p>
           </div>
           <div class="vak">
             <h3>Twee aannames</h3>
@@ -690,40 +696,31 @@ table { border-collapse: collapse; width: 100%; }
       <p class="label">V2 Transformeren</p>
       <h2 id="titel-5">Adoptie</h2>
     </header>
-    <div class="inhoud k4 adoptie">
+    <div class="inhoud adoptie">
       <div class="kolom">
-        <h3 class="kolomkop">ADKAR <span class="notitie">wat doe je per stap?</span></h3>
-        <dl class="rijen">
-          <div><dt>A · Bewustzijn</dt><dd><span class="invul">[Hoe horen mensen waarom dit nodig is?]</span></dd></div>
-          <div><dt>D · Bereidheid</dt><dd><span class="invul">[Wat maakt dat ze willen meedoen?]</span></dd></div>
-          <div><dt>K · Kennis</dt><dd><span class="invul">[Wat moeten ze weten, en hoe leren ze dat?]</span></dd></div>
-          <div><dt>A · Kunnen</dt><dd><span class="invul">[Hoe oefenen ze in hun eigen werk?]</span></dd></div>
-          <div><dt>R · Borgen</dt><dd><span class="invul">[Wat zorgt dat het blijft?]</span></dd></div>
-        </dl>
+        <h3 class="kolomkop">Vertrekpunt <span class="notitie">wat remt, wat helpt</span></h3>
+        <div class="stapel">
+          <div class="vak">
+            <h3>Sterkste rem</h3>
+            <p><span class="invul">[Welke rem, waaraan zie je hem, en wat haal je weg?]</span></p>
+          </div>
+          <div class="vak">
+            <h3>Zwakste aanjager</h3>
+            <p><span class="invul">[Welke aanjager, waaraan zie je dat, en hoe versterk je hem?]</span></p>
+          </div>
+        </div>
       </div>
       <div class="kolom">
-        <h3 class="kolomkop">Kotter <span class="notitie">vier van de acht stappen</span></h3>
+        <h3 class="kolomkop">Wat verandert <span class="notitie">één actie per onderdeel, begin bij je sterkste rem</span></h3>
         <dl class="rijen">
-          <div><dt>Urgentie</dt><dd><span class="invul">[Waarom nu?]</span></dd></div>
-          <div><dt>Coalitie</dt><dd><span class="invul">[Wie heb je nodig?]</span></dd></div>
-          <div><dt>Visie</dt><dd><span class="invul">[Waar werk je naartoe, in één zin?]</span></dd></div>
-          <div><dt>Eerste successen</dt><dd><span class="invul">[Welk eerste resultaat laat je snel zien?]</span></dd></div>
-        </dl>
-      </div>
-      <div class="kolom">
-        <h3 class="kolomkop">7S <span class="notitie">één actie per element, begin bij je sterkste rem</span></h3>
-        <dl class="rijen">
-          <div><dt>Strategie</dt><dd><span class="invul">[Hoe past AI in de koers?]</span></dd></div>
+          <div><dt>Processen</dt><dd><span class="invul">[Welk proces of systeem verandert, en wat is de eerste stap?]</span></dd></div>
           <div><dt>Structuur</dt><dd><span class="invul">[Wie beslist, en wie werkt met wie?]</span></dd></div>
-          <div><dt>Systemen</dt><dd><span class="invul">[Welke processen en systemen veranderen?]</span></dd></div>
-          <div><dt>Gedeelde waarden</dt><dd><span class="invul">[Wat moet iedereen belangrijk vinden?]</span></dd></div>
-          <div><dt>Stijl</dt><dd><span class="invul">[Wat doet de leiding anders?]</span></dd></div>
-          <div><dt>Personeel</dt><dd><span class="invul">[Wie heb je nodig, en wiens werk verandert?]</span></dd></div>
-          <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen leren?]</span></dd></div>
+          <div><dt>Cultuur</dt><dd><span class="invul">[Wat doet de leiding anders, en wat moet iedereen belangrijk vinden?]</span></dd></div>
+          <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen leren, en hoe oefenen ze in hun eigen werk?]</span></dd></div>
         </dl>
       </div>
       <div class="kolom">
-        <h3 class="kolomkop">Top 3 stakeholders <span class="notitie">één actie elk</span></h3>
+        <h3 class="kolomkop">Wie meegaat <span class="notitie">top 3 stakeholders, één actie elk</span></h3>
         <div class="stapel">
           <div class="vak stakeholder">
             <h4>Stakeholder 1</h4>
@@ -742,6 +739,7 @@ table { border-collapse: collapse; width: 100%; }
           </div>
         </div>
       </div>
+      <p class="toelichting modellen">Gebruikte modellen: Warner en Wäger (2019), 7S (Waterman e.a., 1980), ADKAR (Hiatt, 2006) en Kotter (1996).</p>
     </div>
     <footer class="voet"><span>Casusdeck</span><span>Dia 5 van 10</span></footer>
   </div>
@@ -868,21 +866,7 @@ table { border-collapse: collapse; width: 100%; }
           <div><dt>Data</dt><dd><span class="invul">[Welke data, van wie, en is die goed genoeg?]</span></dd></div>
           <div><dt>Budget</dt><dd><span class="invul">[Hoeveel geld, voor welke periode, en wie betaalt?]</span></dd></div>
           <div><dt>Systemen en software</dt><dd><span class="invul">[Welke systemen en software? Wat moet erop aansluiten?]</span></dd></div>
-          <div><dt>Vaardigheden</dt><dd><span class="invul">[Wat moeten mensen kunnen dat ze nu nog niet kunnen?]</span></dd></div>
         </dl>
-      </div>
-      <div class="kolom">
-        <h3 class="kolomkop">Wat remt, wat helpt <span class="notitie">Warner en Wäger</span></h3>
-        <div class="stapel">
-          <div class="vak">
-            <h3>Sterkste rem</h3>
-            <p><span class="invul">[Welke rem, waaraan zie je hem, en wat haal je weg?]</span></p>
-          </div>
-          <div class="vak">
-            <h3>Zwakste aanjager</h3>
-            <p><span class="invul">[Welke aanjager, waaraan zie je dat, en hoe versterk je hem?]</span></p>
-          </div>
-        </div>
       </div>
       <div class="kolom">
         <h3 class="kolomkop">Wat moet blijven werken</h3>
