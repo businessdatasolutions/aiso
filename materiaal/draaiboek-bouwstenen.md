@@ -592,7 +592,7 @@ Elke deelnemer kiest per deel het briefje dat het zwaarst weegt. De zin bouwt zi
 
 ### 12:05–12:30 · De businesscase (25 minuten, FR-14)
 
-1. **De prompt.** Toon stap 5 van `materiaal/probleemformulering.html`. Elke deelnemer beschrijft de kansenkaart in een paar zinnen (of voegt een foto toe), vult de eerste kleine inzet van 10:45 in, en plakt de prompt in de chat van 10:30. De AI schrijft; de probleemstelling staat bovenaan, en het "omdat" bij de aannames.
+1. **De prompt.** Toon stap 5 van `materiaal/probleemformulering.html`. Elke deelnemer beschrijft de kansenkaart in een paar zinnen (of voegt een foto toe), vult de eerste kleine inzet van 11:00 in, en plakt de prompt in de chat van 10:30. De AI schrijft; de probleemstelling staat bovenaan, en het "omdat" bij de aannames.
 2. **Bronkritiek, met een echt voorbeeld.** Het vaak geciteerde "95% van de organisaties haalt geen rendement uit AI" komt van MIT NANDA (2025). Het rust op ruim 300 openbare initiatieven, 52 interviews en een enquête onder 153 bezoekers van vier conferenties. Het rapport noemt de eigen cijfers "directionally accurate". Vraag: wat is er gemeten, bij wie en wanneer? Dezelfde vraag stelt het duo bij de bron die het in het origineel opzoekt (AC-04).
 3. **Niet af om 12:30?** Dan maakt de AI de businesscase in dezelfde chat af, vóór het voorstel van de lunch. Het duo zoekt de bron dan na de lunch op.
 
