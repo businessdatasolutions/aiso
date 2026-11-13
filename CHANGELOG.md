@@ -2,6 +2,16 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.48 — 2026-11-13
+
+**Gewijzigd**
+- De presentatie voor het investeringscomité heeft een tijdslimiet: hooguit vijf minuten presenteren en vijf minuten
+  vragen, met een timer in beeld (FR-09, FR-41, ADR-062). Dat was vier en drie minuten.
+- Dag 2: het comité loopt daardoor tot 10:45. De pauze schuift naar 10:45 en het blok Klein inzetten naar 11:00; dat
+  blok duurt 30 minuten in plaats van 45. Het blok van 11:30 blijft staan.
+- De lespagina's Je presentatie voor het investeringscomité, Probleemformulering en Experimentpaper noemen de nieuwe
+  tijden.
+
 ## 0.47 — 2026-11-13
 
 **Nieuw**

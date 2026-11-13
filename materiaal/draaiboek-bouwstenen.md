@@ -554,7 +554,10 @@ Het actieplan staat in de online leeromgeving van S&N. Wat je daar zet, is je ee
 
 Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan geldt het programma in de LRD.
 
-## Dag 2 · Investeringscomité (FR-09)
+## Dag 2 · 9:40–10:45 · Investeringscomité (FR-09, FR-41, ADR-061, ADR-062)
+
+- **De tijd.** Elke deelnemer presenteert hooguit vijf minuten, daarna stelt het comité vijf minuten vragen. Zet een timer in beeld en stop wie over de tijd gaat. Zes presentaties duren tot 10:40. Daarna de fiches, en om 10:43 werkregel 1.
+- **De criteria.** Elk comitélid toetst de presentatie aan de eigen drie kwaliteitscriteria, die om 9:37 op tafel lagen. De oordelen gaan op schrift naar de presentator.
 
 - Deel de rolkaarten uit. Elke rolkaart heeft twee kritiekpunten met bewijs en tegenbewijs: `materiaal/rolkaarten-kritiekpunten.md`.
 - Zeg vooraf: "De cijfers op de kaart zijn vaak zelfrapportage of van leveranciers. Vraag dus ook: wat is er gemeten?"
@@ -563,9 +566,9 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 
 - **De productiviteitsparadox.** Op taakniveau meten studies +14 tot +73%, op bedrijfsniveau ongeveer 0%. 90% van de bedrijven investeert, minder dan 40% ziet meetbare winst [D5]. Dit sluit aan op de J-curve: eerst een dal, dan de winst (Brynjolfsson e.a., 2021).
 
-## Dag 2 · 10:30–10:45 · Pauze: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
+## Dag 2 · 10:45–11:00 · Pauze: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
 
-- **Om 10:25: werkregel 1.** Toon stap 2 van `materiaal/probleemformulering.html`; de startpagina linkt ernaar. Zeg: "Vul je knelpunt en de vragen van het comité in, en plak de prompt in een nieuwe chat met de onderzoeksfunctie aan. Je AI zoekt materiaal, nog geen oplossing. Om 11:30 heb je het nodig."
+- **Om 10:43: werkregel 1.** Toon stap 2 van `materiaal/probleemformulering.html`; de startpagina linkt ernaar. Zeg: "Vul je knelpunt en de vragen van het comité in, en plak de prompt in een nieuwe chat met de onderzoeksfunctie aan. Je AI zoekt materiaal, nog geen oplossing. Om 11:30 heb je het nodig."
 - **Dezelfde chat.** Zeg erbij: "Gebruik deze chat ook om 11:30 en om 12:05. Dan kent je AI het onderzoek al."
 
 ## Dag 2 · 11:30–12:30 · Eerst het probleem, dan de businesscase (FR-39, FR-27, FR-14, ADR-043)
@@ -576,7 +579,7 @@ Zeg: "Een kwartier lossen we niets op. We leggen vast wat het probleem is, vanui
 
 ### 11:32–11:40 · Vier vakken (8 minuten)
 
-Toon stap 4. Elke deelnemer vult de vier vakken op de lespagina, met het onderzoek van 10:30 ernaast: één signaal of vermoeden per regel. Loop rond en vraag bij een briefje: "Hoe weet je dat?" Weet de deelnemer het niet, dan is het een vermoeden. Dat mag, als het zo heet.
+Toon stap 4. Elke deelnemer vult de vier vakken op de lespagina, met het onderzoek van 10:45 ernaast: één signaal of vermoeden per regel. Loop rond en vraag bij een briefje: "Hoe weet je dat?" Weet de deelnemer het niet, dan is het een vermoeden. Dat mag, als het zo heet.
 
 ### 11:40–11:45 · Eén zin en het duo (5 minuten)
 

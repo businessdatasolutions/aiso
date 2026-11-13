@@ -65,6 +65,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-059](ADR-059-de-duos.md) | De duo's: functie, samenstelling en momenten op één plek | Aanvaard | 2026-11-11 |
 | [ADR-060](ADR-060-dia-adoptie-vereenvoudigd.md) | De dia Adoptie begint bij de sterkste rem en noemt de modellen alleen onderaan | Aanvaard | 2026-11-12 |
 | [ADR-061](ADR-061-transformeren-op-dag-2-en-3.md) | Transformeren komt op dag 2 en dag 3 terug, met een presentatie voor het investeringscomité | Aanvaard | 2026-11-13 |
+| [ADR-062](ADR-062-tijdslimiet-presentatie.md) | De presentatie voor het comité heeft een tijdslimiet: vijf minuten presenteren, vijf minuten vragen | Aanvaard | 2026-11-13 |
 
 ## Opbouw van een ADR
 
