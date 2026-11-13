@@ -2,6 +2,28 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.47 — 2026-11-13
+
+**Nieuw**
+- Een opdracht vóór dag 2 (FR-41, AC-24): elke deelnemer bereidt thuis met AI een presentatie van vier minuten voor,
+  voor het investeringscomité van de eigen organisatie, en schrijft drie toetsbare kwaliteitscriteria voor de
+  presentaties van de anderen. Startpunt zijn vier YouTube-kanalen; de deelnemer zoekt zelf tekst, data en video erbij
+  (ADR-061).
+- Lespagina "Je presentatie voor het investeringscomité" (`materiaal/presentatie-dag2.html`) met de opdracht.
+- De deelnemers krijgen bij de opdracht de skill `ontwerp-dia` mee, als zip en als tekst op de lespagina: een versie
+  voor deelnemers van de skill waarmee de trainer zijn dia's maakt (ADR-061).
+
+**Gewijzigd**
+- Vraag 2, transformeren, is hoofdvraag op dag 2 en op dag 3. De deelnemers vroegen daar na dag 1 om. Het overzicht
+  van de vier vragen toont dat (ADR-061).
+- Dag 2 om 9:30 is twee blokken: de opening met de vier vragen en de criteria (9:30), en het investeringscomité bij
+  vraag 2 en 3 (9:40). Een presentatie duurt vier minuten, de vragen drie, en de oordelen langs de criteria gaan op
+  schrift naar de presentator (FR-09, AC-05).
+- Dag 3 om 9:45 begint bij de oordelen van het comité over wat de investering van de organisatie vraagt.
+- Deel 9: de rolkaarten blijven van de trainer, de kwaliteitscriteria zijn van de deelnemers.
+- Risico's: het risico van de ontbrekende pitchvideo gaat nu over de presentatie en de criteria, en er is een risico
+  bij voor vage of milde criteria.
+
 ## 0.46 — 2026-11-12
 
 **Gewijzigd**

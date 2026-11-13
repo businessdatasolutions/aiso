@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Je presentatie voor het investeringscomité</title>
+<meta name="description" content="De opdracht vóór dag 2 van AISO26009: een presentatie van vier minuten voor het investeringscomité van je organisatie, gemaakt met AI, en drie toetsbare kwaliteitscriteria voor de presentaties van de anderen.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1a1a'%3E%3Cpolygon points='9,29 11,10 17,10 19,29'/%3E%3Cpolygon points='8,8.5 20,8.5 19,10 9,10'/%3E%3Crect x='11' y='5' width='6' height='3.5'/%3E%3Cpath d='M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z'/%3E%3Crect x='13.5' y='0' width='1' height='1.8'/%3E%3C/g%3E%3Crect x='13' y='6' width='2' height='2' fill='%23d4db3e'/%3E%3Cg stroke='%23d4db3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M21 4 L26 7 L21 10'/%3E%3Cpath d='M26 4 L31 7 L26 10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* ================================================================
+   Business Data Solutions: tokens overgenomen uit
+   brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
+   Eén los bestand: geen bibliotheek, geen server. Het script maakt alleen de zip van de skill. De opdracht vóór dag 2 (FR-41, ADR-061).
+   ================================================================ */
+:root {
+  --primary: #d4db3e;
+  --supporting: #1a1a1a;
+  --bg-yellow: #fafbf0;
+  --bg-cream: #f5f0e6;
+  --bg-cream-2: #f0ebe0;
+  --bg-off-white: #f9f8f4;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --bg-page: #ffffff;
+  --bg-section: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+  --rand: clamp(16px, 4vw, 56px);
+  --breed: 1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55;
+  color: var(--text-primary); background: var(--bg-off-white);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--supporting); outline-offset: 2px; }
+
+header.kop { background: var(--supporting); color: var(--bg-off-white); }
+/* Terug naar de startpagina, bovenaan: zonder scrollen in beeld */
+.naar-start { display: inline-block; margin: 0 0 14px; font-size: .875rem; font-weight: 600; color: var(--bg-off-white); }
+.kop-binnen { max-width: var(--breed); margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--rand) clamp(22px, 3vw, 36px); }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 8px; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--border); max-width: 62ch; margin: 14px 0 0; }
+.kop :focus-visible { outline-color: var(--bg-off-white); }
+
+nav.stappen { position: sticky; top: 0; z-index: 10; background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.stappen-binnen { max-width: var(--breed); margin: 0 auto; padding: 10px var(--rand); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: thin; }
+.stappen a { flex-shrink: 0; font-size: .875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-strong); border-radius: var(--radius-full); padding: 5px 14px; white-space: nowrap; background: var(--bg-page); }
+.stappen a:hover { border-color: var(--supporting); }
+.stappen a b { display: inline-block; min-width: 1.3em; color: var(--text-muted); }
+
+main { max-width: var(--breed); margin: 0 auto; padding: clamp(20px, 3vw, 40px) var(--rand) 48px; display: flex; flex-direction: column; gap: clamp(20px, 2.4vw, 32px); }
+section.stap { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(18px, 3vw, 36px); min-width: 0; }
+.stap-kop { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+.nr { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--primary); color: var(--supporting); font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+h2 { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; margin: 0; }
+h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.uitleg { color: var(--text-secondary); max-width: 70ch; margin: 6px 0 16px; }
+.klein { font-size: .875rem; color: var(--text-muted); }
+p { margin: 0 0 12px; }
+
+.definitie { border-left: 4px solid var(--primary); background: var(--bg-yellow); border-radius: var(--radius-md); padding: 16px 18px; margin: 16px 0 0; }
+.definitie p { margin: 0 0 8px; max-width: 72ch; }
+.definitie p:last-child { margin: 0; }
+.let-op { border: 1px dashed var(--supporting); border-radius: var(--radius-md); padding: 14px 18px; background: var(--bg-yellow); margin-top: 16px; }
+.let-op p { max-width: 72ch; }
+.let-op p:last-child { margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .925rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 2px solid var(--supporting); }
+tbody th { font-weight: 700; white-space: nowrap; }
+.wanneer { white-space: nowrap; font-size: .85rem; color: var(--text-secondary); }
+
+/* ---------- Het kader: vier vakken en een probleemstelling, zoals op het whiteboard ---------- */
+.kader { border: 1px solid var(--border-strong); border-radius: var(--radius-md); background: var(--bg-page); margin: 8px 0 0; }
+.kader-titel { margin: 0; padding: 14px 18px 10px; font-size: 1rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.vakken { display: grid; grid-template-columns: 1fr 1fr; }
+.vak { padding: 16px 18px 20px; min-width: 0; }
+.vak:nth-child(odd) { border-right: 2px solid var(--supporting); }
+.vak:nth-child(-n+2) { border-bottom: 2px solid var(--supporting); }
+.vak h3 { margin: 0; font-size: 1.05rem; }
+.vak .sub { margin: 2px 0 12px; font-size: .875rem; color: var(--text-secondary); }
+.kw { font-size: 1.25rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; margin-right: 6px; padding-bottom: 1px; }
+
+/* Elk deel van de probleemstelling heeft een eigen streep. Het woord ernaast zegt welk deel het is:
+   de streep is nooit de enige drager van de betekenis. */
+.wie { border-bottom: 3px solid var(--primary); }
+.wat { border-bottom: 3px solid var(--supporting); }
+.waar { border-bottom: 3px dashed var(--supporting); }
+.waarom { border-bottom: 3px dotted var(--supporting); }
+.gevolg { border-bottom: 4px double var(--text-muted); }
+
+ul.briefjes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+ul.briefjes li { background: var(--bg-yellow); border: 1px solid #e6e9b4; padding: 10px 12px; font-size: .9rem; line-height: 1.4; width: min(100%, 14.5rem); box-shadow: 0 1px 2px rgba(0,0,0,.08); transform: rotate(-1deg); }
+ul.briefjes li:nth-child(2n) { background: var(--bg-cream-2); border-color: #e2dbcb; transform: rotate(.8deg); }
+ul.briefjes li:nth-child(3n) { background: var(--bg-cream); border-color: #e6dfcf; transform: rotate(-.4deg); }
+ul.briefjes li.niet { background: var(--bg-page); border-style: dashed; }
+
+.stelling { padding: 16px 18px 18px; border-top: 1px solid var(--border); margin: 0; font-size: 1.05rem; line-height: 2.1; }
+.stelling-kop { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
+.deel { padding-bottom: 1px; }
+.deel small { font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-left: 3px; vertical-align: super; line-height: 0; }
+.leeg { color: var(--text-muted); font-style: italic; }
+
+.vak textarea { min-height: 7.5em; background: var(--bg-yellow); }
+
+.velden { display: grid; gap: 14px; margin: 0 0 16px; }
+.velden.twee { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.veld label { display: block; font-weight: 600; margin-bottom: 4px; }
+.veld .hint { display: block; font-weight: 400; font-size: .875rem; color: var(--text-muted); }
+textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--bg-page); min-height: 4.6em; resize: vertical; }
+textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--supporting); }
+
+.knop { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--supporting); background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-full); padding: 9px 18px; font-weight: 600; cursor: pointer; line-height: 1.2; }
+.knop:hover { background: #000; }
+.knop.geel { background: var(--primary); border-color: var(--primary); color: var(--supporting); }
+.knop.geel:hover { background: #c6cd2f; }
+.knoppen { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+
+pre.prompt { margin: 0; max-height: 28rem; overflow: auto; background: var(--supporting); color: var(--bg-off-white); border-radius: var(--radius-md); padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { font-size: .875rem; color: var(--text-secondary); min-height: 1.4em; }
+ol.stappenlijst { margin: 0 0 16px; padding-left: 1.4rem; display: grid; gap: 8px; max-width: 72ch; }
+
+/* ---------- De vier kanalen en de drie soorten materiaal ---------- */
+ul.kanalen { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+ul.kanalen a { display: block; height: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-md); padding: 12px 14px; background: var(--bg-page); text-decoration: none; font-weight: 700; }
+ul.kanalen a:hover { border-color: var(--supporting); background: var(--bg-yellow); }
+ul.kanalen a span { display: block; font-weight: 400; font-size: .85rem; color: var(--text-secondary); overflow-wrap: anywhere; }
+ul.punten { margin: 0 0 16px; padding-left: 1.2rem; display: grid; gap: 6px; max-width: 72ch; }
+
+footer { max-width: var(--breed); margin: 0 auto; padding: 0 var(--rand) 28px; }
+footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; border-top: 1px solid var(--border); padding-top: 16px; font-size: .8rem; color: var(--text-muted); }
+.merk { display: inline-flex; align-items: center; gap: 8px; color: var(--supporting); font-weight: 700; white-space: nowrap; }
+.merk svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+@media (max-width: 720px) {
+  .vakken { grid-template-columns: 1fr; }
+  .vak:nth-child(odd) { border-right: 0; }
+  .vak { border-bottom: 2px solid var(--supporting); }
+  .vak:last-child { border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  nav.stappen, .knoppen, .status { display: none !important; }
+  section.stap { break-inside: avoid; border-color: #999; }
+  pre.prompt { max-height: none; background: #fff; color: #000; border: 1px solid #999; }
+  .table-wrap { overflow: visible; }
+  ul.briefjes li { transform: none; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="naar-start" href="./index.html?dag=2">← Startpagina</a>
+    <p class="eyebrow">AISO26009 · Vóór dag 2 · 26 november · vraag 2 en 3</p>
+    <h1>Je presentatie voor het investeringscomité</h1>
+    <p class="lead">Dag 2 begint met een investeringscomité. Jij vraagt het comité van je organisatie om geld voor je eerste AI-prioriteit, en je laat zien wat die investering van je organisatie vraagt. De andere deelnemers zijn dat comité. Thuis maak je twee dingen: je presentatie, en drie criteria om de anderen op te toetsen.</p>
+  </div>
+</header>
+<nav class="stappen" aria-label="Stappen">
+  <div class="stappen-binnen">
+    <a href="#opdracht"><b>1</b> De opdracht</a>
+    <a href="#presentatie"><b>2</b> Je presentatie</a>
+    <a href="#materiaal"><b>3</b> Je materiaal</a>
+    <a href="#dias"><b>4</b> Je dia's</a>
+    <a href="#criteria"><b>5</b> Je criteria</a>
+    <a href="#dag2"><b>6</b> Op dag 2</a>
+  </div>
+</nav>
+
+<main>
+  <section class="stap" id="opdracht" aria-labelledby="opdracht-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="opdracht-kop">De opdracht</h2></div>
+    <p class="uitleg">Na dag 1 vroegen jullie om meer aandacht voor transformeren: hoe verander je de organisatie, terwijl het huidige werk doorgaat? Die vraag komt daarom op dag 2 en op dag 3 terug. Op dag 2 begint ze bij je eigen voorstel. Een investering in AI levert pas iets op als het werk eromheen mee verandert.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Wat</th><th>Wat je maakt</th><th>Wanneer</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Presentatie</th><td>Vier minuten voor het investeringscomité van je organisatie, gemaakt met je AI (stap 2, 3 en 4).</td><td class="wanneer">Thuis, vóór 26 november</td></tr>
+        <tr><th scope="row">Criteria</th><td>Drie kwaliteitscriteria om de presentaties van de anderen op te toetsen (stap 5).</td><td class="wanneer">Thuis, vóór 26 november</td></tr>
+        <tr><th scope="row">Eigen toets</th><td>Je legt je eigen presentatie langs je eigen drie criteria. Ze voldoet aan alle drie.</td><td class="wanneer">Thuis, als laatste</td></tr>
+        <tr><th scope="row">Comité</th><td>Je presenteert, en je toetst de anderen ter plekke (stap 6).</td><td class="wanneer">Dag 2, 9:40</td></tr>
+      </tbody>
+    </table></div>
+    <div class="definitie">
+      <p><strong>Neem mee naar dag 2:</strong> je presentatie op je laptop, en je drie criteria op papier.</p>
+      <p>Heb je in de leeromgeving al een pitch gemaakt? Gebruik die als begin.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="presentatie" aria-labelledby="presentatie-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="presentatie-kop">Je presentatie</h2></div>
+    <p class="uitleg">Het comité beslist over geld. Het wil weten wat het probleem is, wat je vraagt, wat het de organisatie kost om het te laten werken, en waarop je dat baseert. De vorm kies je zelf: dia's, één pagina of een webpagina van je AI. Je hebt vier minuten.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Deel</th><th>Wat het comité wil horen</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Het probleem en je vraag</th><td>Wie heeft er last van, en wat gaat er mis? Welke investering vraag je, en wat is de eerste kleine stap?</td></tr>
+        <tr><th scope="row">Wat er verandert</th><td>Wat vraagt dit van je organisatie: in de processen, de structuur, de cultuur en de vaardigheden van mensen? En wat moet intussen blijven werken?</td></tr>
+        <tr><th scope="row">Je bewijs</th><td>Waarop baseer je dit? Noem je bronnen, en zeg bij elk getal wat er gemeten is, bij wie en wanneer.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="let-op">
+      <p><strong>Je AI helpt, jij beslist.</strong> Laat je AI zoeken, samenvatten en een eerste versie maken. Leg je voorstel daarna voor aan je advisory board van dag 1: wat zijn de drie zwakste punten? Wat je presenteert, moet je zelf kunnen uitleggen.</p>
+      <p><strong>Alleen wat openbaar mag.</strong> Zet geen vertrouwelijke gegevens van je organisatie in je AI of in je presentatie. Gebruik openbare cijfers of ronde, verzonnen getallen, en zeg dat erbij.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="materiaal" aria-labelledby="materiaal-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="materiaal-kop">Je materiaal</h2></div>
+    <p class="uitleg">Begin bij deze vier kanalen. Daar staan gesprekken en analyses over AI, strategie en verandering in organisaties. Zoek daarna zelf verder: dat hoort bij de opdracht.</p>
+    <ul class="kanalen">
+      <li><a href="https://www.youtube.com/@McKinsey/videos" target="_blank" rel="noopener noreferrer">McKinsey &amp; Company <span>youtube.com/@McKinsey</span></a></li>
+      <li><a href="https://www.youtube.com/@TheBostonConsultingGroup/videos" target="_blank" rel="noopener noreferrer">Boston Consulting Group <span>youtube.com/@TheBostonConsultingGroup</span></a></li>
+      <li><a href="https://www.youtube.com/@bainandcompany/videos" target="_blank" rel="noopener noreferrer">Bain &amp; Company <span>youtube.com/@bainandcompany</span></a></li>
+      <li><a href="https://www.youtube.com/@harvardbusinessreview/videos" target="_blank" rel="noopener noreferrer">Harvard Business Review <span>youtube.com/@harvardbusinessreview</span></a></li>
+    </ul>
+    <h3>Zoek zelf verder</h3>
+    <p>Je presentatie steunt op minstens drie bronnen, van drie soorten. Minstens één bron vond je zelf, buiten de vier kanalen.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Soort</th><th>Bijvoorbeeld</th><th>Noteer</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tekst</th><td>Een artikel, een rapport of een jaarverslag, liefst uit je eigen sector.</td><td>Maker, jaar en link</td></tr>
+        <tr><th scope="row">Data</th><td>Een cijfer met een herkomst: een onderzoek, een monitor of een openbare statistiek.</td><td>Wat is er gemeten, bij wie en wanneer</td></tr>
+        <tr><th scope="row">Video</th><td>Een gesprek, een lezing of een praktijkverhaal.</td><td>Maker, jaar, link en de minuut</td></tr>
+      </tbody>
+    </table></div>
+    <div class="let-op">
+      <p><strong>Controleer elke bron in het origineel.</strong> Je AI kan een bron verzinnen, of iets anders samenvatten dan er staat. Open de bron zelf. Bij een video kijk je de minuut terug die je gebruikt.</p>
+      <p class="klein">Een adviesbureau verkoopt ook advies. Vraag je bij elk filmpje af: wat is hier gemeten, en wat is een mening?</p>
+    </div>
+  </section>
+
+  <section class="stap" id="dias" aria-labelledby="dias-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="dias-kop">Je dia's</h2></div>
+    <p class="uitleg">Voor je dia's krijg je een skill mee:<strong>ontwerp-dia</strong>. De trainer gebruikt hem zelf voor zijn presentaties. De skill leert je AI één regel: een zaal leest of luistert, nooit allebei. Op de dia staat dus alleen wat je stem niet kan dragen, zoals een getal, een citaat of een tekening. De rest vertel je.</p>
+    <ol class="stappenlijst">
+      <li>Download de skill als zip en zet hem in je AI. Dat gaat net als bij je boards op dag 1: de stappen per aanbieder staan op de lespagina <a href="./boards.html#installeren">Zet je boards in je AI</a>.</li>
+      <li>Heeft je AI geen skills? Kopieer dan de tekst en plak hem in de instructie van een project, of bovenaan je chat.</li>
+      <li>Vraag je AI: "Gebruik ontwerp-dia. Ik heb vier minuten voor het investeringscomité van mijn organisatie." Geef je materiaal uit stap 3 erbij.</li>
+    </ol>
+    <div class="knoppen" style="margin: 0 0 14px">
+      <button type="button" class="knop geel" id="skill-zip">Download ontwerp-dia.zip</button>
+      <button type="button" class="knop" id="skill-kopieer">Kopieer de tekst</button>
+      <span class="status" id="skill-status" aria-live="polite"></span>
+    </div>
+    <pre class="prompt" id="skill-tekst" tabindex="0" aria-label="De tekst van de skill ontwerp-dia">---
+name: ontwerp-dia
+description: Gebruik bij het maken of aanscherpen van dia's voor een presentatie die iemand zelf houdt, zoals een voorstel aan een investeringscomité, directie of bestuur. Triggers zijn "maak de dia's", "voeg een dia toe", "deze dia is te vol", "korter", "te veel tekst op het scherm", of een dia waarvan de zaal de tekst leest in plaats van luistert.
+---
+
+# De dia draagt het bewijs, de spreker draagt het verhaal
+
+## De kernregel
+
+**Een luisteraar leest of luistert, nooit allebei.** Een zaal die zinnen op een dia ziet, leest ze. Zolang ze leest, hoort ze de spreker niet. Een dia draagt daarom alleen wat de stem niet kan dragen: de ene zin die blijft hangen, een getal, een citaat, een naam, een structuur of een tekening. Alles wat de spreker kan zeggen, zegt de spreker, en het staat niet op het scherm. De volledige tekst staat in de sprekersnotities.
+
+Dit is de structuur van bewering en bewijs: de kop is de bewering, het lijf is het bewijs ervoor, en het betoog is van de spreker.
+
+## Wat een dia draagt
+
+| Onderdeel | Regel |
+|---|---|
+| Kop | Eén zin die een luisteraar kan navertellen, van hooguit twaalf woorden. De kop stelt iets. Een label als "Kosten" of "Mensen" zegt niets. |
+| Lijf | Hooguit 40 woorden. Fragmenten, geen volzinnen. Hooguit drie opsommingspunten van één regel. |
+| Een zin, als het er een moet zijn | Hooguit 20 woorden: de zaal krijgt één oogopslag. |
+| Bewijs | Eén ding: een getal, een citaat, een naam, een tekening of een grafiek. Nooit een alinea die het uitlegt. |
+| Getal | Met de bron en het jaartal erbij, klein onderaan. Zeg wat er gemeten is, bij wie en wanneer. |
+| Detail | Naar de sprekersnotities, of naar een bijlage. |
+| Regie | Nooit op de dia. Wat de spreker moet doen, staat in de sprekersnotities. |
+
+## Twee toetsen
+
+**De koppentoets.** Lees alleen de koppen, van boven naar beneden. Vertellen ze samen het hele verhaal, dan houdt het deck. Een kop die alleen een label is, betekent dat de dia nog niet weet waarvoor hij er staat.
+
+**De luistertoets.** Zeg per dia hardop wat je erover gaat vertellen. Alles wat je zei en wat ook op de dia staat, is dubbel: haal het van de dia. Wat je nooit hardop zou zeggen, zoals een exact getal, een citaat of een tekening, is de reden dat de dia bestaat.
+
+## Werkwijze
+
+1. **Vraag eerst naar de zaal en de tijd.** Wie beslist er, hoeveel minuten zijn er, en wat moet de zaal na afloop besluiten? Reken op ongeveer één dia per minuut, en liever minder.
+2. **Schrijf het spoor van de spreker.** Eén regel per dia: wat de spreker zegt. Leg dat voor aan de gebruiker voordat je een dia maakt.
+3. **Bepaal per regel wat de zaal moet zien** om de spreker te kunnen volgen. Dat is de dia. Is er niets te zien, dan is er geen dia nodig.
+4. **Tel.** Geef per dia het aantal woorden in de kop en in het lijf, het aantal opsommingspunten en de langste zin. Noem elke dia die over een grens gaat, en begin bij de zwaarste.
+5. **Doe de twee toetsen** en laat de uitkomst zien: de koppen onder elkaar, en per dia wat dubbel is.
+6. **Wat je schrapt, verplaats je.** Draagt een geschrapte zin een feit dat nergens anders staat, dan gaat hij naar de sprekersnotities van die dia. Hij gaat niet terug naar het scherm, en hij verdwijnt niet.
+
+## Bronnen en getallen
+
+- Verzin geen bron, geen getal en geen citaat. Ontbreekt er bewijs, zeg dat dan, en laat de plek op de dia leeg met de vraag erbij.
+- Zet bij elk getal de bron en het jaartal. Zeg erbij of het gemeten is of geschat.
+- Gebruik geen vertrouwelijke gegevens van een organisatie. Werk met openbare cijfers of ronde, verzonnen getallen, en zeg dat erbij.
+
+## Wat je oplevert
+
+Per dia: de kop, het lijf, het bewijs met de bron, en de sprekersnotitie. Daaronder de telling en de uitkomst van de twee toetsen. De vorm kiest de gebruiker: een bestand met dia's, een webpagina of gewone tekst om over te nemen.
+
+## Waar dit vandaan komt
+
+- **De assertion-evidence structure van Michael Alley** (Penn State): een kop die de boodschap van de dia uitspreekt, gedragen door visueel bewijs.
+- **De skill academic-pptx**: koppen als hele zin, ongeveer 40 woorden per dia, één inzicht per dia, en de toets waarbij je alleen de koppen leest.
+- **De skill pptx van Anthropic**: elke dia heeft een visueel element, en notities horen in het notitieveld.
+</pre>
+    <div class="let-op">
+      <p><strong>Twee toetsen die je zelf kunt doen.</strong> Lees alleen de koppen van je dia's: vertellen ze samen je verhaal? En zeg per dia hardop wat je gaat vertellen: wat je zegt en wat ook op de dia staat, haal je van de dia.</p>
+      <p class="klein">De skill is een hulpmiddel en geen eis. Je mag je presentatie ook anders maken, zolang ze aan je eigen criteria voldoet.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="criteria" aria-labelledby="criteria-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="criteria-kop">Je criteria</h2></div>
+    <p class="uitleg">Op dag 2 zit jij in het comité van de anderen. Bedenk thuis waar je op wilt letten als iemand jouw organisatie om geld vraagt. Maak daar drie kwaliteitscriteria van die je kunt toetsen.</p>
+    <div class="definitie">
+      <p><strong>Een criterium is toetsbaar</strong> als twee comitéleden los van elkaar tot hetzelfde oordeel komen: voldaan of niet voldaan. Je kunt aanwijzen wat je zag of hoorde.</p>
+    </div>
+    <h3>Van aandachtspunt naar criterium</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Waar je op wilt letten</th><th>Nog niet toetsbaar</th><th>Toetsbaar</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Onderbouwing</th><td>De presentatie is overtuigend.</td><td>Bij elk bedrag en elk percentage staat een bron met een jaartal.</td></tr>
+        <tr><th scope="row">De mensen</th><td>Er is nagedacht over de medewerkers.</td><td>De presentatie noemt per groep medewerkers wat er in hun werk verandert.</td></tr>
+        <tr><th scope="row">Het risico</th><td>De risico's zijn in beeld.</td><td>De presentatie zegt wat het kost als de eerste stap mislukt, en wie dan beslist.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="klein">Dit zijn voorbeelden. Schrijf je eigen drie, bij wat jij belangrijk vindt.</p>
+    <ol class="stappenlijst">
+      <li>Schrijf op waar je op wilt letten. Laat je AI meedenken als je wilt.</li>
+      <li>Maak van elk punt één zin die begint met "De presentatie …".</li>
+      <li>Doe de proef: zou iemand anders hetzelfde oordeel geven? Zo niet, maak de zin preciezer.</li>
+      <li>Leg je eigen presentatie langs je drie criteria. Voldoet ze niet, pas dan je presentatie aan, en laat het criterium staan.</li>
+    </ol>
+    <div class="let-op">
+      <p><strong>Je criteria liggen vast voordat de eerste presentatie begint.</strong> Daarna verander je ze niet meer. Zo werkt een experiment ook: eerst de norm, dan het resultaat.</p>
+    </div>
+  </section>
+
+  <section class="stap" id="dag2" aria-labelledby="dag2-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">6</span><h2 id="dag2-kop">Op dag 2</h2></div>
+    <p class="uitleg">Zo loopt het eerste uur. Je bent één keer presentator, en de rest van de tijd lid van het comité.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tijd</th><th>Wat er gebeurt</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">9:30</th><td>De vier vragen en je vragenkaart. Daarna leg je je drie criteria op tafel en krijg je een rolkaart, zoals financieel directeur of lid van de ondernemingsraad.</td></tr>
+        <tr><th scope="row">9:40</th><td>De presentaties: vier minuten per persoon, en daarna drie minuten vragen van het comité.</td></tr>
+        <tr><th scope="row">Tijdens elke presentatie</th><td>Je toetst haar aan je drie criteria. Bij elk criterium schrijf je: voldaan of niet voldaan, en wat je zag of hoorde.</td></tr>
+        <tr><th scope="row">Na elke presentatie</th><td>Je geeft je oordelen op schrift aan de presentator.</td></tr>
+        <tr><th scope="row">Na de laatste</th><td>Het comité verdeelt tien fiches over de voorstellen, met één reden per voorstel.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="definitie">
+      <p><strong>Wat je ermee doet.</strong> De vragen van het comité gebruik je dezelfde ochtend voor je probleemstelling en je businesscase. De oordelen over wat je investering van je organisatie vraagt, neem je mee naar dag 3. Dan maak je je transformatieplan.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="binnen">
+    <span class="merk">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+      Business Data Solutions
+    </span>
+    <span>AISO26009 · AI Strategie en Organisatietransformatie · opdracht vóór dag 2</span>
+    <a href="./index.html?dag=2">Startpagina</a>
+  </div>
+</footer>
+<script>
+'use strict';
+/* De skill ontwerp-dia als zip, en als tekst op het klembord. De tekst staat één keer op de pagina,
+   in #skill-tekst. Het maken van de zip is overgenomen van boards.html: geen bibliotheek nodig. */
+const $ = id => document.getElementById(id);
+const skillTekst = () => $('skill-tekst').textContent;
+function download(naam, blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = naam;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* Een zip zonder compressie (methode 0): genoeg voor één tekstbestand, en geen bibliotheek nodig.
+   Opbouw volgens de ZIP-specificatie van PKWARE: lokale kop + data per bestand, daarna de centrale map. */
+const CRC_TABEL = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
+  return t;
+})();
+function crc32(bytes) {
+  let c = 0xFFFFFFFF;
+  for (const b of bytes) c = CRC_TABEL[(c ^ b) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function maakZip(bestanden, nu = new Date()) {
+  const enc = new TextEncoder();
+  const tijd = (nu.getHours() << 11) | (nu.getMinutes() << 5) | (nu.getSeconds() >> 1);
+  const datum = ((nu.getFullYear() - 1980) << 9) | ((nu.getMonth() + 1) << 5) | nu.getDate();
+  const lokaal = [], centraal = [];
+  let positie = 0;
+  for (const f of bestanden) {
+    const naam = enc.encode(f.naam);
+    const data = f.data || new Uint8Array(0);
+    const crc = f.data ? crc32(data) : 0;
+    const kop = new DataView(new ArrayBuffer(30));
+    kop.setUint32(0, 0x04034b50, true);   // handtekening lokale kop
+    kop.setUint16(4, 20, true);           // versie nodig: 2.0
+    kop.setUint16(6, 0x0800, true);       // namen in UTF-8
+    kop.setUint16(8, 0, true);            // methode 0: opgeslagen
+    kop.setUint16(10, tijd, true);
+    kop.setUint16(12, datum, true);
+    kop.setUint32(14, crc, true);
+    kop.setUint32(18, data.length, true);
+    kop.setUint32(22, data.length, true);
+    kop.setUint16(26, naam.length, true);
+    kop.setUint16(28, 0, true);
+    lokaal.push(new Uint8Array(kop.buffer), naam, data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true);     // handtekening centrale map
+    c.setUint16(4, 20, true);             // gemaakt met versie 2.0
+    c.setUint16(6, 20, true);
+    c.setUint16(8, 0x0800, true);
+    c.setUint16(10, 0, true);
+    c.setUint16(12, tijd, true);
+    c.setUint16(14, datum, true);
+    c.setUint32(16, crc, true);
+    c.setUint32(20, data.length, true);
+    c.setUint32(24, data.length, true);
+    c.setUint16(28, naam.length, true);
+    c.setUint16(30, 0, true); c.setUint16(32, 0, true); c.setUint16(34, 0, true); c.setUint16(36, 0, true);
+    c.setUint32(38, f.data ? 0 : 0x10, true); // 0x10: map
+    c.setUint32(42, positie, true);
+    centraal.push(new Uint8Array(c.buffer), naam);
+    positie += 30 + naam.length + data.length;
+  }
+  const grootte = centraal.reduce((n, b) => n + b.length, 0);
+  const eind = new DataView(new ArrayBuffer(22));
+  eind.setUint32(0, 0x06054b50, true);
+  eind.setUint16(8, bestanden.length, true);
+  eind.setUint16(10, bestanden.length, true);
+  eind.setUint32(12, grootte, true);
+  eind.setUint32(16, positie, true);
+  return new Blob([...lokaal, ...centraal, new Uint8Array(eind.buffer)], { type: 'application/zip' });
+}
+
+$('skill-zip').addEventListener('click', () => {
+  download('ontwerp-dia.zip', maakZip([{ naam: 'ontwerp-dia/' }, { naam: 'ontwerp-dia/SKILL.md', data: new TextEncoder().encode(skillTekst()) }]));
+  $('skill-status').textContent = 'ontwerp-dia.zip staat in je map met downloads.';
+});
+$('skill-kopieer').addEventListener('click', async () => {
+  const tekst = skillTekst();
+  let gelukt = false;
+  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
+  catch {
+    const t = document.createElement('textarea');
+    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.append(t); t.select();
+    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+    t.remove();
+  }
+  $('skill-status').textContent = gelukt ? 'De tekst staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hieronder en kopieer hem zelf.';
+});
+</script>
+</body>
+</html>

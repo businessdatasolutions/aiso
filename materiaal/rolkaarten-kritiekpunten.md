@@ -2,7 +2,7 @@
 
 - **Status:** concept (ADR-018). Bouwstenen voor de rolkaarten uit FR-09. De trainer maakt de rolkaarten, niet de deelnemers (deel 9 van de LRD).
 - **Bron:** `background-docs/2026-11-06-kritiek-op-ai-inzet-query-trace.md`. De codes tussen haken ([D5]) verwijzen naar de punten in die trace. Daar staan ook de oorspronkelijke bronnen.
-- **Gebruik:** elke rol krijgt twee kritiekpunten. Bij elk punt staan een vraag aan de pitcher, het bewijs en het tegenbewijs. De rol stelt de vraag. Het tegenbewijs helpt de pitcher, en laat zien dat een kritiekpunt geen eindoordeel is.
+- **Gebruik:** elke rol krijgt twee kritiekpunten. Bij elk punt staan een vraag aan de presentator, het bewijs en het tegenbewijs. De rol stelt de vraag. Het tegenbewijs helpt de presentator, en laat zien dat een kritiekpunt geen eindoordeel is. Naast de rolkaart toetst elk comitélid de presentatie aan drie eigen kwaliteitscriteria (FR-41, ADR-061); die schrijven de deelnemers zelf.
 - **Let op:** veel cijfers zijn zelfrapportage, komen van leveranciers of komen tweedehands binnen. Zeg dat erbij als een cijfer de doorslag geeft.
 
 ## Financieel directeur

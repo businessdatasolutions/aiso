@@ -594,7 +594,7 @@ function zetWeergave() {
 /* ---------- Overzicht: vier vragen, drie dagen (ADR-057) ----------
    Per vraag (rij) en per lesdag (kolom) de blokken die aan die vraag werken, uit de v van elk
    blok. Een blok voor alle vier de vragen, zoals een opening of afsluiting, staat in de onderste
-   rij en niet vier keer. De hoofdvraag van een dag komt uit DATA.vragen[].dag. Een klik op een
+   rij en niet vier keer. De hoofdvraag van een dag komt uit DATA.vragen[].dag (een dag, of een lijst van dagen). Een klik op een
    blok opent dat blok in het programma, met het materiaal. */
 function tekenOverzicht() {
   const el = $('overzicht');
@@ -612,7 +612,8 @@ function tekenOverzicht() {
     + `<span class="ov-tekst"><span class="ov-kort">${esc(q.kort)}</span><span class="ov-zin">${esc(q.vraag)}</span></span></span></th>`
     + dagen.map(({ d, kolom, blokken: bs }) => {
       const hier = bs.filter(b => !alleVier(b) && b.v.includes(q.id));
-      const hoofd = q.dag === d.n;
+      const hoofd = [].concat(q.dag).includes(d.n);   // één dag, of een lijst: vraag 2 is hoofdvraag op dag 2 en 3
+
       const cls = hoofd ? 'is-hoofd' : hier.length ? '' : 'is-leeg';
       // data-kolom en niet data-dag: een klik op [data-dag] wisselt van dag.
       return `<td data-kolom="${esc(kolom)}"${cls ? ` class="${cls}"` : ''}>${hoofd ? '<p class="ov-hoofd">Hoofdvraag van de dag</p>' : ''}${lijst(d, hier)}</td>`;
