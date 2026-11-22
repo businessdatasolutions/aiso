@@ -552,11 +552,17 @@ Het actieplan staat in de online leeromgeving van S&N. Wat je daar zet, is je ee
 
 ## Dag 2 · Eerst lezen
 
-Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan geldt het programma in de LRD.
+Nog niet volledig bijgewerkt; tot dan geldt het programma in de LRD. Sinds versie 0.49 (ADR-063) is dag 2 zo ingedeeld:
+
+- **Ochtend, transformeren:** 9:30 opening en criteria · 9:40 investeringscomité · 10:45 pauze · 11:00 wat je organisatie moet kunnen (Warner en Wäger) · 11:45 het transformatieplan.
+- **Middag, investeren:** 12:30 lunch, met het onderzoek naar het knelpunt · 13:30 klein inzetten en de probleemformulering · 14:00 werkplaats 2, businesscase en experiment · 15:15 deckblok · 16:00 afsluiting.
+- **Huiswerk voor dag 3:** het experiment uitvoeren en vastleggen in het paper, de kansenkaart tekenen, en een presentatie van vijf minuten.
+
+De bouwstenen voor 11:00 en 11:45 staan verderop, onder "Dag 2 · 11:00–12:30 · Wat je organisatie moet kunnen en het transformatieplan".
 
 ## Dag 2 · 9:40–10:45 · Investeringscomité (FR-09, FR-41, ADR-061, ADR-062)
 
-- **De tijd.** Elke deelnemer presenteert hooguit vijf minuten, daarna stelt het comité vijf minuten vragen. Zet een timer in beeld en stop wie over de tijd gaat. Zes presentaties duren tot 10:40. Daarna de fiches, en om 10:43 werkregel 1.
+- **De tijd.** Elke deelnemer presenteert hooguit vijf minuten, daarna stelt het comité vijf minuten vragen. Zet een timer in beeld en stop wie over de tijd gaat. Zes presentaties duren tot 10:40. Het comité verdeelt geen budget (ADR-063). Om 10:43 werkregel 1: de AI stelt per onderdeel één actie voor, voor het transformatieplan van 11:45.
 - **De criteria.** Elk comitélid toetst de presentatie aan de eigen drie kwaliteitscriteria, die om 9:37 op tafel lagen. De oordelen gaan op schrift naar de presentator.
 
 - Deel de rolkaarten uit. Elke rolkaart heeft twee kritiekpunten met bewijs en tegenbewijs: `materiaal/rolkaarten-kritiekpunten.md`.
@@ -566,35 +572,39 @@ Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan gel
 
 - **De productiviteitsparadox.** Op taakniveau meten studies +14 tot +73%, op bedrijfsniveau ongeveer 0%. 90% van de bedrijven investeert, minder dan 40% ziet meetbare winst [D5]. Dit sluit aan op de J-curve: eerst een dal, dan de winst (Brynjolfsson e.a., 2021).
 
-## Dag 2 · 10:45–11:00 · Pauze: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
+## Dag 2 · 12:30–13:30 · Lunch: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
 
-- **Om 10:43: werkregel 1.** Toon stap 2 van `materiaal/probleemformulering.html`; de startpagina linkt ernaar. Zeg: "Vul je knelpunt en de vragen van het comité in, en plak de prompt in een nieuwe chat met de onderzoeksfunctie aan. Je AI zoekt materiaal, nog geen oplossing. Om 11:30 heb je het nodig."
-- **Dezelfde chat.** Zeg erbij: "Gebruik deze chat ook om 11:30 en om 12:05. Dan kent je AI het onderzoek al."
+- **Om 12:25: werkregel 1.** Toon stap 2 van `materiaal/probleemformulering.html`; de startpagina linkt ernaar. Zeg: "Vul je knelpunt en de vragen van het comité in, en plak de prompt in een nieuwe chat met de onderzoeksfunctie aan. Je AI zoekt materiaal, nog geen oplossing. Om 13:30 heb je het nodig."
+- **Dezelfde chat.** Zeg erbij: "Gebruik deze chat de hele middag. Dan kent je AI het onderzoek al."
 
-## Dag 2 · 11:30–12:30 · Eerst het probleem, dan de businesscase (FR-39, FR-27, FR-14, ADR-043)
+## Dag 2 · 13:30–14:00 · Klein inzetten, en eerst het probleem (FR-35, FR-39, ADR-043, ADR-063)
 
-### 11:30–11:32 · Het doel (2 minuten)
+Het blok begint om 13:30 met reële opties en de deur die terug kan (acht minuten), en het besluit bij de eerste prioriteit (vijf minuten). Daarna de probleemformulering.
+
+### 13:43–13:46 · Het doel (3 minuten)
 
 Zeg: "Een kwartier lossen we niets op. We leggen vast wat het probleem is, vanuit wie er last van heeft." Toon stap 3 van `materiaal/probleemformulering.html`, het kader van Voorbeeld BV. Wijs de strepen aan: elk deel van de zin komt uit een vak. Lees dan de eerste versie voor: "Klantcontact heeft geen AI die klachten sorteert." Vraag: wat is hier mis? Het is een oplossing in vermomming. Een vaste eigenaar per klacht zou het wachten misschien ook korter maken, zonder AI.
 
-### 11:32–11:40 · Vier vakken (8 minuten)
+### 13:46–13:54 · Vier vakken (8 minuten)
 
-Toon stap 4. Elke deelnemer vult de vier vakken op de lespagina, met het onderzoek van 10:45 ernaast: één signaal of vermoeden per regel. Loop rond en vraag bij een briefje: "Hoe weet je dat?" Weet de deelnemer het niet, dan is het een vermoeden. Dat mag, als het zo heet.
+Toon stap 4. Elke deelnemer vult de vier vakken op de lespagina, met het onderzoek van de lunch ernaast: één signaal of vermoeden per regel. Loop rond en vraag bij een briefje: "Hoe weet je dat?" Weet de deelnemer het niet, dan is het een vermoeden. Dat mag, als het zo heet.
 
-### 11:40–11:45 · Eén zin en het duo (5 minuten)
+### 13:54–14:00 · Eén zin en het duo (6 minuten)
 
 Elke deelnemer kiest per deel het briefje dat het zwaarst weegt. De zin bouwt zich op in het kader. Het duo leest de zin hardop en stelt de drie vragen uit stap 4: staat er een oplossing in, is de zin geschreven vanuit wie er last van heeft, en heeft elke bewering een signaal?
 
-### 11:45–12:05 · De kansenkaart (20 minuten, FR-27)
+### Huiswerk voor dag 3 · De kansenkaart (FR-27)
+
+De kansenkaart is sinds versie 0.49 huiswerk. Noem haar in de afsluiting van dag 2 en wijs naar `materiaal/kansenkaart.html`. De twee stappen hieronder zijn reserve, voor als er tijd over is.
 
 1. **Voordoen (10 minuten).** Toon `materiaal/kansenkaart.html`, stap 1 tot en met 8: het proces van Voorbeeld BV, de vier routes, en de vijf plekken waar AI kan helpen. Leg de brug: "Het vak Wie wijst de banen aan waar de last valt, het vak Waar en wanneer de situaties waarin het speelt. Waar zit het probleem van Voorbeeld BV in de keten?" Let op: de banen zijn alle rollen in de keten. Planning en Service staat niet in het vak Wie, maar daar gaat de klacht met de hand naartoe.
 2. **Zelf doen (10 minuten).** Toon stap 9, "Jouw proces". Elke deelnemer tekent de eigen procesketen op papier: rollen als banen, fasen als kolommen, een cijfer waar AI kan helpen, en bij elk cijfer wie beslist. Daarna de vraag uit FR-14: waar schuift het knelpunt heen als AI het oplost?
 
-### 12:05–12:30 · De businesscase (25 minuten, FR-14)
+### 14:00–14:20 · De businesscase, in werkplaats 2 (FR-14)
 
-1. **De prompt.** Toon stap 5 van `materiaal/probleemformulering.html`. Elke deelnemer beschrijft de kansenkaart in een paar zinnen (of voegt een foto toe), vult de eerste kleine inzet van 11:00 in, en plakt de prompt in de chat van 10:30. De AI schrijft; de probleemstelling staat bovenaan, en het "omdat" bij de aannames.
+1. **De prompt.** Toon stap 5 van `materiaal/probleemformulering.html`. Elke deelnemer beschrijft in een paar zinnen waar het probleem in de procesketen zit, vult de eerste kleine inzet van 13:30 in, en plakt de prompt in de chat van de lunch. De AI schrijft; de probleemstelling staat bovenaan, en het "omdat" bij de aannames.
 2. **Bronkritiek, met een echt voorbeeld.** Het vaak geciteerde "95% van de organisaties haalt geen rendement uit AI" komt van MIT NANDA (2025). Het rust op ruim 300 openbare initiatieven, 52 interviews en een enquête onder 153 bezoekers van vier conferenties. Het rapport noemt de eigen cijfers "directionally accurate". Vraag: wat is er gemeten, bij wie en wanneer? Dezelfde vraag stelt het duo bij de bron die het in het origineel opzoekt (AC-04).
-3. **Niet af om 12:30?** Dan maakt de AI de businesscase in dezelfde chat af, vóór het voorstel van de lunch. Het duo zoekt de bron dan na de lunch op.
+3. **Niet af om 15:00?** Dan maakt de AI de businesscase of het voorstel thuis af, in dezelfde chat.
 
 ### Lastige vragen
 
@@ -607,17 +617,19 @@ Kies voor de zin de oorzaak die je het eerst kunt toetsen. De andere blijven in 
 **"Wat is het verschil met de kansenkaart?"**
 De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar het in de keten zit, en waar AI kan helpen. Eerst het probleem, dan de plek.
 
-## Dag 2 · Lunch: het voorstel als paper (FR-28, FR-38, ADR-041, ADR-042)
+## Dag 2 · 14:10–14:30 · Het voorstel als paper, in werkplaats 2 (FR-38, ADR-041, ADR-042)
 
-- **Om 12:25: werkregel 1.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Open de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Na de lunch kies je een ontwerp."
+- **Om 14:10, na de businesscase.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Blijf in de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Terwijl je AI schrijft, zoek je met je duo een bron uit je businesscase op."
 - **Geen onderzoeksfunctie?** Dan werkt de prompt ook in een gewone chat. Het voorstel heeft dan minder bronnen, en de controle in werkplaats 2 weegt zwaarder.
-- **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan na de lunch zelf in.
+- **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan thuis zelf in.
 - **Een HTML-pagina, geen rapport.** Het paper is één HTML-pagina met schema's, grafieken en een demo, in zakelijk Nederlands volgens de schrijfregels van ASD-STE100 (ADR-042). Een onderzoeksfunctie geeft soms eerst een gewoon rapport. Dan vraagt de deelnemer: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht." Na de lunch downloadt de deelnemer het bestand, met de datum in de naam.
 
-## Dag 2 · Werkplaats 2: ontwerp je experiment (FR-20)
+## Dag 2 · 14:00–15:00 · Werkplaats 2: businesscase en experiment (FR-14, FR-20, ADR-063)
+
+De werkplaats duurt een uur: tien minuten voordoen, 35 minuten zelf doen, vijftien minuten nabespreken. De eerste proef en het zelf scoren van gevallen doen de deelnemers thuis.
 
 - **Voordoen met een eigen paper (FR-38).** Laat een paper uit een eigen project zien, zoals de test of een AI-model uit foto's van ruimtes plattegronden kan bouwen. Volg de opbouw: de vraag, de hypotheses, het verwante werk, de ontwerpen, en daarna de uitwerking. Wijs aan waar een hypothese een norm en een referentiewaarde kreeg.
-- **Eerst één bron.** Het duo zoekt één bron uit het voorstel op in het origineel, met de vraag van 11:30: wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
+- **Eerst één bron.** Het duo zoekt één bron uit het voorstel op in het origineel, met de vaste vraag: wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
 - **De figuren.** Heeft elke figuur een nummer, een verwijzing in de tekst en een bijschrift met titel, uitleg en "Let op:"? Vraag een deelnemer de zin achter "Let op:" van één figuur voor te lezen: ziet het duo dat ook in de figuur?
 - **Eén getal uit een figuur.** Staat het ook in de tekst, met een bron? Heet een verzonnen getal "illustratie"? Zeg: "Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal."
 - **Dan kiezen.** Eén ontwerp, of twee samen. Past het niet vóór dag 3, dan kiest de deelnemer een kleiner ontwerp en zet het grote in de roadmap. Stap 4 van de lespagina geeft de prompt die de normen in het paper vastlegt, met de datum. Het voorbeeld van Voorbeeld BV staat in stap 3.
@@ -627,20 +639,29 @@ De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar h
 
 ## Dag 3 · Eerst lezen
 
-Nog niet bijgewerkt naar versie 0.22 (vier vragen). Volgt in fase 2; tot dan geldt het programma in de LRD.
+Nog niet volledig bijgewerkt; tot dan geldt het programma in de LRD. Sinds versie 0.49 (ADR-063) begint dag 3 zo: 9:30 opening · 9:40 presentaties van de experimenten · 10:45 pauze · 11:00 roadmap · 11:45 governance. Het draagvlak, met de vier vragen bij weerstand, zit in werkplaats 3.
 
-## Dag 3 · Transformatieplan en draagvlak (FR-24)
+## Dag 3 · 9:40–10:45 · Presentaties: wat leerde je experiment? (FR-42, FR-21)
 
-### 9:50–9:58 · Wat je organisatie moet kunnen (ADR-056)
+- **De tijd.** Elke deelnemer presenteert hooguit vijf minuten: de vraag, de norm, de uitkomst en het besluit. Daarna vijf minuten vragen van de groep. Zet een timer in beeld en stop wie over de tijd gaat.
+- **Waar de groep op let.** Lag de norm vast vóór de uitkomst? Volgt het besluit uit de vergelijking van norm en uitkomst?
+- **Geen uitkomst?** De deelnemer presenteert wat die wel weet, en maakt het experiment de volgende stap. Zeg hardop dat stoppen ook een goede uitkomst is.
+- **Om 10:40.** Iedereen schrijft op wat de uitkomst verandert aan vraag 3 en 4, en of de probleemstelling nog klopt.
+
+## Dag 2 · 11:00–12:30 · Wat je organisatie moet kunnen en het transformatieplan (FR-24, ADR-063)
+
+Sinds versie 0.49 staat dit op dag 2. Alleen "Vier vragen bij weerstand" hoort bij dag 3, in werkplaats 3.
+
+### 11:07–11:22 · Wat je organisatie moet kunnen (ADR-056)
 
 Na de twee portfolio's, vóór 7S. Toon `materiaal/transformeren.html`; de startpagina linkt ernaar.
 
-1. **De vraag.** "Op dag 2 zagen we: AI levert winst op taakniveau, voor de organisatie nog nauwelijks. Waar blijft die winst hangen?" Laat één of twee antwoorden toe.
-2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, dag 2 kansen benutten, vandaag transformeren. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt T aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
+1. **De vraag.** "Uit jullie presentaties blijkt: AI levert winst op taakniveau, voor de organisatie nog nauwelijks. Waar blijft die winst hangen?" Laat één of twee antwoorden toe.
+2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, vanmiddag is kansen benutten, en transformeren doen we nu en op dag 3. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt T aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
 3. **Voorbeeld BV** (stap 2). De sterkste rem is starre planning: zie de eerste antwoorden. De zwakste aanjager is teams over afdelingen heen: elke afdeling ziet alleen de eigen klachten.
-4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem en bij de laagste dimensie uit de scan van dag 1. In het deckblok van 15:15 komen de rem en de aanjager op de dia Adoptie; de keuze blijft tot dan in de browser.
+4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem en bij de laagste dimensie uit de scan van dag 1. In het deckblok van dag 3 om 15:15 komen de rem en de aanjager op de dia Adoptie; de keuze blijft tot dan in de browser.
 
-Leg het model in grote lijnen uit: drie vermogens, drie aanjagers, drie remmen. De negen vermogens één voor één bespreken past niet in acht minuten.
+Leg het model in grote lijnen uit: drie vermogens, drie aanjagers, drie remmen. De negen vermogens één voor één bespreken past niet in een kwartier.
 
 ### Vier vragen bij weerstand
 

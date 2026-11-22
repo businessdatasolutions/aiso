@@ -208,9 +208,9 @@ verkennen naar benutten, staat uitvergroot ernaast, met twee banen (ADR-055).
 
 **Alleen in `vier-vragen.html`:** de tekening van de portfoliokaart en de korte woorden in de twee banen. Wijzig je hierboven iets, kijk dan ook daar.
 
-## Wat Voorbeeld BV moet kunnen (dag 3)
+## Wat Voorbeeld BV moet kunnen (dag 2)
 
-- **Gebruik:** de lespagina `transformeren.html`, op dag 3 om 9:45 (FR-24). Het model is figuur 2 van Warner en Wäger (2019): drie vermogens, drie aanjagers en drie remmen (ADR-056).
+- **Gebruik:** de lespagina `transformeren.html`, op dag 2 om 11:00 (FR-24, ADR-063). Het model is figuur 2 van Warner en Wäger (2019): drie vermogens, drie aanjagers en drie remmen (ADR-056).
 - **Verzonnen:** alles, net als de rest van Voorbeeld BV. Het komt uit de organisatie en de vier vragen hierboven.
 
 | Stap in het model | Bij Voorbeeld BV |
@@ -234,7 +234,7 @@ Adoptie.
 
 ## De probleemformulering (dag 2)
 
-- **Gebruik:** het voorbeeld in stap 3 van `probleemformulering.html` (FR-39), aan het begin van het blok om 11:30 op dag 2. Het kader volgt de play "Problem framing" uit het Team Playbook van Atlassian: vier vakken en één probleemstelling.
+- **Gebruik:** het voorbeeld in stap 3 van `probleemformulering.html` (FR-39), in het blok om 13:30 op dag 2. Het kader volgt de play "Problem framing" uit het Team Playbook van Atlassian: vier vakken en één probleemstelling.
 - **Verzonnen:** alles, net als de rest van Voorbeeld BV. De gegevens komen uit "Het knelpunt" en de klachten hierboven.
 
 **Wie heeft last van het probleem? Hoe weten we dat?**

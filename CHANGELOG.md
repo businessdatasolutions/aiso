@@ -2,6 +2,27 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.49 — 2026-11-13
+
+**Nieuw**
+- Dag 3 begint met presentaties (FR-42, AC-25): elke deelnemer presenteert het experiment in hooguit vijf minuten,
+  met vijf minuten vragen van de groep. Thuis voert de deelnemer het experiment uit en legt het vast in het paper
+  (ADR-063).
+
+**Gewijzigd**
+- Dag 2 heeft twee helften: de ochtend voor transformeren, de middag voor investeren. Om 11:00 het model van Warner en
+  Wäger, om 11:45 het transformatieplan met 7S. Om 13:30 klein inzetten en de probleemformulering, om 14:00 werkplaats
+  2 met de businesscase en het experiment, in een uur (ADR-063).
+- Het model van Warner en Wäger en het transformatieplan verhuizen van dag 3 naar dag 2. De acties per stakeholder
+  blijven op dag 3, in werkplaats 3 (FR-24, AC-16).
+- De kansenkaart en de eerste proef van het experiment zijn huiswerk voor dag 3 (FR-27, AC-04).
+- Dag 3: de roadmap begint om 11:00 en governance om 11:45.
+- De lespagina's Wat je organisatie moet kunnen, Probleemformulering, Experimentpaper, Volwassenheidsscan en Je
+  presentatie voor het investeringscomité, de voorbeeldcasus en het draaiboek noemen de nieuwe tijden.
+
+**Vervallen**
+- De tien fiches van het investeringscomité: het comité verdeelt geen budget meer (FR-09, AC-05, ADR-063).
+
 ## 0.48 — 2026-11-13
 
 **Gewijzigd**
