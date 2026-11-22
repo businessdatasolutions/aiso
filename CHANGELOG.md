@@ -2,6 +2,39 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.50 — 2026-11-22
+
+**Gewijzigd**
+- Het tweede vermogen van Warner en Wäger heet "kansen grijpen", in de tekening, op de lespagina Wat je organisatie
+  moet kunnen, in de voorbeeldcasus en in het draaiboek. "Benutten" betekent alleen nog de huidige business, zoals op
+  de portfoliokaart (ADR-064).
+- Dag 2 om 11:00: in plaats van "twee portfolio's" pakt de deelnemer de zin over benutten en verkennen bij vraag 2
+  van dag 1 erbij.
+- Wat een experiment meet, heet overal "maat": op de lespagina Je experiment als paper, in de prompts, op de werkkaart
+  van 14:00, in de opdracht van werkplaats 2, en in FR-20 en AC-15. "Criteria" zijn alleen nog de criteria van het
+  comité.
+- Het verloop van kosten en baten heet "eerst een dip, dan de winst", zoals op dia 4 van het casusdeck (FR-14, FR-35).
+- Werkkaarten in de taal van de deelnemer: "Je maakt" zonder "Per deelnemer" (dag 2 en 3), je laagste score in de
+  volwassenheidsscan, het einde van het casusdeck, en het actieplan in de leeromgeving (dag 2 en 3).
+- Werkplaats 2: het duo zoekt één bron uit de businesscase op, en de deelnemer zelf één bron uit het voorstel (FR-20,
+  AC-14). De werkkaart heeft een verdieping voor wie eerder klaar is (FR-07).
+- De lespagina Je experiment als paper laat zien hoe eerste prioriteit, probleemstelling, kleine inzet en experiment
+  samenhangen. Ze noemt geen bibliotheken en geen schrijfnorm meer; de prompts doen dat wel.
+- FR-33 volgt FR-18: alleen op dag 1 vergelijkt het duo de antwoorden in de afsluiting.
+- Het profiel van de volwassenheidsscan hoort op dag 2 alleen bij 11:45. Om 11:00 vervallen de tegel en de regel bij
+  "Je gebruikt". Om 11:45 begint het plan bij de sterkste rem. Eén actie pakt de laagste score op mensen, data of
+  richting aan (FR-24, werkkaart, draaiboek en de tip in de scan).
+- Opgeruimd na ADR-063:
+  - de businesscase om 14:00 in plaats van 11:30;
+  - de kansenkaart en de eerste proef als huiswerk;
+  - de eerste prioriteit in plaats van alle kansen op de portfoliokaart;
+  - de rem en de aanjager op dag 2 in deel 2;
+  - FR-06, een KISS-keuze, een risico, de rolkaarten en het draaiboek.
+
+**Vervallen**
+- De voorzitter van het comité die afsluit met een besluit (rolkaarten). Het comité neemt geen besluit (ADR-063).
+- De eerste snelle proef in werkplaats 2 (FR-06, lespagina Je experiment als paper).
+
 ## 0.49 — 2026-11-13
 
 **Nieuw**

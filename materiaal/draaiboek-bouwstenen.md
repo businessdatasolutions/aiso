@@ -570,7 +570,7 @@ De bouwstenen voor 11:00 en 11:45 staan verderop, onder "Dag 2 · 11:00–12:30 
 
 ## Dag 2 · Zo bouwen AI-bedrijven
 
-- **De productiviteitsparadox.** Op taakniveau meten studies +14 tot +73%, op bedrijfsniveau ongeveer 0%. 90% van de bedrijven investeert, minder dan 40% ziet meetbare winst [D5]. Dit sluit aan op de J-curve: eerst een dal, dan de winst (Brynjolfsson e.a., 2021).
+- **De productiviteitsparadox.** Op taakniveau meten studies +14 tot +73%, op bedrijfsniveau ongeveer 0%. 90% van de bedrijven investeert, minder dan 40% ziet meetbare winst [D5]. Dit sluit aan op de J-curve: eerst een dip, dan de winst (Brynjolfsson e.a., 2021).
 
 ## Dag 2 · 12:30–13:30 · Lunch: onderzoek langs vier vragen (FR-28, FR-39, ADR-043)
 
@@ -622,20 +622,20 @@ De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar h
 - **Om 14:10, na de businesscase.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Blijf in de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Terwijl je AI schrijft, zoek je met je duo een bron uit je businesscase op."
 - **Geen onderzoeksfunctie?** Dan werkt de prompt ook in een gewone chat. Het voorstel heeft dan minder bronnen, en de controle in werkplaats 2 weegt zwaarder.
 - **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan thuis zelf in.
-- **Een HTML-pagina, geen rapport.** Het paper is één HTML-pagina met schema's, grafieken en een demo, in zakelijk Nederlands volgens de schrijfregels van ASD-STE100 (ADR-042). Een onderzoeksfunctie geeft soms eerst een gewoon rapport. Dan vraagt de deelnemer: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht." Na de lunch downloadt de deelnemer het bestand, met de datum in de naam.
+- **Een HTML-pagina, geen rapport.** Het paper is één HTML-pagina met schema's, grafieken en een demo, in zakelijk Nederlands volgens de schrijfregels van ASD-STE100 (ADR-042). Een onderzoeksfunctie geeft soms eerst een gewoon rapport. Dan vraagt de deelnemer: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht." Daarna downloadt de deelnemer het bestand, met de datum in de naam.
 
 ## Dag 2 · 14:00–15:00 · Werkplaats 2: businesscase en experiment (FR-14, FR-20, ADR-063)
 
 De werkplaats duurt een uur: tien minuten voordoen, 35 minuten zelf doen, vijftien minuten nabespreken. De eerste proef en het zelf scoren van gevallen doen de deelnemers thuis.
 
 - **Voordoen met een eigen paper (FR-38).** Laat een paper uit een eigen project zien, zoals de test of een AI-model uit foto's van ruimtes plattegronden kan bouwen. Volg de opbouw: de vraag, de hypotheses, het verwante werk, de ontwerpen, en daarna de uitwerking. Wijs aan waar een hypothese een norm en een referentiewaarde kreeg.
-- **Eerst één bron.** Het duo zoekt één bron uit het voorstel op in het origineel, met de vaste vraag: wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
+- **Eerst één bron.** Terwijl de AI het voorstel schrijft, zoekt het duo één bron uit de businesscase op in het origineel, met de vaste vraag: wat is er gemeten, bij wie en wanneer? Bij het kiezen zoekt de deelnemer zelf één bron uit het voorstel op (FR-20). Een bron onder "Niet gecontroleerd" telt niet. Laat niet het hele paper lezen: de hypotheses, de tabel met ontwerpen en één bron zijn genoeg.
 - **De figuren.** Heeft elke figuur een nummer, een verwijzing in de tekst en een bijschrift met titel, uitleg en "Let op:"? Vraag een deelnemer de zin achter "Let op:" van één figuur voor te lezen: ziet het duo dat ook in de figuur?
 - **Eén getal uit een figuur.** Staat het ook in de tekst, met een bron? Heet een verzonnen getal "illustratie"? Zeg: "Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal."
 - **Dan kiezen.** Eén ontwerp, of twee samen. Past het niet vóór dag 3, dan kiest de deelnemer een kleiner ontwerp en zet het grote in de roadmap. Stap 4 van de lespagina geeft de prompt die de normen in het paper vastlegt, met de datum. Het voorbeeld van Voorbeeld BV staat in stap 3.
-- **Referentiewaarde.** Doen mensen de taak nu al? Laat de deelnemer dan eerst zelf vijf tot tien gevallen scoren of afhandelen. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
-- **Kennisvorm (FR-20).** Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
-- **Experiment met een agent.** De vier faalwijzen van een agent (zie "Achtergrond en reserve voor de trainer") zijn kant-en-klare evaluatiecriteria. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
+- **Referentiewaarde, voor thuis.** Doen mensen de taak nu al? Zeg dan: scoor thuis eerst zelf vijf tot tien gevallen, of handel ze af. Pas daarna doet de AI hetzelfde. Zo ontstaat de referentiewaarde zonder AI (AC-15).
+- **Kennisvorm (reserve).** Niet in het programma: alleen als een deelnemer erom vraagt of eerder klaar is. Welke kennis heeft de use case nodig, en wie houdt die bij? Toon `materiaal/kennisvormen.html`. De boodschap: geen vorm wint altijd. Kies per vraag de eenvoudigste vorm die werkt. De laatste stap van de pagina helpt de deelnemer kiezen. Uitleg bij de termen (NFR-08): bij **RAG** zoekt het systeem passende documenten en zet die bij de vraag; een **kennisgraaf** legt begrippen en hun relaties vooraf vast; een **LLM-wiki** bewaart kennis als kaarten met bron en datum, door mensen bijgehouden.
+- **Experiment met een agent.** De vier faalwijzen van een agent (zie "Achtergrond en reserve voor de trainer") zijn kant-en-klare maten. Bijvoorbeeld: elke uitspraak heeft een citaat; bij een ontbrekend feit vraagt de agent door; bij tegenstrijdigheid escaleert hij.
 
 ## Dag 3 · Eerst lezen
 
@@ -654,12 +654,12 @@ Sinds versie 0.49 staat dit op dag 2. Alleen "Vier vragen bij weerstand" hoort b
 
 ### 11:07–11:22 · Wat je organisatie moet kunnen (ADR-056)
 
-Na de twee portfolio's, vóór 7S. Toon `materiaal/transformeren.html`; de startpagina linkt ernaar.
+Na benutten en verkennen (de zin bij vraag 2 van dag 1), vóór 7S. Toon `materiaal/transformeren.html`; de startpagina linkt ernaar.
 
 1. **De vraag.** "Uit jullie presentaties blijkt: AI levert winst op taakniveau, voor de organisatie nog nauwelijks. Waar blijft die winst hangen?" Laat één of twee antwoorden toe.
-2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen benutten en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, vanmiddag is kansen benutten, en transformeren doen we nu en op dag 3. Zeg erbij: "Kansen benutten is iets anders dan het portfolio benutten op de portfoliokaart. Dat is de huidige business." Wijs punt T aan: "Van kansen benutten naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
+2. **Het model** (stap 1, Warner & Wäger, 2019). "Een organisatie moet drie dingen kunnen: waarnemen, kansen grijpen en transformeren." Wijs de dagen erboven aan: dag 1 was waarnemen, vanmiddag is kansen grijpen, en transformeren doen we nu en op dag 3. Het tweede vermogen heet "kansen grijpen" en niet "benutten": benutten is op de portfoliokaart de huidige business (ADR-064). Wijs punt T aan: "Van kansen grijpen naar transformeren is de overdracht van de portfoliokaart. Daar blijft de winst hangen." Dan de onderste rijen: "Drie dingen maken het makkelijker, drie maken het moeilijker."
 3. **Voorbeeld BV** (stap 2). De sterkste rem is starre planning: zie de eerste antwoorden. De zwakste aanjager is teams over afdelingen heen: elke afdeling ziet alleen de eigen klachten.
-4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem en bij de laagste dimensie uit de scan van dag 1. In het deckblok van dag 3 om 15:15 komen de rem en de aanjager op de dia Adoptie; de keuze blijft tot dan in de browser.
+4. **Zelf doen** (stap 3). Elke deelnemer kiest de sterkste rem en de zwakste aanjager, met één zin waarom. Het 7S-plan begint bij die rem. Eén actie pakt de laagste score uit de scan van dag 1 aan, op mensen, data of richting. In het deckblok van dag 3 om 15:15 komen de rem en de aanjager op de dia Adoptie; de keuze blijft tot dan in de browser.
 
 Leg het model in grote lijnen uit: drie vermogens, drie aanjagers, drie remmen. De negen vermogens één voor één bespreken past niet in een kwartier.
 

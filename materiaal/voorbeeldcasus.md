@@ -217,7 +217,7 @@ verkennen naar benutten, staat uitvergroot ernaast, met twee banen (ADR-055).
 |---|---|
 | Aanleiding van buiten | Installaties melden een storing zelf aan de fabrikant, en die kiest de monteur. Klanten vragen het eerst aan een AI-assistent. |
 | Waarnemen | Een signaal om los te laten: gaan de meeste storingen in 2027 rechtstreeks naar de fabrikant, dan kiest Voorbeeld BV opnieuw (V1). |
-| Kansen benutten | Twee sporen naast elkaar (V2), en zes weken AI-meesorteren in één team, met een norm vooraf (V3). |
+| Kansen grijpen | Twee sporen naast elkaar (V2), en zes weken AI-meesorteren in één team, met een norm vooraf (V3). |
 | Transformeren | Wat werkt, gaat via een pilot naar heel Klantcontact en dan naar Planning en Service. Service Zuid werkt een jaar per opdracht voor één fabrikant: de optie (V3). |
 | Vernieuwing | Het vaste aanspreekpunt van de klant, met een onderhoudsabonnement (doel 1). Van elke klacht leren, over de afdelingen heen (doel 3). |
 
@@ -298,7 +298,7 @@ Adoptie.
 | | Ontwerp | Toetst | Geïnspireerd door | Past vóór dag 3? |
 |---|---|---|---|---|
 | A | Technische test. Drie medewerkers en de AI kiezen elk de urgentie van dezelfde 50 verzonnen klachten, zonder elkaars oordeel te zien. Tien klachten zijn ernstig, en een paar daarvan noemen geen "lek" of "schade" (zoals K-0470). | H1, H2 | In de radiotherapie van een universitair ziekenhuis beoordeelden modellen en 26 medewerkers dezelfde incidentmeldingen. Op de eigen meldingen deden de modellen het ongeveer even goed als de medewerkers. Op meldingen uit andere ziekenhuizen scoorde het eenvoudigste model slechter dan toeval (Beidler et al., 2025). Dus: test met klachten in de taal van Voorbeeld BV. | Ja, in een middag. |
-| B | Meesorteren in één team, zes weken. De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist (Ask). | H1, H3 | In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025). | Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap. |
+| B | Meesorteren in één team, zes weken. De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist. | H1, H3 | In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025). | Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap. |
 | C | Proef met en zonder AI. Vijf medewerkers sorteren elk twintig verzonnen klachten: tien met het voorstel van de AI en tien zonder, in wisselende volgorde. | H3 | Consultants deden dezelfde taken met en zonder AI, en het onderzoek mat ook de kwaliteit. Bij taken buiten de grens van wat AI goed kan, kwamen consultants met AI vaker tot een fout antwoord (Dell'Acqua et al., 2026). | Ja, een uur per medewerker. |
 
 **De keuze na de lunch:** Voorbeeld BV kiest A. Het past vóór dag 3 en toetst de twee hypotheses waar het om draait. Haalt A beide normen, dan wordt B de eerste fase van de roadmap.

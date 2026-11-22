@@ -67,6 +67,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-061](ADR-061-transformeren-op-dag-2-en-3.md) | Transformeren komt op dag 2 en dag 3 terug, met een presentatie voor het investeringscomité | Aanvaard | 2026-11-13 |
 | [ADR-062](ADR-062-tijdslimiet-presentatie.md) | De presentatie voor het comité heeft een tijdslimiet: vijf minuten presenteren, vijf minuten vragen | Aanvaard | 2026-11-13 |
 | [ADR-063](ADR-063-dag-2-in-twee-helften.md) | Dag 2 in twee helften, dag 3 begint met presentaties, en het comité verdeelt geen budget | Aanvaard | 2026-11-13 |
+| [ADR-064](ADR-064-een-woord-per-begrip-op-dag-2.md) | Dag 2 gebruikt één woord per begrip, en de resten van ADR-063 zijn weg | Aanvaard | 2026-11-22 |
 
 ## Opbouw van een ADR
 

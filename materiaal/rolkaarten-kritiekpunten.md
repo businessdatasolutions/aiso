@@ -63,6 +63,6 @@
 - **Bewijs:** AI verbetert de presentatie, ongeacht de inhoud. 64% van de organisaties noemt onnauwkeurigheid als risico, maar de meeste doen er niets aan.
 - **Tegenbewijs:** menselijke adviseurs gaven in een test vijf verschillende adviezen; sommige zouden als hallucinatie gelden. Genoemde maatregel: de regel "weet je het niet, vul dan niet in", en eerst de beoordelingscriteria schrijven.
 
-## Voor de voorzitter
+## Een slotvraag voor het comité
 
-De voorzitter sluit af met een besluit en één reden (FR-09). Een handige slotvraag: "Ligt deze taak binnen of buiten de grens van wat AI goed kan, en hoe weet je dat?" Binnen die grens werkten consultants sneller en beter. Buiten die grens maakten ze meer fouten, en die fouten klonken overtuigender [B2].
+Het comité verdeelt geen budget en neemt geen besluit (FR-09, ADR-063). Een handige slotvraag, voor elk comitélid: "Ligt deze taak binnen of buiten de grens van wat AI goed kan, en hoe weet je dat?" Binnen die grens werkten consultants sneller en beter. Buiten die grens maakten ze meer fouten, en die fouten klonken overtuigender [B2].

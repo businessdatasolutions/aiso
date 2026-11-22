@@ -144,9 +144,9 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   <section class="stap" id="opbouw" aria-labelledby="opbouw-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">1</span><h2 id="opbouw-kop">Zo is het paper opgebouwd</h2></div>
     <p class="uitleg">Een paper houdt de goede volgorde vast. Eerst de vraag, dan wat anderen al weten, en pas dan het ontwerp. De normen liggen vast voordat er resultaten zijn. De trainer werkt in eigen projecten ook zo, en laat in werkplaats 2 zo'n paper zien.</p>
-    <p class="uitleg">Je paper is één HTML-pagina die je in de browser opent. Ze heeft de tekst van een artikel, met visualisaties die iets uitleggen wat tekst alleen slecht laat zien. De AI bouwt ze met D3, Three.js of Motion, en Remotion als een korte video echt iets toevoegt. Jij bouwt niets: jij leest, controleert en kiest.</p>
+    <p class="uitleg">Je paper is één HTML-pagina die je in de browser opent. Ze heeft de tekst van een artikel, met visualisaties die iets uitleggen wat tekst alleen slecht laat zien. De AI bouwt ze. Jij bouwt niets: jij leest, controleert en kiest.</p>
     <p class="uitleg">Elke visualisatie is een genummerde figuur, en de tekst verwijst ernaar: "(zie figuur 2)". Onder elke figuur staat een bijschrift met een titel, een korte uitleg en een zin die begint met "Let op:". Die zin zegt waar je naar moet kijken.</p>
-    <p class="uitleg">De AI schrijft in zakelijk Nederlands, volgens de schrijfregels van ASD-STE100 (Simplified Technical English): korte zinnen, één onderwerp per zin, de bedrijvende vorm en één term voor één begrip. Zo is de tekst snel te lezen, en kan hij maar op één manier begrepen worden.</p>
+    <p class="uitleg">De AI schrijft in zakelijk Nederlands, met de schrijfregels die de luchtvaart voor handleidingen gebruikt: korte zinnen, één onderwerp per zin, de bedrijvende vorm en één term voor één begrip. Zo is de tekst snel te lezen, en kan hij maar op één manier begrepen worden.</p>
     <div class="table-wrap" tabindex="0" role="region" aria-label="Opbouw van het paper"><table class="breed">
       <thead><tr><th>Deel</th><th>Wat erin staat</th><th>Visualisatie, bijvoorbeeld</th><th>Wanneer</th></tr></thead>
       <tbody>
@@ -154,7 +154,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
         <tr><th scope="row">2 Wat we al weten</th><td>Wetenschappelijk onderzoek. Koplopers (champions): directe concurrenten, en organisaties uit een heel andere sector. Standpunten van experts, ook een kritisch standpunt.</td><td>Een kaart van de bronnen: wat vaststaat, wat omstreden is en wat niemand nog weet</td><td class="wanneer">Dag 2, werkplaats 2</td></tr>
         <tr><th scope="row">3 Ontwerpen</th><td>Minstens drie ontwerpen voor het experiment, elk geïnspireerd door een bron uit deel 2, en een tabel die ze vergelijkt.</td><td>Een vergelijking op tijd, kosten en bewijs, en een demo: welk resultaat betekent doorgaan, aanpassen of stoppen?</td><td class="wanneer">Werkplaats 2; daar kies je ook</td></tr>
         <tr class="thuis"><th scope="row">4 Methode</th><td>Wat je deed, met welke gegevens of deelnemers, en wat anders liep dan gepland.</td><td>Een schema van de opzet, stap voor stap</td><td class="wanneer">Thuis, vóór dag 3</td></tr>
-        <tr class="thuis"><th scope="row">5 Resultaten</th><td>Per criterium de norm, de referentiewaarde zonder AI en het resultaat.</td><td>Een grafiek met per criterium het resultaat, de norm als lijn en de referentiewaarde</td><td class="wanneer">Thuis</td></tr>
+        <tr class="thuis"><th scope="row">5 Resultaten</th><td>Per maat de norm, de referentiewaarde zonder AI en het resultaat.</td><td>Een grafiek met per maat het resultaat, de norm als lijn en de referentiewaarde</td><td class="wanneer">Thuis</td></tr>
         <tr class="thuis"><th scope="row">6 Discussie</th><td>Per hypothese: bevestigd, verworpen of niet te zeggen. Vergeleken met deel 2, met de beperkingen.</td><td>De kaart van deel 2, met je eigen uitkomst erbij</td><td class="wanneer">Thuis</td></tr>
         <tr class="thuis"><th scope="row">7 Conclusie en besluit</th><td>Doorgaan, aanpassen of stoppen. Het besluit volgt uit resultaat en norm.</td><td>De demo van deel 3, nu met het echte resultaat</td><td class="wanneer">Thuis; samenvatting op de dia Eerste prioriteit</td></tr>
         <tr><th scope="row">Bronnen</th><td>Verwijzingen in de tekst en een bronnenlijst volgens APA 7, met een DOI of URL bij elke bron.</td><td>—</td><td class="wanneer">Steeds</td></tr>
@@ -168,18 +168,19 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
 
   <section class="stap" id="voorstel" aria-labelledby="voorstel-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">2</span><h2 id="voorstel-kop">Het voorstel: in werkplaats 2</h2></div>
+    <p class="uitleg"><strong>Zo hangt het samen.</strong> Je eerste prioriteit is de AI-kans waarvoor je vanochtend geld vroeg. Om 13:30 kreeg ze een probleemstelling en een kleine inzet. Dit experiment toetst die kleine inzet. Samen vormen ze de dia Eerste prioriteit.</p>
     <p class="uitleg">In werkplaats 2 schrijft je AI eerst je businesscase. Daarna zoekt je AI de bronnen en schrijft het voorstel. Intussen zoek jij met je duo een bron uit je businesscase op. Daarna kies je een ontwerp.</p>
     <ol class="stappenlijst">
-      <li>Open de chat waarin je om 11:30 je businesscase maakte. Of open een nieuwe chat en voeg je businesscase toe.</li>
+      <li>Open de chat waarin je om 14:00 je businesscase maakte. Of open een nieuwe chat en voeg je businesscase toe.</li>
       <li>Zet de onderzoeksfunctie aan: Deep Research in Gemini en ChatGPT, Research in Claude. Heb je die niet, dan werkt de prompt ook in een gewone chat, met minder bronnen.</li>
-      <li>Vul hieronder je vraag en je eerste prioriteit in. Kopieer de prompt en plak hem in je AI, in de chat met je businesscase.</li>
+      <li>Vul hieronder je vraag, je eerste prioriteit en je kleine inzet in. Kopieer de prompt en plak hem in je AI, in de chat met je businesscase.</li>
       <li>Je krijgt een HTML-pagina terug, als artifact (Claude) of in canvas (ChatGPT, Gemini). Krijg je een gewoon rapport? Vraag dan: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht."</li>
       <li>Download de pagina als HTML-bestand, met de datum in de naam, net als je casusdeck. Je opent het in je browser, en met Afdrukken maak je er een PDF van. Thuis vul je het aan.</li>
     </ol>
     <div class="velden">
       <div class="veld"><label for="vraag">Mijn strategische AI-vraag <span class="hint">Uit de vraagtoets van dag 1, of zoals hij nu op je vragenkaart staat.</span></label>
         <textarea id="vraag" data-veld="vraag" rows="2"></textarea></div>
-      <div class="veld"><label for="prioriteit">Mijn eerste prioriteit <span class="hint">De kleine inzet of de optie uit het blok van 13:30. Eén of twee zinnen.</span></label>
+      <div class="veld"><label for="prioriteit">Mijn eerste prioriteit en mijn kleine inzet <span class="hint">Je eerste prioriteit in één zin, en de kleine inzet of de optie uit het blok van 13:30.</span></label>
         <textarea id="prioriteit" data-veld="prioriteit" rows="2"></textarea></div>
     </div>
     <pre class="prompt" id="prompt-voorstel" tabindex="0" aria-label="De prompt voor het voorstel"></pre>
@@ -221,7 +222,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <thead><tr><th></th><th>Ontwerp</th><th>Toetst</th><th>Geïnspireerd door</th><th>Past vóór dag 3?</th></tr></thead>
       <tbody>
         <tr><th scope="row">A</th><td><strong>Technische test.</strong> Drie medewerkers en de AI kiezen elk de urgentie van dezelfde 50 verzonnen klachten, zonder elkaars oordeel te zien. Tien klachten zijn ernstig, en een paar daarvan noemen geen "lek" of "schade".</td><td>H1, H2</td><td>In de radiotherapie van een universitair ziekenhuis beoordeelden modellen en 26 medewerkers dezelfde incidentmeldingen. Op de eigen meldingen deden de modellen het ongeveer even goed als de medewerkers. Op meldingen uit andere ziekenhuizen scoorde het eenvoudigste model slechter dan toeval (Beidler et al., 2025). Dus: test met klachten in de taal van Voorbeeld BV.</td><td>Ja, in een middag.</td></tr>
-        <tr><th scope="row">B</th><td><strong>Meesorteren in één team, zes weken.</strong> De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist (Ask).</td><td>H1, H3</td><td>In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025).</td><td>Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap.</td></tr>
+        <tr><th scope="row">B</th><td><strong>Meesorteren in één team, zes weken.</strong> De AI stelt bij elke echte klacht een urgentie voor, de medewerker beslist.</td><td>H1, H3</td><td>In een klantenservice met 5.172 medewerkers deed een AI-assistent voorstellen en besliste de medewerker. De medewerkers losten ongeveer 15% meer gesprekken per uur op, en beginners wonnen het meest. De invoering ging groep voor groep (Brynjolfsson et al., 2025).</td><td>Nee. Het vraagt echte klachten, dus eerst een besluit over de gegevens. Dit wordt de eerste fase van de roadmap.</td></tr>
         <tr><th scope="row">C</th><td><strong>Proef met en zonder AI.</strong> Vijf medewerkers sorteren elk twintig verzonnen klachten: tien met het voorstel van de AI en tien zonder, in wisselende volgorde.</td><td>H3</td><td>Consultants deden dezelfde taken met en zonder AI, en het onderzoek mat ook de kwaliteit. Bij taken buiten de grens van wat AI goed kan, kwamen consultants met AI vaker tot een fout antwoord (Dell'Acqua et al., 2026).</td><td>Ja, een uur per medewerker.</td></tr>
       </tbody>
     </table></div>
@@ -239,13 +240,13 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div class="stap-kop"><span class="nr" aria-hidden="true">4</span><h2 id="kiezen-kop">Kiezen en vastleggen</h2></div>
     <p class="uitleg">In werkplaats 2 lees je het voorstel. Je leest niet alles: de hypotheses en de tabel met ontwerpen zijn genoeg. Is het voorstel niet af, dan kies je thuis, in dezelfde chat.</p>
     <ol class="stappenlijst">
-      <li><strong>Eén bron in het origineel.</strong> Zoek met je duo één bron op. Bestaat hij, en staat erin wat het paper zegt? Wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet.</li>
+      <li><strong>Eén bron in het origineel.</strong> Zoek zelf één bron uit het voorstel op. Bestaat hij, en staat erin wat het paper zegt? Wat is er gemeten, bij wie en wanneer? Een bron onder "Niet gecontroleerd" telt niet.</li>
       <li><strong>De hypotheses.</strong> Noemt elke hypothese een maat, een norm en een referentiewaarde zonder AI? Zo niet, herschrijf haar.</li>
       <li><strong>De experts.</strong> Heeft elke uitspraak van een expert een bron? Wat je board zegt, is een mening en geen bron.</li>
       <li><strong>De figuren.</strong> Heeft elke figuur een nummer, een verwijzing in de tekst en een bijschrift met titel, uitleg en "Let op:"?</li>
       <li><strong>Eén getal in een figuur.</strong> Staat het ook in de tekst, met een bron? Verzonnen getallen in een demo moeten "illustratie" heten. Een mooie grafiek maakt een fout getal net zo overtuigend als een goed getal.</li>
       <li><strong>Kies.</strong> Eén ontwerp, of twee samen. Past het niet vóór dag 3, kies dan een kleiner ontwerp en zet het grote in je roadmap.</li>
-      <li><strong>Leg vast.</strong> Met de prompt hieronder zet je AI de normen in het paper, met de datum van vandaag. Daarna doe je de eerste snelle proef.</li>
+      <li><strong>Leg vast.</strong> Met de prompt hieronder zet je AI de normen in het paper, met de datum van vandaag. De eerste proef doe je thuis.</li>
     </ol>
     <div class="velden">
       <div class="veld"><label for="keuze">Mijn keuze en waarom <span class="hint">Bijvoorbeeld: "Ontwerp A, omdat het vóór dag 3 past. Uit C neem ik de volgorde met en zonder AI over."</span></label>
@@ -262,7 +263,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <div class="stap-kop"><span class="nr" aria-hidden="true">5</span><h2 id="uitwerking-kop">Thuis: de uitwerking</h2></div>
     <p class="uitleg">Tussen dag 2 en dag 3 voer je het experiment uit. Daarna schrijft je AI de uitwerking in hetzelfde paper. Jij levert de getallen en controleert ze.</p>
     <ol class="stappenlijst">
-      <li>Voer het experiment uit. Noteer per criterium het resultaat, en wat anders liep dan gepland.</li>
+      <li>Voer het experiment uit. Noteer per maat het resultaat, en wat anders liep dan gepland.</li>
       <li>Open het gesprek met je voorstel, of voeg het HTML-bestand toe in een nieuwe chat.</li>
       <li>Vul hieronder in wat je deed en wat je mat. Kopieer de prompt en plak hem in je AI.</li>
       <li>Download de nieuwe versie en open haar in je browser. Kloppen de getallen in de tekst en in de grafiek? Staan de normen er nog zoals op dag 2? Staat onderaan "Einde paper"? Zo niet, dan is het bestand afgekapt: vraag het hele bestand opnieuw.</li>
@@ -270,7 +271,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
       <li>Maak een presentatie van hooguit vijf minuten: de vraag, de norm, de uitkomst en je besluit. Dag 3 begint met de presentaties, elk met vijf minuten vragen van de groep.</li>
     </ol>
     <div class="velden">
-      <div class="veld"><label for="resultaten">Wat ik deed en wat ik mat <span class="hint">Per criterium de uitkomst, de referentiewaarde zonder AI, het aantal gevallen, en wat anders liep. Alleen wat openbaar mag.</span></label>
+      <div class="veld"><label for="resultaten">Wat ik deed en wat ik mat <span class="hint">Per maat de uitkomst, de referentiewaarde zonder AI, het aantal gevallen, en wat anders liep. Alleen wat openbaar mag.</span></label>
         <textarea id="resultaten" data-veld="resultaten" rows="5"></textarea></div>
     </div>
     <pre class="prompt" id="prompt-uitwerking" tabindex="0" aria-label="De prompt voor de uitwerking"></pre>
@@ -343,7 +344,7 @@ const PROMPTS = {
 ## Mijn casus
 
 - Strategische AI-vraag: ${of(s.vraag, '[vul in op de lespagina, stap 2]')}
-- Eerste prioriteit (de kleine inzet of de optie): ${of(s.prioriteit, '[vul in op de lespagina, stap 2]')}
+- Eerste prioriteit, met de kleine inzet of de optie: ${of(s.prioriteit, '[vul in op de lespagina, stap 2]')}
 - Mijn businesscase staat eerder in dit gesprek of in de bijlage. Zie je hem niet, vraag er dan om voordat je begint.
 
 ## Waar je zoekt
@@ -377,7 +378,7 @@ Minstens drie ontwerpen die echt van elkaar verschillen, bijvoorbeeld een gebrui
 - welke hypotheses het toetst;
 - de opzet, in stappen;
 - de gegevens of deelnemers: openbare of verzonnen gegevens, of mensen die vooraf toestemming geven;
-- de evaluatiecriteria, elk met een norm en een referentiewaarde zonder AI;
+- de maten waarop je het ontwerp beoordeelt, elk met een norm en een referentiewaarde zonder AI;
 - wat het kost aan tijd en geld, en of het in twee weken past naast mijn werk;
 - welk besluit de uitkomst mogelijk maakt: doorgaan, aanpassen of stoppen;
 - de grootste zwakte.
@@ -417,11 +418,11 @@ Lever het paper als één zelfstandig HTML-bestand, als artifact of in canvas. M
 - Werkt overal: lokaal geopend in de browser, op een telefoon, en afgedrukt als PDF. In print staat alle tekst en geen knop.
 - Zet onderaan de pagina zichtbaar "Einde paper", en als allerlaatste regel van het bestand <!-- einde paper -->. Zo zie ik of het bestand afgekapt is.`,
 
-  keuze: () => `Mijn paper is het HTML-bestand in de bijlage, of eerder in dit gesprek. Ik heb de ontwerpen in hoofdstuk 3 gelezen, met mijn duo. Mijn keuze: ${of(s.keuze, '[vul in op de lespagina, stap 4]')}
+  keuze: () => `Mijn paper is het HTML-bestand in de bijlage, of eerder in dit gesprek. Ik heb de ontwerpen in hoofdstuk 3 gelezen. Mijn keuze: ${of(s.keuze, '[vul in op de lespagina, stap 4]')}
 
 Werk het paper bij:
 1. Zet bovenaan hoofdstuk 3 een paragraaf "Gekozen ontwerp": welk ontwerp, waarom, en wat ik van de andere ontwerpen overneem.
-2. Schrijf de evaluatiecriteria van dat ontwerp uit, elk met een norm en een referentiewaarde zonder AI, met de datum van vandaag. Vanaf nu liggen ze vast.
+2. Schrijf de maten van dat ontwerp uit, elk met een norm en een referentiewaarde zonder AI, met de datum van vandaag. Vanaf nu liggen ze vast.
 3. Noem welke gegevens of deelnemers het experiment nodig heeft, en wie daarover beslist.
 4. Laat in de vergelijking van de ontwerpen zien welk ontwerp ik koos, en zet de normen in de demo.
 5. Verander verder niets aan hoofdstuk 1 en 2.
@@ -444,7 +445,7 @@ Laat hoofdstuk 1 tot en met 3 staan zoals ze zijn. Voeg vóór de bronnenlijst v
 Het gekozen ontwerp zoals ik het uitvoerde: wat ik deed, met welke gegevens of deelnemers, en wanneer. Noem elke afwijking van het ontwerp, met de reden.
 
 ### 5. Resultaten
-Per criterium de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Daarbij één grafiek met D3, als volgende figuur: per criterium het resultaat, de norm als lijn en de referentiewaarde ernaast. Beschrijf alleen wat gemeten is.
+Per maat de norm, de referentiewaarde zonder AI en het resultaat, in één tabel. Daarbij één grafiek met D3, als volgende figuur: per maat het resultaat, de norm als lijn en de referentiewaarde ernaast. Beschrijf alleen wat gemeten is.
 
 ### 6. Discussie
 - Per hypothese: bevestigd, verworpen of niet te zeggen, en waarom.
