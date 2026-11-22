@@ -35,6 +35,8 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 - De voorzitter van het comité die afsluit met een besluit (rolkaarten). Het comité neemt geen besluit (ADR-063).
 - De eerste snelle proef in werkplaats 2 (FR-06, lespagina Je experiment als paper).
 
+**Gepubliceerd** op dezelfde link, samen met 0.42 tot en met 0.49: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.49 — 2026-11-13
 
 **Nieuw**

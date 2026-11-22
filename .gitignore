@@ -4,6 +4,9 @@ temp/
 # Overeenkomst met S&N: bevat tarieven
 Overeenkomst*
 
+# Gepubliceerde artikelen: auteursrecht, niet in de openbare repo
+background-docs/Warner and W*ger - 2019 - *.pdf
+
 # Systeemrommel
 .DS_Store
 
