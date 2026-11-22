@@ -2,6 +2,23 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.51 — 2026-11-22
+
+**Nieuw**
+- De skill ai-wiki-query voor deelnemers: de AI beantwoordt een vraag alleen met de AI-wiki van de trainer, met bij
+  elke bewering een URL van de wiki en apart wat de wiki niet zegt. Het is een versie zonder script, die losse
+  pagina's ophaalt (ADR-065).
+- Lespagina Je presentatie voor het investeringscomité, stap 7: de skill als zip en als tekst, met een testvraag. De
+  deelnemer zet hem thuis in de eigen AI, vóór dag 2 (FR-41).
+
+**Gewijzigd**
+- Werkplaats 2: de prompt voor het voorstel gebruikt de skill als die er is. Zonder skill begint de AI bij de
+  syntheses, de concepten of de sitemap van de wiki, en niet bij de startpagina, die te groot is. In het paper staat
+  de oorspronkelijke bron die de wikipagina noemt (FR-38).
+- De werkkaart van 14:00 noemt de skill. De trainer laat hem niet in de werkplaats installeren.
+- Vraag 3 noemt de skill bij de tools. Fase 2 en de opleverlijst van de trainer vragen een test in Claude, ChatGPT en
+  Gemini vóór 26 november.
+
 ## 0.50 — 2026-11-22
 
 **Gewijzigd**

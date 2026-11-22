@@ -173,6 +173,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <ol class="stappenlijst">
       <li>Open de chat waarin je om 14:00 je businesscase maakte. Of open een nieuwe chat en voeg je businesscase toe.</li>
       <li>Zet de onderzoeksfunctie aan: Deep Research in Gemini en ChatGPT, Research in Claude. Heb je die niet, dan werkt de prompt ook in een gewone chat, met minder bronnen.</li>
+      <li>Heb je vóór dag 2 de skill ai-wiki-query in je AI gezet? Dan gebruikt je AI die voor de wiki. Zonder skill werkt de prompt ook.</li>
       <li>Vul hieronder je vraag, je eerste prioriteit en je kleine inzet in. Kopieer de prompt en plak hem in je AI, in de chat met je businesscase.</li>
       <li>Je krijgt een HTML-pagina terug, als artifact (Claude) of in canvas (ChatGPT, Gemini). Krijg je een gewoon rapport? Vraag dan: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht."</li>
       <li>Download de pagina als HTML-bestand, met de datum in de naam, net als je casusdeck. Je opent het in je browser, en met Afdrukken maak je er een PDF van. Thuis vul je het aan.</li>
@@ -190,7 +191,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     </div>
     <div class="let-op">
       <p><strong>Wat je hier invult, blijft in deze browser.</strong> De pagina stuurt niets weg. De prompt komt wel in je AI-account terecht. Schrijf daarom alleen op wat openbaar mag, of gebruik verzonnen gegevens.</p>
-      <p class="klein">De AI zoekt ook in de AI-wiki van de trainer: <a href="https://businessdatasolutions.github.io/ai-wiki/" target="_blank" rel="noopener noreferrer">businessdatasolutions.github.io/ai-wiki</a>. Die is openbaar, en de index bovenaan noemt elke bron. Kan je AI de wiki niet openen, dan zegt het dat. Zoek er dan thuis zelf in.</p>
+      <p class="klein">De AI zoekt ook in de AI-wiki van de trainer: <a href="https://businessdatasolutions.github.io/ai-wiki/" target="_blank" rel="noopener noreferrer">businessdatasolutions.github.io/ai-wiki</a>. Die is openbaar en in het Engels. Met de skill ai-wiki-query zet je AI bij elke bewering uit de wiki een link naar de pagina. Kan je AI de wiki niet openen, dan zegt het dat. Zoek er dan thuis zelf in, met de zoekknop bovenaan de wiki.</p>
     </div>
   </section>
 
@@ -352,7 +353,7 @@ const PROMPTS = {
 1. Wetenschappelijk onderzoek: artikelen met peer review, working papers (zoals die van NBER) en overzichtsstudies. Noteer bij elk onderzoek wat er gemeten is, bij wie en wanneer.
 2. Koplopers (champions): organisaties die dit al doen. Zoek directe concurrenten, en organisaties uit een heel andere sector die hetzelfde probleem hebben opgelost.
 3. Experts: wat onderzoekers en vakmensen erover publiceerden of zeiden, in artikelen, boeken, interviews of lezingen. Zoek ook een kritisch standpunt.
-4. De AI-wiki van mijn trainer: ${WIKI}. Begin bij de index op die pagina: die noemt elke bron en elk begrip in de wiki. Een wikipagina vat een bron samen. Citeer de oorspronkelijke bron die de pagina noemt, en open die als dat kan.
+4. De AI-wiki van mijn trainer: ${WIKI}. Heb je de skill ai-wiki-query, gebruik die dan. Anders: de wiki is Engelstalig, dus zoek met Engelse termen. Begin bij ${WIKI}syntheses/ en ${WIKI}concepts/, of zoek een pagina in ${WIKI}sitemap.xml. Haal de startpagina van de wiki niet in één keer op: die is te groot. Een wikipagina vat een bron samen. Citeer in het paper de oorspronkelijke bron die de pagina noemt, en open die als dat kan.
 
 Kijk in al deze bronnen ook hoe anderen hun experimenten opzetten, uitvoerden en verwerkten. Daar haal je de ontwerpen uit.
 

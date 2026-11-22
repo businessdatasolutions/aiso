@@ -68,6 +68,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-062](ADR-062-tijdslimiet-presentatie.md) | De presentatie voor het comité heeft een tijdslimiet: vijf minuten presenteren, vijf minuten vragen | Aanvaard | 2026-11-13 |
 | [ADR-063](ADR-063-dag-2-in-twee-helften.md) | Dag 2 in twee helften, dag 3 begint met presentaties, en het comité verdeelt geen budget | Aanvaard | 2026-11-13 |
 | [ADR-064](ADR-064-een-woord-per-begrip-op-dag-2.md) | Dag 2 gebruikt één woord per begrip, en de resten van ADR-063 zijn weg | Aanvaard | 2026-11-22 |
+| [ADR-065](ADR-065-skill-ai-wiki-query-in-werkplaats-2.md) | De skill ai-wiki-query voor deelnemers, in werkplaats 2 | Aanvaard | 2026-11-22 |
 
 ## Opbouw van een ADR
 

@@ -621,7 +621,7 @@ De probleemstelling zegt wat er misgaat, en voor wie. De kansenkaart zegt waar h
 
 - **Om 14:10, na de businesscase.** Toon stap 2 van `materiaal/experimentpaper.html`; de startpagina linkt ernaar. Zeg: "Blijf in de chat met je businesscase, zet de onderzoeksfunctie aan en plak de prompt. Terwijl je AI schrijft, zoek je met je duo een bron uit je businesscase op."
 - **Geen onderzoeksfunctie?** Dan werkt de prompt ook in een gewone chat. Het voorstel heeft dan minder bronnen, en de controle in werkplaats 2 weegt zwaarder.
-- **De AI-wiki** is openbaar. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan thuis zelf in.
+- **De AI-wiki** is openbaar en in het Engels. Wie vóór dag 2 de skill ai-wiki-query in de eigen AI zette, krijgt bij elke bewering uit de wiki een URL, en apart wat de wiki niet zegt (ADR-065). Zonder skill zegt de prompt waar de AI begint: bij de syntheses, de concepten of de sitemap, en niet bij de startpagina (1,4 MB). Installeer de skill niet in de werkplaats: dat kost te veel tijd. Een AI die de site niet kan openen, zegt dat. De deelnemer zoekt er dan thuis zelf in.
 - **Een HTML-pagina, geen rapport.** Het paper is één HTML-pagina met schema's, grafieken en een demo, in zakelijk Nederlands volgens de schrijfregels van ASD-STE100 (ADR-042). Een onderzoeksfunctie geeft soms eerst een gewoon rapport. Dan vraagt de deelnemer: "Maak van dit voorstel nu de HTML-pagina uit mijn eerste bericht." Daarna downloadt de deelnemer het bestand, met de datum in de naam.
 
 ## Dag 2 · 14:00–15:00 · Werkplaats 2: businesscase en experiment (FR-14, FR-20, ADR-063)

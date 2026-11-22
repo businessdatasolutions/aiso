@@ -11,7 +11,7 @@
 /* ================================================================
    Business Data Solutions: tokens overgenomen uit
    brand-project/stylebook/shared.css (v1, 2026-05-19). Alleen licht.
-   Eén los bestand: geen bibliotheek, geen server. Het script maakt alleen de zip van de skill. De opdracht vóór dag 2 (FR-41, ADR-061).
+   Eén los bestand: geen bibliotheek, geen server. Het script maakt alleen de zips van de twee skills. De opdracht vóór dag 2 (FR-41, ADR-061).
    ================================================================ */
 :root {
   --primary: #d4db3e;
@@ -183,6 +183,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
     <a href="#dias"><b>4</b> Je dia's</a>
     <a href="#criteria"><b>5</b> Je criteria</a>
     <a href="#dag2"><b>6</b> Op dag 2</a>
+    <a href="#wiki"><b>7</b> Je wiki-skill</a>
   </div>
 </nav>
 
@@ -197,6 +198,7 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
         <tr><th scope="row">Criteria</th><td>Drie kwaliteitscriteria om de presentaties van de anderen op te toetsen (stap 5).</td><td class="wanneer">Thuis, vóór 26 november</td></tr>
         <tr><th scope="row">Eigen toets</th><td>Je legt je eigen presentatie langs je eigen drie criteria. Ze voldoet aan alle drie.</td><td class="wanneer">Thuis, als laatste</td></tr>
         <tr><th scope="row">Comité</th><td>Je presenteert, en je toetst de anderen ter plekke (stap 6).</td><td class="wanneer">Dag 2, 9:40</td></tr>
+        <tr><th scope="row">Wiki-skill</th><td>Je zet de skill ai-wiki-query in je AI en probeert hem één keer (stap 7). Je gebruikt hem in werkplaats 2.</td><td class="wanneer">Thuis, vóór 26 november</td></tr>
       </tbody>
     </table></div>
     <div class="definitie">
@@ -366,6 +368,85 @@ Per dia: de kop, het lijf, het bewijs met de bron, en de sprekersnotitie. Daaron
       <p><strong>Wat je ermee doet.</strong> De rest van de ochtend gaat over transformeren. Met de oordelen over wat je investering van je organisatie vraagt, kies je wat je organisatie het meest remt en maak je je transformatieplan. De vragen van het comité gebruik je 's middags, voor je probleemstelling en je businesscase.</p>
     </div>
   </section>
+
+  <section class="stap" id="wiki" aria-labelledby="wiki-kop">
+    <div class="stap-kop"><span class="nr" aria-hidden="true">7</span><h2 id="wiki-kop">Je wiki-skill, voor werkplaats 2</h2></div>
+    <p class="uitleg">In werkplaats 2 schrijft je AI een voorstel voor je experiment. Een deel daarvan heet "Wat we al weten": wat onderzoek, koplopers en experts zeggen. Je AI zoekt daarvoor ook in de AI-wiki van de trainer. Daarvoor krijg je een tweede skill mee: <strong>ai-wiki-query</strong>. Met de skill antwoordt je AI alleen uit de wiki, met bij elke bewering een link naar de pagina waar het staat. Wat de wiki niet zegt, noemt de skill apart.</p>
+    <ol class="stappenlijst">
+      <li>Download de skill als zip en zet hem in je AI, net als ontwerp-dia in stap 4.</li>
+      <li>Heeft je AI geen skills? Kopieer dan de tekst en plak hem in de instructie van een project, of bovenaan je chat.</li>
+      <li>Probeer hem één keer: "Gebruik ai-wiki-query. Wat zegt de wiki over dynamic capabilities en digitale transformatie?" Staan er links naar de wiki onder het antwoord, dan werkt hij.</li>
+    </ol>
+    <div class="knoppen" style="margin: 0 0 14px">
+      <button type="button" class="knop geel" id="wiki-zip">Download ai-wiki-query.zip</button>
+      <button type="button" class="knop" id="wiki-kopieer">Kopieer de tekst</button>
+      <span class="status" id="wiki-status" aria-live="polite"></span>
+    </div>
+    <pre class="prompt" id="wiki-tekst" tabindex="0" aria-label="De tekst van de skill ai-wiki-query">---
+name: ai-wiki-query
+description: Gebruik om een vraag te beantwoorden met de openbare AI-wiki van de trainer op https://businessdatasolutions.github.io/ai-wiki/, met een bron bij elke bewering. Triggers zijn "wat zegt de ai-wiki over …", "zoek in de wiki", "/ai-wiki-query", het deel "Wat we al weten" van een experimentpaper, of een vraag over AI in organisaties, AI en werk, agents, digitale transformatie of strategie waarbij de gebruiker om de wiki vraagt.
+---
+
+# Antwoord uit de AI-wiki, met een bron bij elke bewering
+
+## De wiki
+
+- Een kenniswiki over AI: agents, AI in organisaties, AI en werk, digitale transformatie en strategie. Een taalmodel houdt haar bij uit papers, rapporten, video's en artikelen. Ze is in het **Engels** geschreven.
+- De basis is `https://businessdatasolutions.github.io/ai-wiki/`. Een pagina staat op de basis plus haar naam, zoals `concepts/dynamic-capabilities`. Hoofdletters blijven staan, en een naam eindigt nooit op `.md`.
+- Vijf soorten pagina's, in deze volgorde van voorkeur:
+
+| Soort | Map | Gebruik |
+|---|---|---|
+| synthesis | `syntheses/` | Eindconclusie op een onderzoeksvraag. Eerste keus als de vraag al eens beantwoord is. |
+| concept | `concepts/` | Een begrip, opgebouwd uit veel bronnen. Eerste keus bij "wat is X". De sectie *Debates and supersession* noemt waar bronnen elkaar tegenspreken. |
+| source | `sources/` | Samenvatting van één bron, met cijfers en citaten. Voor concrete cijfers. |
+| entity | `entities/` | Kaartje van een persoon, organisatie of product. Alleen bij "wie of wat is X". |
+| thread | `threads/` | Een onderzoeksvraag. Een gesloten thread is vervangen door een synthesis. |
+
+- Onder de titel van een concept of synthesis staat een regel als `Confidence 0.95 · 156 sources · last confirmed 2026-11-16`. Neem die regel over bij de bron.
+- Staat op een pagina "This page is preserved for history", dan is ze verouderd. Gebruik haar nooit als enige steun.
+
+## Waar je begint
+
+Haal de startpagina van de wiki niet op: met 1,4 MB is ze te groot. Begin bij een van deze drie:
+
+1. `https://businessdatasolutions.github.io/ai-wiki/syntheses/`: alle syntheses.
+2. `https://businessdatasolutions.github.io/ai-wiki/concepts/`: alle concepten.
+3. `https://businessdatasolutions.github.io/ai-wiki/sitemap.xml`: alle pagina's. Zoek op woorden in de namen.
+
+Volg daarna de links op de pagina's die je leest. Het kopje *Related in this wiki* noemt de buren.
+
+## Werkwijze
+
+1. **Inkaderen.** Herformuleer de vraag in één zin, en splits haar in twee tot vier deelvragen. Noteer de taal van de vraag.
+2. **Engelse zoektermen.** Bedenk per deelvraag Engelse termen en synoniemen. "Dynamische capaciteiten" vind je als *dynamic capabilities*.
+3. **Kandidaten vinden.** Zoek de termen in de drie startpunten. Kun je op het web zoeken, zoek dan alleen binnen `site:businessdatasolutions.github.io/ai-wiki`.
+4. **Schiften.** Geef elke kandidaat USE of IGNORE. Elke IGNORE krijgt één reden: `off-facet` (beantwoordt geen deelvraag), `redundant` (zegt hetzelfde als een sterkere pagina), `superseded` (verouderd), `wrong-granularity` (een kaartje waar een cijfer nodig is) of `below-threshold` (zwakke treffer). Houd drie tot acht pagina's over.
+5. **Lezen.** Open de USE-pagina's. Een lange pagina komt soms afgekapt binnen: zeg dat, en lees dan gericht de secties die je nodig hebt. Elke kop heeft een anker, zoals `#key-claims`. Lees bij een concept ook *Debates and supersession*.
+6. **Gaten dichten, hoogstens één ronde.** Blijft een deelvraag open, zoek dan nog één keer met andere termen, of volg de links van een sterke USE-pagina.
+7. **Antwoorden**, zoals hieronder.
+
+## Het antwoord
+
+- Schrijf in de taal van de vraag. Citaten uit de wiki blijven Engels.
+- Elke inhoudelijke bewering krijgt een anker: [W1], [W2], enzovoort. Onder het antwoord staan de bronnen: per anker de titel, de soort pagina, de confidence-regel als die er is, en de URL, waar het kan met het anker van de sectie, zoals `…/concepts/dynamic-capabilities#key-claims`.
+- Alleen de wiki is bron. Wat je zelf weet, staat apart onder het kopje "Buiten de wiki". Zoek niet op het open web om gaten te vullen.
+- Zegt de wiki niets over (een deel van) de vraag, zeg dat dan onder het kopje "Wat de wiki niet zegt". Citeer dan geen pagina als steun: een zwakke treffer bewijst niet dat de wiki het onderwerp behandelt.
+- Sluit af met een kort zoekspoor: de vraag in één zin, de deelvragen, de zoektermen, de USE-pagina's met URL, en de IGNORE-pagina's met hun reden.
+
+## In een paper of een businesscase
+
+Een wikipagina vat een bron samen. Ze is zelf geen onderzoek. In een bronnenlijst volgens APA 7 staat daarom de oorspronkelijke bron die de bronpagina noemt: de auteurs, het jaar en de titel. Zoek die op en open haar als dat kan. Lukt dat niet, zet haar dan onder "Niet gecontroleerd". De URL van de wiki mag erbij, als vindplaats.
+
+## Wat je niet doet
+
+- Niets wijzigen of terugschrijven: de skill leest alleen.
+- Geen andere sites of wiki's als bron gebruiken.
+</pre>
+    <div class="let-op">
+      <p><strong>De wiki is in het Engels, je antwoord niet.</strong> Je AI zoekt met Engelse woorden en antwoordt in jouw taal. Lukt het installeren niet, geen probleem: de prompt in werkplaats 2 zegt je AI ook zonder skill waar het in de wiki moet beginnen.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -380,10 +461,10 @@ Per dia: de kop, het lijf, het bewijs met de bron, en de sprekersnotitie. Daaron
 </footer>
 <script>
 'use strict';
-/* De skill ontwerp-dia als zip, en als tekst op het klembord. De tekst staat één keer op de pagina,
-   in #skill-tekst. Het maken van de zip is overgenomen van boards.html: geen bibliotheek nodig. */
+/* De skills ontwerp-dia (stap 4) en ai-wiki-query (stap 7) als zip, en als tekst op het klembord.
+   De tekst van elke skill staat één keer op de pagina, in #skill-tekst en #wiki-tekst.
+   Het maken van de zip is overgenomen van boards.html: geen bibliotheek nodig. */
 const $ = id => document.getElementById(id);
-const skillTekst = () => $('skill-tekst').textContent;
 function download(naam, blob) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -455,23 +536,28 @@ function maakZip(bestanden, nu = new Date()) {
   return new Blob([...lokaal, ...centraal, new Uint8Array(eind.buffer)], { type: 'application/zip' });
 }
 
-$('skill-zip').addEventListener('click', () => {
-  download('ontwerp-dia.zip', maakZip([{ naam: 'ontwerp-dia/' }, { naam: 'ontwerp-dia/SKILL.md', data: new TextEncoder().encode(skillTekst()) }]));
-  $('skill-status').textContent = 'ontwerp-dia.zip staat in je map met downloads.';
-});
-$('skill-kopieer').addEventListener('click', async () => {
-  const tekst = skillTekst();
-  let gelukt = false;
-  try { await navigator.clipboard.writeText(tekst); gelukt = true; }
-  catch {
-    const t = document.createElement('textarea');
-    t.value = tekst; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
-    document.body.append(t); t.select();
-    try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
-    t.remove();
-  }
-  $('skill-status').textContent = gelukt ? 'De tekst staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hieronder en kopieer hem zelf.';
-});
+/* Knoppen voor één skill: <id>-zip, <id>-kopieer, <id>-status en de tekst in <id>-tekst. */
+function koppelSkill(naam, id) {
+  const tekst = () => $(`${id}-tekst`).textContent;
+  $(`${id}-zip`).addEventListener('click', () => {
+    download(`${naam}.zip`, maakZip([{ naam: `${naam}/` }, { naam: `${naam}/SKILL.md`, data: new TextEncoder().encode(tekst()) }]));
+    $(`${id}-status`).textContent = `${naam}.zip staat in je map met downloads.`;
+  });
+  $(`${id}-kopieer`).addEventListener('click', async () => {
+    let gelukt = false;
+    try { await navigator.clipboard.writeText(tekst()); gelukt = true; }
+    catch {
+      const t = document.createElement('textarea');
+      t.value = tekst(); t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.append(t); t.select();
+      try { gelukt = document.execCommand('copy'); } catch { gelukt = false; }
+      t.remove();
+    }
+    $(`${id}-status`).textContent = gelukt ? 'De tekst staat op je klembord.' : 'Kopiëren lukt hier niet. Selecteer de tekst hieronder en kopieer hem zelf.';
+  });
+}
+koppelSkill('ontwerp-dia', 'skill');
+koppelSkill('ai-wiki-query', 'wiki');
 </script>
 </body>
 </html>
