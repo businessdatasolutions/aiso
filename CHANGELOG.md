@@ -12,6 +12,8 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 - Dag 2, 9:30: de trainer vraagt wat ieder sinds dag 1 met AI deed, één zin per persoon, en toont daarna de nieuwe
   lespagina. De vragenkaart krijgt twee minuten in plaats van vijf; de opening blijft tien minuten (ADR-067).
 
+**Gepubliceerd** op dezelfde link, samen met 0.52: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
+
 ## 0.52 — 2026-11-24
 
 **Gewijzigd**
