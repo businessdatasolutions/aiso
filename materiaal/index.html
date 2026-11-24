@@ -224,6 +224,8 @@ main:has(> .overzicht:not([hidden])) { padding-top: clamp(12px, 1.2vw, 20px); }
 @media (min-width: 900px) { .ov-kop { grid-template-columns: minmax(0, 1fr) minmax(0, 64ch); } }
 .ov-titel { font-size: clamp(1.75rem, 2.6vw, 3rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
 .ov-lead { margin: 0; color: var(--text-secondary); font-size: clamp(.95rem, 1vw, 1.15rem); line-height: 1.45; }
+.ov-strip { white-space: nowrap; font-weight: 700; }
+@media (max-width: 720px) { .ov-strip { white-space: normal; } }
 .ov-tabel { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .ov-tabel th, .ov-tabel td { text-align: left; vertical-align: top; }
 .ov-tabel thead th { border-top: 2px solid var(--supporting); padding: 8px 14px; font-size: clamp(.7rem, .7vw, .85rem); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
@@ -621,7 +623,7 @@ function tekenOverzicht() {
   const voet = `<tr><th scope="row">Alle vier</th>${dagen.map(({ d, kolom, blokken: bs }) =>
     `<td data-kolom="${esc(kolom)}">${lijst(d, bs.filter(alleVier))}</td>`).join('')}</tr>`;
   el.innerHTML = `<div class="ov-kop"><h2 class="ov-titel" id="ov-titel">Vier vragen. Drie dagen.</h2>`
-    + `<p class="ov-lead">Elke dag begint en eindigt bij alle vier de vragen, met je antwoorden op de vragenkaart. Daartussen werk je aan één of twee. Een klik op een blok brengt je naar dat blok, met het materiaal.</p></div>`
+    + `<p class="ov-lead">Elke dag begint en eindigt bij alle vier de vragen, met je antwoorden op de vragenkaart. Daartussen werk je aan één of twee. Een klik op een blok brengt je naar dat blok, met het materiaal. <a class="ov-strip" href="strip/index.html">Het verhaal achter de vier vragen lees je in de strip.</a></p></div>`
     + `<table class="ov-tabel"><caption class="sr">Per vraag en per lesdag de blokken die eraan werken</caption>`
     + `<thead><tr><th scope="col">Vraag</th>${dagen.map(({ d, kolom }) => `<th scope="col"${d.n === dag.n ? ' aria-current="date"' : ''}>${esc(kolom)}</th>`).join('')}</tr></thead>`
     + `<tbody>${rijen}</tbody><tfoot>${voet}</tfoot></table>`;

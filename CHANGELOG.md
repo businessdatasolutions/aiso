@@ -2,6 +2,16 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.55 — 2026-11-24
+
+**Gewijzigd**
+- Het overzicht van de vier vragen op de startpagina (`?weergave=overzicht`) linkt in de kop naar de strip. Tot nu
+  toe was de strip alleen bereikbaar via de link die de trainer verstuurt (ADR-069).
+- De strip verwijst onderaan terug naar het overzicht.
+- FR-43 noemt beide links.
+
+De artifact staat nog op 0.53.
+
 ## 0.54 — 2026-11-24
 
 **Nieuw**
