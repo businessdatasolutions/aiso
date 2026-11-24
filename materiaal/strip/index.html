@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Het plan dat werd ingehaald</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Zo werken de drie lesdagen van AI Strategie en Organisatietransformatie: een strip van twaalf plaatjes.">
+<style>
+  /* Huisstijl Business Data Solutions: één signaalkleur, warm zwart, crème. Bewust alleen licht. */
+  :root { --signaal: #d4db3e; --inkt: #1a1a1a; --creme: #f5f0e6; --papier: #f9f8f4; --grijs: #6b7280; --lijn: #e5e7eb; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--inkt); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+  .kolom { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+
+  /* Voortgang: een dunne balk die meeloopt met het lezen */
+  .voortgang { position: fixed; inset: 0 0 auto 0; height: 5px; background: var(--signaal); transform-origin: 0 50%; transform: scaleX(0); z-index: 10; }
+
+  .kop { background: var(--creme); padding: 56px 0 44px; border-bottom: 3px solid var(--inkt); }
+  .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 14px; }
+  h1 { font-size: clamp(2.3rem, 9vw, 3.6rem); line-height: 1.04; letter-spacing: -.025em; margin: 0 0 18px; text-wrap: balance; }
+  h1 em { font-style: normal; background: linear-gradient(transparent 58%, var(--signaal) 58%, var(--signaal) 92%, transparent 92%); padding: 0 .08em; margin: 0 -.08em; }
+  .intro { font-size: 1.15rem; margin: 0; max-width: 34ch; }
+  .intro b { white-space: nowrap; }
+  .wijzer { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; padding: 0; list-style: none; }
+  .wijzer a { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 8px; border: 2px solid var(--inkt); border-radius: 99px; background: #fff; color: inherit; text-decoration: none; font-weight: 700; font-size: .9rem; transition: transform .15s, box-shadow .15s; }
+  .wijzer a:hover, .wijzer a:focus-visible { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--inkt); outline: none; }
+  .wijzer span, h2 span { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--inkt); color: #fff; font-size: .78em; }
+
+  section { padding-top: 34px; scroll-margin-top: 8px; }
+  h2 { position: sticky; top: 14px; z-index: 5; display: inline-flex; align-items: center; gap: 9px; margin: 0 0 16px; padding: 6px 16px 6px 7px; border: 2px solid var(--inkt); border-radius: 99px; background: var(--signaal); font-size: .95rem; letter-spacing: .01em; }
+
+  .plaatje { margin: 0 0 26px; }
+  .plaatje img { display: block; width: 100%; height: auto; border-radius: 12px; }
+
+  /* Het casusdeck: tien dia's, gevuld wat af is */
+  .deck { margin: 12px 2px 0; }
+  .deck ol { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .deck li { position: relative; aspect-ratio: 4 / 3; border: 2px solid var(--inkt); border-radius: 5px; background: #fff; }
+  .deck li.vol { background: var(--signaal); }
+  .deck li span { position: absolute; inset: 0; font-size: 0; }
+  .deck li span::after { content: ""; position: absolute; left: 30%; top: 12%; width: 28%; height: 52%; border: solid var(--inkt); border-width: 0 3px 3px 0; transform: rotate(45deg); }
+  .deck p { margin: 8px 0 0; font-weight: 700; font-size: .95rem; }
+
+  /* Het kader met de praktische gegevens */
+  .kader { margin: 44px 0 0; padding: 30px 24px 26px; border-radius: 20px; background: var(--inkt); color: var(--creme); }
+  .kader h2 { position: static; display: block; border: 0; background: none; padding: 0; margin: 0 0 18px; font-size: 1.6rem; line-height: 1.15; letter-spacing: -.015em; color: #fff; text-wrap: balance; }
+  .feiten { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+  .feiten li { padding: 6px 12px; border: 1.5px solid var(--creme); border-radius: 10px; font-size: .92rem; }
+  .feiten b { display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--signaal); }
+  .lijsten { display: grid; gap: 22px; }
+  .kader h3 { margin: 0 0 8px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--signaal); }
+  .kader ul.vink { margin: 0; padding: 0; list-style: none; }
+  .kader ul.vink li { position: relative; padding: 0 0 8px 30px; }
+  .kader ul.vink li::before { content: ""; position: absolute; left: 0; top: .22em; width: 18px; height: 18px; border-radius: 5px; background: var(--signaal); }
+  .kader ul.vink li::after { content: ""; position: absolute; left: 6px; top: .34em; width: 5px; height: 9px; border: solid var(--inkt); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+  .let { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid rgba(245, 240, 230, .3); font-size: .95rem; }
+
+  footer { padding: 26px 0 56px; color: var(--grijs); font-size: .82rem; }
+  footer p { margin: 0 0 4px; }
+
+  @media (min-width: 620px) {
+    .kop { padding: 76px 0 56px; }
+    .plaatje { margin-bottom: 34px; }
+    .kader { padding: 40px 40px 34px; }
+    .lijsten { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  /* Beweging, alleen voor wie dat wil en waar de browser het kan */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .voortgang { animation: vul linear both; animation-timeline: scroll(root); }
+      .plaatje img { animation: op linear both; animation-timeline: view(); animation-range: entry 0% entry 32%; }
+      .deck li.vol { animation: kleur linear both; animation-timeline: view(); animation-range: entry calc(60% + var(--i) * 14%) entry calc(110% + var(--i) * 14%); }
+    }
+  }
+  @keyframes vul { to { transform: scaleX(1); } }
+  @keyframes op { from { opacity: 0; transform: translateY(26px) scale(.985); } to { opacity: 1; transform: none; } }
+  @keyframes kleur { from { background: #fff; } to { background: var(--signaal); } }
+
+  @media print {
+    .voortgang, .wijzer { display: none; }
+    h2 { position: static; }
+    .plaatje, .kader { break-inside: avoid; }
+    .kader { background: #fff; color: var(--inkt); border: 2px solid var(--inkt); }
+    .kader h2 { color: var(--inkt); }
+  }
+</style>
+</head>
+<body>
+<div class="voortgang" aria-hidden="true"></div>
+
+<header class="kop">
+  <div class="kolom">
+    <p class="eyebrow">Voor je begint · AI Strategie en Organisatietransformatie</p>
+    <h1>Het plan dat werd <em>ingehaald</em></h1>
+    <p class="intro">Zo werken de drie lesdagen. Twaalf plaatjes, <b>twee minuten</b> lezen.</p>
+    <ol class="wijzer">
+      <li><a href="#waarom"><span>1</span>Waarom</a></li>
+      <li><a href="#hoe"><span>2</span>Hoe</a></li>
+      <li><a href="#wat"><span>3</span>Wat</a></li>
+      <li><a href="#nodig"><span>✓</span>Wat je meeneemt</a></li>
+    </ol>
+  </div>
+</header>
+
+<main class="kolom">
+  <section id="waarom" aria-labelledby="k-waarom">
+    <h2 id="k-waarom"><span>1</span>Waarom</h2>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje1.jpg" width="1280" height="1713" alt="Noor staat in de vergaderkamer voor het MT, met een dik rapport op tafel. Tekst in het plaatje: Voorbeeld BV installeert en onderhoudt warmtepompen. Maandagochtend. Zes maanden werk. Hier staat hoe wij de komende drie jaar AI inzetten." decoding="async">
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje2.jpg" width="1280" height="1284" alt="Een MT-lid kijkt op van zijn telefoon. Noor schrikt, haar hand nog op het rapport. Tekst in het plaatje: Wacht even. Warmtepompen melden hun storing voortaan zelf aan de fabrikant. Die kiest de monteur. Dan belt de klant ons niet meer. En daar gaat mijn hele plan van uit." loading="lazy" decoding="async">
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje3.jpg" width="1280" height="1587" alt="Noor zit thuis aan de keukentafel achter haar laptop, het rapport dicht naast haar. Die avond. Tekst in het plaatje: Een nieuw plan is over een half jaar ook weer ingehaald. Hoe bepaal je een strategie als elk plan wordt ingehaald voordat het op papier staat? Dat is mijn vraag." loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <section id="hoe" aria-labelledby="k-hoe">
+    <h2 id="k-hoe"><span>2</span>Hoe</h2>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje4.jpg" width="1280" height="1615" alt="Noor en de trainer staan in de mist bij een wegwijzer met vier borden: Richting, Transformeren, Investeren en Roadmap. Tekst in het plaatje: De training draait om vier vragen. Ze wijzen allemaal de mist in. Klopt. Wat doe jij als je niet ver vooruit kunt kijken?" loading="lazy" decoding="async">
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje5.jpg" width="1280" height="1600" alt="Twee deuren: een dichte kluisdeur met het bordje &quot;Geen weg terug&quot;, en een klapdeur waar Noor doorheen loopt. Tekst in het plaatje: Je begint klein. Deze stap kan ik terugdraaien. Dus die zet ik nu. Als de toekomst door onzekerheden wordt vertroebeld, kies voor leren en houd je opties open." loading="lazy" decoding="async">
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje6.jpg" width="1280" height="1599" alt="Noor en haar duo zitten naast elkaar aan tafel, elk met een eigen vel. Het duo wijst iets aan en Noor schrijft het erbij. Tekst in het plaatje: Dat oefen je drie dagen op je eigen organisatie. Naast je zit je duo, met een eigen casus. Ik werk bij een gemeente, dus leg eens uit: wat kost het jullie als dit mislukt? Zes weken van één team. Dat moet ik er wel bij zetten." loading="lazy" decoding="async">
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje7.jpg" width="1280" height="1605" alt="Op tafel staan twee laptops waarop een robotje doorwerkt. Noor en haar duo drinken koffie bij het raam. Tekst in het plaatje: Het schrijfwerk doet de AI. De werkregel: voordat je pauze neemt, zet je de AI aan het werk. Wat doet die van jou nu? Stukken van ons bestuur zoeken. Straks kijk ik of het klopt. Zo werk je. En dit maak je ermee in drie dagen:" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <section id="wat" aria-labelledby="k-wat">
+    <h2 id="k-wat"><span>3</span>Wat</h2>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje8.jpg" width="1280" height="1922" alt="Boven: Noor schrijft op een kaart met vier vakken. Onder: op haar laptop zit een raad van vier adviseurs, en één spreekt haar tegen. Dag 1: richting. Tekst in het plaatje: &#x27;s Ochtends schrijf je bij elke vraag wat je nu zou doen. &#x27;s Middags bouw je in je AI een raad van advies, die je keuzes toetst. Ons doel: de beste service van de regio. Dit is nog geen strategische keuze. Welke alternatieven heb je en wijs je bewust af?" loading="lazy" decoding="async">
+      <figcaption class="deck"><ol aria-hidden="true"><li class="vol" style="--i:0"></li><li class="vol" style="--i:1"></li><li class="vol" style="--i:2"></li><li class="" style="--i:3"></li><li class="" style="--i:4"></li><li class="" style="--i:5"></li><li class="" style="--i:6"></li><li class="" style="--i:7"></li><li class="" style="--i:8"></li><li class="" style="--i:9"></li></ol><p>3 van 10: je vier vragen, de aanleiding en je doelen</p></figcaption>
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje9.jpg" width="1280" height="1632" alt="Noor presenteert haar eerste prioriteit: de AI helpt klachten sorteren. Vier deelnemers spelen Financiën, Privacy, de OR en een medewerker. Dag 2: transformeren en investeren. Tekst in het plaatje: Je presenteert wat je thuis hebt voorbereid. De groep speelt de mensen die bij jou beslissen. &#x27;s Middags maak je de businesscase. Mooi verhaal. Hoe weet je dat het werkt? Dat weet ik nog niet. Ik ga het eerst klein meten." loading="lazy" decoding="async">
+      <figcaption class="deck"><ol aria-hidden="true"><li class="vol" style="--i:0"></li><li class="vol" style="--i:1"></li><li class="vol" style="--i:2"></li><li class="vol" style="--i:3"></li><li class="" style="--i:4"></li><li class="" style="--i:5"></li><li class="" style="--i:6"></li><li class="" style="--i:7"></li><li class="" style="--i:8"></li><li class="" style="--i:9"></li></ol><p>4 van 10: je eerste prioriteit komt erbij</p></figcaption>
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje10.jpg" width="1280" height="1280" alt="Noor zit thuis achter haar laptop. Op het scherm: kiest de AI dezelfde urgentie als de medewerker? Norm: 8 van de 10 klachten. Uitkomst: 7 van de 10. Tekst in het plaatje: Tussen dag 2 en dag 3 doe je thuis een klein experiment. De norm kies je vooraf. Net onder de norm. Dan schalen we nog niet op. Ik kies de andere route." loading="lazy" decoding="async">
+      <figcaption class="deck"><ol aria-hidden="true"><li class="vol" style="--i:0"></li><li class="vol" style="--i:1"></li><li class="vol" style="--i:2"></li><li class="vol" style="--i:3"><span>af</span></li><li class="" style="--i:4"></li><li class="" style="--i:5"></li><li class="" style="--i:6"></li><li class="" style="--i:7"></li><li class="" style="--i:8"></li><li class="" style="--i:9"></li></ol><p>4 van 10: het bewijs staat erbij</p></figcaption>
+    </figure>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje11.jpg" width="1280" height="1925" alt="Boven: een route met drie stations, Experiment, Pilot en Opschaling; de eerste wissel staat om. Onder: Noor praat met het robotje, dat een bezorgde collega speelt. Dag 3: de route en het draagvlak. Tekst in het plaatje: Je maakt een route voor het eerste jaar. Bij elke stap staat wat je doet als het tegenvalt. Daarna oefen je het lastigste gesprek. De AI speelt je collega. Ik ben nu verantwoordelijk voor het afhandelingsproces van klachten. Wat blijft er van mijn werk over als AI dit gaat automatiseren? Jij blijft beslissen. De AI doet alleen een voorstel." loading="lazy" decoding="async">
+      <figcaption class="deck"><ol aria-hidden="true"><li class="vol" style="--i:0"></li><li class="vol" style="--i:1"></li><li class="vol" style="--i:2"></li><li class="vol" style="--i:3"></li><li class="vol" style="--i:4"></li><li class="vol" style="--i:5"></li><li class="vol" style="--i:6"></li><li class="vol" style="--i:7"></li><li class="vol" style="--i:8"></li><li class="vol" style="--i:9"></li></ol><p>10 van 10: je hele voorstel, in concept</p></figcaption>
+    </figure>
+  </section>
+
+  <section id="slot" aria-labelledby="k-slot">
+    <h2 id="k-slot"><span>4</span>En dan</h2>
+    <figure class="plaatje">
+      <img src="beeld/web/plaatje12.jpg" width="1280" height="1713" alt="Dezelfde vergaderkamer. Het rapport is weg. Noor wijst op een scherm met de route een wissel aan. Voorbeeld BV, een paar weken later. Tekst in het plaatje: Wacht even. De fabrikant gaat nu ook onderhoud aanbieden. Daarvoor is deze wissel. Vrijdag kiezen we welke kant we op gaan. Het nieuws verandert weer. Je voorstel kan ertegen." loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <aside class="kader" id="nodig" aria-labelledby="k-nodig">
+    <h2 id="k-nodig">Dit heb je nodig om te beginnen</h2>
+    <ul class="feiten">
+      <li><b>Wanneer</b>12 november, 26 november en 10 december 2026</li>
+      <li><b>Tijd</b>9:30 tot 16:30</li>
+      <li><b>Waar</b>Zwolle</li>
+    </ul>
+    <div class="lijsten">
+      <div>
+        <h3>Je neemt mee</h3>
+        <ul class="vink">
+          <li>een laptop met je eigen AI: Claude, ChatGPT of Gemini</li>
+          <li>één casus: je organisatie, of het deel waar je werkt</li>
+          <li>een voorlopige strategische AI-vraag, in één zin</li>
+          <li>de online voorbereiding van de eerste bijeenkomst, gedaan</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Je gaat naar huis met</h3>
+        <ul class="vink">
+          <li>een casusdeck van tien dia's dat je bestuur kan beoordelen</li>
+          <li>een bewijs uit je eigen experiment</li>
+          <li>twee raden van advies in je AI, die blijven werken</li>
+        </ul>
+      </div>
+    </div>
+    <p class="let">Schrijf in de les alleen op wat openbaar mag.</p>
+  </aside>
+</main>
+
+<footer class="kolom">
+  <p>Voorbeeld BV, Noor en de andere figuren zijn verzonnen.</p>
+  <p>De beelden zijn gemaakt met een AI-beeldgenerator, naar een script en schetsen van de trainer.</p>
+</footer>
+</body>
+</html>

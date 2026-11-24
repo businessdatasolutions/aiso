@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figurenblad van de strip</title>
+<style>
+  :root { --signaal: #d4db3e; --inkt: #1a1a1a; --creme: #f5f0e6; --creme2: #f0ebe0; --papier: #f9f8f4; --grijs: #6b7280; --lijn: #d1d5db; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--inkt); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; }
+  main { max-width: 1120px; margin: 0 auto; padding: 32px 24px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.25rem; margin: 40px 0 4px; padding-top: 16px; border-top: 3px solid var(--inkt); }
+  p { margin: 4px 0 12px; max-width: 70ch; }
+  .sub { color: var(--grijs); }
+  .rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; align-items: start; }
+  .vak { background: var(--papier); border: 1px solid var(--lijn); border-radius: 12px; padding: 8px 8px 10px; text-align: center; font-size: .82rem; }
+  .vak svg { width: 100%; height: auto; display: block; }
+  .vak b { display: block; }
+  .staal { display: flex; align-items: center; gap: 10px; text-align: left; }
+  .staal i { width: 44px; height: 44px; border-radius: 8px; border: 2px solid var(--inkt); flex: none; }
+  .breed svg { width: 100%; height: auto; display: block; background: var(--papier); border: 1px solid var(--lijn); border-radius: 12px; }
+  ul { margin: 4px 0 12px; padding-left: 1.2em; max-width: 70ch; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Figurenblad van de strip</h1>
+  <p class="sub">Stap 7 van het bouwplan. Alle figuren zijn verzonnen. De stijl is de klare lijn van het <a href="karakterblad-gemini.html">karakterblad uit Gemini</a>: hoge hoofden met een neus, een vaste inktlijn en egale vlakken. De tekeningen komen uit <code>figuren.js</code>; de plaatjes van de strip gebruiken hetzelfde bestand.</p>
+
+  <h2>1. Kleur en lijn</h2>
+  <ul>
+    <li>De signaalkleur staat alleen op Noor en op wat af is: de gevulde vakjes van het casusdeck en een balk die volloopt. Zo vindt de lezer in elk plaatje de hoofdpersoon en de voortgang.</li>
+    <li>Elke lijn is 3 dik, in inkt, met ronde uiteinden. Vlakken zijn egaal, zonder schaduw of verloop.</li>
+    <li>Elke figuur is aan het haar te herkennen, ook zonder kleur.</li>
+  </ul>
+  <div class="rij" id="kleuren"></div>
+
+  <h2>2. Noor, de hoofdpersoon</h2>
+  <p>Manager Klantcontact bij Voorbeeld BV. Zwart haar tot de kaak, een trui in de signaalkleur.</p>
+  <div class="rij" id="noor"></div>
+
+  <h2>3. Het duo</h2>
+  <p>Beleidsadviseur bij de gemeente Voorbeeldstad. Krullen, een ronde bril, een gestreepte trui.</p>
+  <div class="rij" id="duo"></div>
+
+  <h2>4. De trainer</h2>
+  <p>Staat aan de rand van het plaatje. Kort grijs haar, een ringbaard, een zwarte trui.</p>
+  <div class="rij" id="trainer"></div>
+
+  <h2>5. Het MT en het robotje</h2>
+  <p>Het MT is een silhouet zonder gezicht: de lezer vult zelf het eigen bestuur in. Het robotje staat voor de AI en verschijnt alleen op een scherm.</p>
+  <div class="rij" id="bij"></div>
+
+  <h2>6. Alle figuren naast elkaar</h2>
+  <div class="breed" id="rijtje"></div>
+
+  <h2>7. Belettering</h2>
+  <ul>
+    <li>Letter: het systeemlettertype van de huisstijl, in gewone hoofd- en kleine letters. Ballonnen 15 punt, bijschriften 14 punt.</li>
+    <li>Een spreekballon heeft een dichte lijn en een punt naar de spreker. Een denkballon heeft een stippellijn en twee bolletjes.</li>
+    <li>Een bijschrift met een zwart vlak noemt de dag of de plaats. Een bijschrift met een crème vlak vertelt.</li>
+    <li>Tekst op een scherm staat in het lettertype met vaste breedte.</li>
+  </ul>
+  <div class="breed" id="letters"></div>
+
+  <h2>8. Het casusdeck</h2>
+  <p>Tien vakjes onder elk plaatje van de ring Wat. Een gevuld vakje heeft de signaalkleur.</p>
+  <div class="breed" id="deck"></div>
+</main>
+
+<script src="figuren.js"></script>
+<script>
+(function () {
+  var S = window.Strip, K = S.K;
+  function svg(w, h, inhoud) { return '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" xmlns="http://www.w3.org/2000/svg">' + inhoud + '</svg>'; }
+  function vak(doel, inhoud, titel, uitleg) {
+    document.getElementById(doel).insertAdjacentHTML('beforeend', '<div class="vak">' + inhoud + '<b>' + titel + '</b>' + (uitleg || '') + '</div>');
+  }
+  function staand(wie, o) { o.x = o.arm === 'wijs' ? 70 : 90; o.y = 300; return svg(180, 310, S.figuur(wie, o)); }
+  function kop(wie, gezicht) { return svg(120, 110, S.figuur(wie, { x: 60, y: 312, gezicht: gezicht })); }
+
+  [['signaal', 'Signaal', 'Noor en wat af is'], ['inkt', 'Inkt', 'Lijn, haar, tekst'], ['creme', 'Crème', 'Bijschrift, robot'],
+   ['creme2', 'Crème 2', 'Trui van het duo'], ['papier', 'Papier', 'Huid, achtergrond'], ['donkergrijs', 'Donkergrijs', 'Het MT'], ['grijs', 'Grijs', 'Haar van de trainer']
+  ].forEach(function (k) {
+    vak('kleuren', '<div class="staal"><i style="background:' + K[k[0]] + '"></i><span><b>' + k[1] + '</b>' + K[k[0]] + '<br>' + k[2] + '</span></div>', '', '');
+  });
+
+  ['noor', 'duo', 'trainer'].forEach(function (wie) {
+    vak(wie, staand(wie, { aanzicht: 'voor' }), 'Van voren');
+    vak(wie, staand(wie, { aanzicht: 'zij' }), 'Van opzij');
+    ['neutraal', 'blij', 'bezorgd', 'verrast'].forEach(function (g) { vak(wie, kop(wie, g), g.charAt(0).toUpperCase() + g.slice(1)); });
+  });
+  vak('noor', staand('noor', { aanzicht: 'voor', arm: 'wijs', gezicht: 'blij' }), 'Wijst aan', 'plaatje 12');
+  vak('noor', staand('noor', { aanzicht: 'zij', arm: 'koffie', gezicht: 'blij' }), 'Met koffie', 'plaatje 7');
+
+  vak('bij', svg(180, 190, S.mtlid({ x: 90, y: 185, telefoon: true })), 'MT-lid, van voren');
+  vak('bij', svg(180, 190, S.mtlid({ x: 80, y: 185, aanzicht: 'zij', telefoon: true })), 'MT-lid, van opzij', 'met telefoon');
+  vak('bij', svg(180, 190, S.robot({ x: 90, y: 170, schaal: 1.5 })), 'Robotje', 'neutraal');
+  vak('bij', svg(180, 190, S.robot({ x: 90, y: 170, schaal: 1.5, gezicht: 'werkt' })), 'Robotje', 'aan het werk');
+  vak('bij', svg(180, 190, S.robot({ x: 90, y: 170, schaal: 1.5, gezicht: 'bezorgd', naam: 'Collega' })), 'Robotje', 'als collega, plaatje 11');
+
+  document.getElementById('rijtje').innerHTML = svg(1000, 340,
+    '<path d="M40,320 L960,320" stroke="' + K.inkt + '" stroke-width="3" stroke-linecap="round"/>' +
+    S.figuur('trainer', { x: 150, y: 320, aanzicht: 'zij' }) +
+    S.figuur('noor', { x: 360, y: 320, gezicht: 'blij' }) +
+    S.figuur('duo', { x: 520, y: 320, schaal: 1.06, gezicht: 'neutraal' }) +
+    S.mtlid({ x: 720, y: 320, aanzicht: 'zij', spiegel: true, telefoon: true }) +
+    '<rect x="820" y="196" width="120" height="84" rx="8" fill="' + K.wit + '" stroke="' + K.inkt + '" stroke-width="3"/>' +
+    '<path d="M800,292 L960,292 L948,280 L812,280 Z" fill="' + K.creme2 + '" stroke="' + K.inkt + '" stroke-width="3" stroke-linejoin="round"/>' +
+    S.robot({ x: 880, y: 276, schaal: 0.8, gezicht: 'werkt' }));
+
+  document.getElementById('letters').innerHTML = svg(1000, 330,
+    S.bijschrift(30, 24, 'Dag 1: richting', { soort: 'titel' }) +
+    S.bijschrift(30, 74, 'Je werkt drie dagen aan je eigen organisatie. Naast je zit je duo, met een eigen casus.') +
+    S.ballon(30, 170, 'Dan belt de klant ons niet meer. En daar gaat mijn hele plan van uit.', { staart: [120, 300] }) +
+    S.ballon(380, 30, 'Een nieuw plan is over een half jaar ook weer ingehaald.', { soort: 'denk', staart: [470, 190] }) +
+    S.figuur('noor', { x: 470, y: 470, gezicht: 'bezorgd' }) +
+    '<rect x="660" y="40" width="300" height="190" rx="10" fill="' + K.wit + '" stroke="' + K.inkt + '" stroke-width="3"/>' +
+    S.schermtekst(680, 76, 'Norm: 8 van de 10 klachten') + S.schermtekst(680, 104, 'Uitkomst: 7 van de 10') +
+    '<rect x="680" y="150" width="260" height="20" rx="4" fill="' + K.wit + '" stroke="' + K.inkt + '" stroke-width="2"/>' +
+    '<rect x="680" y="150" width="170" height="20" rx="4" fill="' + K.signaal + '" stroke="' + K.inkt + '" stroke-width="2"/>' +
+    S.schermtekst(680, 200, 'Een balk die volloopt', { maat: 11 }));
+
+  document.getElementById('deck').innerHTML = svg(1000, 250,
+    S.deck(30, 24, 3, { tekst: '3 van 10: je vier vragen, de aanleiding en je doelen' }) +
+    S.deck(30, 104, 4, { vink: 4, tekst: '4 van 10: het bewijs staat erbij' }) +
+    S.deck(30, 184, 10, { tekst: '10 van 10: je hele voorstel, in concept' }));
+})();
+</script>
+</body>
+</html>

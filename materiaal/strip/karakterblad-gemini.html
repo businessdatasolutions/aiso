@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karakterblad - Europese Ligne Claire Strip</title>
+<style>
+  :root { 
+    --signaal: #d4db3e; /* Noor / Voortgang */
+    --inkt: #1a1a1a; 
+    --creme: #f5f0e6; 
+    --creme2: #f0ebe0; 
+    --papier: #f9f8f4; 
+    --grijs: #6b7280; 
+    --lijn: #d1d5db; 
+    --donkergrijs: #4b5563;
+    --blauwgrijs: #cbd5e1;
+  }
+  * { box-sizing: border-box; }
+  body { 
+    margin: 0; 
+    background: #fff; 
+    color: var(--inkt); 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+    line-height: 1.5; 
+  }
+  main { max-width: 1120px; margin: 0 auto; padding: 32px 24px 64px; }
+  
+  .header {
+    border-bottom: 3px solid var(--inkt);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  h1 { font-size: 2.25rem; margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; }
+  .btn-download {
+    background: var(--inkt);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn-download:hover { background: #333; }
+  
+  h2 { font-size: 1.35rem; margin: 48px 0 16px; padding-top: 16px; border-top: 3px solid var(--inkt); font-weight: 700; }
+  p { margin: 4px 0 16px; max-width: 75ch; color: #374151; }
+  .sub { color: var(--grijs); font-size: 0.95rem; margin-top: 8px; }
+  
+  .rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; align-items: start; }
+  .vak { background: var(--papier); border: 2px solid var(--inkt); border-radius: 12px; padding: 12px 12px 14px; text-align: center; font-size: .85rem; box-shadow: 3px 3px 0 rgba(0,0,0,0.05); }
+  .vak svg { width: 100%; height: auto; display: block; margin-bottom: 8px; background: transparent; }
+  .vak b { display: block; margin-top: 4px; font-size: 0.9rem; }
+  .vak span { color: var(--grijs); font-size: 0.75rem; display: block; margin-top: 2px; }
+  
+  .staal { display: flex; align-items: center; gap: 12px; text-align: left; }
+  .staal i { width: 48px; height: 48px; border-radius: 8px; border: 2px solid var(--inkt); flex: none; box-shadow: 2px 2px 0 rgba(0,0,0,0.1); }
+  
+  .breed { background: var(--papier); border: 2px solid var(--inkt); border-radius: 12px; padding: 16px; box-shadow: 3px 3px 0 rgba(0,0,0,0.05); }
+  .breed svg { width: 100%; height: auto; display: block; }
+  
+  ul { margin: 8px 0 20px; padding-left: 1.4em; max-width: 75ch; }
+  li { margin-bottom: 6px; }
+  
+  .meta-sectie {
+    background: var(--creme);
+    border: 2px dashed var(--inkt);
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="header">
+    <div>
+      <h1>Karakterblad: Europese BD (Ligne Claire)</h1>
+      <p class="sub">Een overzicht van alle visuele bouwstenen voor de comic strip. Handgetekend in de klassieke klare lijn traditie met egale vlakken en dikke inktlijnen.</p>
+    </div>
+    <button class="btn-download" onclick="window.print()">Opslaan als PDF / Printen</button>
+  </div>
+
+  <div class="meta-sectie">
+    <strong>Stijlgids Ligne Claire (Europese BD):</strong>
+    <ul>
+      <li><strong>Inktlijn:</strong> Altijd een duidelijke, constante lijnbreedte (dikte 3px) met afgeronde uiteinden. Geen verlooptinten of dynamische druk.</li>
+      <li><strong>Kleuren:</strong> Egale, matte en onverzadigde stripkleuren. Schaduwen worden niet getekend (geen halftonen, arceringen of kleurovergangen).</li>
+      <li><strong>Signaalkleur:</strong> De felle geel-groene kleur (<span style="background:var(--signaal); padding: 2px 6px; border-radius: 4px; font-weight: bold;">#D4DB3E</span>) wordt uitsluitend gebruikt voor Noor (haar trui) en de voltooid-status (het casusdeck & de voortgangsbalk). Dit leidt de lezer direct naar de hoofdpersoon en de voortgang.</li>
+    </ul>
+  </div>
+
+  <h2>1. Kleur en Lijn</h2>
+  <div class="rij">
+    <div class="vak"><div class="staal"><i style="background:var(--signaal)"></i><span><b>Signaal</b>#D4DB3E<br>Noor & voortgang</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--inkt)"></i><span><b>Inkt</b>#1A1A1A<br>Lijnen, haar, tekst</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--creme)"></i><span><b>Crème</b>#F5F0E6<br>Bijschriften, robot</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--creme2)"></i><span><b>Crème 2</b>#F0EBE0<br>Trui van het duo</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--papier)"></i><span><b>Papier</b>#F9F8F4<br>Huid & achtergronden</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--donkergrijs)"></i><span><b>Donkergrijs</b>#4B5563<br>Het MT (silhouet)</span></div></div>
+    <div class="vak"><div class="staal"><i style="background:var(--grijs)"></i><span><b>Grijs</b>#6B7280<br>Haar van de trainer</span></div></div>
+  </div>
+
+  <h2>2. Noor (De hoofdpersoon)</h2>
+  <p>Manager Klantcontact bij Voorbeeld BV. Herkenbaar aan haar gitzwarte haar tot op de kaak en haar heldere trui in de signaalkleur.</p>
+  <div class="rij">
+    <!-- Noor Van voren -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & trui -->
+        <path d="M40 130 Q30 150 25 210 M80 130 Q90 150 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M30 145 C 30 210, 90 210, 90 145 Z" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M45 130 C45 140, 75 140, 75 130 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Armen -->
+        <path d="M30 145 Q 20 180 20 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M90 145 Q 100 180 100 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <!-- Hals -->
+        <rect x="54" y="115" width="12" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M45 120 C40 45, 80 45, 75 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Gezicht -->
+        <circle cx="53" cy="95" r="2.5" fill="var(--inkt)"/>
+        <circle cx="67" cy="95" r="2.5" fill="var(--inkt)"/>
+        <path d="M60 96 L 60 102 L 58 102" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M54 110 Q60 114 66 110" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Haar -->
+        <path d="M36 110 C 35 60, 85 60, 84 110 C 82 120 85 110 88 120 C 90 125 75 45 45 45 C 32 48 30 110 32 120 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+        <path d="M45 52 Q53 65 57 78" stroke="var(--papier)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <b>Van voren</b>
+    </div>
+    <!-- Noor Van opzij -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & trui -->
+        <path d="M40 130 Q35 150 35 210 M75 130 Q80 160 85 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M35 145 Q 50 140 75 145 L 80 210 L 35 210 Z" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Armen -->
+        <path d="M45 145 Q 55 180 50 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <!-- Hals -->
+        <rect x="50" y="115" width="14" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M42 120 C38 45, 76 45, 72 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Gezicht (profiel-achtig) -->
+        <circle cx="50" cy="95" r="2.5" fill="var(--inkt)"/>
+        <path d="M44 95 L40 98 L44 101" stroke="var(--inkt)" stroke-width="2.5" fill="none"/> <!-- Neus -->
+        <path d="M45 110 Q50 112 55 110" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Haar -->
+        <path d="M45 125 C 28 115, 30 45, 68 45 C 85 50 82 105 80 125 C 70 128 65 128 45 125 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Van opzij</b>
+    </div>
+    <!-- Noor Blij -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 100 C 30 100, 70 100, 70 100" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Ogen & Wenkbrauwen -->
+        <path d="M37 54 Q41 51 45 54" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M55 54 Q59 51 63 54" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <circle cx="41" cy="62" r="2.5" fill="var(--inkt)"/>
+        <circle cx="59" cy="62" r="2.5" fill="var(--inkt)"/>
+        <!-- Lachende mond -->
+        <path d="M44 78 Q50 86 56 78 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Haar -->
+        <path d="M25 85 C 23 45, 77 45, 75 85 C 76 95 80 100 78 100 C 50 40 30 90 22 100 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Blij</b>
+    </div>
+    <!-- Noor Bezorgd -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Oorzorgen -->
+        <path d="M38 56 Q42 59 46 55" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M54 55 Q58 59 62 56" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <circle cx="42" cy="63" r="2.5" fill="var(--inkt)"/>
+        <circle cx="58" cy="63" r="2.5" fill="var(--inkt)"/>
+        <!-- Bezorgde mond -->
+        <path d="M44 82 Q50 77 56 82" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <!-- Haar -->
+        <path d="M25 85 C 23 45, 77 45, 75 85 C 76 95 80 100 78 100 C 50 40 30 90 22 100 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Bezorgd</b>
+    </div>
+    <!-- Noor Verrast -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Verraste wenkbrauwen omhoog -->
+        <path d="M36 50 Q41 45 46 50" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M54 50 Q59 45 64 50" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <circle cx="41" cy="60" r="2.5" fill="var(--inkt)"/>
+        <circle cx="59" cy="60" r="2.5" fill="var(--inkt)"/>
+        <!-- Kleine ronde mond -->
+        <circle cx="50" cy="79" r="5" fill="none" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Haar -->
+        <path d="M25 85 C 23 45, 77 45, 75 85 C 76 95 80 100 78 100 C 50 40 30 90 22 100 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Verrast</b>
+    </div>
+  </div>
+
+  <h2>3. Het Duo</h2>
+  <p>Beleidsadviseur bij de gemeente. Kenmerkt zich door een flinke bos krullen, een ronde bril en een herkenbare horizontaal gestreepte trui.</p>
+  <div class="rij">
+    <!-- Duo Van voren -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & gestreepte trui -->
+        <path d="M30 145 C 30 210, 90 210, 90 145 Z" fill="var(--creme2)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Strepen -->
+        <path d="M31 160 Q60 165 89 160 M31 175 Q60 180 89 175 M33 190 Q60 195 87 190" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M40 130 Q30 150 25 210 M80 130 Q90 150 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <!-- Hals en kraag -->
+        <rect x="52" y="115" width="16" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M48 132 L 72 132" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M45 120 C40 50, 80 50, 75 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Bril -->
+        <circle cx="51" cy="85" r="10" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <circle cx="69" cy="85" r="10" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <path d="M57 85 L 63 85" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Ogen -->
+        <circle cx="51" cy="85" r="2" fill="var(--inkt)"/>
+        <circle cx="69" cy="85" r="2" fill="var(--inkt)"/>
+        <path d="M55 105 Q60 108 65 105" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Krullen -->
+        <path d="M45 42 Q30 45 33 60 Q23 70 33 80 Q25 95 38 100 Q40 115 48 115 Q82 112 80 98 Q92 88 82 72 Q90 55 78 45 Q70 30 52 40 Z" fill="none" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M40 45 C43 38, 50 35, 57 38 C64 35, 72 40, 74 48 C82 45, 88 52, 85 62 C91 68, 88 78, 83 82" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+      </svg>
+      <b>Van voren</b>
+    </div>
+    <!-- Duo Van opzij -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & gestreepte trui -->
+        <path d="M35 145 Q 50 140 75 145 L 80 210 L 35 210 Z" fill="var(--creme2)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M35 160 Q55 157 76 161 M35 178 Q55 175 78 180 M37 195 Q55 192 80 197" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M40 130 Q35 150 35 210 M75 130 Q80 160 85 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <!-- Hals -->
+        <rect x="50" y="115" width="14" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M42 120 C38 48, 76 48, 72 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Bril (opzij) -->
+        <ellipse cx="48" cy="85" rx="8" ry="10" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <path d="M40 85 L 36 85 M54 85 L 68 85" stroke="var(--inkt)" stroke-width="2.5"/>
+        <circle cx="48" cy="85" r="2" fill="var(--inkt)"/>
+        <path d="M44 98 L40 101 L44 104" stroke="var(--inkt)" stroke-width="2.5" fill="none"/> <!-- Neus -->
+        <path d="M45 110 Q50 112 55 110" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Krullen -->
+        <path d="M40 45 C 28 35, 20 70, 30 90 C 22 110, 45 115, 52 115 C 75 115, 80 90, 78 68 C 76 40, 52 35, 40 45 Z" fill="none" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M35 52 C32 45, 38 35, 45 38 C52 32, 60 38, 65 42" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+      </svg>
+      <b>Van opzij</b>
+    </div>
+    <!-- Duo Blij -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Bril -->
+        <circle cx="41" cy="62" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <circle cx="59" cy="62" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <path d="M49 62 L 51 62" stroke="var(--inkt)" stroke-width="2.5"/>
+        <circle cx="41" cy="62" r="1.5" fill="var(--inkt)"/>
+        <circle cx="59" cy="62" r="1.5" fill="var(--inkt)"/>
+        <!-- Mond -->
+        <path d="M45 78 Q50 84 55 78" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Krullen -->
+        <path d="M30 40 Q15 45 20 60 Q10 70 20 80 Q15 90 25 95 Q30 100 48 100 Q80 98 78 85 Q88 72 78 58 Q85 45 72 40 Q65 25 45 32 Z" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+      </svg>
+      <b>Blij</b>
+    </div>
+    <!-- Duo Bezorgd -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Bril -->
+        <circle cx="41" cy="62" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <circle cx="59" cy="62" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <path d="M49 62 L 51 62" stroke="var(--inkt)" stroke-width="2.5"/>
+        <circle cx="41" cy="62" r="1.5" fill="var(--inkt)"/>
+        <circle cx="59" cy="62" r="1.5" fill="var(--inkt)"/>
+        <!-- Bezorgde wenkbrauwen op de bril -->
+        <path d="M35 50 T 45 52" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <path d="M55 52 T 65 50" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <!-- Mond -->
+        <path d="M44 81 Q50 77 56 81" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <!-- Krullen -->
+        <path d="M30 40 Q15 45 20 60 Q10 70 20 80 Q15 90 25 95 Q30 100 48 100 Q80 98 78 85 Q88 72 78 58 Q85 45 72 40 Q65 25 45 32 Z" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+      </svg>
+      <b>Bezorgd</b>
+    </div>
+    <!-- Duo Verrast -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Bril -->
+        <circle cx="41" cy="60" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <circle cx="59" cy="60" r="8" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <path d="M49 60 L 51 60" stroke="var(--inkt)" stroke-width="2.5"/>
+        <!-- Grote ogen in bril -->
+        <circle cx="41" cy="60" r="2" fill="var(--inkt)"/>
+        <circle cx="59" cy="60" r="2" fill="var(--inkt)"/>
+        <!-- Mond -->
+        <circle cx="50" cy="78" r="4.5" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <!-- Krullen -->
+        <path d="M30 40 Q15 45 20 60 Q10 70 20 80 Q15 90 25 95 Q30 100 48 100 Q80 98 78 85 Q88 72 78 58 Q85 45 72 40 Q65 25 45 32 Z" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+      </svg>
+      <b>Verrast</b>
+    </div>
+  </div>
+
+  <h2>4. De Trainer</h2>
+  <p>De mentor/expert. Altijd te herkennen aan zijn korte, gemêleerde grijze haar, goedverzorgde ringbaard en een sobere zwarte trui.</p>
+  <div class="rij">
+    <!-- Trainer Van voren -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & zwarte trui -->
+        <path d="M40 130 Q30 150 25 210 M80 130 Q90 150 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M30 145 C 30 210, 90 210, 90 145 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M45 130 C45 138, 75 138, 75 130 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hals -->
+        <rect x="54" y="115" width="12" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M45 120 C40 45, 80 45, 75 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Gezicht & Ogen -->
+        <circle cx="53" cy="92" r="2.2" fill="var(--inkt)"/>
+        <circle cx="67" cy="92" r="2.2" fill="var(--inkt)"/>
+        <!-- Neus en Mond -->
+        <path d="M60 93 L 60 99 L 57 99" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <path d="M54 108 Q60 111 66 108" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <!-- Grijze Baard -->
+        <path d="M44 100 Q40 115 48 122 Q60 128 72 122 Q80 115 76 100 C74 105 74 115 60 118 C46 115 46 105 44 100 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Grijs Haar -->
+        <path d="M36 105 C 32 75, 40 48, 60 48 C 80 48, 88 75, 84 105 C 83 100 81 53 60 53 C 39 53 37 100 36 105 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Van voren</b>
+    </div>
+    <!-- Trainer Van opzij -->
+    <div class="vak">
+      <svg viewBox="0 0 120 220">
+        <!-- Lichaam & zwarte trui -->
+        <path d="M40 130 Q35 150 35 210 M75 130 Q80 160 85 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M35 145 Q 50 140 75 145 L 80 210 L 35 210 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hals -->
+        <rect x="50" y="115" width="14" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd -->
+        <path d="M42 120 C38 45, 76 45, 72 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Gezicht & Oor -->
+        <circle cx="53" cy="92" r="2.2" fill="var(--inkt)"/>
+        <path d="M44 92 L40 96 L44 99" stroke="var(--inkt)" stroke-width="2" fill="none"/> <!-- Neus -->
+        <path d="M46 108 Q52 110 58 108" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <!-- Baard profiel -->
+        <path d="M42 98 Q 38 114 46 122 Q 58 126 68 120 C 70 115 68 100 66 98 C 65 105 60 116 50 116 C 42 114 42 104 42 98 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Haar profiel -->
+        <path d="M43 115 C 32 105, 30 45, 62 45 C 78 48 78 95 72 118 C 74 95 72 52 56 52 C 40 52 38 95 43 115 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Van opzij</b>
+    </div>
+    <!-- Trainer Blij -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Ogen & Rimpels -->
+        <circle cx="41" cy="58" r="2.2" fill="var(--inkt)"/>
+        <circle cx="59" cy="58" r="2.2" fill="var(--inkt)"/>
+        <path d="M33 58 T 37 57" stroke="var(--inkt)" stroke-width="1.5" fill="none"/>
+        <path d="M67 58 T 63 57" stroke="var(--inkt)" stroke-width="1.5" fill="none"/>
+        <!-- Lachende baard & mond -->
+        <path d="M44 76 Q50 82 56 76" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M36 68 Q32 86 42 94 Q50 99 58 94 Q68 86 64 68 Q58 83 42 83 Q38 78 36 68 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Haar -->
+        <path d="M25 80 C 23 45, 77 45, 75 80 C 74 72 71 50 50 50 C 29 50 26 72 25 80 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Blij</b>
+    </div>
+    <!-- Trainer Bezorgd -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Zorgelijke Wenkbrauwen -->
+        <path d="M36 49 T 45 51" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <path d="M55 51 T 64 49" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <circle cx="41" cy="58" r="2.2" fill="var(--inkt)"/>
+        <circle cx="59" cy="58" r="2.2" fill="var(--inkt)"/>
+        <!-- Bezorgde mond -->
+        <path d="M44 77 Q50 72 56 77" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <!-- Baard -->
+        <path d="M36 68 Q32 86 42 94 Q50 99 58 94 Q68 86 64 68 Q58 83 42 83 Q38 78 36 68 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Haar -->
+        <path d="M25 80 C 23 45, 77 45, 75 80 C 74 72 71 50 50 50 C 29 50 26 72 25 80 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Bezorgd</b>
+    </div>
+    <!-- Trainer Verrast -->
+    <div class="vak">
+      <svg viewBox="0 0 100 100">
+        <path d="M30 95 C30 35, 70 35, 70 95 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoog opgetrokken wenkbrauwen -->
+        <path d="M35 45 Q40 41 45 45" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <path d="M55 45 Q60 41 65 45" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <circle cx="41" cy="56" r="2.2" fill="var(--inkt)"/>
+        <circle cx="59" cy="56" r="2.2" fill="var(--inkt)"/>
+        <!-- Mond verrast -->
+        <circle cx="50" cy="74" r="4" fill="none" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Baard -->
+        <path d="M36 68 Q32 86 42 94 Q50 99 58 94 Q68 86 64 68 Q58 83 42 83 Q38 78 36 68 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <!-- Haar -->
+        <path d="M25 80 C 23 45, 77 45, 75 80 C 74 72 71 50 50 50 C 29 50 26 72 25 80 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </svg>
+      <b>Verrast</b>
+    </div>
+  </div>
+
+  <h2>5. Bijrollen en Hulpmiddelen</h2>
+  <p>De anonieme managementlaag (MT) getoond als faceless silhouet, de vriendelijke interface (AI Robot) en het interactieve casusdeck.</p>
+  <div class="rij">
+    <div class="vak">
+      <svg viewBox="0 0 120 160">
+        <!-- MT-lid (Silhouet) -->
+        <path d="M30 110 C30 160, 90 160, 90 110 Z" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M40 90 Q30 110 25 160 M80 90 Q90 110 95 160" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M42 80 C36 15, 84 15, 78 80 Z" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Telefoon & Hand -->
+        <rect x="75" y="110" width="18" height="30" rx="3" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="2" transform="rotate(15 75 110)"/>
+        <path d="M70 125 C 75 125, 80 140, 72 145" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="2"/>
+      </svg>
+      <b>MT-lid (Silhouet)</b>
+      <span>Anonieme bestuurder</span>
+    </div>
+
+    <div class="vak">
+      <svg viewBox="0 0 120 160">
+        <!-- Computer & Scherm -->
+        <rect x="15" y="20" width="90" height="70" rx="8" fill="#fff" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M45 90 L 35 120 L 85 120 L 75 90" fill="var(--creme2)" stroke="var(--inkt)" stroke-width="3" stroke-linejoin="round"/>
+        <line x1="25" y1="120" x2="95" y2="120" stroke="var(--inkt)" stroke-width="4"/>
+        <!-- Robot op het scherm -->
+        <circle cx="60" cy="50" r="14" fill="var(--creme)" stroke="var(--inkt)" stroke-width="2"/>
+        <rect x="52" y="30" width="16" height="4" rx="2" fill="var(--grijs)"/> <!-- Sprietje -->
+        <ellipse cx="60" cy="50" rx="10" ry="6" fill="var(--inkt)"/>
+        <circle cx="56" cy="50" r="1.5" fill="#5eead4"/>
+        <circle cx="64" cy="50" r="1.5" fill="#5eead4"/>
+        <path d="M58 54 Q60 56 62 54" stroke="var(--creme)" stroke-width="1" fill="none"/>
+      </svg>
+      <b>Robotje op scherm</b>
+      <span>AI Representant</span>
+    </div>
+
+    <div class="vak" style="grid-column: span 3;">
+      <!-- Casusdeck (Voortgang indicator) -->
+      <svg viewBox="0 0 320 80">
+        <text x="5" y="18" font-family="monospace" font-size="11" fill="var(--inkt)" font-weight="bold">CASUSDECK VOORTGANG (3 van de 10 af)</text>
+        <!-- 10 Vakjes -->
+        <rect x="5" y="28" width="24" height="24" rx="4" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="2.5"/>
+        <rect x="35" y="28" width="24" height="24" rx="4" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="2.5"/>
+        <rect x="65" y="28" width="24" height="24" rx="4" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="2.5"/>
+        <rect x="95" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="125" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="155" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="185" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="215" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="245" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        <rect x="275" y="28" width="24" height="24" rx="4" fill="var(--papier)" stroke="var(--lijn)" stroke-width="2"/>
+        
+        <text x="5" y="68" font-family="sans-serif" font-size="10" fill="var(--grijs)">Felle vlakken = afgeronde mijlpalen van de casus</text>
+      </svg>
+      <b>Casusdeck Mijlpaal-balk</b>
+      <span>Visualisatie van voltooid werk</span>
+    </div>
+  </div>
+
+  <h2>6. Gecombineerde Opstelling</h2>
+  <div class="breed">
+    <svg viewBox="0 0 920 220">
+      <!-- De Grondlijn -->
+      <line x1="30" y1="205" x2="890" y2="205" stroke="var(--inkt)" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Trainer (Zij-aanzicht, actief) -->
+      <g transform="translate(40, -5)">
+        <!-- Lichaam -->
+        <path d="M40 130 Q35 150 35 210 M75 130 Q80 160 85 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M35 145 Q 50 140 75 145 L 80 210 L 35 210 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="3"/>
+        <rect x="50" y="115" width="14" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Hoofd & Baard -->
+        <path d="M42 120 C38 45, 76 45, 72 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <circle cx="53" cy="92" r="2.2" fill="var(--inkt)"/>
+        <path d="M44 92 L40 96 L44 99" stroke="var(--inkt)" stroke-width="2" fill="none"/>
+        <path d="M42 98 Q 38 114 46 122 Q 58 126 68 120 C 70 115 68 100 66 98 C 65 105 60 116 50 116 C 42 114 42 104 42 98 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="2"/>
+        <path d="M43 115 C 32 105, 30 45, 62 45 C 78 48 78 95 72 118 C 74 95 72 52 56 52 C 40 52 38 95 43 115 Z" fill="var(--grijs)" stroke="var(--inkt)" stroke-width="1"/>
+      </g>
+      
+      <!-- Noor (Voor-aanzicht, wijzend) -->
+      <g transform="translate(180, -5)">
+        <!-- Lichaam & Signaal trui -->
+        <path d="M40 130 Q30 150 25 210 M80 130 Q90 150 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M30 145 C 30 210, 90 210, 90 210 Z" fill="var(--signaal)" stroke="var(--inkt)" stroke-width="3"/>
+        <!-- Arm wijzend -->
+        <path d="M30 145 Q 10 160 5 170 Q 0 175 5 180 Q 15 180 20 165" stroke="var(--inkt)" stroke-width="3" fill="var(--papier)"/>
+        <path d="M90 145 Q 105 175 102 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <rect x="54" y="115" width="12" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M45 120 C40 45, 80 45, 75 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <circle cx="53" cy="95" r="2.5" fill="var(--inkt)"/>
+        <circle cx="67" cy="95" r="2.5" fill="var(--inkt)"/>
+        <path d="M60 96 L 60 102 L 58 102" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M53 110 Q60 114 67 110" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M25 85 C 23 45, 77 45, 75 85 C 76 95 80 100 78 100 C 50 40 30 90 22 100 Z" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="1"/>
+      </g>
+
+      <!-- Het Duo (Zittend/Aandachtig) -->
+      <g transform="translate(320, -5)">
+        <path d="M40 130 Q30 150 25 210 M80 130 Q90 150 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M30 145 C 30 210, 90 210, 90 210 Z" fill="var(--creme2)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M31 160 Q60 165 89 160 M31 175 Q60 180 89 175 M33 190 Q60 195 87 190" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <rect x="52" y="115" width="16" height="18" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M48 132 L 72 132" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M45 120 C40 50, 80 50, 75 120 Z" fill="var(--papier)" stroke="var(--inkt)" stroke-width="3"/>
+        <circle cx="51" cy="85" r="10" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <circle cx="69" cy="85" r="10" fill="none" stroke="var(--inkt)" stroke-width="2.5"/>
+        <path d="M57 85 L 63 85" stroke="var(--inkt)" stroke-width="3"/>
+        <circle cx="51" cy="85" r="2" fill="var(--inkt)"/>
+        <circle cx="69" cy="85" r="2" fill="var(--inkt)"/>
+        <path d="M55 105 Q60 108 65 105" stroke="var(--inkt)" stroke-width="2.5" fill="none"/>
+        <path d="M45 42 Q30 45 33 60 Q23 70 33 80 Q25 95 38 100 Q40 115 48 115 Q82 112 80 98 Q92 88 82 72 Q90 55 78 45 Q70 30 52 40 Z" fill="none" stroke="var(--inkt)" stroke-width="3"/>
+      </g>
+
+      <!-- MT lid (Silhouette achtergrond) -->
+      <g transform="translate(500, -5)">
+        <path d="M30 110 C30 210, 90 210, 90 210 Z" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="3"/>
+        <path d="M40 90 Q30 110 25 210 M80 90 Q90 110 95 210" stroke="var(--inkt)" stroke-width="3" fill="none"/>
+        <path d="M42 80 C36 15, 84 15, 78 80 Z" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="3"/>
+        <rect x="75" y="110" width="18" height="30" rx="3" fill="var(--inkt)" stroke="var(--inkt)" stroke-width="2" transform="rotate(15 75 110)"/>
+        <path d="M70 125 C 75 125, 80 140, 72 145" fill="var(--donkergrijs)" stroke="var(--inkt)" stroke-width="2"/>
+      </g>
+
+      <!-- Desk & Laptop met Robotje -->
+      <g transform="translate(680, 45)">
+        <!-- Bureau -->
+        <path d="M0 120 L 180 120" stroke="var(--inkt)" stroke-width="4"/>
+        <path d="M20 120 L 20 160 M 160 120 L 160 160" stroke="var(--inkt)" stroke-width="3"/>
+        
+        <!-- Laptop open -->
+        <rect x="40" y="55" width="80" height="60" rx="4" fill="#fff" stroke="var(--inkt)" stroke-width="2.5"/>
+        <path d="M30 115 L 130 115 L 120 125 L 40 125 Z" fill="var(--creme2)" stroke="var(--inkt)" stroke-width="2.5" stroke-linejoin="round"/>
+        
+        <!-- Robot op laptop screen -->
+        <circle cx="80" cy="80" r="11" fill="var(--creme)" stroke="var(--inkt)" stroke-width="2"/>
+        <ellipse cx="80" cy="80" rx="8" ry="5" fill="var(--inkt)"/>
+        <circle cx="77" cy="80" r="1.2" fill="#5eead4"/>
+        <circle cx="83" cy="80" r="1.2" fill="#5eead4"/>
+        <path d="M78 83 Q80 85 82 83" stroke="var(--creme)" stroke-width="0.8" fill="none"/>
+      </g>
+    </svg>
+  </div>
+
+  <h2>7. Belettering & Kaders</h2>
+  <ul>
+    <li><strong>Bijschriften:</strong> Handgeschreven of geometrisch lettertype. Zwarte vlakken voor context (dag/locatie) en crème-vlakken voor het verhaal.</li>
+    <li><strong>Spreken vs. Denken:</strong> Spreekballonnen hebben een harde, ononderbroken inktlijn; denkballonnen hebben een stippellijn met losse kleine bolletjes.</li>
+  </ul>
+  <div class="breed">
+    <svg viewBox="0 0 920 140">
+      <!-- Dag/Titel Bijschrift -->
+      <g transform="translate(10, 20)">
+        <rect x="0" y="0" width="180" height="35" rx="6" fill="var(--inkt)"/>
+        <text x="12" y="22" font-family="sans-serif" font-weight="bold" font-size="12" fill="#fff">DAG 1: DE INRICHTING</text>
+      </g>
+
+      <!-- Verhalend Bijschrift -->
+      <g transform="translate(210, 20)">
+        <rect x="0" y="0" width="220" height="48" rx="6" fill="var(--creme)" stroke="var(--inkt)" stroke-width="2.5"/>
+        <text x="12" y="20" font-family="sans-serif" font-size="10.5" fill="var(--inkt)">Je werkt drie dagen aan je eigen</text>
+        <text x="12" y="34" font-family="sans-serif" font-size="10.5" fill="var(--inkt)">organisatie, samen met je vaste duo.</text>
+      </g>
+
+      <!-- Spreekballon -->
+      <g transform="translate(450, 10)">
+        <path d="M 0 35 C 0 10, 180 10, 180 35 C 180 60, 100 60, 90 60 L 80 80 L 75 60 C 0 60, 0 35, 0 35 Z" fill="#fff" stroke="var(--inkt)" stroke-width="2.5" stroke-linejoin="round"/>
+        <text x="15" y="32" font-family="sans-serif" font-size="10.5" fill="var(--inkt)">Dan belt de klant ons niet</text>
+        <text x="15" y="46" font-family="sans-serif" font-size="10.5" fill="var(--inkt)">meer. En daar gaat het plan!</text>
+      </g>
+
+      <!-- Denkballon -->
+      <g transform="translate(670, 10)">
+        <!-- Grote ovaal van stippels -->
+        <rect x="0" y="0" width="230" height="52" rx="25" fill="#fff" stroke="var(--inkt)" stroke-width="2.5" stroke-dasharray="6,4"/>
+        <text x="18" y="22" font-family="sans-serif" font-style="italic" font-size="10" fill="var(--inkt)">Zou een nieuw plan over een half</text>
+        <text x="18" y="36" font-family="sans-serif" font-style="italic" font-size="10" fill="var(--inkt)">jaar ook alweer ingehaald zijn?</text>
+        <!-- Gedachte-bobbels naar beneden -->
+        <circle cx="80" cy="65" r="5" fill="#fff" stroke="var(--inkt)" stroke-width="2.5" stroke-dasharray="3,2"/>
+        <circle cx="70" cy="78" r="3" fill="#fff" stroke="var(--inkt)" stroke-width="2.5" stroke-dasharray="2,2"/>
+      </g>
+    </svg>
+  </div>
+</main>
+</body>
+</html>

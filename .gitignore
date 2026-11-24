@@ -18,3 +18,8 @@ background-docs/Warner and W*ger - 2019 - *.pdf
 
 # Gebouwde site voor GitHub Pages (scripts/bouw-pages.py)
 _site/
+
+# Strip (ADR-068): de originele beelden uit de beeldgenerator zijn samen 23 MB.
+# In git staan alleen de lichte kopieën in materiaal/strip/beeld/web/.
+materiaal/strip/beeld/plaatje*.jpeg
+materiaal/strip/Gemini_Generated_Image_*

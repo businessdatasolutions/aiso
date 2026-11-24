@@ -10,6 +10,8 @@ Op de site komen alleen bestanden die in git staan:
   de link naar de cursuspagina gaat naar sn.nl/aiso;
 - alle HTML-pagina's in materiaal/;
 - de simulator in materiaal/bo-demo/, met de afbeeldingen en de licentie;
+- de strip in materiaal/strip/: de leesversie index.html en de lichte beelden in
+  beeld/web/ (ADR-068). De werkversie, het script en de prompts blijven in de repo;
 - een index.html die doorstuurt naar de startpagina materiaal/.
 
 Niet op de site: background-docs/, temp/, onderzoek/, docs/, CHANGELOG.md en de
@@ -63,7 +65,11 @@ def te_publiceren() -> list[str]:
     """Repo-relatieve paden van alles wat op de site komt."""
     bo = [p for p in in_git("materiaal/bo-demo")
           if p.endswith((".html", ".png")) or p.endswith("/LICENSE")]
-    paden = [LRD, *in_git("materiaal/*.html"), *bo]
+    strip = [p for p in in_git("materiaal/strip")
+             if p == "materiaal/strip/index.html" or p.startswith("materiaal/strip/beeld/web/")]
+    # Alleen de pagina's direct in materiaal/: het patroon van git pakt ook submappen mee.
+    lessen = [p for p in in_git("materiaal/*.html") if p.count("/") == 1]
+    paden = [LRD, *lessen, *bo, *strip]
     ontbreekt = [p for p in paden if not (REPO / p).is_file()]
     if ontbreekt:
         sys.exit(f"Niet gevonden of niet in git: {', '.join(ontbreekt)}")

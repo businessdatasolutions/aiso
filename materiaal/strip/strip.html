@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Het plan dat werd ingehaald</title>
+<style>
+  :root { --signaal: #d4db3e; --inkt: #1a1a1a; --creme: #f5f0e6; --papier: #f9f8f4; --grijs: #6b7280; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--inkt); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; }
+  main { max-width: 680px; margin: 0 auto; padding: 24px 16px 64px; }
+  .schets { background: var(--creme); border: 2px dashed var(--inkt); border-radius: 10px; padding: 10px 14px; font-size: .9rem; margin-bottom: 24px; }
+  h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 4px; }
+  .onder { color: var(--grijs); margin: 0 0 24px; }
+  h2 { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin: 36px 0 10px; padding-top: 10px; border-top: 3px solid var(--inkt); }
+  .plaatje { margin: 0 0 18px; }
+  .plaatje svg, .plaatje img { width: 100%; height: auto; display: block; }
+  .plaatje .deck { margin-top: 4px; }
+  .plaatje figcaption { font-size: .72rem; color: var(--grijs); margin-top: 2px; }
+  .stand:not(:empty) { border: 1px solid var(--grijs); border-radius: 99px; padding: 0 6px; margin-left: 4px; }
+  .kader { border: 3px solid var(--inkt); border-radius: 12px; padding: 16px 20px; margin-top: 36px; background: var(--papier); }
+  .kader h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .kader dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 0 0 12px; }
+  .kader dt { font-weight: 700; }
+  .kader dd { margin: 0; }
+  .kader ul { margin: 4px 0 12px; padding-left: 1.2em; }
+  .kader p { margin: 8px 0; }
+</style>
+</head>
+<body>
+<main>
+  <p class="schets"><b>Werkversie.</b> De leesversie staat in <a href="index.html">index.html</a>. Hier zie je per plaatje het beeld, en de schets waar nog geen beeld is. Met <code>?schets=1</code> zie je alleen de schetsen, als opstelling voor de beeldgenerator.</p>
+  <h1>Het plan dat werd ingehaald</h1>
+  <p class="onder">Zo werken de drie lesdagen van AI Strategie en Organisatietransformatie.</p>
+
+  <h2>Waarom</h2>
+  <div id="waarom"></div>
+  <h2>Hoe</h2>
+  <div id="hoe"></div>
+  <h2>Wat</h2>
+  <div id="wat"></div>
+  <h2>Slot</h2>
+  <div id="slot"></div>
+
+  <section class="kader">
+    <h3>Dit heb je nodig om te beginnen</h3>
+    <dl>
+      <dt>Wanneer</dt><dd>12 november, 26 november en 10 december 2026, van 9:30 tot 16:30</dd>
+      <dt>Waar</dt><dd>Zwolle</dd>
+    </dl>
+    <b>Je neemt mee:</b>
+    <ul>
+      <li>een laptop met je eigen AI: Claude, ChatGPT of Gemini;</li>
+      <li>één casus: je organisatie, of het deel waar je werkt;</li>
+      <li>een voorlopige strategische AI-vraag, in één zin;</li>
+      <li>de online voorbereiding van de eerste bijeenkomst, gedaan.</li>
+    </ul>
+    <p>Schrijf in de les alleen op wat openbaar mag.</p>
+    <b>Je gaat naar huis met:</b>
+    <ul>
+      <li>een casusdeck van tien dia's dat je bestuur kan beoordelen;</li>
+      <li>een bewijs uit je eigen experiment;</li>
+      <li>twee raden van advies in je AI, die blijven werken.</li>
+    </ul>
+  </section>
+</main>
+
+<script src="figuren.js"></script>
+<script>
+(function () {
+  var S = window.Strip, K = S.K, I = S.inkt, B = 640;
+  // Grotere letters dan op het figurenblad: een plaatje is op een telefoon ruim half zo breed als hier.
+  S.MAAT.ballon = 21; S.MAAT.bijschrift = 19; S.MAAT.scherm = 16; S.MAAT.deck = 17;
+
+  var teller = 0, alleenSchets = /[?&]schets=1/.test(location.search);
+  // Plaatjes waarvan het beeld geen tekst heeft. Daar legt de pagina de inzet en de belettering over het beeld.
+  var TEKST_EROVER = [];
+  // De vakjes van het casusdeck krijgen de kleur van Noors trui in de beelden.
+  if (!alleenSchets) K.signaal = '#bdb514';
+
+  /* Eén plaatje. Staat er een beeld in beeld/ (plaatje1.jpeg, plaatje-01.jpg of .png), dan toont de pagina dat beeld.
+     De pagina zoekt eerst de lichte kopie in beeld/web/ (1280 breed), en anders het origineel.
+     Het beeld heeft zijn eigen tekst en kader; de tekst uit het script staat in de beschrijving, voor schermlezers.
+     Zonder beeld zie je de schets: decor, inzet (tekst die bij het beeld hoort) en belettering.
+     o.onder: SVG onder het kader (het casusdeck). o.alt: de tekst van het plaatje. */
+  function plaatje(doel, nr, h, o) {
+    var id = 'k' + (++teller), extra = o.extra || 0, nn = (nr < 10 ? '0' : '') + nr;
+    var kader = '<rect x="2" y="2" width="' + (B - 4) + '" height="' + (h - 4) + '" rx="10" fill="none" ' + I(4) + '/>';
+    var svg = '<svg class="schetslaag" viewBox="0 0 ' + B + ' ' + h + '" role="img" aria-label="Plaatje ' + nr + ': ' + o.alt.replace(/"/g, '&quot;') + '" xmlns="http://www.w3.org/2000/svg">' +
+      '<defs><clipPath id="' + id + '"><rect x="2" y="2" width="' + (B - 4) + '" height="' + (h - 4) + '" rx="10"/></clipPath></defs>' +
+      '<rect x="2" y="2" width="' + (B - 4) + '" height="' + (h - 4) + '" rx="10" fill="' + K.papier + '"/>' +
+      '<g clip-path="url(#' + id + ')"><image class="beeld" style="display:none" x="0" y="0" width="' + B + '" height="' + h + '" preserveAspectRatio="xMidYMid slice"/>' +
+      '<g class="decor">' + o.decor + '</g>' + o.inzet + o.tekst + '</g>' + kader + '</svg>';
+    var onder = o.onder ? '<svg class="deck" viewBox="0 ' + h + ' ' + B + ' ' + extra + '" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' + o.onder + '</svg>' : '';
+    var doelEl = document.getElementById(doel);
+    doelEl.insertAdjacentHTML('beforeend', '<figure class="plaatje">' + svg + onder + '<figcaption>Plaatje ' + nr + ' <span class="stand">schets</span></figcaption></figure>');
+    if (alleenSchets) return;
+    var fig = doelEl.lastElementChild, k = 0;
+    var namen = ['web/plaatje' + nr + '.jpg', 'plaatje' + nr + '.jpeg', 'plaatje' + nr + '.jpg', 'plaatje-' + nn + '.jpg', 'plaatje-' + nn + '.jpeg', 'plaatje' + nr + '.png', 'plaatje-' + nn + '.png'];
+    (function zoek() {
+      if (k >= namen.length) return;
+      var proef = new Image(), src = 'beeld/' + namen[k++];
+      proef.onerror = zoek;
+      proef.onload = function () {
+        fig.querySelector('.stand').textContent = '';
+        if (TEKST_EROVER.indexOf(nr) > -1) {
+          fig.querySelector('.beeld').setAttribute('href', src);
+          fig.querySelector('.beeld').style.display = '';
+          fig.querySelector('.decor').style.display = 'none';
+        } else {
+          var img = document.createElement('img');
+          img.src = src; img.alt = 'Plaatje ' + nr + ': ' + o.alt; img.width = proef.naturalWidth; img.height = proef.naturalHeight;
+          fig.replaceChild(img, fig.querySelector('.schetslaag'));
+        }
+      };
+      proef.src = src;
+    })();
+  }
+
+  // Decorstukken
+  function vlak(x, y, w, h, kleur, rx) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (rx || 0) + '" fill="' + kleur + '" ' + I() + '/>'; }
+  function lijn(d, w, kleur) { return '<path d="' + d + '" fill="none" stroke="' + (kleur || K.inkt) + '" stroke-width="' + (w || 3) + '" stroke-linecap="round" stroke-linejoin="round"/>'; }
+  function vorm(d, kleur) { return '<path d="' + d + '" fill="' + kleur + '" ' + I() + '/>'; }
+  // Een tafel van voren: het blad als band, daaronder het voorvlak tot de onderrand.
+  function tafel(y, x1, x2, tot) { return vlak(x1, y + 26, x2 - x1, tot - y, K.creme) + vlak(x1 - 8, y, x2 - x1 + 16, 28, K.creme2, 4); }
+  function raam(x, y, w, h, kleur) { return vlak(x, y, w, h, kleur || K.wit, 4) + lijn('M' + (x + w / 2) + ',' + y + ' L' + (x + w / 2) + ',' + (y + h) + ' M' + x + ',' + (y + h / 2) + ' L' + (x + w) + ',' + (y + h / 2), 3, kleur ? K.grijs : K.inkt); }
+  function scherm(x, y, w, h) { return vlak(x, y, w, h, K.wit, 10) + vorm('M' + (x - 14) + ',' + (y + h + 16) + ' L' + (x + w + 14) + ',' + (y + h + 16) + ' L' + (x + w) + ',' + (y + h) + ' L' + x + ',' + (y + h) + ' Z', K.creme2); }
+  function rapport(x, y, w, zonder) { return vlak(x, y, w, 40, K.wit, 3) + lijn('M' + (x + 4) + ',' + (y + 10) + ' L' + (x + w - 4) + ',' + (y + 10) + ' M' + (x + 4) + ',' + (y + 20) + ' L' + (x + w - 4) + ',' + (y + 20) + ' M' + (x + 4) + ',' + (y + 30) + ' L' + (x + w - 4) + ',' + (y + 30), 1.5, K.grijs) + (zonder ? '' : S.tekst(x + w / 2, y - 8, 'AI-plan', { maat: 15, midden: true })); }
+  function spoor(x, y, q, om) { // de route: drie stations, bij elk een wissel. om: de eerste wissel staat om
+    var s = '', namen = ['Experiment', 'Pilot', 'Opschaling'], k;
+    s += lijn('M' + x + ',' + y + ' L' + (x + 560 * q) + ',' + y, 5 * q);
+    for (k = 0; k < 3; k++) {
+      var sx = x + (40 + 180 * k) * q, eerste = om && k === 0;
+      s += lijn('M' + (sx + 120 * q) + ',' + y + ' Q' + (sx + 150 * q) + ',' + y + ' ' + (sx + 170 * q) + ',' + (y + 46 * q) + (eerste ? ' L' + (x + 560 * q) + ',' + (y + 46 * q) : ''), (eerste ? 5 : 3) * q, eerste ? K.inkt : K.grijs);
+      s += vlak(sx, y - 56 * q, 124 * q, 40 * q, K.wit, 4) + S.tekst(sx + 62 * q, y - 30 * q, namen[k], { maat: 16 * q, midden: true });
+    }
+    return s;
+  }
+
+  var T = { // de tekst uit het script
+    1: { b: 'Voorbeeld BV installeert en onderhoudt warmtepompen. Maandagochtend.', n: 'Zes maanden werk. Hier staat hoe wij de komende drie jaar AI inzetten.' },
+    2: { m: 'Wacht even. Warmtepompen melden hun storing voortaan zelf aan de fabrikant. Die kiest de monteur.', n: 'Dan belt de klant ons niet meer. En daar gaat mijn hele plan van uit.' },
+    3: { d: 'Een nieuw plan is over een half jaar ook weer ingehaald.', v: 'Hoe bepaal je een strategie als elk plan wordt ingehaald voordat het op papier staat?', n: 'Dat is mijn vraag.' },
+    4: { b: 'De training draait om vier vragen.', n: 'Ze wijzen allemaal de mist in.', t: 'Klopt. Wat doe jij als je niet ver vooruit kunt kijken?' },
+    5: { b: 'Je begint klein.', n: 'Deze stap kan ik terugdraaien. Dus die zet ik nu.', o: 'Als de toekomst door onzekerheden wordt vertroebeld, kies voor leren en houd je opties open.' },
+    6: { b: 'Dat oefen je drie dagen op je eigen organisatie. Naast je zit je duo, met een eigen casus.', d: 'Ik werk bij een gemeente, dus leg eens uit: wat kost het jullie als dit mislukt?', n: 'Zes weken van één team. Dat moet ik er wel bij zetten.' },
+    7: { b: 'Het schrijfwerk doet de AI. De werkregel: voordat je pauze neemt, zet je de AI aan het werk.', d: 'Wat doet die van jou nu?', n: 'Stukken van ons bestuur zoeken. Straks kijk ik of het klopt.', o: 'Zo werk je. En dit maak je ermee in drie dagen:' },
+    8: { l: "'s Ochtends schrijf je bij elke vraag wat je nu zou doen.", r: "'s Middags bouw je in je AI een raad van advies, die je keuzes toetst.", n: 'Ons doel: de beste service van de regio.', a: 'Dit is nog geen strategische keuze. Welke alternatieven heb je en wijs je bewust af?' },
+    9: { o: "Je presenteert wat je thuis hebt voorbereid. De groep speelt de mensen die bij jou beslissen. 's Middags maak je de businesscase.", f: 'Mooi verhaal. Hoe weet je dat het werkt?', n: 'Dat weet ik nog niet. Ik ga het eerst klein meten.' },
+    10: { b: 'Tussen dag 2 en dag 3 doe je thuis een klein experiment. De norm kies je vooraf.', n: 'Net onder de norm. Dan schalen we nog niet op. Ik kies de andere route.' },
+    11: { l: 'Je maakt een route voor het eerste jaar. Bij elke stap staat wat je doet als het tegenvalt.', r: 'Daarna oefen je het lastigste gesprek. De AI speelt je collega.', a: 'Ik ben nu verantwoordelijk voor het afhandelingsproces van klachten. Wat blijft er van mijn werk over als AI dit gaat automatiseren?', n: 'Jij blijft beslissen. De AI doet alleen een voorstel.' },
+    12: { m: 'Wacht even. De fabrikant gaat nu ook onderhoud aanbieden.', n: 'Daarvoor is deze wissel. Vrijdag kiezen we welke kant we op gaan.', o: 'Het nieuws verandert weer. Je voorstel kan ertegen.' }
+  };
+
+  // 1. De vergaderkamer: het MT links, Noor rechts. Plaatje 2 en 12 houden die opstelling aan.
+  plaatje('waarom', 1, 820, {
+    alt: Object.keys(T[1]).map(function (k) { return T[1][k]; }).join(' '),
+    decor: raam(30, 120, 230, 190) +
+      S.mtlid({ x: 80, y: 622, schaal: 1.15 }) + S.mtlid({ x: 230, y: 622, schaal: 1.15 }) +
+      tafel(620, -20, 400, 840) + rapport(318, 580, 130) +
+      S.figuur('noor', { x: 490, y: 790, schaal: 1.2, arm: 'tafel', gezicht: 'blij', spiegel: true }),
+    inzet: '',
+    tekst: S.bijschrift(20, 20, T[1].b, { breedte: 40 }) +
+      S.ballon(300, 262, T[1].n, { breedte: 24, staart: [485, 440] }) });
+
+  plaatje('waarom', 2, 640, {
+    alt: Object.keys(T[2]).map(function (k) { return T[2][k]; }).join(' '),
+    decor: S.mtlid({ x: 150, y: 542, schaal: 1.5, aanzicht: 'zij', telefoon: true }) +
+      S.figuur('noor', { x: 490, y: 700, schaal: 1.2, gezicht: 'verrast', spiegel: true }) +
+      tafel(540, -20, 660, 660) + rapport(370, 500, 130, true) + S.hand(452, 500),
+    inzet: '',
+    tekst: S.ballon(20, 20, T[2].m, { breedte: 25, staart: [185, 250] }) +
+      S.ballon(330, 190, T[2].n, { breedte: 22, staart: [488, 352] }) });
+
+  plaatje('waarom', 3, 720, {
+    alt: Object.keys(T[3]).map(function (k) { return T[3][k]; }).join(' '),
+    decor: vlak(40, 84, 160, 120, K.inkt, 4) + '<circle cx="150" cy="124" r="16" fill="' + K.papier + '"/>' +
+      lijn('M470,0 L470,70') + vorm('M440,112 L500,112 L488,70 L452,70 Z', K.creme2) +
+      S.figuur('noor', { x: 190, y: 730, schaal: 1.15, aanzicht: 'zij', gezicht: 'bezorgd' }) +
+      tafel(560, -20, 660, 740) + rapport(16, 520, 96),
+    inzet: scherm(312, 250, 306, 294) +
+      S.schermtekst(332, 286, 'Training AI-strategie, drie lesdagen', { breedte: 24, maat: 15 }) +
+      S.tekst(332, 356, T[3].v, { maat: 21, breedte: 24 }) +
+      vlak(332, 488, 150, 38, K.inkt, 8) + S.tekst(407, 513, 'Inschrijven', { maat: 17, midden: true, kleur: K.wit }),
+    tekst: S.bijschrift(20, 20, 'Die avond', { soort: 'titel' }) +
+      S.ballon(20, 226, T[3].d, { soort: 'denk', breedte: 19, staart: [190, 392] }) +
+      S.ballon(120, 628, T[3].n, { breedte: 20, staart: [236, 500] }) });
+
+  // 4. De vier vragen in de mist
+  function bord(y, naam, rechts) {
+    var x = rechts ? 320 : 96, d = rechts ? 'M320,' + y + ' L530,' + y + ' L552,' + (y + 23) + ' L530,' + (y + 46) + ' L320,' + (y + 46) + ' Z'
+                                          : 'M320,' + y + ' L110,' + y + ' L88,' + (y + 23) + ' L110,' + (y + 46) + ' L320,' + (y + 46) + ' Z';
+    return vorm(d, K.wit) + S.tekst(rechts ? 425 : 215, y + 30, naam, { maat: 19, midden: true });
+  }
+  function mist(y, x, w) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="22" rx="11" fill="' + K.lijn + '" opacity=".75"/>'; }
+  plaatje('hoe', 4, 780, {
+    alt: Object.keys(T[4]).map(function (k) { return T[4][k]; }).join(' '),
+    decor: mist(120, -30, 190) + mist(180, 520, 200) + mist(250, -40, 150) + mist(300, 470, 220) +
+      mist(110, 500, 160) + mist(170, 40, 110) + mist(228, 510, 150) + mist(284, 30, 120) +
+      lijn('M20,760 L620,760') +
+      S.figuur('noor', { x: 150, y: 760, schaal: 0.9, gezicht: 'verrast' }) +
+      S.figuur('trainer', { x: 560, y: 760, schaal: 0.9, aanzicht: 'zij', spiegel: true }),
+    inzet: lijn('M320,760 L320,90', 8) + bord(96, 'Richting', true) + bord(154, 'Transformeren', false) + bord(212, 'Investeren', true) + bord(270, 'Roadmap', false),
+    tekst: S.bijschrift(20, 20, T[4].b) +
+      S.ballon(16, 380, T[4].n, { breedte: 21, staart: [150, 496] }) +
+      S.ballon(350, 374, T[4].t, { breedte: 21, staart: [552, 500] }) });
+
+  plaatje('hoe', 5, 800, {
+    alt: Object.keys(T[5]).map(function (k) { return T[5][k]; }).join(' '),
+    decor: lijn('M0,660 L640,660') +
+      vlak(50, 330, 220, 330, K.donkergrijs, 8) + '<circle cx="160" cy="520" r="46" fill="none" stroke="' + K.papier + '" stroke-width="5"/>' +
+      lijn('M114,520 L206,520 M160,474 L160,566', 5, K.papier) + vlak(80, 348, 160, 38, K.wit, 4) + S.tekst(160, 373, 'Geen weg terug', { maat: 16, midden: true }) +
+      vlak(380, 330, 210, 330, K.wit) + vorm('M380,440 L436,456 L436,590 L380,606 Z', K.creme2) + vorm('M590,440 L548,452 L548,594 L590,606 Z', K.creme2) +
+      S.figuur('noor', { x: 480, y: 660, schaal: 1.0, aanzicht: 'zij', gezicht: 'blij' }),
+    inzet: '',
+    tekst: S.bijschrift(20, 20, T[5].b) +
+      S.ballon(300, 176, T[5].n, { breedte: 22, staart: [486, 362] }) +
+      S.bijschrift(20, 700, T[5].o, { breedte: 56 }) });
+
+  // 6 en 7 spelen aan dezelfde tafel
+  function kaart(x, y) { return vorm('M' + x + ',' + y + ' L' + (x + 120) + ',' + y + ' L' + (x + 132) + ',' + (y + 44) + ' L' + (x - 12) + ',' + (y + 44) + ' Z', K.wit) + lijn('M' + (x + 6) + ',' + (y + 14) + ' L' + (x + 90) + ',' + (y + 14) + ' M' + (x + 2) + ',' + (y + 28) + ' L' + (x + 70) + ',' + (y + 28), 2, K.grijs); }
+  function tafelblad() { return vorm('M40,600 L600,600 L650,690 L-10,690 Z', K.creme2) + vlak(-10, 690, 660, 140, K.creme); }
+  plaatje('hoe', 6, 820, {
+    alt: Object.keys(T[6]).map(function (k) { return T[6][k]; }).join(' '),
+    decor: S.figuur('duo', { x: 200, y: 790, schaal: 1.15 }) + S.figuur('noor', { x: 440, y: 790, schaal: 1.15, gezicht: 'neutraal' }) +
+      tafelblad() + kaart(130, 624) + kaart(386, 624) +
+      S.ledemaat('M262,604 Q300,620 352,640', K.creme2, 14) + S.hand(360, 642) +
+      S.ledemaat('M492,604 Q480,620 462,634', K.signaal, 14) + S.hand(458, 638) + lijn('M458,638 L442,660', 4),
+    inzet: '',
+    tekst: S.bijschrift(20, 20, T[6].b, { breedte: 56 }) +
+      S.ballon(16, 132, T[6].d, { breedte: 24, staart: [196, 452] }) +
+      S.ballon(350, 292, T[6].n, { breedte: 21, staart: [440, 452] }) });
+
+  function laptop(x, gezicht) {
+    return scherm(x, 470, 180, 128) + S.robot({ x: x + 90, y: 566, schaal: 0.85, gezicht: gezicht }) +
+      vlak(x + 20, 574, 140, 14, K.wit, 5) + vlak(x + 20, 574, 96, 14, K.signaal, 5);
+  }
+  plaatje('hoe', 7, 820, {
+    alt: Object.keys(T[7]).map(function (k) { return T[7][k]; }).join(' '),
+    decor: raam(380, 150, 236, 250) +
+      S.figuur('duo', { x: 440, y: 606, schaal: 0.72, aanzicht: 'zij', arm: 'koffie', gezicht: 'blij' }) +
+      S.figuur('noor', { x: 566, y: 606, schaal: 0.72, aanzicht: 'zij', arm: 'koffie', gezicht: 'blij', spiegel: true }) +
+      tafelblad() + laptop(50, 'werkt') + laptop(260, 'werkt'),
+    inzet: '',
+    tekst: S.bijschrift(20, 20, T[7].b, { breedte: 56 }) +
+      S.ballon(150, 112, T[7].d, { breedte: 14, staart: [430, 398] }) +
+      S.ballon(410, 206, T[7].n, { breedte: 16, staart: [566, 400] }) +
+      S.bijschrift(20, 742, T[7].o, { breedte: 50 }) });
+
+  // 8. Dag 1, in twee helften onder elkaar
+  function adviseur(x, y, q, spreekt) {
+    return '<g transform="translate(' + x + ',' + y + ') scale(' + q + ')">' + vorm('M-22,0 Q-22,-26 0,-26 Q22,-26 22,0 Z', K.creme2) +
+      vorm('M-13,-34 C-17,-78 17,-78 13,-34 Q13,-26 0,-26 Q-13,-26 -13,-34 Z', K.papier) +
+      '<circle cx="-5" cy="-52" r="2" fill="' + K.inkt + '"/><circle cx="5" cy="-52" r="2" fill="' + K.inkt + '"/>' +
+      (spreekt ? '<ellipse cx="0" cy="-40" rx="3" ry="4" fill="' + K.inkt + '"/>' : lijn('M-4,-40 L4,-40', 2)) + '</g>';
+  }
+  plaatje('wat', 8, 1040, {
+    alt: Object.keys(T[8]).map(function (k) { return T[8][k]; }).join(' '),
+    decor: S.figuur('noor', { x: 170, y: 630, schaal: 1.1, gezicht: 'neutraal' }) + tafel(440, -20, 660, 520) +
+      vlak(350, 170, 250, 250, K.wit, 6) + lijn('M475,170 L475,420 M350,295 L600,295') +
+      S.tekst(364, 198, '1', { maat: 18 }) + S.tekst(489, 198, '2', { maat: 18 }) + S.tekst(364, 323, '3', { maat: 18 }) + S.tekst(489, 323, '4', { maat: 18 }) +
+      lijn('M364,222 L450,222 M364,242 L436,242 M364,262 L446,262 M489,222 L574,222 M489,242 L556,242', 2, K.grijs) +
+      S.ledemaat('M214,424 Q270,400 338,372', K.signaal, 14) + S.hand(346, 368) + lijn('M346,368 L364,350', 4) +
+      '<rect x="0" y="520" width="640" height="520" fill="' + K.papier + '"/>' + lijn('M0,520 L640,520', 4) +
+      S.figuur('noor', { x: 120, y: 1084, schaal: 1.0, aanzicht: 'zij', gezicht: 'neutraal' }) +
+      scherm(300, 800, 310, 200) + '<ellipse cx="455" cy="950" rx="120" ry="24" fill="' + K.creme2 + '" ' + I() + '/>' +
+      adviseur(360, 934, 1) + adviseur(430, 916, 1) + adviseur(550, 934, 1) + adviseur(490, 932, 1.35, true),
+    inzet: '',
+    tekst: S.bijschrift(20, 20, 'Dag 1: richting', { soort: 'titel' }) + S.bijschrift(20, 70, T[8].l, { breedte: 30 }) +
+      S.bijschrift(20, 536, T[8].r, { breedte: 44 }) +
+      S.ballon(16, 640, T[8].n, { breedte: 15, staart: [124, 798] }) +
+      S.ballon(270, 640, T[8].a, { breedte: 26, staart: [490, 832] }) +
+      lijn('M0,520 L640,520', 4), extra: 70, onder: S.deck(20, 1052, 3, { schaal: 1.1, tekst: '3 van 10: je vier vragen, de aanleiding en je doelen' }) });
+
+  function rol(x, naam) { return vorm('M' + (x - 44) + ',604 L' + (x + 44) + ',604 L' + (x + 38) + ',574 L' + (x - 38) + ',574 Z', K.wit) + S.tekst(x, 596, naam, { maat: 13, midden: true }); }
+  plaatje('wat', 9, 820, {
+    alt: Object.keys(T[9]).map(function (k) { return T[9][k]; }).join(' '),
+    decor: '<circle cx="230" cy="130" r="30" fill="' + K.wit + '" ' + I() + '/>' + vorm('M230,130 L230,100 A30,30 0 0 1 256,145 Z', K.grijs) +
+      S.figuur('noor', { x: 540, y: 680, schaal: 1.0, gezicht: 'neutraal' }) + lijn('M430,680 L640,680') +
+      S.figuur('gast', { x: 60, y: 706, schaal: 0.78, haar: 1 }) + S.figuur('duo', { x: 152, y: 706, schaal: 0.78 }) +
+      S.figuur('gast', { x: 244, y: 706, schaal: 0.78, haar: 3 }) + S.figuur('gast', { x: 336, y: 706, schaal: 0.78, haar: 2 }) +
+      tafel(600, -20, 400, 690) + rol(60, 'Financiën') + rol(152, 'Privacy') + rol(244, 'OR') + rol(336, 'Medewerker'),
+    inzet: vlak(300, 86, 316, 150, K.wit, 8) + S.schermtekst(318, 122, 'Eerste prioriteit:', { maat: 16 }) + S.schermtekst(318, 152, 'de AI helpt klachten sorteren', { maat: 16, breedte: 22 }),
+    tekst: S.bijschrift(20, 20, 'Dag 2: transformeren en investeren', { soort: 'titel', breedte: 40 }) +
+      S.ballon(16, 290, T[9].f, { breedte: 17, staart: [62, 484] }) +
+      S.ballon(380, 256, T[9].n, { breedte: 18, staart: [540, 392] }) +
+      S.bijschrift(20, 706, T[9].o, { breedte: 60 }), extra: 70, onder: S.deck(20, 832, 4, { schaal: 1.1, tekst: '4 van 10: je eerste prioriteit komt erbij' }) });
+
+  plaatje('wat', 10, 660, {
+    alt: Object.keys(T[10]).map(function (k) { return T[10][k]; }).join(' '),
+    decor: S.figuur('noor', { x: 140, y: 690, schaal: 1.15, aanzicht: 'zij', gezicht: 'neutraal' }) + tafel(540, -20, 660, 680),
+    inzet: scherm(270, 230, 350, 294) +
+      S.schermtekst(290, 268, 'Kiest de AI dezelfde urgentie als de medewerker?', { breedte: 26, maat: 16 }) +
+      S.schermtekst(290, 372, 'Norm: 8 van de 10 klachten', { maat: 16 }) + vlak(290, 384, 310, 16, K.wit, 5) + vlak(290, 384, 248, 16, K.creme2, 5) + lijn('M538,376 L538,408', 4) +
+      S.schermtekst(290, 446, 'Uitkomst: 7 van de 10', { maat: 16 }) + vlak(290, 458, 310, 16, K.wit, 5) + vlak(290, 458, 217, 16, K.grijs, 5) + lijn('M538,450 L538,482', 4),
+    tekst: S.bijschrift(20, 20, T[10].b, { breedte: 46 }) +
+      S.ballon(16, 112, T[10].n, { breedte: 19, staart: [140, 356] }), extra: 70, onder: S.deck(20, 672, 4, { schaal: 1.1, vink: 4, tekst: '4 van 10: het bewijs staat erbij' }) });
+
+  plaatje('wat', 11, 1040, {
+    alt: Object.keys(T[11]).map(function (k) { return T[11][k]; }).join(' '),
+    decor: lijn('M0,520 L640,520', 4) +
+      scherm(40, 830, 250, 180) + S.robot({ x: 165, y: 996, schaal: 1.5, gezicht: 'bezorgd', naam: 'Collega' }) +
+      S.figuur('noor', { x: 520, y: 1094, schaal: 1.0, aanzicht: 'zij', gezicht: 'blij', spiegel: true }),
+    inzet: spoor(40, 330, 1, true) +
+      S.tekst(40, 440, 'De eerste wissel staat om.', { maat: 16, gewicht: 500 }),
+    tekst: S.bijschrift(20, 20, 'Dag 3: de route en het draagvlak', { soort: 'titel', breedte: 40 }) + S.bijschrift(20, 70, T[11].l, { breedte: 46 }) +
+      S.bijschrift(20, 536, T[11].r, { breedte: 46 }) +
+      S.ballon(16, 618, T[11].a, { breedte: 27, staart: [165, 846] }) +
+      S.ballon(392, 640, T[11].n, { breedte: 17, staart: [516, 808] }) +
+      lijn('M0,520 L640,520', 4), extra: 70, onder: S.deck(20, 1052, 10, { schaal: 1.1, tekst: '10 van 10: je hele voorstel, in concept' }) });
+
+  // 12. Dezelfde kamer en hetzelfde standpunt als plaatje 1
+  plaatje('slot', 12, 840, {
+    alt: Object.keys(T[12]).map(function (k) { return T[12][k]; }).join(' '),
+    decor: raam(30, 84, 230, 160) +
+      S.mtlid({ x: 80, y: 622, schaal: 1.15 }) + S.mtlid({ x: 230, y: 622, schaal: 1.15, telefoon: true }) +
+      tafel(620, -20, 400, 760) +
+      S.figuur('noor', { x: 470, y: 750, schaal: 1.1, arm: 'wijs', gezicht: 'blij' }),
+    inzet: vlak(300, 80, 320, 170, K.wit, 8) + spoor(312, 176, 0.52, false) + '<circle cx="489" cy="176" r="15" fill="none" stroke="' + K.inkt + '" stroke-width="3" stroke-dasharray="5 4"/>',
+    tekst: S.bijschrift(20, 20, 'Voorbeeld BV, een paar weken later', { soort: 'titel', breedte: 40 }) +
+      S.ballon(16, 262, T[12].m, { breedte: 19, staart: [226, 420] }) +
+      S.ballon(330, 284, T[12].n, { breedte: 22, staart: [470, 434] }) +
+      S.bijschrift(20, 768, T[12].o, { breedte: 60 }) });
+})();
+</script>
+</body>
+</html>

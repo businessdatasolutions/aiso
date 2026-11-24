@@ -2,6 +2,20 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.54 — 2026-11-24
+
+**Nieuw**
+- De strip "Het plan dat werd ingehaald" (`materiaal/strip/`): twaalf plaatjes die vóór dag 1 laten zien hoe de drie
+  lesdagen werken, in de volgorde waarom, hoe en wat. Onder de strip staat wat de deelnemer meeneemt en waarmee die
+  naar huis gaat. De figuren en de casus zijn verzonnen (ADR-068).
+- FR-43: de trainer stuurt de link naar de strip vóór dag 1.
+
+**Gewijzigd**
+- De site neemt de leesversie van de strip en de lichte beelden mee (`scripts/bouw-pages.py`). Het script, de
+  schetsen en de prompts blijven in de repo.
+
+Nog niet gedaan: de strip is niet door een buitenstaander proefgelezen. De artifact staat nog op 0.53.
+
 ## 0.53 — 2026-11-24
 
 **Nieuw**
