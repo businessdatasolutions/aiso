@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Sinds dag 1: twee weken verder</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Lespagina voor de opening van dag 2: het werk van de trainer sinds dag 1, per project en per dag, en wat het opleverde.">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+/* Lespagina "Sinds dag 1" (dag 2, 9:30). Eén beeld: het werk van de trainer sinds dag 1, per project
+   en per dag, en wat het opleverde. De vraag aan de groep stelt de trainer zelf, zonder pagina.
+   Bron: git, de eigen commits zonder merges van 13 tot en met 24 november 2026.
+   Privéprojecten staan er zonder naam. Namen van klanten, leveranciers en deelnemers staan er niet in.
+   De basis is gelijk aan voorstellen.html. Geel (--accent) is het enige accent. */
+:root{
+  color-scheme:light;
+  --paper:#f9f8f4; --card:#fff; --ink:#1a1a1a; --line:#e5e7eb; --cream:#f5f0e6; --cream2:#f0ebe0;
+  --muted:#4b5563; --mutedSoft:#6b7280; --accent:#d4db3e; --accentSoft:#fafbf0;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Monaco,Consolas,"Liberation Mono",monospace;
+  --rand:2.2rem;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(12px,1.05vw,22px);background:var(--paper)}
+body{margin:0;height:100vh;height:100dvh;display:grid;grid-template-rows:auto 4px minmax(0,1fr) auto;background:var(--paper);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- Kop en voortgang ---------- */
+header.top{display:flex;align-items:flex-end;gap:2rem;padding:1rem var(--rand) .7rem}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+h1{font-size:1.5rem;margin:.2rem 0 0;letter-spacing:-.02em;line-height:1.15}
+.voortgang{background:var(--line)}
+.voortgang i{display:block;height:100%;background:var(--accent)}
+
+/* ---------- Inhoud ---------- */
+main{min-height:0;overflow-y:auto;padding:1.2rem var(--rand) 2rem}
+.stap{max-width:110rem;margin:0 auto;display:flex;flex-direction:column}
+.wat{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mutedSoft);font-weight:600}
+.stap h2{font-size:2.1rem;margin:.15rem 0 .7rem;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+p{margin:0 0 .6rem}
+.lead{font-size:1.25rem;line-height:1.45;color:var(--muted);max-width:66rem;margin-bottom:.4rem}
+.lead b{color:var(--ink)}
+.nadruk{font-size:1.2rem;font-weight:700;line-height:1.4;border-left:5px solid var(--accent);background:#fff;
+  padding:.55rem 1rem;border-radius:0 .5rem .5rem 0;margin:1rem 0 0;max-width:72rem}
+a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.vlak{position:relative;height:clamp(20rem,56vh,46rem);margin-top:.4rem}
+.vlak > svg{width:100%;height:100%;display:block}
+.reserve{font-size:1.05rem;line-height:1.5;color:var(--muted)}
+.vlak.getekend > .reserve{display:none}
+.bron{font-size:.8rem;color:var(--mutedSoft);margin:.4rem 0 0}
+
+/* ---------- Cijfers en figuur ---------- */
+.cijfers{display:flex;gap:2.4rem;margin:.2rem 0 .2rem}
+.cijfers div{display:flex;align-items:baseline;gap:.5rem;font-size:1.05rem;color:var(--muted)}
+.cijfers b{font-family:var(--mono);font-size:2.6rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.rij-naam{font-size:22px;font-weight:800;fill:var(--ink)}
+.rij-sub{font-size:15px;fill:var(--muted)}
+.rij-totaal{font-family:var(--mono);font-size:30px;font-weight:700;fill:var(--ink);text-anchor:end}
+.rij-zin{font-size:17px;fill:var(--ink)}
+.rij-lijn{stroke:var(--line);stroke-width:1.5}
+.as-dag{font-family:var(--mono);font-size:13px;fill:var(--mutedSoft);text-anchor:middle}
+.as-nr{font-weight:700;fill:var(--ink)}
+.band{fill:var(--cream2)}
+.bol{stroke:var(--ink);stroke-width:2}
+.bol-n{font-family:var(--mono);font-size:14px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+
+/* ---------- Voet en merk ---------- */
+nav.bediening{display:flex;align-items:center;gap:.8rem;padding:.6rem var(--rand);border-top:1px solid var(--line);font-size:.85rem;color:var(--mutedSoft);background:var(--paper)}
+nav.bediening a{color:var(--muted);text-decoration:none;border-bottom:2px solid var(--accent)}
+.merk{margin-left:auto;display:flex;align-items:center;gap:.4rem;color:var(--ink);font-weight:700;font-size:.8rem;white-space:nowrap}
+.merk svg{width:1.3rem;height:1.3rem}
+
+/* ---------- Smal scherm: de pagina scrolt, de bediening blijft onderaan ---------- */
+@media (max-width:760px){
+  :root{--rand:16px}
+  html{font-size:15px}
+  body{display:flex;flex-direction:column;height:auto;min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+  header.top{gap:1rem;padding-top:.9rem}
+  h1{font-size:1.3rem}
+  .voortgang{height:4px;flex-shrink:0}
+  main{flex:1 0 auto;overflow:visible;padding-bottom:1.4rem}
+  .stap h2{font-size:1.55rem}
+  .lead{font-size:1.1rem}
+  .vlak{height:auto;min-height:16rem}
+  .cijfers{gap:1.2rem;flex-wrap:wrap}
+  nav.bediening{position:sticky;bottom:0;flex-wrap:wrap;padding:.6rem 16px}
+}
+@media (max-width:480px){
+  .merk-tekst{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+/* ---------- Afdrukken ---------- */
+@media print{
+  html{font-size:11pt;background:#fff}
+  body{display:block;height:auto;overflow:visible;background:#fff}
+  main{overflow:visible;padding:0}
+  nav.bediening,.voortgang{display:none !important}
+  header.top{padding:0 0 .6rem}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <div class="eyebrow">Dag 2 · 9:30 · Sinds dag 1</div>
+    <h1>Twee weken verder</h1>
+  </div>
+</header>
+<div class="voortgang" aria-hidden="true"><i></i></div>
+
+<main id="stappen">
+
+<section class="stap" aria-labelledby="kop">
+  <div class="wat">Mijn werk sinds dag 1</div>
+  <h2 id="kop">Zes projecten, twaalf dagen</h2>
+  <div class="cijfers" aria-hidden="true">
+    <div><b data-tel="108">108</b> commits</div>
+    <div><b data-tel="6">6</b> projecten</div>
+    <div><b data-tel="12">12</b> dagen</div>
+  </div>
+  <p class="lead">Een commit is één vastgelegde wijziging in een project. <b>De AI bouwde mee.</b> Ik koos, stuurde en keurde.</p>
+  <div class="vlak" id="oogst" role="img" aria-label="Per project het aantal commits per dag en wat het opleverde. Plinkie: 48 commits. Zelfstudie observeren: 26. AI-wiki: 11. Newmuzes: 9. Deze training: 8. Privéproject: 6.">
+    <ul class="reserve">
+      <li><b>Plinkie</b> (48): het fabrikantregister is af, er zijn twee merken bij, en de site is juridisch doorgelicht.</li>
+      <li><b>Zelfstudie observeren</b> (26): een nieuwe zelfstudie voor studenten, van ontwerp tot site op één dag.</li>
+      <li><b>AI-wiki</b> (11): 23 video's en drie rapporten verwerkt, met een synthese over Warner en Wäger.</li>
+      <li><b>Newmuzes</b> (9): fase 2 is gesloten, en de studio tekent nu bladmuziek.</li>
+      <li><b>Deze training</b> (8): zes versies van het ontwerp. De ochtend van vandaag gaat over transformeren, omdat jullie daarom vroegen.</li>
+      <li><b>Privéproject</b> (6): een racespel in 3D, voor thuis.</li>
+    </ul>
+  </div>
+  <p class="bron">Bron: git, mijn eigen commits zonder merges, 13 tot en met 24 november 2026.</p>
+  <p class="nadruk">Nu je vragenkaart. Lees je vier antwoorden: wat veranderde er sinds dag 1?</p>
+</section>
+
+</main>
+
+<nav class="bediening" aria-label="Verder">
+  <a href="./index.html?dag=2">Startpagina</a>
+  <span class="merk">
+    <svg viewBox="0 0 32 32" role="img" aria-label="Logo Business Data Solutions"><g fill="#1a1a1a"><polygon points="9,29 11,10 17,10 19,29"/><polygon points="8,8.5 20,8.5 19,10 9,10"/><rect x="11" y="5" width="6" height="3.5"/><path d="M10.5 5 Q10.5 1.5 14 1.5 Q17.5 1.5 17.5 5 Z"/><rect x="13.5" y="0" width="1" height="1.8"/></g><rect x="13" y="6" width="2" height="2" fill="#d4db3e"/><g stroke="#d4db3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 4 L26 7 L21 10"/><path d="M26 4 L31 7 L26 10"/></g></svg>
+    <span class="merk-tekst">Business Data Solutions</span>
+  </span>
+</nav>
+
+<script type="module">
+/* Beweging en beeld, elk los geladen. Lukt een import niet, dan blijft de tekstversie staan.
+   d3      tekent per project de dagen en wat het opleverde.
+   motion  telt de drie cijfers op.
+   Bij minder beweging (prefers-reduced-motion) staat alles meteen op zijn plek. */
+const CDN = {
+  d3: "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm",
+  motion: "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm",
+};
+const rustig = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const laad = {};
+const lib = (naam) => (laad[naam] ||= import(CDN[naam]).catch((e) => { console.warn(`Sinds dag 1: ${naam} niet geladen.`, e); return null; }));
+
+/* Eigen commits zonder merges per dag van november 2026, geteld op 24 november met:
+   git log --since=2026-11-13T00:00 --no-merges --format=%cs | sort | uniq -c
+   Privéprojecten staan er zonder naam. De zinnen noemen geen klanten of leveranciers. */
+const PROJECTEN = [
+  { id: "plinkie", naam: "Plinkie", sub: "private lease, live", kleur: "#1a1a1a", licht: false, dagen: { 16: 5, 17: 34, 18: 8, 19: 1 },
+    zin: ["Het fabrikantregister is af, er zijn twee merken bij,", "en de site is juridisch doorgelicht."] },
+  { id: "zelfstudie", naam: "Zelfstudie observeren", sub: "voor studenten van de HAN", kleur: "#ffffff", licht: true, dagen: { 24: 26 },
+    zin: ["Een nieuwe zelfstudie over observeren als", "onderzoeksmethode: van ontwerp tot site op één dag."] },
+  { id: "wiki", naam: "AI-wiki", sub: "mijn kennisbank", kleur: "#9ca3af", licht: true, dagen: { 16: 3, 17: 1, 22: 5, 23: 2 },
+    zin: ["23 video's en drie rapporten verwerkt, met een", "synthese over Warner en Wäger voor vanochtend."] },
+  { id: "newmuzes", naam: "Newmuzes", sub: "muziekstudio, prototype", kleur: "#4b5563", licht: false, dagen: { 15: 9 },
+    zin: ["Fase 2 is gesloten.", "De studio tekent nu bladmuziek."] },
+  { id: "training", naam: "Deze training", sub: "het ontwerp van de lesdagen", kleur: "#d4db3e", licht: true, dagen: { 13: 3, 22: 4, 24: 1 },
+    zin: ["Zes versies van het ontwerp. De ochtend van vandaag", "gaat over transformeren, omdat jullie daarom vroegen."] },
+  { id: "prive", naam: "Privéproject", sub: "voor thuis", kleur: "#c9c2b1", licht: true, dagen: { 15: 2, 16: 1, 20: 3 },
+    zin: ["Een racespel in 3D."] },
+];
+const DAGEN = Array.from({ length: 12 }, (_, i) => 13 + i);
+const WEEKDAG = ["zo", "ma", "di", "wo", "do", "vr", "za"];
+const datum = (d) => new Date(2026, 10, d);
+const weekdag = (d) => WEEKDAG[datum(d).getDay()];
+const weekend = (d) => [0, 6].includes(datum(d).getDay());
+const som = (p) => Object.values(p.dagen).reduce((a, b) => a + b, 0);
+
+/* ---------------- Per project de dagen en wat het opleverde ---------------- */
+async function tekenOogst() {
+  lib("motion").then((M) => {
+    for (const b of document.querySelectorAll(".cijfers b")) {
+      const doel = +b.dataset.tel;
+      if (!M || rustig) { b.textContent = doel; continue; }
+      M.animate(0, doel, { duration: 1.1, ease: "easeOut", onUpdate: (x) => { b.textContent = Math.round(x); } });
+    }
+  });
+  const d3 = await lib("d3"); if (!d3) return;
+  const el = document.getElementById("oogst");
+  el.querySelector("svg")?.remove();
+  const W = 1640, RIJ = 88, BOVEN = 70, H = BOVEN + PROJECTEN.length * RIJ + 10;
+  const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("aria-hidden", "true");
+  el.classList.add("getekend");
+  const x = d3.scalePoint(DAGEN, [420, 1030]), r = d3.scaleSqrt([0, 34], [0, 34]), stap = x.step();
+  const rijen = [...PROJECTEN].sort((a, b) => som(b) - som(a));
+
+  svg.append("g").selectAll("rect").data(DAGEN.filter(weekend)).join("rect").attr("class", "band")
+    .attr("x", (d) => x(d) - stap / 2).attr("y", 8).attr("width", stap).attr("height", H - 16).attr("rx", 8);
+  const as = svg.append("g").selectAll("g").data(DAGEN).join("g").attr("transform", (d) => `translate(${x(d)} 0)`);
+  as.append("text").attr("class", "as-dag").attr("y", 30).text(weekdag);
+  as.append("text").attr("class", "as-dag as-nr").attr("y", 50).text((d) => d);
+
+  rijen.forEach((p, i) => {
+    const y = BOVEN + i * RIJ + RIJ / 2, g = svg.append("g").attr("transform", `translate(0 ${y})`);
+    g.append("line").attr("class", "rij-lijn").attr("x1", 0).attr("x2", W).attr("y1", -RIJ / 2).attr("y2", -RIJ / 2);
+    g.append("text").attr("class", "rij-naam").attr("x", 8).attr("y", -2).text(p.naam);
+    g.append("text").attr("class", "rij-sub").attr("x", 8).attr("y", 22).text(p.sub);
+    const punten = Object.entries(p.dagen).map(([dag, aantal]) => ({ dag: +dag, aantal }));
+    const bol = g.selectAll("g.punt").data(punten).join("g").attr("class", "punt").attr("transform", (d) => `translate(${x(d.dag)} 0)`);
+    const cirkel = bol.append("circle").attr("class", "bol").attr("fill", p.kleur).attr("r", rustig ? (d) => Math.max(5, r(d.aantal)) : 0);
+    if (!rustig) cirkel.transition().delay((d) => 250 + i * 120 + (d.dag - 13) * 45).duration(600).ease(d3.easeBackOut).attr("r", (d) => Math.max(5, r(d.aantal)));
+    bol.filter((d) => r(d.aantal) >= 13).append("text").attr("class", "bol-n").attr("fill", p.licht ? "#1a1a1a" : "#fff").text((d) => d.aantal);
+    const rechts = g.append("g");
+    rechts.append("text").attr("class", "rij-totaal").attr("x", 1140).attr("y", 10).text(som(p));
+    p.zin.forEach((regel, k) => rechts.append("text").attr("class", "rij-zin").attr("x", 1166).attr("y", (p.zin.length === 1 ? 6 : -6) + k * 24).text(regel));
+    if (!rustig) rechts.attr("opacity", 0).transition().delay(500 + i * 120).duration(450).attr("opacity", 1);
+  });
+}
+tekenOogst();
+</script>
+</body>
+</html>

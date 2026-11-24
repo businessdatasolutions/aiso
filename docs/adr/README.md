@@ -70,6 +70,7 @@ Elk ontwerpbesluit over de [LRD](../../LRD-AISO26009-lesdagen.html) staat hier a
 | [ADR-064](ADR-064-een-woord-per-begrip-op-dag-2.md) | Dag 2 gebruikt één woord per begrip, en de resten van ADR-063 zijn weg | Aanvaard | 2026-11-22 |
 | [ADR-065](ADR-065-skill-ai-wiki-query-in-werkplaats-2.md) | De skill ai-wiki-query voor deelnemers, in werkplaats 2 | Aanvaard | 2026-11-22 |
 | [ADR-066](ADR-066-casusdeck-in-elk-deckblok-en-leeg-profiel.md) | Het lege casusdeck in elk deckblok, en een melding bij een leeg profiel | Aanvaard | 2026-11-24 |
+| [ADR-067](ADR-067-sinds-dag-1-in-de-opening-van-dag-2.md) | De opening van dag 2 vraagt wat ieder met AI deed, en toont het werk van de trainer | Aanvaard | 2026-11-24 |
 
 ## Opbouw van een ADR
 

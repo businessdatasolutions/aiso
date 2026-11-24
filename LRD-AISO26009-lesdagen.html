@@ -296,7 +296,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
   <header class="bds-page-header">
     <div class="hero">
       <div>
-        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.52 (concept)</div>
+        <div class="bds-eyebrow">LRD · AISO26009 · versie 0.53 (concept)</div>
         <h1 class="bds-h1">AI Strategie en Organisatietransformatie: <span class="bds-highlight">de drie lesdagen</span></h1>
         <p class="bds-lead">Elke deelnemer neemt één strategische AI-vraag uit de eigen organisatie mee. Bijvoorbeeld: blijven we het eerste aanspreekpunt van de klant, of worden we de vaste installateur van de fabrikanten? In drie lesdagen werkt de deelnemer die vraag uit tot een AI-strategie in tien dia's: de integrale opdracht, de eindopdracht van S&amp;N. Vier vragen komen daarbij elke dag terug: welke richting, hoe verander je zonder de huidige business te breken, hoe investeer je veilig, en hoe bouw je een roadmap als stap 2 nog onzeker is? Na de online afronding ligt er een voorstel waarover het bestuur kan besluiten.</p>
         <blockquote class="lead-quote">“Van AI-experiment naar organisatiebrede transformatie.”<cite>Ondertitel op de webpagina van de training bij Schouten &amp; Nelissen</cite></blockquote>
@@ -777,7 +777,7 @@ tr.flash td { animation: flash 1.6s ease-out; }
 </main>
 
 <footer class="bds-footer">
-  <p>LRD AISO26009 · versie 0.52 · 24 november 2026 · Witek ten Hove · Business Data Solutions</p>
+  <p>LRD AISO26009 · versie 0.53 · 24 november 2026 · Witek ten Hove · Business Data Solutions</p>
 </footer>
 
 <script type="module">
@@ -1216,17 +1216,19 @@ const DATA = {
       },
     ]},
     { n: 2, date: '26 november', title: 'Vraag 2 en 3: transformeren en veilig investeren', blocks: [
-      { s: '9:30', e: '9:40', t: 'inhoud', title: 'Opening: de vier vragen en je criteria', v: ['V1','V2','V3','V4'], detail: 'Eerst het overzicht van de vier vragen: waar de groep staat, met vraag 2 en 3 als hoofdvragen van vandaag: de ochtend gaat over transformeren, de middag over investeren. Dan vijf minuten de vragenkaart: lees je vier antwoorden en noem wat er sinds dag 1 gebeurde. Tot slot legt elke deelnemer de drie kwaliteitscriteria op tafel die thuis zijn geschreven. Ze liggen vast vóór de eerste presentatie en veranderen daarna niet. De trainer deelt de rolkaarten uit.', input: '—', uses: 'Vragenkaart (dag 1), je drie kwaliteitscriteria (thuis, vóór dag 2)', output: 'Je drie kwaliteitscriteria op tafel, en je rolkaart', sn: ['SN3','SN4'], fr: ['FR-33','FR-41'], materials: [
+      { s: '9:30', e: '9:40', t: 'inhoud', title: 'Opening: de vier vragen en je criteria', v: ['V1','V2','V3','V4'], detail: 'Eerst het overzicht van de vier vragen: waar de groep staat, met vraag 2 en 3 als hoofdvragen van vandaag: de ochtend gaat over transformeren, de middag over investeren. Dan vraagt de trainer wat ieder sinds dag 1 met AI deed, één zin per persoon, en laat hij op de lespagina Sinds dag 1 zijn eigen werk van die twee weken zien. Daarna twee minuten de vragenkaart: lees je vier antwoorden en kijk wat er sinds dag 1 veranderde. Tot slot legt elke deelnemer de drie kwaliteitscriteria op tafel die thuis zijn geschreven. Ze liggen vast vóór de eerste presentatie en veranderen daarna niet. De trainer deelt de rolkaarten uit.', input: '—', uses: 'Vragenkaart (dag 1), je drie kwaliteitscriteria (thuis, vóór dag 2)', output: 'Je drie kwaliteitscriteria op tafel, en je rolkaart', sn: ['SN3','SN4'], fr: ['FR-33','FR-41'], materials: [
         { label: 'Overzicht: vier vragen, drie dagen', href: 'materiaal/index.html?weergave=overzicht&dag=2' },
+        { label: 'Sinds dag 1: het werk van je trainer', href: 'materiaal/sinds-dag-1.html' },
         { label: 'Vragenkaart: geprint op je tafel, en dia 1 van het casusdeck', href: 'materiaal/casusdeck.html' },
         { label: 'De opdracht vóór dag 2: je presentatie en je criteria', href: 'materiaal/presentatie-dag2.html' },
       ],
         deelnemer: {
           nodig: 'Je vragenkaart en pen en papier.',
-          aandacht: 'Wat er sinds dag 1 gebeurde in je organisatie en in je denken.',
+          aandacht: 'Wat je sinds dag 1 met AI deed, en wat er veranderde in je organisatie en in je denken.',
           weten: 'De ochtend gaat over transformeren, de middag over veilig investeren. Je criteria liggen vast voordat de eerste presentatie begint.',
           doen: [
-            'Lees je vier antwoorden terug en noem wat er sinds dag 1 gebeurde.',
+            'Vertel in één zin wat je sinds dag 1 met AI deed.',
+            'Lees je vier antwoorden terug: wat veranderde er sinds dag 1?',
             'Leg je drie kwaliteitscriteria op tafel, op papier.',
             'Lees je rolkaart, met de twee kritiekpunten erop.',
           ],
@@ -1235,10 +1237,11 @@ const DATA = {
           hulp: 'Als je geen criteria hebt, of als je niet weet hoe je rolkaart werkt.',
         },
         trainer: {
-          klaarzetten: 'Het overzicht van de vier vragen op de beamer, de rolkaarten met kritiekpunten en een timer. Bij meer dan acht deelnemers twee comités.',
+          klaarzetten: 'Het overzicht van de vier vragen op de beamer, de lespagina Sinds dag 1 in een tweede tabblad, de rolkaarten met kritiekpunten en een timer. Bij meer dan acht deelnemers twee comités.',
           verloop: [
             '9:30 Zet het overzicht van de vier vragen op de beamer: vandaag zijn vraag 2 en 3 de hoofdvragen. Zeg: jullie vroegen om meer aandacht voor transformeren, dus de hele ochtend gaat daarover. De middag gaat over investeren.',
-            '9:32 Vijf minuten de vragenkaart: lees je antwoorden en noem wat er sinds dag 1 gebeurde.',
+            '9:32 Vraag de groep: wat heb je sinds dag 1 met AI gedaan? Eén zin per persoon. Zet daarna de lespagina Sinds dag 1 op de beamer: je eigen werk van die twee weken, per project.',
+            '9:35 Twee minuten de vragenkaart: lees je antwoorden. Wat veranderde er sinds dag 1?',
             '9:37 Criteria op tafel. Wie er geen heeft, schrijft er nu één op. Deel de rolkaarten uit. Zeg: de cijfers op de kaart zijn vaak zelfrapportage, dus vraag wat er gemeten is.',
           ],
           letop: 'Na 9:40 verandert niemand een criterium meer. Dat is dezelfde regel als bij het experiment van vanmiddag: de norm ligt vast vóór het resultaat.',

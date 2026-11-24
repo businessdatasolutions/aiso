@@ -2,6 +2,16 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.53 — 2026-11-24
+
+**Nieuw**
+- Lespagina Sinds dag 1 (`materiaal/sinds-dag-1.html`): het werk van de trainer in de twee weken na dag 1, per
+  project en per dag, met één zin over wat het opleverde. De bron is git (ADR-067).
+
+**Gewijzigd**
+- Dag 2, 9:30: de trainer vraagt wat ieder sinds dag 1 met AI deed, één zin per persoon, en toont daarna de nieuwe
+  lespagina. De vragenkaart krijgt twee minuten in plaats van vijf; de opening blijft tien minuten (ADR-067).
+
 ## 0.52 — 2026-11-24
 
 **Gewijzigd**
