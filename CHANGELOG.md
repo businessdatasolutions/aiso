@@ -2,6 +2,17 @@
 
 Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbij horen ([ADR's](docs/adr/README.md)). Nieuwste versie bovenaan. Het versienummer in de kop van de LRD is gelijk aan de bovenste regel hier.
 
+## 0.52 — 2026-11-24
+
+**Gewijzigd**
+- Het lege casusdeck staat als materiaal in elk deckblok, ook op dag 2 en dag 3. De linktekst zegt wat het is: tien
+  dia's, met de vragenkaart voorop. Eerder stond de link alleen op dag 1 en zei hij dat dia 1 de vragenkaart is
+  (ADR-066).
+- Volwassenheidsscan: een leeg profiel krijgt een melding direct onder de kop. De antwoorden staan in de browser van
+  het invullen en zijn niet weg; de melding zegt wat de deelnemer dan doet (ADR-066).
+
+Beide volgen uit een gebruikerstest met vier gesimuleerde deelnemers (`onderzoek/ui-toets/2026-11-24-gebruikerstest/`).
+
 ## 0.51 — 2026-11-22
 
 **Nieuw**
@@ -18,6 +29,8 @@ Elke versie van de [LRD](LRD-AISO26009-lesdagen.html), met de besluiten die erbi
 - De werkkaart van 14:00 noemt de skill. De trainer laat hem niet in de werkplaats installeren.
 - Vraag 3 noemt de skill bij de tools. Fase 2 en de opleverlijst van de trainer vragen een test in Claude, ChatGPT en
   Gemini vóór 26 november.
+
+**Gepubliceerd** op dezelfde link: https://claude.ai/artifact/P9qt4SHNze6mtWmEfnywP7.
 
 ## 0.50 — 2026-11-22
 

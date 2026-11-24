@@ -185,6 +185,9 @@ footer .binnen { display: flex; flex-wrap: wrap; justify-content: space-between;
   <section class="stap" id="profiel" aria-labelledby="profiel-kop">
     <div class="stap-kop"><span class="nr" aria-hidden="true">3</span><h2 id="profiel-kop">Je profiel</h2></div>
     <p class="uitleg">Vergelijk je profiel met dat van je duo. Welke dimensie is bij jullie het laagst, en wat weten jullie niet? Weet je later iets nieuws, bijvoorbeeld uit de stukken van het bestuur? Pas je antwoord in stap 2 dan aan. Je profiel verandert mee.</p>
+    <div class="let-op" id="profiel-leeg" hidden>
+      <p><strong>Staat hier niets, terwijl je de scan al invulde?</strong> Je antwoorden blijven in de browser waarin je ze invulde; ze zijn niet weg. Open deze pagina op die laptop en in die browser. Werk je nu ergens anders, open dan je tekstbestand en kies in stap 2 dezelfde niveaus.</p>
+    </div>
     <div class="profiel" id="profiel-balken" aria-live="polite"></div>
     <p class="melding" id="profiel-tekst" aria-live="polite"></p>
 
@@ -324,6 +327,7 @@ function tekenProfiel() {
   if (gekozen.length) zinnen.push(`Je laagste dimensie: ${DIMENSIES.filter(d => +niveauVan(d.id) === laagste).map(d => d.naam.toLowerCase()).join(' en ')} (niveau ${laagste}). Daar blijft het waarschijnlijk steken.`);
   if (onbekend.length) zinnen.push(`Je weet het niet bij: ${onbekend.map(d => d.naam.toLowerCase()).join(', ')}. Schrijf op wie het wel weet.`);
   if (open.length) zinnen.push(`Nog open: ${open.length} van de ${DIMENSIES.length} dimensies.`);
+  $('profiel-leeg').hidden = open.length < DIMENSIES.length;
   $('profiel-tekst').textContent = zinnen.join(' ') || 'Kies per dimensie een niveau. Dan verschijnt hier je profiel.';
   $('gebruik').innerHTML = GEBRUIK.map(g => `<div><h4>${esc(g.kop)}</h4><p class="wanneer">${esc(g.wanneer)}</p><ul>${g.dims.map(id => {
     const d = DIMENSIES.find(x => x.id === id), n = niveauVan(id);
